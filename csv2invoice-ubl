@@ -344,14 +344,14 @@ def set_record(record):
 
 if __name__ == '__main__':
   # Create the parser
-  parser = argparse.ArgumentParser(prog='csv2invoice',
-                                  usage='%(prog)s [options] infile -o outfile',
+  parser = argparse.ArgumentParser(prog='csv2invoice-ubl',
+                                  usage='%(prog)s infile -o outfile [options]',
                                   description='CSVファイルから電子インボイスXMLを作成')
   # Add the arguments
   parser.add_argument('inFile', metavar='infile', type=str, help='入力CSVファイル')
   parser.add_argument('-o', '--out')
   parser.add_argument('-e', '--encoding')  # 'Shift_JIS' 'cp932'
-  parser.add_argument('-t', '--transpose', action='store_true')
+  # parser.add_argument('-t', '--transpose', action='store_true')
   parser.add_argument('-v', '--verbose', action='store_true')
   parser.add_argument('-d', '--debug', action='store_true')
 
