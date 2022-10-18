@@ -397,6 +397,8 @@ if __name__ == '__main__':
   pint_file = file_path('data/common/xpath.csv')
   # SemSort,ID,Level,BT,BT_ja,Desc,Desc_ja,Expl,Expl_ja,Example,Card,DataType,Section,Extension,SyntaxSort,XPath,selectors,Codelist,ModCard,Occurrence,CardinalityAlignment
   # 0       1  2     3  4     5    6       7    8       9       10   11       12      13        14         15    16        17       18      19         20
+  # SemSort,ID,Card,Level,Term,Description,項目名,説明,Semantic Datatype,UBL Sort,UBL Xpath,ID,Card,Level,,Semantic Datatype,説明,共通EDI,消費税必須,突合キー,自動振り分け,CII Sort,CII XPath,,
+  # 0       1  2    3     4    5           6     7 
   COL_SemanticSort = 0
   COL_ID = 1
   COL_level = 2

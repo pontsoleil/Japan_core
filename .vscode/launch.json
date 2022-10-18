@@ -11,7 +11,7 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "justMyCode": true,
-      "args": []
+      "args": ["data/csv/ubl-tc434-example1.csv","-o data/cii/ubl-tc434-example1.xml","-e UTF-8","v","d"] // csv2invoice-ubl
     }
   ]
 }
