@@ -1,0 +1,14 @@
+,,,,,ibg-16,ibg-16,ibg-23,ibg-25
+,,,,,PAYMENT INSTRUCTIONS,PAYMENT INSTRUCTIONS,TAX BREAKDOWN,INVOICE LINE
+,,,,,0,1,0,0
+ibt-001,1,1..1,Invoice number,TOSL108,,,,
+ibt-002,1,1..1,Invoice issue date,20130410,,,,
+ibt-003,1,1..1,Invoice type code,380,,,,
+ibt-005,1,1..1,Invoice currency code,DKK,,,,
+ibt-009,1,0..1,Payment due date,20130510,,,,
+ibt-012,1,0..1,Contract reference,SUBSCR571,,,,
+ibt-022,1,0..1,Invoice note,Contract was established through our website,,,,
+ibg-04,1,1..1,SELLER,,,,,
+ibt-027,2,1..1,Seller name,SubscriptionSeller,,,,
+ibt-030,2,0..1,Seller legal registration identifier,DK16356706,,,,
+ibt-031,2,0..1,Seller TAX identifier,DK16356706,,,,

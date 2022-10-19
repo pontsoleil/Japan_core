@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Correction for SME Common EDI by Nobuyuki SAMBUICHI 2022-10-20 -->
+<!--
+    Licensed under European Union Public Licence (EUPL) version 1.2.
+-->
+<rsm:SMEinvoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice SMEinvoice.xsd"
+	xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice"
+	xmlns:ram="urn:un:unece:uncefact:data:standard:SMEinvoice"
+	xmlns:udt="urn:un:unece:uncefact:data:standard:SMEinvoice">
+	<ram:CIExchangedDocumentContext>
+		<ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+			<ram:ID>urn:ferd:CrossIndustryDocument:invoice:1p0:comfort</ram:ID>
+		</ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+		<ram:SubsetSpecifiedCIDocumentContextParameter>
+			<rsm:ID>test</rsm:ID>
+		</ram:SubsetSpecifiedCIDocumentContextParameter>
+	</ram:CIExchangedDocumentContext>
+	<ram:CIIHExchangedDocument>
+		<ram:ID>2016166</ram:ID>
+		<ram:TypeCode>380</ram:TypeCode>
+		<ram:IssueDateTime>
+			<udt:DateTimeString format="102">20150109</udt:DateTimeString>
+		</ram:IssueDateTime>
+		<ram:IncludedCINote>
+			<ram:Content>This is an example invoice based on data that is used in real business.Sehr geehrter Herr xxx,
+für die Unterstützung im September stellen wir Ihnen gemäß Auftrag foldende Rechnung.
+Für das in uns gesetzte Vertrauen bedanken wir uns auf diesem Wege herzlich.
+			</ram:Content>
+			<ram:ID>AAR</ram:ID>
+			<!--<ram:SubjectCode>AAR</ram:SubjectCode>-->
+		</ram:IncludedCINote>
+		<ram:IncludedCINote>
+			<ram:Content>Sehr geehrter Herr xxx,
+für die Unterstützung im September stellen wir Ihnen gemäß Auftrag foldende Rechnung.
+Für das in uns gesetzte Vertrauen bedanken wir uns auf diesem Wege herzlich.
+			</ram:Content>
+		</ram:IncludedCINote>
+	</ram:CIIHExchangedDocument>
+	<ram:CIIHSupplyChainTradeTransaction>
+		<ram:ApplicableCIIHSupplyChainTradeAgreement>
+			<ram:SellerCITradeParty>
+				<ram:ID>9901</ram:ID>
+				<ram:Name>XXX AG</ram:Name>
+				<!--<ram:SpecifiedLegalOrganization>
+					<ram:ID>57151520</ram:ID>
+				</ram:SpecifiedLegalOrganization>-->
+				<ram:RegisteredID schemeID="VAT">T1234567890123</ram:RegisteredID>
+				<ram:PostalCITradeAddress>
+					<ram:PostcodeCode>10369</ram:PostcodeCode>
+					<ram:LineOne>Storkower Straße 207</ram:LineOne>
+					<ram:LineTwo>Berlin</ram:LineTwo>
+					<ram:CountryID>DE</ram:CountryID>
+				</ram:PostalCITradeAddress>
+				<!--<ram:SpecifiedTaxRegistration>
+					<ram:ID schemeID="VA">DE37/302/30168</ram:ID>
+				</ram:SpecifiedTaxRegistration>-->
+			</ram:SellerCITradeParty>
+			<ram:BuyerCITradeParty>
+				<ram:ID>10202</ram:ID>
+				<ram:Name>XXX AG</ram:Name>
+				<ram:RegisteredID schemeID="VAT">T3210987654321</ram:RegisteredID>
+				<ram:DefinedCITradeContact>
+					<ram:PersonName>XXXX</ram:PersonName>
+				</ram:DefinedCITradeContact>
+				<ram:PostalCITradeAddress>
+					<ram:PostcodeCode>10369</ram:PostcodeCode>
+					<ram:LineOne>Storkower Straße 207</ram:LineOne>
+					<ram:LineTwo>Berlin</ram:LineTwo>
+					<ram:CountryID>DE</ram:CountryID>
+				</ram:PostalCITradeAddress>
+			</ram:BuyerCITradeParty>
+		</ram:ApplicableCIIHSupplyChainTradeAgreement>
+		<!--<ram:ApplicableHeaderTradeDelivery>
+			<ram:ActualDeliverySupplyChainEvent>
+				<ram:OccurrenceDateTime>
+					<udt:DateTimeString format="102">20160906</udt:DateTimeString>
+				</ram:OccurrenceDateTime>
+			</ram:ActualDeliverySupplyChainEvent>
+		</ram:ApplicableHeaderTradeDelivery>-->
+		<ram:ApplicableCIIHSupplyChainTradeSettlement>
+			<ram:TaxCurrencyCode>JPY</ram:TaxCurrencyCode>
+			<!--<ram:PaymentReference>2016166</ram:PaymentReference>-->
+			<ram:InvoiceCurrencyCode>EUR</ram:InvoiceCurrencyCode>
+			<ram:SpecifiedCITradeSettlementPaymentMeans>
+				<ram:TypeCode>30</ram:TypeCode>
+				<ram:PayeePartyCICreditorFinancialAccount>
+					<ram:AccountName>COMMON EDI</ram:AccountName>
+					<ram:ProprietaryID>1234</ram:ProprietaryID>
+					<!--<ram:IBANID>DE12500105170648489890</ram:IBANID>-->
+				</ram:PayeePartyCICreditorFinancialAccount>
+			</ram:SpecifiedCITradeSettlementPaymentMeans>
+			<ram:ApplicableCITradeTax>
+				<ram:CalculatedAmount>2221.84</ram:CalculatedAmount>
+				<ram:CalculatedRate>10</ram:CalculatedRate>
+				<!--<ram:TypeCode>VAT</ram:TypeCode>-->
+				<ram:BasisAmount>11693.87</ram:BasisAmount>
+				<ram:CategoryCode>S</ram:CategoryCode>
+				<ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+			</ram:ApplicableCITradeTax>
+			<ram:SpecifiedCITradePaymentTerms>
+				<ram:DueDateDateTime>
+					<udt:DateTimeString format="102">20150109</udt:DateTimeString>
+				</ram:DueDateDateTime>
+			</ram:SpecifiedCITradePaymentTerms>
+			<ram:SpecifiedCIIHTradeSettlementMonetarySummation>
+				<ram:TaxBasisTotalAmount>11693.87</ram:TaxBasisTotalAmount>
+				<ram:TaxTotalAmount currencyID="EUR">2221.84</ram:TaxTotalAmount>
+				<ram:GrandTotalAmount>13915.71</ram:GrandTotalAmount>
+				<ram:DuePayableAmount>13915.71</ram:DuePayableAmount>
+				<ram:NetLineTotalAmount>11693.87</ram:NetLineTotalAmount>
+			</ram:SpecifiedCIIHTradeSettlementMonetarySummation>
+		</ram:ApplicableCIIHSupplyChainTradeSettlement>
+		<ram:IncludedCIILSupplyChainTradeLineItem>
+			<ram:AssociatedCIILDocumentLineDocument>
+				<ram:LineID>1</ram:LineID>
+			</ram:AssociatedCIILDocumentLineDocument>
+			<ram:SpecifiedCIILSupplyChainTradeAgreement>
+				<ram:NetPriceProductTradePrice>
+					<ram:ChargeAmount>12122.5900</ram:ChargeAmount>
+				</ram:NetPriceProductTradePrice>
+			</ram:SpecifiedCIILSupplyChainTradeAgreement>
+			
+			<ram:SpecifiedTradeProduct>
+				<ram:SellerAssignedID>846</ram:SellerAssignedID>
+				<ram:Name>Festpreis</ram:Name>
+				<ram:Description>Neues DSL Portfolio 2016</ram:Description>
+			</ram:SpecifiedTradeProduct>
+
+			<ram:SpecifiedLineTradeDelivery>
+				<ram:BilledQuantity unitCode="C62">1.000</ram:BilledQuantity>
+			</ram:SpecifiedLineTradeDelivery>
+			<ram:SpecifiedLineTradeSettlement>
+				<ram:ApplicableTradeTax>
+					<ram:TypeCode>VAT</ram:TypeCode>
+					<ram:CategoryCode>S</ram:CategoryCode>
+					<ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+				</ram:ApplicableTradeTax>
+				<ram:SpecifiedTradeSettlementLineMonetarySummation>
+					<ram:LineTotalAmount>12122.59</ram:LineTotalAmount>
+				</ram:SpecifiedTradeSettlementLineMonetarySummation>
+			</ram:SpecifiedLineTradeSettlement>
+		</ram:IncludedCIILSupplyChainTradeLineItem>
+		<ram:IncludedCIILSupplyChainTradeLineItem>
+			<ram:AssociatedDocumentLineDocument>
+				<ram:LineID>2</ram:LineID>
+			</ram:AssociatedDocumentLineDocument>
+			<ram:SpecifiedTradeProduct>
+				<ram:SellerAssignedID>832</ram:SellerAssignedID>
+				<ram:Name>Abzug</ram:Name>
+			</ram:SpecifiedTradeProduct>
+			<ram:SpecifiedLineTradeAgreement>
+				<ram:NetPriceProductTradePrice>
+					<ram:ChargeAmount>606.1300</ram:ChargeAmount>
+				</ram:NetPriceProductTradePrice>
+			</ram:SpecifiedLineTradeAgreement>
+			<ram:SpecifiedLineTradeDelivery>
+				<ram:BilledQuantity unitCode="C62">-1</ram:BilledQuantity>
+			</ram:SpecifiedLineTradeDelivery>
+			<ram:SpecifiedLineTradeSettlement>
+				<ram:ApplicableTradeTax>
+					<ram:TypeCode>VAT</ram:TypeCode>
+					<ram:CategoryCode>S</ram:CategoryCode>
+					<ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+				</ram:ApplicableTradeTax>
+				<ram:SpecifiedTradeSettlementLineMonetarySummation>
+					<ram:LineTotalAmount>-606.13</ram:LineTotalAmount>
+				</ram:SpecifiedTradeSettlementLineMonetarySummation>
+			</ram:SpecifiedLineTradeSettlement>
+		</ram:IncludedCIILSupplyChainTradeLineItem>
+		<ram:IncludedCIILSupplyChainTradeLineItem>
+			<ram:AssociatedDocumentLineDocument>
+				<ram:LineID>16</ram:LineID>
+			</ram:AssociatedDocumentLineDocument>
+			<ram:SpecifiedTradeProduct>
+				<ram:SellerAssignedID>870</ram:SellerAssignedID>
+				<ram:Name>zzgl. </ram:Name>
+			</ram:SpecifiedTradeProduct>
+			<ram:SpecifiedLineTradeAgreement>
+				<ram:NetPriceProductTradePrice>
+					<ram:ChargeAmount>1.5000</ram:ChargeAmount>
+				</ram:NetPriceProductTradePrice>
+			</ram:SpecifiedLineTradeAgreement>
+			<ram:SpecifiedLineTradeDelivery>
+				<ram:BilledQuantity unitCode="C62">1.000</ram:BilledQuantity>
+			</ram:SpecifiedLineTradeDelivery>
+			<ram:SpecifiedLineTradeSettlement>
+				<ram:ApplicableTradeTax>
+					<ram:TypeCode>VAT</ram:TypeCode>
+					<ram:CategoryCode>S</ram:CategoryCode>
+					<ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+				</ram:ApplicableTradeTax>
+				<ram:SpecifiedTradeSettlementLineMonetarySummation>
+					<ram:LineTotalAmount>177.41</ram:LineTotalAmount>
+				</ram:SpecifiedTradeSettlementLineMonetarySummation>
+			</ram:SpecifiedLineTradeSettlement>
+		</ram:IncludedCIILSupplyChainTradeLineItem>
+	</rsm:CIIHSupplyChainTradeTransaction>
+</rsm:SMEinvoice>
