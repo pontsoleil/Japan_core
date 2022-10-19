@@ -14,6 +14,17 @@ ns = {
   'ccts': 'urn:un:unece:uncefact:documentation:2',
   'cn': 'urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2',
   'ubl': 'urn:oasis:names:specification:ubl:schema:xsd:Invoice-2',
+  # 
+  'qdt':"urn:un:unece:uncefact:data:standard:QualifiedDataType:100",
+  'udt':"urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100",
+  'rsm':"urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100",
+  'ram':"urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100",
+  # CEN/TS 16931-3-3
+  # 'rsm': 'urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:23',
+  # 'ccts': 'urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2',
+  # 'udt': 'urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31',
+  # 'qdt': 'urn:un:unece:uncefact:data:standard:QualifiedDataType:31',
+  # 'ram': 'urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31',
   'sch': 'http://purl.oclc.org/dsdl/schematron'
 }
 
