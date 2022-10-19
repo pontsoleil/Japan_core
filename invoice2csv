@@ -58,7 +58,7 @@ def file_path(pathname):
 	if SEP==pathname[0:1]:
 		return pathname
 	else:
-		pathname = re.sub(r'/',SEP,pathname)
+		pathname = pathname.replace('/',SEP)
 		dir = os.path.dirname(__file__)
 		new_path = os.path.join(dir, pathname)
 		return new_path
@@ -139,6 +139,10 @@ def fillData(parent,parentXPath,i,count):
 	xpath = data['xpath']
 	if not xpath or not '/' in xpath[1:]:
 		return
+	# parent_localname = parent.tag[parent.tag.index('}')+1:]
+	# if 'SpecifiedTradeAllowanceCharge'==parent_localname:
+	# 	xpath = xpath[xpath.index(']')+2:]
+	# else:
 	xpath = xpath[2+xpath[1:].index('/'):]
 	xpath = formatXPath(xpath)
 	text = None
@@ -377,34 +381,21 @@ def fillGroup(parent,parentPath,i,parentCount):
 						else:
 							elements = root.findall(_xpath)
 				elif 'CII'==SYNTAX:
-					# if '[' in _xpath and _xpath.index('['):
-					# 	xp1 = _xpath[:_xpath.index('[')]
-					# 	selected = root.findall(xp1)
-					# 	if selected:
-					# 		if re.match(r'.*ChargeIndicator',xp1):
-					# 			selected[0].find('{'+ns['udt']+'}Indicator')
-					# 		if '/..' in _xpath:
-					# 			xp2 = _xpath[:_xpath.index('/..')]
-					# 			if root.findall(xp2):
-					# 				elements = root.findall(_xpath)
-					# 		else:
-					# 			elements = root.findall(_xpath)
 					if 'SpecifiedTradeAllowanceCharge' in _xpath:
-						allowanceChargeXPath = '{urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100}SupplyChainTradeTransaction/{urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100}ApplicableHeaderTradeSettlement/{urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100}SpecifiedTradeAllowanceCharge'
+						if DEBUG: print(data['xpath'])
+						allowanceChargeXPath = formatXPath('rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge')
 						allowanceCharges = root.findall(allowanceChargeXPath)
-						for n in len(allowanceCharges):
-							allowanceCharge = allowanceCharges[n]
-							indicatorXPath = '{urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100}ChargeIndicator/{urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100}Indicator'
+						for allowanceCharge in allowanceCharges:
+							indicatorXPath = formatXPath('ram:ChargeIndicator/udt:Indicator')
 							indicator = allowanceCharge.find(indicatorXPath)
-							if 'Indicator=true()]' in _xpath and 'true'==indicator.text:
-								if '/..' in _xpath:
+							if ']' == _xpath[-1]:
+								if 'Indicator=true()]' in _xpath and 'true'==indicator.text:
 									elements = [allowanceCharge]
-								else:
-									elements = allowanceCharge
-
-
-
-
+								elif 'Indicator=false()]' in _xpath and 'false'==indicator.text:
+									elements = [allowanceCharge]
+							else:
+								xp = _xpath[_xpath.index(']')+1:]
+								elements = allowanceCharge.findall(xp)
 					else:
 						elements = root.findall(_xpath)
 
