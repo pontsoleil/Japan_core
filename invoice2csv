@@ -27,7 +27,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-import xml.etree.ElementTree as ET
+from tkinter import N
+import xml.etree.ElementTree as etree
 import csv
 import re
 import sys 
@@ -169,7 +170,7 @@ def fillData(parent,parentXPath,i,count):
 						text = elements[0].text
 			else:
 				element = parent.find(_xpath)
-				if not None==element and element.tag: # and ET.iselement(element):
+				if not None==element and element.tag: # and etree.iselement(element):
 					if isinstance(xpath,list) and xpath[1]:
 						attrib = xpath[1]
 						if attrib and attrib in element.attrib:
@@ -257,52 +258,51 @@ def fillData(parent,parentXPath,i,count):
 							text = quantity.attrib['unitCode']
 						else:
 							text = None
-					elif 'ChargeIndicator' in _xpath:
-						if '[' in _xpath and _xpath.index('['):
-							if parent.findall(_xpath[:_xpath.index('[')]):
-								if '/..' in _xpath:
-									if parent.findall(_xpath[:_xpath.index('/..')]):
-										elements = parent.findall(_xpath)
-								else:
-									elements = parent.findall(_xpath)
+					elif '[{'+ns['ram']+'}ChargeIndicator/' in _xpath:
+						_xpath = _xpath.replace('[{'+ns['ram']+'}ChargeIndicator/','/{'+ns['ram']+'}ChargeIndicator[')
+						# etree fails to compare xs:boolean with true() false()
+						_xpath = _xpath.replace('true()','"true"')
+						_xpath = _xpath.replace('false()','"false"')
+						_xpath = _xpath.replace(']',']/..')
+						elements = root.findall(_xpath)
 					else:
-						if 'UBL'==SYNTAX:
-							elements = parent.findall(_xpath)
-						elif 'CII'==SYNTAX:
-							if parent.tag in _xpath:
-								xp = xpath[_xpath.index(parent.tag)+len(parent.tag)+1:]
-							else:
-								xp = _xpath
-							elements = parent.findall(xp)
-					if len(elements)==1:
-						text = parent.findtext(_xpath)
-					elif len(elements) > 1:
-						attr_i = None
-						for count in range(len(elements)):
-							element = elements[count]
-							text = element.text
-							text = text.strip().replace('\n','\\n')
-							rows[n][semSort] = {'id':id,'level':level,'BT':BT,'text':text}
-							elementName = re.sub(r'^.*}([a-zA-Z]*)$',r'\1',_xpath)
-							attr = element.attrib
-							ks = [x for x in attr.keys()]
-							for k in ks:
-								attrName = elementName+'/@'+k
-								d = [v for k,v in pintDict.items() if attrName in v['xpath']][0]
-								semSort_ = d['semSort']
-								id_ = d['id']
-								BT_ = d['BT']
-								text_ = attr[k]
-								text_ = text_.strip().replace('\n','\\n')
-								rows[n][semSort_] = {'id':id_,'level':str(int(level)+1),'BT':BT_,'text':text_}
-								for i_ in range(len(pintList)):
-									d = pintList[i_]
-									if semSort_==d['semSort']:
-										attr_i = i_
-										break
-							if attr_i:
-								i = attr_i
-						i += 1
+						# if 'UBL'==SYNTAX:
+						# 	elements = parent.findall(_xpath)
+						# elif 'CII'==SYNTAX:					
+						if parent.tag in _xpath:
+							xp = xpath[_xpath.index(parent.tag)+len(parent.tag)+1:]
+						else:
+							xp = _xpath
+						elements = parent.findall(xp)
+				if len(elements)==1:
+					text = elements[0].text # parent.findtext(_xpath)
+				elif len(elements) > 1:
+					attr_i = None
+					for count in range(len(elements)):
+						element = elements[count]
+						text = element.text
+						text = text.strip().replace('\n','\\n')
+						rows[n][semSort] = {'id':id,'level':level,'BT':BT,'text':text}
+						elementName = re.sub(r'^.*}([a-zA-Z]*)$',r'\1',_xpath)
+						attr = element.attrib
+						ks = [x for x in attr.keys()]
+						for k in ks:
+							attrName = elementName+'/@'+k
+							d = [v for k,v in pintDict.items() if attrName in v['xpath']][0]
+							semSort_ = d['semSort']
+							id_ = d['id']
+							BT_ = d['BT']
+							text_ = attr[k]
+							text_ = text_.strip().replace('\n','\\n')
+							rows[n][semSort_] = {'id':id_,'level':str(int(level)+1),'BT':BT_,'text':text_}
+							for i_ in range(len(pintList)):
+								d = pintList[i_]
+								if semSort_==d['semSort']:
+									attr_i = i_
+									break
+						if attr_i:
+							i = attr_i
+					i += 1
 	except SyntaxError:
 		print (f'-- SyntaxError {_xpath}')
 	if text:
@@ -515,7 +515,7 @@ if __name__=='__main__':
 			uncl4451[id] = {'id':id,'name':name,'desc':desc}
 			n += 1
 
-	tree = ET.parse(in_file)
+	tree = etree.parse(in_file)
 	root = tree.getroot()
 	if 'UBL'==SYNTAX:
 		DocumentCurrencyCode = root.findtext(".//{"+ns['cbc']+"}DocumentCurrencyCode")
@@ -800,14 +800,11 @@ if __name__=='__main__':
 				lst[i][j] = od_transposed[semSort][j]
 		i += 1
 
-	with open(out_file,'w',encoding=ncdng) as f:
+	with open(out_file,'w',encoding=ncdng,newline='') as f:
 		writer = csv.writer(f)#,delimiter='\t')
 		n = 0
-		for l in lst:
-			if n < 3:
-				n += 1
-				continue
-			writer.writerow(l)
+		lst = lst[3:]
+		writer.writerows(lst)
 
 	if verbose:
 		print(f'** END ** {out_file}')
