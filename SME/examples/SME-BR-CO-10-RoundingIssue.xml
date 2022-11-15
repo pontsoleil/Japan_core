@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+
+    MIT License (c) 2022 SAMBUICHI Nobuyuki (Sambuichi Professional Engineers Office)
+
+-->
+<rsm:SMEinvoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice ../schema/data/standard/SMEinvoice.xsd"
+    xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:31"
+    xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31"
+    xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice"
+    xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31">
+    <rsm:CIExchangedDocumentContext>
+        <ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+            <ram:ID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</ram:ID>
+        </ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+        <ram:SubsetSpecifiedCIDocumentContextParameter>
+			<ram:ID>urn:fdc:peppol:jp:billing:3.0</ram:ID>
+		</ram:SubsetSpecifiedCIDocumentContextParameter>
+    </rsm:CIExchangedDocumentContext>
+    <rsm:CIIHExchangedDocument>
+        <ram:ID>0</ram:ID>
+        <ram:TypeCode>380</ram:TypeCode>
+        <ram:IssueDateTime>
+            <udt:DateTimeString format="102">20210326</udt:DateTimeString>
+        </ram:IssueDateTime>
+    </rsm:CIIHExchangedDocument>
+    <rsm:CIIHSupplyChainTradeTransaction>
+        <ram:ApplicableCIIHSupplyChainTradeAgreement>
+            <ram:BuyerReference>XXX-XXXXX-XX</ram:BuyerReference>
+            <ram:SellerCITradeParty>
+                <ram:Name>Seller GmbH</ram:Name>
+                <ram:URICIUniversalCommunication>
+					<ram:URIID schemeID="0188">1234567890123</ram:URIID>
+                </ram:URICIUniversalCommunication>
+                <ram:SpecifiedCITaxRegistration>
+                    <ram:ID schemeID="VAT">DE 123 456 789</ram:ID>
+                </ram:SpecifiedCITaxRegistration>
+                <ram:DefinedCITradeContact>
+                    <ram:PersonName>Ein Name</ram:PersonName>
+                    <ram:TelephoneCIUniversalCommunication>
+                        <ram:CompleteNumber>11880</ram:CompleteNumber>
+                    </ram:TelephoneCIUniversalCommunication>
+                    <ram:EmailURICIUniversalCommunication>
+                        <ram:URIID>test@example.com</ram:URIID>
+                    </ram:EmailURICIUniversalCommunication>
+                </ram:DefinedCITradeContact>
+                <ram:PostalCITradeAddress>
+                    <ram:PostcodeCode>4000</ram:PostcodeCode>
+                    <ram:LineOne>Straße No</ram:LineOne>
+                    <!--<ram:CityName>S Stadt</ram:CityName>-->
+                    <ram:CountryID>DE</ram:CountryID>
+                </ram:PostalCITradeAddress>
+            </ram:SellerCITradeParty>
+            <ram:BuyerCITradeParty>
+                <ram:ID>1</ram:ID>
+                <ram:Name>BuyerName</ram:Name>
+                <ram:DefinedCITradeContact>
+                    <ram:PersonName>PersonName</ram:PersonName>
+                </ram:DefinedCITradeContact>
+                <ram:PostalCITradeAddress>
+                    <ram:PostcodeCode>4000</ram:PostcodeCode>
+                    <ram:LineOne>Straße No</ram:LineOne>
+                    <!--<ram:CityName>B Stadt</ram:CityName>-->
+                    <ram:CountryID>DE</ram:CountryID>
+                </ram:PostalCITradeAddress>
+            </ram:BuyerCITradeParty>
+            <ram:BuyerOrderReferencedCIReferencedDocument>
+                <ram:IssuerAssignedID/>
+                <ram:TypeCode/>
+            </ram:BuyerOrderReferencedCIReferencedDocument>
+        </ram:ApplicableCIIHSupplyChainTradeAgreement>
+        <ram:ApplicableCIIHSupplyChainTradeSettlement>
+            <ram:InvoiceReferencedCIReferencedDocument>
+                <ram:IssuerAssignedID>0</ram:IssuerAssignedID>
+                <ram:TypeCode/>
+            </ram:InvoiceReferencedCIReferencedDocument>
+            <ram:InvoiceCurrencyCode>EUR</ram:InvoiceCurrencyCode>
+            <ram:SpecifiedCITradeSettlementPaymentMeans>
+                <ram:TypeCode>30</ram:TypeCode>
+                <ram:Information>Information</ram:Information>
+                <ram:PayeePartyCICreditorFinancialAccount>
+					<ram:ProprietaryID>IBAN</ram:ProprietaryID>
+                    <ram:TypeCode>IBANID</ram:TypeCode>
+                </ram:PayeePartyCICreditorFinancialAccount>
+                <ram:PayeeSpecifiedCICreditorFinancialInstitution>
+                    <ram:JapanFinancialInstitutionCommonID>BIC</ram:JapanFinancialInstitutionCommonID>
+                    <ram:SubDivisionBranchFinancialInstitution/>
+                </ram:PayeeSpecifiedCICreditorFinancialInstitution>
+            </ram:SpecifiedCITradeSettlementPaymentMeans>
+            <ram:ApplicableCITradeTax>
+                <ram:CalculatedAmount>0.00</ram:CalculatedAmount>
+                <ram:TypeCode>VAT</ram:TypeCode>
+                <ram:BasisAmount>0.00</ram:BasisAmount>
+                <ram:CategoryCode>Z</ram:CategoryCode>
+                <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
+            </ram:ApplicableCITradeTax>
+            <ram:ApplicableCITradeTax>
+                <ram:CalculatedAmount>0.00</ram:CalculatedAmount>
+                <ram:TypeCode>VAT</ram:TypeCode>
+                <ram:BasisAmount>0.00</ram:BasisAmount>
+                <ram:CategoryCode>S</ram:CategoryCode>
+                <ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+            </ram:ApplicableCITradeTax>
+            <ram:SpecifiedCITradePaymentTerms>
+                <ram:Description>Fällig nach Belegdatum + 10 Tage</ram:Description>
+                <ram:DueDateDateTime>
+                    <udt:DateTimeString format="102">20210326</udt:DateTimeString>
+                </ram:DueDateDateTime>
+            </ram:SpecifiedCITradePaymentTerms>
+            <ram:SpecifiedCIIHTradeSettlementMonetarySummation>
+                <ram:ChargeTotalAmount>0</ram:ChargeTotalAmount>
+                <ram:AllowanceTotalAmount>0</ram:AllowanceTotalAmount>
+                <ram:TaxBasisTotalAmount>0.00</ram:TaxBasisTotalAmount>
+                <ram:TaxTotalAmount currencyID="EUR">0.00</ram:TaxTotalAmount>
+                <ram:GrandTotalAmount>0.00</ram:GrandTotalAmount>
+                <ram:TotalPrepaidAmount>0</ram:TotalPrepaidAmount>
+                <ram:DuePayableAmount>0.00</ram:DuePayableAmount>
+                <ram:NetLineTotalAmount>0.00</ram:NetLineTotalAmount>
+            </ram:SpecifiedCIIHTradeSettlementMonetarySummation>
+        </ram:ApplicableCIIHSupplyChainTradeSettlement>
+        <ram:ApplicableCIIHSupplyChainTradeDelivery/>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>0</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SubordinateCIILBSubordinateTradeLineItem>
+				<ram:ID>1</ram:ID>            
+				<ram:SpecifiedCIILBSupplyChainTradeAgreement>
+					<!--<ram:NetPriceProductCITradePrice>
+						<ram:ChargeAmount>857.76</ram:ChargeAmount>
+					</ram:GrossPriceProductCITradePrice>-->
+					<ram:NetPriceProductCITradePrice>
+						<ram:ChargeAmount>720.81</ram:ChargeAmount>
+					</ram:NetPriceProductCITradePrice>
+				</ram:SpecifiedCIILBSupplyChainTradeAgreement>
+				<ram:SpecifiedCIILBSupplyChainTradeDelivery>
+					<ram:BilledQuantity unitCode="IE">1</ram:BilledQuantity>
+				</ram:SpecifiedCIILBSupplyChainTradeDelivery>
+				<ram:SpecifiedCIILBSupplyChainTradeSettlement>
+					<ram:ApplicableCITradeTax>
+						<ram:TypeCode>VAT</ram:TypeCode>
+						<ram:BasisAmount>720.81</ram:BasisAmount>
+						<ram:CategoryCode>S</ram:CategoryCode>
+						<ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+					</ram:ApplicableCITradeTax>
+					<!--<ram:SpecifiedCIILBTradeSettlementMonetarySummation>
+						<ram:LineTotalAmount>720.81</ram:LineTotalAmount>
+					</ram:SpecifiedCIILTradeSettlementMonetarySummation>-->
+				</ram:SpecifiedCIILBSupplyChainTradeSettlement>
+				 <ram:ApplicableCITradeProduct>
+					<ram:SellerAssignedID>1111</ram:SellerAssignedID>
+					<ram:Name>Flugschein</ram:Name>
+				</ram:ApplicableCITradeProduct>
+			</ram:SubordinateCIILBSubordinateTradeLineItem>
+			<ram:SubordinateCIILBSubordinateTradeLineItem>
+				<ram:ID>2</ram:ID>
+				<ram:SpecifiedCIILBSupplyChainTradeAgreement>
+					<!--<ram:GrossPriceProductCITradePrice>
+						<ram:ChargeAmount>0.01</ram:ChargeAmount>
+					</ram:GrossPriceProductCITradePrice>-->
+					<ram:NetPriceProductCITradePrice>
+						<ram:ChargeAmount>0.01</ram:ChargeAmount>
+					</ram:NetPriceProductCITradePrice>
+				</ram:SpecifiedCIILBSupplyChainTradeAgreement>
+				<ram:SpecifiedCIILBSupplyChainTradeDelivery>
+					<ram:BilledQuantity unitCode="IE">1</ram:BilledQuantity>
+				</ram:SpecifiedCIILBSupplyChainTradeDelivery>
+				<ram:SpecifiedCIILBSupplyChainTradeSettlement>
+					<ram:ApplicableCITradeTax>
+						<ram:TypeCode>VAT</ram:TypeCode>
+						<ram:BasisAmount>0.01</ram:BasisAmount>
+						<ram:CategoryCode>Z</ram:CategoryCode>
+						<ram:RateApplicablePercent>0</ram:RateApplicablePercent>
+					</ram:ApplicableCITradeTax>
+					<!--<ram:SpecifiedCIILTradeSettlementMonetarySummation>
+						<ram:LineTotalAmount>0.01</ram:LineTotalAmount>
+					</ram:SpecifiedCIILTradeSettlementMonetarySummation>-->
+				</ram:SpecifiedCIILBSupplyChainTradeSettlement>
+				 <ram:ApplicableCITradeProduct>
+					<ram:SellerAssignedID>1111</ram:SellerAssignedID>
+					<ram:Name>Flugschein</ram:Name>
+				</ram:ApplicableCITradeProduct>
+		   </ram:SubordinateCIILBSubordinateTradeLineItem>
+			<ram:SubordinateCIILBSubordinateTradeLineItem>
+				<ram:ID>3</ram:ID>
+				<ram:SpecifiedCIILBSupplyChainTradeAgreement>
+					<!--<ram:GrossPriceProductCITradePrice>
+						<ram:ChargeAmount>857.76</ram:ChargeAmount>
+					</ram:GrossPriceProductCITradePrice-->
+					<ram:NetPriceProductCITradePrice>
+						<ram:ChargeAmount>720.81</ram:ChargeAmount>
+					</ram:NetPriceProductCITradePrice>
+				</ram:SpecifiedCIILBSupplyChainTradeAgreement>
+				<ram:SpecifiedCIILBSupplyChainTradeDelivery>
+					<ram:BilledQuantity unitCode="IE">-1</ram:BilledQuantity>
+				</ram:SpecifiedCIILBSupplyChainTradeDelivery>
+				<ram:SpecifiedCIILBSupplyChainTradeSettlement>
+					<ram:ApplicableCITradeTax>
+						<ram:TypeCode>VAT</ram:TypeCode>
+						<ram:BasisAmount>-720.81</ram:BasisAmount>
+						<ram:CategoryCode>S</ram:CategoryCode>
+						<ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+					</ram:ApplicableCITradeTax>
+					<!--<ram:SpecifiedCIILTradeSettlementMonetarySummation>
+						<ram:LineTotalAmount>-720.81</ram:LineTotalAmount>
+					</ram:SpecifiedCIILTradeSettlementMonetarySummation>-->
+				</ram:SpecifiedCIILBSupplyChainTradeSettlement>
+				<ram:ApplicableCITradeProduct>
+					<ram:SellerAssignedID>2222</ram:SellerAssignedID>
+					<ram:Name>Flug Storno Inland</ram:Name>
+				</ram:ApplicableCITradeProduct>
+			</ram:SubordinateCIILBSubordinateTradeLineItem>
+			<ram:SubordinateCIILBSubordinateTradeLineItem>
+				<ram:ID>4</ram:ID>
+				<ram:SpecifiedCIILBSupplyChainTradeAgreement>
+					<!--<ram:GrossPriceProductCITradePrice>
+						<ram:ChargeAmount>0.01</ram:ChargeAmount>
+					</ram:GrossPriceProductCITradePrice>-->
+					<ram:NetPriceProductCITradePrice>
+						<ram:ChargeAmount>0.01</ram:ChargeAmount>
+					</ram:NetPriceProductCITradePrice>
+				</ram:SpecifiedCIILBSupplyChainTradeAgreement>
+				<ram:SpecifiedCIILBSupplyChainTradeDelivery>
+					<ram:BilledQuantity unitCode="IE">-1</ram:BilledQuantity>
+				</ram:SpecifiedCIILBSupplyChainTradeDelivery>
+				<ram:SpecifiedCIILBSupplyChainTradeSettlement>
+					<ram:ApplicableCITradeTax>
+						<ram:TypeCode>VAT</ram:TypeCode>
+						<ram:BasisAmount>-0.01</ram:BasisAmount>
+						<ram:CategoryCode>Z</ram:CategoryCode>
+						<ram:RateApplicablePercent>0</ram:RateApplicablePercent>
+					</ram:ApplicableCITradeTax>
+					<!--<ram:SpecifiedCIILTradeSettlementMonetarySummation>
+						<ram:LineTotalAmount>-0.01</ram:LineTotalAmount>
+					</ram:SpecifiedCIILTradeSettlementMonetarySummation>-->
+				</ram:SpecifiedCIILBSupplyChainTradeSettlement>
+				 <ram:ApplicableCITradeProduct>
+					<ram:SellerAssignedID>2222</ram:SellerAssignedID>
+					<ram:Name>Flug Storno Inland</ram:Name>
+				</ram:ApplicableCITradeProduct>
+            </ram:SubordinateCIILBSubordinateTradeLineItem>
+       </ram:IncludedCIILSupplyChainTradeLineItem>
+    </rsm:CIIHSupplyChainTradeTransaction>
+</rsm:SMEinvoice>

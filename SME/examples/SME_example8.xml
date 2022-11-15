@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    MIT License (c) 2022 SAMBUICHI Nobuyuki (Sambuichi Professional Engineers Office)
+
+-->
+<!-- XML instance edited by Nobuyuki SAMBUICHI -->
+<!-- Example 8: Electricity for EN16931 -->
+<!-- Timestamp: 2022-11-08 00:00:00 +0900 -->
+<rsm:SMEinvoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice ../schema/data/standard/SMEinvoice.xsd"
+ xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:31"
+ xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31"
+ xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice"
+ xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31">
+    <rsm:CIExchangedDocumentContext>
+        <ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+            <ram:ID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</ram:ID>
+        </ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+        <ram:SubsetSpecifiedCIDocumentContextParameter>
+			<ram:ID>urn:fdc:peppol:jp:billing:3.0</ram:ID>
+		</ram:SubsetSpecifiedCIDocumentContextParameter>
+    </rsm:CIExchangedDocumentContext>
+    <rsm:CIIHExchangedDocument>
+        <ram:ID>1100512149</ram:ID>
+        <ram:TypeCode>380</ram:TypeCode>
+        <ram:IssueDateTime>
+            <udt:DateTimeString format="102">20141110</udt:DateTimeString>
+        </ram:IssueDateTime>        
+        <ram:IncludedCINote>
+            <ram:Content>Periodieke afrekening
+U vindt een toelichting op uw factuur via www.enexis.nl/factuur_grootzakelijk
+Op alle diensten en overeenkomsten zijn de algemene voorwaarden aansluiting en
+transport grootverbruik elektriciteit, respectievelijk gas van toepassing
+www.enexis.nl</ram:Content>
+        </ram:IncludedCINote>
+    </rsm:CIIHExchangedDocument>
+    <rsm:CIIHSupplyChainTradeTransaction>
+        <ram:ApplicableCIIHSupplyChainTradeAgreement>
+            <ram:SellerCITradeParty>
+                <ram:Name>Enexis B.V.</ram:Name>
+                <ram:SpecifiedCILegalOrganization>
+                    <ram:ID>17131139</ram:ID>
+                    <ram:TradingBusinessName>Enexis</ram:TradingBusinessName>
+                </ram:SpecifiedCILegalOrganization>
+                <ram:DefinedCITradeContact>
+                    <ram:EmailURICIUniversalCommunication>
+                        <ram:URIID>klantenservice.zakelijk@enexis.nl</ram:URIID>
+                    </ram:EmailURICIUniversalCommunication>
+                </ram:DefinedCITradeContact>
+                <ram:PostalCITradeAddress>
+                    <ram:PostcodeCode>5223MB</ram:PostcodeCode>
+                    <ram:LineOne>Magistratenlaan 116</ram:LineOne>
+                    <ram:CityName>'S-HERTOGENBOSCH</ram:CityName>
+                    <ram:CountryID>NL</ram:CountryID>
+                </ram:PostalCITradeAddress>
+                <ram:SpecifiedCITaxRegistration>
+                    <ram:ID schemeID="VAT">NL809561074B01</ram:ID>
+                </ram:SpecifiedCITaxRegistration>
+                <ram:EndPointURICIUniversalCommunication>
+                    <ram:URIID schemeID="0188">1234567890123</ram:URIID>
+                </ram:EndPointURICIUniversalCommunication>
+            </ram:SellerCITradeParty>
+            <ram:BuyerCITradeParty>
+                <ram:ID>1081119</ram:ID>
+                <ram:Name>Klant</ram:Name>
+                <ram:PostalCITradeAddress>
+                    <ram:PostcodeCode>9999 XX</ram:PostcodeCode>
+                    <ram:LineOne>Bedrijfslaan 4</ram:LineOne>
+                    <ram:CityName>ONDERNEMERSTAD</ram:CityName>
+                    <ram:CountryID>NL</ram:CountryID>
+                </ram:PostalCITradeAddress>
+            </ram:BuyerCITradeParty>
+            <ram:AdditionalReferencedCIReferencedDocument>
+                <ram:IssuerAssignedID>871694831000290806</ram:IssuerAssignedID>
+                <ram:TypeCode>130</ram:TypeCode>
+            </ram:AdditionalReferencedCIReferencedDocument>
+        </ram:ApplicableCIIHSupplyChainTradeAgreement>
+        <ram:ApplicableCIIHSupplyChainTradeDelivery>
+            <ram:ShipToCITradeParty>
+                <ram:PostalCITradeAddress>
+                    <ram:PostcodeCode>9999 XX</ram:PostcodeCode>
+                    <ram:LineOne>Bedrijfslaan 4,</ram:LineOne>
+                    <ram:CityName>ONDERNEMERSTAD</ram:CityName>
+                    <ram:CountryID>NL</ram:CountryID>
+                </ram:PostalCITradeAddress>
+            </ram:ShipToCITradeParty>
+        </ram:ApplicableCIIHSupplyChainTradeDelivery>
+        <ram:ApplicableCIIHSupplyChainTradeSettlement>
+            <ram:PaymentReference>1100512149</ram:PaymentReference>
+            <ram:InvoiceCurrencyCode>EUR</ram:InvoiceCurrencyCode>
+            <ram:SpecifiedCITradeSettlementPaymentMeans>
+                <ram:TypeCode>30</ram:TypeCode>
+                <ram:PayeePartyCICreditorFinancialAccount>
+                    <ram:IBANID>NL28RBOS0420242228</ram:IBANID>
+                </ram:PayeePartyCICreditorFinancialAccount>
+            </ram:SpecifiedCITradeSettlementPaymentMeans>
+            <ram:SpecifiedCITradeSettlementPaymentMeans>
+                <ram:TypeCode>30</ram:TypeCode>
+                <ram:PayeePartyCICreditorFinancialAccount>
+                    <ram:IBANID>NL28RBOS0420242228</ram:IBANID>
+                </ram:PayeePartyCICreditorFinancialAccount>
+            </ram:SpecifiedCITradeSettlementPaymentMeans>
+            <ram:ApplicableCITradeTax>
+                <ram:CalculatedAmount>190.87</ram:CalculatedAmount>
+                <ram:TypeCode>VAT</ram:TypeCode>
+                <ram:BasisAmount>908.91</ram:BasisAmount>
+                <ram:CategoryCode>S</ram:CategoryCode>
+                <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+            </ram:ApplicableCITradeTax>
+            <ram:BillingCISpecifiedPeriod>
+                <ram:StartDateTime>
+                    <udt:DateTimeString format="102">20140801</udt:DateTimeString>
+                </ram:StartDateTime>
+                <ram:EndDateTime>
+                    <udt:DateTimeString format="102">20140831</udt:DateTimeString>
+                </ram:EndDateTime>
+            </ram:BillingCISpecifiedPeriod>
+            <ram:SpecifiedCITradePaymentTerms>
+                <ram:Description>Enexis brengt wettelijke rente in rekening over te laat betaalde
+facturen. Kijk voor informatie op www.enexis.nl/rentenota</ram:Description>
+                <ram:DueDateDateTime><udt:DateTimeString format="102">20141124</udt:DateTimeString></ram:DueDateDateTime>
+            </ram:SpecifiedCITradePaymentTerms>
+            <ram:SpecifiedCIIHTradeSettlementMonetarySummation>
+                <ram:LineTotalAmount>908.91</ram:LineTotalAmount>
+                <ram:TaxBasisTotalAmount>908.91</ram:TaxBasisTotalAmount>
+                <ram:TaxTotalAmount currencyID="EUR">190.87</ram:TaxTotalAmount>
+                <ram:GrandTotalAmount>1099.78</ram:GrandTotalAmount>
+                <ram:DuePayableAmount>1099.78</ram:DuePayableAmount>
+            </ram:SpecifiedCIIHTradeSettlementMonetarySummation>
+        </ram:ApplicableCIIHSupplyChainTradeSettlement>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>1</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>0.00880</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="KWH">0.00880</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="KWH">16000</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>140.80</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+            <ram:SpecifiedCITradeProduct>
+                <ram:Name>Getransporteerde kWh’s</ram:Name>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>contract transportvermogen</ram:Description>
+                    <ram:Value>132,00 kW</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>transporttarief</ram:Description>
+                    <ram:Value>Netvlak MSD Enexis</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>netvlak</ram:Description>
+                    <ram:Value>MS-D</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>correctiefactor</ram:Description>
+                    <ram:Value>1,0130</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+            </ram:SpecifiedCITradeProduct>
+        </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>2</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+             <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>0.00101</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="KWH">0.00101</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="KWH">16000</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>16.16</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+            <ram:SpecifiedCITradeProduct>
+                <ram:Name>Systeemdiensten</ram:Name>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>contract transportvermogen</ram:Description>
+                    <ram:Value>132,00 kW</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>transporttarief</ram:Description>
+                    <ram:Value>Netvlak MSD Enexis</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>netvlak</ram:Description>
+                    <ram:Value>MS-D</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>correctiefactor</ram:Description>
+                    <ram:Value>1,0130</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+            </ram:SpecifiedCITradeProduct>
+        </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>3</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>15.24000</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="KWT">15.24000</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="KWT">132</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>167.64</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+             <ram:SpecifiedCITradeProduct>
+                <ram:Name>Contract transportvermogen</ram:Name>
+                 <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>contract transportvermogen</ram:Description>
+                    <ram:Value>132,00 kW</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>transporttarief</ram:Description>
+                    <ram:Value>Netvlak MSD Enexis</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>netvlak</ram:Description>
+                    <ram:Value>MS-D</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>correctiefactor</ram:Description>
+                    <ram:Value>1,0130</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+            </ram:SpecifiedCITradeProduct>
+       </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>4</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>1.530000</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="KWT">1.530000</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="KWT">58</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>88.74</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+             <ram:SpecifiedCITradeProduct>
+                <ram:Name>Maximaal afgenomen vermogen</ram:Name>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>contract transportvermogen</ram:Description>
+                    <ram:Value>132,00 kW</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>transporttarief</ram:Description>
+                    <ram:Value>Netvlak MSD Enexis</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>netvlak</ram:Description>
+                    <ram:Value>MS-D</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>correctiefactor</ram:Description>
+                    <ram:Value>1,0130</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+            </ram:SpecifiedCITradeProduct>
+       </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>5</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>441</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="MON">441</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="MON">1</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>36.75</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+             <ram:SpecifiedCITradeProduct>
+                <ram:Name>Vastrecht Transportdienst</ram:Name>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>contract transportvermogen</ram:Description>
+                    <ram:Value>132,00 kW</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>transporttarief</ram:Description>
+                    <ram:Value>Netvlak MSD Enexis</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>netvlak</ram:Description>
+                    <ram:Value>MS-D</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>correctiefactor</ram:Description>
+                    <ram:Value>1,0130</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+            </ram:SpecifiedCITradeProduct>
+       </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>6</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>678</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="MON">678</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="MON">1</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>56.50</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+             <ram:SpecifiedCITradeProduct>
+                <ram:Name>Vastrecht Aansluitdienst</ram:Name>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>contract transportvermogen</ram:Description>
+                    <ram:Value>132,00 kW</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>transporttarief</ram:Description>
+                    <ram:Value>Netvlak MSD Enexis</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>netvlak</ram:Description>
+                    <ram:Value>MS-D</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+                <ram:ApplicableCIProductCharacteristic>
+                    <ram:Description>correctiefactor</ram:Description>
+                    <ram:Value>1,0130</ram:Value>
+                </ram:ApplicableCIProductCharacteristic>
+            </ram:SpecifiedCITradeProduct>
+       </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>7</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>83.340000</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="MON">83.340000</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="MON">1</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>83.34</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+            <ram:SpecifiedCITradeProduct>
+                <ram:Name>Huur Transformatoren</ram:Name>
+            </ram:SpecifiedCITradeProduct>
+        </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>8</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>190.310000</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="MON">190.310000</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="MON">1</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>190.31</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+            <ram:SpecifiedCITradeProduct>
+                <ram:Name>Huur Schakelinstallaties</ram:Name>
+            </ram:SpecifiedCITradeProduct>
+        </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>9</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>64.210000</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="MON">64.210000</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="MON">1</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>64.21</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+            <ram:SpecifiedCITradeProduct>
+                <ram:Name>Huur Overige Apparaten</ram:Name>
+            </ram:SpecifiedCITradeProduct>
+        </ram:IncludedCIILSupplyChainTradeLineItem>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>10</ram:LineID>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeAgreement>
+                <ram:NetPriceProductCITradePrice>
+                    <ram:ChargeAmount>64.46000</ram:ChargeAmount>
+                    <ram:BasisQuantity unitCode="MON">64.46000</ram:BasisQuantity>
+                </ram:NetPriceProductCITradePrice>
+            </ram:SpecifiedCIILSupplyChainTradeAgreement>
+            <ram:SpecifiedCIILSupplyChainTradeDelivery>
+                <ram:BilledQuantity unitCode="MON">1</ram:BilledQuantity>
+            </ram:SpecifiedCIILSupplyChainTradeDelivery>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:RateApplicablePercent>21</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:LineTotalAmount>64.46</ram:LineTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+             <ram:SpecifiedCITradeProduct>
+                <ram:Name>Huur Meterdiensten</ram:Name>
+            </ram:SpecifiedCITradeProduct>
+       </ram:IncludedCIILSupplyChainTradeLineItem>
+    </rsm:CIIHSupplyChainTradeTransaction>
+</rsm:SMEinvoice>

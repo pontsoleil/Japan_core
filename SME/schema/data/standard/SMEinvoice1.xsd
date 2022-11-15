@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== -->
+<!-- ===== SMEInvoice Schema Module                    ===== -->
+<!-- ====================================================================== -->
+<!--
+Schema agency:  XBRL Japan
+Schema version: 0.1
+Schema date:    07NOV22
+
+Copyright (C) XBRL Japan. All Rights Reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="urn:un:unece:uncefact:data:standard:SMEinvoice" 
+	xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice"
+	xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2"
+	xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31"
+	xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:31"
+	xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="23.1">
+	<!-- ======================================================================= -->
+	<!-- ===== Imports                                                     ===== -->
+	<!-- ======================================================================= -->
+	<!-- ======================================================================= -->
+	<!-- ===== Import of Unqualified Data Type Schema Module               ===== -->
+	<!-- ======================================================================= -->
+	<xsd:import namespace="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31" schemaLocation="UnqualifiedDataType_31p0.xsd"/>
+	<!-- ======================================================================= -->
+	<!-- ===== Import of Qualified Data Type Schema Module                 ===== -->
+	<!-- ======================================================================= -->
+	<xsd:import namespace="urn:un:unece:uncefact:data:standard:QualifiedDataType:31" schemaLocation="QualifiedDataType_31p0.xsd"/>
+	<!-- ======================================================================= -->
+	<!-- ===== Import of Reusable Aggregate Business Information Entity Schema Module ===== -->
+	<!-- ======================================================================= -->
+	<xsd:import namespace="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31" schemaLocation="ReusableAggregateBusinessInformationEntity_SME1.xsd"/>
+	<!-- <xsd:import namespace="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31" schemaLocation="ReusableAggregateBusinessInformationEntity_SME.xsd"/>  -->
+	<!--<xsd:import namespace="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31" schemaLocation="ReusableAggregateBusinessInformationEntity_31p0.xsd"/>-->
+	<!-- ======================================================================= -->
+	<!-- ================================================================== -->
+	<!-- ===== Element Declarations                                   ===== -->
+	<!-- ================================================================== -->
+	<!-- ===== Root Element Declarations                              ===== -->
+	<!-- ================================================================== -->
+	<!-- Global型宣言 -->
+	<xsd:element name="SMEinvoice" type="rsm:SMEinvoiceType" />
+	<xsd:complexType name="SMEinvoiceType">
+		<xsd:sequence>
+			<xsd:element name="CIExchangedDocumentContext" type="ram:CIExchangedDocumentContextType" minOccurs="1">
+				<!--UN01005479-->
+			</xsd:element>
+			<xsd:element name="CIIHExchangedDocument" type="ram:CIIHExchangedDocumentType" minOccurs="1">
+				<!--UN01005861-->
+			</xsd:element>
+			<xsd:element name="CIIHSupplyChainTradeTransaction" type="ram:CIIHSupplyChainTradeTransactionType" minOccurs="1">
+				<!--UN01005936-->
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
