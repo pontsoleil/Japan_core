@@ -128,5 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-bin
-.class
+bin/
+.clas/
+
+UBL2.1/
