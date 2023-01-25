@@ -1,4 +1,4 @@
-﻿num,kind,UN _CCL_ID,bie,den1,den2,den3,den4,den5,den6,den7,den8,den9,den10,den11,den12,term,desc,occur,,,,,,,,,,
+﻿num,kind,UN_CCL_ID,bie,den1,den2,den3,den4,den5,den6,den7,den8,den9,den10,den11,den12,term,desc,occur,,,,,,,,,,
 1,ヘッダ部,,MA,SME_ Consolidated Invoice,,,,,,,,,,,,統合請求書,受注者が発注者に交付する月締めインボイス文書（メッセージ）,－,,,,,,,,,,
 2,ヘッダ部,UN01005479,ASMA,CI_ Exchanged Document_ Context. Details,,,,,,,,,,,,取引設定クラス,メッセージの設定内容に関する情報からなるクラス,1..1,,,,,,,,,,
 3,ヘッダ部,UN01005480,BBIE,,CI_ Exchanged Document_ Context. Specified_ Transaction. Identifier,,,,,,,,,,,取引識別子,メッセージがやり取りされる取引番号,0..1,,,,,,,,,,
