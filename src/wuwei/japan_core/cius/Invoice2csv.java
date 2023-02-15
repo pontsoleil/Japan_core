@@ -34,8 +34,6 @@ public class Invoice2csv {
      * Tidy dataテーブル作成用の2次元リスト　Tidy dataテーブルは、FileHandler/tidyData
      */
     static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>();
-//    // semantic data
-//	static TreeMap<Integer,String> dataMap = new TreeMap<>();
 
 	/**
  	 * mainでは変換処理を単体でテストする.
@@ -43,10 +41,12 @@ public class Invoice2csv {
 	 * @param args
 	 */
     public static void main(String[] args) {
-//		 processInvoice("CIUS/data/xml/Example0.xml", "CIUS/data/csv/Example0.csv");
-//		 processInvoice("CIUS/data/xml/Example1.xml", "CIUS/data/csv/Example1.csv");
+    	FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
+
+//		processInvoice("CIUS/data/xml/Example0.xml", "CIUS/data/csv/Example0.csv");
+		 processInvoice("CIUS/data/xml/Example1.xml", "CIUS/data/csv/Example1.csv");
 //		 processInvoice("CIUS/data/xml/Example2-TaxAcctCur.xml", "CIUS/data/csv/Example2-TaxAcctCur.csv");
-		 processInvoice("CIUS/data/xml/Example3-0.xml", "CIUS/data/csv/Example3-0.csv");
+//		 processInvoice("CIUS/data/xml/Example3-0.xml", "CIUS/data/csv/Example3-0.csv");
 //		 processInvoice("CIUS/data/xml/Example3-SumInv1.xml", "CIUS/data/csv/Example3-SumInv1.csv");
 //		 processInvoice("CIUS/data/xml/Example4-SumInv2.xml", "CIUS/data/csv/Example4-SumInv2.xsv");
 //		 processInvoice("CIUS/data/xml/Example5-AllowanceCharge0.xml", "CIUS/data/csv/Example5-AllowanceCharge0.csv");
@@ -87,14 +87,14 @@ public class Invoice2csv {
 			Integer sort = binding.getSemSort();
 			String id = binding.getID();
 			String card = binding.getCard();
-			if (id.toLowerCase().matches("^ibg-.+$") &&
+			if (id.toLowerCase().matches("^jbg-.+$") &&
 					card.matches("^.*n$") &&
 					isMultiple(sort)) {
 				FileHandler.multipleMap.put(sort, id);
 			}
 		}
 	    
-		Binding binding = FileHandler.bindingDict.get("ibg-00");
+		Binding binding = FileHandler.bindingDict.get(FileHandler.ROOT_ID);
 		Integer sort = binding.getSemSort();
 		boughMap.put(1000,0);
 		boughMapList.add(boughMap);
@@ -121,12 +121,12 @@ public class Invoice2csv {
 		FileHandler.tidyData = new ArrayList<ArrayList<String>>();
 		System.out.println();
 
-		FileHandler.header.add("ibg-00");
+		FileHandler.header.add("jbg-00");
 		// bough
 		for (Map.Entry<Integer,String> multipleEntry : FileHandler.multipleMap.entrySet()) {
 			String multipleID = multipleEntry.getValue();
 			Binding multipleBinding = FileHandler.bindingDict.get(multipleID);
-			if (multipleID.toLowerCase().matches("^ibg-.+$") &&
+			if (multipleID.toLowerCase().matches("^jbg-.+$") &&
 					multipleBinding.isUsed()) {
 				FileHandler.header.add(multipleID);
 			}
@@ -137,7 +137,7 @@ public class Invoice2csv {
 			Binding dataBinding = dataEntry.getValue();
 			String dataID = dataBinding.getID();
 			if (1000!=dataSort &&
-					dataID.toLowerCase().matches("^ibt-.+$") &&
+					dataID.toLowerCase().matches("^jbt-.+$") &&
 					dataBinding.isUsed() &&
 					! FileHandler.header.contains(dataID)) {
 				FileHandler.header.add(dataID);
@@ -156,13 +156,15 @@ public class Invoice2csv {
 				String[] index = bough.split("=");
 				Integer boughSort = Integer.parseInt(index[0]);
 				Binding boughBinding = FileHandler.semBindingMap.get(boughSort);
-				String boughID = boughBinding.getID();
-				String boughSeq = index[1];
-				int boughIndex = FileHandler.header.indexOf(boughID);
-				if (boughIndex!=-1) {
-					record.set(boughIndex, boughSeq);
-				} else {
-					System.out.println(boughID+" NOT FOUND in the header");
+				if (null!=boughBinding) {
+					String boughID = boughBinding.getID();
+					String boughSeq = index[1];
+					int boughIndex = FileHandler.header.indexOf(boughID);
+					if (boughIndex!=-1) {
+						record.set(boughIndex, boughSeq);
+					} else {
+						System.out.println(boughID+" NOT FOUND in the header");
+					}
 				}
 			}
 			// data
@@ -258,12 +260,12 @@ public class Invoice2csv {
             if (countChildren > 0) {
 	            for (int i = 0; i < countChildren; i++) {
 	            	Node child = children.get(i);
-		        	if (childID.toLowerCase().matches("^ibt-.+$")) {
+		        	if (childID.toLowerCase().matches("jbt-.+$")) {
 	        			String value = null;
 	        			value = child.getTextContent().trim();
 		            	if (null != value && value.length() > 0) {
-		            		if (! "#text".equals(child.getNodeName()))
-		            			continue; // @attribute has already registered as a grand child in the procedure below if clause.
+//		            		if (! "#text".equals(child.getNodeName()))
+//		            			continue; // @attribute has already registered as a grand child in the procedure below if clause.
 	            			System.out.println("* 1 fill Data child["+i+"]"+childID+"("+childSort+")"+child.getNodeName()+"="+value);
 		            		
 			            	fillData(childSort, value, boughMap);
