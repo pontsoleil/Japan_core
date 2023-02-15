@@ -24,9 +24,10 @@ public class Csv2invoice {
 	static String OUT_XML                   = "CIUS/data/xml/Example1_out.xml";
 	static String IN_CSV                    = "CIUS/data/csv/Example1.csv";
 	static String CHARSET                   = "UTF-8";
-	static String DOCUMENT_CURRENCY_CODE_ID = "ibt-005";
-	static String TAX_CURRENCY_CODE_ID      = "ibt-006";
 	
+	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-042"; /*文書通貨コード*/
+	static String TAX_CURRENCY_CODE_ID      = "JBT-041"; /*税通貨コード*/
+
     // CSV records
 	/**
 	 * Tidy dataの行データ.
@@ -107,9 +108,10 @@ public class Csv2invoice {
  	 */
 	public static void main(String[] args) 
 	{
-//		processCSV("CIUS/data/csv/Example1.csv", "CIUS/data/xml/Example1_out.xml");
+		FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
+		processCSV("CIUS/data/csv/Example1.csv", "CIUS/data/xml/Example1_out.xml");
 //		processCSV("CIUS/data/csv/Example2-TaxAcctCur.csv","CIUS/data/xml/Example2-TaxAcctCur_out.xml");
-		processCSV("CIUS/data/csv/Example3-0.csv","CIUS/data/xml/Example3-0_out.xml");
+//		processCSV("CIUS/data/csv/Example3-0.csv","CIUS/data/xml/Example3-0_out.xml");
 //		processCSV("CIUS/data/csv/Example3-SumInv1.csv","CIUS/data/xml/Example3-SumInv1_out.xml");
 //		processCSV("CIUS/data/csv/Example4-SumInv2.xsv","CIUS/data/xml/Example4-SumInv2_out.xml");
 //		processCSV("CIUS/data/csv/Example5-AllowanceCharge0.csv","CIUS/data/xml/Example5-AllowanceCharge0_out.xml");
