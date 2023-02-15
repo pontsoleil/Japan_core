@@ -48,14 +48,21 @@ import wuwei.japan_core.utils.NamespaceResolver;
  * 物理ファイルとの入出力とその為のデータ変換を制御するクラス
  */
 public class FileHandler {
-	static String JP_PINT_CSV                = "CIUS/data/base/jp_pint.csv";
+	static String CORE_CSV;
+	static String JP_PINT_CSV                = "CIUS/data/base/jp_pint_binding.csv";
 	static String JP_PINT_XML_SKELTON        = "CIUS/data/base/jp_pint_skeleton.xml";
+	static String SME_CSV                    = "CIUS/data/base/sme_binding.csv";
+	static String SME_XML_SKELTON            = "CIUS/data/base/sme_skeleton.xml";
 	
 	public static Document doc               = null;
 	public static XPath xpath                = null;
 	public static Element root               = null;
-	public static String ROOT_ID             = "ibg-00";
-	public static String[] MULTIPLE_ID       = {"ibg-20", "ibg-21", "ibg-23", "ibg-25","ibg-27", "ibg-28"};
+	public static String ROOT_ID             = "JBG-00";
+//	public static String PINT_ROOT_ID        = "ibg-00";
+//	public static String SME_ROOT_ID         = "JBG-00";
+	public static String[] MULTIPLE_ID       = {"JBG-01","JBG-02","JBG-03","JBG-16","JBG-18","JBG-32","JBG-39","JBG-43","JBG-44","JBG-45","JBG-47","JBG-21","JBG-35","JBG-36","JBG-37","JBG-38","JBG-26","JBG-27","JBG-28","JBG-29","JBG-30","JBG-33","JBG-34","JBG-35","JBG-36","JBG-31","JBG-32","JBG-34","JBG-35","JBG-38","JBG-41","JBG-46","JBG-47","JBG-48"};
+	public static String[] PINT_MULTIPLE_ID  = {"ibg-20", "ibg-21", "ibg-23", "ibg-25","ibg-27", "ibg-28"};
+	public static String[] SME_MULTIPLE_ID   = {"ICL2","ICL3","ICL4","ICL43","ICL45","ICL31","ICL36","ICL40","ICL41","ICL42","ICL45","ICL47","ICL58","ICL59","ICL60","ICL61","ICL56","ICL69","ICL55","ICL62","ICL62","ICL67","ICL67","ICL73","ICL74","ICL91","ICL84","ICL77","ICL85","ICL86","ICL87"};
 	public static HashMap<String, String> nsURIMap = null;
 	
 	/**
@@ -90,6 +97,7 @@ public class FileHandler {
     public static void main(String[] args) 
     {
     	String IN_XML = "data/xml/Example1.xml";
+    	CORE_CSV = JP_PINT_CSV;
     	
 		parseBinding();
 		parseInvoice(IN_XML);
@@ -221,7 +229,7 @@ public class FileHandler {
 		Binding[] bindingParent = new Binding[10];
 		ArrayList<ArrayList<String>> binding_data = new ArrayList<>();
 		try {
-			FileInputStream fileInputStream = new FileInputStream(JP_PINT_CSV);
+			FileInputStream fileInputStream = new FileInputStream(CORE_CSV);
 			binding_data = CSV.readFile(fileInputStream, "UTF-8");
 			ArrayList<String> headers = binding_data.get(0);
 			for (int n=1; n < binding_data.size(); n++) {
@@ -249,6 +257,7 @@ public class FileHandler {
 						break;
 					case "level":
 						binding.setLevel(value);
+//						binding.setLevel(Integer.toString(Integer.parseInt(value) - 1));
 						break;
 					case "businessTerm":
 						binding.setBT(value);
@@ -696,12 +705,12 @@ public class FileHandler {
 			int last = path.lastIndexOf("]");
 			if (start >= 0) {
 				String selector = path.substring(start, last+1);
-				String header = strippedPath.substring(0, start);
+				String hdr = strippedPath.substring(0, start);
 				if (start+1 > strippedPath.length()) {
-					resumedPath = header + selector;
+					resumedPath = hdr + selector;
 				} else {
 					String trailer = strippedPath.substring(start+1, strippedPath.length());
-					resumedPath = header + selector + "/" + trailer;
+					resumedPath = hdr + selector + "/" + trailer;
 				}
 			}
 		}
