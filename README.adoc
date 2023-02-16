@@ -5,18 +5,18 @@
 .core_japan.csv
 [format="csv"]
 ,====
-include::CIUS/data/base/core_japan.csv[lines=1..10]
+include::data/base/core_japan.csv[lines=1..10]
 ,====
 
 .jp_pint_binding.csv
 [format="csv"]
 ,====
-include::CIUS/data/base/jp_pint_binding.csv[lines=1..10]
+include::data/base/jp_pint_binding.csv[lines=1..10]
 ,====
 
 .sme_binding.csv
 [format="csv"]
 ,====
-include::CIUS/data/base/sme_binding.csv[lines=1..10]
+include::data/base/sme_binding.csv[lines=1..10]
 ,====
 
