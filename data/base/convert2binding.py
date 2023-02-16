@@ -82,7 +82,7 @@ if __name__ == '__main__':
 				jp_pint_entry['desc'] = desc
 				jp_pint_entry['dataType'] = row['datatype']
 				jp_pint_entry['syntaxID'] = row['pint_Id']
-				jp_pint_entry['businessTerm_ja'] = row['pint_name_ja']
+				jp_pint_entry['businessTerm_ja'] = row['pint_name']
 				jp_pint_entry['desc_ja'] = pint_desc
 				jp_pint_entry['synSort'] = row['pint_sort'] and int(row['pint_sort']) or 0
 				jp_pint_entry['xPath'] = row['pint_xpath']
