@@ -14,8 +14,8 @@ import org.w3c.dom.Node;
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
  */
 public class Invoice2csv {
-	static String IN_XML = "CIUS/data/xml/Example1.xml";
-	static String OUT_CSV = "CIUS/data/csv/Example1.csv";
+	static String IN_XML = "data/xml/Example1.xml";
+	static String OUT_CSV = "data/csv/Example1.csv";
 	static String CHARSET = "UTF-8";
 
 	/**
@@ -43,17 +43,17 @@ public class Invoice2csv {
     public static void main(String[] args) {
     	FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
 
-//		processInvoice("CIUS/data/xml/Example0.xml", "CIUS/data/csv/Example0.csv");
-		 processInvoice("CIUS/data/xml/Example1.xml", "CIUS/data/csv/Example1.csv");
-//		 processInvoice("CIUS/data/xml/Example2-TaxAcctCur.xml", "CIUS/data/csv/Example2-TaxAcctCur.csv");
-//		 processInvoice("CIUS/data/xml/Example3-0.xml", "CIUS/data/csv/Example3-0.csv");
-//		 processInvoice("CIUS/data/xml/Example3-SumInv1.xml", "CIUS/data/csv/Example3-SumInv1.csv");
-//		 processInvoice("CIUS/data/xml/Example4-SumInv2.xml", "CIUS/data/csv/Example4-SumInv2.xsv");
-//		 processInvoice("CIUS/data/xml/Example5-AllowanceCharge0.xml", "CIUS/data/csv/Example5-AllowanceCharge0.csv");
-//		 processInvoice("CIUS/data/xml/Example5-AllowanceCharge.xml", "CIUS/data/csv/Example5-AllowanceCharge.csv");
-//		 processInvoice("CIUS/data/xml/Example6-CorrInv.xml", "CIUS/data/csv/Example6-CorrInv.csv");
-//		 processInvoice("CIUS/data/xml/Example7-Return.Quan.xml", "CIUS/data/csv/Example7-Return.Quan.csv");
-//		 processInvoice("CIUS/data/xml/Example8-Return.ItPr.xml", "CIUS/data/csv/Example8-Return.ItPr.csv");
+//		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
+		 processInvoice("data/xml/Example1.xml", "data/csv/Example1.csv");
+//		 processInvoice("data/xml/Example2-TaxAcctCur.xml", "data/csv/Example2-TaxAcctCur.csv");
+//		 processInvoice("data/xml/Example3-0.xml", "data/csv/Example3-0.csv");
+//		 processInvoice("data/xml/Example3-SumInv1.xml", "data/csv/Example3-SumInv1.csv");
+//		 processInvoice("data/xml/Example4-SumInv2.xml", "data/csv/Example4-SumInv2.xsv");
+//		 processInvoice("data/xml/Example5-AllowanceCharge0.xml", "data/csv/Example5-AllowanceCharge0.csv");
+//		 processInvoice("data/xml/Example5-AllowanceCharge.xml", "data/csv/Example5-AllowanceCharge.csv");
+//		 processInvoice("data/xml/Example6-CorrInv.xml", "data/csv/Example6-CorrInv.csv");
+//		 processInvoice("data/xml/Example7-Return.Quan.xml", "data/csv/Example7-Return.Quan.csv");
+//		 processInvoice("data/xml/Example8-Return.ItPr.xml", "data/csv/Example8-Return.ItPr.csv");
 		 System.out.println("** END Invoice2csv**");
 	}
 	
