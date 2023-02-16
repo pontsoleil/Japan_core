@@ -49,10 +49,10 @@ import wuwei.japan_core.utils.NamespaceResolver;
  */
 public class FileHandler {
 	static String CORE_CSV;
-	static String JP_PINT_CSV                = "CIUS/data/base/jp_pint_binding.csv";
-	static String JP_PINT_XML_SKELTON        = "CIUS/data/base/jp_pint_skeleton.xml";
-	static String SME_CSV                    = "CIUS/data/base/sme_binding.csv";
-	static String SME_XML_SKELTON            = "CIUS/data/base/sme_skeleton.xml";
+	static String JP_PINT_CSV                = "data/base/jp_pint_binding.csv";
+	static String JP_PINT_XML_SKELTON        = "data/base/jp_pint_skeleton.xml";
+	static String SME_CSV                    = "data/base/sme_binding.csv";
+	static String SME_XML_SKELTON            = "data/base/sme_skeleton.xml";
 	
 	public static Document doc               = null;
 	public static XPath xpath                = null;
@@ -237,11 +237,13 @@ public class FileHandler {
 				// semSort,id,card,level,businessTerm,desc,dataType,businessTerm_ja,desc_ja,synSort,element,synDatatype,xPath,occur
 				// 1       2  3    4     5            6    7        8               9       10      11      12          13    14				
 				Binding binding = new Binding(0, "", "", "", "", "", 0, "", "");
-				for (int i = 0; i < headers.size(); i++) {
+				for (int i = 0; i < cells.size(); i++) {
 					String key = headers.get(i);
 					if (0==i) {
 						key	= key.replace("\uFEFF", "");
 					}
+//					if (cells.size() < headers.size())
+//						System.out.println("cells.size() < headers.size()");
 					String value = cells.get(i);
 					Integer order = -1;
 					switch (key) {
