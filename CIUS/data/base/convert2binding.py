@@ -71,7 +71,7 @@ if __name__ == '__main__':
 			desc = row['desc']
 			# if len(desc.splitlines()) > 1:#len(desc)>0 and '\n' in desc:
 			# 	desc = desc.replace('\n','\\n')
-			if len(row['pint_sort'])>0:
+			if 'JBG'==row['id'][:3] or len(row['pint_sort'])>0:
 				pint_desc = row['pint_desc']
 				jp_pint_entry = {}
 				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 				jp_pint_entry['xPath'] = row['pint_xpath']
 				jp_pint_entry['occur'] = row['pint_card']
 				jp_pint_entries.append(jp_pint_entry)
-			if len(row['sme_sort'])>0:
+			if 'JBG'==row['id'][:3] or len(row['sme_sort'])>0:
 				sme_desc = row['sme_desc']
 				# if len(sme_desc.splitlines()) > 1:
 				# 	sme_desc = sme_desc.replace('\n','\\n')				
