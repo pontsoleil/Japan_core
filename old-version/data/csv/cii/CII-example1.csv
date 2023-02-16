@@ -1,0 +1,13 @@
+,,,,,ibg-16,ibg-16,ibg-23,ibg-23,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25,ibg-25
+,,,,,PAYMENT INSTRUCTIONS,PAYMENT INSTRUCTIONS,TAX BREAKDOWN,TAX BREAKDOWN,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE,INVOICE LINE
+,,,,,0,1,0,1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
+ibt-001,1,1..1,Invoice number,12115118,,,,,,,,,,,,,,,,,,,,,,,,
+ibt-002,1,1..1,Invoice issue date,20150109,,,,,,,,,,,,,,,,,,,,,,,,
+ibt-003,1,1..1,Invoice type code,380,,,,,,,,,,,,,,,,,,,,,,,,
+ibt-005,1,1..1,Invoice currency code,EUR,,,,,,,,,,,,,,,,,,,,,,,,
+ibt-009,1,0..1,Payment due date,20150109,,,,,,,,,,,,,,,,,,,,,,,,
+ibt-022,1,0..1,Invoice note,"Alle leveringen zijn franco. Alle prijzen zijn incl. BTW. Betalingstermijn: 14 dagen netto. Prijswijzigingen voorbehouden. Op al onze aanbiedingen, leveringen en overeenkomsten zijn van toepassing in de algemene verkoop en leveringsvoorwaarden. Gedeponeerd bij de K.v.K. te Amsterdam 25-04-'85.",,,,,,,,,,,,,,,,,,,,,,,,
+ibg-04,1,1..1,SELLER,,,,,,,,,,,,,,,,,,,,,,,,,
+ibt-027,2,1..1,Seller name,De Koksmaat,,,,,,,,,,,,,,,,,,,,,,,,
+ibt-030,2,0..1,Seller legal registration identifier,57151520,,,,,,,,,,,,,,,,,,,,,,,,
+ibt-031,2,0..1,Seller TAX identifier,NL8200.98.395.B.01,,,,,,,,,,,,,,,,,,,,,,,,
