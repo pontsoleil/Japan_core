@@ -1,259 +1,272 @@
-﻿semSort,id,card,level,businessTerm,desc,dataType,syntaxID,businessTerm_ja,desc_ja,synSort,element,synDatatype,xPath,occur
+semSort,id,card,level,businessTerm,desc,dataType,syntaxID,businessTerm_ja,desc_ja,synSort,element,synDatatype,xPath,occur
 1,JBG-00,－,0,統合請求書,売り手が発注者に交付する月締め統合請求文書（メッセージ）,__,IBG-00,Invoice,,1000,,,/Invoice,－
 6,JBT-003,1..1,1,取引プロセス識別子,"取引プロセスの識別子(ID)
 共通EDIプロバイダがプロセスをセットする",Code,IBT-023,Business process type,取引プロセスの名称。買い手が適切な方法で請求書を処理することができるように、取引が行われたビジネスプロセスを識別する。,1280,,,/Invoice/cbc:ProfileID,1..1
-18,JBT-010,1..1,1,業務領域識別子,SIPSが付与したメッセージ業務領域識別子(ID),Code,IBT-024,Specification identifier,取引プロセスのID。セマンティックコンテンツ、カーディナリティや、インスタンス文書に含まれているデータが準拠すべきビジネスルールに関するルール一式を含む、仕様を識別する。,1290,,,/Invoice/cbc:CustomizationID,1..1
-23,JBT-014,0..1,1,課税基準日,,Date,IBT-007,TAX point date,0,1070,,,/Invoice/cbc:TaxPointDate,0..1
-24,JBT-015,0..1,1,課税基準日コード,売り手、買い手が税を記帳する日付が何であるかを示すコード。,Code,IBT-008,TAX point date code,売り手、買い手が税を記帳する日付が何であるかを示すコード。,1080,,,/Invoice/cac:InvoicePeriod/cbc:DescriptionCode,0..1
-25,JBT-016,0..1,1,支払期日,支払条件で示された支払期日。,Date,IBT-009,Payment due date,支払条件で示された支払期日。,1090,,,/Invoice/cbc:DueDate,0..1
-26,JBT-017,0..1,1,買い手参照,買い手によって割り当てられたIDで、買い手の請求書精算業務の処理ワークフローで使用する。,Text,IBT-010,Buyer reference,買い手によって割り当てられたIDで、買い手の請求書精算業務の処理ワークフローで使用する。,1100,,,/Invoice/cbc:BuyerReference,0..1
-28,JBT-018,1..1,1,インボイス文書番号,インボイス文書を識別する文書番号または文書文字列,Identifier,IBT-001,Invoice number,請求書の一意識別番号。,1010,,,/Invoice/cbc:ID,1..1
-30,JBT-020,1..1,1,インボイス文書タイプコード,"インボイス文書のタイプを識別するコード
+18,JBT-011,1..1,1,業務領域識別子,SIPSが付与したメッセージ業務領域識別子(ID),Code,IBT-024,Specification identifier,取引プロセスのID。セマンティックコンテンツ、カーディナリティや、インスタンス文書に含まれているデータが準拠すべきビジネスルールに関するルール一式を含む、仕様を識別する。,1290,,,/Invoice/cbc:CustomizationID,1..1
+23,JBT-015,0..1,1,課税基準日,,Date,IBT-007,TAX point date,0,1070,,,/Invoice/cbc:TaxPointDate,0..1
+24,JBT-016,0..1,1,課税基準日コード,売り手、買い手が税を記帳する日付が何であるかを示すコード。,Code,IBT-008,TAX point date code,売り手、買い手が税を記帳する日付が何であるかを示すコード。,1080,,,/Invoice/cac:InvoicePeriod/cbc:DescriptionCode,0..1
+25,JBT-017,0..1,1,支払期日,支払条件で示された支払期日。,Date,IBT-009,Payment due date,支払条件で示された支払期日。,1090,,,/Invoice/cbc:DueDate,0..1
+26,JBT-018,0..1,1,買い手参照,買い手によって割り当てられたIDで、買い手の請求書精算業務の処理ワークフローで使用する。,Text,IBT-010,Buyer reference,買い手によって割り当てられたIDで、買い手の請求書精算業務の処理ワークフローで使用する。,1100,,,/Invoice/cbc:BuyerReference,0..1
+28,JBT-019,1..1,1,インボイス文書番号,インボイス文書を識別する文書番号または文書文字列,Identifier,IBT-001,Invoice number,請求書の一意識別番号。,1010,,,/Invoice/cbc:ID,1..1
+30,JBT-021,1..1,1,インボイス文書タイプコード,"インボイス文書のタイプを識別するコード
 デフォルトは「合算請求書パターン１」",Code,IBT-003,Invoice type code,この文書のタイプを識別するコード。請求書の機能を特定するためのコード。,1040,,,/Invoice/cbc:InvoiceTypeCode,1..1
-31,JBT-021,1..1,1,インボイス文書発効日,インボイス文書の発行日付，またはインボイス文書の書面上の発行日付。,Date,IBT-002,Invoice issue date,請求書の発行日付。,1020,,,/Invoice/cbc:IssueDate,1..1
-32,JBT-022,0..1,1,インボイス文書発効時刻,インボイス文書の発行時刻，またはインボイス文書の書面上の発行異国。,Time,IBT-168,Invoice issue time,請求書の発行時刻。,1030,,,/Invoice/cbc:IssueTime,0..1
-39,JBT-029,0..1,1,インボイス文書注釈内容,注釈項目毎の内容情報を入力するフリースペース。,Text,IBT-022,Invoice note,注釈の内容を入力するフリースペース。,1260,,,/Invoice/cbc:Note,0..1
+31,JBT-022,1..1,1,インボイス文書発効日,インボイス文書の発行日付，またはインボイス文書の書面上の発行日付。,Date,IBT-002,Invoice issue date,請求書の発行日付。,1020,,,/Invoice/cbc:IssueDate,1..1
+32,JBT-023,0..1,1,インボイス文書発効時刻,インボイス文書の発行時刻，またはインボイス文書の書面上の発行異国。,Time,IBT-168,Invoice issue time,請求書の発行時刻。,1030,,,/Invoice/cbc:IssueTime,0..1
+39,JBT-030,0..1,1,インボイス文書注釈内容,注釈項目毎の内容情報を入力するフリースペース。,Text,IBT-022,Invoice note,注釈の内容を入力するフリースペース。,1260,,,/Invoice/cbc:Note,0..1
 41,JBG-01,0..n,1,ヘッダ参照文書,インボイス文書が参照する文書クラス,__,IBG-24,ADDITIONAL SUPPORTING DOCUMENTS,請求書内で行われたクレームを実証する添付書類についての情報を提供するビジネス用語のグループ。,2870,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')],0..n
-42,JBT-031,1..1,2,ヘッダ参照文書番号,インボイス文書が参照する参照文書の番号,Document Reference,IBT-122,Supporting document reference,添付書類のID。,2880,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:ID,1..1
-46,JBT-035,0..1,2,ヘッダ参照文書情報,インボイス文書が参照する参照文書に記載の情報,Text,IBT-123,Supporting document description,添付書類の説明。,2890,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:DocumentDescription,0..1
-51,JBT-036,0..1,2,添付書類,添付書類のバイナリファイル,Binary object,IBT-125,Attached document,バイナリオブジェクトとして埋め込まれた、または請求書と一緒に送られた添付書類。,2900,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment,0..1
-53,JBT-038,1..1,2,添付バイナリファイルのMIMEコード,添付バイナリファイルのMIMEコード,Code,ibt-125-1,Attached document Mime code,"許可されているMIMEコード:
+42,JBT-032,1..1,2,ヘッダ参照文書番号,インボイス文書が参照する参照文書の番号,Document Reference,IBT-122,Supporting document reference,添付書類のID。,2880,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:ID,1..1
+46,JBT-036,0..1,2,ヘッダ参照文書情報,インボイス文書が参照する参照文書に記載の情報,Text,IBT-123,Supporting document description,添付書類の説明。,2890,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:DocumentDescription,0..1
+50,JBG-02,0..n,1,添付バイナリファイル,添付バイナリファイルを記述するためのクラス,__,,,,0,,,,
+51,JBT-040,0..1,2,添付書類,添付書類のバイナリファイル,Binary object,IBT-125,Attached document,バイナリオブジェクトとして埋め込まれた、または請求書と一緒に送られた添付書類。,2900,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment,0..1
+53,JBT-042,1..1,2,添付バイナリファイルのMIMEコード,添付バイナリファイルのMIMEコード,Code,ibt-125-1,Attached document Mime code,"許可されているMIMEコード:
 application/pdf
 image/png
 image/jpeg
 text/csv
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 application/vnd.oasis.opendocument. Spreadsheet",2910,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode,1..1
-54,JBT-039,0..1,2,添付バイナリファイル名,添付バイナリファイルの名称,Text,ibt-125-2,Attached document Filename,ー,2920,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename,1..1
-55,JBT-040,0..1,2,添付バイナリファイルURI識別子,添付バイナリファイルの外部保管URI識別子,Code,IBT-124,External document location,外部ドキュメントの所在を示すURL（ユニフォームリソースロケータ）,2930,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cac:ExternalReference/cbc:URI,0..1
+54,JBT-043,0..1,2,添付バイナリファイル名,添付バイナリファイルの名称,Text,ibt-125-2,Attached document Filename,ー,2920,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename,1..1
+55,JBT-044,0..1,2,添付バイナリファイルURI識別子,添付バイナリファイルの外部保管URI識別子,Code,IBT-124,External document location,外部ドキュメントの所在を示すURL（ユニフォームリソースロケータ）,2930,,,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cac:ExternalReference/cbc:URI,0..1
 57,JBG-03,1..1,1,売り手,売り手に関する情報のグループ,__,IBG-04,SELLER,売り手に係る情報を提供するビジネス用語のグループ。,1330,,,/Invoice/cac:AccountingSupplierParty,1..1
-58,JBT-042,1..1,2,売り手コード,注文を受ける企業/工場・事業所・事業部門等を表すコード。デフォルトはデータなし。,Identifier,IBT-029,Seller identifier,売り手を表すID。,1360,,,"/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[not(@schemeID=""SEPA"")]",0..n
-59,JBT-042-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-029-1,Seller identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC6523保守機関として公開されているリストから選択しなければならない。,1370,,,"/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[not(@schemeID=""SEPA"")]/@schemeID",0..1
-60,JBT-043,0..1,2,売り手国際企業コード,注文を受ける企業を表す国際企業コード。中小企業共通EDIでは法人番号を利用,Identifier,IBT-030,Seller legal registration identifier,公的機関が発行した売り手を法人や個人として識別するID。,1380,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID,0..1
-61,JBT-043-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-030-1,Seller legal registration identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC 6523 保守機関が公開しているリストから選択しなければならない。,1390,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID,0..1
-62,JBT-044,1..1,2,売り手名称,注文を受ける企業/工場・事業所・事業部門等を表す名称。適格請求書、または区分記載請求書を発行する事業者名。,Text,IBT-027,Seller name,売り手が所在国の法人登録簿に法人、または課税対象者として登録されている、またはその他の方法で1人または複数の人として登録されている完全な正式名称。,1340,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName,1..1
-63,JBT-045,0..1,2,売り手商号,売り手名称以外で、知られているビジネス上の名称（商号ともよばれる）。,Text,IBT-028,Seller trading name,売り手名称以外で、知られているビジネス上の名称（商号ともよばれる）。,1350,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyName/cbc:Name,0..1
-64,JBT-046,1..1,2,適格請求書発行事業者登録番号,"国税庁へ登録された適格請求書発行事業者登録番号（区分記載請求書発行者についてはなし）
+58,JBT-046,1..1,2,売り手コード,注文を受ける企業/工場・事業所・事業部門等を表すコード。デフォルトはデータなし。,Identifier,IBT-029,Seller identifier,売り手を表すID。,1360,,,"/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[not(@schemeID=""SEPA"")]",0..n
+59,JBT-046-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-029-1,Seller identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC6523保守機関として公開されているリストから選択しなければならない。,1370,,,"/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[not(@schemeID=""SEPA"")]/@schemeID",0..1
+60,JBT-047,0..1,2,売り手国際企業コード,注文を受ける企業を表す国際企業コード。中小企業共通EDIでは法人番号を利用,Identifier,IBT-030,Seller legal registration identifier,公的機関が発行した売り手を法人や個人として識別するID。,1380,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID,0..1
+61,JBT-047-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-030-1,Seller legal registration identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC 6523 保守機関が公開しているリストから選択しなければならない。,1390,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID,0..1
+62,JBT-048,1..1,2,売り手名称,注文を受ける企業/工場・事業所・事業部門等を表す名称。適格請求書、または区分記載請求書を発行する事業者名。,Text,IBT-027,Seller name,売り手が所在国の法人登録簿に法人、または課税対象者として登録されている、またはその他の方法で1人または複数の人として登録されている完全な正式名称。,1340,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName,1..1
+63,JBT-049,0..1,2,売り手商号,売り手名称以外で、知られているビジネス上の名称（商号ともよばれる）。,Text,IBT-028,Seller trading name,売り手名称以外で、知られているビジネス上の名称（商号ともよばれる）。,1350,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyName/cbc:Name,0..1
+64,JBT-050,1..1,2,適格請求書発行事業者登録番号,"国税庁へ登録された適格請求書発行事業者登録番号（区分記載請求書発行者についてはなし）
 T1234567890123",Identifier,IBT-031,Seller TAX identifier,売り手の税ID(売り手の税識別番号ともよばれる）。,1400,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID,0..1
-65,JBT-047,1..1,2,売り手タイプコード,適格請求書発行事業者の課税区分を識別するコード,Identifier,IBT-032,Seller TAX registration identifier,税務上の売り手の所在地における登録ID（売り手の住所で定義された値）。または売り手が登録済みの税務状況を示すことを可能にする参照ID。,1410,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID!='VAT']/cbc:CompanyID,0..1
-67,JBT-049,1..1,2,国際アドレス,jp-pint対応国際アドレス番号,Code,IBT-034,Seller electronic address,請求書に対するアプリケーションレベルの応答が配信される売り手の電子アドレスを識別する。,1430,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID,1..1
-68,JBT-048,1..1,3,国際アドレス登録機関コード,JP-PINT対応国際アドレス登録機関のコード,Identifier,IBT-034-1,Seller electronic address Scheme identifier,スキーマIDは、Connecting Europe Facility (CEF) が管理するリストから選択しなければならない。,1440,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID/@schemeID,1..1
+65,JBT-051,1..1,2,売り手タイプコード,適格請求書発行事業者の課税区分を識別するコード,Identifier,IBT-032,Seller TAX registration identifier,税務上の売り手の所在地における登録ID（売り手の住所で定義された値）。または売り手が登録済みの税務状況を示すことを可能にする参照ID。,1410,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID!='VAT']/cbc:CompanyID,0..1
+67,JBT-053,1..1,2,国際アドレス,jp-pint対応国際アドレス番号,Code,IBT-034,Seller electronic address,請求書に対するアプリケーションレベルの応答が配信される売り手の電子アドレスを識別する。,1430,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID,1..1
+68,JBT-052,1..1,3,国際アドレス登録機関コード,JP-PINT対応国際アドレス登録機関のコード,Identifier,IBT-034-1,Seller electronic address Scheme identifier,スキーマIDは、Connecting Europe Facility (CEF) が管理するリストから選択しなければならない。,1440,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cbc:EndpointID/@schemeID,1..1
 69,JBG-05,0..1,2,売り手連絡先,連絡先に関する情報のグループ,__,IBG-06,SELLER CONTACT,売り手の連絡先に係る情報を提供するビジネス用語のグループ。,1540,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact,0..1
-71,JBT-051,0..1,3,売り手担当名,売り手連絡先の個人の、文字で表現された名前。,Text,IBT-041,Seller contact point,売り手の連絡先の個人の、文字で表現された名前（部門名を含む）。,1550,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:Name,0..1
-72,JBT-052,0..1,3,売り手部門名,売り手の受注部門の名称。,Text,IBT-041,Seller contact point,売り手の連絡先の個人の、文字で表現された名前（部門名を含む）。,1550,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:Name,0..1
-74,JBT-054,0..1,3,売り手電話番号,売り手の電話番号。,Code,IBT-042,Seller contact telephone number,売り手の連絡先電話番号。,1560,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:Telephone,0..1
-76,JBT-056,0..1,3,売り手メールアドレス,売り手の電子メールアドレス。,Text,IBT-043,Seller contact email address,売り手の連絡先電子メールアドレス。,1570,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:ElectronicMail,0..1
+71,JBT-055,0..1,3,売り手担当名,売り手連絡先の個人の、文字で表現された名前。,Text,IBT-041,Seller contact point,売り手の連絡先の個人の、文字で表現された名前（部門名を含む）。,1550,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:Name,0..1
+72,JBT-056,0..1,3,売り手部門名,売り手の受注部門の名称。,Text,IBT-041,Seller contact point,売り手の連絡先の個人の、文字で表現された名前（部門名を含む）。,1550,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:Name,0..1
+74,JBT-058,0..1,3,売り手電話番号,売り手の電話番号。,Code,IBT-042,Seller contact telephone number,売り手の連絡先電話番号。,1560,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:Telephone,0..1
+76,JBT-060,0..1,3,売り手メールアドレス,売り手の電子メールアドレス。,Text,IBT-043,Seller contact email address,売り手の連絡先電子メールアドレス。,1570,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:ElectronicMail,0..1
 77,JBG-06,0..1,2,売り手住所,売り手住所に関する情報のグループ,__,IBG-05,SELLER POSTAL ADDRESS,売り手の住所に関する情報を提供するビジネス用語のグループ。,1460,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress,1..1
-78,JBT-057,0..1,3,売り手郵便番号,売り手の郵便番号。,Code,IBT-038,Seller post code,売り手の住所の郵便番号。,1510,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone,0..1
-79,JBT-058,0..1,3,売り手住所1,売り手の住所1行目。,Text,IBT-035,Seller address line 1,売り手の住所の主な記載欄。,1470,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName,0..1
-80,JBT-059,0..1,3,売り手住所2,売り手の住所2行目。,Text,IBT-036,Seller address line 2,売り手の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,1480,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName,0..1
-81,JBT-060,0..1,3,売り手住所3,売り手の住所3行目。,Text,IBT-162,Seller address line 3,売り手の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,1490,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line,0..1
-82,JBT-061,0..1,3,売り手住所 市区町村,売り手が所在する市、町、村の通称。,Text,IBT-037,Seller city,売り手が所在する市、町、村の通称。,1500,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName,0..1
-83,JBT-062,1..1,3,売り手国識別子,売り手の国ID。デフォルトは「JP」,Code,IBT-040,Seller country code,売り手の住所の国コード。,1530,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode,1..1
-84,JBT-063,0..1,3,売り手住所 都道府県,売り手の住所の地方区分。,Text,IBT-039,Seller country subdivision,売り手の住所の地方区分。,1520,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity,0..1
+78,JBT-061,0..1,3,売り手郵便番号,売り手の郵便番号。,Code,IBT-038,Seller post code,売り手の住所の郵便番号。,1510,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone,0..1
+79,JBT-062,0..1,3,売り手住所1,売り手の住所1行目。,Text,IBT-035,Seller address line 1,売り手の住所の主な記載欄。,1470,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName,0..1
+80,JBT-063,0..1,3,売り手住所2,売り手の住所2行目。,Text,IBT-036,Seller address line 2,売り手の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,1480,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName,0..1
+81,JBT-064,0..1,3,売り手住所3,売り手の住所3行目。,Text,IBT-162,Seller address line 3,売り手の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,1490,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line,0..1
+82,JBT-065,0..1,3,売り手住所 市区町村,売り手が所在する市、町、村の通称。,Text,IBT-037,Seller city,売り手が所在する市、町、村の通称。,1500,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName,0..1
+83,JBT-066,1..1,3,売り手国識別子,売り手の国ID。デフォルトは「JP」,Code,IBT-040,Seller country code,売り手の住所の国コード。,1530,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode,1..1
+84,JBT-067,0..1,3,売り手住所 都道府県,売り手の住所の地方区分。,Text,IBT-039,Seller country subdivision,売り手の住所の地方区分。,1520,,,/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity,0..1
 85,JBG-07,1..1,1,買い手,買い手に関する情報のグループ,__,IBG-07,BUYER,買い手に係る情報を提供するビジネス用語のグループ。,1580,,,/Invoice/cac:AccountingCustomerParty,1..1
-86,JBT-064,1..1,2,買い手コード,注文を行う企業/工場・事業所・事業部門等を表すコード。デフォルトはデータなし。,Identifier,IBT-046,Buyer identifier,買い手を表すID。,1610,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID,0..1
-87,JBT-064-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-046-1,Buyer identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC6523保守機関として公開されているリストから選択しなければならない。,1620,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID,0..1
-88,JBT-065,0..1,2,買い手国際企業コード,注文を行う企業を表す国際企業コード。中小企業共通EDIでは法人番号を利用,Identifier,IBT-047,Buyer legal registration identifier,買い手を表す法人ID。,1630,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID,0..1
-89,JBT-065-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-047-1,Buyer legal registration identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC6523保守機関として公開されているリストから選択しなければならない。,1640,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID,0..1
-90,JBT-066,1..1,2,買い手名称,発注を行う企業/工場・事業所・事業部門等の名称,Text,IBT-044,Buyer name,買い手の名称。,1590,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName,1..1
-91,JBT-067,0..1,2,買い手商号,買い手名称以外で、知られているビジネス上の名称。,Text,IBT-045,Buyer trading name,買い手名称以外で、知られているビジネス上の名称。,1600,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyName/cbc:Name,0..1
-92,JBT-068,0..1,2,適格請求書発行事業者登録番号,"登録された買い手の適格請求書発行事業者登録番号
+86,JBT-068,1..1,2,買い手コード,注文を行う企業/工場・事業所・事業部門等を表すコード。デフォルトはデータなし。,Identifier,IBT-046,Buyer identifier,買い手を表すID。,1610,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID,0..1
+87,JBT-068-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-046-1,Buyer identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC6523保守機関として公開されているリストから選択しなければならない。,1620,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID,0..1
+88,JBT-069,0..1,2,買い手国際企業コード,注文を行う企業を表す国際企業コード。中小企業共通EDIでは法人番号を利用,Identifier,IBT-047,Buyer legal registration identifier,買い手を表す法人ID。,1630,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID,0..1
+89,JBT-069-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-047-1,Buyer legal registration identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC6523保守機関として公開されているリストから選択しなければならない。,1640,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID,0..1
+90,JBT-070,1..1,2,買い手名称,発注を行う企業/工場・事業所・事業部門等の名称,Text,IBT-044,Buyer name,買い手の名称。,1590,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName,1..1
+91,JBT-071,0..1,2,買い手商号,買い手名称以外で、知られているビジネス上の名称。,Text,IBT-045,Buyer trading name,買い手名称以外で、知られているビジネス上の名称。,1600,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyName/cbc:Name,0..1
+92,JBT-072,0..1,2,適格請求書発行事業者登録番号,"登録された買い手の適格請求書発行事業者登録番号
 （免税事業者についてはなし）",Identifier,IBT-048,Buyer TAX identifier,買い手の税ID番号。日本の場合は、適格請求書発行事業者登録番号。,1650,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID,0..1
-95,JBT-070,1..1,2,国際アドレス,jp-pint対応国際EDIアドレス番号,Code,IBT-049,Buyer electronic address,請求書の送信先となる買い手の電子アドレスを識別する。,1660,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID,1..1
-96,JBT-070-1,1..1,3,国際アドレス登録機関コード,JP-PINT対応国際EDIアドレス登録機関のコード,Identifier,IBT-049-1,Buyer electronic address Scheme identifier,スキーマIDは、Connecting Europe Facility (CEF) が管理するリストから選択しなければならない。,1670,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID/@schemeID,1..1
+95,JBT-074,1..1,2,国際アドレス,jp-pint対応国際EDIアドレス番号,Code,IBT-049,Buyer electronic address,請求書の送信先となる買い手の電子アドレスを識別する。,1660,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID,1..1
+96,JBT-074-1,1..1,3,国際アドレス登録機関コード,JP-PINT対応国際EDIアドレス登録機関のコード,Identifier,IBT-049-1,Buyer electronic address Scheme identifier,スキーマIDは、Connecting Europe Facility (CEF) が管理するリストから選択しなければならない。,1670,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID/@schemeID,1..1
 97,JBG-08,0..1,2,買い手連絡先,連絡先に関する情報のグループ,__,IBG-09,BUYER CONTACT,買い手の連絡先に係る情報を提供するビジネス用語のグループ。,1760,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact,0..1
-99,JBT-072,0..1,3,買い手担当名,買い手の発注担当者の名称,Text,IBT-056,Buyer contact point,買い手の法人や個人の連絡先。,1770,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:Name,0..1
-100,JBT-073,0..1,3,買い手部門名,買い手の発注部門の名称。,Text,IBT-056,Buyer contact point,買い手の法人や個人の連絡先。,1770,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:Name,0..1
-102,JBT-075,0..1,3,買い手電話番号,買い手の電話番号。,Code,IBT-057,Buyer contact telephone number,買い手の連絡先電話番号。,1780,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:Telephone,0..1
-104,JBT-077,0..1,3,買い手メールアドレス,買い手の電子メールアドレス。,Text,IBT-058,Buyer contact email address,買い手の連絡先電子メールアドレス。,1790,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:ElectronicMail,0..1
+99,JBT-076,0..1,3,買い手担当名,買い手の発注担当者の名称,Text,IBT-056,Buyer contact point,買い手の法人や個人の連絡先。,1770,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:Name,0..1
+100,JBT-077,0..1,3,買い手部門名,買い手の発注部門の名称。,Text,IBT-056,Buyer contact point,買い手の法人や個人の連絡先。,1770,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:Name,0..1
+102,JBT-079,0..1,3,買い手電話番号,買い手の電話番号。,Code,IBT-057,Buyer contact telephone number,買い手の連絡先電話番号。,1780,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:Telephone,0..1
+104,JBT-081,0..1,3,買い手メールアドレス,買い手の電子メールアドレス。,Text,IBT-058,Buyer contact email address,買い手の連絡先電子メールアドレス。,1790,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:ElectronicMail,0..1
 105,JBG-09,0..1,2,買い手住所,買い手住所に関する情報のグループ,__,IBG-08,BUYER POSTAL ADDRESS,買い手の住所に関する情報を提供するビジネス用語のグループ。,1680,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress,1..1
-106,JBT-078,0..1,3,買い手郵便番号,買い手の郵便番号。,Code,IBT-053,Buyer post code,買い手の住所の郵便番号。,1730,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone,0..1
-107,JBT-079,0..1,3,買い手住所1,買い手の住所1行目。,Text,IBT-050,Buyer address line 1,買い手の住所の主な記載欄。,1690,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName,0..1
-108,JBT-080,0..1,3,買い手住所2,買い手の住所2行目。,Text,IBT-051,Buyer address line 2,買い手の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,1700,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName,0..1
-109,JBT-081,0..1,3,買い手住所3,買い手の住所3行目。,Text,IBT-163,Buyer address line 3,買い手の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,1710,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line,0..1
-110,JBT-082,0..1,3,買い手住所 市区町村,買い手が所在する市、町、村の通称。,Text,IBT-052,Buyer city,買い手が所在する市、町、村の通称。,1720,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName,0..1
-111,JBT-083,0..1,3,買い手住所 都道府県,買い手の住所の地方区分。,Text,IBT-054,Buyer country subdivision,買い手の住所の地方区分。,1740,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity,0..1
-112,JBT-084,0..1,3,買い手国識別子,買い手の国ID。デフォルトは「JP」,Code,IBT-055,Buyer country code,買い手の住所の国コード。,1750,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode,1..1
-114,JBT-085,0..1,2,プロジェクト番号,発注品に関するプロジェクト・工事案件等を管理するための番号。,Document Reference,IBT-011,Project reference,発注品に関するプロジェクト・工事案件等を管理するための番号。,1110,,,/Invoice/cac:ProjectReference/cbc:ID,0..1
-117,JBT-087,0..1,2,税通貨コード,税の通貨コード。JPY,Code,IBT-006,Tax accounting currency,会計報告や税務報告に使用する通貨を表すコード。売り手の国で認められたもしくは要求された会計報告や税務報告に使用する通貨を表すコード。,1060,,,/Invoice/cbc:TaxCurrencyCode,0..1
-118,JBT-088,1..1,2,文書通貨コード,文書の通貨コード。デフォルトはJPY,Code,IBT-005,Invoice currency code,請求書に記載された通貨を表すコード。会計通貨での請求書消費税合計金額を除き、請求書に記載されている全て金額の表示の通貨コード。,1050,,,/Invoice/cbc:DocumentCurrencyCode,1..1
+106,JBT-082,0..1,3,買い手郵便番号,買い手の郵便番号。,Code,IBT-053,Buyer post code,買い手の住所の郵便番号。,1730,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone,0..1
+107,JBT-083,0..1,3,買い手住所1,買い手の住所1行目。,Text,IBT-050,Buyer address line 1,買い手の住所の主な記載欄。,1690,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName,0..1
+108,JBT-084,0..1,3,買い手住所2,買い手の住所2行目。,Text,IBT-051,Buyer address line 2,買い手の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,1700,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName,0..1
+109,JBT-085,0..1,3,買い手住所3,買い手の住所3行目。,Text,IBT-163,Buyer address line 3,買い手の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,1710,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line,0..1
+110,JBT-086,0..1,3,買い手住所 市区町村,買い手が所在する市、町、村の通称。,Text,IBT-052,Buyer city,買い手が所在する市、町、村の通称。,1720,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName,0..1
+111,JBT-087,0..1,3,買い手住所 都道府県,買い手の住所の地方区分。,Text,IBT-054,Buyer country subdivision,買い手の住所の地方区分。,1740,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity,0..1
+112,JBT-088,0..1,3,買い手国識別子,買い手の国ID。デフォルトは「JP」,Code,IBT-055,Buyer country code,買い手の住所の国コード。,1750,,,/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode,1..1
+114,JBT-089,0..1,2,プロジェクト番号,発注品に関するプロジェクト・工事案件等を管理するための番号。,Document Reference,IBT-011,Project reference,発注品に関するプロジェクト・工事案件等を管理するための番号。,1110,,,/Invoice/cac:ProjectReference/cbc:ID,0..1
+117,JBT-091,0..1,2,税通貨コード,税の通貨コード。JPY,Code,IBT-006,Tax accounting currency,会計報告や税務報告に使用する通貨を表すコード。売り手の国で認められたもしくは要求された会計報告や税務報告に使用する通貨を表すコード。,1060,,,/Invoice/cbc:TaxCurrencyCode,0..1
+118,JBT-092,1..1,2,文書通貨コード,文書の通貨コード。デフォルトはJPY,Code,IBT-005,Invoice currency code,請求書に記載された通貨を表すコード。会計通貨での請求書消費税合計金額を除き、請求書に記載されている全て金額の表示の通貨コード。,1050,,,/Invoice/cbc:DocumentCurrencyCode,1..1
 130,JBG-14,0..n,1,支払済,前払に関するグループ,__,IBG-35,Paid amounts,請求書通貨での支払済金額を提供するビジネス用語のグループ。,2380,,,/Invoice/cac:PrepaidPayment,0..n
-131,JBT-098,0..1,2,前払金額,前払の金額,Amount,IBT-180,Paid amount,請求書通貨での支払済金額。,2400,,,/Invoice/cac:PrepaidPayment/cbc:PaidAmount,1..1
-132,JBT-099,0..1,2,前払受領日,前払金額の受領日,Date,IBT-181,The date when the paid amount is debited to the invoice.,前払金額を売り手が受領した日。,2410,,,/Invoice/cac:PrepaidPayment/cbc:ReceivedDate,0..1
-133,JBT-100,0..1,2,前払識別子,前払者が付与した前払識別子,Code,IBT-179,Payment identifier,銀行振込のIDなど、支払を参照するID,2390,,,/Invoice/cac:PrepaidPayment/cbc:ID,0..1
-135,JBT-101,0..1,2,前払条件タイプコード,前払い支払条件のタイプを指定するコード,Code,IBT-182,Payment type,支払いのタイプ。,2420,,,/Invoice/cac:PrepaidPayment/cbc:InstructionID,0..1
+131,JBT-102,0..1,2,前払金額,前払の金額,Amount,IBT-180,Paid amount,請求書通貨での支払済金額。,2400,,,/Invoice/cac:PrepaidPayment/cbc:PaidAmount,1..1
+132,JBT-103,0..1,2,前払受領日,前払金額の受領日,Date,IBT-181,The date when the paid amount is debited to the invoice.,前払金額を売り手が受領した日。,2410,,,/Invoice/cac:PrepaidPayment/cbc:ReceivedDate,0..1
+133,JBT-104,0..1,2,前払識別子,前払者が付与した前払識別子,Code,IBT-179,Payment identifier,銀行振込のIDなど、支払を参照するID,2390,,,/Invoice/cac:PrepaidPayment/cbc:ID,0..1
+135,JBT-105,0..1,2,前払条件タイプコード,前払い支払条件のタイプを指定するコード,Code,IBT-182,Payment type,支払いのタイプ。,2420,,,/Invoice/cac:PrepaidPayment/cbc:InstructionID,0..1
+142,JBG-16,0..n,1,未決済合計金額参照文書,未決済合計金額が参照する文書に関するグループ,__,,,,0,,,,
 151,JBG-17,0..1,1,請求者,請求者に関する情報のグループ,__,IBG-10,PAYEE,支払先に係る情報を提供するビジネス用語のグループ。,1800,,,/Invoice/cac:PayeeParty,0..1
-152,JBT-115,0..1,2,請求者コード,請求者のコード。,Identifier,IBT-060,Payee identifier,支払先のID。,1820,,,/Invoice/cac:PayeeParty/cac:PartyIdentification/cbc:ID,0..1
-153,JBT-115-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-060-1,Payee identifier Scheme identifier,使用する場合、識別スキーマは、ISO/ IEC 6523 保守機関として公開されたリストから選択しなければならない。,1830,,,/Invoice/cac:PayeeParty/cac:PartyIdentification/cbc:ID/@schemeID,0..1
-154,JBT-116,0..1,2,請求者国際企業コード,請求者の国際企業コード。中小企業共通EDIでは法人番号を利用,Identifier,IBT-061,Payee legal registration identifier,公的登録機関が発行した公的識別子としての支払先の国際企業ID。,1840,,,/Invoice/cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyID,0..1
-155,JBT-116-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-061-1,Payee legal registration identifier Scheme identifier,使用する場合、公的機登録機関の識別スキーマは、ISO/IEC6523保守機関として公開されているリストから選択しなければならない。,1850,,,/Invoice/cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyID/@schemeID,0..1
-156,JBT-117,0..1,2,請求者名称,請求者の企業等を表す名称。,Text,IBT-059,Payee name,支払先の名称。,1810,,,/Invoice/cac:PayeeParty/cac:PartyName/cbc:Name,1..1
+152,JBT-119,0..1,2,請求者コード,請求者のコード。,Identifier,IBT-060,Payee identifier,支払先のID。,1820,,,/Invoice/cac:PayeeParty/cac:PartyIdentification/cbc:ID,0..1
+153,JBT-119-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-060-1,Payee identifier Scheme identifier,使用する場合、識別スキーマは、ISO/ IEC 6523 保守機関として公開されたリストから選択しなければならない。,1830,,,/Invoice/cac:PayeeParty/cac:PartyIdentification/cbc:ID/@schemeID,0..1
+154,JBT-120,0..1,2,請求者国際企業コード,請求者の国際企業コード。中小企業共通EDIでは法人番号を利用,Identifier,IBT-061,Payee legal registration identifier,公的登録機関が発行した公的識別子としての支払先の国際企業ID。,1840,,,/Invoice/cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyID,0..1
+155,JBT-120-1,0..1,3,スキーマID,コードの発番機関コード,Code,IBT-061-1,Payee legal registration identifier Scheme identifier,使用する場合、公的機登録機関の識別スキーマは、ISO/IEC6523保守機関として公開されているリストから選択しなければならない。,1850,,,/Invoice/cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyID/@schemeID,0..1
+156,JBT-121,0..1,2,請求者名称,請求者の企業等を表す名称。,Text,IBT-059,Payee name,支払先の名称。,1810,,,/Invoice/cac:PayeeParty/cac:PartyName/cbc:Name,1..1
 233,JBG-29,0..1,1,売り手税務代理人,売り手の税務代理人に係る情報を提供するビジネス用語のグループ。,__,IBG-11,SELLER TAX REPRESENTATIVE PARTY,売り手の税務代理人に係る情報を提供するビジネス用語のグループ。,1860,,,/Invoice/cac:TaxRepresentativeParty,0..1
-234,JBT-180,1..1,2,売り手税務代理人名称,売り手の税務代理人の名称。,Text,IBT-062,Seller tax representative name,売り手の税務代理人の名称。,1870,,,/Invoice/cac:TaxRepresentativeParty/cac:PartyName/cbc:Name,1..1
-235,JBT-181,1..1,2,売り手税務代理人税ID,売り手の税務代理人の税ID。,Identifier,IBT-063,Seller tax representative TAX identifier,売り手の税務代理人の税ID。,1880,,,/Invoice/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID,1..1
+234,JBT-184,1..1,2,売り手税務代理人名称,売り手の税務代理人の名称。,Text,IBT-062,Seller tax representative name,売り手の税務代理人の名称。,1870,,,/Invoice/cac:TaxRepresentativeParty/cac:PartyName/cbc:Name,1..1
+235,JBT-185,1..1,2,売り手税務代理人税ID,売り手の税務代理人の税ID。,Identifier,IBT-063,Seller tax representative TAX identifier,売り手の税務代理人の税ID。,1880,,,/Invoice/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID,1..1
 236,JBG-30,1..1,2,売り手税務代理人住所,税務代理人の住所に関する情報を提供するビジネス用語のグループ。,__,IBG-12,SELLER TAX REPRESENTATIVE POSTAL ADDRESS,税務代理人の住所に関する情報を提供するビジネス用語のグループ。,1890,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress,1..1
-237,JBT-182,0..1,3,税務代理人住所欄1,税務代理人の住所の主な記載欄。,Text,IBT-064,Tax representative address line 1,税務代理人の住所の主な記載欄。,1900,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:StreetName,0..1
-238,JBT-183,0..1,3,税務代理人住所欄2,税務代理人の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,Text,IBT-065,Tax representative address line 2,税務代理人の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,1910,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:AdditionalStreetName,0..1
-239,JBT-184,0..1,3,税務代理人住所欄3,税務代理人の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,Text,IBT-164,Tax representative address line 3,税務代理人の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,1920,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:AddressLine/cbc:Line,0..1
-240,JBT-185,0..1,3,税務代理人住所 市区町村,税務代理人が所在する市、町、村の通称。,Text,IBT-066,Tax representative city,税務代理人が所在する市、町、村の通称。,1930,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:CityName,0..1
-241,JBT-186,0..1,3,税務代理人郵便番号,税務代理人の住所の郵便番号。,Code,IBT-067,Tax representative post code,税務代理人の住所の郵便番号。,1940,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:PostalZone,0..1
-242,JBT-187,0..1,3,税務代理人住所 都道府県,税務代理人の住所の地方区分。,Text,IBT-068,Tax representative country subdivision,税務代理人の住所の地方区分。,1950,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:CountrySubentity,0..1
-243,JBT-188,1..1,3,税務代理人国コード,税務代理人の住所の国コード。,Code,IBT-069,Tax representative country code,税務代理人の住所の国コード。,1960,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode,1..1
+237,JBT-186,0..1,3,税務代理人住所欄1,税務代理人の住所の主な記載欄。,Text,IBT-064,Tax representative address line 1,税務代理人の住所の主な記載欄。,1900,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:StreetName,0..1
+238,JBT-187,0..1,3,税務代理人住所欄2,税務代理人の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,Text,IBT-065,Tax representative address line 2,税務代理人の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,1910,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:AdditionalStreetName,0..1
+239,JBT-188,0..1,3,税務代理人住所欄3,税務代理人の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,Text,IBT-164,Tax representative address line 3,税務代理人の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,1920,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:AddressLine/cbc:Line,0..1
+240,JBT-189,0..1,3,税務代理人住所 市区町村,税務代理人が所在する市、町、村の通称。,Text,IBT-066,Tax representative city,税務代理人が所在する市、町、村の通称。,1930,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:CityName,0..1
+241,JBT-190,0..1,3,税務代理人郵便番号,税務代理人の住所の郵便番号。,Code,IBT-067,Tax representative post code,税務代理人の住所の郵便番号。,1940,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:PostalZone,0..1
+242,JBT-191,0..1,3,税務代理人住所 都道府県,税務代理人の住所の地方区分。,Text,IBT-068,Tax representative country subdivision,税務代理人の住所の地方区分。,1950,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cbc:CountrySubentity,0..1
+243,JBT-192,1..1,3,税務代理人国コード,税務代理人の住所の国コード。,Code,IBT-069,Tax representative country code,税務代理人の住所の国コード。,1960,,,/Invoice/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode,1..1
 244,JBG-31,0..n,1,支払手段, 取引決済の目的で支払が行われる、あるいは行われた手段のクラス,__,IBG-16,PAYMENT INSTRUCTIONS,取引条件のうち支払に関する情報を提供するビジネス用語のグループ。,2130,,,/Invoice/cac:PaymentMeans,0..n
-245,JBT-189,0..1,2,支払手段タイプコード,取引決済手段のタイプを識別するコード,Code,IBT-081,Payment means type code,取引決済手段のタイプを識別するコード。,2150,,,/Invoice/cac:PaymentMeans/cbc:PaymentMeansCode,1..1
-246,JBT-190,0..1,2,支払手段情報,取引決済手段に関する情報,Text,IBT-082,Payment means text,取引決済手段を説明するテキスト。,2160,,,/Invoice/cac:PaymentMeans/cbc:PaymentMeansCode/@name,0..1
+245,JBT-193,0..1,2,支払手段タイプコード,取引決済手段のタイプを識別するコード,Code,IBT-081,Payment means type code,取引決済手段のタイプを識別するコード。,2150,,,/Invoice/cac:PaymentMeans/cbc:PaymentMeansCode,1..1
+246,JBT-194,0..1,2,支払手段情報,取引決済手段に関する情報,Text,IBT-082,Payment means text,取引決済手段を説明するテキスト。,2160,,,/Invoice/cac:PaymentMeans/cbc:PaymentMeansCode/@name,0..1
 248,JBG-32,0..1,2,金融口座,取引決済の支払手段に関する受取人である当事者の債権者金融口座のグループ,__,IBG-17,CREDIT TRANSFER,銀行振込による支払を指定する情報を提供するビジネス用語のグループ。,2190,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount,0..1
-249,JBT-192,0..1,3,口座名義,"債権者金融口座の、文字で表現された口座名。
+249,JBT-196,0..1,3,口座名義,"債権者金融口座の、文字で表現された口座名。
 半角カナ（日本の場合）",Text,IBT-085,Payment account name,支払先口座の口座名義人名。,2220,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:Name,0..1
-250,JBT-193,0..1,3,口座番号,債権者金融口座の一意の所有者識別子。,Identifier,IBT-084,Payment account identifier,支払先となる金融機関の口座ID。IBAN(SEPA支払いの場合)など。,2200,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID,1..1
-251,JBT-194,0..1,3,口座種別コード,債権者金融口座種別の識別子。,Code,IBT-084,Payment account identifier,支払先となる金融機関の口座ID。IBAN(SEPA支払いの場合)など。,2200,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID,1..1
-253,JBT-195,0..1,3,金融機関名,債権者金融機関の、文字で表現された名前。,Text,IBT-169,Account address line 1,税務代理人の住所の主な記載欄。,2250,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:Address/cbc:StreetName,0..1
-254,JBT-196,0..1,3,金融機関番号,債権者の金融機関番号（日本の場合）,Identifier,IBT-084,Payment account identifier,支払先となる金融機関の口座ID。IBAN(SEPA支払いの場合)など。,2200,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID,1..1
-256,JBT-197,0..1,3,金融機関支店番号,金融機関のこの支店の一意識別子,Identifier,IBT-084,Payment account identifier,支払先となる金融機関の口座ID。IBAN(SEPA支払いの場合)など。,2200,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID,1..1
-257,JBT-198,0..1,3,金融機関支店名,金融機関のこの支店の、文字で表現された名前,Text,IBT-169,Account address line 1,税務代理人の住所の主な記載欄。,2250,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:Address/cbc:StreetName,0..1
+250,JBT-197,0..1,3,口座番号,債権者金融口座の一意の所有者識別子。,Identifier,IBT-084,Payment account identifier,支払先となる金融機関の口座ID。IBAN(SEPA支払いの場合)など。,2200,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID,1..1
+251,JBT-198,0..1,3,口座種別コード,債権者金融口座種別の識別子。,Code,IBT-084,Payment account identifier,支払先となる金融機関の口座ID。IBAN(SEPA支払いの場合)など。,2200,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID,1..1
+253,JBT-199,0..1,3,金融機関名,債権者金融機関の、文字で表現された名前。,Text,IBT-169,Account address line 1,税務代理人の住所の主な記載欄。,2250,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:Address/cbc:StreetName,0..1
+254,JBT-200,0..1,3,金融機関番号,債権者の金融機関番号（日本の場合）,Identifier,IBT-084,Payment account identifier,支払先となる金融機関の口座ID。IBAN(SEPA支払いの場合)など。,2200,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID,1..1
+256,JBT-201,0..1,3,金融機関支店番号,金融機関のこの支店の一意識別子,Identifier,IBT-084,Payment account identifier,支払先となる金融機関の口座ID。IBAN(SEPA支払いの場合)など。,2200,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID,1..1
+257,JBT-202,0..1,3,金融機関支店名,金融機関のこの支店の、文字で表現された名前,Text,IBT-169,Account address line 1,税務代理人の住所の主な記載欄。,2250,,,/Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:Address/cbc:StreetName,0..1
 258,JBG-33,0..1,2,金融カード,支払人の金融カードのクラス,__,IBG-18,PAYMENT CARD INFORMATION,請求書発行と同時に支払に使用されるカードに関する情報を提供するビジネス用語のグループ。,2320,,,/Invoice/cac:PaymentMeans/cac:CardAccount,0..1
-259,JBT-199,1..1,3,金融カード番号,支払人の金融カード番号,Text,IBT-087,Payment card primary account number,支払に使用するカードの支払カード番号。,2330,,,/Invoice/cac:PaymentMeans/cac:CardAccount/cbc:PrimaryAccountNumberID,1..1
-261,JBT-201,1..1,3,金融カード名義人名,支払人の金融カード名義人名,Text,IBT-088,Payment card holder name,支払カード所有者の氏名。,2340,,,/Invoice/cac:PaymentMeans/cac:CardAccount/cbc:HolderName,0..1
+259,JBT-203,1..1,3,金融カード番号,支払人の金融カード番号,Text,IBT-087,Payment card primary account number,支払に使用するカードの支払カード番号。,2330,,,/Invoice/cac:PaymentMeans/cac:CardAccount/cbc:PrimaryAccountNumberID,1..1
+261,JBT-205,1..1,3,金融カード名義人名,支払人の金融カード名義人名,Text,IBT-088,Payment card holder name,支払カード所有者の氏名。,2340,,,/Invoice/cac:PaymentMeans/cac:CardAccount/cbc:HolderName,0..1
+263,JBG-34,0..n,1,ヘッダ税,ヘッダの税に関する情報からなるクラス,__,,,,0,,,,
 270,JBG-35,0..1,1,ヘッダ取引期間,ヘッダ取引期間に関する情報からなるクラス,__,IBG-14,INVOICING PERIOD,請求期間に関わる情報を提供するビジネス用語のグループ。,2020,,,/Invoice/cac:InvoicePeriod,0..1
-271,JBT-209,1..1,2,ヘッダ取引開始日,インボイス文書の取引開始日,Date,IBT-073,Invoicing period start date,請求期間開始日。,2030,,,/Invoice/cac:InvoicePeriod/cbc:StartDate,0..1
-272,JBT-210,1..1,2,ヘッダ取引終了日,インボイス文書の取引終了日,Date,IBT-074,Invoicing period end date,請求期間終了日。,2040,,,/Invoice/cac:InvoicePeriod/cbc:EndDate,0..1
+271,JBT-213,1..1,2,ヘッダ取引開始日,インボイス文書の取引開始日,Date,IBT-073,Invoicing period start date,請求期間開始日。,2030,,,/Invoice/cac:InvoicePeriod/cbc:StartDate,0..1
+272,JBT-214,1..1,2,ヘッダ取引終了日,インボイス文書の取引終了日,Date,IBT-074,Invoicing period end date,請求期間終了日。,2040,,,/Invoice/cac:InvoicePeriod/cbc:EndDate,0..1
 273,JBG-36,0..1,1,支払条件, 取引決済の目的で支払が行われる、あるいは行われた条件のクラス,__,IBG-33,INVOICE TERMS,請求金額の決済に適用される条件に関する情報。,1210,,,/Invoice/cac:PaymentTerms,0..n
-274,JBT-211,0..1,2,支払条件識別子,支払条件の識別子,Code,IBT-187,Terms payment instructions ID,これらの支払条件を適用する支払指示。,1220,,,/Invoice/cac:PaymentTerms/cbc:PaymentMeansID,0..1
-275,JBT-212,0..1,2,支払条件説明,支払条件の文字による説明,Text,IBT-020,Payment terms,支払額に適用される支払条件の説明(罰則の記載を含む)。支払条件の文字による説明。,1230,,,/Invoice/cac:PaymentTerms/cbc:Note,0..1
-276,JBT-213,0..1,2,支払期日,支払条件で示された支払期日,Date,IBT-177,Terms installment due date,分割支払の場合の各支払期日。,1250,,,/Invoice/cac:PaymentTerms/cbc:InstallmentDueDate,0..1
-278,JBT-215,0..1,2,支払条件金額,支払条件の金額,Amount,IBT-176,Terms amount,これらの条件が適用される支払金額。,1240,,,/Invoice/cac:PaymentTerms/cbc:Amount,0..1
-283,JBT-219,0..1,2,前払金額,"インボイス文書総合計金額のうち、すでに前払いで支払済合計金額
+274,JBT-215,0..1,2,支払条件識別子,支払条件の識別子,Code,IBT-187,Terms payment instructions ID,これらの支払条件を適用する支払指示。,1220,,,/Invoice/cac:PaymentTerms/cbc:PaymentMeansID,0..1
+275,JBT-216,0..1,2,支払条件説明,支払条件の文字による説明,Text,IBT-020,Payment terms,支払額に適用される支払条件の説明(罰則の記載を含む)。支払条件の文字による説明。,1230,,,/Invoice/cac:PaymentTerms/cbc:Note,0..1
+276,JBT-217,0..1,2,支払期日,支払条件で示された支払期日,Date,IBT-177,Terms installment due date,分割支払の場合の各支払期日。,1250,,,/Invoice/cac:PaymentTerms/cbc:InstallmentDueDate,0..1
+278,JBT-219,0..1,2,支払条件金額,支払条件の金額,Amount,IBT-176,Terms amount,これらの条件が適用される支払金額。,1240,,,/Invoice/cac:PaymentTerms/cbc:Amount,0..1
+283,JBT-223,0..1,2,前払金額,"インボイス文書総合計金額のうち、すでに前払いで支払済合計金額
 前払いユースケースでは必須",Amount,IBT-113,Paid amount,事前に支払われた金額の合計。,2710,,,/Invoice/cac:LegalMonetaryTotal/cbc:PrepaidAmount,0..1
+287,JBG-38,0..n,1,ヘッダ調整,ヘッダ調整に関する情報からなるクラス,__,,,,0,,,,
 292,JBG-39,0..n,1,インボイス参照文書,この調整で修正インボイス文書が参照する文書のクラス,__,IBG-03,PRECEDING INVOICE REFERENCE,1つのあるいはそれ以上の先行請求書に関する情報を提供するビジネス用語のグループ。,1300,,,/Invoice/cac:BillingReference,0..n
-293,JBT-227,1..1,2,インボイス参照文書番号,この調整でインボイス文書が参照する文書に記載の文書番号,Document Reference,IBT-025,Preceding Invoice reference,売り手が以前に送付した請求書番号。,1310,,,/Invoice/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID,1..1
-294,JBT-228,0..1,2,インボイス参照文書発行日,この調整でインボイスが参照する文書に記載の発行日付,Date,IBT-026,Preceding Invoice issue date,先行請求書の発行日。,1320,,,/Invoice/cac:BillingReference/cac:InvoiceDocumentReference/cbc:IssueDate,0..1
-363,JBT-277,0..1,2,受取通知書参照,参照する受取通知書に買い手が付番した番号。,Document Reference,IBT-015,Receiving advice reference,参照する受取通知書に買い手が付番した番号。,1150,,,/Invoice/cac:ReceiptDocumentReference/cbc:ID,0..1
-317,JBG-43,1..n,1,統合文書取引／明細文書行グループ,統合請求（区分３請求）で複数の文書を統合する場合に、統合する複数の文書を明細文書行として識別するグループ。\n\n単一請求（区分」請求、区分2請求）の場合はこのグループは明細文書番号＝１のみを利用する,,,,,1001,,,/Invoice,1..1
-364,JBG-47,0..n,2,明細文書決済／参照インボイス文書グループ,インボイス文書ヘッダの参照インボイス文書に関するグループ,__,,,,1002,,,/Invoice/cac:OriginatorDocumentReference,0..1
-365,JBT-278,0..1,3,入札又はロット参照,参照する入札またはロットの番号。,Document Reference,IBT-017,Tender or lot reference,参照する入札またはロットの番号。,1170,,,/Invoice/cac:OriginatorDocumentReference/cbc:ID,0..1
-367,JBT-280,0..1,3,請求するオブジェクトID,請求書の根拠となるIDで、売り手が指定。請求書の根拠となるオブジェクトのIDで、売り手が指定したもの。,Identifier,IBT-018,Invoiced object identifier,請求書の根拠となるIDで、売り手が指定。請求書の根拠となるオブジェクトのIDで、売り手が指定したもの。,1180,,,/Invoice/cac:AdditionalDocumentReference[cbc:DocumentTypeCode='130']/cbc:ID,0..1
-369,JBT-281-1,0..1,4,請求するオブジェクトIDのスキーマID,受信者にとって、IDにどのスキーマが使用されているかが明確でない場合は、UNTDID1153コードリストから選択される条件付きスキーマIDを使用する必要がある。,Code,IBT-018-1,The identification scheme identifier of the Invoiced object identifier.,受信者にとって、IDにどのスキーマが使用されているかが明確でない場合は、UNTDID1153コードリストから選択される条件付きスキーマIDを使用する必要がある。,1190,,,/Invoice/cac:AdditionalDocumentReference[cbc:DocumentTypeCode='130']/cbc:ID/@schemeID,0..1
-383,JBG-49,0..n,2,出荷回答書,この文書ヘッダが参照する出荷回答書のグループ,__,,,,1155,,,/Invoice/cac:DespatchDocumentReference,0..1
-384,JBT-294,1..1,3,明細文書参照出荷回答書番号,この文書ヘッダが参照する発注者が付番した出荷回答書番号,Document Reference,IBT-016,Despatch advice reference,参照する出荷案内書に売り手が付番した番号。,1160,,,/Invoice/cac:DespatchDocumentReference/cbc:ID,0..1
-388,JBG-50,0..n,2,参照納品書,明細文書が参照する納品書のクラス,__,,,,3065,,,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference,0..1
-389,JBT-298,1..1,3,参照納品書番号,この明細文書が参照する売り手が付番した納品書番号,Document Reference,IBT-184,Despatch advice reference,この請求書が参照する出荷案内書を参照するためのID。,3070,,,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID,0..1
+293,JBT-231,1..1,2,インボイス参照文書番号,この調整でインボイス文書が参照する文書に記載の文書番号,Document Reference,IBT-025,Preceding Invoice reference,売り手が以前に送付した請求書番号。,1310,,,/Invoice/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID,1..1
+294,JBT-232,0..1,2,インボイス参照文書発行日,この調整でインボイスが参照する文書に記載の発行日付,Date,IBT-026,Preceding Invoice issue date,先行請求書の発行日。,1320,,,/Invoice/cac:BillingReference/cac:InvoiceDocumentReference/cbc:IssueDate,0..1
+299,JBG-40,0..n,1,ヘッダ調整税,ヘッダ調整の税クラス,__,,,,0,,,,
+309,JBG-42,0..n,2,未決済参照文書,未決済合計金額が参照する文書のクラス,__,,,,0,,,,
+316,JBT-251,0..1,3,未決済参照文書サブタイプコード,未決済合計金額が参照する文書のサブタイプを識別するコード,Code,,,,1001,,,/Invoice,
+317,JBG-43,1..n,1,統合文書取引／明細文書行グループ,統合請求（区分３請求）で複数の文書を統合する場合に、統合する複数の文書を明細文書行として識別するグループ。\n\n単一請求（区分」請求、区分2請求）の場合はこのグループは明細文書番号＝１のみを利用する,__,,,,0,,,,
+321,JBG-44,0..n,2,文書ヘッダ／注釈グループ,文書ヘッダの注釈に関するグループ,__,,,,0,,,,
+363,JBT-281,0..1,3,受取通知書参照,参照する受取通知書に買い手が付番した番号。,Document Reference,IBT-015,Receiving advice reference,参照する受取通知書に買い手が付番した番号。,1150,,,/Invoice/cac:ReceiptDocumentReference/cbc:ID,0..1
+364,JBG-47,0..n,2,明細文書決済／参照インボイス文書グループ,インボイス文書ヘッダの参照インボイス文書に関するグループ,__,,,,0,,,,
+365,JBT-282,0..1,3,入札又はロット参照,参照する入札またはロットの番号。,Document Reference,IBT-017,Tender or lot reference,参照する入札またはロットの番号。,1170,,,/Invoice/cac:OriginatorDocumentReference/cbc:ID,0..1
+367,JBT-284,0..1,3,請求するオブジェクトID,請求書の根拠となるIDで、売り手が指定。請求書の根拠となるオブジェクトのIDで、売り手が指定したもの。,Identifier,IBT-018,Invoiced object identifier,請求書の根拠となるIDで、売り手が指定。請求書の根拠となるオブジェクトのIDで、売り手が指定したもの。,1180,,,/Invoice/cac:AdditionalDocumentReference[cbc:DocumentTypeCode='130']/cbc:ID,0..1
+369,JBT-285-1,0..1,4,請求するオブジェクトIDのスキーマID,受信者にとって、IDにどのスキーマが使用されているかが明確でない場合は、UNTDID1153コードリストから選択される条件付きスキーマIDを使用する必要がある。,Code,IBT-018-1,The identification scheme identifier of the Invoiced object identifier.,受信者にとって、IDにどのスキーマが使用されているかが明確でない場合は、UNTDID1153コードリストから選択される条件付きスキーマIDを使用する必要がある。,1190,,,/Invoice/cac:AdditionalDocumentReference[cbc:DocumentTypeCode='130']/cbc:ID/@schemeID,0..1
+374,JBG-48,0..n,2,明細文書決済／付加文書グループ,文書ヘッダ決済の付加文書に関するグループ,__,,,,0,,,,
+383,JBG-49,0..n,2,出荷回答書,この文書ヘッダが参照する出荷回答書のグループ,__,,,,1155,,,/Invoice/cac:DespatchDocumentReference/cbc:ID,
+384,JBT-298,1..1,3,明細文書参照出荷回答書番号,この文書ヘッダが参照する発注者が付番した出荷回答書番号,Document Reference,IBT-016,Despatch advice reference,参照する出荷案内書に売り手が付番した番号。,1160,,,/Invoice/cac:DespatchDocumentReference,0..1
+388,JBG-50,0..n,2,参照納品書,明細文書が参照する納品書のクラス,__,,,,3065,,,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference,
+389,JBT-302,1..1,3,参照納品書番号,この明細文書が参照する売り手が付番した納品書番号,Document Reference,IBT-184,Despatch advice reference,この請求書が参照する出荷案内書を参照するためのID。,3070,,,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID,0..1
 341,JBG-45,0..n,2,明細文書返金,ヘッダ返金のクラス,__,IBG-20,DOCUMENT LEVEL ALLOWANCES,請求書レベルの返金に関する情報を提供するビジネス用語のグループ。,2430,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()],0..n
-343,JBT-263,0..1,3,明細文書返金の率,ヘッダ返金を計算するための率,Percentage,IBT-094,Document level allowance percentage,請求書レベルの返金基準金額に乗じて、請求書レベルの返金金額を算出する際に使用されるパーセント。,2460,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:MultiplierFactorNumeric,0..1
-344,JBT-264,1..1,3,明細文書返金課税分類合計金額,ヘッダ返金課税分類合計金額＝Σ課税分類明細行返金金額,Amount,IBT-092,Document level allowance amount,返金金額(税抜き)。,2440,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:Amount,1..1
-345,JBT-265,0..1,3,明細文書返金の理由,ヘッダ返金の理由を識別するコード,Text,IBT-097,Document level allowance reason,請求書レベルの返金の理由をテキストで表現。,2470,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:AllowanceChargeReason,0..1
-346,JBT-266,0..1,3,明細文書返金の理由コード,ヘッダ返金の理由（内容）の説明,Code,IBT-098,Document level allowance reason code,請求書レベルの返金の理由コード。,2480,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:AllowanceChargeReasonCode,0..1
-347,JBT-267,0..1,3,明細文書返金金額の基準となる金額,ヘッダ返金の計算根拠となる金額,Amount,IBT-093,Document level allowance base amount,請求書レベルの返金の率を乗じて請求書レベルの返金金額を算出する際に使用される基準金額。,2450,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:BaseAmount,0..1
-349,JBT-268,1..1,3,明細文書返金税率,ヘッダ返金の税率,Percentage,IBT-096,Document level allowance TAX rate,請求書レベルの返金に適用される消費税率(パーセント)。,2510,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cbc:Percent,0..1
-350,JBT-269,1..1,3,明細文書返金課税分類コード,ヘッダ返金の課税分類コード,Code,IBT-095,Document level allowance TAX category code,請求書レベルの返金に適用される課税分類コード。,2490,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cbc:ID,1..1
-351,JBT-269-1,1..1,4,税スキーマ,,Code,IBT-095-1,Document level allowance TAX category code Tax Scheme,0,2500,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cac:TaxScheme/cbc:ID,1..1
+343,JBT-267,0..1,3,明細文書返金の率,ヘッダ返金を計算するための率,Percentage,IBT-094,Document level allowance percentage,請求書レベルの返金基準金額に乗じて、請求書レベルの返金金額を算出する際に使用されるパーセント。,2460,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:MultiplierFactorNumeric,0..1
+344,JBT-268,1..1,3,明細文書返金課税分類合計金額,ヘッダ返金課税分類合計金額＝Σ課税分類明細行返金金額,Amount,IBT-092,Document level allowance amount,返金金額(税抜き)。,2440,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:Amount,1..1
+345,JBT-269,0..1,3,明細文書返金の理由,ヘッダ返金の理由を識別するコード,Text,IBT-097,Document level allowance reason,請求書レベルの返金の理由をテキストで表現。,2470,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:AllowanceChargeReason,0..1
+346,JBT-270,0..1,3,明細文書返金の理由コード,ヘッダ返金の理由（内容）の説明,Code,IBT-098,Document level allowance reason code,請求書レベルの返金の理由コード。,2480,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:AllowanceChargeReasonCode,0..1
+347,JBT-271,0..1,3,明細文書返金金額の基準となる金額,ヘッダ返金の計算根拠となる金額,Amount,IBT-093,Document level allowance base amount,請求書レベルの返金の率を乗じて請求書レベルの返金金額を算出する際に使用される基準金額。,2450,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:BaseAmount,0..1
+349,JBT-272,1..1,3,明細文書返金税率,ヘッダ返金の税率,Percentage,IBT-096,Document level allowance TAX rate,請求書レベルの返金に適用される消費税率(パーセント)。,2510,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cbc:Percent,0..1
+350,JBT-273,1..1,3,明細文書返金課税分類コード,ヘッダ返金の課税分類コード,Code,IBT-095,Document level allowance TAX category code,請求書レベルの返金に適用される課税分類コード。,2490,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cbc:ID,1..1
+351,JBT-273-1,1..1,4,税スキーマ,,Code,IBT-095-1,Document level allowance TAX category code Tax Scheme,0,2500,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cac:TaxScheme/cbc:ID,1..1
 352,JBG-46,0..n,2,明細文書追加請求,ヘッダ追加請求のクラス,__,IBG-21,DOCUMENT LEVEL CHARGES,請求書レベルの追加請求や追加税(消費税以外)に関する情報を提供するビジネス用語のグループ。,2540,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()],0..n
-354,JBT-270,0..1,3,明細文書追加請求の率,ヘッダ追加請求を計算するための率,Percentage,IBT-101,Document level charge percentage,請求書レベルの追加請求基準金額に乗じて請求書レベルの追加請求金額を算出するために使用されるパーセント。,2570,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:MultiplierFactorNumeric,0..1
-355,JBT-271,1..1,3,明細文書追加請求課税分類合計金額,ヘッダ追加請求課税分類合計金額＝Σ課税分類明細行追加請求金額,Amount,IBT-099,Document level charge amount,追加請求金額(税抜き)。,2550,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:Amount,1..1
-356,JBT-272,0..1,3,明細文書追加請求の理由,ヘッダ追加請求の理由を識別するコード,Text,IBT-104,Document level charge reason,請求書レベルの追加請求の理由をテキストで表現。,2580,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:AllowanceChargeReason,0..1
-357,JBT-273,0..1,3,明細文書追加請求の理由コード,ヘッダ追加請求の理由（内容）の説明,Code,IBT-105,Document level charge reason code,請求書レベルの追加請求の理由コード。,2590,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:AllowanceChargeReasonCode,0..1
-358,JBT-274,0..1,3,明細文書追加請求金額の基準となる金額,ヘッダ追加請求の計算根拠となる金額,Amount,IBT-100,Document level charge base amount,請求書レベルの追加請求率を乗じて請求書レベルの追加請求金額を算出する際に使用される基準金額。,2560,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:BaseAmount,0..1
-360,JBT-275,1..1,3,明細文書追加請求税率,ヘッダ追加請求の税率,Percentage,IBT-103,Document level charge TAX rate,請求書レベルの追加請求に適用される消費税率(パーセント)。,2610,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cbc:Percent,0..1
-361,JBT-276,1..1,3,明細文書追加請求課税分類コード,ヘッダ追加請求の課税分類コード,Code,IBT-102,Document level charge TAX category code,請求書レベルの追加請求に適用される課税分類コード。,2600,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cbc:ID,1..1
-362,JBT-276-1,1..1,4,税スキーマ,,Code,IBT-102-1,Document level charge TAX category code Tax Scheme,,2605,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cac:TaxScheme/cbc:ID,1..1
+354,JBT-274,0..1,3,明細文書追加請求の率,ヘッダ追加請求を計算するための率,Percentage,IBT-101,Document level charge percentage,請求書レベルの追加請求基準金額に乗じて請求書レベルの追加請求金額を算出するために使用されるパーセント。,2570,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:MultiplierFactorNumeric,0..1
+355,JBT-275,1..1,3,明細文書追加請求課税分類合計金額,ヘッダ追加請求課税分類合計金額＝Σ課税分類明細行追加請求金額,Amount,IBT-099,Document level charge amount,追加請求金額(税抜き)。,2550,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:Amount,1..1
+356,JBT-276,0..1,3,明細文書追加請求の理由,ヘッダ追加請求の理由を識別するコード,Text,IBT-104,Document level charge reason,請求書レベルの追加請求の理由をテキストで表現。,2580,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:AllowanceChargeReason,0..1
+357,JBT-277,0..1,3,明細文書追加請求の理由コード,ヘッダ追加請求の理由（内容）の説明,Code,IBT-105,Document level charge reason code,請求書レベルの追加請求の理由コード。,2590,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:AllowanceChargeReasonCode,0..1
+358,JBT-278,0..1,3,明細文書追加請求金額の基準となる金額,ヘッダ追加請求の計算根拠となる金額,Amount,IBT-100,Document level charge base amount,請求書レベルの追加請求率を乗じて請求書レベルの追加請求金額を算出する際に使用される基準金額。,2560,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:BaseAmount,0..1
+360,JBT-279,1..1,3,明細文書追加請求税率,ヘッダ追加請求の税率,Percentage,IBT-103,Document level charge TAX rate,請求書レベルの追加請求に適用される消費税率(パーセント)。,2610,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cbc:Percent,0..1
+361,JBT-280,1..1,3,明細文書追加請求課税分類コード,ヘッダ追加請求の課税分類コード,Code,IBT-102,Document level charge TAX category code,請求書レベルの追加請求に適用される課税分類コード。,2600,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cbc:ID,1..1
+362,JBT-280-1,1..1,4,税スキーマ,,Code,IBT-102-1,Document level charge TAX category code Tax Scheme,,2605,,,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cac:TaxScheme/cbc:ID,1..1
 394,JBG-51,0..1,2,納入先,納入先に関する情報のグループ,__,IBG-13,DELIVERY INFORMATION,財又はサービスが何時何処に納入されたかに係る情報を提供するビジネス用語のグループ。,1970,,,/Invoice/cac:Delivery,0..1
-395,JBT-303,0..1,3,納入先コード,納入先の企業/工場・事業所・事業部門等を表す発注者が付与したコード。,Identifier,IBT-071,Deliver to location identifier,財又はサービスが納入された納入先の場所ID。,1990,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cbc:ID,0..1
-396,JBT-303-1,0..1,4,スキーマID,コードの発番機関コード,Code,IBT-071-1,Deliver to location identifier Scheme identifier,納入された住所IDを発行した組織の識別スキーマID。使用する場合、識別スキーマは、ISO/IEC 6523 の保守機関によって公開されたリストから選択しなければならない。,2000,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cbc:ID/@schemeID,0..1
-399,JBT-305,0..1,3,納入先名称,納入先の企業/工場・事業所・事業部門等の名称,Text,IBT-070,Deliver to party name,財又はサービスが納入された納入先の名称。,1980,,,/Invoice/cac:Delivery/cac:DeliveryParty/cac:PartyName/cbc:Name,0..1
+395,JBT-307,0..1,3,納入先コード,納入先の企業/工場・事業所・事業部門等を表す発注者が付与したコード。,Identifier,IBT-071,Deliver to location identifier,財又はサービスが納入された納入先の場所ID。,1990,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cbc:ID,0..1
+396,JBT-307-1,0..1,4,スキーマID,コードの発番機関コード,Code,IBT-071-1,Deliver to location identifier Scheme identifier,納入された住所IDを発行した組織の識別スキーマID。使用する場合、識別スキーマは、ISO/IEC 6523 の保守機関によって公開されたリストから選択しなければならない。,2000,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cbc:ID/@schemeID,0..1
+399,JBT-309,0..1,3,納入先名称,納入先の企業/工場・事業所・事業部門等の名称,Text,IBT-070,Deliver to party name,財又はサービスが納入された納入先の名称。,1980,,,/Invoice/cac:Delivery/cac:DeliveryParty/cac:PartyName/cbc:Name,0..1
 400,JBG-52,0..1,3,納入先住所,住所に関する情報のグループ,__,IBG-15,DELIVER TO ADDRESS,請求する財又はサービスの納入先の住所に関する情報を提供するビジネス用語のグループ。,2050,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address,0..1
-401,JBT-306,0..1,4,納入先郵便番号,納入先の郵便番号,Code,IBT-078,Deliver to post code,納入先の住所の郵便番号。,2100,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:PostalZone,0..1
-402,JBT-307,0..1,4,納入先住所1,納入先の住所1行目,Text,IBT-075,Deliver to address line 1,納入先の住所の主な記載欄。,2060,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:StreetName,0..1
-403,JBT-308,0..1,4,納入先住所2,納入先の住所2行目。,Text,IBT-076,Deliver to address line 2,納入先の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,2070,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:AdditionalStreetName,0..1
-404,JBT-309,0..1,4,納入先住所3,納入先の住所3行目。,Text,IBT-165,Deliver to address line 3,納入先の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,2080,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:AddressLine/cbc:Line,0..1
-405,JBT-310,0..1,4,納入先住所 市区町村,納入先が所在する市、町、村の通称。,Text,IBT-077,Deliver to city,納入先が所在する市、町、村の通称。,2090,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:CityName,0..1
-406,JBT-311,0..1,4,納入先住所 都道府県,納入先の住所の地方区分。,Text,IBT-079,Deliver to country subdivision,納入先の住所の地方区分。,2110,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:CountrySubentity,0..1
-407,JBT-312,0..1,4,納入先国識別子,納入先の国ID。,Code,IBT-080,Deliver to country code,納入先の住所の国コード。,2120,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:Country/cbc:IdentificationCode,1..1
-409,JBT-313,0..1,4,配送日,納入先へ発送した日時,Date,IBT-072,Actual delivery date,財又はサービスが納入された、あるいはすべて提供された日付。,2010,,,/Invoice/cac:Delivery/cbc:ActualDeliveryDate,0..1
+401,JBT-310,0..1,4,納入先郵便番号,納入先の郵便番号,Code,IBT-078,Deliver to post code,納入先の住所の郵便番号。,2100,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:PostalZone,0..1
+402,JBT-311,0..1,4,納入先住所1,納入先の住所1行目,Text,IBT-075,Deliver to address line 1,納入先の住所の主な記載欄。,2060,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:StreetName,0..1
+403,JBT-312,0..1,4,納入先住所2,納入先の住所2行目。,Text,IBT-076,Deliver to address line 2,納入先の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。,2070,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:AdditionalStreetName,0..1
+404,JBT-313,0..1,4,納入先住所3,納入先の住所3行目。,Text,IBT-165,Deliver to address line 3,納入先の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。,2080,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:AddressLine/cbc:Line,0..1
+405,JBT-314,0..1,4,納入先住所 市区町村,納入先が所在する市、町、村の通称。,Text,IBT-077,Deliver to city,納入先が所在する市、町、村の通称。,2090,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:CityName,0..1
+406,JBT-315,0..1,4,納入先住所 都道府県,納入先の住所の地方区分。,Text,IBT-079,Deliver to country subdivision,納入先の住所の地方区分。,2110,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:CountrySubentity,0..1
+407,JBT-316,0..1,4,納入先国識別子,納入先の国ID。,Code,IBT-080,Deliver to country code,納入先の住所の国コード。,2120,,,/Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address/cac:Country/cbc:IdentificationCode,1..1
+409,JBT-317,0..1,4,配送日,納入先へ発送した日時,Date,IBT-072,Actual delivery date,財又はサービスが納入された、あるいはすべて提供された日付。,2010,,,/Invoice/cac:Delivery/cbc:ActualDeliveryDate,0..1
 413,JBG-55,0..1,2,明細文書合計金額,明細文書の合計金額に関するグループ,__,IBG-22,DOCUMENT TOTALS,請求書合計金額に係る情報を提供するビジネス用語のグループ。,2640,,,/Invoice/cac:LegalMonetaryTotal,1..1
-414,JBT-316,0..1,3,明細文書追加請求合計金額,明細文書レベルの追加請求合計金額,Amount,IBT-108,Sum of charges on document level,請求書レベルの追加請求の合計。,2670,,,/Invoice/cac:LegalMonetaryTotal/cbc:ChargeTotalAmount,0..1
-415,JBT-317,0..1,3,明細文書返金合計金額,明細文書レベルの返金合計金額,Amount,IBT-107,Sum of allowances on document level,請求書レベルの返金の合計。,2660,,,/Invoice/cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount,0..1
-416,JBT-318,1..1,3,明細文書合計税額,明細文書の合計税額,Amount,IBT-110,Invoice total TAX amount,請求書消費税合計金額。,2690,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cbc:TaxAmount,1..1
-417,JBT-319,1..1,3,明細文書グロス合計金額,明細文書レベルの追加請求・返金を除く明細文薗の資産譲渡金額の合計金額（税抜き）,Amount,IBT-106,Sum of Invoice line net amount,値引後明細行金額の合計金額。,2650,,,/Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount,1..1
-418,JBT-320,1..1,3,明細文書合計金額(税抜き),明細文書明細行の合計金額（税抜き）\n明細文書レベルの追加請求・返金を含む,Amount,IBT-109,Invoice total amount without TAX,請求書合計金額(税抜き)。,2680,,,/Invoice/cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount,1..1
-419,JBT-321,0..1,3,明細文書合計金額(税込み),明細文書明細行の合計金額（税込み）\n明細文書レベルの追加請求・返金を含む,Amount,IBT-112,Invoice total amount with TAX,請求書合計金額(税込み)。,2700,,,/Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount,1..1
-420,JBT-322,1..1,3,明細文書総合計金額,明細文書の総合計金額（税込み）\n=明細文書合計金額（税抜き）＋明細文書合計税額,Amount,IBT-115,Amount due for payment,買い手が支払を要求されている差引請求金額。,2730,,,/Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,1..1
-422,JBT-323,0..1,3,（外貨建て請求書）明細文書合計税額,外貨建て適格請求明細文書の日本円合計税額。\n通貨コード属性＝JPY\nインボイス文書通貨コード＝「外貨」、税通貨コード＝「JPY」の場合に利用する,Amount,IBT-111,Invoice total TAX amount in tax accounting currency,売り手の国で認められた、又は要求された会計通貨での消費税合計金額。,2750,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cbc:TaxAmount,0..1
+414,JBT-320,0..1,3,明細文書追加請求合計金額,明細文書レベルの追加請求合計金額,Amount,IBT-108,Sum of charges on document level,請求書レベルの追加請求の合計。,2670,,,/Invoice/cac:LegalMonetaryTotal/cbc:ChargeTotalAmount,0..1
+415,JBT-321,0..1,3,明細文書返金合計金額,明細文書レベルの返金合計金額,Amount,IBT-107,Sum of allowances on document level,請求書レベルの返金の合計。,2660,,,/Invoice/cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount,0..1
+416,JBT-322,1..1,3,明細文書合計税額,明細文書の合計税額,Amount,IBT-110,Invoice total TAX amount,請求書消費税合計金額。,2690,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cbc:TaxAmount,1..1
+417,JBT-323,1..1,3,明細文書グロス合計金額,明細文書レベルの追加請求・返金を除く明細文薗の資産譲渡金額の合計金額（税抜き）,Amount,IBT-106,Sum of Invoice line net amount,値引後明細行金額の合計金額。,2650,,,/Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount,1..1
+418,JBT-324,1..1,3,明細文書合計金額(税抜き),明細文書明細行の合計金額（税抜き）\n明細文書レベルの追加請求・返金を含む,Amount,IBT-109,Invoice total amount without TAX,請求書合計金額(税抜き)。,2680,,,/Invoice/cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount,1..1
+419,JBT-325,0..1,3,明細文書合計金額(税込み),明細文書明細行の合計金額（税込み）\n明細文書レベルの追加請求・返金を含む,Amount,IBT-112,Invoice total amount with TAX,請求書合計金額(税込み)。,2700,,,/Invoice/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount,1..1
+420,JBT-326,1..1,3,明細文書総合計金額,明細文書の総合計金額（税込み）\n=明細文書合計金額（税抜き）＋明細文書合計税額,Amount,IBT-115,Amount due for payment,買い手が支払を要求されている差引請求金額。,2730,,,/Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,1..1
+422,JBT-327,0..1,3,（外貨建て請求書）明細文書合計税額,外貨建て適格請求明細文書の日本円合計税額。\n通貨コード属性＝JPY\nインボイス文書通貨コード＝「外貨」、税通貨コード＝「JPY」の場合に利用する,Amount,IBT-111,Invoice total TAX amount in tax accounting currency,売り手の国で認められた、又は要求された会計通貨での消費税合計金額。,2750,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cbc:TaxAmount,0..1
 423,JBG-57,1..n,2,明細文書税,明細文書の税に関するグループ。,__,IBG-23,TAX BREAKDOWN,課税分類、消費税率、非課税/不課税理由毎の、消費税内訳に関する情報を提供するビジネス用語のグループ。,2800,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal,1..n
-424,JBT-324,1..1,3,明細文書課税分類税額,明細文書の課税分類毎に端数処理計算した税額。\n明細文書課税分類資産譲渡合計金額×税率\n算出した税額は切り上げ、切り捨て、四捨五入のいずれかで処理し、税額は整数とする,Amount,IBT-117,TAX category tax amount,課税分類毎の消費税額合計。,2820,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cbc:TaxAmount,1..1
-426,JBT-326,1..1,3,明細文書課税分類譲渡資産合計金額（税抜き）,明細行の課税分類毎の税抜き譲渡資産金額の合計金額\n明細文書譲渡資産総合計金額（税抜き）＝∑明細行譲渡資産金額（税抜き）＋Σ明細文書追加請求金額ーΣ明細文書返金金額,Amount,IBT-116,TAX category taxable amount,課税分類/課税分類の消費税率毎の課税基準額の合計。,2810,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cbc:TaxableAmount,1..1
-427,JBT-327,1..1,3,明細文書課税分類コード,明細文書の課税分類（標準税率、軽減税率、不課税、非課税、免税等）を識別するコード\n課税分類ごとにクラスを設ける,Code,IBT-118,TAX category code,消費税の課税分類属性(標準税率、軽減税率など)を識別するためのコード。,2830,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cac:TaxCategory/cbc:ID,1..1
-430,JBT-330,1..1,3,明細文書税率,明細明細文書の課税分類毎の税額計算のための率。,Percentage,IBT-119,TAX category rate,課税分類毎の税額計算のための率。,2840,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent,0..1
+424,JBT-328,1..1,3,明細文書課税分類税額,明細文書の課税分類毎に端数処理計算した税額。\n明細文書課税分類資産譲渡合計金額×税率\n算出した税額は切り上げ、切り捨て、四捨五入のいずれかで処理し、税額は整数とする,Amount,IBT-117,TAX category tax amount,課税分類毎の消費税額合計。,2820,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cbc:TaxAmount,1..1
+426,JBT-330,1..1,3,明細文書課税分類譲渡資産合計金額（税抜き）,明細行の課税分類毎の税抜き譲渡資産金額の合計金額\n明細文書譲渡資産総合計金額（税抜き）＝∑明細行譲渡資産金額（税抜き）＋Σ明細文書追加請求金額ーΣ明細文書返金金額,Amount,IBT-116,TAX category taxable amount,課税分類/課税分類の消費税率毎の課税基準額の合計。,2810,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cbc:TaxableAmount,1..1
+427,JBT-331,1..1,3,明細文書課税分類コード,明細文書の課税分類（標準税率、軽減税率、不課税、非課税、免税等）を識別するコード\n課税分類ごとにクラスを設ける,Code,IBT-118,TAX category code,消費税の課税分類属性(標準税率、軽減税率など)を識別するためのコード。,2830,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cac:TaxCategory/cbc:ID,1..1
+430,JBT-334,1..1,3,明細文書税率,明細明細文書の課税分類毎の税額計算のための率。,Percentage,IBT-119,TAX category rate,課税分類毎の税額計算のための率。,2840,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent,0..1
 434,JBG-58,0..n,2,（外貨建て請求書）明細文書税,外貨建て請求書の税率別課税分類合計額算出のための税グループ,__,IBG-38,TAX BREAKDOWN IN ACCOUNTING CURRENCY,請求書の会計通貨でのさまざまな課税分類、税率、および免税理由による消費税の内訳に関する情報を提供するビジネス用語のグループ。,2760,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cac:TaxSubtotal,1..n
-435,JBT-334,1..1,3,（外貨建て請求書）明細文書課税分類税額,外貨建て請求書の明細文書の課税分類毎に端数処理計算した税額。\n外貨建て請求書の明細文書課税分類資産譲渡合計金額×税率\n算出した税額は切り上げ、切り捨て、四捨五入のいずれかで処理し、税額は整数とする,Amount,IBT-190,TAX category tax amount in accounting currency,課税分類での請求書消費税合計の会計通貨での金額。,2770,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cac:TaxSubtotal/cbc:TaxAmount,0..1
-437,JBT-336,1..1,3,（外貨建て請求書）明細文書課税分類コード,外貨建て請求書の明細文書の課税分類（標準税率、軽減税率）を識別するコード,Code,IBT-192,TAX category code for tax category tax amount in accounting currency, 請求書会計通貨での課税分類のコード化された識別子。,2780,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cac:TaxSubtotal/cac:TaxCategory/cbc:ID,1..1
-440,JBT-339,0..1,3,明細文書適用税制識別子,取引の税制年度を識別するID\nデフォルトは「2019」（2019年度税制）,Code,IBT-193,TAX category rate for tax category tax amount in accounting currency,会計通貨での該当する課税分類に適用されるパーセンテージとして表した税率。,2790,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent,0..1
-452,JBT-348,0..1,2,購買会計アカウント名,買い手の購買会計アカウント名,Text,IBT-019,Buyer accounting reference,買い手の財務勘定科目に関連データを記帳する場所を指定する。買い手のどの勘定に関連データを記帳すべきかを指定するためのテキスト値。,1200,,,/Invoice/cbc:AccountingCost,0..1
+435,JBT-338,1..1,3,（外貨建て請求書）明細文書課税分類税額,外貨建て請求書の明細文書の課税分類毎に端数処理計算した税額。\n外貨建て請求書の明細文書課税分類資産譲渡合計金額×税率\n算出した税額は切り上げ、切り捨て、四捨五入のいずれかで処理し、税額は整数とする,Amount,IBT-190,TAX category tax amount in accounting currency,課税分類での請求書消費税合計の会計通貨での金額。,2770,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cac:TaxSubtotal/cbc:TaxAmount,0..1
+437,JBT-340,1..1,3,（外貨建て請求書）明細文書課税分類コード,外貨建て請求書の明細文書の課税分類（標準税率、軽減税率）を識別するコード,Code,IBT-192,TAX category code for tax category tax amount in accounting currency, 請求書会計通貨での課税分類のコード化された識別子。,2780,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cac:TaxSubtotal/cac:TaxCategory/cbc:ID,1..1
+440,JBT-343,0..1,3,明細文書適用税制識別子,取引の税制年度を識別するID\nデフォルトは「2019」（2019年度税制）,Code,IBT-193,TAX category rate for tax category tax amount in accounting currency,会計通貨での該当する課税分類に適用されるパーセンテージとして表した税率。,2790,,,/Invoice/cac:TaxTotal[cbc:TaxAmount/@currencyID=/Invoice/cbc:TaxCurrencyCode]/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent,0..1
+441,JBG-59,0..n,2,文書ヘッダ決済／調整グループ,文書ヘッダの調整に関するグループ\n調整ユースケースで文書タイプが「統合文書」を指定する場合にこのグループは必須。「単一文書」を指定する場合はこのグループは実装しない。,__,,,,0,,,,
+446,JBG-60,0..n,2,文書ヘッダ調整／調整税グループ,文書ヘッダの調整税クラスに関するグループ,__,,,,0,,,,
+452,JBT-352,0..1,2,購買会計アカウント名,買い手の購買会計アカウント名,Text,IBT-019,Buyer accounting reference,買い手の財務勘定科目に関連データを記帳する場所を指定する。買い手のどの勘定に関連データを記帳すべきかを指定するためのテキスト値。,1200,,,/Invoice/cbc:AccountingCost,0..1
 453,JBG-61,1..n,2,明細行,明細行に関する情報からなるクラス,__,IBG-25,INVOICE LINE,請求書明細行に関する情報を提供するビジネス用語のグループ。,2940,,,/Invoice/cac:InvoiceLine,1..n
-454,JBT-349,1..1,3,明細行番号,この文書の明細行に関する情報を特定するために付与した行番号。明細行をユニークに識別するために付番する場合は文書番号との複合キーで明細行を特定する。,Identifier,IBT-126,Invoice line identifier,この請求書内で個々の明細行を一意に識別するためのID。,2950,,,/Invoice/cac:InvoiceLine/cbc:ID,1..1
-458,JBT-352,0..1,3,明細行注釈内容,明細行の注釈表題毎の内容情報を入力するフリースペース。,Text,IBT-127,Invoice line note,請求書明細行に関連する構造化されていない情報を提供するためのテキスト、注釈。,2960,,,/Invoice/cac:InvoiceLine/cbc:Note,0..1
-475,JBT-366,1..1,3,明細行課税分類譲渡資産金額税抜き,"この明細行の課税分類（明細行課税分類コード／税率）毎の税抜き譲渡資産金額（契約単価×請求数量）
+454,JBT-353,1..1,3,明細行番号,この文書の明細行に関する情報を特定するために付与した行番号。明細行をユニークに識別するために付番する場合は文書番号との複合キーで明細行を特定する。,Identifier,IBT-126,Invoice line identifier,この請求書内で個々の明細行を一意に識別するためのID。,2950,,,/Invoice/cac:InvoiceLine/cbc:ID,1..1
+458,JBT-356,0..1,3,明細行注釈内容,明細行の注釈表題毎の内容情報を入力するフリースペース。,Text,IBT-127,Invoice line note,請求書明細行に関連する構造化されていない情報を提供するためのテキスト、注釈。,2960,,,/Invoice/cac:InvoiceLine/cbc:Note,0..1
+464,JBG-63,0..1,3,明細行参照注文書,明細行の参照注文書クラス,__,,,,3045,,,/Invoice/cac:InvoiceLine/cac:OrderLineReference,0..1
+465,JBT-361,0..1,4,明細行参照注文書番号,この明細行が参照する注文書に記載の文書番号,Document Reference,IBT-183,Purchase order reference,買い手が付番した発注番号を参照するためのID。,3050,,,/Invoice/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID,0..1
+466,JBT-362,0..1,4,明細行参照注文書明細行番号,この明細行が参照する注文書に記載の明細行番号,Document Reference,IBT-132,Referenced purchase order line reference,買い手が付番した発注書内の明細行を参照するためのID。,3060,,,/Invoice/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID,0..1
+468,JBG-64,0..n,3,明細行参照文書,明細行の参照文書クラス,__,ibg-36,LINE DOCUMENT REFERENCE,売り手によって指定された、請求書の明細行の請求の根拠となっているオブジェクトの識別子。,2970,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')],0..1
+469,JBT-364,1..1,4,明細行参照文書番号,"この明細行が参照する文書に記載の文書番号。
+補完納品書の場合は必須",Identifier,ibt-188,Invoice line document identifier,請求書明細行が参照する文書のID,2980,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:ID,1..1
+472,JBT-367,1..1,4,明細行参照文書タイプコード,この明細行が参照する文書のタイプを識別するコード。デフォルトは納品書,Code,IBT-189,Document type code,参照する文書の種類を規定するコード,2990,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:DocumentTypeCode,0..1
+475,JBT-370,1..1,3,明細行課税分類譲渡資産金額税抜き,"この明細行の課税分類（明細行課税分類コード／税率）毎の税抜き譲渡資産金額（契約単価×請求数量）
 契約単価×数量で指定できない場合は金額",Amount,IBT-131,Invoice line net amount,値引後の請求書明細行の合計金額(税抜き)。,3040,,,/Invoice/cac:InvoiceLine/cbc:LineExtensionAmount,1..1
-476,JBT-367,0..1,3,明細行課税分類譲渡資産金額税込み,この明細行の課税分類毎の税額を含む譲渡資産金額,Amount,IBT-201,Tax inclusive line net amount (UBL 2.3),値引後の請求書明細行の合計金額(税込み)。,3035,,,/Invoice/cac:InvoiceLine/cbc:TaxInclusiveLineExtensionAmount,0..1
-481,JBT-371,1..1,3,請求数量,"この明細行品目のバラ請求数量、またはセット請求数量。
+476,JBT-371,0..1,3,明細行課税分類譲渡資産金額税込み,この明細行の課税分類毎の税額を含む譲渡資産金額,Amount,IBT-201,Tax inclusive line net amount (UBL 2.3),値引後の請求書明細行の合計金額(税込み)。,3035,,,/Invoice/cac:InvoiceLine/cbc:TaxInclusiveLineExtensionAmount,0..1
+481,JBT-375,1..1,3,請求数量,"この明細行品目のバラ請求数量、またはセット請求数量。
 バラ、セットの区分は数量単位コードで指定する
 流通業取引では利用せず、「セット数量」「バラ数量」情報項目を利用する",Quantity,IBT-129,Invoiced quantity,請求書明細行で請求する品目(財又はサービス)の数量。,3020,,,/Invoice/cac:InvoiceLine/cbc:InvoicedQuantity,1..1
-482,JBT-372,0..1,3,数量単位コード,数量単位のコード名,Code,IBT-130,Invoiced quantity unit of measure code,請求数量に適用する数量単位コード。,3030,,,/Invoice/cac:InvoiceLine/cbc:InvoicedQuantity/@unitCode,1..1
-464,JBG-62,0..1,3,明細行参照注文書,明細行の参照注文書クラス,,,,,3045,,,/Invoice/cac:InvoiceLine/cac:OrderLineReference,
-465,JBT-357,0..1,4,明細行参照注文書番号,この明細行が参照する注文書に記載の文書番号,Document Reference,IBT-183,Purchase order reference,買い手が付番した発注番号を参照するためのID。,3050,,,/Invoice/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID,0..1
-466,JBT-358,0..1,4,明細行参照注文書明細行番号,この明細行が参照する注文書に記載の明細行番号,Document Reference,IBT-132,Referenced purchase order line reference,買い手が付番した発注書内の明細行を参照するためのID。,3060,,,/Invoice/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID,0..1
-468,JBG-65,0..n,3,明細行参照文書,明細行の参照文書クラス,__,ibg-36,LINE DOCUMENT REFERENCE,売り手によって指定された、請求書の明細行の請求の根拠となっているオブジェクトの識別子。,2970,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')],0..1
-469,JBT-360,1..1,4,明細行参照文書番号,"この明細行が参照する文書に記載の文書番号。
-補完納品書の場合は必須",Identifier,ibt-188,Invoice line document identifier,請求書明細行が参照する文書のID,2980,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:ID,1..1
-472,JBT-363,1..1,4,明細行参照文書タイプコード,この明細行が参照する文書のタイプを識別するコード。デフォルトは納品書,Code,IBT-189,Document type code,参照する文書の種類を規定するコード,2990,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:DocumentTypeCode,0..1
-485,JBG-68,1..1,3,明細行税,明細行の税に関する情報に関するクラス,__,IBG-30,LINE TAX INFORMATION,請求書明細行で請求する財又はサービスに適用される消費税に係る情報を提供するビジネス用語のグループ。,3300,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory,1..n
-486,JBT-374,0..1,4,明細行税タイプコード,税の種類(消費税、所得税など）を識別するコード。デフォルトは消費税,Code,IBT-167,Tax Scheme,税の種類を示すコード。,3360,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cbc:ID,0..1
-487,JBT-375,1..1,4,明細行課税分類コード,この明細行の消費税の課税分類（標準税率、軽減税率、不課税、非課税、免税等）を識別するコード,Code,IBT-151,Invoiced item TAX category code,請求する品目に対して適用される課税分類コード。,3310,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID,1..1
-489,JBT-377,0..1,4,明細行税率,この明細行の課税分類区分を識別するため、明細行課税分類コードと組み合わせて利用する。,Percentage,IBT-152,Invoiced item TAX rate,請求する品目に対して適用される税率で、パーセントで表現。,3320,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:Percent,0..1
-490,JBT-360,0..1,4,請求書明細行オブジェクトID,,Identifier,ibt-128,Invoice line object identifier,売り手によって提供された、請求書明細行の根拠となるオブジェクトのID。(注：必要に応じて、予約番号、電話番号、メーターポイントなどを指定できる。）,3000,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentTypeCode='130']/cbc:ID,0..1
-491,JBT-360-1,0..1,5,スキーマID,,Code,ibt-128-1,Invoice line object identifier Scheme identifier,請求書が参照する文書を識別するためのスキーマID。注：受信者にどのスキーマを使用したか明らかにしていない場合は、UNTDID 1153 code list  から選択した、スキーマIDを使用しなければならない。,3010,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentTypeCode='130']/cbc:ID/@schemeID,0..1
-501,JBG-70,0..n,3,明細行返金,明細行返金のクラス,__,IBG-27,INVOICE LINE ALLOWANCES,請求書明細行に適用される返金に関する情報を提供するビジネス用語のグループ。,3120,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()],0..n
-503,JBT-369,0..1,4,明細行返金率,この明細行の返金を計算するための率,Percentage,IBT-138,Invoice line allowance percentage,請求書明細行の返金基準金額を乗じて請求書明細行の返金金額を算出する際に使用されるパーセント。,3150,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:MultiplierFactorNumeric,0..1
-504,JBT-370,0..1,4,明細行返金金額,"この明細行の返金金額。
+482,JBT-376,0..1,3,数量単位コード,数量単位のコード名,Code,IBT-130,Invoiced quantity unit of measure code,請求数量に適用する数量単位コード。,3030,,,/Invoice/cac:InvoiceLine/cbc:InvoicedQuantity/@unitCode,1..1
+485,JBG-66,1..1,3,明細行税,明細行の税に関する情報に関するクラス,__,IBG-30,LINE TAX INFORMATION,請求書明細行で請求する財又はサービスに適用される消費税に係る情報を提供するビジネス用語のグループ。,3300,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory,1..n
+486,JBT-378,0..1,4,明細行税タイプコード,税の種類(消費税、所得税など）を識別するコード。デフォルトは消費税,Code,IBT-167,Tax Scheme,税の種類を示すコード。,3360,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cbc:ID,0..1
+487,JBT-379,1..1,4,明細行課税分類コード,この明細行の消費税の課税分類（標準税率、軽減税率、不課税、非課税、免税等）を識別するコード,Code,IBT-151,Invoiced item TAX category code,請求する品目に対して適用される課税分類コード。,3310,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID,1..1
+489,JBT-381,0..1,4,明細行税率,この明細行の課税分類区分を識別するため、明細行課税分類コードと組み合わせて利用する。,Percentage,IBT-152,Invoiced item TAX rate,請求する品目に対して適用される税率で、パーセントで表現。,3320,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:Percent,0..1
+490,JBT-382,0..1,4,請求書明細行オブジェクトID,,Identifier,ibt-128,Invoice line object identifier,売り手によって提供された、請求書明細行の根拠となるオブジェクトのID。(注：必要に応じて、予約番号、電話番号、メーターポイントなどを指定できる。）,3000,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentTypeCode='130']/cbc:ID,0..1
+491,JBT-382-1,0..1,5,スキーマID,,Code,ibt-128-1,Invoice line object identifier Scheme identifier,請求書が参照する文書を識別するためのスキーマID。注：受信者にどのスキーマを使用したか明らかにしていない場合は、UNTDID 1153 code list  から選択した、スキーマIDを使用しなければならない。,3010,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentTypeCode='130']/cbc:ID/@schemeID,0..1
+492,JBG-67,0..n,3,明細行参照インボイス文書,明細行が参照するインボイス文書（業界EDI電子インボイス等）に関するグループ,__,,,,0,,,,
+501,JBG-68,0..n,3,明細行返金,明細行返金のクラス,__,IBG-27,INVOICE LINE ALLOWANCES,請求書明細行に適用される返金に関する情報を提供するビジネス用語のグループ。,3120,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()],0..n
+503,JBT-391,0..1,4,明細行返金率,この明細行の返金を計算するための率,Percentage,IBT-138,Invoice line allowance percentage,請求書明細行の返金基準金額を乗じて請求書明細行の返金金額を算出する際に使用されるパーセント。,3150,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:MultiplierFactorNumeric,0..1
+504,JBT-392,0..1,4,明細行返金金額,"この明細行の返金金額。
 契約単価×返金数量、または金額。
 契約単価×返金数量で指定できない場合には金額
 明細行取引類型コード＝「資産譲渡」を指定した場合は利用しない。",Amount,IBT-136,Invoice line allowance amount,返金金額(税抜き)。,3130,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:Amount,1..1
-505,JBT-371,0..1,4,明細行返金理由コード,この明細行の返金理由を識別するコード,Code,IBT-140,Invoice line allowance reason code,請求書明細行の返金理由をコードで表現。,3170,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:AllowanceChargeReasonCode,0..1
-506,JBT-372,0..1,4,明細行返金理由,この明細行の返金理由（内容）の説明,Text,IBT-139,Invoice line allowance reason,請求書明細行の返金理由をテキストで表現。,3160,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:AllowanceChargeReason,0..1
-507,JBT-373,0..1,4,明細行返金基準金額,この明細行の返金の計算根拠となる金額,Amount,IBT-137,Invoice line allowance base amount,請求書明細行の返金率を乗じて請求書明細行の返金金額を算出する際に使用される基準金額。,3140,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:BaseAmount,0..1
-508,JBG-71,0..n,3,明細行追加請求,明細行追加請求のクラス,__,IBG-28,INVOICE LINE CHARGES,請求書明細行に適用される追加請求に関する情報を提供するビジネス用語のグループ。,3180,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()],0..n
-510,JBT-374,0..1,4,明細行追加請求率,この明細行の追加請求を計算するための率,Percentage,IBT-143,Invoice line charge percentage,請求書明細行の追加請求基準金額に対して請求書明細行の追加請求金額の計算に使用するパーセント。,3210,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:MultiplierFactorNumeric,0..1
-511,JBT-375,0..1,4,明細行追加請求金額,"この明細行の追加請求金額。
+505,JBT-393,0..1,4,明細行返金理由コード,この明細行の返金理由を識別するコード,Code,IBT-140,Invoice line allowance reason code,請求書明細行の返金理由をコードで表現。,3170,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:AllowanceChargeReasonCode,0..1
+506,JBT-394,0..1,4,明細行返金理由,この明細行の返金理由（内容）の説明,Text,IBT-139,Invoice line allowance reason,請求書明細行の返金理由をテキストで表現。,3160,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:AllowanceChargeReason,0..1
+507,JBT-395,0..1,4,明細行返金基準金額,この明細行の返金の計算根拠となる金額,Amount,IBT-137,Invoice line allowance base amount,請求書明細行の返金率を乗じて請求書明細行の返金金額を算出する際に使用される基準金額。,3140,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:BaseAmount,0..1
+508,JBG-69,0..n,3,明細行追加請求,明細行追加請求のクラス,__,IBG-28,INVOICE LINE CHARGES,請求書明細行に適用される追加請求に関する情報を提供するビジネス用語のグループ。,3180,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()],0..n
+510,JBT-396,0..1,4,明細行追加請求率,この明細行の追加請求を計算するための率,Percentage,IBT-143,Invoice line charge percentage,請求書明細行の追加請求基準金額に対して請求書明細行の追加請求金額の計算に使用するパーセント。,3210,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:MultiplierFactorNumeric,0..1
+511,JBT-397,0..1,4,明細行追加請求金額,"この明細行の追加請求金額。
 契約単価×追加請求数量、または金額。
 契約単価×追加請求数量で指定できない場合には金額
 明細行取引類型コード＝「資産譲渡」を指定した場合は利用しない。",Amount,IBT-141,Invoice line charge amount,追加請求金額(税抜き)。,3190,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:Amount,1..1
-512,JBT-376,0..1,4,明細行追加請求理由コード,この明細行の追加請求理由を識別するコード,Code,IBT-145,Invoice line charge reason code,請求書明細行の追加請求理由をコードで表現。,3230,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:AllowanceChargeReasonCode,0..1
-513,JBT-361,0..1,4,明細行追加請求理由,この明細行の追加請求理由（内容）の説明,Text,IBT-144,Invoice line charge reason,請求書明細行の追加請求理由をテキストで表現。,3220,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:AllowanceChargeReason,0..1
-514,JBT-361,0..1,4,明細行追加請求基準金額,この明細行の追加請求の計算根拠となる金額,Amount,IBT-142,Invoice line charge base amount,請求書明細行の追加請求金額を計算するために、請求書明細行の追加請求率が適用される基準金額。,3200,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:BaseAmount,0..1
-519,JBG-73,1..1,3,明細行取引期間,明細行の取引期間に関する情報からなるクラス,__,IBG-26,INVOICE LINE PERIOD,請求書明細行に関連する期間に関する情報,3090,,,/Invoice/cac:InvoiceLine/cac:InvoicePeriod,0..1
-520,JBT-364,1..1,4,明細行取引開始日,この明細行の取引開始日,Date,IBT-134,Invoice line period start date,請求書明細行の請求期間が開始する日付,3100,,,/Invoice/cac:InvoiceLine/cac:InvoicePeriod/cbc:StartDate,0..1
-522,JBT-366,1..1,4,明細行取引終了日,この明細行の取引終了日,Date,IBT-135,Invoice line period end date,請求書明細行の請求期間が終了する日付,3110,,,/Invoice/cac:InvoiceLine/cac:InvoicePeriod/cbc:EndDate,0..1
-525,JBT-368,1..1,3,明細行購買会計アカウント名,買い手の明細行購買会計アカウント名,Text,IBT-133,Invoice line Buyer accounting reference,請求書明細行に関連したデータを買い手のどの勘定科目で記帳するかを指定するテキスト。,3080,,,/Invoice/cac:InvoiceLine/cbc:AccountingCost,0..1
-526,JBG-75,1..1,3,取引品目,取引品目に関する情報のグループ,__,IBG-31,ITEM INFORMATION,請求する財又はサービスに係る情報を提供するビジネス用語のグループ。,3370,,,/Invoice/cac:InvoiceLine/cac:Item,1..1
-528,JBT-370,0..1,4,品目標準ID,GTIN、JAN識別子などの国際的に登録された品目識別子,Identifier,IBT-157,Item standard identifier,登録されているスキーマに基づいた品目ID。,3420,,,/Invoice/cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID,0..1
-529,JBT-370-1,1..1,5,スキーマID,使用する場合、識別スキーマは、ISO/IEC 6523 保守機関が公開しているリストから選択しなければならない。,Code,IBT-157-1,Item standard identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC 6523 保守機関が公開しているリストから選択しなければならない。,3430,,,/Invoice/cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID/@schemeID,1..1
-530,JBT-371,0..1,4,買い手による品目ID,売り手が品目を特定するために付与した識別子,Identifier,IBT-156,Item Buyer's identifier,買い手が取引品目に割当てたID,3410,,,/Invoice/cac:InvoiceLine/cac:Item/cac:BuyersItemIdentification/cbc:ID,0..1
-531,JBT-362,0..1,4,売り手による品目ID,発注者が品目を特定するために付与した識別子,Identifier,IBT-155,Item Seller's identifier,売り手が取引品目に割当てたID,3400,,,/Invoice/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID,0..1
-533,JBT-364,0..1,4,品名,この取引の品名。,Text,IBT-153,Item name,取引品目の品名。,3380,,,/Invoice/cac:InvoiceLine/cac:Item/cbc:Name,1..1
-534,JBT-365,1..1,4,品目摘要,この取引品目内容を文字で説明したもの,Text,IBT-154,Item description,取引品目を説明した文章。,3390,,,/Invoice/cac:InvoiceLine/cac:Item/cbc:Description,0..1
-537,JBT-368,0..1,4,品目の原産国,この取引品目の原産国を識別するコード,Code,IBT-159,Item country of origin,品目の原産国を識別するコード。,3470,,,/Invoice/cac:InvoiceLine/cac:Item/cac:OriginCountry/cbc:IdentificationCode,0..1
-538,JBT-369,0..n,4,品目分類ID,種類や性質によって品目を分類するコード。,Identifier,IBT-158,Item classification identifier,種類や性質によって品目を分類するコード。,3440,,,/Invoice/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode,0..n
-539,JBT-369-1,1..1,5,スキーマID,品目分類IDの識別スキーマIDは、UNTDID 7143にある項目から選択すること。,Code,IBT-158-1,Item classification identifier Scheme identifier,品目分類IDの識別スキーマIDは、UNTDID 7143にある項目から選択すること。,3450,,,/Invoice/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID,1..1
-543,JBT-369-2,0..1,5,スキーマのバージョンID,スキーマのバージョン。,Code,IBT-158-2,Item classification identifier Scheme version identifier,スキーマのバージョン。,3460,,,/Invoice/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID,0..1
-540,JBG-76,1..1,3,契約単価,明細行の契約単価に関する情報のグループ,__,IBG-29,PRICE DETAILS,請求書明細行で請求する財又はサービスに適用される価格に係る情報を提供するビジネス用語のグループ。,3240,,,/Invoice/cac:InvoiceLine/cac:Price,1..1
-542,JBT-371,1..1,4,品目単価(値引後)(税抜き),"発注者と売り手が合意した明細発注品の単価。単価基準数量と単価基準数量単位の指定に従う。
+512,JBT-398,0..1,4,明細行追加請求理由コード,この明細行の追加請求理由を識別するコード,Code,IBT-145,Invoice line charge reason code,請求書明細行の追加請求理由をコードで表現。,3230,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:AllowanceChargeReasonCode,0..1
+513,JBT-399,0..1,4,明細行追加請求理由,この明細行の追加請求理由（内容）の説明,Text,IBT-144,Invoice line charge reason,請求書明細行の追加請求理由をテキストで表現。,3220,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:AllowanceChargeReason,0..1
+514,JBT-400,0..1,4,明細行追加請求基準金額,この明細行の追加請求の計算根拠となる金額,Amount,IBT-142,Invoice line charge base amount,請求書明細行の追加請求金額を計算するために、請求書明細行の追加請求率が適用される基準金額。,3200,,,/Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:BaseAmount,0..1
+515,JBG-70,0..n,3,明細行調整,明細行決済の調整に関するグループ,__,,,,0,,,,
+519,JBG-71,1..1,3,明細行取引期間,明細行の取引期間に関する情報からなるクラス,__,IBG-26,INVOICE LINE PERIOD,請求書明細行に関連する期間に関する情報,3090,,,/Invoice/cac:InvoiceLine/cac:InvoicePeriod,0..1
+520,JBT-403,1..1,4,明細行取引開始日,この明細行の取引開始日,Date,IBT-134,Invoice line period start date,請求書明細行の請求期間が開始する日付,3100,,,/Invoice/cac:InvoiceLine/cac:InvoicePeriod/cbc:StartDate,0..1
+522,JBT-405,1..1,4,明細行取引終了日,この明細行の取引終了日,Date,IBT-135,Invoice line period end date,請求書明細行の請求期間が終了する日付,3110,,,/Invoice/cac:InvoiceLine/cac:InvoicePeriod/cbc:EndDate,0..1
+525,JBT-407,1..1,3,明細行購買会計アカウント名,買い手の明細行購買会計アカウント名,Text,IBT-133,Invoice line Buyer accounting reference,請求書明細行に関連したデータを買い手のどの勘定科目で記帳するかを指定するテキスト。,3080,,,/Invoice/cac:InvoiceLine/cbc:AccountingCost,0..1
+526,JBG-72,1..1,3,取引品目,取引品目に関する情報のグループ,__,IBG-31,ITEM INFORMATION,請求する財又はサービスに係る情報を提供するビジネス用語のグループ。,3370,,,/Invoice/cac:InvoiceLine/cac:Item,1..1
+528,JBT-409,0..1,4,品目標準ID,GTIN、JAN識別子などの国際的に登録された品目識別子,Identifier,IBT-157,Item standard identifier,登録されているスキーマに基づいた品目ID。,3420,,,/Invoice/cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID,0..1
+529,JBT-409-1,1..1,5,スキーマID,使用する場合、識別スキーマは、ISO/IEC 6523 保守機関が公開しているリストから選択しなければならない。,Code,IBT-157-1,Item standard identifier Scheme identifier,使用する場合、識別スキーマは、ISO/IEC 6523 保守機関が公開しているリストから選択しなければならない。,3430,,,/Invoice/cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID/@schemeID,1..1
+530,JBT-410,0..1,4,買い手による品目ID,売り手が品目を特定するために付与した識別子,Identifier,IBT-156,Item Buyer's identifier,買い手が取引品目に割当てたID,3410,,,/Invoice/cac:InvoiceLine/cac:Item/cac:BuyersItemIdentification/cbc:ID,0..1
+531,JBT-411,0..1,4,売り手による品目ID,発注者が品目を特定するために付与した識別子,Identifier,IBT-155,Item Seller's identifier,売り手が取引品目に割当てたID,3400,,,/Invoice/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID,0..1
+533,JBT-413,0..1,4,品名,この取引の品名。,Text,IBT-153,Item name,取引品目の品名。,3380,,,/Invoice/cac:InvoiceLine/cac:Item/cbc:Name,1..1
+534,JBT-414,1..1,4,品目摘要,この取引品目内容を文字で説明したもの,Text,IBT-154,Item description,取引品目を説明した文章。,3390,,,/Invoice/cac:InvoiceLine/cac:Item/cbc:Description,0..1
+537,JBT-417,0..1,4,品目の原産国,この取引品目の原産国を識別するコード,Code,IBT-159,Item country of origin,品目の原産国を識別するコード。,3470,,,/Invoice/cac:InvoiceLine/cac:Item/cac:OriginCountry/cbc:IdentificationCode,0..1
+538,JBT-418,0..n,4,品目分類ID,種類や性質によって品目を分類するコード。,Identifier,IBT-158,Item classification identifier,種類や性質によって品目を分類するコード。,3440,,,/Invoice/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode,0..n
+539,JBT-418-1,1..1,5,スキーマID,品目分類IDの識別スキーマIDは、UNTDID 7143にある項目から選択すること。,Code,IBT-158-1,Item classification identifier Scheme identifier,品目分類IDの識別スキーマIDは、UNTDID 7143にある項目から選択すること。,3450,,,/Invoice/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID,1..1
+543,JBT-418-2,0..1,5,スキーマのバージョンID,スキーマのバージョン。,Code,IBT-158-2,Item classification identifier Scheme version identifier,スキーマのバージョン。,3460,,,/Invoice/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID,0..1
+540,JBG-73,1..1,3,契約単価,明細行の契約単価に関する情報のグループ,__,IBG-29,PRICE DETAILS,請求書明細行で請求する財又はサービスに適用される価格に係る情報を提供するビジネス用語のグループ。,3240,,,/Invoice/cac:InvoiceLine/cac:Price,1..1
+542,JBT-420,1..1,4,品目単価(値引後)(税抜き),"発注者と売り手が合意した明細発注品の単価。単価基準数量と単価基準数量単位の指定に従う。
 税込み、税抜きの識別はヘッダ部の「UN01013096：税計算方式」で指定（指定がない場合（デフォルト）は税抜き）。",Unit Price Amount,IBT-146,Item net price,値引金額を差し引いた後の、消費税を除く品目単価。,3250,,,/Invoice/cac:InvoiceLine/cac:Price/cbc:PriceAmount,1..1
-544,JBG-77,0..n,3,品目属性,取引品目の属性のグループ,__,IBG-32,ITEM ATTRIBUTES,品目およびサービスのプロパティに関する情報を提供するビジネス用語のグループ。,3480,,,/Invoice/cac:InvoiceLine/cac:Item/cac:AdditionalItemProperty,0..n
-546,JBT-373,0..1,4,品目単価値引(税抜き),,Unit Price Amount,ibt-147,Item price discount,品目単価(値引後)(税抜き)を計算するために、品目単価(値引前)(税抜き)から差し引かれる値引。,3260,,,/Invoice/cac:InvoiceLine/cac:Price/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:Amount,0..1
-547,JBT-374,1..1,4,品目属性名,この取引品目の属性を文字で説明したもの,Text,IBT-160,Item attribute name,品目の属性またはプロパティの名称。,3490,,,/Invoice/cac:InvoiceLine/cac:Item/cac:AdditionalItemProperty/cbc:Name,1..1
-548,JBT-375,0..1,4,品目単価(値引前)(税抜き),,Unit Price Amount,ibt-148,Item gross price,値引(税抜き)を差し引く前の、品目単価(税抜き)。,3270,,,/Invoice/cac:InvoiceLine/cac:Price/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:BaseAmount,0..1
-549,JBT-376,1..1,4,品目属性値,この取引品目の属性の値,Text,IBT-161,Item attribute value,品目の属性またはプロパティの値。,3500,,,/Invoice/cac:InvoiceLine/cac:Item/cac:AdditionalItemProperty/cbc:Value,1..1
-550,JBT-377,0..1,4,単価基準数量,"不定貫品目（個数でカウントできない品目）の場合：
+544,JBG-74,0..n,3,品目属性,取引品目の属性のグループ,__,IBG-32,ITEM ATTRIBUTES,品目およびサービスのプロパティに関する情報を提供するビジネス用語のグループ。,3480,,,/Invoice/cac:InvoiceLine/cac:Item/cac:AdditionalItemProperty,0..n
+546,JBT-422,0..1,4,品目単価値引(税抜き),,Unit Price Amount,ibt-147,Item price discount,品目単価(値引後)(税抜き)を計算するために、品目単価(値引前)(税抜き)から差し引かれる値引。,3260,,,/Invoice/cac:InvoiceLine/cac:Price/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:Amount,0..1
+547,JBT-423,1..1,4,品目属性名,この取引品目の属性を文字で説明したもの,Text,IBT-160,Item attribute name,品目の属性またはプロパティの名称。,3490,,,/Invoice/cac:InvoiceLine/cac:Item/cac:AdditionalItemProperty/cbc:Name,1..1
+548,JBT-424,0..1,4,品目単価(値引前)(税抜き),,Unit Price Amount,ibt-148,Item gross price,値引(税抜き)を差し引く前の、品目単価(税抜き)。,3270,,,/Invoice/cac:InvoiceLine/cac:Price/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:BaseAmount,0..1
+549,JBT-425,1..1,4,品目属性値,この取引品目の属性の値,Text,IBT-161,Item attribute value,品目の属性またはプロパティの値。,3500,,,/Invoice/cac:InvoiceLine/cac:Item/cac:AdditionalItemProperty/cbc:Value,1..1
+550,JBT-426,0..1,4,単価基準数量,"不定貫品目（個数でカウントできない品目）の場合：
 　単価基準数量＝単価の基準となる重量・容量
 定貫品目（個数でカウントできる品目）の場合：
 　単価基準数量＝１（デフォルト）",Quantity,IBT-149,Item price base quantity,単価が適用される品目の数量単位での基準数。,3280,,,/Invoice/cac:InvoiceLine/cac:Price/cbc:BaseQuantity,0..1
-551,JBT-378,0..1,4,単価基準数量単位コード,単価基準数量単位のコード名,Code,IBT-150,Item price base quantity unit of measure code,品目単価基準数量に適用される数量単位。,3290,,,/Invoice/cac:InvoiceLine/cac:Price/cbc:BaseQuantity/@unitCode,0..1
+551,JBT-427,0..1,4,単価基準数量単位コード,単価基準数量単位のコード名,Code,IBT-150,Item price base quantity unit of measure code,品目単価基準数量に適用される数量単位。,3290,,,/Invoice/cac:InvoiceLine/cac:Price/cbc:BaseQuantity/@unitCode,0..1

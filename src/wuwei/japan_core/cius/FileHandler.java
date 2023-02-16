@@ -65,6 +65,8 @@ public class FileHandler {
 	public static String[] SME_MULTIPLE_ID   = {"ICL2","ICL3","ICL4","ICL43","ICL45","ICL31","ICL36","ICL40","ICL41","ICL42","ICL45","ICL47","ICL58","ICL59","ICL60","ICL61","ICL56","ICL69","ICL55","ICL62","ICL62","ICL67","ICL67","ICL73","ICL74","ICL91","ICL84","ICL77","ICL85","ICL86","ICL87"};
 	public static HashMap<String, String> nsURIMap = null;
 	
+	public static boolean TRACE = true;
+	
 	/**
 	 * Tidy dataテーブルの見出し行
 	 */
@@ -113,7 +115,7 @@ public class FileHandler {
 		nodes = parsedNode.nodes;
 		for (int i = 0; i < nodes.size(); i++) {
 			Node node = nodes.get(i);
-			System.out.println(i+" "+node.getNodeName()+" "+node.getTextContent());
+			if (TRACE) System.out.println(i+" "+node.getNodeName()+" "+node.getTextContent());
 		}
 		
 		// ibt-024 Specification identifier
@@ -123,7 +125,7 @@ public class FileHandler {
 		nodes = parsedNode.nodes;
 		for (int i = 0; i < nodes.size(); i++) {
 			Node node = nodes.get(i);
-			System.out.println("ibt-024 Specification identifier "+i+" "+node.getNodeName()+" "+node.getTextContent());
+			if (TRACE) System.out.println("ibt-024 Specification identifier "+i+" "+node.getNodeName()+" "+node.getTextContent());
 		}		
 		
 	    // ibg-23 TAX BREAKDOWN
@@ -136,7 +138,7 @@ public class FileHandler {
 			for (int i = 0; i < nodes.size(); i++) {
 				String value = "";
 				Node node = nodes.get(i);
-				System.out.print(i+" "+node.getNodeName()+" "+node.getTextContent());
+				if (TRACE) System.out.print(i+" "+node.getNodeName()+" "+node.getTextContent());
 				if (node.hasAttributes()) {
 					NamedNodeMap attributes = node.getAttributes();
 					int attrLength = attributes.getLength();
@@ -145,11 +147,11 @@ public class FileHandler {
 				        String name = attribute.getNodeName();
 				        if ("currencyID".equals(name)) {
 				           value = attribute.getNodeValue();
-				           System.out.println(" "+value);
+				           if (TRACE) System.out.println(" "+value);
 				        }
 					} 
 				} else {
-					System.out.println("");
+					if (TRACE) System.out.println("");
 				}
 			}
 		}
@@ -161,14 +163,14 @@ public class FileHandler {
 		nodes = parsedNode.nodes;
 		for (int i = 0; i < nodes.size(); i++) {
 			Node node = nodes.get(i);
-			System.out.println(i+" "+node.getNodeName()+" "+node.getTextContent());
+			if (TRACE) System.out.println(i+" "+node.getNodeName()+" "+node.getTextContent());
 		}
 		
 		// ibt-160 Item attribute name
 		TreeMap<Integer, String> nodeValues = getNodeValues("ibt-160");
 		for (int i = 0; i <nodeValues.size(); i++) {
 			String value = nodeValues.get(i);
-			System.out.println("ibt-160"+i+" "+value);
+			if (TRACE) System.out.println("ibt-160"+i+" "+value);
 		}
 		
 		// ibg-23 TAX BREAKDOWN <cac:TaxSubtotal>
@@ -186,11 +188,12 @@ public class FileHandler {
 	        	String BT = binding.getBT();
 	        	List<Node> children = childrenMap.get(sort);
 	        	Node child = children.get(0);
-	        	if (null!=child) {
-	        		System.out.println(id+" "+BT+" "+child.getNodeValue());
-	        	} else {
-	        		System.out.println(id+" "+BT+" N/A");
-	        	}
+	        	if (TRACE)
+		        	if (null!=child) {
+		        		System.out.println(id+" "+BT+" "+child.getNodeValue());
+		        	} else {
+		        		System.out.println(id+" "+BT+" N/A");
+		        	}
 	        }
 	    }
 
@@ -199,19 +202,19 @@ public class FileHandler {
 	    if (sellerEASAttrs.size() > 0) {
 	    	Node sellerEASAttr = sellerEASAttrs.get(0);
 	    	String sellerElectronicAddressSchemeIdentifier = sellerEASAttr.getNodeValue();
-	    	System.out.println("ibt-034-1 "+sellerElectronicAddressSchemeIdentifier);
+	    	if (TRACE) System.out.println("ibt-034-1 "+sellerElectronicAddressSchemeIdentifier);
 	    }
 	    
 		// cbc:DocumentCurrencyCode
 		List<Node> documentCurrencyCodeEls = getElements(root, "ibt-005");//"/*/cbc:DocumentCurrencyCode/text()");
 		Node documentCurrencyCodeEl = documentCurrencyCodeEls.get(0);
 		String documentCurrencyCode = documentCurrencyCodeEl.getTextContent();
-	    System.out.println("ibt-005 "+documentCurrencyCode);
+		if (TRACE) System.out.println("ibt-005 "+documentCurrencyCode);
 	    
 		// ibt-110 Invoice total TAX amount
 	    List<Node> invoiceTotalTaxAmountEl = getElements(FileHandler.root, "ibt-110");
 	    String invoiceTotalTaxAmount = invoiceTotalTaxAmountEl.get(0).getTextContent();
-	    System.out.println("ibt-110 "+invoiceTotalTaxAmount);
+	    if (TRACE) System.out.println("ibt-110 "+invoiceTotalTaxAmount);
 	    
     }
     
@@ -223,7 +226,7 @@ public class FileHandler {
 	 */
     public static void parseBinding() 
 	{
-		System.out.println("-- parseBinding");
+    	if (TRACE) System.out.println("-- parseBinding");
 
 		Integer[] parents       = new Integer[10];
 		Binding[] bindingParent = new Binding[10];
@@ -242,8 +245,6 @@ public class FileHandler {
 					if (0==i) {
 						key	= key.replace("\uFEFF", "");
 					}
-//					if (cells.size() < headers.size())
-//						System.out.println("cells.size() < headers.size()");
 					String value = cells.get(i);
 					Integer order = -1;
 					switch (key) {
@@ -282,7 +283,7 @@ public class FileHandler {
 				String id = binding.getID();
 				Integer semSort = binding.getSemSort();
 				Integer synSort = binding.getSynSort();
-//				System.out.println("- FileHandler.parseBinding "+binding.getID()+" "+binding.getXPath());
+				if (TRACE) System.out.println("- FileHandler.parseBinding "+binding.getID()+" "+binding.getXPath());
 				bindingDict.put(id, binding);
 				semBindingMap.put(semSort, binding);
 				synBindingMap.put(synSort, binding);
@@ -330,19 +331,19 @@ public class FileHandler {
 					String parentID = parentBinding.getID();
 					String parentXPath = parentBinding.getXPath();
 					String strippedParentXPath = stripSelector(parentXPath);
-//					System.out.println("- FileHandler.parseBinding check additional XPath " + parentID + "->" + id);
+					if (TRACE) System.out.println("- FileHandler.parseBinding check additional XPath " + parentID + "->" + id);
 					if (additionalXPath.length() > 0 &&
 							strippedParentXPath.indexOf(additionalXPath) < 0 &&
 							additionalXPath.indexOf(strippedParentXPath) < 0) {
 						additionalXPath = resumeSelector(additionalXPath, xPath);
-						System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
+						if (TRACE) System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
 						
 						parentBinding.addAdditionalXPath(additionalXPath);
 					} else if (idx > 0 && xPath.length() > 0 &&
 							strippedParentXPath.indexOf(xPath) < 0 &&
 							xPath.indexOf(strippedParentXPath) < 0) {
 						additionalXPath = xPath;
-						System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
+						if (TRACE) System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
 						
 						parentBinding.addAdditionalXPath(additionalXPath);
 					}
@@ -531,7 +532,7 @@ public class FileHandler {
 		Binding binding = (Binding) bindingDict.get(parent_id);
 		Integer semSort = binding.getSemSort();
 		String xpath = binding.getXPath();
-		System.out.println("-- getChildren "+parent_id+"("+semSort+")"+xpath);
+		if (TRACE) System.out.println("-- getChildren "+parent_id+"("+semSort+")"+xpath);
 
 		ArrayList<Integer> children = childMap.get(semSort);
 		
@@ -824,7 +825,7 @@ public class FileHandler {
 			FileNotFoundException,
 			IOException 
 	{
-		System.out.println("- FileHandler.csvFileWrite " + filename + " " + charset);
+		if (TRACE) System.out.println("- FileHandler.csvFileWrite " + filename + " " + charset);
 		FileOutputStream fileOutputStream = new FileOutputStream(filename);
 		ArrayList<ArrayList<String>> data = new ArrayList<>();	
 		// header
@@ -855,7 +856,7 @@ public class FileHandler {
 			FileNotFoundException,
 			IOException 
 	{
-		System.out.println("-- FileHandler.csvFileRead " + filename + " " + charset);
+		if (TRACE) System.out.println("-- FileHandler.csvFileRead " + filename + " " + charset);
 		FileInputStream fileInputStream = new FileInputStream(filename);
 		
 		ArrayList<ArrayList<String>> data = CSV.readFile(fileInputStream, charset);

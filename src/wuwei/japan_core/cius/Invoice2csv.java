@@ -14,7 +14,7 @@ import org.w3c.dom.Node;
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
  */
 public class Invoice2csv {
-	static String IN_XML = "data/xml/Example1.xml";
+	static String IN_XML  = "data/xml/Example1.xml";
 	static String OUT_CSV = "data/csv/Example1.csv";
 	static String CHARSET = "UTF-8";
 

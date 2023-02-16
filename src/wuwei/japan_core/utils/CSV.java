@@ -29,8 +29,8 @@ public class CSV {
      */
 	public static void main(String[] args) 
     {
-    	String IN_CSV = "CIUS/data/csv/Example0.csv";
-    	String OUT_CSV = "CIUS/data/csv/Example0_out.csv";
+    	String IN_CSV = "data/csv/Example0.csv";
+    	String OUT_CSV = "data/csv/Example0_out.csv";
     	String CHARSET = "UTF-8";
 
     	try {
@@ -95,14 +95,14 @@ public class CSV {
 						cell_value = "\"" + cell_value.replaceAll("\"", "\"\"") + "\"";
 					}
 					bufferedWriter.write(cell_value);
-					System.out.print(cell_value);
+//					System.out.print(cell_value);
 					if (i < columns.size() - 1) {
 						bufferedWriter.write(",");
-						System.out.print(",");
+//						System.out.print(",");
 					}
 				}
 				bufferedWriter.write("\n");
-				System.out.print("\n");
+//				System.out.print("\n");
 			}
 		}
 		catch (Exception ex) {
@@ -170,12 +170,12 @@ public class CSV {
 				
 				if (columns.size() <= 0)
 					continue;
-				if (0 < columns.size()) {
-					System.out.println("line "+lineNum);
-					for (String cell : columns)
-						System.out.print(cell+"|");
-				}
-				System.out.println("");
+//				if (0 < columns.size()) {
+//					System.out.println("line "+lineNum);
+//					for (String cell : columns)
+//						System.out.print(cell+"|");
+//				}
+//				System.out.println("");
 				data.add(columns);
 			}
 		} catch (Exception ex) {
