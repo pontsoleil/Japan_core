@@ -71,7 +71,7 @@ if __name__ == '__main__':
 			desc = row['desc']
 			# if len(desc.splitlines()) > 1:#len(desc)>0 and '\n' in desc:
 			# 	desc = desc.replace('\n','\\n')
-			if len(row['pint_sort'])>0:
+			if ('JBG'==row['id'][:3] and 'n'==row['occur'][-1]) or len(row['pint_sort'])>0:
 				pint_desc = row['pint_desc']
 				jp_pint_entry = {}
 				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 				jp_pint_entry['xPath'] = row['pint_xpath']
 				jp_pint_entry['occur'] = row['pint_card']
 				jp_pint_entries.append(jp_pint_entry)
-			if len(row['sme_sort'])>0:
+			if ('JBG'==row['id'][:3] and 'n'==row['occur'][-1]) or len(row['sme_sort'])>0:
 				sme_desc = row['sme_desc']
 				# if len(sme_desc.splitlines()) > 1:
 				# 	sme_desc = sme_desc.replace('\n','\\n')				
@@ -130,6 +130,12 @@ if __name__ == '__main__':
 		writer.writeheader()
 		writer.writerows(jp_pint_entries)
 
+	jp_pint_binding_tsv_file = jp_pint_binding_file.replace('csv', 'utf-16TSV.csv')
+	with open(jp_pint_binding_tsv_file, 'w', encoding='utf_16', newline='') as f:
+		writer = csv.DictWriter(f,delimiter='\t',fieldnames=binding_header)
+		writer.writeheader()
+		writer.writerows(jp_pint_entries)
+
 	sme_binding_file = f'{base}{sme_binding_file}'.replace('/', SEP)
 	sme_binding_file = file_path(sme_binding_file)
 	with open(sme_binding_file, 'w', encoding='utf_8', newline='') as f:
@@ -137,4 +143,10 @@ if __name__ == '__main__':
 		writer.writeheader()
 		writer.writerows(sme_entries)
 
-	print(f'** END \n{jp_pint_binding_file} \n{sme_binding_file}')
+	sme_binding_tsv_file = sme_binding_file.replace('csv', 'utf-16TSV.csv')
+	with open(sme_binding_tsv_file, 'w', encoding='utf_16', newline='') as f:
+		writer = csv.DictWriter(f, delimiter='\t',fieldnames=binding_header)
+		writer.writeheader()
+		writer.writerows(jp_pint_entries)
+
+	print(f'** END \n{sme_binding_file} \n{sme_binding_file}')
