@@ -24,8 +24,8 @@ Japan common commercial invoice, example1-minimum
     <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode> <!--IBT-003 - Invoice type code -->
     <cbc:DocumentCurrencyCode>JPY</cbc:DocumentCurrencyCode> <!--IBT-005 - Invoice currency code -->
     <cac:InvoicePeriod> <!--IBG-14 - INVOICING PERIOD -->
-        <cbc:StartDate>2023-10-18</cbc:StartDate> <!--IBT-073 - Invoicing period start date -->
-        <cbc:EndDate>2023-10-18</cbc:EndDate> <!--IBT-074 - Invoicing period end date -->
+        <cbc:StartDate>2023-10-17</cbc:StartDate> <!--IBT-073 - Invoicing period start date -->
+        <cbc:EndDate>2023-10-19</cbc:EndDate> <!--IBT-074 - Invoicing period end date -->
     </cac:InvoicePeriod>
     <cac:AccountingSupplierParty> <!--IBG-04 - SELLER -->
         <cac:Party>
@@ -60,10 +60,10 @@ Japan common commercial invoice, example1-minimum
         </cac:Party>
     </cac:AccountingCustomerParty>
     <cac:TaxTotal>
-        <cbc:TaxAmount currencyID="JPY"><!--26000-->20000</cbc:TaxAmount> <!--IBT-110 - Invoice total TAX amount -->
+        <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount> <!--IBT-110 - Invoice total TAX amount -->
         <cac:TaxSubtotal> <!--IBG-23 - TAX BREAKDOWN -->
-            <cbc:TaxableAmount currencyID="JPY"><!--260000-->200000</cbc:TaxableAmount> <!--IBT-116 - TAX category taxable amount -->
-            <cbc:TaxAmount currencyID="JPY"><!--26000-->20000</cbc:TaxAmount> <!--IBT-117 - TAX category tax amount -->
+            <cbc:TaxableAmount currencyID="JPY">260000</cbc:TaxableAmount> <!--IBT-116 - TAX category taxable amount -->
+            <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount> <!--IBT-117 - TAX category tax amount -->
             <cac:TaxCategory>
                 <cbc:ID>S</cbc:ID> <!--IBT-118 - TAX category code -->
                 <cbc:Percent>10</cbc:Percent> <!--IBT-119 - TAX category rate -->
@@ -99,8 +99,8 @@ Japan common commercial invoice, example1-minimum
         <cbc:InvoicedQuantity unitCode="EA">5</cbc:InvoicedQuantity> <!--IBT-129 - Invoiced quantity, IBT-130 - Invoiced quantity unit of measure code -->
         <cbc:LineExtensionAmount currencyID="JPY">250000</cbc:LineExtensionAmount> <!--IBT-131 - Invoice line net amount -->
         <cac:InvoicePeriod> <!--IBG-26 - INVOICE LINE PERIOD -->
-            <cbc:StartDate>2023-10-18</cbc:StartDate> <!--IBT-134 - Invoice line period start date -->
-            <cbc:EndDate>2023-10-18</cbc:EndDate> <!--IBT-135 - Invoice line period end date -->
+            <cbc:StartDate>2023-10-17</cbc:StartDate> <!--IBT-134 - Invoice line period start date -->
+            <cbc:EndDate>2023-10-17</cbc:EndDate> <!--IBT-135 - Invoice line period end date -->
         </cac:InvoicePeriod>
         <cac:Item> <!--IBG-31 - ITEM INFORMATION -->
             <cbc:Name>デスクチェア</cbc:Name> <!--IBT-153 - Item name -->
@@ -145,8 +145,8 @@ Japan common commercial invoice, example1-minimum
         <cbc:InvoicedQuantity unitCode="H87">10</cbc:InvoicedQuantity> <!--IBT-130 - Invoiced quantity unit of measure code, IBT-129 - Invoiced quantity -->
         <cbc:LineExtensionAmount currencyID="JPY">3490</cbc:LineExtensionAmount> <!--IBT-131 - Invoice line net amount -->
         <cac:InvoicePeriod> <!--IBG-26 - INVOICE LINE PERIOD -->
-            <cbc:StartDate>2023-10-18</cbc:StartDate> <!--IBT-134 - Invoice line period start date -->
-            <cbc:EndDate>2023-10-18</cbc:EndDate> <!--IBT-135 - Invoice line period end date -->
+            <cbc:StartDate>2023-10-19</cbc:StartDate> <!--IBT-134 - Invoice line period start date -->
+            <cbc:EndDate>2023-10-19</cbc:EndDate> <!--IBT-135 - Invoice line period end date -->
         </cac:InvoicePeriod>
         <cac:Item> <!--IBG-31 - ITEM INFORMATION -->
             <cbc:Name>検定済教科書(算数)</cbc:Name> <!--IBT-153 - Item name -->

@@ -68,18 +68,16 @@ if __name__ == '__main__':
 		reader = csv.DictReader(f, fieldnames=header)
 		next(reader)
 		for row in reader:
-			desc = row['desc']
-			# if len(desc.splitlines()) > 1:#len(desc)>0 and '\n' in desc:
-			# 	desc = desc.replace('\n','\\n')
-			if ('JBG'==row['id'][:3] and 'n'==row['occur'][-1]) or len(row['pint_sort'])>0:
-				pint_desc = row['pint_desc']
+			desc = row['desc'].replace(r'\n', r'\\n')
+			if len(row['pint_sort'])>0: #or ('JBG'==row['id'][:3] and 'n'==row['occur'][-1]):
+				pint_desc = row['pint_desc'].replace(r'\n', r'\\n')
 				jp_pint_entry = {}
 				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
 				jp_pint_entry['id'] = row['id']
 				jp_pint_entry['card'] = row['occur']
 				jp_pint_entry['level'] = row['lvl'] and int(row['lvl']) or 0
 				jp_pint_entry['businessTerm'] = row['name']
-				jp_pint_entry['desc'] = desc
+				jp_pint_entry['desc'] = pint_desc
 				jp_pint_entry['dataType'] = row['datatype']
 				jp_pint_entry['syntaxID'] = row['pint_Id']
 				jp_pint_entry['businessTerm_ja'] = row['pint_name']
@@ -88,10 +86,10 @@ if __name__ == '__main__':
 				jp_pint_entry['xPath'] = row['pint_xpath']
 				jp_pint_entry['occur'] = row['pint_card']
 				jp_pint_entries.append(jp_pint_entry)
-			if ('JBG'==row['id'][:3] and 'n'==row['occur'][-1]) or len(row['sme_sort'])>0:
+			if len(row['sme_sort'])>0:#or ('JBG'==row['id'][:3] and 'n'==row['occur'][-1])
 				sme_desc = row['sme_desc']
 				# if len(sme_desc.splitlines()) > 1:
-				# 	sme_desc = sme_desc.replace('\n','\\n')				
+				sme_desc = sme_desc.replace(r'\n',r'\\n')				
 				sme_entry = {}
 				sme_entry['semSort'] = row['num'] and int(row['num']) or 0
 				sme_entry['id'] = row['id']

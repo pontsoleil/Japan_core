@@ -14,6 +14,8 @@ import org.w3c.dom.Node;
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
  */
 public class Invoice2csv {
+    static boolean TRACE = true;
+    
 	static String IN_XML  = "data/xml/Example1.xml";
 	static String OUT_CSV = "data/csv/Example1.csv";
 	static String CHARSET = "UTF-8";
@@ -43,8 +45,8 @@ public class Invoice2csv {
     public static void main(String[] args) {
     	FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
 
-//		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
-		 processInvoice("data/xml/Example1.xml", "data/csv/Example1.csv");
+		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
+//		 processInvoice("data/xml/Example1.xml", "data/csv/Example1.csv");
 //		 processInvoice("data/xml/Example2-TaxAcctCur.xml", "data/csv/Example2-TaxAcctCur.csv");
 //		 processInvoice("data/xml/Example3-0.xml", "data/csv/Example3-0.csv");
 //		 processInvoice("data/xml/Example3-SumInv1.xml", "data/csv/Example3-SumInv1.csv");
@@ -54,7 +56,7 @@ public class Invoice2csv {
 //		 processInvoice("data/xml/Example6-CorrInv.xml", "data/csv/Example6-CorrInv.csv");
 //		 processInvoice("data/xml/Example7-Return.Quan.xml", "data/csv/Example7-Return.Quan.csv");
 //		 processInvoice("data/xml/Example8-Return.ItPr.xml", "data/csv/Example8-Return.ItPr.csv");
-		 System.out.println("** END Invoice2csv**");
+		if (TRACE) System.out.println("** END Invoice2csv **");
 	}
 	
 	/**
@@ -64,7 +66,7 @@ public class Invoice2csv {
 	 * @param out_csv Tidy dataのCSV(RFC4180形式)ファイル.
 	 */
 	private static void processInvoice(String in_xml, String out_csv) {
-		System.out.println("\n** processInvoice("+in_xml+", "+out_csv+")");
+		if (TRACE) System.out.println("\n** processInvoice("+in_xml+", "+out_csv+")");
 		
 	    boughMap = new TreeMap<Integer/*sort*/,Integer/*seq*/>();
 	    boughMapList = new ArrayList<TreeMap<Integer, Integer>>();
@@ -111,7 +113,7 @@ public class Invoice2csv {
 			e.printStackTrace();
 		}
 
-		System.out.println("-- END -- "+in_xml);
+		if (TRACE) System.out.println("-- END -- "+in_xml);
 	}
 	
 	/**
@@ -119,7 +121,7 @@ public class Invoice2csv {
 	 */
 	private static void fillTable() {
 		FileHandler.tidyData = new ArrayList<ArrayList<String>>();
-		System.out.println();
+		if (TRACE) System.out.println();
 
 		FileHandler.header.add("jbg-00");
 		// bough
@@ -143,7 +145,7 @@ public class Invoice2csv {
 				FileHandler.header.add(dataID);
 			}
 		}
-		System.out.println("* FileHandler.tidyData\n"+FileHandler.header.toString());
+		if (TRACE) System.out.println("* FileHandler.tidyData\n"+FileHandler.header.toString());
 		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) {
 			ArrayList<String> record = new ArrayList<>();
 			for (int i = 0; i < FileHandler.header.size(); i++) {
@@ -182,7 +184,7 @@ public class Invoice2csv {
 				}
 			}
 			FileHandler.tidyData.add(record);
-			System.out.println(record.toString());
+			if (TRACE) System.out.println(record.toString());
 		}
 	}
 
@@ -202,7 +204,7 @@ public class Invoice2csv {
 		String businessTerm = binding.getBT();
 		binding.setUsed(true);
 		value = value.trim();
-		System.out.println("- 0 fill Data boughMap="+boughMap.toString()+id+"("+semSort+")"+businessTerm+"="+value);
+		if (TRACE) System.out.println("- 0 fill Data boughMap = "+boughMap.toString()+id+" ("+semSort+") "+businessTerm+" = "+value);
 
 		String rowMapKey = "";
 		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) {
@@ -241,7 +243,7 @@ public class Invoice2csv {
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (0==childList.size()) {
-			System.out.println("- 0 fill Group boughMap="+boughMap.toString()+id+"("+sort+")"+businessTerm+" is Empty" );
+			if (TRACE) System.out.println("- 0 fill Group boughMap="+boughMap.toString()+id+"(semSOrt="+sort+") "+businessTerm+" is Empty" );
 			return;
 		}
    	
@@ -252,7 +254,7 @@ public class Invoice2csv {
     		String childBusinessTerm = childBinding.getBT();
     		String childXPath = childBinding.getXPath();
     		int childLevel = Integer.parseInt(childBinding.getLevel());
-			System.out.println("- 1 fill Group "+childID+"("+childSort+")"+childBusinessTerm+" "+childXPath);
+			if (TRACE) System.out.println("- 1 fill Group "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
           
             List<Node> children = childList.get(childSort);
             
@@ -266,7 +268,7 @@ public class Invoice2csv {
 		            	if (null != value && value.length() > 0) {
 //		            		if (! "#text".equals(child.getNodeName()))
 //		            			continue; // @attribute has already registered as a grand child in the procedure below if clause.
-	            			System.out.println("* 1 fill Data child["+i+"]"+childID+"("+childSort+")"+child.getNodeName()+"="+value);
+	            			if (TRACE) System.out.println("* 1 fill Data child["+i+"]"+childID+"(semSOrt="+childSort+") "+child.getNodeName()+" = "+value);
 		            		
 			            	fillData(childSort, value, boughMap);
 			            	
@@ -283,9 +285,9 @@ public class Invoice2csv {
 				            			Node grandchild = grandchildNodes.get(j);
 				            			String grandchildName = grandchild.getNodeName();
 				        				String grandchildValue = grandchild.getTextContent().trim();
-				            			System.out.println("* 2 fill Data boughMap"+boughMap.toString()+"child "+child.getNodeName()+" "+childID+
+				            			if (TRACE) System.out.println("* 2 fill Data boughMap"+boughMap.toString()+"child "+child.getNodeName()+" "+childID+
 				            					" grandchild("+grandchildSort+")"+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT);
-				            			System.out.println("    grand child["+j+"]"+grandchildName+"="+grandchildValue);
+				            			if (TRACE) System.out.println("    grand child["+j+"]"+grandchildName+"="+grandchildValue);
 
 				            			fillData(grandchildSort, grandchildValue, boughMap);
 				            		}
@@ -299,7 +301,7 @@ public class Invoice2csv {
 		                if (is_multiple && countChildren > 1) {
 		                	Integer lastkey = boughMap1.lastKey();
 		                	Integer lastvalue = boughMap1.get(lastkey);
-		                	System.out.print("    boughMap1 lastKey="+lastkey+" child is multiple level="+childLevel);
+		                	if (TRACE) System.out.print("    boughMap1 lastKey="+lastkey+" child is multiple level="+childLevel);
 			            	if (childSort != lastkey) {
 			            		if (boughMap.size() < childLevel + 1) {
 			                		boughMap1.put(childSort, i);
@@ -313,10 +315,11 @@ public class Invoice2csv {
 			            		boughMap1.put(lastkey, lastvalue1);
 			            	}
 			            	boughMapList.add(boughMap1);
-			            	System.out.println("    UPDATED boughMapList="+boughMapList.toString()+" boughMap1="+boughMap1.toString());
+			            	if (TRACE) System.out.println("    UPDATED boughMapList="+boughMapList.toString()+" boughMap1="+boughMap1.toString());
 		                }
-	                	System.out.println("* fill Group "+childID+" boughMapList="+boughMapList.toString()+" boughMap1"+boughMap1.toString()+
-	                			" child("+childSort+") level="+childLevel+" "+ businessTerm+"->"+childBusinessTerm);
+	                	if (TRACE) System.out.println("* fill Group "+childID+
+	                			" boughMapList="+boughMapList.toString()+" boughMap1"+boughMap1.toString()+
+	                			" child(semSort="+childSort+") level="+childLevel+" "+ businessTerm+" -> "+childBusinessTerm);
 
 	                	fillGroup(child, childSort, boughMap1);
 		            }

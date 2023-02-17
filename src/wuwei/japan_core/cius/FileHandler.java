@@ -115,7 +115,7 @@ public class FileHandler {
 		nodes = parsedNode.nodes;
 		for (int i = 0; i < nodes.size(); i++) {
 			Node node = nodes.get(i);
-			if (TRACE) System.out.println(i+" "+node.getNodeName()+" "+node.getTextContent());
+			if (TRACE) System.out.println("- FileHandler - "+i+" "+node.getNodeName()+" "+node.getTextContent());
 		}
 		
 		// ibt-024 Specification identifier
@@ -226,7 +226,7 @@ public class FileHandler {
 	 */
     public static void parseBinding() 
 	{
-    	if (TRACE) System.out.println("-- parseBinding");
+    	if (TRACE) System.out.println("- FileHandler - parseBinding");
 
 		Integer[] parents       = new Integer[10];
 		Binding[] bindingParent = new Binding[10];
@@ -283,7 +283,7 @@ public class FileHandler {
 				String id = binding.getID();
 				Integer semSort = binding.getSemSort();
 				Integer synSort = binding.getSynSort();
-				if (TRACE) System.out.println("- FileHandler.parseBinding "+binding.getID()+" "+binding.getXPath());
+				if (TRACE) System.out.println("- FileHandler - parseBinding "+binding.getID()+" "+binding.getXPath());
 				bindingDict.put(id, binding);
 				semBindingMap.put(semSort, binding);
 				synBindingMap.put(synSort, binding);
@@ -331,7 +331,7 @@ public class FileHandler {
 					String parentID = parentBinding.getID();
 					String parentXPath = parentBinding.getXPath();
 					String strippedParentXPath = stripSelector(parentXPath);
-					if (TRACE) System.out.println("- FileHandler.parseBinding check additional XPath " + parentID + "->" + id);
+					if (TRACE) System.out.println("- FileHandler - parseBinding check additional XPath " + parentID + "->" + id);
 					if (additionalXPath.length() > 0 &&
 							strippedParentXPath.indexOf(additionalXPath) < 0 &&
 							additionalXPath.indexOf(strippedParentXPath) < 0) {
@@ -532,7 +532,7 @@ public class FileHandler {
 		Binding binding = (Binding) bindingDict.get(parent_id);
 		Integer semSort = binding.getSemSort();
 		String xpath = binding.getXPath();
-		if (TRACE) System.out.println("-- getChildren "+parent_id+"("+semSort+")"+xpath);
+		if (TRACE) System.out.println("- FileHandler - getChildren "+parent_id+"(semSort="+semSort+") "+xpath);
 
 		ArrayList<Integer> children = childMap.get(semSort);
 		
@@ -825,7 +825,7 @@ public class FileHandler {
 			FileNotFoundException,
 			IOException 
 	{
-		if (TRACE) System.out.println("- FileHandler.csvFileWrite " + filename + " " + charset);
+		if (TRACE) System.out.println("- FileHandler - csvFileWrite " + filename + " " + charset);
 		FileOutputStream fileOutputStream = new FileOutputStream(filename);
 		ArrayList<ArrayList<String>> data = new ArrayList<>();	
 		// header
@@ -856,7 +856,7 @@ public class FileHandler {
 			FileNotFoundException,
 			IOException 
 	{
-		if (TRACE) System.out.println("-- FileHandler.csvFileRead " + filename + " " + charset);
+		if (TRACE) System.out.println("-- FileHandler - csvFileRead " + filename + " " + charset);
 		FileInputStream fileInputStream = new FileInputStream(filename);
 		
 		ArrayList<ArrayList<String>> data = CSV.readFile(fileInputStream, charset);
