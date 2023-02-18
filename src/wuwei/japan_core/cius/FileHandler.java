@@ -58,8 +58,6 @@ public class FileHandler {
 	public static XPath xpath                = null;
 	public static Element root               = null;
 	public static String ROOT_ID             = "JBG-00";
-//	public static String PINT_ROOT_ID        = "ibg-00";
-//	public static String SME_ROOT_ID         = "JBG-00";
 	public static String[] MULTIPLE_ID       = {"JBG-01","JBG-02","JBG-03","JBG-16","JBG-18","JBG-32","JBG-39","JBG-43","JBG-44","JBG-45","JBG-47","JBG-21","JBG-35","JBG-36","JBG-37","JBG-38","JBG-26","JBG-27","JBG-28","JBG-29","JBG-30","JBG-33","JBG-34","JBG-35","JBG-36","JBG-31","JBG-32","JBG-34","JBG-35","JBG-38","JBG-41","JBG-46","JBG-47","JBG-48"};
 	public static String[] PINT_MULTIPLE_ID  = {"ibg-20", "ibg-21", "ibg-23", "ibg-25","ibg-27", "ibg-28"};
 	public static String[] SME_MULTIPLE_ID   = {"ICL2","ICL3","ICL4","ICL43","ICL45","ICL31","ICL36","ICL40","ICL41","ICL42","ICL45","ICL47","ICL58","ICL59","ICL60","ICL61","ICL56","ICL69","ICL55","ICL62","ICL62","ICL67","ICL67","ICL73","ICL74","ICL91","ICL84","ICL77","ICL85","ICL86","ICL87"};
@@ -115,7 +113,7 @@ public class FileHandler {
 		nodes = parsedNode.nodes;
 		for (int i = 0; i < nodes.size(); i++) {
 			Node node = nodes.get(i);
-			if (TRACE) System.out.println("- FileHandler - "+i+" "+node.getNodeName()+" "+node.getTextContent());
+			if (TRACE) System.out.println(" (FileHandler) "+i+" "+node.getNodeName()+" "+node.getTextContent());
 		}
 		
 		// ibt-024 Specification identifier
@@ -226,7 +224,7 @@ public class FileHandler {
 	 */
     public static void parseBinding() 
 	{
-    	if (TRACE) System.out.println("- FileHandler - parseBinding");
+    	if (TRACE) System.out.println(" (FileHandler) parseBinding");
 
 		Integer[] parents       = new Integer[10];
 		Binding[] bindingParent = new Binding[10];
@@ -283,7 +281,7 @@ public class FileHandler {
 				String id = binding.getID();
 				Integer semSort = binding.getSemSort();
 				Integer synSort = binding.getSynSort();
-				if (TRACE) System.out.println("- FileHandler - parseBinding "+binding.getID()+" "+binding.getXPath());
+				if (TRACE) System.out.println(" (FileHandler) parseBinding "+binding.getID()+" "+binding.getXPath());
 				bindingDict.put(id, binding);
 				semBindingMap.put(semSort, binding);
 				synBindingMap.put(synSort, binding);
@@ -331,16 +329,18 @@ public class FileHandler {
 					String parentID = parentBinding.getID();
 					String parentXPath = parentBinding.getXPath();
 					String strippedParentXPath = stripSelector(parentXPath);
-					if (TRACE) System.out.println("- FileHandler - parseBinding check additional XPath " + parentID + "->" + id);
-					if (additionalXPath.length() > 0 &&
-							strippedParentXPath.indexOf(additionalXPath) < 0 &&
+					if (TRACE) System.out.println(" (FileHandler) parseBinding check additional XPath " + parentID + "->" + id);
+					if (additionalXPath.length() > 0 && additionalXPath.lastIndexOf("/") > 0 &&
+							strippedParentXPath.indexOf(additionalXPath) >= 0 &&
+//							strippedParentXPath.indexOf(additionalXPath) < 0 &&
 							additionalXPath.indexOf(strippedParentXPath) < 0) {
 						additionalXPath = resumeSelector(additionalXPath, xPath);
 						if (TRACE) System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
 						
 						parentBinding.addAdditionalXPath(additionalXPath);
-					} else if (idx > 0 && xPath.length() > 0 &&
-							strippedParentXPath.indexOf(xPath) < 0 &&
+					} else if (idx > 0 && xPath.length() > 0 && xPath.lastIndexOf("/") > 0 &&
+							strippedParentXPath.indexOf(xPath) >= 0 &&
+//							strippedParentXPath.indexOf(xPath) < 0 &&
 							xPath.indexOf(strippedParentXPath) < 0) {
 						additionalXPath = xPath;
 						if (TRACE) System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
@@ -519,7 +519,7 @@ public class FileHandler {
 	 * セマンティックモデルに基づいて親要素のidから次の方法で子要素を探す。
 	 * <ul>
 	 * <li>親要素から子要素のXPathに基づいて指定されたXML要素を探す.</li>
-	 * <li>及びモデルでは定義されていないが子要素のXPathから追加定義定義されたXPathに該当するXML要素を探す.</li>
+	 * <li>及び構文バインディングでは定義されていないが子要素のXPathから、その親要素のXPathのXML要素を追加定義する.</li>
 	 * </ul>
 	 * 
 	 * @param parent 親要素
@@ -532,19 +532,18 @@ public class FileHandler {
 		Binding binding = (Binding) bindingDict.get(parent_id);
 		Integer semSort = binding.getSemSort();
 		String xpath = binding.getXPath();
-		if (TRACE) System.out.println("- FileHandler - getChildren "+parent_id+"(semSort="+semSort+") "+xpath);
+		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"(semSort="+semSort+") "+xpath);
 
 		ArrayList<Integer> children = childMap.get(semSort);
 		
 		if (null!=children) {
 			for (Integer sort: children) {
-				Binding child_binding = (Binding) semBindingMap.get(sort);
-				String childID        =  child_binding.getID();
-				String child_datatype = child_binding.getDatatype();
-				String child_xpath    = child_binding.getXPath();
-				Set<String> additionalXPath =
-						child_binding.getAdditionalXPath();
-				child_xpath = checkChildXPath(xpath, childID, child_datatype, child_xpath);
+				Binding child_binding       = (Binding) semBindingMap.get(sort);
+				String childID              = child_binding.getID();
+				String child_datatype       = child_binding.getDatatype();
+				String child_xpath          = child_binding.getXPath();
+				Set<String> additionalXPath = child_binding.getAdditionalXPath();
+				child_xpath                 = checkChildXPath(xpath, childID, child_datatype, child_xpath);
 				
 				List<Node> nodes = getXPathNodes(parent, child_xpath);
 				
@@ -825,7 +824,7 @@ public class FileHandler {
 			FileNotFoundException,
 			IOException 
 	{
-		if (TRACE) System.out.println("- FileHandler - csvFileWrite " + filename + " " + charset);
+		if (TRACE) System.out.println(" (FileHandler) csvFileWrite " + filename + " " + charset);
 		FileOutputStream fileOutputStream = new FileOutputStream(filename);
 		ArrayList<ArrayList<String>> data = new ArrayList<>();	
 		// header
@@ -856,7 +855,7 @@ public class FileHandler {
 			FileNotFoundException,
 			IOException 
 	{
-		if (TRACE) System.out.println("-- FileHandler - csvFileRead " + filename + " " + charset);
+		if (TRACE) System.out.println(" (FileHandler) csvFileRead " + filename + " " + charset);
 		FileInputStream fileInputStream = new FileInputStream(filename);
 		
 		ArrayList<ArrayList<String>> data = CSV.readFile(fileInputStream, charset);
