@@ -8,8 +8,8 @@
     <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
     <cbc:DocumentCurrencyCode>JPY</cbc:DocumentCurrencyCode>
     <cac:InvoicePeriod>
-        <cbc:StartDate>2023-10-18</cbc:StartDate>
-        <cbc:EndDate>2023-10-18</cbc:EndDate>
+        <cbc:StartDate>2023-10-17</cbc:StartDate>
+        <cbc:EndDate>2023-10-19</cbc:EndDate>
     </cac:InvoicePeriod>
     <cac:AccountingSupplierParty>
         <cac:Party>
@@ -44,10 +44,10 @@
         </cac:Party>
     </cac:AccountingCustomerParty>
     <cac:TaxTotal>
-        <cbc:TaxAmount currencyID="JPY">20000</cbc:TaxAmount>
+        <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount>
         <cac:TaxSubtotal>
-            <cbc:TaxableAmount currencyID="JPY">200000</cbc:TaxableAmount>
-            <cbc:TaxAmount currencyID="JPY">20000</cbc:TaxAmount>
+            <cbc:TaxableAmount currencyID="JPY">260000</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount>
             <cac:TaxCategory>
                 <cbc:ID>S</cbc:ID>
                 <cbc:Percent>10</cbc:Percent>
@@ -74,8 +74,6 @@
         <cbc:TaxInclusiveAmount currencyID="JPY">281990</cbc:TaxInclusiveAmount>
         <cbc:AllowanceTotalAmount currencyID="JPY">0</cbc:AllowanceTotalAmount>
         <cbc:ChargeTotalAmount currencyID="JPY">0</cbc:ChargeTotalAmount>
-        <cbc:PrepaidAmount currencyID="JPY">0</cbc:PrepaidAmount>
-        <cbc:PayableRoundingAmount currencyID="JPY">0</cbc:PayableRoundingAmount>
         <cbc:PayableAmount currencyID="JPY">281990</cbc:PayableAmount>
     </cac:LegalMonetaryTotal>
     <cac:InvoiceLine>
@@ -83,8 +81,8 @@
         <cbc:InvoicedQuantity unitCode="EA">5</cbc:InvoicedQuantity>
         <cbc:LineExtensionAmount currencyID="JPY">250000</cbc:LineExtensionAmount>
         <cac:InvoicePeriod>
-            <cbc:StartDate>2023-10-18</cbc:StartDate>
-            <cbc:EndDate>2023-10-18</cbc:EndDate>
+            <cbc:StartDate>2023-10-17</cbc:StartDate>
+            <cbc:EndDate>2023-10-17</cbc:EndDate>
         </cac:InvoicePeriod>
         <cac:Item>
             <cbc:Name>デスクチェア</cbc:Name>
@@ -129,8 +127,8 @@
         <cbc:InvoicedQuantity unitCode="H87">10</cbc:InvoicedQuantity>
         <cbc:LineExtensionAmount currencyID="JPY">3490</cbc:LineExtensionAmount>
         <cac:InvoicePeriod>
-            <cbc:StartDate>2023-10-18</cbc:StartDate>
-            <cbc:EndDate>2023-10-18</cbc:EndDate>
+            <cbc:StartDate>2023-10-19</cbc:StartDate>
+            <cbc:EndDate>2023-10-19</cbc:EndDate>
         </cac:InvoicePeriod>
         <cac:Item>
             <cbc:Name>検定済教科書(算数)</cbc:Name>
