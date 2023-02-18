@@ -19,6 +19,9 @@ public class Invoice2csv {
 	static String IN_XML  = "data/xml/Example1.xml";
 	static String OUT_CSV = "data/csv/Example1.csv";
 	static String CHARSET = "UTF-8";
+	
+	static String INVOICE_ID = "JBT-019";
+	static String INVOICE_NUMBER;
 
 	/**
 	 * Tidy dataテーブルの行を指定する索引データ
@@ -45,8 +48,8 @@ public class Invoice2csv {
     public static void main(String[] args) {
     	FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
 
-		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
-//		 processInvoice("data/xml/Example1.xml", "data/csv/Example1.csv");
+//		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
+		 processInvoice("data/xml/Example1.xml", "data/csv/Example1.csv");
 //		 processInvoice("data/xml/Example2-TaxAcctCur.xml", "data/csv/Example2-TaxAcctCur.csv");
 //		 processInvoice("data/xml/Example3-0.xml", "data/csv/Example3-0.csv");
 //		 processInvoice("data/xml/Example3-SumInv1.xml", "data/csv/Example3-SumInv1.csv");
@@ -68,10 +71,10 @@ public class Invoice2csv {
 	private static void processInvoice(String in_xml, String out_csv) {
 		if (TRACE) System.out.println("\n** processInvoice("+in_xml+", "+out_csv+")");
 		
-	    boughMap = new TreeMap<Integer/*sort*/,Integer/*seq*/>();
+	    boughMap     = new TreeMap<Integer/*sort*/,Integer/*seq*/>();
 	    boughMapList = new ArrayList<TreeMap<Integer, Integer>>();
-	    rowMap = new TreeMap<Integer, String>();
-	    rowMapList = new TreeMap<String, TreeMap<Integer, String>>();
+	    rowMap       = new TreeMap<Integer, String>();
+	    rowMapList   = new TreeMap<String, TreeMap<Integer, String>>();
 	
 	    FileHandler.parseBinding();
 	    
@@ -86,7 +89,7 @@ public class Invoice2csv {
 	    
 		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) {
 			Binding binding = entry.getValue();
-			Integer sort = binding.getSemSort();
+			Integer sort    = binding.getSemSort();
 			String id = binding.getID();
 			String card = binding.getCard();
 			if (id.toLowerCase().matches("^jbg-.+$") &&
@@ -98,7 +101,7 @@ public class Invoice2csv {
 	    
 		Binding binding = FileHandler.bindingDict.get(FileHandler.ROOT_ID);
 		Integer sort = binding.getSemSort();
-		boughMap.put(1000,0);
+		boughMap.put(1000, 0);
 		boughMapList.add(boughMap);
 		
 	    fillGroup(FileHandler.root, sort, boughMap);
@@ -123,10 +126,10 @@ public class Invoice2csv {
 		FileHandler.tidyData = new ArrayList<ArrayList<String>>();
 		if (TRACE) System.out.println();
 
-		FileHandler.header.add("jbg-00");
+		FileHandler.header.add("JBG-00");
 		// bough
 		for (Map.Entry<Integer,String> multipleEntry : FileHandler.multipleMap.entrySet()) {
-			String multipleID = multipleEntry.getValue();
+			String multipleID       = multipleEntry.getValue();
 			Binding multipleBinding = FileHandler.bindingDict.get(multipleID);
 			if (multipleID.toLowerCase().matches("^jbg-.+$") &&
 					multipleBinding.isUsed()) {
@@ -135,10 +138,10 @@ public class Invoice2csv {
 		}
 		// data
 		for (Map.Entry<Integer,Binding> dataEntry : FileHandler.semBindingMap.entrySet()) {
-			Integer dataSort = dataEntry.getKey();
+			Integer dataSort    = dataEntry.getKey();
 			Binding dataBinding = dataEntry.getValue();
-			String dataID = dataBinding.getID();
-			if (1000!=dataSort &&
+			String dataID       = dataBinding.getID();
+			if (1!=dataSort &&
 					dataID.toLowerCase().matches("^jbt-.+$") &&
 					dataBinding.isUsed() &&
 					! FileHandler.header.contains(dataID)) {
@@ -155,13 +158,13 @@ public class Invoice2csv {
 			String rowMapKey = entryRow.getKey();
 			String[] boughs = rowMapKey.split(" ");
 			for (String bough : boughs) {
-				String[] index = bough.split("=");
-				Integer boughSort = Integer.parseInt(index[0]);
+				String[] index       = bough.split("=");
+				Integer boughSort    = Integer.parseInt(index[0]);
 				Binding boughBinding = FileHandler.semBindingMap.get(boughSort);
 				if (null!=boughBinding) {
-					String boughID = boughBinding.getID();
+					String boughID  = boughBinding.getID();
 					String boughSeq = index[1];
-					int boughIndex = FileHandler.header.indexOf(boughID);
+					int boughIndex  = FileHandler.header.indexOf(boughID);
 					if (boughIndex!=-1) {
 						record.set(boughIndex, boughSeq);
 					} else {
@@ -172,11 +175,11 @@ public class Invoice2csv {
 			// data
 			TreeMap<Integer, String> rowMap = entryRow.getValue();
 			for (Map.Entry<Integer, String> entry : rowMap.entrySet()) {
-				Integer sort = entry.getKey();
-				String value = entry.getValue();
+				Integer sort    = entry.getKey();
+				String value    = entry.getValue();
 				Binding binding = FileHandler.semBindingMap.get(sort);
-				String id = binding.getID();
-				int dataIndex = FileHandler.header.indexOf(id);
+				String id       = binding.getID();
+				int dataIndex   = FileHandler.header.indexOf(id);
 				if (dataIndex!=-1) {
 					record.set(dataIndex, value);
 				} else {
@@ -199,17 +202,17 @@ public class Invoice2csv {
 			Integer semSort, 
 			String value, 
 			TreeMap<Integer, Integer> boughMap ) {
-		Binding binding = (Binding) FileHandler.semBindingMap.get(semSort);
-        String id = binding.getID();
+		Binding binding     = (Binding) FileHandler.semBindingMap.get(semSort);
+        String id           = binding.getID();
 		String businessTerm = binding.getBT();
 		binding.setUsed(true);
 		value = value.trim();
-		if (TRACE) System.out.println("- 0 fill Data boughMap = "+boughMap.toString()+id+" ("+semSort+") "+businessTerm+" = "+value);
+		if (TRACE) System.out.println("- 0 fillData boughMap = "+boughMap.toString()+id+" ("+semSort+") "+businessTerm+" = "+value);
 
 		String rowMapKey = "";
 		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) {
 			Integer boughSort = entry.getKey();
-			Integer seq = entry.getValue();
+			Integer seq       = entry.getValue();
 			rowMapKey += (boughSort+"="+seq+" ");
 		}
 		rowMap = new TreeMap<>();
@@ -219,6 +222,8 @@ public class Invoice2csv {
 		}
 		rowMap.put(semSort, value);
 		rowMapList.put(rowMapKey, rowMap);
+		if (INVOICE_ID.equals(id))
+			INVOICE_NUMBER = value;
 	}
 	
 	/**
@@ -243,18 +248,18 @@ public class Invoice2csv {
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (0==childList.size()) {
-			if (TRACE) System.out.println("- 0 fill Group boughMap="+boughMap.toString()+id+"(semSOrt="+sort+") "+businessTerm+" is Empty" );
+			if (TRACE) System.out.println("- 0 fillGroup boughMap="+boughMap.toString()+id+"(semSOrt="+sort+") "+businessTerm+" is Empty" );
 			return;
 		}
    	
 		for (Integer childSort : childList.keySet()) {
 			// childList includes both #text and @attribute
-			Binding childBinding = (Binding) FileHandler.semBindingMap.get(childSort);
-            String childID = childBinding.getID();
+			Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
+            String childID           = childBinding.getID();
     		String childBusinessTerm = childBinding.getBT();
-    		String childXPath = childBinding.getXPath();
-    		int childLevel = Integer.parseInt(childBinding.getLevel());
-			if (TRACE) System.out.println("- 1 fill Group "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
+    		String childXPath        = childBinding.getXPath();
+    		int childLevel           = Integer.parseInt(childBinding.getLevel());
+			if (TRACE) System.out.println("- 1 fillGroup "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
           
             List<Node> children = childList.get(childSort);
             
@@ -268,24 +273,23 @@ public class Invoice2csv {
 		            	if (null != value && value.length() > 0) {
 //		            		if (! "#text".equals(child.getNodeName()))
 //		            			continue; // @attribute has already registered as a grand child in the procedure below if clause.
-	            			if (TRACE) System.out.println("* 1 fill Data child["+i+"]"+childID+"(semSOrt="+childSort+") "+child.getNodeName()+" = "+value);
+	            			if (TRACE) System.out.println("* 1 fillData child["+i+"]"+childID+"(semSOrt="+childSort+") "+child.getNodeName()+" = "+value);
 		            		
 			            	fillData(childSort, value, boughMap);
 			            	
 			        		if (FileHandler.childMap.containsKey(childSort)) {
 			        			ArrayList<Integer> grandchildren = FileHandler.childMap.get(childSort);
 			        			for (Integer grandchildSort : grandchildren) {
-			        				Binding grandchildBiunding =  (Binding) FileHandler.semBindingMap.get(grandchildSort);
-			        				String grandchildID = grandchildBiunding.getID();
-			        				String grandchildBT = grandchildBiunding.getBT();
-//			        				String grandchildXPath = grandchildBiunding.getXPath();
-				                	ParsedNode parsedNode = FileHandler.nodeMap.get(grandchildSort);
+			        				Binding grandchildBiunding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
+			        				String grandchildID        = grandchildBiunding.getID();
+			        				String grandchildBT        = grandchildBiunding.getBT();
+				                	ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
 				                	List<Node> grandchildNodes = parsedNode.nodes;
 				            		for (int j = 0; j < grandchildNodes.size(); j++) {
-				            			Node grandchild = grandchildNodes.get(j);
-				            			String grandchildName = grandchild.getNodeName();
+				            			Node grandchild        = grandchildNodes.get(j);
+				            			String grandchildName  = grandchild.getNodeName();
 				        				String grandchildValue = grandchild.getTextContent().trim();
-				            			if (TRACE) System.out.println("* 2 fill Data boughMap"+boughMap.toString()+"child "+child.getNodeName()+" "+childID+
+				            			if (TRACE) System.out.println("* 2 fillData boughMap"+boughMap.toString()+"child "+child.getNodeName()+" "+childID+
 				            					" grandchild("+grandchildSort+")"+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT);
 				            			if (TRACE) System.out.println("    grand child["+j+"]"+grandchildName+"="+grandchildValue);
 
@@ -299,7 +303,7 @@ public class Invoice2csv {
 						TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
 		            	boolean is_multiple = isMultiple(childSort);
 		                if (is_multiple && countChildren > 1) {
-		                	Integer lastkey = boughMap1.lastKey();
+		                	Integer lastkey   = boughMap1.lastKey();
 		                	Integer lastvalue = boughMap1.get(lastkey);
 		                	if (TRACE) System.out.print("    boughMap1 lastKey="+lastkey+" child is multiple level="+childLevel);
 			            	if (childSort != lastkey) {
@@ -317,9 +321,7 @@ public class Invoice2csv {
 			            	boughMapList.add(boughMap1);
 			            	if (TRACE) System.out.println("    UPDATED boughMapList="+boughMapList.toString()+" boughMap1="+boughMap1.toString());
 		                }
-	                	if (TRACE) System.out.println("* fill Group "+childID+
-	                			" boughMapList="+boughMapList.toString()+" boughMap1"+boughMap1.toString()+
-	                			" child(semSort="+childSort+") level="+childLevel+" "+ businessTerm+" -> "+childBusinessTerm);
+	                	if (TRACE) System.out.println("* fillGroup "+childID+" boughMapList="+boughMapList.toString()+" boughMap1"+boughMap1.toString()+" child(semSort="+childSort+") level="+childLevel+" "+ businessTerm+" -> "+childBusinessTerm);
 
 	                	fillGroup(child, childSort, boughMap1);
 		            }
@@ -337,11 +339,11 @@ public class Invoice2csv {
 	 * @return multiple 複数であればtrue.　存在しないか1件しかなければfalse.
 	 */
 	private static boolean isMultiple(Integer semSort) {
-		boolean multiple = false;
-		Binding binding = FileHandler.semBindingMap.get(semSort);
-		String id = binding.getID();
-		String xPath = binding.getXPath();
-		xPath = FileHandler.stripSelector(xPath);
+		boolean multiple  = false;
+		Binding binding   = FileHandler.semBindingMap.get(semSort);
+		String id         = binding.getID();
+		String xPath      = binding.getXPath();
+		xPath             = FileHandler.stripSelector(xPath);
 		List<Node> founds = FileHandler.getXPath(FileHandler.root, xPath);
 		if (founds.size() > 1) {
 			multiple = true;
