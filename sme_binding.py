@@ -106,8 +106,8 @@ def convert_record(r,data):
 
 if __name__ == '__main__':
 
-	in_file = 'CIUS/data/base/sme_binding.csv'
-	out_file = 'CIUS/data/base/sme_syntax_binding.txt'
+	in_file = 'data/base/sme_binding.csv'
+	out_file = 'data/base/sme_syntax_binding.txt'
 
 	lines =[]
 	data = [{}]*12
@@ -120,9 +120,9 @@ if __name__ == '__main__':
 			if row:
 				lines.append(row)
 
-	with open(file_path(out_file), 'w', encoding='utf_16', newline='') as f:
+	with open(file_path(out_file), 'w', encoding='utf_8', newline='') as f:
 		out_header = ['num','kind','unid','bie','term','desc','name','occur','xpath']
-		writer = csv.DictWriter(f,fieldnames=out_header,delimiter='\t')
+		writer = csv.DictWriter(f,fieldnames=out_header)#,delimiter='\t')
 		writer.writeheader()
 		writer.writerows(lines)
 
