@@ -89,7 +89,7 @@ if __name__ == '__main__':
 			if len(row['sme_sort'])>0:#or ('JBG'==row['id'][:3] and 'n'==row['occur'][-1])
 				sme_desc = row['sme_desc']
 				# if len(sme_desc.splitlines()) > 1:
-				sme_desc = sme_desc.replace(r'\n',r'\\n')				
+				sme_desc = sme_desc.replace(r'\n', r'\\n')				
 				sme_entry = {}
 				sme_entry['semSort'] = row['num'] and int(row['num']) or 0
 				sme_entry['id'] = row['id']
