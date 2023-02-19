@@ -16,9 +16,16 @@ import org.w3c.dom.Node;
 public class Invoice2csv {
     static boolean TRACE = true;
     
+    static String PROCESSING = null;
+    
 	static String IN_XML  = "data/xml/Example1.xml";
 	static String OUT_CSV = "data/csv/Example1.csv";
 	static String CHARSET = "UTF-8";
+	
+	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-091"; /*文書通貨コードのID*/
+	static String TAX_CURRENCY_CODE_ID      = "JBT-090"; /*税通貨コードnoID*/
+	static String DOCUMENT_CURRENCY         = null; /*文書通貨コード*/
+	static String TAX_CURRENCY              = null; /*税通貨コード*/
 	
 	static String INVOICE_ID = "JBT-019";
 	static String INVOICE_NUMBER;
@@ -46,10 +53,17 @@ public class Invoice2csv {
 	 * @param args
 	 */
     public static void main(String[] args) {
-    	FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
+		PROCESSING             = "SME COMMON";
+		FileHandler.PROCESSING = PROCESSING;
+		FileHandler.CORE_CSV   = FileHandler.SME_CSV;    	
+		processInvoice("data/xml/Example1_SME.xml", "data/csv/Example1_SME.csv");
+		
+//		PROCESSING             = "JP PINT";
+//		FileHandler.PROCESSING = PROCESSING;
+//    	FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
+//		processInvoice("data/xml/Example1.xml", "data/csv/Example1_JP_PINT.csv");
 
 //		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
-		 processInvoice("data/xml/Example1.xml", "data/csv/Example1.csv");
 //		 processInvoice("data/xml/Example2-TaxAcctCur.xml", "data/csv/Example2-TaxAcctCur.csv");
 //		 processInvoice("data/xml/Example3-0.xml", "data/csv/Example3-0.csv");
 //		 processInvoice("data/xml/Example3-SumInv1.xml", "data/csv/Example3-SumInv1.csv");
@@ -260,7 +274,7 @@ public class Invoice2csv {
     		String childXPath        = childBinding.getXPath();
     		int childLevel           = Integer.parseInt(childBinding.getLevel());
 			if (TRACE) System.out.println("- 1 fillGroup "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
-          
+
             List<Node> children = childList.get(childSort);
             
             Integer countChildren = children.size();             

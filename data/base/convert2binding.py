@@ -62,7 +62,7 @@ if __name__ == '__main__':
 	sme_entries = []
 	core_japan_file = f'{base}{core_japan_file}'.replace('/', SEP)
 	core_japan_file = file_path(core_japan_file)
-	header = ['num','kind','id','lvl','occur','name','desc','datatype','UN_CCL_ID','sme_kind','sme_sort','sme_id','sme_name','sme_desc','sme_occur','sme_level','sme_xpath','pint_sort','pint_Id','pint_card','Level','pint_name','pint_name_ja','Description','pint_desc','pint_datatype','pint_xpath']
+	header = ['num','kind','id','pint_lvl','sme_lvl','occur','name','desc','datatype','UN_CCL_ID','sme_kind','sme_sort','sme_id','sme_name','sme_desc','sme_occur','sme_level','sme_xpath','pint_sort','pint_Id','pint_card','Level','pint_name','pint_name_ja','Description','pint_desc','pint_datatype','pint_xpath']
 	binding_header = ['semSort','id','card','level','businessTerm','desc','dataType','syntaxID','businessTerm_ja','desc_ja','synSort','element','synDatatype','xPath','occur']
 	with open(core_japan_file, encoding='utf_8', newline='') as f:
 		reader = csv.DictReader(f, fieldnames=header)
@@ -75,7 +75,7 @@ if __name__ == '__main__':
 				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
 				jp_pint_entry['id'] = row['id']
 				jp_pint_entry['card'] = row['occur']
-				jp_pint_entry['level'] = row['lvl'] and int(row['lvl']) or 0
+				jp_pint_entry['level'] = row['pint_lvl'] and int(row['pint_lvl']) or 0
 				jp_pint_entry['businessTerm'] = row['name']
 				jp_pint_entry['desc'] = pint_desc
 				jp_pint_entry['dataType'] = row['datatype']
@@ -94,7 +94,7 @@ if __name__ == '__main__':
 				sme_entry['semSort'] = row['num'] and int(row['num']) or 0
 				sme_entry['id'] = row['id']
 				sme_entry['card'] = row['occur']
-				sme_entry['level'] = row['lvl'] and int(row['lvl']) or 0
+				sme_entry['level'] = row['sme_lvl'] and int(row['sme_lvl']) or 0
 				sme_entry['businessTerm'] = row['name']
 				sme_entry['desc'] = desc
 				sme_entry['dataType'] = row['datatype']
@@ -145,6 +145,6 @@ if __name__ == '__main__':
 	with open(sme_binding_tsv_file, 'w', encoding='utf_16', newline='') as f:
 		writer = csv.DictWriter(f, delimiter='\t',fieldnames=binding_header)
 		writer.writeheader()
-		writer.writerows(jp_pint_entries)
+		writer.writerows(sme_entries)
 
 	print(f'** END \n{sme_binding_file} \n{sme_binding_file}')

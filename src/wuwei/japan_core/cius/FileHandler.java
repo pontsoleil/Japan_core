@@ -1,10 +1,12 @@
 package wuwei.japan_core.cius;
 
+import java.io.BufferedReader;
 //import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 //import java.io.FileReader;
 import java.io.IOException;
 import java.util.AbstractList;
@@ -49,6 +51,8 @@ import wuwei.japan_core.utils.NamespaceResolver;
  */
 public class FileHandler {
 	static String CORE_CSV;
+	static String TERMINAL_ELEMENTS;
+	static String XML_SKELTON;
 	static String JP_PINT_CSV                = "data/base/jp_pint_binding.csv";
 	static String JP_PINT_XML_SKELTON        = "data/base/jp_pint_skeleton.xml";
 	static String SME_CSV                    = "data/base/sme_binding.csv";
@@ -62,13 +66,20 @@ public class FileHandler {
 	public static String[] PINT_MULTIPLE_ID  = {"ibg-20", "ibg-21", "ibg-23", "ibg-25","ibg-27", "ibg-28"};
 	public static String[] SME_MULTIPLE_ID   = {"ICL2","ICL3","ICL4","ICL43","ICL45","ICL31","ICL36","ICL40","ICL41","ICL42","ICL45","ICL47","ICL58","ICL59","ICL60","ICL61","ICL56","ICL69","ICL55","ICL62","ICL62","ICL67","ICL67","ICL73","ICL74","ICL91","ICL84","ICL77","ICL85","ICL86","ICL87"};
 	public static HashMap<String, String> nsURIMap = null;
-	
+			
 	public static boolean TRACE = true;
+    static String PROCESSING    = null;
+	
+	/**
+	 * 終端XML要素
+	 */
+	public static ArrayList<String> terminalElements = new ArrayList<>();
 	
 	/**
 	 * Tidy dataテーブルの見出し行
 	 */
-	public static ArrayList<String> header   = new ArrayList<>();
+	public static ArrayList<String> header = new ArrayList<>();
+	
 	/**
 	 * Tidy dataテーブル
 	 */
@@ -102,117 +113,117 @@ public class FileHandler {
 		parseBinding();
 		parseInvoice(IN_XML);
 		parseDoc();
-		
-		List<Node> nodes;
-		ParsedNode parsedNode;
-		
-	    // ibt-0373 - INVOICING PERIOD Start date 
-		Binding ibt73Binding = bindingDict.get("ibt-073");
-		Integer ibt73Sort = ibt73Binding.getSemSort();
-		parsedNode = nodeMap.get(ibt73Sort);
-		nodes = parsedNode.nodes;
-		for (int i = 0; i < nodes.size(); i++) {
-			Node node = nodes.get(i);
-			if (TRACE) System.out.println(" (FileHandler) "+i+" "+node.getNodeName()+" "+node.getTextContent());
-		}
-		
-		// ibt-024 Specification identifier
-		Binding ibt24Binding = bindingDict.get("ibt-024");
-		Integer ibt24Sort = ibt24Binding.getSemSort();
-		parsedNode = nodeMap.get(ibt24Sort);
-		nodes = parsedNode.nodes;
-		for (int i = 0; i < nodes.size(); i++) {
-			Node node = nodes.get(i);
-			if (TRACE) System.out.println("ibt-024 Specification identifier "+i+" "+node.getNodeName()+" "+node.getTextContent());
-		}		
-		
-	    // ibg-23 TAX BREAKDOWN
-		Binding ibg23Bindingt = bindingDict.get("ibg-23");
-		Integer ibg23Sort = ibg23Bindingt.getSemSort();
-		ArrayList<Integer> childSorts = childMap.get(ibg23Sort);
-		for (Integer childSort : childSorts) {
-			parsedNode = nodeMap.get(childSort);
-			nodes = parsedNode.nodes;
-			for (int i = 0; i < nodes.size(); i++) {
-				String value = "";
-				Node node = nodes.get(i);
-				if (TRACE) System.out.print(i+" "+node.getNodeName()+" "+node.getTextContent());
-				if (node.hasAttributes()) {
-					NamedNodeMap attributes = node.getAttributes();
-					int attrLength = attributes.getLength();
-					for (int j = 0; j < attrLength; j++) {
-						Node attribute = attributes.item(j);
-				        String name = attribute.getNodeName();
-				        if ("currencyID".equals(name)) {
-				           value = attribute.getNodeValue();
-				           if (TRACE) System.out.println(" "+value);
-				        }
-					} 
-				} else {
-					if (TRACE) System.out.println("");
-				}
-			}
-		}
-	
-	    // ibt-034-1 - Scheme identifier 
-		Binding ibt34_1Binding = bindingDict.get("ibt-034-1");
-		Integer ibt34_1Sort = ibt34_1Binding.getSemSort();
-		parsedNode = nodeMap.get(ibt34_1Sort);
-		nodes = parsedNode.nodes;
-		for (int i = 0; i < nodes.size(); i++) {
-			Node node = nodes.get(i);
-			if (TRACE) System.out.println(i+" "+node.getNodeName()+" "+node.getTextContent());
-		}
-		
-		// ibt-160 Item attribute name
-		TreeMap<Integer, String> nodeValues = getNodeValues("ibt-160");
-		for (int i = 0; i <nodeValues.size(); i++) {
-			String value = nodeValues.get(i);
-			if (TRACE) System.out.println("ibt-160"+i+" "+value);
-		}
-		
-		// ibg-23 TAX BREAKDOWN <cac:TaxSubtotal>
-		nodes = getElements(root, "ibg-23");
-	    int nodesLength = nodes.size();
-	    for (int i = 0; i < nodesLength; i++) {	      
-	        Element node = (Element) nodes.get(i);
-	        
-	        TreeMap<Integer, List<Node>> childrenMap = getChildren(node, "ibg-23");
-	        
-	        // Iterating HashMap through for loop
-	        for (Integer sort : childrenMap.keySet()) {
-	        	Binding binding = semBindingMap.get(sort);
-	        	String id = binding.getID();
-	        	String BT = binding.getBT();
-	        	List<Node> children = childrenMap.get(sort);
-	        	Node child = children.get(0);
-	        	if (TRACE)
-		        	if (null!=child) {
-		        		System.out.println(id+" "+BT+" "+child.getNodeValue());
-		        	} else {
-		        		System.out.println(id+" "+BT+" N/A");
-		        	}
-	        }
-	    }
-
-	    // ibt-034-1 - Scheme identifier 
-	    List<Node> sellerEASAttrs = getElements(FileHandler.root, "ibt-034-1");
-	    if (sellerEASAttrs.size() > 0) {
-	    	Node sellerEASAttr = sellerEASAttrs.get(0);
-	    	String sellerElectronicAddressSchemeIdentifier = sellerEASAttr.getNodeValue();
-	    	if (TRACE) System.out.println("ibt-034-1 "+sellerElectronicAddressSchemeIdentifier);
-	    }
-	    
-		// cbc:DocumentCurrencyCode
-		List<Node> documentCurrencyCodeEls = getElements(root, "ibt-005");//"/*/cbc:DocumentCurrencyCode/text()");
-		Node documentCurrencyCodeEl = documentCurrencyCodeEls.get(0);
-		String documentCurrencyCode = documentCurrencyCodeEl.getTextContent();
-		if (TRACE) System.out.println("ibt-005 "+documentCurrencyCode);
-	    
-		// ibt-110 Invoice total TAX amount
-	    List<Node> invoiceTotalTaxAmountEl = getElements(FileHandler.root, "ibt-110");
-	    String invoiceTotalTaxAmount = invoiceTotalTaxAmountEl.get(0).getTextContent();
-	    if (TRACE) System.out.println("ibt-110 "+invoiceTotalTaxAmount);
+//		
+//		List<Node> nodes;
+//		ParsedNode parsedNode;
+//		
+//	    // ibt-0373 - INVOICING PERIOD Start date 
+//		Binding ibt73Binding = bindingDict.get("ibt-073");
+//		Integer ibt73Sort = ibt73Binding.getSemSort();
+//		parsedNode = nodeMap.get(ibt73Sort);
+//		nodes = parsedNode.nodes;
+//		for (int i = 0; i < nodes.size(); i++) {
+//			Node node = nodes.get(i);
+//			if (TRACE) System.out.println(" (FileHandler) "+i+" "+node.getNodeName()+" "+node.getTextContent());
+//		}
+//		
+//		// ibt-024 Specification identifier
+//		Binding ibt24Binding = bindingDict.get("ibt-024");
+//		Integer ibt24Sort = ibt24Binding.getSemSort();
+//		parsedNode = nodeMap.get(ibt24Sort);
+//		nodes = parsedNode.nodes;
+//		for (int i = 0; i < nodes.size(); i++) {
+//			Node node = nodes.get(i);
+//			if (TRACE) System.out.println("ibt-024 Specification identifier "+i+" "+node.getNodeName()+" "+node.getTextContent());
+//		}		
+//		
+//	    // ibg-23 TAX BREAKDOWN
+//		Binding ibg23Bindingt = bindingDict.get("ibg-23");
+//		Integer ibg23Sort = ibg23Bindingt.getSemSort();
+//		ArrayList<Integer> childSorts = childMap.get(ibg23Sort);
+//		for (Integer childSort : childSorts) {
+//			parsedNode = nodeMap.get(childSort);
+//			nodes = parsedNode.nodes;
+//			for (int i = 0; i < nodes.size(); i++) {
+//				String value = "";
+//				Node node = nodes.get(i);
+//				if (TRACE) System.out.print(i+" "+node.getNodeName()+" "+node.getTextContent());
+//				if (node.hasAttributes()) {
+//					NamedNodeMap attributes = node.getAttributes();
+//					int attrLength = attributes.getLength();
+//					for (int j = 0; j < attrLength; j++) {
+//						Node attribute = attributes.item(j);
+//				        String name = attribute.getNodeName();
+//				        if ("currencyID".equals(name)) {
+//				           value = attribute.getNodeValue();
+//				           if (TRACE) System.out.println(" "+value);
+//				        }
+//					} 
+//				} else {
+//					if (TRACE) System.out.println("");
+//				}
+//			}
+//		}
+//	
+//	    // ibt-034-1 - Scheme identifier 
+//		Binding ibt34_1Binding = bindingDict.get("ibt-034-1");
+//		Integer ibt34_1Sort = ibt34_1Binding.getSemSort();
+//		parsedNode = nodeMap.get(ibt34_1Sort);
+//		nodes = parsedNode.nodes;
+//		for (int i = 0; i < nodes.size(); i++) {
+//			Node node = nodes.get(i);
+//			if (TRACE) System.out.println(i+" "+node.getNodeName()+" "+node.getTextContent());
+//		}
+//		
+//		// ibt-160 Item attribute name
+//		TreeMap<Integer, String> nodeValues = getNodeValues("ibt-160");
+//		for (int i = 0; i <nodeValues.size(); i++) {
+//			String value = nodeValues.get(i);
+//			if (TRACE) System.out.println("ibt-160"+i+" "+value);
+//		}
+//		
+//		// ibg-23 TAX BREAKDOWN <cac:TaxSubtotal>
+//		nodes = getElements(root, "ibg-23");
+//	    int nodesLength = nodes.size();
+//	    for (int i = 0; i < nodesLength; i++) {	      
+//	        Element node = (Element) nodes.get(i);
+//	        
+//	        TreeMap<Integer, List<Node>> childrenMap = getChildren(node, "ibg-23");
+//	        
+//	        // Iterating HashMap through for loop
+//	        for (Integer sort : childrenMap.keySet()) {
+//	        	Binding binding = semBindingMap.get(sort);
+//	        	String id = binding.getID();
+//	        	String BT = binding.getBT();
+//	        	List<Node> children = childrenMap.get(sort);
+//	        	Node child = children.get(0);
+//	        	if (TRACE)
+//		        	if (null!=child) {
+//		        		System.out.println(id+" "+BT+" "+child.getNodeValue());
+//		        	} else {
+//		        		System.out.println(id+" "+BT+" N/A");
+//		        	}
+//	        }
+//	    }
+//
+//	    // ibt-034-1 - Scheme identifier 
+//	    List<Node> sellerEASAttrs = getElements(FileHandler.root, "ibt-034-1");
+//	    if (sellerEASAttrs.size() > 0) {
+//	    	Node sellerEASAttr = sellerEASAttrs.get(0);
+//	    	String sellerElectronicAddressSchemeIdentifier = sellerEASAttr.getNodeValue();
+//	    	if (TRACE) System.out.println("ibt-034-1 "+sellerElectronicAddressSchemeIdentifier);
+//	    }
+//	    
+//		// cbc:DocumentCurrencyCode
+//		List<Node> documentCurrencyCodeEls = getElements(root, "ibt-005");//"/*/cbc:DocumentCurrencyCode/text()");
+//		Node documentCurrencyCodeEl = documentCurrencyCodeEls.get(0);
+//		String documentCurrencyCode = documentCurrencyCodeEl.getTextContent();
+//		if (TRACE) System.out.println("ibt-005 "+documentCurrencyCode);
+//	    
+//		// ibt-110 Invoice total TAX amount
+//	    List<Node> invoiceTotalTaxAmountEl = getElements(FileHandler.root, "ibt-110");
+//	    String invoiceTotalTaxAmount = invoiceTotalTaxAmountEl.get(0).getTextContent();
+//	    if (TRACE) System.out.println("ibt-110 "+invoiceTotalTaxAmount);
 	    
     }
     
@@ -402,21 +413,23 @@ public class FileHandler {
 			Binding binding = semBindingMap.get(semSort);
 			String xPath = binding.getXPath();
 			List<Node> nodes = getXPath(root, xPath);
-			if (nodes.size() > 0) {
-				binding.setUsed(true);
+			if (null!=nodes) {
+				if (nodes.size() > 0) {
+					binding.setUsed(true);
+				}
+				ParsedNode parsedNode = new ParsedNode(binding, nodes);
+				nodeMap.put(semSort, parsedNode);
 			}
-			ParsedNode parsedNode = new ParsedNode(binding, nodes);
-			nodeMap.put(semSort, parsedNode);
 		}
 		return nodeMap;
 	}
 	
 	/**
-	 * デジタルインボイスのルート要素のみが定義されたスキーマファイルJP_PINT_XML_SKELTONを読み込んで名前空間を定義する。
+	 * デジタルインボイスのルート要素のみが定義されたスキーマファイルXML_SKELTONを読み込んで名前空間を定義する。
 	 */
 	public static void parseSkeleton() 
 	{
-		String skeleton = JP_PINT_XML_SKELTON;
+		String skeleton = XML_SKELTON;
 		try {
 		    //Build DOM
 		    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -547,16 +560,18 @@ public class FileHandler {
 				
 				List<Node> nodes = getXPathNodes(parent, child_xpath);
 				
-				if (null!=additionalXPath) {
+				if (nodes.size() > 0) {
+					childList.put(sort, nodes);				
+				} else if (null!=additionalXPath) {
 					for(Iterator<String> iterator = additionalXPath.iterator(); iterator.hasNext(); ) {
 						String additional_xpath     = iterator.next();
 						List<Node> additional_nodes = getXPathNodes(parent, additional_xpath);
-						nodes.addAll(additional_nodes);
+						if (additional_nodes.size() > 0)
+							nodes = getXPathNodes(additional_nodes.get(0), child_xpath);
+							if (nodes.size() > 0)
+								childList.put(sort, nodes);						
 					}
 				}
-				
-				if (nodes.size() > 0)
-					childList.put(sort, nodes);
 			}
 		}
 		return childList;
@@ -606,8 +621,13 @@ public class FileHandler {
 		NodeList result;
 		List<Node> nodeList = new ArrayList<>();
 		try {
-			xPath = xPath.replace("/Invoice", "/*");
-			xPath = xPath.replace("/ubl:Invoice", "/*");
+			if ("JP PINT"==PROCESSING) {
+				xPath = xPath.replace("/Invoice", "/*");
+				xPath = xPath.replace("/ubl:Invoice", "/*");
+//			} else if ("SME COMMON"==PROCESSING && xPath.indexOf("ram:TaxCurrencyCode]")>0) {
+//				if (TRACE) System.out.println(" (FileHandler) getXPathNodes "+xPath);
+//				return null;
+			}
 			expr = xpath.compile(xPath);
 			result = (NodeList) expr.evaluate(parent, XPathConstants.NODESET);
 			nodeList = asList(result);	
@@ -863,6 +883,7 @@ public class FileHandler {
 		// header
 		header = new ArrayList<String>();
 		ArrayList<String> fields = data.get(0);
+		int headerCount = fields.size();
 		for (String field : fields) {
 			header.add(field);
 		}
@@ -870,6 +891,8 @@ public class FileHandler {
 		tidyData = new ArrayList<ArrayList<String>>();
 		for (int i = 1; i < data.size(); i++) {
 			fields = data.get(i);
+			while (fields.size() < headerCount)
+				fields.add(null);
 			tidyData.add(fields);
 		}
         fileInputStream.close();
