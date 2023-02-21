@@ -29,7 +29,6 @@ public class WriteXmlDom {
 
 	/**
 	 * XML DOM DocumentをXMLインスタンス文書としてファイル出力する.
-	 * 
 	 * @param args 使用しない
 	 * @throws ParserConfigurationException 構成パラメタ不正
 	 * @throws TransformerException         変換処理不正

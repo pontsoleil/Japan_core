@@ -17,17 +17,14 @@ import org.xml.sax.SAXException;
 public class XML_SchemeValidation {
 
 	/**
-	 * mainでは、単体テストを事項する.
-	 * 
-	 * @param args mainの引数
+ 	 * The application's entry point
+	 * @param args an array of command-line arguments for the application
 	 */
 	public static void main(String[] args) {
-
-		System.out.println("EmployeeRequest.xml validates against Employee.xsd? "
-				+ validateXMLSchema("xml/UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd", "xml/Example4-SumInv2.xml"));
-		System.out.println("EmployeeRequest.xml validates against Employee.xsd? "
-				+ validateXMLSchema("xml/UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd", "xml/Example4-SumInv2_out.xml"));
-
+//		System.out.println("EmployeeRequest.xml validates against Employee.xsd? "
+//				+ validateXMLSchema("xml/UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd", "xml/Example4-SumInv2.xml"));
+//		System.out.println("EmployeeRequest.xml validates against Employee.xsd? "
+//				+ validateXMLSchema("xml/UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd", "xml/Example4-SumInv2_out.xml"));
 	}
 
 	/**

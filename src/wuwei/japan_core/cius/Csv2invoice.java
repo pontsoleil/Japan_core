@@ -116,10 +116,10 @@ public class Csv2invoice {
  	static PathValue taxCurrencyCode = new PathValue(null, null);
    
  	/**
- 	 * mainでは変換処理を単体でテストする.
- 	 * 
- 	 * @param args
- 	 */
+ 	 * CSVをデジタルインボイス(XML)に変換する。
+ 	 * The application's entry point
+	 * @param args an array of command-line arguments for the application
+	 */
 	public static void main(String[] args) 
 	{
 		PROCESSING = args[0]+" SYNTAX";
@@ -127,10 +127,10 @@ public class Csv2invoice {
 		OUT_XML    = args[2];
 //		PROCESSING = "SME-COMMON SYNTAX";
 //		IN_CSV     = "data/csv/Example1.csv";
-//		OUT_XML    = "data/xml/Example1_SME.xml";		
+//		OUT_XML    = "data/xml/Example1_SME.xml";
 //		PROCESSING = "JP-PINT SYNTAX";
 //		IN_CSV     = "data/csv/Example1.csv";
-//		OUT_XML    = "data/xml/Example1_PINT.xml";		
+//		OUT_XML    = "data/xml/Example1_PINT.xml";
 		FileHandler.PROCESSING  = PROCESSING;
 		FileHandler.CORE_CSV    = FileHandler.SME_CSV;
 		FileHandler.XML_SKELTON = FileHandler.SME_XML_SKELTON;

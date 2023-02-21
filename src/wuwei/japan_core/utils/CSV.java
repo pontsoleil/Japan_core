@@ -24,8 +24,8 @@ public class CSV {
 	public static ArrayList<ArrayList<String>> data = new ArrayList<>();
 
 	/**
-	 * x
-	 * @param args
+ 	 * The application's entry point
+	 * @param args an array of command-line arguments for the application
 	 */
 	public static void main(String[] args) 
 	{

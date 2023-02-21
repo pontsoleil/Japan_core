@@ -93,8 +93,8 @@ public class FileHandler {
 
 	/**
 	 * 制御処理のテストを単体でテストする関数
-	 * 
-	 * @param args 使用しない
+ 	 * The application's entry point
+	 * @param args an array of command-line arguments for the application
 	 */
 	public static void main(String[] args) 
 	{

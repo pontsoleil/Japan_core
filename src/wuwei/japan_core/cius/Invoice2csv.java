@@ -50,9 +50,9 @@ public class Invoice2csv {
 	static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>();
 
 	/**
- 	 * mainでは変換処理を単体でテストする.
-	 * 
-	 * @param args
+	 * デジタルインボイス(XML)をCSVに変換する。
+ 	 * The application's entry point
+	 * @param args an array of command-line arguments for the application
 	 */
 	public static void main(String[] args) {
 		PROCESSING = args[0]+" SEMANTICS";
