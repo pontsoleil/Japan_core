@@ -78,7 +78,6 @@
     </cac:LegalMonetaryTotal>
     <cac:InvoiceLine>
         <cbc:ID>1</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="EA">5</cbc:InvoicedQuantity>
         <cbc:LineExtensionAmount currencyID="JPY">250000</cbc:LineExtensionAmount>
         <cac:InvoicePeriod>
             <cbc:StartDate>2023-10-17</cbc:StartDate>
@@ -101,7 +100,6 @@
     </cac:InvoiceLine>
     <cac:InvoiceLine>
         <cbc:ID>2</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="H87">5</cbc:InvoicedQuantity>
         <cbc:LineExtensionAmount currencyID="JPY">2500</cbc:LineExtensionAmount>
         <cac:InvoicePeriod>
             <cbc:StartDate>2023-10-18</cbc:StartDate>
@@ -124,7 +122,6 @@
     </cac:InvoiceLine>
     <cac:InvoiceLine>
         <cbc:ID>3</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="H87">10</cbc:InvoicedQuantity>
         <cbc:LineExtensionAmount currencyID="JPY">3490</cbc:LineExtensionAmount>
         <cac:InvoicePeriod>
             <cbc:StartDate>2023-10-19</cbc:StartDate>

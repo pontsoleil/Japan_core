@@ -6,17 +6,4 @@
 		xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31"
 		xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice"
 		xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice ../schema/data/standard/SMEinvoice.xsd">
-	<rsm:CIExchangedDocumentContext/>
-    <rsm:CIIHExchangedDocument/>
-    <rsm:CIIHSupplyChainTradeTransaction>
-		<ram:ApplicableCIIHSupplyChainTradeAgreement/>
-		<ram:ApplicableCIIHSupplyChainTradeSettlement/>
-		<ram:ApplicableCIIHSupplyChainTradeDelivery/>
-		<ram:IncludedCIILSupplyChainTradeLineItem>
-			<ram:SpecifiedCIILSupplyChainTradeAgreement/>
-			<ram:SpecifiedCIILSupplyChainTradeDelivery/>
-			<ram:SpecifiedCIILSupplyChainTradeSettlement/>
-			<ram:SubordinateCIILBSubordinateTradeLineItem/>
-		</ram:IncludedCIILSupplyChainTradeLineItem>
-	</rsm:CIIHSupplyChainTradeTransaction>
 </rsm:SMEinvoice>

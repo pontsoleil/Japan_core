@@ -1,161 +1,178 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Invoice 
-    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" 
-    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
-    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
-    xmlns:ccts="urn:un:unece:uncefact:documentation:2" 
-    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" 
-    xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" 
-    xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" 
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 
-    http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
-    <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
-    <cbc:CustomizationID>urn:fdc:peppol:jp:billing:3.0</cbc:CustomizationID>
-    <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
-    <cbc:ID>156</cbc:ID>
-    <cbc:IssueDate>2023-10-24</cbc:IssueDate>
-    <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
-    <cbc:DocumentCurrencyCode>JPY</cbc:DocumentCurrencyCode>
-    <cac:InvoicePeriod>
-        <cbc:StartDate>2023-10-17</cbc:StartDate>
-        <cbc:EndDate>2023-10-19</cbc:EndDate>
-    </cac:InvoicePeriod>
-    <cac:AccountingSupplierParty>
-        <cac:Party>
-            <cbc:EndpointID schemeID="0188">1234567890123</cbc:EndpointID>
-            <cac:PostalAddress>
-                <cac:Country>
-                    <cbc:IdentificationCode>JP</cbc:IdentificationCode>
-                </cac:Country>
-            </cac:PostalAddress>
-            <cac:PartyTaxScheme>
-                <cbc:CompanyID>T1234567890123</cbc:CompanyID>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:PartyTaxScheme>
-            <cac:PartyLegalEntity>
-                <cbc:RegistrationName>株式会社 〇〇商事</cbc:RegistrationName>
-            </cac:PartyLegalEntity>
-        </cac:Party>
-    </cac:AccountingSupplierParty>
-    <cac:AccountingCustomerParty>
-        <cac:Party>
-            <cbc:EndpointID schemeID="0188">3210987654321</cbc:EndpointID>
-            <cac:PostalAddress>
-                <cac:Country>
-                    <cbc:IdentificationCode>JP</cbc:IdentificationCode>
-                </cac:Country>
-            </cac:PostalAddress>
-            <cac:PartyLegalEntity>
-                <cbc:RegistrationName>株式会社 〇〇物産</cbc:RegistrationName>
-            </cac:PartyLegalEntity>
-        </cac:Party>
-    </cac:AccountingCustomerParty>
-    <cac:TaxTotal>
-        <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount>
-        <cac:TaxSubtotal>
-            <cbc:TaxableAmount currencyID="JPY">260000</cbc:TaxableAmount>
-            <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount>
-            <cac:TaxCategory>
-                <cbc:ID>S</cbc:ID>
-                <cbc:Percent>10</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:TaxCategory>
-        </cac:TaxSubtotal>
-        <cac:TaxSubtotal>
-            <cbc:TaxableAmount currencyID="JPY">3490</cbc:TaxableAmount>
-            <cbc:TaxAmount currencyID="JPY">0</cbc:TaxAmount>
-            <cac:TaxCategory>
-                <cbc:ID>E</cbc:ID>
-                <cbc:Percent>0</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:TaxCategory>
-        </cac:TaxSubtotal>
-    </cac:TaxTotal>
-    <cac:LegalMonetaryTotal>
-        <cbc:LineExtensionAmount currencyID="JPY">255990</cbc:LineExtensionAmount>
-        <cbc:TaxExclusiveAmount currencyID="JPY">255990</cbc:TaxExclusiveAmount>
-        <cbc:TaxInclusiveAmount currencyID="JPY">281990</cbc:TaxInclusiveAmount>
-        <cbc:AllowanceTotalAmount currencyID="JPY">0</cbc:AllowanceTotalAmount>
-        <cbc:ChargeTotalAmount currencyID="JPY">0</cbc:ChargeTotalAmount>
-        <cbc:PrepaidAmount currencyID="JPY">0</cbc:PrepaidAmount>
-        <cbc:PayableRoundingAmount currencyID="JPY">0</cbc:PayableRoundingAmount>
-        <cbc:PayableAmount currencyID="JPY">281990</cbc:PayableAmount>
-    </cac:LegalMonetaryTotal>
-    <cac:InvoiceLine>
-        <cbc:ID>1</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="EA">5</cbc:InvoicedQuantity>
-        <cbc:LineExtensionAmount currencyID="JPY">250000</cbc:LineExtensionAmount>
-        <cac:InvoicePeriod>
-            <cbc:StartDate>2023-10-17</cbc:StartDate>
-            <cbc:EndDate>2023-10-17</cbc:EndDate>
-        </cac:InvoicePeriod>
-        <cac:Item>
-            <cbc:Name>デスクチェア</cbc:Name>
-            <cac:ClassifiedTaxCategory>
-                <cbc:ID>S</cbc:ID>
-                <cbc:Percent>10</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID> 
-                </cac:TaxScheme>
-            </cac:ClassifiedTaxCategory>
-        </cac:Item>
-        <cac:Price>
-            <cbc:PriceAmount currencyID="JPY">50000</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="EA">1</cbc:BaseQuantity>
-        </cac:Price>
-    </cac:InvoiceLine>
-    <cac:InvoiceLine>
-        <cbc:ID>2</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="H87">5</cbc:InvoicedQuantity>
-        <cbc:LineExtensionAmount currencyID="JPY">2500</cbc:LineExtensionAmount>
-        <cac:InvoicePeriod>
-            <cbc:StartDate>2023-10-18</cbc:StartDate>
-            <cbc:EndDate>2023-10-18</cbc:EndDate>
-        </cac:InvoicePeriod>
-        <cac:Item>
-            <cbc:Name>コピー用紙（A4）</cbc:Name>
-            <cac:ClassifiedTaxCategory>
-                <cbc:ID>S</cbc:ID>
-                <cbc:Percent>10</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:ClassifiedTaxCategory>
-        </cac:Item>
-        <cac:Price>
-            <cbc:PriceAmount currencyID="JPY">500</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
-        </cac:Price>
-    </cac:InvoiceLine>
-    <cac:InvoiceLine>
-        <cbc:ID>3</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="H87">10</cbc:InvoicedQuantity>
-        <cbc:LineExtensionAmount currencyID="JPY">3490</cbc:LineExtensionAmount>
-        <cac:InvoicePeriod>
-            <cbc:StartDate>2023-10-19</cbc:StartDate>
-            <cbc:EndDate>2023-10-19</cbc:EndDate>
-        </cac:InvoicePeriod>
-        <cac:Item>
-            <cbc:Name>検定済教科書(算数)</cbc:Name>
-            <cac:ClassifiedTaxCategory>
-                <cbc:ID>E</cbc:ID>
-                <cbc:Percent>0</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:ClassifiedTaxCategory>
-        </cac:Item>
-        <cac:Price>
-            <cbc:PriceAmount currencyID="JPY">349</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
-        </cac:Price>
-    </cac:InvoiceLine>
-</Invoice>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<rsm:SMEinvoice xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice" xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:31" xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice ../schema/data/standard/SMEinvoice.xsd">
+    
+    <rsm:CIExchangedDocumentContext>
+        <ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+            <ram:ID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</ram:ID>
+        </ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+        <ram:SubsetSpecifiedCIDocumentContextParameter>
+            <ram:ID>urn:fdc:peppol:jp:billing:3.0</ram:ID>
+        </ram:SubsetSpecifiedCIDocumentContextParameter>
+    </rsm:CIExchangedDocumentContext>
+    <rsm:CIIHExchangedDocument>
+        <ram:ID>156</ram:ID>
+        <ram:TypeCode>380</ram:TypeCode>
+        <ram:IssueDateTime>
+            <udt:DateTimeString>2023-10-24</udt:DateTimeString>
+        </ram:IssueDateTime>
+    </rsm:CIIHExchangedDocument>
+    <rsm:CIIHSupplyChainTradeTransaction>
+        <ram:ApplicableCIIHSupplyChainTradeAgreement>
+            <ram:SellerCITradeParty>
+                <ram:Name>株式会社 〇〇商事</ram:Name>
+                <ram:RegisteredID>T1234567890123</ram:RegisteredID>
+                <ram:TypeCode>VAT</ram:TypeCode>
+                <ram:PostalCITradeAddress>
+                    <ram:CountryID>JP</ram:CountryID>
+                </ram:PostalCITradeAddress>
+                <ram:EndPointURICIUniversalCommunication>
+                    <ram:ChannelCode>0188</ram:ChannelCode>
+                    <ram:CompleteNumber>1234567890123</ram:CompleteNumber>
+                </ram:EndPointURICIUniversalCommunication>
+            </ram:SellerCITradeParty>
+            <ram:BuyerCITradeParty>
+                <ram:Name>株式会社 〇〇物産</ram:Name>
+                <ram:PostalCITradeAddress>
+                    <ram:CountryID>JP</ram:CountryID>
+                </ram:PostalCITradeAddress>
+                <ram:EndPointURICIUniversalCommunication>
+                    <ram:ChannelCode>0188</ram:ChannelCode>
+                    <ram:CompleteNumber>3210987654321</ram:CompleteNumber>
+                </ram:EndPointURICIUniversalCommunication>
+            </ram:BuyerCITradeParty>
+        </ram:ApplicableCIIHSupplyChainTradeAgreement>
+        <ram:ApplicableCIIHSupplyChainTradeSettlement>
+            <ram:InvoiceCurrencyCode>JPY</ram:InvoiceCurrencyCode>
+            <ram:BillingCISpecifiedPeriod>
+                <ram:StartDateTime>
+                    <udt:DateTimeString>2023-10-17</udt:DateTimeString>
+                </ram:StartDateTime>
+                <ram:EndDateTime>
+                    <udt:DateTimeString>2023-10-19</udt:DateTimeString>
+                </ram:EndDateTime>
+            </ram:BillingCISpecifiedPeriod>
+        </ram:ApplicableCIIHSupplyChainTradeSettlement>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeTax>
+                    <ram:CalculatedAmount>26000</ram:CalculatedAmount>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:BasisAmount>260000</ram:BasisAmount>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:CurrencyCode>JPY</ram:CurrencyCode>
+                    <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:ApplicableCITradeTax>
+                    <ram:CalculatedAmount>0</ram:CalculatedAmount>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:BasisAmount>3490</ram:BasisAmount>
+                    <ram:CategoryCode>E</ram:CategoryCode>
+                    <ram:CurrencyCode>JPY</ram:CurrencyCode>
+                    <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:ChargeTotalAmount>0</ram:ChargeTotalAmount>
+                    <ram:AllowanceTotalAmount>0</ram:AllowanceTotalAmount>
+                    <ram:TaxTotalAmount>26000</ram:TaxTotalAmount>
+                    <ram:GrossLineTotalAmount>255990</ram:GrossLineTotalAmount>
+                    <ram:NetLineTotalAmount>255990</ram:NetLineTotalAmount>
+                    <ram:NetIncludingTaxesLineTotalAmount>281990</ram:NetIncludingTaxesLineTotalAmount>
+                    <ram:GrandTotalAmount>281990</ram:GrandTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+            <ram:SubordinateCIILBSubordinateTradeLineItem>
+                <ram:ID>1</ram:ID>
+                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                    <ram:NetPriceProductCITradePrice>
+                        <ram:ChargeAmount>50000</ram:ChargeAmount>
+                        <ram:BasisQuantity unitCode="EA">1</ram:BasisQuantity>
+                    </ram:NetPriceProductCITradePrice>
+                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                    <ram:BilledQuantity>5</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                    <ram:ApplicableCITradeTax>
+                        <ram:TypeCode>VAT</ram:TypeCode>
+                        <ram:BasisAmount>250000</ram:BasisAmount>
+                        <ram:CategoryCode>S</ram:CategoryCode>
+                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
+                    </ram:ApplicableCITradeTax>
+                    <ram:BillingCISpecifiedPeriod>
+                        <ram:StartDateTime>
+                            <udt:DateTimeString>2023-10-17</udt:DateTimeString>
+                        </ram:StartDateTime>
+                        <ram:EndDateTime>
+                            <udt:DateTimeString>2023-10-17</udt:DateTimeString>
+                        </ram:EndDateTime>
+                    </ram:BillingCISpecifiedPeriod>
+                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeProduct>
+                    <ram:Name>デスクチェア</ram:Name>
+                </ram:ApplicableCITradeProduct>
+            </ram:SubordinateCIILBSubordinateTradeLineItem>
+            <ram:SubordinateCIILBSubordinateTradeLineItem>
+                <ram:ID>2</ram:ID>
+                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                    <ram:NetPriceProductCITradePrice>
+                        <ram:ChargeAmount>500</ram:ChargeAmount>
+                        <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
+                    </ram:NetPriceProductCITradePrice>
+                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                    <ram:BilledQuantity>5</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                    <ram:ApplicableCITradeTax>
+                        <ram:TypeCode>VAT</ram:TypeCode>
+                        <ram:BasisAmount>2500</ram:BasisAmount>
+                        <ram:CategoryCode>S</ram:CategoryCode>
+                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
+                    </ram:ApplicableCITradeTax>
+                    <ram:BillingCISpecifiedPeriod>
+                        <ram:StartDateTime>
+                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
+                        </ram:StartDateTime>
+                        <ram:EndDateTime>
+                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
+                        </ram:EndDateTime>
+                    </ram:BillingCISpecifiedPeriod>
+                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeProduct>
+                    <ram:Name>コピー用紙（A4）</ram:Name>
+                </ram:ApplicableCITradeProduct>
+            </ram:SubordinateCIILBSubordinateTradeLineItem>
+            <ram:SubordinateCIILBSubordinateTradeLineItem>
+                <ram:ID>3</ram:ID>
+                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                    <ram:NetPriceProductCITradePrice>
+                        <ram:ChargeAmount>349</ram:ChargeAmount>
+                        <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
+                    </ram:NetPriceProductCITradePrice>
+                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                    <ram:BilledQuantity>10</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                    <ram:ApplicableCITradeTax>
+                        <ram:TypeCode>VAT</ram:TypeCode>
+                        <ram:BasisAmount>3490</ram:BasisAmount>
+                        <ram:CategoryCode>E</ram:CategoryCode>
+                        <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
+                    </ram:ApplicableCITradeTax>
+                    <ram:BillingCISpecifiedPeriod>
+                        <ram:StartDateTime>
+                            <udt:DateTimeString>2023-10-19</udt:DateTimeString>
+                        </ram:StartDateTime>
+                        <ram:EndDateTime>
+                            <udt:DateTimeString>2023-10-19</udt:DateTimeString>
+                        </ram:EndDateTime>
+                    </ram:BillingCISpecifiedPeriod>
+                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeProduct>
+                    <ram:Name>検定済教科書(算数)</ram:Name>
+                </ram:ApplicableCITradeProduct>
+            </ram:SubordinateCIILBSubordinateTradeLineItem>
+        </ram:IncludedCIILSupplyChainTradeLineItem>
+    </rsm:CIIHSupplyChainTradeTransaction>
+</rsm:SMEinvoice>

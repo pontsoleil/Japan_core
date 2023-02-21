@@ -9,8 +9,9 @@ import java.util.Set;
 public class Binding {
 	Integer semSort;
 	String id;
-	String level;
+	Integer level;
 	String businessTerm;
+	String fixed;
 	String card;
 	String datatype;
 	Integer synSort;
@@ -32,16 +33,17 @@ public class Binding {
 	 * @param xPath XML要素が定義された位置のXPath
 	 * @param occur XML要素の出現回数指定
 	 */
-	public Binding(Integer semSort, String id, String level, String businessTerm, String card, String datatype, Integer synSort, String xPath, String occur) {
-		this.semSort = semSort;
-		this.id = id;
-		this.level = level;
-		this.businessTerm = businessTerm;
-		this.card = card;
-		this.datatype = datatype;
-		this.synSort = synSort;
-		this.xPath = xPath;
-		this.occur = occur;
+	public Binding(Integer semSort, String id, Integer level, String businessTerm, String fixed, String card, String datatype, Integer synSort, String xPath, String occur) {
+		this.semSort         = semSort;
+		this.id              = id;
+		this.level           = level;
+		this.businessTerm    = businessTerm;
+		this.fixed           = fixed;
+		this.card            = card;
+		this.datatype        = datatype;
+		this.synSort         = synSort;
+		this.xPath           = xPath;
+		this.occur           = occur;
 		this.additionalXPath = new HashSet<String>();
 		this.isUsed = false;
 	}
@@ -49,30 +51,31 @@ public class Binding {
 	// getter
 	public Integer getSemSort() { return this.semSort; }
 	public String  getID() { return this.id; }
-	public String  getLevel() { return this.level; }
+	public Integer  getLevel() { return this.level; }
 	public String  getBT() { return this.businessTerm; }
+	public String  getFixed() { return this.fixed; }
 	public String  getCard() { return this.card; }
 	public String  getDatatype() { return this.datatype; }
 	public Integer getSynSort() { return this.synSort; }
 	public String  getXPath() { return this.xPath; }
-	public Set<String> getAdditionalXPath() { return this.additionalXPath; }
 	public String  getOccur() { return this.occur; }
 	public boolean isUsed() { return this.isUsed; }
+	public Set<String> getAdditionalXPath() { return this.additionalXPath; }
 	
 	// setter
 	public Integer setSemSort(Integer x) { return this.semSort = x; }
 	public String  setID(String x) { return this.id = x; }
-	public String  setLevel(String x) { return this.level = x; }
+	public Integer setLevel(Integer x) { return this.level = x; }
 	public String  setBT(String x) { return this.businessTerm = x; }
+	public String  setFixed(String x) { return this.fixed = x; }
 	public String  setCard(String x) { return this.card = x; }
 	public String  setDatatype(String x) { return this.datatype = x; }
 	public Integer setSynSort(Integer x) { return this.synSort = x; }
 	public String  setXPath(String x) { return this.xPath = x; }
+	public String  setOccur(String x) { return this.occur = x; }
+	public boolean setUsed(boolean x) { return this.isUsed = x; }
 	public Set<String> addAdditionalXPath(String x) {
 		additionalXPath.add(x);
 		return this.additionalXPath;
-	}
-	public String  setOccur(String x) { return this.occur = x; }
-	public boolean setUsed(boolean x) { return this.isUsed = x; }
-	
+	}	
 }

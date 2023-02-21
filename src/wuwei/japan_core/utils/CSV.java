@@ -23,17 +23,17 @@ public class CSV {
 	public static ArrayList<String> columns         = new ArrayList<>();
 	public static ArrayList<ArrayList<String>> data = new ArrayList<>();
 
-    /**
-     * x
-     * @param args
-     */
+	/**
+	 * x
+	 * @param args
+	 */
 	public static void main(String[] args) 
-    {
-    	String IN_CSV = "data/csv/Example0.csv";
-    	String OUT_CSV = "data/csv/Example0_out.csv";
-    	String CHARSET = "UTF-8";
+	{
+		String IN_CSV = "data/csv/Example0.csv";
+		String OUT_CSV = "data/csv/Example0_out.csv";
+		String CHARSET = "UTF-8";
 
-    	try {
+		try {
 			data = csvFileRead(IN_CSV, CHARSET);
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found "+IN_CSV);
@@ -41,9 +41,9 @@ public class CSV {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    	
-    	try {
-    		csvFileWrite(data, OUT_CSV, CHARSET);
+		
+		try {
+			csvFileWrite(data, OUT_CSV, CHARSET);
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found "+OUT_CSV);
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class CSV {
 			e.printStackTrace();
 		}
 
-    	try {
+		try {
 			data = csvFileRead(OUT_CSV, CHARSET);
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found "+OUT_CSV);
@@ -59,8 +59,8 @@ public class CSV {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    }
-    
+	}
+	
 	public static void csvFileWrite(
 			ArrayList<ArrayList<String>> data,
 			String filename, 

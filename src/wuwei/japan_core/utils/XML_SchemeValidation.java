@@ -34,22 +34,22 @@ public class XML_SchemeValidation {
 	 * 
 	 * Copied from following page.<br>
 	 * https://www.digitalocean.com/community/tutorials/how-to-validate-xml-against-xsd-in-java
-	 * @param xsdPath　XMLスキーマファイル
+	 * 
+	 * @param xsdPath XMLスキーマファイル
 	 * @param xmlPath XMLインスタンス文書ファイル
 	 * @return boolean XMLスキーマ検証結果
 	 */
-	public static boolean validateXMLSchema(String xsdPath, String xmlPath){
-        
-        try {
-            SchemaFactory factory = 
-                    SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = factory.newSchema(new File(xsdPath));
-            Validator validator = schema.newValidator();
-            validator.validate(new StreamSource(new File(xmlPath)));
-        } catch (IOException | SAXException e) {
-            System.out.println("Exception: "+e.getMessage());
-            return false;
-        }
-        return true;
-    }
+	public static boolean validateXMLSchema(String xsdPath, String xmlPath) {
+
+		try {
+			SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+			Schema schema = factory.newSchema(new File(xsdPath));
+			Validator validator = schema.newValidator();
+			validator.validate(new StreamSource(new File(xmlPath)));
+		} catch (IOException | SAXException e) {
+			System.out.println("Exception: " + e.getMessage());
+			return false;
+		}
+		return true;
+	}
 }

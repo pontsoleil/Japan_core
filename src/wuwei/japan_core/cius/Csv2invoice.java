@@ -22,13 +22,13 @@ import wuwei.japan_core.utils.WriteXmlDom;
  * Tidy dataを格納しているCSVファイルを読み取りセマンティックモデル定義と構文バインディング定義からXMLインスタンス文書を出力する.
  */
 public class Csv2invoice {
-    static boolean TRACE = true;
-    
-    static String PROCESSING        = null;
+	static boolean TRACE = true;
+	
+	static String PROCESSING        = null;
 
-    static String TERMINAL_ELEMENTS = null;
-	static String OUT_XML           = null;
+	static String TERMINAL_ELEMENTS = null;
 	static String IN_CSV            = null;
+	static String OUT_XML           = null;
 	static String CHARSET           = "UTF-8";
 	
 	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-091"; /*文書通貨コードのID*/
@@ -41,31 +41,31 @@ public class Csv2invoice {
 	 */
 	public static ArrayList<String> terminalElements = new ArrayList<>();
 	
-    // CSV records
+	// CSV records
 	/**
 	 * Tidy dataの行データ.
 	 */
-    static TreeMap<Integer, String> rowMap = new TreeMap<>();
-    
-    /**
-     * Tidy dataのテーブルデータ
-     */
-    static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>();
+	static TreeMap<Integer, String> rowMap = new TreeMap<>();
+	
+	/**
+	 * Tidy dataのテーブルデータ
+	 */
+	static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>();
  	
-    /**
-     * tidy data (Node定義)テーブルrowMapListをXMLスキーマで定義されたsyntax sort順にXML要素定義するために、縦横変換する。<br>
-     * その際に要素の定義データを一時保存するために使用するクラス。
-     * 
-     * @param seq 要素が定義されたTidy dataの行に対応する索引(bough)の順序番号.
-     * @param sort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
-     * @param id この要素のid.
-     * @param xPath この要素のXPath.
-     * @param value この要素の値.
-     * @param attributes この要素の属性.
-     */
-    static class DataValue 
-    {
-    	public Integer seq;
+	/**
+	 * tidy data (Node定義)テーブルrowMapListをXMLスキーマで定義されたsyntax sort順にXML要素定義するために、縦横変換する。<br>
+	 * その際に要素の定義データを一時保存するために使用するクラス。
+	 * 
+	 * @param seq 要素が定義されたTidy dataの行に対応する索引(bough)の順序番号.
+	 * @param sort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
+	 * @param id この要素のid.
+	 * @param xPath この要素のXPath.
+	 * @param value この要素の値.
+	 * @param attributes この要素の属性.
+	 */
+	static class DataValue 
+	{
+		public Integer seq;
  		public Integer sort;
  		public String  id;
  		public String  xPath;
@@ -87,8 +87,8 @@ public class Csv2invoice {
  			this.value = value;
  			this.attributes = attributes;
  		}
-    }
-    
+	}
+	
  	/**
  	 * インボイス通貨及び税会計通貨を保持するクラス.
  	 * 
@@ -96,7 +96,7 @@ public class Csv2invoice {
  	 * @param value XML要素の値
  	 *
  	 */
-    static class PathValue 
+	static class PathValue 
  	{
  		public String xPath;
  		public String value;
@@ -106,9 +106,9 @@ public class Csv2invoice {
  			value = b;
  		}
  	}
-    /**
-     * インボイスで使用される通貨コード.
-     */
+	/**
+	 * インボイスで使用される通貨コード.
+	 */
  	static PathValue documentCurrencyCode = new PathValue(null, null);
  	/**
  	 * インボイスに関する税会計で使用される通貨コード.
@@ -122,15 +122,21 @@ public class Csv2invoice {
  	 */
 	public static void main(String[] args) 
 	{
-		PROCESSING              = "SME COMMON";
+		PROCESSING = args[0]+" SYNTAX";
+		IN_CSV     = args[1];
+		OUT_XML    = args[2];
+//		PROCESSING = "SME-COMMON SYNTAX";
+//		IN_CSV     = "data/csv/Example1.csv";
+//		OUT_XML    = "data/xml/Example1_SME.xml";		
+//		PROCESSING = "JP-PINT SYNTAX";
+//		IN_CSV     = "data/csv/Example1.csv";
+//		OUT_XML    = "data/xml/Example1_PINT.xml";		
 		FileHandler.PROCESSING  = PROCESSING;
 		FileHandler.CORE_CSV    = FileHandler.SME_CSV;
 		FileHandler.XML_SKELTON = FileHandler.SME_XML_SKELTON;
-
-//		FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
-//		FileHandler.XML_SKELTON = FileHandler.JP_PINT_XML_SKELTON;
+		processCSV(IN_CSV, OUT_XML);
 		
-		processCSV("data/csv/Example1.csv", "data/xml/Example1_SME.xml");
+//		processCSV("data/csv/Example1.csv", "data/xml/Example1_SME.xml");
 //		processCSV("data/csv/Example1.csv", "data/xml/Example1_PINT.xml");
 //		processCSV("data/csv/Example2-TaxAcctCur.csv","data/xml/Example2-TaxAcctCur_out.xml");
 //		processCSV("data/csv/Example3-0.csv","data/xml/Example3-0_out.xml");
@@ -155,7 +161,7 @@ public class Csv2invoice {
 		FileHandler.parseBinding();		
 			
 		try {
-			if ("SME COMMON"==PROCESSING)
+			if (0==PROCESSING.indexOf("SME-COMMON"))
 				terminalElements = new ArrayList<String>(Arrays.asList("@unitCode","udt:DateTimeString","ram:AccountName","ram:ActualAmount","ram:AdditionalReferencedCIReferencedDocument","ram:AllowanceTotalAmount","ram:AttachmentBinaryObject","ram:BasisAmount","ram:BasisQuantity","ram:BilledQuantity","ram:BuyerAssignedID","ram:BuyerOrderReferencedCIReferencedDocument","ram:CalculatedAmount","ram:CalculatedRate","ram:CalculationMethodCode","ram:CalculationPercent","ram:CardholderName","ram:CategoryCode","ram:CategoryName","ram:ChannelCode","ram:ChargeAmount","ram:ChargeIndicator","ram:ChargeTotalAmount","ram:CompleteNumber","ram:Content","ram:ConversionRate","ram:CountryID","ram:CurrencyCode","ram:DepartmentName","ram:Description","ram:DirectionCode","ram:DuePayableAmount","ram:FileName","ram:GlobalID","ram:GrandTotalAmount","ram:GrossLineTotalAmount","ram:ID","ram:IncludingTaxesLineTotalAmount","ram:Information","ram:InstructedAmount","ram:InvoiceCurrencyCode","ram:InvoiceCurrencyCode","ram:IssuerAssignedID","ram:IssuingCompanyName","ram:JapanFinancialInstitutionCommonID","ram:LineID","ram:LineOne","ram:LineThree","ram:LineTwo","ram:LocalTaxSystemID","ram:ManufacturerAssignedID","ram:MIMECode","ram:Name","ram:NetIncludingTaxesLineTotalAmount","ram:NetLineTotalAmount","ram:PackageQuantity","ram:PaidAmount","ram:PaymentCurrencyCode","ram:PerPackageUnitQuantity","ram:PersonID","ram:PersonName","ram:PostcodeCode","ram:PreviousRevisionID","ram:ProductGroupID","ram:ProductUnitQuantity","ram:ProprietaryID","ram:PurposeCode","ram:RateApplicablePercent","ram:Reason","ram:ReasonCode","ram:ReferenceTypeCode","ram:RegisteredID","ram:RevisionID","ram:SellerAssignedID","ram:SourceCurrencyCode","ram:SpecifiedTransactionID","ram:Subject","ram:SubordinateLineID","ram:SubtypeCode","ram:TargetCurrencyCode","ram:TaxBasisTotalAmount","ram:TaxCurrencyCode","ram:TaxCurrencyCode","ram:TaxTotalAmount","ram:TotalPrepaidAmount","ram:TypeCode","ram:URIID","ram:Value"));
 			FileHandler.csvFileRead(in_csv, CHARSET);
 		} catch (FileNotFoundException e) {
@@ -180,26 +186,26 @@ public class Csv2invoice {
 			for (int i = 0; i < record.size(); i++) {
 				String field = record.get(i);
 				if (field != null && field.length() > 0) {
-					String id = FileHandler.header.get(i);
+					String id       = FileHandler.header.get(i);
 					Binding binding = FileHandler.bindingDict.get(id);
 					if (null==binding) {
 						if (TRACE) System.out.println(id+" is NOT DEFINED in bindingDict");
 						String[] ids = FileHandler.header.get(0).split(",");
 						if (i<ids.length) {
-							id = ids[i];
+							id      = ids[i];
 							binding = FileHandler.bindingDict.get(id);
 						} else {
 							continue;
 						}
 					}
-					Integer sort = binding.getSynSort();
+					Integer synSort = binding.getSynSort();
 					if (id.toLowerCase().matches("^jbg-.+$")) {
-						key += sort+"="+field+" ";
+						key += synSort+"="+field+" ";
 					} else {
-						rowMap.put(sort, field);
+						rowMap.put(synSort, field);
 					}
 					String xPath = binding.getXPath();
-					if ("JP PINT"==PROCESSING) {
+					if (0==PROCESSING.indexOf("JP-PINT")) {
 						if (DOCUMENT_CURRENCY_CODE_ID.equals(id)) {
 							documentCurrencyCode.xPath = xPath;
 							documentCurrencyCode.value = field;
@@ -259,8 +265,8 @@ public class Csv2invoice {
 				id              = binding.getID();
 				xPath           = binding.getXPath();
 				String datatype = binding.getDatatype();
-				attributes = new HashMap<>();
-				if ("JP PINT"==PROCESSING) {
+				attributes      = new HashMap<>();
+				if (0==PROCESSING.indexOf("JP-PINT")) {
 					if ("Amount".equals(datatype) || "Unit Price Amount".equals(datatype)) {
 						if (xPath.length() > 0) {
 							if (null!=taxCurrencyCode.xPath && xPath.indexOf(taxCurrencyCode.xPath)>=0) {
@@ -271,40 +277,40 @@ public class Csv2invoice {
 						}
 					}
 				}
-		        // Get key set of the TreeMap using keySet method
-		        Set<Integer > keySet = idMap.keySet();
-		        // Converting entrySet to ArrayList
-		        List<Integer> entryList = new ArrayList<>(keySet);
-		        int j = entryList.indexOf(synSort);
+				// Get key set of the TreeMap using keySet method
+				Set<Integer > keySet = idMap.keySet();
+				// Converting entrySet to ArrayList
+				List<Integer> entryList = new ArrayList<>(keySet);
+				int j = entryList.indexOf(synSort);
 				if (TRACE) System.out.println("dataRedords["+i+"]["+j+"] = DataValue("+boughSeq+" /*boughSeq*/, "+boughSort+" /*boughSort*/, "+id+" /*id*/, "+xPath+" /*xPath*/, "+value+" /*value*/, "+attributes+" /*attributes*/)");
 				dataRedords[i][j] = new DataValue(boughSeq, boughSort, id, xPath, value, attributes);
 			}
 			i++;
 		}
 		
-	    for (int y = 0; y < col_size; y++) {
-	    	for (int x = 0; x < row_size; x++) {
-	        	DataValue dataValue = dataRedords[x][y];
-	        	if (null != dataValue) {
-		        	boughSeq   = dataValue.seq;
-		        	boughSort  = dataValue.sort;
-		        	id         = dataValue.id;
-		        	xPath      = dataValue.xPath;
-		        	value      = dataValue.value;
-		        	attributes = dataValue.attributes;
-		        	if (TRACE) System.out.println(id+"="+value+xPath);
-		        	if (xPath.indexOf("ram:BasisQuantity")>0) {
-		        		System.out.println(xPath);
-		        	}		        	
+		for (int y = 0; y < col_size; y++) {
+			for (int x = 0; x < row_size; x++) {
+				DataValue dataValue = dataRedords[x][y];
+				if (null != dataValue) {
+					boughSeq   = dataValue.seq;
+					boughSort  = dataValue.sort;
+					id         = dataValue.id;
+					xPath      = dataValue.xPath;
+					value      = dataValue.value;
+					attributes = dataValue.attributes;
+					if (TRACE) System.out.println("call appendElementNS "+id+" = "+value+" "+xPath);
+					if (xPath.indexOf("ram:BasisQuantity")>0) {
+						System.out.println(xPath);
+					}	
 					appendElementNS(boughSort, boughSeq, id, xPath, value, attributes);
-	        	}
-	        }
-	    }
+				}
+			}
+		}
 
 		try (FileOutputStream output = new FileOutputStream(out_xml)) {
 			WriteXmlDom.writeXml(FileHandler.doc, output);
 		} catch (IOException eIO) {
-		    eIO.printStackTrace();
+			eIO.printStackTrace();
 		} catch (TransformerException eTE) {
 			eTE.printStackTrace();
 		}
@@ -321,13 +327,13 @@ public class Csv2invoice {
 	 * <li>c) b)で追加されたXML要素を返す.</li>
 	 * </ul>
 	 * 
-     * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
+	 * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
 	 * @param boughSeq 要素が定義されたTidy dataの行に対応する索引(bough)の順序番号.
-     * @param id この要素のid.
-     * @param xPath この要素のXPath.
-     * @param value この要素の値.
-     * @param attributes この要素の属性.
-     * 
+	 * @param id この要素のid.
+	 * @param xPath この要素のXPath.
+	 * @param value この要素の値.
+	 * @param attributes この要素の属性.
+	 * 
 	 * @return Element 追加したXML要素.
 	 */
 	private static Element appendElementNS (
@@ -346,17 +352,19 @@ public class Csv2invoice {
 		Integer semSort = binding.getSemSort();
 		if (TRACE) {
 			if (value.length() > 0) {
-				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+id+"("+semSort+") "+xPath +" = "+value);
+				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+id+"("+semSort+")\n"+xPath +" = "+value);
 			} else {
-				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+xPath);
+				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+"\n"+xPath);
 			}
 		}
 		Element element1, element2, element3, element4, element5, element6, element7, element8, element9;
 		ArrayList<String> paths      = splitPath(xPath);
 		int depth                    = paths.size();
 		Element element0             = FileHandler.root;
-//		if (xPath.indexOf("ram:BasisQuantity") >= 0)
-//				System.out.println(xPath);
+//		if (0==PROCESSING.indexOf("JP-PINT") && xPath.indexOf("@currencyID") >= 0) {
+//			System.out.println(xPath);
+//			return null;
+//		}
 		if (depth > 1) {
 			element1 = fillLevelElement(1, depth, element0, paths.get(1), boughSort, boughSeq, value, attributes );
 			if (2 == depth) {		
@@ -416,10 +424,10 @@ public class Csv2invoice {
 	 * @param depth XML要素のXPathを / で分割したときにいくつに分割されたかを示す分割された要素数.
 	 * @param parent 親のXML要素.
 	 * @param path XML要素のXPathを / で分割したときのn番目の要素に対応するXPathの文字列. 親のXML要素からの相対XPath.
-     * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
+	 * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
 	 * @param boughSeq 要素が定義されたTidy dataの行に対応する索引(bough)の順序番号.
-     * @param value この要素の値.
-     * @param attributes この要素の属性.
+	 * @param value この要素の値.
+	 * @param attributes この要素の属性.
 	 * 
 	 * @return
 	 */
@@ -451,9 +459,9 @@ public class Csv2invoice {
 		Element element = null;
 		try {
 			if (TRACE) {
-				System.out.print("- fillLevelElement getXPath "+strippedPath+" returns "+elements.size()+" elements boughSeq = "+boughSeq+" "+path);
+				System.out.print("- fillLevelElement getXPath returns "+elements.size()+" elements boughSeq = "+boughSeq+" "+path);
 				if (elements.size()==0 && n+1==depth &&
-						(("JP PINT" == PROCESSING && ! strippedPath.matches("^cac:.*$")) || 
+						((0==PROCESSING.indexOf("JP-PINT") && ! strippedPath.matches("^cac:.*$")) || 
 							terminalElements.indexOf(strippedPath) >= 0 ))  {
 					System.out.println(" = "+value);
 				} else {
@@ -495,7 +503,7 @@ public class Csv2invoice {
 	 * 
 	 * @param element XML要素
 	 * @param selector XPathの文字列中のに選択条件を指定する文字列.
-     * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
+	 * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
 	 * @param boughSeq 要素が定義されたTidy dataの行に対応する索引(bough)の順序番号.
 	 * @param n XML要素のXPathを / で分割したときの何番目の要素か指定する番号.
 	 * @param depth XML要素のXPathを / で分割したときにいくつに分割されたかを示す分割された要素数.
@@ -549,7 +557,7 @@ public class Csv2invoice {
 	 * @param qname 定義するXML要素の名前.
 	 * @param parent 親のXML要素.
 	 * @param path XML要素のXPathを / で分割したときのn番目の要素に対応するXPathの文字列. 親のXML要素からの相対XPath.
-     * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
+	 * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
 	 * @param boughSeq 要素が定義されたTidy dataの行に対応する索引(bough)の順序番号.
 	 * @param value 定義するXML要素の値.
 	 * @param attributes 定義するXML要素の属性.
@@ -583,7 +591,7 @@ public class Csv2invoice {
 			qname = ename[1];
 		}
 		
-		if ("JP PINT"==PROCESSING && "cac".equals(ns)) {
+		if (0==PROCESSING.indexOf("JP-PINT") && "cac".equals(ns)) {
 			value = cacValue;
 			attributes = cacAttributes;
 		}

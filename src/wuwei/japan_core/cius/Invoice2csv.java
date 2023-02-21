@@ -14,12 +14,11 @@ import org.w3c.dom.Node;
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
  */
 public class Invoice2csv {
-    static boolean TRACE = true;
-    
-    static String PROCESSING = null;
-    
-	static String IN_XML  = "data/xml/Example1.xml";
-	static String OUT_CSV = "data/csv/Example1.csv";
+	static boolean TRACE = true;
+	static String PROCESSING = null;
+	
+	static String IN_XML  = null;
+	static String OUT_CSV = null;
 	static String CHARSET = "UTF-8";
 	
 	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-091"; /*文書通貨コードのID*/
@@ -33,35 +32,41 @@ public class Invoice2csv {
 	/**
 	 * Tidy dataテーブルの行を指定する索引データ
 	 */
-    static TreeMap<Integer/* sort */,Integer/* seq */> boughMap = new TreeMap<>();
-    /**
-     * Tidy dataテーブル全体についてのTidy dataテーブルの行を指定する索引データのリスト
-     */
-    static ArrayList<TreeMap<Integer, Integer>> boughMapList = new ArrayList<>();
-    /**
-     * Tidy dataテーブル作成用の2次元リストの行
-     */
-    static TreeMap<Integer, String> rowMap = new TreeMap<>();
-    /**
-     * Tidy dataテーブル作成用の2次元リスト　Tidy dataテーブルは、FileHandler/tidyData
-     */
-    static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>();
+	static TreeMap<Integer/* sort */,Integer/* seq */> boughMap = new TreeMap<>();
+	
+	/**
+	 * Tidy dataテーブル全体についてのTidy dataテーブルの行を指定する索引データのリスト
+	 */
+	static ArrayList<TreeMap<Integer, Integer>> boughMapList = new ArrayList<>();
+	
+	/**
+	 * Tidy dataテーブル作成用の2次元リストの行
+	 */
+	static TreeMap<Integer, String> rowMap = new TreeMap<>();
+	
+	/**
+	 * Tidy dataテーブル作成用の2次元リスト　Tidy dataテーブルは、FileHandler/tidyData
+	 */
+	static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>();
 
 	/**
  	 * mainでは変換処理を単体でテストする.
 	 * 
 	 * @param args
 	 */
-    public static void main(String[] args) {
-		PROCESSING             = "SME COMMON";
+	public static void main(String[] args) {
+		PROCESSING = args[0]+" SEMANTICS";
+		IN_XML     = args[1];
+		OUT_CSV    = args[2];
+//		PROCESSING             = "SME-COMMON SEMANTICS";
+//		IN_XML                 = "data/xml/Example1_SME.xml";
+//		OUT_CSV                = "data/csv/Example1_SME.csv";
+//		PROCESSING             = "JP-PINT SEMANTICS";		
+//		IN_XML                 = "data/xml/Example1.xml";
+//		OUT_CSV                = "data/csv/Example1_PINT.csv";
 		FileHandler.PROCESSING = PROCESSING;
-		FileHandler.CORE_CSV   = FileHandler.SME_CSV;    	
-		processInvoice("data/xml/Example1_SME.xml", "data/csv/Example1_SME.csv");
-		
-//		PROCESSING             = "JP PINT";
-//		FileHandler.PROCESSING = PROCESSING;
-//    	FileHandler.CORE_CSV = FileHandler.JP_PINT_CSV;
-//		processInvoice("data/xml/Example1.xml", "data/csv/Example1_JP_PINT.csv");
+		FileHandler.CORE_CSV   = FileHandler.SME_CSV;
+		processInvoice(IN_XML, OUT_CSV);
 
 //		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
 //		 processInvoice("data/xml/Example2-TaxAcctCur.xml", "data/csv/Example2-TaxAcctCur.csv");
@@ -73,7 +78,7 @@ public class Invoice2csv {
 //		 processInvoice("data/xml/Example6-CorrInv.xml", "data/csv/Example6-CorrInv.csv");
 //		 processInvoice("data/xml/Example7-Return.Quan.xml", "data/csv/Example7-Return.Quan.csv");
 //		 processInvoice("data/xml/Example8-Return.ItPr.xml", "data/csv/Example8-Return.ItPr.csv");
-		if (TRACE) System.out.println("** END Invoice2csv **");
+		if (TRACE) System.out.println("** END Invoice2csv "+IN_XML+" "+OUT_CSV+" **");
 	}
 	
 	/**
@@ -85,13 +90,13 @@ public class Invoice2csv {
 	private static void processInvoice(String in_xml, String out_csv) {
 		if (TRACE) System.out.println("\n** processInvoice("+in_xml+", "+out_csv+")");
 		
-	    boughMap     = new TreeMap<Integer/*sort*/,Integer/*seq*/>();
-	    boughMapList = new ArrayList<TreeMap<Integer, Integer>>();
-	    rowMap       = new TreeMap<Integer, String>();
-	    rowMapList   = new TreeMap<String, TreeMap<Integer, String>>();
+		boughMap     = new TreeMap<Integer/*sort*/,Integer/*seq*/>();
+		boughMapList = new ArrayList<TreeMap<Integer, Integer>>();
+		rowMap       = new TreeMap<Integer, String>();
+		rowMapList   = new TreeMap<String, TreeMap<Integer, String>>();
 	
-	    FileHandler.parseBinding();
-	    
+		FileHandler.parseBinding();
+		
 		try {
 			FileHandler.parseInvoice(in_xml);
 		} catch (Exception e) {
@@ -100,7 +105,7 @@ public class Invoice2csv {
 		}
 		
 		FileHandler.nodeMap = FileHandler.parseDoc();
-	    
+		
 		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) {
 			Binding binding = entry.getValue();
 			Integer sort    = binding.getSemSort();
@@ -112,20 +117,20 @@ public class Invoice2csv {
 				FileHandler.multipleMap.put(sort, id);
 			}
 		}
-	    
+		
 		Binding binding = FileHandler.bindingDict.get(FileHandler.ROOT_ID);
 		Integer sort = binding.getSemSort();
 		boughMap.put(1000, 0);
 		boughMapList.add(boughMap);
 		
-	    fillGroup(FileHandler.root, sort, boughMap);
-	    
-	    fillTable();
-	    
-        try {
+		fillGroup(FileHandler.root, sort, boughMap);
+		
+		fillTable();
+
+		try {
 			FileHandler.csvFileWrite(out_csv, CHARSET);
-        } catch (FileNotFoundException fnf) {
-        	System.out.println("* File Not Found Exception "+out_csv);
+		} catch (FileNotFoundException fnf) {
+			System.out.println("* File Not Found Exception "+out_csv);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -217,7 +222,7 @@ public class Invoice2csv {
 			String value, 
 			TreeMap<Integer, Integer> boughMap ) {
 		Binding binding     = (Binding) FileHandler.semBindingMap.get(semSort);
-        String id           = binding.getID();
+		String id           = binding.getID();
 		String businessTerm = binding.getBT();
 		binding.setUsed(true);
 		value = value.trim();
@@ -269,79 +274,79 @@ public class Invoice2csv {
 		for (Integer childSort : childList.keySet()) {
 			// childList includes both #text and @attribute
 			Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
-            String childID           = childBinding.getID();
-    		String childBusinessTerm = childBinding.getBT();
-    		String childXPath        = childBinding.getXPath();
-    		int childLevel           = Integer.parseInt(childBinding.getLevel());
+			String childID           = childBinding.getID();
+			String childBusinessTerm = childBinding.getBT();
+			String childXPath        = childBinding.getXPath();
+			int childLevel           = childBinding.getLevel();
 			if (TRACE) System.out.println("- 1 fillGroup "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
 
-            List<Node> children = childList.get(childSort);
-            
-            Integer countChildren = children.size();             
-            if (countChildren > 0) {
-	            for (int i = 0; i < countChildren; i++) {
-	            	Node child = children.get(i);
-		        	if (childID.toLowerCase().matches("jbt-.+$")) {
-	        			String value = null;
-	        			value = child.getTextContent().trim();
-		            	if (null != value && value.length() > 0) {
-//		            		if (! "#text".equals(child.getNodeName()))
-//		            			continue; // @attribute has already registered as a grand child in the procedure below if clause.
-	            			if (TRACE) System.out.println("* 1 fillData child["+i+"]"+childID+"(semSOrt="+childSort+") "+child.getNodeName()+" = "+value);
-		            		
-			            	fillData(childSort, value, boughMap);
-			            	
-			        		if (FileHandler.childMap.containsKey(childSort)) {
-			        			ArrayList<Integer> grandchildren = FileHandler.childMap.get(childSort);
-			        			for (Integer grandchildSort : grandchildren) {
-			        				Binding grandchildBiunding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
-			        				String grandchildID        = grandchildBiunding.getID();
-			        				String grandchildBT        = grandchildBiunding.getBT();
-				                	ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
-				                	List<Node> grandchildNodes = parsedNode.nodes;
-				            		for (int j = 0; j < grandchildNodes.size(); j++) {
-				            			Node grandchild        = grandchildNodes.get(j);
-				            			String grandchildName  = grandchild.getNodeName();
-				        				String grandchildValue = grandchild.getTextContent().trim();
-				            			if (TRACE) System.out.println("* 2 fillData boughMap"+boughMap.toString()+"child "+child.getNodeName()+" "+childID+
-				            					" grandchild("+grandchildSort+")"+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT);
-				            			if (TRACE) System.out.println("    grand child["+j+"]"+grandchildName+"="+grandchildValue);
+			List<Node> children = childList.get(childSort);
+			
+			Integer countChildren = children.size();
+			if (countChildren > 0) {
+				for (int i = 0; i < countChildren; i++) {
+					Node child = children.get(i);
+					if (childID.toLowerCase().matches("jbt-.+$")) {
+						String value = null;
+						value = child.getTextContent().trim();
+						if (null != value && value.length() > 0) {
+//							if (! "#text".equals(child.getNodeName()))
+//								continue; // @attribute has already registered as a grand child in the procedure below if clause.
+							if (TRACE) System.out.println("* 1 fillData child["+i+"]"+childID+"(semSOrt="+childSort+") "+child.getNodeName()+" = "+value);
+							
+							fillData(childSort, value, boughMap);
+							
+							if (FileHandler.childMap.containsKey(childSort)) {
+								ArrayList<Integer> grandchildren = FileHandler.childMap.get(childSort);
+								for (Integer grandchildSort : grandchildren) {
+									Binding grandchildBiunding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
+									String grandchildID        = grandchildBiunding.getID();
+									String grandchildBT        = grandchildBiunding.getBT();
+									ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
+									List<Node> grandchildNodes = parsedNode.nodes;
+									for (int j = 0; j < grandchildNodes.size(); j++) {
+										Node grandchild        = grandchildNodes.get(j);
+										String grandchildName  = grandchild.getNodeName();
+										String grandchildValue = grandchild.getTextContent().trim();
+										if (TRACE) System.out.println("* 2 fillData boughMap"+boughMap.toString()+"child "+child.getNodeName()+" "+childID+
+												" grandchild("+grandchildSort+")"+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT);
+										if (TRACE) System.out.println("    grand child["+j+"]"+grandchildName+"="+grandchildValue);
 
-				            			fillData(grandchildSort, grandchildValue, boughMap);
-				            		}
-			        			}
-			        		}
-		            	}
-		            } else {
-			        	@SuppressWarnings("unchecked")
+										fillData(grandchildSort, grandchildValue, boughMap);
+									}
+								}
+							}
+						}
+					} else {
+						@SuppressWarnings("unchecked")
 						TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
-		            	boolean is_multiple = isMultiple(childSort);
-		                if (is_multiple && countChildren > 1) {
-		                	Integer lastkey   = boughMap1.lastKey();
-		                	Integer lastvalue = boughMap1.get(lastkey);
-		                	if (TRACE) System.out.print("    boughMap1 lastKey="+lastkey+" child is multiple level="+childLevel);
-			            	if (childSort != lastkey) {
-			            		if (boughMap.size() < childLevel + 1) {
-			                		boughMap1.put(childSort, i);
-			            		} else {
-			            			boughMap1.pollLastEntry();
-			            			boughMap1.put(childSort, i);
-			            			boughMapList.remove(boughMapList.size() - 1);
-			            		}
-			            	} else if (countChildren > 1) {
-			            		Integer lastvalue1 = lastvalue + 1;
-			            		boughMap1.put(lastkey, lastvalue1);
-			            	}
-			            	boughMapList.add(boughMap1);
-			            	if (TRACE) System.out.println("    UPDATED boughMapList="+boughMapList.toString()+" boughMap1="+boughMap1.toString());
-		                }
-	                	if (TRACE) System.out.println("* fillGroup "+childID+" boughMapList="+boughMapList.toString()+" boughMap1"+boughMap1.toString()+" child(semSort="+childSort+") level="+childLevel+" "+ businessTerm+" -> "+childBusinessTerm);
+						boolean is_multiple = isMultiple(childSort);
+						if (is_multiple && countChildren > 1) {
+							Integer lastkey   = boughMap1.lastKey();
+							Integer lastvalue = boughMap1.get(lastkey);
+							if (TRACE) System.out.print("    boughMap1 lastKey="+lastkey+" child is multiple level="+childLevel);
+							if (childSort != lastkey) {
+								if (boughMap.size() < childLevel + 1) {
+									boughMap1.put(childSort, i);
+								} else {
+									boughMap1.pollLastEntry();
+									boughMap1.put(childSort, i);
+									boughMapList.remove(boughMapList.size() - 1);
+								}
+							} else if (countChildren > 1) {
+								Integer lastvalue1 = lastvalue + 1;
+								boughMap1.put(lastkey, lastvalue1);
+							}
+							boughMapList.add(boughMap1);
+							if (TRACE) System.out.println("    UPDATED boughMapList="+boughMapList.toString()+" boughMap1="+boughMap1.toString());
+						}
+						if (TRACE) System.out.println("* fillGroup "+childID+" boughMapList="+boughMapList.toString()+" boughMap1"+boughMap1.toString()+" child(semSort="+childSort+") level="+childLevel+" "+ businessTerm+" -> "+childBusinessTerm);
 
-	                	fillGroup(child, childSort, boughMap1);
-		            }
-	            }
-            }
-        }
+						fillGroup(child, childSort, boughMap1);
+					}
+				}
+			}
+		}
 	}
 
 	/**
