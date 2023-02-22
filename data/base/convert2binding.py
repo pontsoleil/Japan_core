@@ -91,7 +91,7 @@ if __name__ == '__main__':
 				sme_entry['level'] = row['lvl'] and int(row['lvl']) or 0
 				sme_entry['businessTerm'] = row['name']
 				sme_entry['desc'] = desc
-				sme_entry['fixed'] = row['eme_fixed']
+				sme_entry['fixed'] = row['sme_fixed']
 				sme_entry['dataType'] = row['datatype']
 				sme_entry['syntaxID'] = row['UN_CCL_ID']
 				sme_entry['businessTerm_ja'] = row['sme_name']

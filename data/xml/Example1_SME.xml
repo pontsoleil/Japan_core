@@ -53,13 +53,16 @@
             </ram:BillingCISpecifiedPeriod>
         </ram:ApplicableCIIHSupplyChainTradeSettlement>
         <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>1</ram:LineID>
+                <ram:CategoryCode>0</ram:CategoryCode>
+            </ram:AssociatedCIILDocumentLineDocument>
             <ram:SpecifiedCIILSupplyChainTradeSettlement>
                 <ram:ApplicableCITradeTax>
                     <ram:CalculatedAmount>26000</ram:CalculatedAmount>
                     <ram:TypeCode>VAT</ram:TypeCode>
                     <ram:BasisAmount>260000</ram:BasisAmount>
                     <ram:CategoryCode>S</ram:CategoryCode>
-                    <ram:CurrencyCode>JPY</ram:CurrencyCode>
                     <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
                 </ram:ApplicableCITradeTax>
                 <ram:ApplicableCITradeTax>
@@ -67,7 +70,6 @@
                     <ram:TypeCode>VAT</ram:TypeCode>
                     <ram:BasisAmount>3490</ram:BasisAmount>
                     <ram:CategoryCode>E</ram:CategoryCode>
-                    <ram:CurrencyCode>JPY</ram:CurrencyCode>
                     <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
                 </ram:ApplicableCITradeTax>
                 <ram:SpecifiedCIILTradeSettlementMonetarySummation>
@@ -85,7 +87,7 @@
                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
                     <ram:NetPriceProductCITradePrice>
                         <ram:ChargeAmount>50000</ram:ChargeAmount>
-                        <ram:BasisQuantity unitCode="EA">1</ram:BasisQuantity>
+                        <ram:BasisQuantity>1</ram:BasisQuantity>
                     </ram:NetPriceProductCITradePrice>
                 </ram:SpecifiedCIILBSupplyChainTradeAgreement>
                 <ram:SpecifiedCIILBSupplyChainTradeDelivery>
@@ -116,7 +118,7 @@
                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
                     <ram:NetPriceProductCITradePrice>
                         <ram:ChargeAmount>500</ram:ChargeAmount>
-                        <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
+                        <ram:BasisQuantity>1</ram:BasisQuantity>
                     </ram:NetPriceProductCITradePrice>
                 </ram:SpecifiedCIILBSupplyChainTradeAgreement>
                 <ram:SpecifiedCIILBSupplyChainTradeDelivery>
@@ -147,7 +149,7 @@
                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
                     <ram:NetPriceProductCITradePrice>
                         <ram:ChargeAmount>349</ram:ChargeAmount>
-                        <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
+                        <ram:BasisQuantity>1</ram:BasisQuantity>
                     </ram:NetPriceProductCITradePrice>
                 </ram:SpecifiedCIILBSupplyChainTradeAgreement>
                 <ram:SpecifiedCIILBSupplyChainTradeDelivery>

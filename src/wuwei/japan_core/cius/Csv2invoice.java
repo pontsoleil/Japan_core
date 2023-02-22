@@ -122,18 +122,25 @@ public class Csv2invoice {
 	 */
 	public static void main(String[] args) 
 	{
-		PROCESSING = args[0]+" SYNTAX";
-		IN_CSV     = args[1];
-		OUT_XML    = args[2];
-//		PROCESSING = "SME-COMMON SYNTAX";
-//		IN_CSV     = "data/csv/Example1.csv";
-//		OUT_XML    = "data/xml/Example1_SME.xml";
+//		PROCESSING = args[0]+" SYNTAX";
+//		IN_CSV     = args[1];
+//		OUT_XML    = args[2];
+		PROCESSING = "SME-COMMON SYNTAX";
+		IN_CSV     = "data/csv/Example1.csv";
+		OUT_XML    = "data/xml/Example1_SME.xml";
 //		PROCESSING = "JP-PINT SYNTAX";
 //		IN_CSV     = "data/csv/Example1.csv";
 //		OUT_XML    = "data/xml/Example1_PINT.xml";
-		FileHandler.PROCESSING  = PROCESSING;
-		FileHandler.CORE_CSV    = FileHandler.SME_CSV;
-		FileHandler.XML_SKELTON = FileHandler.SME_XML_SKELTON;
+		FileHandler.PROCESSING = PROCESSING;
+		if (0==PROCESSING.indexOf("JP-PINT")) {
+			FileHandler.CORE_CSV    = FileHandler.JP_PINT_CSV;
+			FileHandler.XML_SKELTON = FileHandler.JP_PINT_XML_SKELTON;
+		} else if (0==PROCESSING.indexOf("SME-COMMON")) {
+			FileHandler.CORE_CSV    = FileHandler.SME_CSV;
+			FileHandler.XML_SKELTON = FileHandler.SME_XML_SKELTON;
+		} else {
+			return;
+		}
 		processCSV(IN_CSV, OUT_XML);
 		
 //		processCSV("data/csv/Example1.csv", "data/xml/Example1_SME.xml");
@@ -159,6 +166,7 @@ public class Csv2invoice {
 	public static void processCSV(String in_csv, String out_xml) 
 	{	
 		FileHandler.parseBinding();		
+		FileHandler.parseSkeleton();
 			
 		try {
 			if (0==PROCESSING.indexOf("SME-COMMON"))
@@ -171,7 +179,6 @@ public class Csv2invoice {
 			e.printStackTrace();
 		}
 		
-		FileHandler.parseSkeleton();
 					
 		rowMapList = new TreeMap<>();
 		

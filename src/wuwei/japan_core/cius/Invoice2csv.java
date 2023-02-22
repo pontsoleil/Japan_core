@@ -55,17 +55,26 @@ public class Invoice2csv {
 	 * @param args an array of command-line arguments for the application
 	 */
 	public static void main(String[] args) {
-		PROCESSING = args[0]+" SEMANTICS";
-		IN_XML     = args[1];
-		OUT_CSV    = args[2];
+//		PROCESSING = args[0]+" SEMANTICS";		
+//		IN_XML     = args[1];
+//		OUT_CSV    = args[2];
 //		PROCESSING             = "SME-COMMON SEMANTICS";
+//		FileHandler.CORE_CSV   = FileHandler.SME_CSV;
 //		IN_XML                 = "data/xml/Example1_SME.xml";
 //		OUT_CSV                = "data/csv/Example1_SME.csv";
-//		PROCESSING             = "JP-PINT SEMANTICS";		
-//		IN_XML                 = "data/xml/Example1.xml";
-//		OUT_CSV                = "data/csv/Example1_PINT.csv";
+		PROCESSING             = "JP-PINT SEMANTICS";		
+		IN_XML                 = "data/xml/Example1.xml";
+		OUT_CSV                = "data/csv/Example1_PINT.csv";
 		FileHandler.PROCESSING = PROCESSING;
-		FileHandler.CORE_CSV   = FileHandler.SME_CSV;
+		if (0==PROCESSING.indexOf("JP-PINT")) {
+			FileHandler.CORE_CSV    = FileHandler.JP_PINT_CSV;
+			FileHandler.XML_SKELTON = FileHandler.JP_PINT_XML_SKELTON;
+		} else if (0==PROCESSING.indexOf("SME-COMMON")) {
+			FileHandler.CORE_CSV    = FileHandler.SME_CSV;
+			FileHandler.XML_SKELTON = FileHandler.SME_XML_SKELTON;
+		} else {
+			return;
+		}
 		processInvoice(IN_XML, OUT_CSV);
 
 //		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
@@ -120,7 +129,7 @@ public class Invoice2csv {
 		
 		Binding binding = FileHandler.bindingDict.get(FileHandler.ROOT_ID);
 		Integer sort = binding.getSemSort();
-		boughMap.put(1000, 0);
+		boughMap.put(sort, 0);
 		boughMapList.add(boughMap);
 		
 		fillGroup(FileHandler.root, sort, boughMap);
@@ -145,7 +154,7 @@ public class Invoice2csv {
 		FileHandler.tidyData = new ArrayList<ArrayList<String>>();
 		if (TRACE) System.out.println();
 
-		FileHandler.header.add("JBG-00");
+		FileHandler.header.add(FileHandler.ROOT_ID);
 		// bough
 		for (Map.Entry<Integer,String> multipleEntry : FileHandler.multipleMap.entrySet()) {
 			String multipleID       = multipleEntry.getValue();
@@ -260,10 +269,12 @@ public class Invoice2csv {
 		rowMap = new TreeMap<Integer, String>();
 		
 		// get child Nodes
-		Binding binding = FileHandler.semBindingMap.get(sort);
-		String id = binding.getID();
+		Binding binding     = FileHandler.semBindingMap.get(sort);
+		String id           = binding.getID();
 		String businessTerm = binding.getBT();
 
+		if ("JBG-056".equals(id))
+			System.out.println(id);
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (0==childList.size()) {
@@ -364,7 +375,7 @@ public class Invoice2csv {
 		String xPath      = binding.getXPath();
 		xPath             = FileHandler.stripSelector(xPath);
 		List<Node> founds = FileHandler.getXPath(FileHandler.root, xPath);
-		if (founds.size() > 1) {
+		if (null!=founds && founds.size() > 1) {
 			multiple = true;
 		} else if (Arrays.asList(FileHandler.MULTIPLE_ID).contains(id.toLowerCase())) {
 			multiple = true;

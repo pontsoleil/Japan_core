@@ -48,7 +48,7 @@ import wuwei.japan_core.utils.NamespaceResolver;
  */
 public class FileHandler {
 	static String CORE_CSV;
-	static String TERMINAL_ELEMENTS;
+//	static String TERMINAL_ELEMENTS;
 	static String XML_SKELTON;
 	static String JP_PINT_CSV                = "data/base/jp_pint_binding.csv";
 	static String JP_PINT_XML_SKELTON        = "data/base/jp_pint_skeleton.xml";
@@ -58,10 +58,11 @@ public class FileHandler {
 	public static Document doc               = null;
 	public static XPath xpath                = null;
 	public static Element root               = null;
-	public static String ROOT_ID             = "JBG-00";
-	public static String[] MULTIPLE_ID       = {"JBG-01","JBG-02","JBG-03","JBG-16","JBG-18","JBG-32","JBG-39","JBG-43","JBG-44","JBG-45","JBG-47","JBG-21","JBG-35","JBG-36","JBG-37","JBG-38","JBG-26","JBG-27","JBG-28","JBG-29","JBG-30","JBG-33","JBG-34","JBG-35","JBG-36","JBG-31","JBG-32","JBG-34","JBG-35","JBG-38","JBG-41","JBG-46","JBG-47","JBG-48"};
-	public static String[] PINT_MULTIPLE_ID  = {"ibg-20", "ibg-21", "ibg-23", "ibg-25","ibg-27", "ibg-28"};
-	public static String[] SME_MULTIPLE_ID   = {"ICL2","ICL3","ICL4","ICL43","ICL45","ICL31","ICL36","ICL40","ICL41","ICL42","ICL45","ICL47","ICL58","ICL59","ICL60","ICL61","ICL56","ICL69","ICL55","ICL62","ICL62","ICL67","ICL67","ICL73","ICL74","ICL91","ICL84","ICL77","ICL85","ICL86","ICL87"};
+	public static String ROOT_ID             = "JBG-000";
+	public static ArrayList<String> MULTIPLE_ID = new ArrayList<>();
+//		{"JBG-001","JBG-002","JBG-003","JBG-016","JBG-018","JBG-032","JBG-039","JBG-043","JBG-044","JBG-045","JBG-047","JBG-021","JBG-035","JBG-036","JBG-037","JBG-038","JBG-026","JBG-027","JBG-028","JBG-029","JBG-030","JBG-033","JBG-034","JBG-035","JBG-036","JBG-031","JBG-032","JBG-034","JBG-035","JBG-038","JBG-041","JBG-046","JBG-047","JBG-048"};
+//	public static String[] PINT_MULTIPLE_ID  = {"ibg-20", "ibg-21", "ibg-23", "ibg-25","ibg-27", "ibg-28"};
+//	public static String[] SME_MULTIPLE_ID   = {"ICL2","ICL3","ICL4","ICL43","ICL45","ICL31","ICL36","ICL40","ICL41","ICL42","ICL45","ICL47","ICL58","ICL59","ICL60","ICL61","ICL56","ICL69","ICL55","ICL62","ICL62","ICL67","ICL67","ICL73","ICL74","ICL91","ICL84","ICL77","ICL85","ICL86","ICL87"};
 	public static HashMap<String, String> nsURIMap = null;
 			
 	public static boolean TRACE = true;
@@ -255,6 +256,8 @@ public class FileHandler {
 						break;
 					case "id":
 						binding.setID(value);
+						if (0==value.toUpperCase().indexOf("JBG"))
+							MULTIPLE_ID.add(value);
 						break;
 					case "fixed":
 						binding.setFixed(value);
@@ -311,8 +314,8 @@ public class FileHandler {
 					if (level > 0) {
 						int parent_level = level - 1;
 						Integer parent_semSort = parents[parent_level];
-						if (5700==parent_semSort)
-							System.out.println(parent_semSort);
+//						if (5700==parent_semSort)
+//							System.out.println(parent_semSort);
 						ArrayList<Integer> children = null;
 						if (null==parent_semSort)
 							System.out.println(semSort);
@@ -430,14 +433,27 @@ public class FileHandler {
 			//Build DOM
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			factory.setNamespaceAware(true); // never forget this!
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			doc = builder.parse(new FileInputStream(new File(xmlfile)));
+			DocumentBuilder builder        = factory.newDocumentBuilder();
+			doc                            = builder.parse(new FileInputStream(new File(xmlfile)));
 			//Create XPath
-			XPathFactory xpathfactory = XPathFactory.newInstance();
-			xpath = xpathfactory.newXPath();
+			XPathFactory xpathfactory      = XPathFactory.newInstance();
+			xpath                          = xpathfactory.newXPath();
 			xpath.setNamespaceContext(new NamespaceResolver(doc));
 			// root
 			root = (Element) doc.getChildNodes().item(0);
+		 	nsURIMap = new HashMap<String,String>();
+		 	NamedNodeMap attributes = root.getAttributes();
+		 	for (int i = 0; i < attributes.getLength(); i++) {
+		 		Node attribute = attributes.item(i);
+				String name = attribute.getNodeName();
+				if ("xmlns".equals(name)) {
+					name = "";
+				} else {
+					name = name.replace("xmlns:","");
+				}
+				String value = attribute.getNodeValue();
+				nsURIMap.put(name, value);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -597,13 +613,22 @@ public class FileHandler {
 				String childID              = child_binding.getID();
 				String child_datatype       = child_binding.getDatatype();
 				String child_xpath          = child_binding.getXPath();
+				String fixed                = child_binding.getFixed();
 				Set<String> additionalXPath = child_binding.getAdditionalXPath();
 				child_xpath                 = checkChildXPath(xpath, childID, child_datatype, child_xpath);
 				
 				List<Node> nodes = getXPathNodes(parent, child_xpath);
 				
-				if (nodes.size() > 0) {
-					childList.put(sort, nodes);				
+				if (null!=nodes && nodes.size() > 0) {
+					childList.put(sort, nodes);
+				} else if (fixed.length() > 0) { // 未定義だが固定値が定義されている要素についてその値が定義されたNodeを返す。
+					String ns    = "cbc";
+					String nsURI = nsURIMap.get(ns);
+					String qname = "Name";					
+					Node child_node = appendElementNS((Element) parent, nsURI, ns, qname, fixed, null);
+					nodes = new ArrayList<>();
+					nodes.add(child_node);
+					childList.put(sort, nodes);
 				} else if (null!=additionalXPath) {
 					for(Iterator<String> iterator = additionalXPath.iterator(); iterator.hasNext(); ) {
 						String additional_xpath     = iterator.next();
@@ -620,7 +645,7 @@ public class FileHandler {
 	}
 
 	/**
-	 * 必要に応じて /text() を追加して、ルート要素からの子要素の相対的な XPath を求める。<br>
+	 * PROCESSINGがJP-PINTのとき必要に応じて /text() を追加して、ルート要素からの子要素の相対的な XPath を求める。<br>
 	 * Append /text() where necessary to find the relative XPath of child elements from the parent element.
 	 * 
 	 * @param xpath 親要素のXPath / XPath of the parent Node.
@@ -638,12 +663,14 @@ public class FileHandler {
 		if (! xpath.equals("/Invoice") && ! xpath.equals("/ubl:Invoice")) {
 			child_xpath = child_xpath.replace(xpath, ".");
 		}
-		// replace root element in the selector with /*
-		child_xpath = child_xpath.replace("/Invoice/", "/*/");
-		child_xpath = child_xpath.replace("/ubl:Invoice/", "/*/");
-		if (childID.toLowerCase().matches("^ibt-.*$") &&
-				! "String".equals(child_datatype)) {
-			child_xpath += "/text()";
+		if (0==PROCESSING.indexOf("JP-PINT") && child_xpath.length() > 0) {
+			// replace root element in the selector with /*
+			child_xpath = child_xpath.replace("/Invoice/", "/*/");
+			child_xpath = child_xpath.replace("/ubl:Invoice/", "/*/");
+			if (childID.toLowerCase().matches("^jbt-.*$") &&
+					! "String".equals(child_datatype)) {
+				child_xpath += "/text()";
+			}
 		}
 		return child_xpath;
 	}
@@ -659,6 +686,8 @@ public class FileHandler {
 			Node parent, 
 			String xPath ) 
 	{
+		if (0==xPath.length())
+			return null;
 		XPathExpression expr = null;
 		NodeList result;
 		List<Node> nodeList = new ArrayList<>();
@@ -670,20 +699,18 @@ public class FileHandler {
 //				if (TRACE) System.out.println(" (FileHandler) getXPathNodes "+xPath);
 //				return null;
 			}
-			expr = xpath.compile(xPath);
-			result = (NodeList) expr.evaluate(parent, XPathConstants.NODESET);
-			nodeList = asList(result);	
-			// https://stackoverflow.com/questions/50509663/convert-nodelist-to-list-in-java
-			final int len = nodeList.size();
+			expr             = xpath.compile(xPath);
+			result           = (NodeList) expr.evaluate(parent, XPathConstants.NODESET);
+			nodeList         = asList(result); // https://stackoverflow.com/questions/50509663/convert-nodelist-to-list-in-java
+			final int len    = nodeList.size();
 			List<Node> nodes = new ArrayList<>();
 			for (int i = 0; i < len; i++) {
 			  final Node node = nodeList.get(i);
 			  if (node.getNodeType() == Node.ELEMENT_NODE ||
 					  node.getNodeType() == Node.TEXT_NODE ||
-					  node.getNodeType() == Node.ATTRIBUTE_NODE) {
+					  node.getNodeType() == Node.ATTRIBUTE_NODE) { // Ignore other node types.
 				  nodes.add((Node) node);
 			  }
-			  // Ignore other node types.
 			}
 			return nodes;	
 		} catch (XPathExpressionException e) {
