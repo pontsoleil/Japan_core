@@ -199,6 +199,7 @@ semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessT
 5670,JBT-362,1..1,4,明細行参照文書タイプコード,参照する文書の種類を規定するコード,,Code,IBT-189,Document type code,参照する文書の種類を規定するコード,3970,,,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:DocumentTypeCode,0..1
 5700,JBT-365,1..1,3,明細行課税分類譲渡資産金額税抜き,値引後の請求書明細行の合計金額(税抜き)。,,Amount,IBT-131,Invoice line net amount,値引後の請求書明細行の合計金額(税抜き)。,3810,,,/Invoice/cac:InvoiceLine/cbc:LineExtensionAmount,1..1
 5710,JBT-366,0..1,3,明細行課税分類譲渡資産金額税込み,値引後の請求書明細行の合計金額(税込み)。,,Amount,IBT-201,Tax inclusive line net amount (UBL 2.3),値引後の請求書明細行の合計金額(税込み)。,3815,,,/Invoice/cac:InvoiceLine/cbc:TaxInclusiveLineExtensionAmount,0..1
+5720,JBG-091,0..1,3,明細行／配送グループ,,,__,,,,3785,,,/Invoice/cac:InvoiceLine,
 5760,JBT-370,1..1,4,請求数量,請求書明細行で請求する品目(財又はサービス)の数量。,,Quantity,IBT-129,Invoiced quantity,請求書明細行で請求する品目(財又はサービス)の数量。,3790,,,/Invoice/cac:InvoiceLine/cbc:InvoicedQuantity,1..1
 5770,JBT-371,0..1,4,数量単位コード,請求数量に適用する数量単位コード。,,Code,IBT-130,Invoiced quantity unit of measure code,請求数量に適用する数量単位コード。,3800,,,/Invoice/cac:InvoiceLine/cbc:InvoicedQuantity/@unitCode,1..1
 5800,JBG-093,1..1,3,明細行税,請求書明細行で請求する財又はサービスに適用される消費税に係る情報を提供するビジネス用語のグループ。,,__,IBG-30,LINE TAX INFORMATION,請求書明細行で請求する財又はサービスに適用される消費税に係る情報を提供するビジネス用語のグループ。,4350,,,/Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory,1..n

@@ -31,8 +31,8 @@ public class Csv2invoice {
 	static String OUT_XML           = null;
 	static String CHARSET           = "UTF-8";
 	
-	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-091"; /*文書通貨コードのID*/
-	static String TAX_CURRENCY_CODE_ID      = "JBT-090"; /*税通貨コードnoID*/
+	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-093"; /*文書通貨コードのID*/
+	static String TAX_CURRENCY_CODE_ID      = "JBT-092"; /*税通貨コードnoID*/
 	static String DOCUMENT_CURRENCY         = null; /*文書通貨コード*/
 	static String TAX_CURRENCY              = null; /*税通貨コード*/
 	
@@ -132,7 +132,7 @@ public class Csv2invoice {
 //		IN_CSV     = "data/csv/Example5-AllowanceCharge.csv";
 //		OUT_XML    = "data/xml/Example5-AllowanceCharge_SME.xml";
 		PROCESSING = "JP-PINT SYNTAX";
-		IN_CSV     = "data/csv/Example1.csv";
+		IN_CSV     = "data/csv/Example1_PINT.csv";
 		OUT_XML    = "data/xml/Example1_PINT.xml";
 		FileHandler.PROCESSING = PROCESSING;
 		if (0==PROCESSING.indexOf("JP-PINT")) {
@@ -317,10 +317,11 @@ public class Csv2invoice {
 					value      = dataValue.value;
 					attributes = dataValue.attributes;
 					if (TRACE) System.out.println("call appendElementNS "+id+" = "+value+" "+xPath);
-					if (xPath.indexOf("ram:BasisQuantity")>0) {
-						System.out.println(xPath);
-					}	
-					appendElementNS(boughSort, boughSeq, id, xPath, value, attributes);
+//					if (xPath.indexOf("ram:BasisQuantity")>0) {
+//						System.out.println(xPath);
+//					}
+					if (null!=xPath && xPath.length() > 0)
+						appendElementNS(boughSort, boughSeq, id, xPath, value, attributes);
 				}
 			}
 		}
@@ -471,8 +472,8 @@ public class Csv2invoice {
 		ArrayList<String> boughPaths = splitPath(boughXPath);
 		int boughLevel               = boughPaths.size()-1;	
 		
-		if ("/Invoice/cac:TaxTotal/cac:TaxSubTotal".equals(boughXPath))
-			System.out.println(boughXPath);
+//		if ("/Invoice/cac:TaxTotal/cac:TaxSubTotal".equals(boughXPath))
+//			System.out.println(boughXPath);
 		
 		String selector = FileHandler.extractSelector(path);
 		
