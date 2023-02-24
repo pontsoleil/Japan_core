@@ -20,3 +20,84 @@ include::data/base/jp_pint_binding.csv[lines=1..10]
 include::data/base/sme_binding.csv[lines=1..10]
 ,====
 
+=== ディレクトリ構成
+
+`ROOT +
+├─data +
+│　├─base コアインボイス定義ExcelブックおよびJavaプログラム用の変換パラメタシート(CSV) +
+│　├─csv コアインボイスモデルのxBRL-CSV +
+│　├─schema 中小企業共通EDI CIIで提供されている標準スキーマにExcel定義に基づいて rsm: 及び ram: の要素を定義 +
+│　│　├─codelist +
+│　│　│　└─standard +
+│　│　├─data +
+│　│　│　└─standard +
+│　│　└─identifierlist +
+│　│　 　└─standard +
+│　└─xml テスト用XML +
+└─src +
+　　└─wuwei +
+　　└─japan_core コアインボイス変換プログラム +
+　　　├─cius +
+　　　└─utils` +
+
+=== コアインボイス定義(Excel)
+
+data/base/230222コアインボイス.xlsx
+
+A ~ H 欄 日本版コアインボイス
+
+I ~ R 欄 中小企業共通EDI ver.4.1
+
+S ~ AC 欄 JP PINT V1.0
+
+中小企業共通EDI及びJP PINT V1.0では、それぞれ既定値として設定する項目があるため定行の欄を追加した。
+
+data/base/convert2binding.py プログラムは、230222コアインボイス.xlsxのコアインボイス シートを UTF-8 CSVとして出力した core_japan.csvを入力し次の変換プログラム用パラメタを出力する。
+
+jp_pint_binding.csv JP PINT V1.0 の構文バインディング定義 +
+jp_pint_binding.utf-16TSV.csv Excelで内容を確認するためのUTF-16のTSV形式ファイル
+
+sme_binding.csv 中小企業共通EDI ver.4.1 の構文バインディング定義 +
+sme_binding.utf-16TSV.csv Excelで内容を確認するためのUTF-16のTSV形式ファイル
+
+=== 構文バインディング変換プログラム
+
+JP PINTのUBLから次の手順で中小企業共通EDI ver.4.1のUN/CEFACT CIIへの変換をテスト。
+
+==== XMLからCSV
+
+src/wuwei/japan_core/cius/Invoice2csv.java
+
+JP PINT +
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Invoice2csv JP-PINT data/csv/Example1.xml data/csv/Example1_PINT.csv
+
+==== CSVからXML
+
+src/wuwei/japan_core/cius/Csv2invoice.java
+
+中小企業共通EDI +
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Csv2invoice SME-COMMON data/csv/Example1_PINT.csv data/csv/Example1_SME.xml 
+
+==== 今後のテスト予定(2023-02-24)
+
+===== 逆変換
+
+中小企業共通EDI +
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Invoice2csv SME-COMMON data/csv/Example1_SME.xml data/csv/Example1_SME.csv 
+
+JP PINT +
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Csv2invoice JP-PINT data/csv/Example1_SME.csv data/csv/Example1_PINT.xml 
+
+===== Allowance & Charge
+
+JP PINT +
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Invoice2csv JP-PINT data/xml/Example5-AllowanceCharge.xml data/csv/Example5-AllowanceCharge_PINT.csv
+
+中小企業共通EDI +
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Csv2invoice SME-COMMON data/csv/Example5-AllowanceCharge_PINT.csv data/csv/Example5-AllowanceCharge_SME.xml 
+
+中小企業共通EDI +
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Invoice2csv SME-COMMON data/csv/Example5-AllowanceCharge_SME.xml data/csv/Example5-AllowanceCharge_SME.csv 
+
+JP PINT +
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Csv2invoice JP-PINT data/csv/Example5-AllowanceCharge_SME.csv data/csv/Example5-AllowanceCharge_PINT.xml 

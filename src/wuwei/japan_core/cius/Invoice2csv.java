@@ -59,13 +59,17 @@ public class Invoice2csv {
 //		PROCESSING = args[0]+" SEMANTICS";		
 //		IN_XML     = args[1];
 //		OUT_CSV    = args[2];
+//		if (4==args.length && "T".equals(args[3]))
+//			TRACE = true;
 //		PROCESSING             = "SME-COMMON SEMANTICS";
 //		FileHandler.CORE_CSV   = FileHandler.SME_CSV;
 //		IN_XML                 = "data/xml/Example1_SME.xml";
 //		OUT_CSV                = "data/csv/Example1_SME.csv";
-		PROCESSING             = "JP-PINT SEMANTICS";		
-		IN_XML                 = "data/xml/Example5-AllowanceCharge.xml";
-		OUT_CSV                = "data/csv/Example5-AllowanceCharge_PINT.csv";
+		PROCESSING             = "JP-PINT SEMANTICS";	
+		IN_XML                 = "data/xml/Example1.xml";
+		OUT_CSV                = "data/csv/Example1_PINT.csv";
+//		IN_XML                 = "data/xml/Example5-AllowanceCharge.xml";
+//		OUT_CSV                = "data/csv/Example5-AllowanceCharge_PINT.csv";
 		FileHandler.PROCESSING = PROCESSING;
 		if (0==PROCESSING.indexOf("JP-PINT")) {
 			FileHandler.CORE_CSV    = FileHandler.JP_PINT_CSV;

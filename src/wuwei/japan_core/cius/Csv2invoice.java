@@ -126,12 +126,14 @@ public class Csv2invoice {
 //		PROCESSING = args[0]+" SYNTAX";
 //		IN_CSV     = args[1];
 //		OUT_XML    = args[2];
-		PROCESSING = "SME-COMMON SYNTAX";
-		IN_CSV     = "data/csv/Example5-AllowanceCharge.csv";
-		OUT_XML    = "data/xml/Example5-AllowanceCharge_SME.xml";
-//		PROCESSING = "JP-PINT SYNTAX";
-//		IN_CSV     = "data/csv/Example1.csv";
-//		OUT_XML    = "data/xml/Example1_PINT.xml";
+//		if (4==args.length && "T".equals(args[3]))
+//			TRACE = true;
+//		PROCESSING = "SME-COMMON SYNTAX";
+//		IN_CSV     = "data/csv/Example5-AllowanceCharge.csv";
+//		OUT_XML    = "data/xml/Example5-AllowanceCharge_SME.xml";
+		PROCESSING = "JP-PINT SYNTAX";
+		IN_CSV     = "data/csv/Example1.csv";
+		OUT_XML    = "data/xml/Example1_PINT.xml";
 		FileHandler.PROCESSING = PROCESSING;
 		if (0==PROCESSING.indexOf("JP-PINT")) {
 			FileHandler.CORE_CSV    = FileHandler.JP_PINT_CSV;
@@ -367,6 +369,10 @@ public class Csv2invoice {
 		Binding binding = FileHandler.bindingDict.get(id);
 		Integer semSort = binding.getSemSort();
 		if (TRACE) {
+			if (id.equals("JBT-324") || 5190==semSort) {
+				System.out.println(xPath);
+	//			return null;
+			}
 			if (value.length() > 0) {
 				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+id+"("+semSort+")\n"+xPath +" = "+value);
 			} else {
@@ -377,10 +383,7 @@ public class Csv2invoice {
 		ArrayList<String> paths      = splitPath(xPath);
 		int depth                    = paths.size();
 		Element element0             = FileHandler.root;
-		if (5760==semSort) {
-			System.out.println(xPath);
-//			return null;
-		}
+
 		if (depth > 1) {
 			element1 = fillLevelElement(1, depth, element0, paths.get(1), boughSort, boughSeq, value, attributes );
 			if (2 == depth) {		
@@ -468,6 +471,9 @@ public class Csv2invoice {
 		ArrayList<String> boughPaths = splitPath(boughXPath);
 		int boughLevel               = boughPaths.size()-1;	
 		
+		if ("/Invoice/cac:TaxTotal/cac:TaxSubTotal".equals(boughXPath))
+			System.out.println(boughXPath);
+		
 		String selector = FileHandler.extractSelector(path);
 		
 		List<Node> elements = FileHandler.getXPath(parent, strippedPath);
@@ -477,8 +483,8 @@ public class Csv2invoice {
 			if (TRACE) {
 				System.out.print("- fillLevelElement getXPath returns "+elements.size()+" elements boughSeq = "+boughSeq+" "+path);
 				if (elements.size()==0 && n+1==depth &&
-						(0==PROCESSING.indexOf("JP-PINT") && strippedPath.matches("^cac:.*$") || 
-							terminalElements.indexOf(strippedPath) >= 0 ))  {
+						((0==PROCESSING.indexOf("JP-PINT") && ! path.matches("^cac:[a-zA-Z]+$")) || 
+							(0==PROCESSING.indexOf("SME-COMMON") && terminalElements.indexOf(strippedPath) >= 0 )))  {
 					System.out.println(" = "+value);
 				} else {
 					value = null;
@@ -507,7 +513,7 @@ public class Csv2invoice {
 				}
 			}			
 		} catch (Exception e) {
-			System.out.println("xx ERROR fillLevelElement "+parent.getNodeName()+" XPath="+strippedPath+" element = "+element.toString());
+			System.out.println("xx ERROR fillLevelElement "+parent.getNodeName()+" XPath="+strippedPath);//+" element = "+element.toString());
 			if (TRACE) System.out.println(e.toString());
 			e.getStackTrace();
 		}

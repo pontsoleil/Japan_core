@@ -6,140 +6,102 @@
     <cbc:ID>156</cbc:ID>
     <cbc:IssueDate>2023-10-24</cbc:IssueDate>
     <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
-    <cbc:DocumentCurrencyCode>JPY</cbc:DocumentCurrencyCode>
-    <cac:InvoicePeriod>
-        <cbc:StartDate>2023-10-17</cbc:StartDate>
-        <cbc:EndDate>2023-10-19</cbc:EndDate>
-    </cac:InvoicePeriod>
     <cac:AccountingSupplierParty>
         <cac:Party>
-            <cbc:EndpointID schemeID="0188">1234567890123</cbc:EndpointID>
+            <cac:PartyIdentification>
+                <cbc:ID>株式会社 〇〇商事</cbc:ID>
+            </cac:PartyIdentification>
             <cac:PostalAddress>
-                <cac:Country>
-                    <cbc:IdentificationCode>JP</cbc:IdentificationCode>
-                </cac:Country>
+                <cac:AddressLine>
+                    <cbc:Line>JP</cbc:Line>
+                </cac:AddressLine>
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
-                <cbc:CompanyID>T1234567890123</cbc:CompanyID>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
+                <cbc:CompanyID>0188</cbc:CompanyID>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
-                <cbc:RegistrationName>株式会社 〇〇商事</cbc:RegistrationName>
+                <cbc:RegistrationName>T1234567890123</cbc:RegistrationName>
             </cac:PartyLegalEntity>
         </cac:Party>
     </cac:AccountingSupplierParty>
     <cac:AccountingCustomerParty>
         <cac:Party>
-            <cbc:EndpointID schemeID="0188">3210987654321</cbc:EndpointID>
+            <cac:PartyIdentification>
+                <cbc:ID>株式会社 〇〇物産</cbc:ID>
+            </cac:PartyIdentification>
+            <cac:PartyName>
+                <cbc:Name>3210987654321</cbc:Name>
+            </cac:PartyName>
             <cac:PostalAddress>
-                <cac:Country>
-                    <cbc:IdentificationCode>JP</cbc:IdentificationCode>
-                </cac:Country>
+                <cbc:CityName>JP</cbc:CityName>
             </cac:PostalAddress>
-            <cac:PartyLegalEntity>
-                <cbc:RegistrationName>株式会社 〇〇物産</cbc:RegistrationName>
-            </cac:PartyLegalEntity>
         </cac:Party>
     </cac:AccountingCustomerParty>
     <cac:TaxTotal>
-        <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount>
+        <cbc:TaxAmount currencyID="">255990</cbc:TaxAmount>
         <cac:TaxSubtotal>
-            <cbc:TaxableAmount currencyID="JPY">260000</cbc:TaxableAmount>
-            <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount>
+            <cbc:TaxAmount currencyID="">260000</cbc:TaxAmount>
             <cac:TaxCategory>
-                <cbc:ID>S</cbc:ID>
-                <cbc:Percent>10</cbc:Percent>
                 <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
+                    <cbc:ID>S</cbc:ID>
                 </cac:TaxScheme>
             </cac:TaxCategory>
         </cac:TaxSubtotal>
         <cac:TaxSubtotal>
-            <cbc:TaxableAmount currencyID="JPY">3490</cbc:TaxableAmount>
-            <cbc:TaxAmount currencyID="JPY">0</cbc:TaxAmount>
+            <cbc:TaxAmount currencyID="">3490</cbc:TaxAmount>
             <cac:TaxCategory>
-                <cbc:ID>E</cbc:ID>
-                <cbc:Percent>0</cbc:Percent>
                 <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
+                    <cbc:ID>E</cbc:ID>
                 </cac:TaxScheme>
             </cac:TaxCategory>
         </cac:TaxSubtotal>
+        <cbc:TaxAmount currencyID=""/>
     </cac:TaxTotal>
     <cac:LegalMonetaryTotal>
-        <cbc:LineExtensionAmount currencyID="JPY">255990</cbc:LineExtensionAmount>
-        <cbc:TaxExclusiveAmount currencyID="JPY">255990</cbc:TaxExclusiveAmount>
-        <cbc:TaxInclusiveAmount currencyID="JPY">281990</cbc:TaxInclusiveAmount>
-        <cbc:AllowanceTotalAmount currencyID="JPY">0</cbc:AllowanceTotalAmount>
-        <cbc:ChargeTotalAmount currencyID="JPY">0</cbc:ChargeTotalAmount>
-        <cbc:PayableAmount currencyID="JPY">281990</cbc:PayableAmount>
+        <cbc:LineExtensionAmount currencyID="">281990</cbc:LineExtensionAmount>
+        <cbc:TaxExclusiveAmount currencyID="">281990</cbc:TaxExclusiveAmount>
+        <cbc:AllowanceTotalAmount currencyID="">255990</cbc:AllowanceTotalAmount>
+        <cbc:ChargeTotalAmount currencyID="">26000</cbc:ChargeTotalAmount>
+        <cbc:PayableAmount currencyID="">26000</cbc:PayableAmount>
+        <cbc:PayableAmount currencyID=""/>
     </cac:LegalMonetaryTotal>
     <cac:InvoiceLine>
-        <cbc:ID>1</cbc:ID>
-        <cbc:LineExtensionAmount currencyID="JPY">250000</cbc:LineExtensionAmount>
-        <cac:InvoicePeriod>
-            <cbc:StartDate>2023-10-17</cbc:StartDate>
-            <cbc:EndDate>2023-10-17</cbc:EndDate>
-        </cac:InvoicePeriod>
+        <cbc:InvoicedQuantity>S</cbc:InvoicedQuantity>
+        <cbc:TaxInclusiveLineExtensionAmount currencyID="">5</cbc:TaxInclusiveLineExtensionAmount>
+        <cac:AllowanceCharge>
+            <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+            <cbc:AllowanceChargeReason>2023-10-17</cbc:AllowanceChargeReason>
+        </cac:AllowanceCharge>
         <cac:Item>
-            <cbc:Name>デスクチェア</cbc:Name>
-            <cac:ClassifiedTaxCategory>
-                <cbc:ID>S</cbc:ID>
-                <cbc:Percent>10</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:ClassifiedTaxCategory>
+            <cac:StandardItemIdentification>
+                <cbc:ID>デスクチェア</cbc:ID>
+            </cac:StandardItemIdentification>
         </cac:Item>
-        <cac:Price>
-            <cbc:PriceAmount currencyID="JPY">50000</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="EA">1</cbc:BaseQuantity>
-        </cac:Price>
     </cac:InvoiceLine>
     <cac:InvoiceLine>
-        <cbc:ID>2</cbc:ID>
-        <cbc:LineExtensionAmount currencyID="JPY">2500</cbc:LineExtensionAmount>
-        <cac:InvoicePeriod>
-            <cbc:StartDate>2023-10-18</cbc:StartDate>
-            <cbc:EndDate>2023-10-18</cbc:EndDate>
-        </cac:InvoicePeriod>
+        <cbc:InvoicedQuantity>S</cbc:InvoicedQuantity>
+        <cbc:TaxInclusiveLineExtensionAmount currencyID="">5</cbc:TaxInclusiveLineExtensionAmount>
+        <cac:AllowanceCharge>
+            <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+            <cbc:AllowanceChargeReason>2023-10-18</cbc:AllowanceChargeReason>
+        </cac:AllowanceCharge>
         <cac:Item>
-            <cbc:Name>コピー用紙（A4）</cbc:Name>
-            <cac:ClassifiedTaxCategory>
-                <cbc:ID>S</cbc:ID>
-                <cbc:Percent>10</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:ClassifiedTaxCategory>
+            <cac:StandardItemIdentification>
+                <cbc:ID>コピー用紙（A4）</cbc:ID>
+            </cac:StandardItemIdentification>
         </cac:Item>
-        <cac:Price>
-            <cbc:PriceAmount currencyID="JPY">500</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
-        </cac:Price>
     </cac:InvoiceLine>
     <cac:InvoiceLine>
-        <cbc:ID>3</cbc:ID>
-        <cbc:LineExtensionAmount currencyID="JPY">3490</cbc:LineExtensionAmount>
-        <cac:InvoicePeriod>
-            <cbc:StartDate>2023-10-19</cbc:StartDate>
-            <cbc:EndDate>2023-10-19</cbc:EndDate>
-        </cac:InvoicePeriod>
+        <cbc:InvoicedQuantity>E</cbc:InvoicedQuantity>
+        <cbc:TaxInclusiveLineExtensionAmount currencyID="">10</cbc:TaxInclusiveLineExtensionAmount>
+        <cac:AllowanceCharge>
+            <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+            <cbc:AllowanceChargeReason>2023-10-19</cbc:AllowanceChargeReason>
+        </cac:AllowanceCharge>
         <cac:Item>
-            <cbc:Name>検定済教科書(算数)</cbc:Name>
-            <cac:ClassifiedTaxCategory>
-                <cbc:ID>E</cbc:ID>
-                <cbc:Percent>0</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:ClassifiedTaxCategory>
+            <cac:StandardItemIdentification>
+                <cbc:ID>検定済教科書(算数)</cbc:ID>
+            </cac:StandardItemIdentification>
         </cac:Item>
-        <cac:Price>
-            <cbc:PriceAmount currencyID="JPY">349</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
-        </cac:Price>
     </cac:InvoiceLine>
 </Invoice>
