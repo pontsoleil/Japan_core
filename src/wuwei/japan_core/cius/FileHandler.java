@@ -48,7 +48,6 @@ import wuwei.japan_core.utils.NamespaceResolver;
  */
 public class FileHandler {
 	static String CORE_CSV;
-//	static String TERMINAL_ELEMENTS;
 	static String XML_SKELTON;
 	static String JP_PINT_CSV                = "data/base/jp_pint_binding.csv";
 	static String JP_PINT_XML_SKELTON        = "data/base/jp_pint_skeleton.xml";
@@ -60,9 +59,6 @@ public class FileHandler {
 	public static Element root               = null;
 	public static String ROOT_ID             = "JBG-000";
 	public static ArrayList<String> MULTIPLE_ID = new ArrayList<>();
-//		{"JBG-001","JBG-002","JBG-003","JBG-016","JBG-018","JBG-032","JBG-039","JBG-043","JBG-044","JBG-045","JBG-047","JBG-021","JBG-035","JBG-036","JBG-037","JBG-038","JBG-026","JBG-027","JBG-028","JBG-029","JBG-030","JBG-033","JBG-034","JBG-035","JBG-036","JBG-031","JBG-032","JBG-034","JBG-035","JBG-038","JBG-041","JBG-046","JBG-047","JBG-048"};
-//	public static String[] PINT_MULTIPLE_ID  = {"ibg-20", "ibg-21", "ibg-23", "ibg-25","ibg-27", "ibg-28"};
-//	public static String[] SME_MULTIPLE_ID   = {"ICL2","ICL3","ICL4","ICL43","ICL45","ICL31","ICL36","ICL40","ICL41","ICL42","ICL45","ICL47","ICL58","ICL59","ICL60","ICL61","ICL56","ICL69","ICL55","ICL62","ICL62","ICL67","ICL67","ICL73","ICL74","ICL91","ICL84","ICL77","ICL85","ICL86","ICL87"};
 	public static HashMap<String, String> nsURIMap = null;
 			
 	public static boolean TRACE = true;
