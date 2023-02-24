@@ -11,7 +11,7 @@ public class Binding {
 	String id;
 	Integer level;
 	String businessTerm;
-	String fixed;
+	String defaultValue;
 	String card;
 	String datatype;
 	Integer synSort;
@@ -27,18 +27,19 @@ public class Binding {
 	 * @param id 項目id
 	 * @param level セマンティックモデルの階層
 	 * @param businessTerm ビジネス項目名
+	 * @param defaultValue 規定値
 	 * @param card 繰り返し
 	 * @param datatype セマンティックデータ型
 	 * @param synSort 構文バインディングのXML要素のソート順
 	 * @param xPath XML要素が定義された位置のXPath
 	 * @param occur XML要素の出現回数指定
 	 */
-	public Binding(Integer semSort, String id, Integer level, String businessTerm, String fixed, String card, String datatype, Integer synSort, String xPath, String occur) {
+	public Binding(Integer semSort, String id, Integer level, String businessTerm, String defaultValue, String card, String datatype, Integer synSort, String xPath, String occur) {
 		this.semSort         = semSort;
 		this.id              = id;
 		this.level           = level;
 		this.businessTerm    = businessTerm;
-		this.fixed           = fixed;
+		this.defaultValue    = defaultValue;
 		this.card            = card;
 		this.datatype        = datatype;
 		this.synSort         = synSort;
@@ -53,7 +54,7 @@ public class Binding {
 	public String  getID() { return this.id; }
 	public Integer  getLevel() { return this.level; }
 	public String  getBT() { return this.businessTerm; }
-	public String  getFixed() { return this.fixed; }
+	public String  getDefaultValue() { return this.defaultValue; }
 	public String  getCard() { return this.card; }
 	public String  getDatatype() { return this.datatype; }
 	public Integer getSynSort() { return this.synSort; }
@@ -67,7 +68,7 @@ public class Binding {
 	public String  setID(String x) { return this.id = x; }
 	public Integer setLevel(Integer x) { return this.level = x; }
 	public String  setBT(String x) { return this.businessTerm = x; }
-	public String  setFixed(String x) { return this.fixed = x; }
+	public String  setDefaultValue(String x) { return this.defaultValue = x; }
 	public String  setCard(String x) { return this.card = x; }
 	public String  setDatatype(String x) { return this.datatype = x; }
 	public Integer setSynSort(Integer x) { return this.synSort = x; }

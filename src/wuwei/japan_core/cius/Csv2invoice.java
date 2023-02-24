@@ -119,6 +119,7 @@ public class Csv2invoice {
  	 * CSVをデジタルインボイス(XML)に変換する。
  	 * The application's entry point
 	 * @param args an array of command-line arguments for the application
+	 * last updated 2023-02-24
 	 */
 	public static void main(String[] args) 
 	{
@@ -126,8 +127,8 @@ public class Csv2invoice {
 //		IN_CSV     = args[1];
 //		OUT_XML    = args[2];
 		PROCESSING = "SME-COMMON SYNTAX";
-		IN_CSV     = "data/csv/Example1.csv";
-		OUT_XML    = "data/xml/Example1_SME.xml";
+		IN_CSV     = "data/csv/Example5-AllowanceCharge.csv";
+		OUT_XML    = "data/xml/Example5-AllowanceCharge_SME.xml";
 //		PROCESSING = "JP-PINT SYNTAX";
 //		IN_CSV     = "data/csv/Example1.csv";
 //		OUT_XML    = "data/xml/Example1_PINT.xml";
@@ -142,18 +143,6 @@ public class Csv2invoice {
 			return;
 		}
 		processCSV(IN_CSV, OUT_XML);
-		
-//		processCSV("data/csv/Example1.csv", "data/xml/Example1_SME.xml");
-//		processCSV("data/csv/Example1.csv", "data/xml/Example1_PINT.xml");
-//		processCSV("data/csv/Example2-TaxAcctCur.csv","data/xml/Example2-TaxAcctCur_out.xml");
-//		processCSV("data/csv/Example3-0.csv","data/xml/Example3-0_out.xml");
-//		processCSV("data/csv/Example3-SumInv1.csv","data/xml/Example3-SumInv1_out.xml");
-//		processCSV("data/csv/Example4-SumInv2.xsv","data/xml/Example4-SumInv2_out.xml");
-//		processCSV("data/csv/Example5-AllowanceCharge0.csv","data/xml/Example5-AllowanceCharge0_out.xml");
-//		processCSV("data/csv/Example5-AllowanceCharge.csv","data/xml/Example5-AllowanceCharge_out.xml");
-//		processCSV("data/csv/Example6-CorrInv.csv","data/xml/Example6-CorrInv_out.xml");
-//		processCSV("data/csv/Example7-Return.Quan.csv","data/xml/Example7-Return.Quan_out.xml");
-//		processCSV("data/csv/Example8-Return.ItPr.csv","data/xml/Example8-Return.ItPr_out.xml");
 		if (TRACE) System.out.println("** END Csv2Invoice **");
 	}
 	
@@ -170,7 +159,7 @@ public class Csv2invoice {
 			
 		try {
 			if (0==PROCESSING.indexOf("SME-COMMON"))
-				terminalElements = new ArrayList<String>(Arrays.asList("@unitCode","udt:DateTimeString","ram:AccountName","ram:ActualAmount","ram:AdditionalReferencedCIReferencedDocument","ram:AllowanceTotalAmount","ram:AttachmentBinaryObject","ram:BasisAmount","ram:BasisQuantity","ram:BilledQuantity","ram:BuyerAssignedID","ram:BuyerOrderReferencedCIReferencedDocument","ram:CalculatedAmount","ram:CalculatedRate","ram:CalculationMethodCode","ram:CalculationPercent","ram:CardholderName","ram:CategoryCode","ram:CategoryName","ram:ChannelCode","ram:ChargeAmount","ram:ChargeIndicator","ram:ChargeTotalAmount","ram:CompleteNumber","ram:Content","ram:ConversionRate","ram:CountryID","ram:CurrencyCode","ram:DepartmentName","ram:Description","ram:DirectionCode","ram:DuePayableAmount","ram:FileName","ram:GlobalID","ram:GrandTotalAmount","ram:GrossLineTotalAmount","ram:ID","ram:IncludingTaxesLineTotalAmount","ram:Information","ram:InstructedAmount","ram:InvoiceCurrencyCode","ram:InvoiceCurrencyCode","ram:IssuerAssignedID","ram:IssuingCompanyName","ram:JapanFinancialInstitutionCommonID","ram:LineID","ram:LineOne","ram:LineThree","ram:LineTwo","ram:LocalTaxSystemID","ram:ManufacturerAssignedID","ram:MIMECode","ram:Name","ram:NetIncludingTaxesLineTotalAmount","ram:NetLineTotalAmount","ram:PackageQuantity","ram:PaidAmount","ram:PaymentCurrencyCode","ram:PerPackageUnitQuantity","ram:PersonID","ram:PersonName","ram:PostcodeCode","ram:PreviousRevisionID","ram:ProductGroupID","ram:ProductUnitQuantity","ram:ProprietaryID","ram:PurposeCode","ram:RateApplicablePercent","ram:Reason","ram:ReasonCode","ram:ReferenceTypeCode","ram:RegisteredID","ram:RevisionID","ram:SellerAssignedID","ram:SourceCurrencyCode","ram:SpecifiedTransactionID","ram:Subject","ram:SubordinateLineID","ram:SubtypeCode","ram:TargetCurrencyCode","ram:TaxBasisTotalAmount","ram:TaxCurrencyCode","ram:TaxCurrencyCode","ram:TaxTotalAmount","ram:TotalPrepaidAmount","ram:TypeCode","ram:URIID","ram:Value"));
+				terminalElements = new ArrayList<String>(Arrays.asList("@unitCode","udt:DateTimeString","udt:Indicator","ram:AccountName","ram:ActualAmount","ram:AdditionalReferencedCIReferencedDocument","ram:AllowanceTotalAmount","ram:AttachmentBinaryObject","ram:BasisAmount","ram:BasisQuantity","ram:BilledQuantity","ram:BuyerAssignedID","ram:BuyerOrderReferencedCIReferencedDocument","ram:CalculatedAmount","ram:CalculatedRate","ram:CalculationMethodCode","ram:CalculationPercent","ram:CardholderName","ram:CategoryCode","ram:CategoryName","ram:ChannelCode","ram:ChargeAmount","ram:ChargeIndicator","ram:ChargeTotalAmount","ram:CompleteNumber","ram:Content","ram:ConversionRate","ram:CountryID","ram:CurrencyCode","ram:DepartmentName","ram:Description","ram:DirectionCode","ram:DuePayableAmount","ram:FileName","ram:GlobalID","ram:GrandTotalAmount","ram:GrossLineTotalAmount","ram:ID","ram:IncludingTaxesLineTotalAmount","ram:Information","ram:InstructedAmount","ram:InvoiceCurrencyCode","ram:InvoiceCurrencyCode","ram:IssuerAssignedID","ram:IssuingCompanyName","ram:JapanFinancialInstitutionCommonID","ram:LineID","ram:LineOne","ram:LineThree","ram:LineTwo","ram:LocalTaxSystemID","ram:ManufacturerAssignedID","ram:MIMECode","ram:Name","ram:NetIncludingTaxesLineTotalAmount","ram:NetLineTotalAmount","ram:PackageQuantity","ram:PaidAmount","ram:PaymentCurrencyCode","ram:PerPackageUnitQuantity","ram:PersonID","ram:PersonName","ram:PostcodeCode","ram:PreviousRevisionID","ram:ProductGroupID","ram:ProductUnitQuantity","ram:ProprietaryID","ram:PurposeCode","ram:RateApplicablePercent","ram:Reason","ram:ReasonCode","ram:ReferenceTypeCode","ram:RegisteredID","ram:RevisionID","ram:SellerAssignedID","ram:SourceCurrencyCode","ram:SpecifiedTransactionID","ram:Subject","ram:SubordinateLineID","ram:SubtypeCode","ram:TargetCurrencyCode","ram:TaxBasisTotalAmount","ram:TaxCurrencyCode","ram:TaxCurrencyCode","ram:TaxTotalAmount","ram:TotalPrepaidAmount","ram:TypeCode","ram:URIID","ram:Value"));
 			FileHandler.csvFileRead(in_csv, CHARSET);
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found "+in_csv);
@@ -178,18 +167,18 @@ public class Csv2invoice {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 					
-		rowMapList = new TreeMap<>();
-		
 		if (TRACE) System.out.println("- processCSV FileHandler.tidyData record");
-		
+		rowMapList = new TreeMap<>();
 		for (ArrayList<String> record: FileHandler.tidyData) {
 			
 			if (TRACE) System.out.println(record.toString());
 			
 			rowMap = new TreeMap<>();
 			String key = "";
+//			Integer parentSynSort = 0;
+			Integer parentSemSort = 0;
+			Integer currentSemSort   = 0;
 			for (int i = 0; i < record.size(); i++) {
 				String field = record.get(i);
 				if (field != null && field.length() > 0) {
@@ -206,20 +195,37 @@ public class Csv2invoice {
 						}
 					}
 					Integer synSort = binding.getSynSort();
+					Integer semSort = binding.getSemSort();
+					if (id.equals("JBG-090")||id.equals("JBT-358"))
+						System.out.println(semSort);
 					if (id.toLowerCase().matches("^jbg-.+$")) {
 						key += synSort+"="+field+" ";
 					} else {
+						parentSemSort = FileHandler.semParentMap.get(semSort);
+						if (null!=parentSemSort) {
+							ArrayList<Integer> children = FileHandler.semChildMap.get(parentSemSort);
+							for (Integer childSemSort: children) {
+								Binding childBinding = FileHandler.semBindingMap.get(childSemSort);
+								Integer childSynSort = childBinding.getSynSort();
+								if (null!=childBinding) {
+									String defaultValue  = childBinding.getDefaultValue();
+									if (defaultValue.length() > 0 && currentSemSort < childSemSort) {
+										rowMap.put(childSynSort, defaultValue);
+										System.out.println(childBinding.getID()+" rowMap.put("+childSemSort+", "+defaultValue+") "+childBinding.getBT());
+									}
+								}
+							}
+						}
 						rowMap.put(synSort, field);
+						currentSemSort = semSort;
 					}
 					String xPath = binding.getXPath();
-					if (0==PROCESSING.indexOf("JP-PINT")) {
-						if (DOCUMENT_CURRENCY_CODE_ID.equals(id)) {
-							documentCurrencyCode.xPath = xPath;
-							documentCurrencyCode.value = field;
-						} else if (TAX_CURRENCY_CODE_ID.equals(id)) {
-							taxCurrencyCode.xPath = xPath;
-							taxCurrencyCode.value = field;
-						}
+					if (DOCUMENT_CURRENCY_CODE_ID.equals(id)) {
+						documentCurrencyCode.xPath = xPath;
+						documentCurrencyCode.value = field;
+					} else if (TAX_CURRENCY_CODE_ID.equals(id)) {
+						taxCurrencyCode.xPath = xPath;
+						taxCurrencyCode.value = field;
 					}
 				}
 			}
@@ -232,6 +238,7 @@ public class Csv2invoice {
 		String id         = null;
 		String xPath      = null;
 		String value      = "";
+		String rowKey     = null;
 		HashMap<String,String> attributes               = new HashMap<>();
 		TreeMap<Integer/*synSort*/, String/*id*/> idMap = new TreeMap<>();
 		
@@ -241,12 +248,14 @@ public class Csv2invoice {
 			System.out.println(FileHandler.header);
 		}
 		for (Map.Entry<String, TreeMap<Integer, String>> rowMap : rowMapList.entrySet()) {
-			String key                   = rowMap.getKey();
-			TreeMap<Integer, String> row = rowMapList.get(key);
+			rowKey                       = rowMap.getKey();
+			TreeMap<Integer, String> row = rowMapList.get(rowKey);
 			for (Integer synSort : row.keySet()) {
 				Binding binding = FileHandler.synBindingMap.get(synSort);
-				id              = binding.getID();
-				idMap.put(synSort, id);
+				if (null!=binding) {
+					id              = binding.getID();
+					idMap.put(synSort, id);
+				}
 			}
 			n++;
 		}
@@ -257,15 +266,15 @@ public class Csv2invoice {
 		
 		int i = 0;
 		for (Map.Entry<String, TreeMap<Integer, String>> rowMap : rowMapList.entrySet()) {
-			String key      = rowMap.getKey();
-			String[] boughs = key.split(",");
+			rowKey          = rowMap.getKey();
+			String[] boughs = rowKey.split(",");
 			String bough    = boughs[boughs.length-1];
 			String[] data   = bough.split(" ");
 			String ds       = data[data.length-1];
 			String[] d      = ds.split("=");
 			boughSort       = Integer.parseInt(d[0]);
 			boughSeq        = Integer.parseInt(d[1]);
-			TreeMap<Integer, String> row = rowMapList.get(key);
+			TreeMap<Integer, String> row = rowMapList.get(rowKey);
 			for (Integer synSort : row.keySet()) {
 				value           = row.get(synSort);
 				Binding binding = FileHandler.synBindingMap.get(synSort);
@@ -285,7 +294,7 @@ public class Csv2invoice {
 					}
 				}
 				// Get key set of the TreeMap using keySet method
-				Set<Integer > keySet = idMap.keySet();
+				Set<Integer> keySet = idMap.keySet();
 				// Converting entrySet to ArrayList
 				List<Integer> entryList = new ArrayList<>(keySet);
 				int j = entryList.indexOf(synSort);
@@ -322,7 +331,7 @@ public class Csv2invoice {
 			eTE.printStackTrace();
 		}
 		
-		if (TRACE) System.out.println("-- END -- "+out_xml);
+		if (TRACE) System.out.println("-- END -- "+out_xml);		
 	}
 
 	/**
@@ -368,10 +377,10 @@ public class Csv2invoice {
 		ArrayList<String> paths      = splitPath(xPath);
 		int depth                    = paths.size();
 		Element element0             = FileHandler.root;
-//		if (0==PROCESSING.indexOf("JP-PINT") && xPath.indexOf("@currencyID") >= 0) {
-//			System.out.println(xPath);
+		if (5760==semSort) {
+			System.out.println(xPath);
 //			return null;
-//		}
+		}
 		if (depth > 1) {
 			element1 = fillLevelElement(1, depth, element0, paths.get(1), boughSort, boughSeq, value, attributes );
 			if (2 == depth) {		
@@ -468,13 +477,13 @@ public class Csv2invoice {
 			if (TRACE) {
 				System.out.print("- fillLevelElement getXPath returns "+elements.size()+" elements boughSeq = "+boughSeq+" "+path);
 				if (elements.size()==0 && n+1==depth &&
-						((0==PROCESSING.indexOf("JP-PINT") && ! strippedPath.matches("^cac:.*$")) || 
+						(0==PROCESSING.indexOf("JP-PINT") && strippedPath.matches("^cac:.*$") || 
 							terminalElements.indexOf(strippedPath) >= 0 ))  {
 					System.out.println(" = "+value);
 				} else {
 					value = null;
 					System.out.println("");
-				}
+				}				
 			}
 			if (0 == elements.size()) {
 				element = createElement(parent, strippedPath, boughSort, 0, value, attributes, n, depth);

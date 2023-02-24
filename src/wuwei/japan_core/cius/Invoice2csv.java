@@ -53,6 +53,7 @@ public class Invoice2csv {
 	 * デジタルインボイス(XML)をCSVに変換する。
  	 * The application's entry point
 	 * @param args an array of command-line arguments for the application
+	 * last updated 2023-02-24
 	 */
 	public static void main(String[] args) {
 //		PROCESSING = args[0]+" SEMANTICS";		
@@ -63,8 +64,8 @@ public class Invoice2csv {
 //		IN_XML                 = "data/xml/Example1_SME.xml";
 //		OUT_CSV                = "data/csv/Example1_SME.csv";
 		PROCESSING             = "JP-PINT SEMANTICS";		
-		IN_XML                 = "data/xml/Example1.xml";
-		OUT_CSV                = "data/csv/Example1_PINT.csv";
+		IN_XML                 = "data/xml/Example5-AllowanceCharge.xml";
+		OUT_CSV                = "data/csv/Example5-AllowanceCharge_PINT.csv";
 		FileHandler.PROCESSING = PROCESSING;
 		if (0==PROCESSING.indexOf("JP-PINT")) {
 			FileHandler.CORE_CSV    = FileHandler.JP_PINT_CSV;
@@ -76,17 +77,6 @@ public class Invoice2csv {
 			return;
 		}
 		processInvoice(IN_XML, OUT_CSV);
-
-//		processInvoice("data/xml/Example0.xml", "data/csv/Example0.csv");
-//		 processInvoice("data/xml/Example2-TaxAcctCur.xml", "data/csv/Example2-TaxAcctCur.csv");
-//		 processInvoice("data/xml/Example3-0.xml", "data/csv/Example3-0.csv");
-//		 processInvoice("data/xml/Example3-SumInv1.xml", "data/csv/Example3-SumInv1.csv");
-//		 processInvoice("data/xml/Example4-SumInv2.xml", "data/csv/Example4-SumInv2.xsv");
-//		 processInvoice("data/xml/Example5-AllowanceCharge0.xml", "data/csv/Example5-AllowanceCharge0.csv");
-//		 processInvoice("data/xml/Example5-AllowanceCharge.xml", "data/csv/Example5-AllowanceCharge.csv");
-//		 processInvoice("data/xml/Example6-CorrInv.xml", "data/csv/Example6-CorrInv.csv");
-//		 processInvoice("data/xml/Example7-Return.Quan.xml", "data/csv/Example7-Return.Quan.csv");
-//		 processInvoice("data/xml/Example8-Return.ItPr.xml", "data/csv/Example8-Return.ItPr.csv");
 		if (TRACE) System.out.println("** END Invoice2csv "+IN_XML+" "+OUT_CSV+" **");
 	}
 	
@@ -273,7 +263,7 @@ public class Invoice2csv {
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
 
-		if ("JBG-056".equals(id))
+		if ("JBG-010".equals(id))
 			System.out.println(id);
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
@@ -290,7 +280,8 @@ public class Invoice2csv {
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
 			if (TRACE) System.out.println("- 1 fillGroup "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
-
+			if ("/Invoice/cac:PaymentMeans".equals(childXPath))
+				System.out.println(childXPath);
 			List<Node> children = childList.get(childSort);
 			
 			Integer countChildren = children.size();
@@ -307,8 +298,8 @@ public class Invoice2csv {
 							
 							fillData(childSort, value, boughMap);
 							
-							if (FileHandler.childMap.containsKey(childSort)) {
-								ArrayList<Integer> grandchildren = FileHandler.childMap.get(childSort);
+							if (FileHandler.semChildMap.containsKey(childSort)) {
+								ArrayList<Integer> grandchildren = FileHandler.semChildMap.get(childSort);
 								for (Integer grandchildSort : grandchildren) {
 									Binding grandchildBiunding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
 									String grandchildID        = grandchildBiunding.getID();
@@ -368,6 +359,7 @@ public class Invoice2csv {
 	 * 
 	 * @return multiple 複数であればtrue.　存在しないか1件しかなければfalse.
 	 */
+	@SuppressWarnings("unlikely-arg-type")
 	private static boolean isMultiple(Integer semSort) {
 		boolean multiple  = false;
 		Binding binding   = FileHandler.semBindingMap.get(semSort);

@@ -1,1 +1,1 @@
-packageSearchIndex = [{"m":"wuwei.japan_core","l":"wuwei.japan_core.cius"},{"m":"wuwei.japan_core","l":"wuwei.japan_core.utils"},{"l":"すべてのパッケージ","u":"allpackages-index.html"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"wuwei.japan_core","l":"wuwei.japan_core.cius"},{"m":"wuwei.japan_core","l":"wuwei.japan_core.utils"}];updateSearchResults();
