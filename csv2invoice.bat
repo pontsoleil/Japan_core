@@ -1,0 +1,1 @@
+java -p "C:\Users\nobuy\GitHub\Japan_core\bin" -m wuwei.japan_core/wuwei.japan_core.cius.Csv2invoice JP-PINT data/csv/Example1_PINT.csv data/csv/Example1_PINT.xml
