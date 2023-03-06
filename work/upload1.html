@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Upload Files</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            const url = 'process1.php';
+            const form = document.querySelector('form');
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                const file = document.querySelector('[type=file]').files[0];
+                const formData = new FormData();
+                formData.append('file', file);
+                fetch(url, {
+                    method: 'POST',
+                    body: formData
+                }).then(response => {
+                    return response.text();
+                }).then(data => {
+                    console.log(data);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload File" name="submit">
+    </form>
+</body>
+
+</html>

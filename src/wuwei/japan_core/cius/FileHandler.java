@@ -58,10 +58,11 @@ public class FileHandler {
 	public static XPath xpath                = null;
 	public static Element root               = null;
 	public static String ROOT_ID             = "JBG-000";
+	public static Integer ROOT_SEMSORT       = 1000;
 	public static ArrayList<String> MULTIPLE_ID = new ArrayList<>();
 	public static HashMap<String, String> nsURIMap = null;
 			
-	public static boolean TRACE = true;
+	public static boolean TRACE = false;
 	static String PROCESSING    = null;
 	
 	/**
@@ -315,7 +316,16 @@ public class FileHandler {
 				parents[level] = semSort;
 				parent_level   = 0;
 				ArrayList<Integer> children = null;
-				if (level > 0) {
+				if (0 == level && 1000!=semSort) {
+					if (semChildMap.containsKey(ROOT_SEMSORT)) {
+						children = semChildMap.get(ROOT_SEMSORT);
+					} else {
+						children = new ArrayList<Integer>();
+					}
+					children.add(semSort);
+					semChildMap.put(ROOT_SEMSORT, children);
+					semParentMap.put(semSort, ROOT_SEMSORT);
+				} else if (level > 0) {
 					parent_level                = level - 1;
 					Integer parentSemSort       = parents[parent_level];
 					if (null==parentSemSort)

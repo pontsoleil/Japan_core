@@ -14,7 +14,7 @@ import org.w3c.dom.Node;
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
  */
 public class Invoice2csv {
-	static boolean TRACE = true;
+	static boolean TRACE = false;
 	static String PROCESSING = null;
 	
 	static String IN_XML  = null;
@@ -61,15 +61,17 @@ public class Invoice2csv {
 //		OUT_CSV    = args[2];
 //		if (4==args.length && "T".equals(args[3]))
 //			TRACE = true;
-//		PROCESSING             = "SME-COMMON SEMANTICS";
-//		FileHandler.CORE_CSV   = FileHandler.SME_CSV;
-//		IN_XML                 = "data/xml/Example1_SME.xml";
-//		OUT_CSV                = "data/csv/Example1_SME.csv";
-		PROCESSING             = "JP-PINT SEMANTICS";	
-		IN_XML                 = "data/xml/Example1.xml";
-		OUT_CSV                = "data/csv/Example1_PINT.csv";
+		TRACE                  = true;
+		PROCESSING             = "SME-COMMON SEMANTICS";
+		FileHandler.CORE_CSV   = FileHandler.SME_CSV;
+		IN_XML                 = "data/xml/Example1_SME.xml";
+		OUT_CSV                = "data/csv/Example1_SME.csv";
+//		PROCESSING             = "JP-PINT SEMANTICS";	
+//		IN_XML                 = "data/xml/Example1.xml";
+//		OUT_CSV                = "data/csv/Example1_PINT.csv";
 //		IN_XML                 = "data/xml/Example5-AllowanceCharge.xml";
 //		OUT_CSV                = "data/csv/Example5-AllowanceCharge_PINT.csv";
+		FileHandler.TRACE      = TRACE;
 		FileHandler.PROCESSING = PROCESSING;
 		if (0==PROCESSING.indexOf("JP-PINT")) {
 			FileHandler.CORE_CSV    = FileHandler.JP_PINT_CSV;
@@ -267,8 +269,8 @@ public class Invoice2csv {
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
 
-		if ("JBG-010".equals(id))
-			System.out.println(id);
+//		if ("JBG-010".equals(id))
+//			System.out.println(id);
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (0==childList.size()) {
@@ -286,13 +288,12 @@ public class Invoice2csv {
 			if (TRACE) System.out.println("- 1 fillGroup "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
 			if ("/Invoice/cac:PaymentMeans".equals(childXPath))
 				System.out.println(childXPath);
-			List<Node> children = childList.get(childSort);
-			
+			List<Node> children = childList.get(childSort);			
 			Integer countChildren = children.size();
 			if (countChildren > 0) {
 				for (int i = 0; i < countChildren; i++) {
 					Node child = children.get(i);
-					if (childID.toLowerCase().matches("jbt-.+$")) {
+					if (null!=child && childID.toLowerCase().matches("jbt-.+$")) {
 						String value = null;
 						value = child.getTextContent().trim();
 						if (null != value && value.length() > 0) {
