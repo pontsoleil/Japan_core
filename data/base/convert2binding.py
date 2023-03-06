@@ -128,4 +128,4 @@ if __name__ == '__main__':
 		writer.writeheader()
 		writer.writerows(sme_entries)
 
-	print(f'** END \n{sme_binding_file} \n{sme_binding_file}')
+	print(f'** END \n{jp_pint_binding_file} \n{sme_binding_file}')
