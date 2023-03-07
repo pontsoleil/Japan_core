@@ -63,7 +63,6 @@ public class Invoice2csv {
 //			TRACE = true;
 		TRACE                  = true;
 		PROCESSING             = "SME-COMMON SEMANTICS";
-		FileHandler.CORE_CSV   = FileHandler.SME_CSV;
 		IN_XML                 = "data/xml/Example1_SME.xml";
 		OUT_CSV                = "data/csv/Example1_SME.csv";
 //		PROCESSING             = "JP-PINT SEMANTICS";	
