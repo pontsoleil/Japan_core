@@ -285,8 +285,8 @@ public class Invoice2csv {
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
 			if (TRACE) System.out.println("- 1 fillGroup "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
-			if ("/Invoice/cac:PaymentMeans".equals(childXPath))
-				System.out.println(childXPath);
+//			if ("/Invoice/cac:PaymentMeans".equals(childXPath))
+//				System.out.println(childXPath);
 			List<Node> children = childList.get(childSort);			
 			Integer countChildren = children.size();
 			if (countChildren > 0) {
