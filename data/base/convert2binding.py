@@ -56,51 +56,50 @@ if __name__ == '__main__':
 	sme_entries = []
 	core_japan_file = f'{base}{core_japan_file}'.replace('/', SEP)
 	core_japan_file = file_path(core_japan_file)
-	header = ['num','kind','id','lvl','occur','name','desc','datatype','UN_CCL_ID','sme_kind','sme_sort','sme_id','sme_name','sme_desc','sme_defaultValue','sme_occur','sme_level','sme_xpath','pint_sort','pint_Id','pint_card','Level','pint_name','pint_name_ja','Description','pint_desc','pint_defaultValue','pint_datatype','pint_xpath']
-	binding_header = ['semSort','id','card','level','businessTerm','desc','defaultValue','dataType','syntaxID','businessTerm_ja','desc_ja','synSort','element','synDatatype','xPath','occur']
+	header = ['num','kind','id','lvl','occur','name','desc','datatype','UN_CCL_ID','sme_kind','sme_sort','sme_id','sme_name','sme_desc','sme_defaultValue','sme_occur','sme_level','sme_xpath','pint_sort','pint_Id','pint_card','Level','pint_name','pint_name_ja','Description','pint_desc','pint_defaultValue','pint_xpath']
+	binding_header = ['semSort','id','card','level','businessTerm','desc','defaultValue','dataType','syntaxID','businessTerm_ja','desc_ja','synSort','xPath','occur']
 	with open(core_japan_file, encoding='utf_8', newline='') as f:
 		reader = csv.DictReader(f, fieldnames=header)
 		next(reader)
 		for row in reader:
 			desc = row['desc'].replace(r'\n', r'\\n')
-			if len(row['id']) > 0:
-				if len(row['pint_sort']) > 0:
-					pint_desc = row['pint_desc'].replace(r'\n', r'\\n')
-					jp_pint_entry = {}
-					jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
-					jp_pint_entry['id'] = row['id']
-					jp_pint_entry['card'] = row['occur']
-					jp_pint_entry['level'] = row['lvl'] and int(row['lvl']) or 0
-					jp_pint_entry['businessTerm'] = row['name']
-					jp_pint_entry['desc'] = pint_desc
-					jp_pint_entry['defaultValue'] = row['pint_defaultValue']
-					jp_pint_entry['dataType'] = row['datatype']
-					jp_pint_entry['syntaxID'] = row['pint_Id']
-					jp_pint_entry['businessTerm_ja'] = row['pint_name']
-					jp_pint_entry['desc_ja'] = pint_desc
-					jp_pint_entry['synSort'] = row['pint_sort'] and int(row['pint_sort']) or 0
-					jp_pint_entry['xPath'] = row['pint_xpath']
-					jp_pint_entry['occur'] = row['pint_card']
-					jp_pint_entries.append(jp_pint_entry)
-				if len(row['sme_sort']) > 0:
-					sme_desc = row['sme_desc']
-					sme_desc = sme_desc.replace(r'\n', r'\\n')
-					sme_entry = {}
-					sme_entry['semSort'] = row['num'] and int(row['num']) or 0
-					sme_entry['id'] = row['id']
-					sme_entry['card'] = row['occur']
-					sme_entry['level'] = row['lvl'] and int(row['lvl']) or 0
-					sme_entry['businessTerm'] = row['name']
-					sme_entry['desc'] = desc
-					sme_entry['defaultValue'] = row['sme_defaultValue']
-					sme_entry['dataType'] = row['datatype']
-					sme_entry['syntaxID'] = row['UN_CCL_ID']
-					sme_entry['businessTerm_ja'] = row['sme_name']
-					sme_entry['desc_ja'] = sme_desc
-					sme_entry['synSort'] = row['sme_sort'] and int(row['sme_sort']) or 0
-					sme_entry['xPath'] = row['sme_xpath']
-					sme_entry['occur'] = row['sme_occur']
-					sme_entries.append(sme_entry)
+			if len(row['id']) > 0 and (len(row['pint_sort']) > 0 or len(row['pint_xpath']) > 0):
+				pint_desc = row['pint_desc'].replace(r'\n', r'\\n')
+				jp_pint_entry = {}
+				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
+				jp_pint_entry['id'] = row['id']
+				jp_pint_entry['card'] = row['occur']
+				jp_pint_entry['level'] = row['lvl'] and int(row['lvl']) or 0
+				jp_pint_entry['businessTerm'] = row['name']
+				jp_pint_entry['desc'] = desc
+				jp_pint_entry['defaultValue'] = row['pint_defaultValue']
+				jp_pint_entry['dataType'] = row['datatype']
+				jp_pint_entry['syntaxID'] = row['pint_Id']
+				jp_pint_entry['businessTerm_ja'] = row['pint_name']
+				jp_pint_entry['desc_ja'] = pint_desc
+				jp_pint_entry['synSort'] = row['pint_sort'] and int(row['pint_sort']) or 0
+				jp_pint_entry['xPath'] = row['pint_xpath']
+				jp_pint_entry['occur'] = row['pint_card']
+				jp_pint_entries.append(jp_pint_entry)
+			if len(row['id']) > 0 and (len(row['sme_sort']) > 0 or len(row['sme_xpath']) > 0):
+				sme_desc = row['sme_desc']
+				sme_desc = sme_desc.replace(r'\n', r'\\n')
+				sme_entry = {}
+				sme_entry['semSort'] = row['num'] and int(row['num']) or 0
+				sme_entry['id'] = row['id']
+				sme_entry['card'] = row['occur']
+				sme_entry['level'] = row['lvl'] and int(row['lvl']) or 0
+				sme_entry['businessTerm'] = row['name']
+				sme_entry['desc'] = desc
+				sme_entry['defaultValue'] = row['sme_defaultValue']
+				sme_entry['dataType'] = row['datatype']
+				sme_entry['syntaxID'] = row['UN_CCL_ID']
+				sme_entry['businessTerm_ja'] = row['sme_name']
+				sme_entry['desc_ja'] = sme_desc
+				sme_entry['synSort'] = row['sme_sort'] and int(row['sme_sort']) or 0
+				sme_entry['xPath'] = row['sme_xpath']
+				sme_entry['occur'] = row['sme_occur']
+				sme_entries.append(sme_entry)
 
 	jp_pint_binding_file = f'{base}{jp_pint_binding_file}'.replace('/', SEP)
 	jp_pint_binding_file = file_path(jp_pint_binding_file)
