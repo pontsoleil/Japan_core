@@ -58,7 +58,11 @@ public class FileHandler {
 	public static XPath xpath                = null;
 	public static Element root               = null;
 	public static String ROOT_ID             = "JBG-00";
+<<<<<<< Updated upstream
 //	public static Integer ROOT_SEMSORT       = 1000;
+=======
+	public static Integer ROOT_SEMSORT       = 1000;
+>>>>>>> Stashed changes
 	public static ArrayList<String> MULTIPLE_ID = new ArrayList<>();
 	public static HashMap<String, String> nsURIMap = null;
 			
@@ -614,6 +618,8 @@ public class FileHandler {
 		Integer semSort = binding.getSemSort();
 		String xpath = binding.getXPath();
 		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"(semSort="+semSort+") "+xpath);
+		if ("JBG-66".equals(parent_id))
+			System.out.println("JBG-66");
 
 		ArrayList<Integer> children = semChildMap.get(semSort);
 		
@@ -631,10 +637,11 @@ public class FileHandler {
 				
 				if (null!=nodes && nodes.size() > 0) {
 					childList.put(sort, nodes);
-				} else if (defaultValue.length() > 0) { // 未定義だが固定値が定義されている要素についてその値が定義されたNodeを返す。
-					String ns    = "cbc";
+				} else if (PROCESSING.indexOf("SYNTAX") > 0 && defaultValue.length() > 0) { // 未定義だが固定値が定義されている要素についてその値が定義されたNodeを返す。
+					String element_name = child_xpath.substring(1+child_xpath.lastIndexOf('/'));
+					String ns    = element_name.substring(0,element_name.indexOf(':'));
 					String nsURI = nsURIMap.get(ns);
-					String qname = "Name";					
+					String qname = element_name.substring(1+element_name.indexOf(':'));		
 					Node child_node = appendElementNS((Element) parent, nsURI, ns, qname, defaultValue, null);
 					nodes = new ArrayList<>();
 					nodes.add(child_node);
