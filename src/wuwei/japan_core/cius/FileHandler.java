@@ -58,11 +58,7 @@ public class FileHandler {
 	public static XPath xpath                = null;
 	public static Element root               = null;
 	public static String ROOT_ID             = "JBG-00";
-<<<<<<< Updated upstream
-//	public static Integer ROOT_SEMSORT       = 1000;
-=======
 	public static Integer ROOT_SEMSORT       = 1000;
->>>>>>> Stashed changes
 	public static ArrayList<String> MULTIPLE_ID = new ArrayList<>();
 	public static HashMap<String, String> nsURIMap = null;
 			
