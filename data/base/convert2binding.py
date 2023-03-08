@@ -63,7 +63,7 @@ if __name__ == '__main__':
 		next(reader)
 		for row in reader:
 			desc = row['desc'].replace(r'\n', r'\\n')
-			if len(row['id']) > 0 and (len(row['pint_sort']) > 0 or len(row['pint_xpath']) > 0):
+			if len(row['pint_xpath']) > 0:
 				pint_desc = row['pint_desc'].replace(r'\n', r'\\n')
 				jp_pint_entry = {}
 				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
@@ -81,7 +81,7 @@ if __name__ == '__main__':
 				jp_pint_entry['xPath'] = row['pint_xpath']
 				jp_pint_entry['occur'] = row['pint_card']
 				jp_pint_entries.append(jp_pint_entry)
-			if len(row['id']) > 0 and (len(row['sme_sort']) > 0 or len(row['sme_xpath']) > 0):
+			if len(row['sme_xpath']) > 0:
 				sme_desc = row['sme_desc']
 				sme_desc = sme_desc.replace(r'\n', r'\\n')
 				sme_entry = {}

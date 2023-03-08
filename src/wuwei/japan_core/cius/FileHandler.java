@@ -267,7 +267,8 @@ public class FileHandler {
 							MULTIPLE_ID.add(value);
 						break;
 					case "defaultValue":
-						binding.setDefaultValue(value);
+						if (value.length() > 0 &&!"?".equals(value))
+							binding.setDefaultValue(value);
 						break;
 					case "card":
 						binding.setCard(value);
@@ -316,30 +317,35 @@ public class FileHandler {
 				parents[level] = semSort;
 				parent_level   = 0;
 				ArrayList<Integer> children = null;
-				/*if (0 == level && 1000!=semSort) {
+				if (0==Integer.compare(ROOT_SEMSORT,semSort))
+					continue;
+				if (0 == level) {
 					if (semChildMap.containsKey(ROOT_SEMSORT)) {
 						children = semChildMap.get(ROOT_SEMSORT);
 					} else {
 						children = new ArrayList<Integer>();
 					}
-					children.add(semSort);
-					semChildMap.put(ROOT_SEMSORT, children);
-					semParentMap.put(semSort, ROOT_SEMSORT);
-				} else*/
-				if (level > 0) {
+					if (ROOT_SEMSORT!=semSort) {
+						children.add(semSort);
+						semChildMap.put(ROOT_SEMSORT, children);
+						semParentMap.put(semSort, ROOT_SEMSORT);
+					}
+				} else if (level > 0) {
 					parent_level          = level - 1;
 					Integer parentSemSort = parents[parent_level];
 					if (null==parentSemSort)
-						System.out.println(semSort);
+						if (TRACE) System.out.println(semSort);
 					if (semChildMap.containsKey(parentSemSort)) {
 						children = semChildMap.get(parentSemSort);
 					} else {
 						children = new ArrayList<Integer>();
 					}
-					children.add(semSort);
-					semChildMap.put(parentSemSort, children);
-					semParentMap.put(semSort, parentSemSort);
-				}
+					if (parentSemSort!=semSort) {
+						children.add(semSort);
+						semChildMap.put(parentSemSort, children);
+						semParentMap.put(semSort, parentSemSort);
+					}
+				}				
 			}
 			  
 			for (Entry<Integer, Binding> entry : semBindingMap.entrySet()) {
@@ -399,7 +405,7 @@ public class FileHandler {
 						Integer parentSynSort       = parents[parent_level];
 						ArrayList<Integer> children = null;
 						if (null==parentSynSort) {
-							System.out.println(synSort);
+							if (TRACE) System.out.println(synSort);
 						} else {
 							if (synChildMap.containsKey(parentSynSort)) {
 								children = synChildMap.get(parentSynSort);
@@ -549,7 +555,7 @@ public class FileHandler {
 			Node node = nodes.get(i);
 			String value = node.getTextContent().trim();
 			nodeValueMap.put(i, value);
-//			System.out.println(i+" "+node.getNodeName()+" "+value);
+//			if (TRACE) System.out.println(i+" "+node.getNodeName()+" "+value);
 		}
 		return nodeValueMap;
 	}
@@ -568,7 +574,7 @@ public class FileHandler {
 		xpath = xpath.replaceAll("/Invoice", "/*");
 		xpath = xpath.replaceAll("/ubl:Invoice", "/*");
 		if (null==parent) {
-			System.out.println("- FileHaldler.getElements parent null");
+			if (TRACE) System.out.println("- FileHaldler.getElements parent null");
 			return null;
 		}
 		if (id.toLowerCase().matches("^ibt-.+$")) {
@@ -589,7 +595,7 @@ public class FileHandler {
 	{
 		xpath = xpath.replaceAll("/(Invoice|ubl:Invoice)/", "/*/");
 		if (null==parent) {
-			System.out.println("- FileHaldler.getXPath parent null");
+			if (TRACE) System.out.println("- FileHaldler.getXPath parent null");
 			return null;
 		}
 		List<Node> nodes = getXPathNodes(parent, xpath);
@@ -605,19 +611,19 @@ public class FileHandler {
 	 * 
 	 * @param parent 親要素
 	 * @param parent_id 親要素のid
-	 * @return 親要素のsemSortをキーとし、子要素(Node)のsemSortのリストを値とするTreeMap
+	 * @return 親要素のsemSortをキーとし、子要素(Node)のリストを値とするTreeMap
 	 */
 	public static TreeMap<Integer, List<Node>> getChildren(Node parent, String parent_id) 
 	{
 		TreeMap<Integer, List<Node>> childList = new TreeMap<>();	
 		Binding binding = (Binding) bindingDict.get(parent_id);
-		Integer semSort = binding.getSemSort();
+		Integer parentSemSort = binding.getSemSort();
 		String xpath = binding.getXPath();
-		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"(semSort="+semSort+") "+xpath);
-		if ("JBG-66".equals(parent_id))
-			System.out.println("JBG-66");
+		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"(semSort="+parentSemSort+") "+xpath);
+		if ("JBG-22".equals(parent_id))
+			System.out.println("JBG-22");
 
-		ArrayList<Integer> children = semChildMap.get(semSort);
+		ArrayList<Integer> children = semChildMap.get(parentSemSort);
 		
 		if (null!=children) {
 			for (Integer sort: children) {
@@ -684,7 +690,7 @@ public class FileHandler {
 					"cbc:".equals(child_xpath.substring(child_xpath.lastIndexOf('/')+1).substring(0,4)) &&
 					! "String".equals(child_datatype)) {
 				child_xpath += "/text()";
-				System.out.println(child_xpath);
+				if (TRACE) System.out.println(child_xpath);
 			}
 		}
 		return child_xpath;
@@ -844,7 +850,7 @@ public class FileHandler {
 			HashMap<String, String> attrMap ) 
 	{
 		if (null==parent) {
-			System.out.println("- FileHaldler.appendElementNS parent "+prefix+":"+qname+" is NULL return");
+			if (TRACE) System.out.println("- FileHaldler.appendElementNS parent "+prefix+":"+qname+" is NULL return");
 			return null;
 		}
 		try {

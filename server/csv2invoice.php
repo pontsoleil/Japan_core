@@ -38,8 +38,11 @@ function escaped_entities($string) {
         )
     );
 }
-
+error_log("csv2invoice.php debugging info:");
+error_log($_SERVER);
+error_log($_FILES);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
+
     chdir(__DIR__);
     $uuid = UUID::v4();
     $syntax = htmlspecialchars($_POST["syntax"]);
@@ -69,9 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
             JSON_UNESCAPED_UNICODE
         );
     } else {
-        echo "Possible file upload attack!<br>\n";
+        echo "Possible file upload failure!<br>\n";
         echo 'Here is some more debugging info:';
-        print_r($_FILES);                
     }      
 }
 else {
