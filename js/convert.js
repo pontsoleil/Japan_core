@@ -17,10 +17,9 @@ convert = (function () {
         } else {
           var _contents = contents.substring(contents.indexOf(">") + 1, 100);
           let start = 1 + _contents.indexOf("<");
-          let end = _contents.indexOf(" ")
-          let target = _contents.substring(start, 2 + end - start);
+          let target = _contents.substring(start);
           let syntax = "";
-          if ("Invoice" == target) {
+          if (0 == target.indexOf("Invoice")) {
             syntax = "JP-PINT";          
           }
           else if (0 == target.indexOf("rsm:SME")) {

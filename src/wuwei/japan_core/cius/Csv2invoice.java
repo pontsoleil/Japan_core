@@ -22,8 +22,7 @@ import wuwei.japan_core.utils.WriteXmlDom;
  * Tidy dataを格納しているCSVファイルを読み取りセマンティックモデル定義と構文バインディング定義からXMLインスタンス文書を出力する.
  */
 public class Csv2invoice {
-	static boolean TRACE = false;
-	
+	static boolean TRACE            = false;	
 	static String PROCESSING        = null;
 
 	static String TERMINAL_ELEMENTS = null;
