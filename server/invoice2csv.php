@@ -1,4 +1,14 @@
 <?php
+function wh_log($log_msg) {
+    $log_filename = "log";
+    if (!file_exists($log_filename))
+    {
+        // create directory/folder uploads.
+        mkdir($log_filename, 0777, true);
+    }
+    $log_file_data = $log_filename.'/log_' . date('d-M-Y') . '.log';
+    file_put_contents($log_file_data, $log_msg . "\n", FILE_APPEND);
+}
 class UUID {
 // https://www.php.net/manual/ja/function.uniqid.php
 // 141 Andrew Moore
@@ -39,21 +49,28 @@ function escaped_entities($string) {
     );
 }
 
+chdir(__DIR__);
+wh_log(__DIR__);
+wh_log($_SERVER['REQUEST_METHOD']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
-    chdir(__DIR__);
     $uuid = UUID::v4();
     $syntax = htmlspecialchars($_POST["syntax"]);
     $file_tmp = $_FILES['file']['tmp_name'];
-    $path = 'data/xml/';
     $basename = basename($_FILES['file']['name']);
-    $xmlfile = $path . $basename;
+    $xmlfile = 'data/xml/' . $basename;
     list($filename, $extension) = explode('.', $basename);
-    $csvfile = $path . $filename . ".csv";
+    $csv_basename = $filename . ".csv";
+    $csvfile = 'data/csv/' . $csv_basename;
+    $cmd = "java -classpath core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv {$syntax} {$xmlfile} {$csvfile}";
+    wh_log($cmd);
     if (move_uploaded_file($file_tmp, $xmlfile)) {
-        $cmd = "java -classpath core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv {$syntax} {$xmlfile} {$csvfile}";
+
         exec($cmd,$output,$retval);
+
         $xml_contents = file_get_contents($xmlfile);
         $csv_contents = file_get_contents($csvfile);
+        wh_log(substr($csv_contents,0,1000));
+
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode(
@@ -61,10 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
                 'return'=>$retval,
                 'uuid'=>$uuid,
                 'syntax'=>$syntax,
-                'csvfile'=> $filename . ".csv",
                 'xmlfile'=>$basename,
-                'csv_contents'=>$csv_contents,
+                'csvfile'=>$csv_basename,
                 'xml_contents'=>$xml_contents,
+                'csv_contents'=>$csv_contents,
             ),
             JSON_UNESCAPED_UNICODE
         );
