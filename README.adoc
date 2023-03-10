@@ -32,23 +32,26 @@ include::data/base/sme_binding.csv[lines=1..10]
 │　│　├─data +
 │　│　│　└─standard +
 │　│　└─identifierlist +
-│　│　 　└─standard +
-│　└─xml テスト用XML +
-└─src +
-　　└─wuwei +
-　　└─japan_core コアインボイス変換プログラム +
-　　　├─cius +
-　　　└─utils` +
-
+│　│　　　└─standard +
+│　└─xml デジタルインボイス +
+├─doc javadoc +
+├─js サーバーページ用javascript +
+├─server サーバーページ用PHP +
+├─src +
+│　└─wuwei +
+│　　　└─japan_core コアインボイス変換プログラム +
+│　　　　　├─cius 変換処理 +
+│　　　　　└─utils
+└─work +
 === コアインボイス定義(Excel)
 
-data/base/230222コアインボイス.xlsx
+data/base/230307コアインボイス.xlsx
 
 A ~ H 欄 日本版コアインボイス
 
 I ~ R 欄 中小企業共通EDI ver.4.1
 
-S ~ AC 欄 JP PINT V1.0
+S ~ AB 欄 JP PINT V1.0
 
 中小企業共通EDI及びJP PINT V1.0では、それぞれ既定値として設定する項目があるため定行の欄を追加した。
 
@@ -59,6 +62,11 @@ jp_pint_binding.utf-16TSV.csv Excelで内容を確認するためのUTF-16のTSV
 
 sme_binding.csv 中小企業共通EDI ver.4.1 の構文バインディング定義 +
 sme_binding.utf-16TSV.csv Excelで内容を確認するためのUTF-16のTSV形式ファイル
+
+=== 変換処理サーバー
+
+https://www.wuwei.space/core-japan/ +
+GitHubのプログラムより古いバージョン
 
 === 構文バインディング変換プログラム
 

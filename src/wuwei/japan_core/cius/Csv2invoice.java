@@ -128,12 +128,15 @@ public class Csv2invoice {
 //		OUT_XML    = args[2];
 //		if (4==args.length && "T".equals(args[3]))
 //			TRACE = true;
-//		PROCESSING = "SME-COMMON SYNTAX";
+		TRACE                  = true;
+		PROCESSING = "SME-COMMON SYNTAX";
 //		IN_CSV     = "data/csv/Example5-AllowanceCharge.csv";
 //		OUT_XML    = "data/xml/Example5-AllowanceCharge_SME.xml";
-		PROCESSING = "JP-PINT SYNTAX";
+//		PROCESSING = "JP-PINT SYNTAX";
 		IN_CSV     = "data/csv/Example1_PINT.csv";
-		OUT_XML    = "data/xml/Example1_PINT.xml";
+		OUT_XML    = "data/xml/Example1_SME.xml";
+//		OUT_XML    = "data/xml/Example1_PINT.xml";
+		FileHandler.TRACE      = TRACE;
 		FileHandler.PROCESSING = PROCESSING;
 		if (0==PROCESSING.indexOf("JP-PINT")) {
 			FileHandler.CORE_CSV    = FileHandler.JP_PINT_CSV;
@@ -144,7 +147,9 @@ public class Csv2invoice {
 		} else {
 			return;
 		}
+		
 		processCSV(IN_CSV, OUT_XML);
+		
 		if (TRACE) System.out.println("** END Csv2Invoice **");
 	}
 	
@@ -199,7 +204,7 @@ public class Csv2invoice {
 					Integer synSort = binding.getSynSort();
 					Integer semSort = binding.getSemSort();
 					if (id.equals("JBG-090")||id.equals("JBT-358"))
-						System.out.println(semSort);
+						if (TRACE) System.out.println(semSort);
 					if (id.toLowerCase().matches("^jbg-.+$")) {
 						key += synSort+"="+field+" ";
 					} else {
@@ -213,7 +218,7 @@ public class Csv2invoice {
 									String defaultValue  = childBinding.getDefaultValue();
 									if (defaultValue.length() > 0 && currentSemSort < childSemSort) {
 										rowMap.put(childSynSort, defaultValue);
-										System.out.println(childBinding.getID()+" rowMap.put("+childSemSort+", "+defaultValue+") "+childBinding.getBT());
+										if (TRACE) System.out.println(childBinding.getID()+" rowMap.put("+childSemSort+", "+defaultValue+") "+childBinding.getBT());
 									}
 								}
 							}
@@ -317,9 +322,6 @@ public class Csv2invoice {
 					value      = dataValue.value;
 					attributes = dataValue.attributes;
 					if (TRACE) System.out.println("call appendElementNS "+id+" = "+value+" "+xPath);
-//					if (xPath.indexOf("ram:BasisQuantity")>0) {
-//						System.out.println(xPath);
-//					}
 					if (null!=xPath && xPath.length() > 0)
 						appendElementNS(boughSort, boughSeq, id, xPath, value, attributes);
 				}
@@ -370,10 +372,10 @@ public class Csv2invoice {
 		Binding binding = FileHandler.bindingDict.get(id);
 		Integer semSort = binding.getSemSort();
 		if (TRACE) {
-			if (id.equals("JBT-324") || 5190==semSort) {
-				System.out.println(xPath);
-	//			return null;
-			}
+//			if (id.equals("JBT-324") || 5190==semSort) {
+//				System.out.println(xPath);
+//	//			return null;
+//			}
 			if (value.length() > 0) {
 				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+id+"("+semSort+")\n"+xPath +" = "+value);
 			} else {
@@ -381,44 +383,72 @@ public class Csv2invoice {
 			}
 		}
 		Element element1, element2, element3, element4, element5, element6, element7, element8, element9;
-		ArrayList<String> paths      = splitPath(xPath);
-		int depth                    = paths.size();
-		Element element0             = FileHandler.root;
-
+		ArrayList<String> paths     = splitPath(xPath);
+		int depth                   = paths.size();
+		Element element0            = FileHandler.root;
+		String val                  = null;
+		HashMap<String,String> attr = new HashMap<>();
 		if (depth > 1) {
-			element1 = fillLevelElement(1, depth, element0, paths.get(1), boughSort, boughSeq, value, attributes );
+			if (depth != 2)
+				element1 = fillLevelElement(1, depth, element0, paths.get(1), boughSort, boughSeq, val, attr );
+			else
+				element1 = fillLevelElement(1, depth, element0, paths.get(1), boughSort, boughSeq, value, attributes );
 			if (2 == depth) {		
 				return element1;
 			} else {
-				element2 = fillLevelElement(2, depth, element1, paths.get(2), boughSort, boughSeq, value, attributes );
+				if (depth != 3)
+					element2 = fillLevelElement(2, depth, element1, paths.get(2), boughSort, boughSeq, val, attr );
+				else
+					element2 = fillLevelElement(2, depth, element1, paths.get(2), boughSort, boughSeq, value, attributes );
 				if (3==depth) {
 					return element2;
 				} else {
-					element3 = fillLevelElement(3, depth, element2, paths.get(3), boughSort, boughSeq, value, attributes );
+					if (depth != 4)
+						element3 = fillLevelElement(3, depth, element2, paths.get(3), boughSort, boughSeq, val, attr);
+					else
+						element3 = fillLevelElement(3, depth, element2, paths.get(3), boughSort, boughSeq, value, attributes );
 					if (4==depth) {
 						return element3;
 					} else {
-						element4 = fillLevelElement(4, depth, element3, paths.get(4), boughSort, boughSeq, value, attributes );
+						if (depth != 5)
+							element4 = fillLevelElement(4, depth, element3, paths.get(4), boughSort, boughSeq, val, attr );
+						else
+							element4 = fillLevelElement(4, depth, element3, paths.get(4), boughSort, boughSeq, value, attributes );
 						if (5==depth) {
 							return element4;
 						} else {
-							element5 = fillLevelElement(5, depth, element4, paths.get(5), boughSort, boughSeq, value, attributes );
+							if (depth != 6)
+								element5 = fillLevelElement(5, depth, element4, paths.get(5), boughSort, boughSeq, val, attr);
+							else
+								element5 = fillLevelElement(5, depth, element4, paths.get(5), boughSort, boughSeq, value, attributes );
 							if (6==depth) {
 								return element5;
 							} else {
-								element6 = fillLevelElement(6, depth, element5, paths.get(6), boughSort, boughSeq, value, attributes );
+								if (depth != 7)
+									element6 = fillLevelElement(6, depth, element5, paths.get(6), boughSort, boughSeq, val, attr );
+								else
+									element6 = fillLevelElement(6, depth, element5, paths.get(6), boughSort, boughSeq, value, attributes );
 								if (7==depth) {
 									return element6;
 								} else {
-									element7 = fillLevelElement(7, depth, element6, paths.get(7), boughSort, boughSeq, value, attributes );
+									if (depth != 8)
+										element7 = fillLevelElement(7, depth, element6, paths.get(7), boughSort, boughSeq, val, attr );
+									else
+										element7 = fillLevelElement(7, depth, element6, paths.get(7), boughSort, boughSeq, value, attributes );
 									if (8==depth) {
 										return element7;
 									} else {
-										element8 = fillLevelElement(8, depth, element7, paths.get(8), boughSort, boughSeq, value, attributes );
+										if (depth != 9)
+											element8 = fillLevelElement(8, depth, element7, paths.get(8), boughSort, boughSeq, val, attr );
+										else
+											element8 = fillLevelElement(8, depth, element7, paths.get(8), boughSort, boughSeq, value, attributes );
 										if (9==depth) {
 											return element8;
 										} else {
-											element9 = fillLevelElement(9, depth, element8, paths.get(9), boughSort, boughSeq, value, attributes );
+											if (depth != 10)
+												element9 = fillLevelElement(9, depth, element8, paths.get(9), boughSort, boughSeq, val, attr);
+											else
+												element9 = fillLevelElement(9, depth, element8, paths.get(9), boughSort, boughSeq, value, attributes );
 											if (10==depth) {
 												return element9;
 											} else {

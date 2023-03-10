@@ -62,13 +62,12 @@ public class Invoice2csv {
 //		if (4==args.length && "T".equals(args[3]))
 //			TRACE = true;
 		TRACE                  = true;
-		PROCESSING             = "SME-COMMON SEMANTICS";
-		FileHandler.CORE_CSV   = FileHandler.SME_CSV;
-		IN_XML                 = "data/xml/Example1_SME.xml";
-		OUT_CSV                = "data/csv/Example1_SME.csv";
-//		PROCESSING             = "JP-PINT SEMANTICS";	
-//		IN_XML                 = "data/xml/Example1.xml";
-//		OUT_CSV                = "data/csv/Example1_PINT.csv";
+//		PROCESSING             = "SME-COMMON SEMANTICS";
+//		IN_XML                 = "data/xml/Example1_SME.xml";
+//		OUT_CSV                = "data/csv/Example1_SME.csv";
+		PROCESSING             = "JP-PINT SEMANTICS";	
+		IN_XML                 = "data/xml/Example1.xml";
+		OUT_CSV                = "data/csv/Example1_PINT.csv";
 //		IN_XML                 = "data/xml/Example5-AllowanceCharge.xml";
 //		OUT_CSV                = "data/csv/Example5-AllowanceCharge_PINT.csv";
 		FileHandler.TRACE      = TRACE;
@@ -192,7 +191,7 @@ public class Invoice2csv {
 					if (boughIndex!=-1) {
 						record.set(boughIndex, boughSeq);
 					} else {
-						System.out.println(boughID+" NOT FOUND in the header");
+						if (TRACE) System.out.println(boughID+" NOT FOUND in the header");
 					}
 				}
 			}
@@ -207,7 +206,7 @@ public class Invoice2csv {
 				if (dataIndex!=-1) {
 					record.set(dataIndex, value);
 				} else {
-					System.out.println(id+" NOT FOUND in the header");
+					if (TRACE) System.out.println(id+" NOT FOUND in the header");
 				}
 			}
 			FileHandler.tidyData.add(record);
@@ -269,8 +268,8 @@ public class Invoice2csv {
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
 
-//		if ("JBG-010".equals(id))
-//			System.out.println(id);
+		if ("JBG-22".equals(id))
+			System.out.println(id);
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (0==childList.size()) {
@@ -279,6 +278,8 @@ public class Invoice2csv {
 		}
    	
 		for (Integer childSort : childList.keySet()) {
+			if (0==Integer.compare(2190,childSort))
+				System.out.println(childSort);
 			// childList includes both #text and @attribute
 			Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
 			String childID           = childBinding.getID();
@@ -286,9 +287,10 @@ public class Invoice2csv {
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
 			if (TRACE) System.out.println("- 1 fillGroup "+childID+"(semSort="+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
-			if ("/Invoice/cac:PaymentMeans".equals(childXPath))
-				System.out.println(childXPath);
-			List<Node> children = childList.get(childSort);			
+//			if ("/Invoice/cac:PaymentMeans".equals(childXPath))
+//				System.out.println(childXPath);
+			List<Node> children = childList.get(childSort);
+			
 			Integer countChildren = children.size();
 			if (countChildren > 0) {
 				for (int i = 0; i < countChildren; i++) {
