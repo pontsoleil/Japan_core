@@ -1,4 +1,15 @@
 <?php
+function wh_log($log_msg) {
+    $log_filename = "log";
+    if (!file_exists($log_filename))
+    {
+        // create directory/folder uploads.
+        mkdir($log_filename, 0777, true);
+    }
+    $log_file_data = $log_filename.'/log_' . date('d-M-Y') . '.log';
+    file_put_contents($log_file_data, $log_msg . "\n", FILE_APPEND);
+}
+
 class UUID {
 // https://www.php.net/manual/ja/function.uniqid.php
 // 141 Andrew Moore
@@ -39,21 +50,27 @@ function escaped_entities($string) {
     );
 }
 
+chdir(__DIR__);
+wh_log(__DIR__);
+wh_log($_SERVER['REQUEST_METHOD']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
-    chdir(__DIR__);
     $uuid = UUID::v4();
     $syntax = htmlspecialchars($_POST["syntax"]);
     $file_tmp = $_FILES['file']['tmp_name'];
-    $path = 'data/xml/';
     $basename = basename($_FILES['file']['name']);
-    $csvfile = $path . $basename;
+    $csvfile = 'data/csv/' . $basename;
     list($filename, $extension) = explode('.', $basename);
-    $xmlfile = $path . $filename . ".csv";
+    $xml_basename = $filename . ".xml";
+    $xmlfile = 'data/xml/' . $xml_basename;
+    $cmd = "java -classpath core-japan-0.0.1.jar wuwei.japan_core.cius.Csv2invoice {$syntax} {$csvfile} {$xmlfile}";
+    wh_log($cmd);
     if (move_uploaded_file($file_tmp, $csvfile)) {
-        $cmd = "java -classpath core-japan-0.0.1.jar wuwei.japan_core.cius.Csv2invoice {$syntax} {$xmlfile} {$csvfile}";
+
         exec($cmd,$output,$retval);
+
         $csv_contents = file_get_contents($csvfile);
         $xml_contents = file_get_contents($xmlfile);
+        wh_log(substr($xml_contents,0,1000));
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode(
@@ -62,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
                 'uuid'=>$uuid,
                 'syntax'=>$syntax,
                 'csvfile'=>$basename,
-                'xmlfile'=> $filename . ".xml",
+                'xmlfile'=>$xml_basename,
                 'csv_contents'=>$csv_contents,
                 'xml_contents'=>$xml_contents,
             ),
