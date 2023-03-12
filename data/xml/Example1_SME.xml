@@ -45,6 +45,8 @@
             </ram:BuyerCITradeParty>
         </ram:ApplicableCIIHSupplyChainTradeAgreement>
         <ram:ApplicableCIIHSupplyChainTradeSettlement>
+			<ram:TaxCurrencyCode>JPY</ram:TaxCurrencyCode>
+			<ram:InvoiceCurrencyCode>JPY</ram:InvoiceCurrencyCode>
             <ram:BillingCISpecifiedPeriod>
                 <ram:StartDateTime>
                     <udt:DateTimeString>2023-10-17</udt:DateTimeString>

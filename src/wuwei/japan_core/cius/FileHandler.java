@@ -47,13 +47,12 @@ import wuwei.japan_core.utils.NamespaceResolver;
  * 物理ファイルとの入出力とその為のデータ変換を制御するクラス
  */
 public class FileHandler {
-	static String CORE_CSV;
-	static String XML_SKELTON;
+	static String SYNTAX_BINDING             = null;
+	static String XML_SKELTON                = null;
 	static String JP_PINT_CSV                = "data/base/jp_pint_binding.csv";
 	static String JP_PINT_XML_SKELTON        = "data/base/jp_pint_skeleton.xml";
 	static String SME_CSV                    = "data/base/sme_binding.csv";
-	static String SME_XML_SKELTON            = "data/base/sme_skeleton.xml";
-	
+	static String SME_XML_SKELTON            = "data/base/sme_skeleton.xml";	
 	public static Document doc               = null;
 	public static XPath xpath                = null;
 	public static Element root               = null;
@@ -98,126 +97,7 @@ public class FileHandler {
 	 * @param args an array of command-line arguments for the application
 	 * last updated 2023-02-24
 	 */
-	public static void main(String[] args) 
-	{
-//		String IN_XML = "data/xml/Example1.xml";
-//		CORE_CSV = JP_PINT_CSV;
-//		
-//		parseBinding();
-//		parseInvoice(IN_XML);
-//		parseDoc();
-//		
-//		List<Node> nodes;
-//		ParsedNode parsedNode;
-//		
-//		// ibt-0373 - INVOICING PERIOD Start date 
-//		Binding ibt73Binding = bindingDict.get("ibt-073");
-//		Integer ibt73Sort = ibt73Binding.getSemSort();
-//		parsedNode = nodeMap.get(ibt73Sort);
-//		nodes = parsedNode.nodes;
-//		for (int i = 0; i < nodes.size(); i++) {
-//			Node node = nodes.get(i);
-//			if (TRACE) System.out.println(" (FileHandler) "+i+" "+node.getNodeName()+" "+node.getTextContent());
-//		}
-//		
-//		// ibt-024 Specification identifier
-//		Binding ibt24Binding = bindingDict.get("ibt-024");
-//		Integer ibt24Sort = ibt24Binding.getSemSort();
-//		parsedNode = nodeMap.get(ibt24Sort);
-//		nodes = parsedNode.nodes;
-//		for (int i = 0; i < nodes.size(); i++) {
-//			Node node = nodes.get(i);
-//			if (TRACE) System.out.println("ibt-024 Specification identifier "+i+" "+node.getNodeName()+" "+node.getTextContent());
-//		}		
-//		
-//		// ibg-23 TAX BREAKDOWN
-//		Binding ibg23Bindingt = bindingDict.get("ibg-23");
-//		Integer ibg23Sort = ibg23Bindingt.getSemSort();
-//		ArrayList<Integer> childSorts = semChildMap.get(ibg23Sort);
-//		for (Integer childSort : childSorts) {
-//			parsedNode = nodeMap.get(childSort);
-//			nodes = parsedNode.nodes;
-//			for (int i = 0; i < nodes.size(); i++) {
-//				String value = "";
-//				Node node = nodes.get(i);
-//				if (TRACE) System.out.print(i+" "+node.getNodeName()+" "+node.getTextContent());
-//				if (node.hasAttributes()) {
-//					NamedNodeMap attributes = node.getAttributes();
-//					int attrLength = attributes.getLength();
-//					for (int j = 0; j < attrLength; j++) {
-//						Node attribute = attributes.item(j);
-//						String name = attribute.getNodeName();
-//						if ("currencyID".equals(name)) {
-//						   value = attribute.getNodeValue();
-//						   if (TRACE) System.out.println(" "+value);
-//						}
-//					} 
-//				} else {
-//					if (TRACE) System.out.println("");
-//				}
-//			}
-//		}
-//	
-//		// ibt-034-1 - Scheme identifier 
-//		Binding ibt34_1Binding = bindingDict.get("ibt-034-1");
-//		Integer ibt34_1Sort = ibt34_1Binding.getSemSort();
-//		parsedNode = nodeMap.get(ibt34_1Sort);
-//		nodes = parsedNode.nodes;
-//		for (int i = 0; i < nodes.size(); i++) {
-//			Node node = nodes.get(i);
-//			if (TRACE) System.out.println(i+" "+node.getNodeName()+" "+node.getTextContent());
-//		}
-//		
-//		// ibt-160 Item attribute name
-//		TreeMap<Integer, String> nodeValues = getNodeValues("ibt-160");
-//		for (int i = 0; i <nodeValues.size(); i++) {
-//			String value = nodeValues.get(i);
-//			if (TRACE) System.out.println("ibt-160"+i+" "+value);
-//		}
-//		
-//		// ibg-23 TAX BREAKDOWN <cac:TaxSubtotal>
-//		nodes = getElements(root, "ibg-23");
-//		int nodesLength = nodes.size();
-//		for (int i = 0; i < nodesLength; i++) { 
-//			Element node = (Element) nodes.get(i);
-//			
-//			TreeMap<Integer, List<Node>> childrenMap = getChildren(node, "ibg-23");
-//			
-//			// Iterating HashMap through for loop
-//			for (Integer sort : childrenMap.keySet()) {
-//				Binding binding = semBindingMap.get(sort);
-//				String id = binding.getID();
-//				String BT = binding.getBT();
-//				List<Node> children = childrenMap.get(sort);
-//				Node child = children.get(0);
-//				if (TRACE)
-//					if (null!=child) {
-//						System.out.println(id+" "+BT+" "+child.getNodeValue());
-//					} else {
-//						System.out.println(id+" "+BT+" N/A");
-//					}
-//			}
-//		}
-//
-//		// ibt-034-1 - Scheme identifier 
-//		List<Node> sellerEASAttrs = getElements(FileHandler.root, "ibt-034-1");
-//		if (sellerEASAttrs.size() > 0) {
-//			Node sellerEASAttr = sellerEASAttrs.get(0);
-//			String sellerElectronicAddressSchemeIdentifier = sellerEASAttr.getNodeValue();
-//			if (TRACE) System.out.println("ibt-034-1 "+sellerElectronicAddressSchemeIdentifier);
-//		}
-//		
-//		// cbc:DocumentCurrencyCode
-//		List<Node> documentCurrencyCodeEls = getElements(root, "ibt-005");//"/*/cbc:DocumentCurrencyCode/text()");
-//		Node documentCurrencyCodeEl = documentCurrencyCodeEls.get(0);
-//		String documentCurrencyCode = documentCurrencyCodeEl.getTextContent();
-//		if (TRACE) System.out.println("ibt-005 "+documentCurrencyCode);
-//		
-//		// ibt-110 Invoice total TAX amount
-//		List<Node> invoiceTotalTaxAmountEl = getElements(FileHandler.root, "ibt-110");
-//		String invoiceTotalTaxAmount = invoiceTotalTaxAmountEl.get(0).getTextContent();
-//		if (TRACE) System.out.println("ibt-110 "+invoiceTotalTaxAmount);
-	}
+	public static void main(String[] args) { }
 	
 	/**
 	 * セマンティックモデル定義及びシンタクスバインディング定義シートを読み込み定義情報を次の広域変数に設定する。<br>
@@ -239,7 +119,7 @@ public class FileHandler {
 		String  parentID, parentXPath, strippedParentXPath;
 		int     idx;
 		try {
-			FileInputStream fileInputStream = new FileInputStream(CORE_CSV);
+			FileInputStream fileInputStream = new FileInputStream(SYNTAX_BINDING);
 			binding_data = CSV.readFile(fileInputStream, "UTF-8");
 			ArrayList<String> headers = binding_data.get(0);
 			for (int n=1; n < binding_data.size(); n++) {
@@ -314,12 +194,15 @@ public class FileHandler {
 				semSort        = entry.getKey();
 				binding        = entry.getValue();
 				level          = binding.getLevel();
+				id             = binding.getID();
+				if (null==id || "".equals(id))
+					continue;
 				parents[level] = semSort;
 				parent_level   = 0;
 				ArrayList<Integer> children = null;
 				if (0==Integer.compare(ROOT_SEMSORT,semSort))
 					continue;
-				if (0 == level) {
+				if (java.util.Objects.equals(0,level)) {
 					if (semChildMap.containsKey(ROOT_SEMSORT)) {
 						children = semChildMap.get(ROOT_SEMSORT);
 					} else {
@@ -332,7 +215,7 @@ public class FileHandler {
 					}
 				} else if (level > 0) {
 					parent_level          = level - 1;
-					Integer parentSemSort = parents[parent_level];
+					Integer parentSemSort = parents[parent_level];				
 					if (null==parentSemSort)
 						if (TRACE) System.out.println(semSort);
 					if (semChildMap.containsKey(parentSemSort)) {
@@ -619,9 +502,9 @@ public class FileHandler {
 		Binding binding = (Binding) bindingDict.get(parent_id);
 		Integer parentSemSort = binding.getSemSort();
 		String xpath = binding.getXPath();
-		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"(semSort="+parentSemSort+") "+xpath);
-		if ("JBG-22".equals(parent_id))
-			System.out.println("JBG-22");
+		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"("+parentSemSort+") "+xpath);
+//		if ("JBG-22".equals(parent_id))
+//			System.out.println("JBG-22");
 
 		ArrayList<Integer> children = semChildMap.get(parentSemSort);
 		
@@ -633,23 +516,25 @@ public class FileHandler {
 				String child_xpath          = child_binding.getXPath();
 				String defaultValue         = child_binding.getDefaultValue();
 				Set<String> additionalXPath = child_binding.getAdditionalXPath();
-				child_xpath                 = checkChildXPath(xpath, childID, child_datatype, child_xpath);
+				if (0==PROCESSING.indexOf("JP-PINT"))
+					child_xpath = checkChildXPath(xpath, childID, child_datatype, child_xpath);
 				
 				List<Node> nodes = getXPathNodes(parent, child_xpath);
 				
 				if (null!=nodes && nodes.size() > 0) {
 					childList.put(sort, nodes);
-				} else if (PROCESSING.indexOf("SYNTAX") > 0 && defaultValue.length() > 0) { // 未定義だが固定値が定義されている要素についてその値が定義されたNodeを返す。
+				} else if (PROCESSING.indexOf("SYNTAX") > 0 && defaultValue.length() > 0) {
+					// 未定義だが固定値が定義されている要素についてその値が定義されたNodeを返す。
 					String element_name = child_xpath.substring(1+child_xpath.lastIndexOf('/'));
-					String ns    = element_name.substring(0,element_name.indexOf(':'));
-					String nsURI = nsURIMap.get(ns);
-					String qname = element_name.substring(1+element_name.indexOf(':'));		
-					Node child_node = appendElementNS((Element) parent, nsURI, ns, qname, defaultValue, null);
+					String ns           = element_name.substring(0,element_name.indexOf(':'));
+					String nsURI        = nsURIMap.get(ns);
+					String qname        = element_name.substring(1+element_name.indexOf(':'));		
+					Node child_node     = appendElementNS((Element) parent, nsURI, ns, qname, defaultValue, null);
 					nodes = new ArrayList<>();
 					nodes.add(child_node);
 					childList.put(sort, nodes);
 				} else if (null!=additionalXPath) {
-					for(Iterator<String> iterator = additionalXPath.iterator(); iterator.hasNext(); ) {
+					for(Iterator<String> iterator = additionalXPath.iterator(); iterator.hasNext();) {
 						String additional_xpath     = iterator.next();
 						List<Node> additional_nodes = getXPathNodes(parent, additional_xpath);
 						if (additional_nodes.size() > 0)
@@ -679,10 +564,10 @@ public class FileHandler {
 			String child_datatype, 
 			String child_xpath ) 
 	{
-		if (! xpath.equals("/Invoice") && ! xpath.equals("/ubl:Invoice")) {
-			child_xpath = child_xpath.replace(xpath, ".");
-		}
 		if (0==PROCESSING.indexOf("JP-PINT") && child_xpath.length() > 0) {
+			if (! xpath.equals("/Invoice") && ! xpath.equals("/ubl:Invoice")) {
+				child_xpath = child_xpath.replace(xpath, ".");
+			}
 			// replace root element in the selector with /*
 			child_xpath = child_xpath.replace("/Invoice/", "/*/");
 			child_xpath = child_xpath.replace("/ubl:Invoice/", "/*/");
@@ -690,7 +575,7 @@ public class FileHandler {
 					"cbc:".equals(child_xpath.substring(child_xpath.lastIndexOf('/')+1).substring(0,4)) &&
 					! "String".equals(child_datatype)) {
 				child_xpath += "/text()";
-				if (TRACE) System.out.println(child_xpath);
+//				if (TRACE) System.out.println(child_xpath);
 			}
 		}
 		return child_xpath;

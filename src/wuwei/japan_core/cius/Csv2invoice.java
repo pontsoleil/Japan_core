@@ -22,16 +22,18 @@ import wuwei.japan_core.utils.WriteXmlDom;
  * Tidy dataを格納しているCSVファイルを読み取りセマンティックモデル定義と構文バインディング定義からXMLインスタンス文書を出力する.
  */
 public class Csv2invoice {
-	static boolean TRACE            = false;	
-	static String PROCESSING        = null;
-
-	static String TERMINAL_ELEMENTS = null;
-	static String IN_CSV            = null;
-	static String OUT_XML           = null;
-	static String CHARSET           = "UTF-8";
+	static boolean TRACE         = false;	
+	static String PROCESSING     = null;
+	static String SYNTAX_BINDING = null;
+	static String XML_SKELTON    = null;
+	static String IN_CSV         = null;
+	static String OUT_XML        = null;
+	static String CHARSET        = "UTF-8";
 	
-	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-093"; /*文書通貨コードのID*/
-	static String TAX_CURRENCY_CODE_ID      = "JBT-092"; /*税通貨コードnoID*/
+	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-091"; /*文書通貨コードのID*/
+	static String TAX_CURRENCY_CODE_ID      = "JBT-090"; /*税通貨コードnoID*/
+	static String INVOICE_ID                = "JBT-019"; /*インボイス番号のID*/
+	static String INVOICE_NUMBER;                   /*インボイス番号*/
 	static String DOCUMENT_CURRENCY         = null; /*文書通貨コード*/
 	static String TAX_CURRENCY              = null; /*税通貨コード*/
 	
@@ -118,38 +120,59 @@ public class Csv2invoice {
  	 * CSVをデジタルインボイス(XML)に変換する。
  	 * The application's entry point
 	 * @param args an array of command-line arguments for the application
-	 * last updated 2023-02-24
+	 * last updated 2023-03-11
 	 */
 	public static void main(String[] args) 
 	{
-//		PROCESSING = args[0]+" SYNTAX";
-//		IN_CSV     = args[1];
-//		OUT_XML    = args[2];
-//		if (4==args.length && "T".equals(args[3]))
-//			TRACE = true;
-		TRACE                  = true;
-		PROCESSING = "SME-COMMON SYNTAX";
-//		IN_CSV     = "data/csv/Example5-AllowanceCharge.csv";
-//		OUT_XML    = "data/xml/Example5-AllowanceCharge_SME.xml";
-//		PROCESSING = "JP-PINT SYNTAX";
-		IN_CSV     = "data/csv/Example1_PINT.csv";
-		OUT_XML    = "data/xml/Example1_SME.xml";
-//		OUT_XML    = "data/xml/Example1_PINT.xml";
-		FileHandler.TRACE      = TRACE;
-		FileHandler.PROCESSING = PROCESSING;
-		if (0==PROCESSING.indexOf("JP-PINT")) {
-			FileHandler.CORE_CSV    = FileHandler.JP_PINT_CSV;
-			FileHandler.XML_SKELTON = FileHandler.JP_PINT_XML_SKELTON;
-		} else if (0==PROCESSING.indexOf("SME-COMMON")) {
-			FileHandler.CORE_CSV    = FileHandler.SME_CSV;
-			FileHandler.XML_SKELTON = FileHandler.SME_XML_SKELTON;
-		} else {
-			return;
+		if (args.length <= 1) {
+			TRACE      = true;
+			if (1 == args.length) {
+				PROCESSING = args[0]+" SYNTAX";
+			} else {
+				PROCESSING = "JP-PINT SYNTAX";
+			}
+			if (0==PROCESSING.indexOf("JP-PINT")) {	
+				IN_CSV  = "data/csv/Example1_PINT.csv";
+				OUT_XML = "data/xml/Example1_PINT.xml";
+			} else if (0==PROCESSING.indexOf("SME-COMMON")) {
+				IN_CSV  = "data/csv/Example1_SME.csv";
+				OUT_XML = "data/xml/Example1_SME.xml";				
+			} else {
+				return;
+			}
+		} else if (args.length >= 3) {
+			PROCESSING = args[0]+" SYNTAX";
+			IN_CSV     = args[1];
+			OUT_XML    = args[2];	
+			if (4==args.length && "T".equals(args[3])) {
+				TRACE = true;
+			}	
 		}
+		if (args.length>=5) {
+			SYNTAX_BINDING = args[3];
+			XML_SKELTON    = args[4];
+			FileHandler.SYNTAX_BINDING = SYNTAX_BINDING;
+			FileHandler.XML_SKELTON    = XML_SKELTON;
+			if (6==args.length && "T".equals(args[5])) {
+				TRACE = true;
+			}
+		} else {
+			if (0==PROCESSING.indexOf("JP-PINT")) {		
+				FileHandler.SYNTAX_BINDING = FileHandler.JP_PINT_CSV;
+				FileHandler.XML_SKELTON    = FileHandler.JP_PINT_XML_SKELTON;			
+			} else if (0==PROCESSING.indexOf("SME-COMMON")) {
+				FileHandler.SYNTAX_BINDING = FileHandler.SME_CSV;
+				FileHandler.XML_SKELTON    = FileHandler.SME_XML_SKELTON;
+			} else {
+				return;
+			}
+		}
+		FileHandler.PROCESSING = PROCESSING;
+		FileHandler.TRACE      = TRACE;
 		
 		processCSV(IN_CSV, OUT_XML);
 		
-		if (TRACE) System.out.println("** END Csv2Invoice **");
+		if (TRACE) System.out.println("** END Csv2Invoice "+IN_CSV+" "+OUT_XML+" **");
 	}
 	
 	/**
@@ -182,7 +205,6 @@ public class Csv2invoice {
 			
 			rowMap = new TreeMap<>();
 			String key = "";
-//			Integer parentSynSort = 0;
 			Integer parentSemSort = 0;
 			Integer currentSemSort   = 0;
 			for (int i = 0; i < record.size(); i++) {
@@ -202,8 +224,8 @@ public class Csv2invoice {
 					}
 					Integer synSort = binding.getSynSort();
 					Integer semSort = binding.getSemSort();
-					if (id.equals("JBG-090")||id.equals("JBT-358"))
-						if (TRACE) System.out.println(semSort);
+//					if (id.equals("JBG-090")||id.equals("JBT-358"))
+//						if (TRACE) System.out.println(semSort);
 					if (id.toLowerCase().matches("^jbg-.+$")) {
 						key += synSort+"="+field+" ";
 					} else {
@@ -501,9 +523,6 @@ public class Csv2invoice {
 		ArrayList<String> boughPaths = splitPath(boughXPath);
 		int boughLevel               = boughPaths.size()-1;	
 		
-//		if ("/Invoice/cac:TaxTotal/cac:TaxSubTotal".equals(boughXPath))
-//			System.out.println(boughXPath);
-		
 		String selector = FileHandler.extractSelector(path);
 		
 		List<Node> elements = FileHandler.getXPath(parent, strippedPath);
@@ -543,8 +562,8 @@ public class Csv2invoice {
 				}
 			}			
 		} catch (Exception e) {
-			System.out.println("xx ERROR fillLevelElement "+parent.getNodeName()+" XPath="+strippedPath);//+" element = "+element.toString());
-			if (TRACE) System.out.println(e.toString());
+			System.out.println("xx ERROR fillLevelElement "+parent.getNodeName()+" XPath="+strippedPath);
+			System.out.println(e.toString());
 			e.getStackTrace();
 		}
 		return element;
@@ -647,13 +666,13 @@ public class Csv2invoice {
 			value = cacValue;
 			attributes = cacAttributes;
 		}
-		if ("@".equals(qname.substring(0,1))) {
-			FileHandler.appendElementNS(parent, nsURI, ns, qname, value, attributes);
-			return null;
-		} else {
-			element = FileHandler.appendElementNS(parent, nsURI, ns, qname, value, attributes);
-			return element;
-		}
+//		if ("@".equals(qname.substring(0,1))) {
+		element = FileHandler.appendElementNS(parent, nsURI, ns, qname, value, attributes);
+		return element;
+//		} else {
+//			element = FileHandler.appendElementNS(parent, nsURI, ns, qname, value, attributes);
+//			return element;
+//		}
 	}
 
 	/**
