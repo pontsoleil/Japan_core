@@ -134,3 +134,6 @@ bin/
 UBL-2.1/
 old-version/
 10DEC22/
+xml/*.xml
+work/
+.sh
