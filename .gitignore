@@ -136,4 +136,5 @@ old-version/
 10DEC22/
 xml/*.xml
 work/
-.sh
+*.sh
+.classpath/
