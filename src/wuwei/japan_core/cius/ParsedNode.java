@@ -19,7 +19,7 @@ public class ParsedNode {
 	 * @param binding セマンティックモデル定義と構文バインディング定義のための情報を保持するBinding
 	 * @param nodes XMLインスタンス文書を読み取って取得したXML DOM DocumentのNode情報リスト
 	 */
-	ParsedNode(Binding binding, List<Node> nodes) {
+	public ParsedNode(Binding binding, List<Node> nodes) {
 		this.binding = binding;
 		this.nodes = nodes;
 	}

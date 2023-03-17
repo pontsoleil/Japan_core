@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 /**
@@ -15,21 +16,25 @@ import org.w3c.dom.Node;
  */
 public class Invoice2csv {
 	static boolean TRACE         = false;	
+	static boolean DEBUG         = false;	
 	static String PROCESSING     = null;
 	static String SYNTAX_BINDING = null;
 	static String XML_SKELTON    = null;
-	static String OUT_CSV         = null;
-	static String IN_XML        = null;
+	static String OUT_CSV        = null;
+	static String IN_XML         = null;
 	static String CHARSET        = "UTF-8";
 	
-	static String DOCUMENT_CURRENCY_CODE_ID = "JBT-090"; /*文書通貨コードのID*/
-	static String TAX_CURRENCY_CODE_ID      = "JBT-091"; /*税通貨コードのID*/
-	static String INVOICE_ID                = "JBT-019"; /*インボイス番号のID*/
-	static String INVOICE_NUMBER            = null; /*インボイス番号*/
-	static String DOCUMENT_CURRENCY         = null; /*文書通貨コード*/
-	static String TAX_CURRENCY              = null; /*税通貨コード*/
+	static String DOCUMENT_CURRENCY_ID = "JBT-090"; /*文書通貨コードのID*/
+	static String TAX_CURRENCY_ID      = "JBT-091"; /*税通貨コードのID*/
+	static String DOCUMENT_CURRENCY    = null;      /*文書通貨コード*/
+	static String TAX_CURRENCY         = null;      /*税通貨コード*/
+	static String INVOICE_ID           = "JBT-019"; /*インボイス番号のID*/
+	static String INVOICE_NUMBER       = null;      /*インボイス番号*/
 	
-
+	/**
+	 * 複数回繰り返され定義されているJBGグループ
+	 */
+	public static TreeMap<Integer/*semSort*/, String/*id*/> multipleMap = new TreeMap<>();
 
 	/**
 	 * Tidy dataテーブルの行を指定する索引データ
@@ -59,27 +64,33 @@ public class Invoice2csv {
 	 */
 	public static void main(String[] args)
 	{
+		TRACE = false;
+		DEBUG = false;
 		if (0 == args.length) {
 			PROCESSING = "JP-PINT SEMANTICS";
 		} else {
 			PROCESSING = args[0]+" SEMANTICS";
 		}
 		if (args.length <= 1) {
-			TRACE      = true;
+			TRACE = true;
+			DEBUG = true;
 			if (0==PROCESSING.indexOf("JP-PINT")) {	
-				IN_XML  = "data/xml/Example1_PINT.xml";
-				OUT_CSV = "data/csv/Example1_PINT.csv";
+				IN_XML  = "data/xml/JP-PINT/Example.xml";
+				OUT_CSV = "data/csv/JP-PINT/Example.csv";
 			} else if (0==PROCESSING.indexOf("SME-COMMON")) {
-				IN_XML  = "data/xml/Example1_SME.xml";				
-				OUT_CSV = "data/csv/Example1_SME.csv";
+				IN_XML  = "data/xml/SME-COMMON/Example.xml";				
+				OUT_CSV = "data/csvSME-COMMON/Example.csv";
 			} else {
 				return;
 			}
 		} else if (args.length >= 3) {
 			IN_XML     = args[1];	
 			OUT_CSV    = args[2];
-			if (4==args.length && "T".equals(args[3])) {
-				TRACE = true;
+			if (4==args.length) {
+				if (args[3].indexOf("T")>=0)
+					TRACE = true;
+				if (args[3].indexOf("D")>=0)
+					DEBUG = true;
 			}	
 		}
 		if (args.length>=5) {
@@ -87,9 +98,12 @@ public class Invoice2csv {
 			XML_SKELTON    = args[4];
 			FileHandler.SYNTAX_BINDING = SYNTAX_BINDING;
 			FileHandler.XML_SKELTON    = XML_SKELTON;
-			if (6==args.length && "T".equals(args[5])) {
-				TRACE = true;
-			}
+			if (4==args.length) {
+				if (args[5].indexOf("T")>=0)
+					TRACE = true;
+				if (args[5].indexOf("D")>=0)
+					DEBUG = true;
+			}	
 		} else {
 			if (0==PROCESSING.indexOf("JP-PINT")) {		
 				FileHandler.SYNTAX_BINDING = FileHandler.JP_PINT_CSV;
@@ -103,10 +117,11 @@ public class Invoice2csv {
 		}
 		FileHandler.PROCESSING = PROCESSING;
 		FileHandler.TRACE      = TRACE;	
+		FileHandler.DEBUG      = DEBUG;	
 	
 		processInvoice(IN_XML, OUT_CSV);
 		
-		if (TRACE) System.out.println("** END Invoice2csv "+IN_XML+" "+OUT_CSV+" **");
+		if (TRACE) System.out.println("** END Invoice2csv ** IN_XML "+IN_XML+" OUT_CSV "+OUT_CSV);
 	}
 	
 	/**
@@ -132,17 +147,41 @@ public class Invoice2csv {
 			return;
 		}
 		
+		// 通貨コードをチェック
+		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) {
+			Binding binding = entry.getValue();
+			String id       = binding.getID();
+			String xPath    = binding.getXPath();
+			if (id.equals(DOCUMENT_CURRENCY_ID)) {
+				List<Node> nodes = FileHandler.getXPathNodes(FileHandler.root, xPath);
+				if (nodes.size() > 0) {
+					DOCUMENT_CURRENCY = nodes.get(0).getTextContent();
+					FileHandler.DOCUMENT_CURRENCY = DOCUMENT_CURRENCY;
+				}
+			} else if (id.equals(TAX_CURRENCY_ID)) {
+				List<Node> nodes = FileHandler.getXPathNodes(FileHandler.root, xPath);
+				if (nodes.size() > 0) {
+					TAX_CURRENCY = nodes.get(0).getTextContent();
+					FileHandler.TAX_CURRENCY = TAX_CURRENCY;
+				}
+			}
+		}
+		
 		FileHandler.nodeMap = FileHandler.parseDoc();
 		
+		// 複数繰返しをチェック
+		multipleMap = new TreeMap<>();
 		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) {
 			Binding binding = entry.getValue();
 			Integer sort    = binding.getSemSort();
-			String id = binding.getID();
-			String card = binding.getCard();
-			if (id.toLowerCase().matches("^jbg-.+$") &&
-					card.matches("^.*n$") &&
+			String id       = binding.getID();
+//			String xPath    = binding.getXPath();
+			String card     = binding.getCard();
+//			String occur    = binding.getOccur();
+			if (id.toUpperCase().matches("^JBG-.+$") &&
+					card.matches("^.*n$") && //!occur.matches("^.*0$") &&
 					isMultiple(sort)) {
-				FileHandler.multipleMap.put(sort, id);
+				multipleMap.put(sort, id);
 			}
 		}
 		
@@ -156,14 +195,14 @@ public class Invoice2csv {
 		fillTable();
 
 		try {
-			FileHandler.csvFileWrite(out_csv, CHARSET);
+			FileHandler.csvFileWrite(out_csv, CHARSET, ",");
 		} catch (FileNotFoundException fnf) {
 			System.out.println("* File Not Found Exception "+out_csv);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		if (TRACE) System.out.println("-- END -- "+in_xml);
+		if (TRACE) System.out.println("-- END -- IN_XML "+in_xml);
 	}
 	
 	/**
@@ -175,11 +214,10 @@ public class Invoice2csv {
 
 		FileHandler.header.add(FileHandler.ROOT_ID);
 		// bough
-		for (Map.Entry<Integer,String> multipleEntry : FileHandler.multipleMap.entrySet()) {
+		for (Map.Entry<Integer,String> multipleEntry : multipleMap.entrySet()) {
 			String multipleID       = multipleEntry.getValue();
 			Binding multipleBinding = FileHandler.bindingDict.get(multipleID);
-			if (multipleID.toLowerCase().matches("^jbg-.+$") &&
-					multipleBinding.isUsed()) {
+			if (multipleID.toUpperCase().matches("^JBG-.+$") && multipleBinding.isUsed()) {
 				FileHandler.header.add(multipleID);
 			}
 		}
@@ -189,7 +227,7 @@ public class Invoice2csv {
 			Binding dataBinding = dataEntry.getValue();
 			String dataID       = dataBinding.getID();
 			if (1!=dataSort &&
-					dataID.toLowerCase().matches("^jbt-.+$") &&
+					dataID.toUpperCase().matches("^JBT-.+$") &&
 					dataBinding.isUsed() &&
 					! FileHandler.header.contains(dataID)) {
 				FileHandler.header.add(dataID);
@@ -215,7 +253,7 @@ public class Invoice2csv {
 					if (boughIndex!=-1) {
 						record.set(boughIndex, boughSeq);
 					} else {
-						if (TRACE) System.out.println(boughID+" NOT FOUND in the header");
+						if (TRACE) System.out.println("xx "+boughID+" NOT FOUND in the header");
 					}
 				}
 			}
@@ -236,6 +274,8 @@ public class Invoice2csv {
 			FileHandler.tidyData.add(record);
 			if (TRACE) System.out.println(record.toString());
 		}
+		
+		if (TRACE) System.out.println("End fillTable()");
 	}
 
 	/**
@@ -255,7 +295,8 @@ public class Invoice2csv {
 		binding.setUsed(true);
 		value = value.trim();
 		if (TRACE) System.out.println("  fillData boughMap="+boughMap.toString()+" "+id+"("+semSort+") "+businessTerm+" = "+value);
-
+		if (id.indexOf("JBT-264")>=0)
+			System.out.println(id+" "+businessTerm);
 		String rowMapKey = "";
 		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) {
 			Integer boughSort = entry.getKey();
@@ -271,6 +312,10 @@ public class Invoice2csv {
 		rowMapList.put(rowMapKey, rowMap);
 		if (INVOICE_ID.equals(id))
 			INVOICE_NUMBER = value;
+		else if (DOCUMENT_CURRENCY_ID.equals(id))
+			DOCUMENT_CURRENCY = value;
+		else if (TAX_CURRENCY_ID.equals(id))
+			TAX_CURRENCY = value;
 	}
 	
 	/**
@@ -289,6 +334,8 @@ public class Invoice2csv {
 		Binding binding     = FileHandler.semBindingMap.get(sort);
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
+		if (0==id.indexOf("JBT-417"))
+			System.out.println(id+" "+businessTerm);
 
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
@@ -303,8 +350,6 @@ public class Invoice2csv {
 		}
    	
 		for (Integer childSort : childList.keySet()) {
-			if (0==Integer.compare(2190,childSort))
-				System.out.println(childSort);
 			// childList includes both #text and @attribute
 			Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
 			String childID           = childBinding.getID();
@@ -312,6 +357,8 @@ public class Invoice2csv {
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
 			if (TRACE) System.out.println("- fillGroup "+childID+"("+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
+//			if (0==childID.indexOf("JBT-417"))
+//				System.out.println(childID+" "+childBusinessTerm);
 
 			List<Node> children = childList.get(childSort);
 			
@@ -320,35 +367,35 @@ public class Invoice2csv {
 				for (int i = 0; i < countChildren; i++) {
 					Node child           = children.get(i);
 					String childNodeName = child.getNodeName();
-					String value         = child.getTextContent().trim();
-					if (! "Invoice".equals(childNodeName) && ! "#text".equals(childNodeName) && childNodeName.indexOf(":")<0) {
+					String value         = child.getTextContent().trim();					
+					if (! "Invoice".equals(childNodeName) && childNodeName.indexOf(":")<0) {						
 						
-						fillData(childSort, value, boughMap);
+						fillData(childSort, value, boughMap); // @attribute
 						
-					} else if (null!=child && childID.toLowerCase().matches("jbt-.+$") &&
-							"#text".equals(childNodeName) && null != value && value.length() > 0) {
-//							if (! "#text".equals(childNodeName))
-//								continue; // @attribute has already registered as a grand child in the procedure below if clause.
+					} else if (null!=child && null != value && value.length() > 0 &&
+							childID.toLowerCase().matches("jbt-.+$")) {
 						if (TRACE) System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
-						
-						fillData(childSort, value, boughMap);
+
+						fillData(childSort, value, boughMap); // #text	
 						
 						if (FileHandler.semChildMap.containsKey(childSort)) {
 							ArrayList<Integer> grandchildren = FileHandler.semChildMap.get(childSort);
+							NamedNodeMap attributes = child.getAttributes();
 							for (Integer grandchildSort : grandchildren) {
-								Binding grandchildBiunding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
-								String grandchildID        = grandchildBiunding.getID();
-								String grandchildBT        = grandchildBiunding.getBT();
-								ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
-								List<Node> grandchildNodes = parsedNode.nodes;
-								for (int j = 0; j < grandchildNodes.size(); j++) {
-									Node grandchild        = grandchildNodes.get(j);
-									String grandchildNodeName  = grandchild.getNodeName();
-									String grandchildValue = grandchild.getTextContent().trim();
-									if (TRACE) System.out.println("* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+
+								Binding grandchildBinding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
+								String grandchildID        = grandchildBinding.getID();
+								String grandchildBT        = grandchildBinding.getBT();
+								String grandchildXPath     = grandchildBinding.getXPath();
+								String attrName            = grandchildXPath.substring(2+grandchildXPath.lastIndexOf("/@"));
+								if (attributes.getLength() > 0) {
+									Node attribute = attributes.getNamedItem(attrName);
+									if (null!=attribute) {
+										String grandchildValue     = attribute.getNodeValue();
+										if (TRACE) System.out.print("* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+
 											" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
-											"\n    grand child["+j+"] "+grandchildNodeName+"="+grandchildValue);
-									fillData(grandchildSort, grandchildValue, boughMap);
+											"\n    @"+attrName+"("+grandchildSort+") = "+grandchildValue);
+										fillData(grandchildSort, grandchildValue, boughMap);
+									}
 								}
 							}
 						}						
@@ -398,10 +445,14 @@ public class Invoice2csv {
 		Binding binding   = FileHandler.semBindingMap.get(semSort);
 		String id         = binding.getID();
 		String xPath      = binding.getXPath();
-		xPath             = FileHandler.stripSelector(xPath);
+//		if (xPath.indexOf("true") > 0)
+//			System.out.println(xPath);
 		List<Node> founds = FileHandler.getXPath(FileHandler.root, xPath);
-		if (null!=founds && founds.size() > 1) {
-			multiple = true;
+		if (null!=founds) {
+			if (xPath.indexOf("true") > 0 || xPath.indexOf("false") > 0 ||
+					founds.size() > 1) {
+				multiple = true;
+			}
 		} else if (Arrays.asList(FileHandler.MULTIPLE_ID).contains(id.toLowerCase())) {
 			multiple = true;
 		}

@@ -29,42 +29,43 @@ public class CSV {
 	 */
 	public static void main(String[] args) 
 	{
-		String IN_CSV = "data/csv/Example0.csv";
-		String OUT_CSV = "data/csv/Example0_out.csv";
-		String CHARSET = "UTF-8";
-
-		try {
-			data = csvFileRead(IN_CSV, CHARSET);
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found "+IN_CSV);
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			csvFileWrite(data, OUT_CSV, CHARSET);
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found "+OUT_CSV);
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			data = csvFileRead(OUT_CSV, CHARSET);
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found "+OUT_CSV);
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		String IN_CSV = "data/csv/Example0.csv";
+//		String OUT_CSV = "data/csv/Example0_out.csv";
+//		String CHARSET = "UTF-8";
+//
+//		try {
+//			data = csvFileRead(IN_CSV, CHARSET);
+//		} catch (FileNotFoundException e) {
+//			System.out.println("File not found "+IN_CSV);
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		try {
+//			csvFileWrite(data, OUT_CSV, CHARSET,",");
+//		} catch (FileNotFoundException e) {
+//			System.out.println("File not found "+OUT_CSV);
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		try {
+//			data = csvFileRead(OUT_CSV, CHARSET);
+//		} catch (FileNotFoundException e) {
+//			System.out.println("File not found "+OUT_CSV);
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 	public static void csvFileWrite(
 			ArrayList<ArrayList<String>> data,
 			String filename, 
-			String charset ) 
+			String charset,
+			String delimiter) 
 		throws 
 			FileNotFoundException, 
 			IOException 
@@ -72,7 +73,7 @@ public class CSV {
 		System.out.println("- csvFileWrite " + filename + " " + charset);
 		FileOutputStream fileOutputStream = new FileOutputStream(filename);
 
-		writeFile(fileOutputStream, data, charset);
+		writeFile(fileOutputStream, data, charset, delimiter);
 		
 		fileOutputStream.close();
 	}
@@ -80,7 +81,8 @@ public class CSV {
 	public static void writeFile(
 			FileOutputStream stream,
 			ArrayList<ArrayList<String>> data,
-			String charset ) 
+			String charset,
+			String delimiter ) 
 	{
 		OutputStreamWriter outputStreamWriter = null;
 		BufferedWriter bufferedWriter         = null;
@@ -97,7 +99,7 @@ public class CSV {
 					bufferedWriter.write(cell_value);
 //					System.out.print(cell_value);
 					if (i < columns.size() - 1) {
-						bufferedWriter.write(",");
+						bufferedWriter.write(delimiter);
 //						System.out.print(",");
 					}
 				}

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+    
+    <cbc:CustomizationID>urn:fdc:peppol:jp:billing:3.0</cbc:CustomizationID>
+    <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+    <cbc:ID>156</cbc:ID>
+    <cbc:IssueDate>2023-10-24</cbc:IssueDate>
+    <cbc:DueDate>2023-11-20</cbc:DueDate>
+    <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+    <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+    <cbc:TaxCurrencyCode>JPY</cbc:TaxCurrencyCode>
+    <cac:InvoicePeriod>
+        <cbc:StartDate>2023-10-18</cbc:StartDate>
+        <cbc:EndDate>2023-10-18</cbc:EndDate>
+    </cac:InvoicePeriod>
+    <cac:AccountingSupplierParty>
+        <cac:Party>
+            <cbc:EndpointID schemeID="0208">0594837261</cbc:EndpointID>
+            <cac:PostalAddress>
+                <cac:Country>
+                    <cbc:IdentificationCode>BE</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+            <cac:PartyTaxScheme>
+                <cbc:CompanyID>T1234567890123</cbc:CompanyID>
+            </cac:PartyTaxScheme>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>XYZ Digital Learning Services, Inc.</cbc:RegistrationName>
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:AccountingSupplierParty>
+    <cac:AccountingCustomerParty>
+        <cac:Party>
+            <cbc:EndpointID schemeID="0188">3210987654321</cbc:EndpointID>
+            <cac:PostalAddress>
+                <cac:Country>
+                    <cbc:IdentificationCode>JP</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>〇〇 Bussan Co., Ltd.</cbc:RegistrationName>
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:AccountingCustomerParty>
+    <cac:TaxRepresentativeParty>
+        <cac:PartyName>
+            <cbc:Name>TaxRepresentative Name</cbc:Name>
+        </cac:PartyName>
+        <cac:PostalAddress>
+            <cac:Country>
+                <cbc:IdentificationCode>JP</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:PostalAddress>
+        <cac:PartyTaxScheme>
+            <cbc:CompanyID>T7654321098765</cbc:CompanyID>
+        </cac:PartyTaxScheme>
+    </cac:TaxRepresentativeParty>
+    <cac:PaymentMeans>
+        <cbc:PaymentMeansCode name="Credit card">54</cbc:PaymentMeansCode>
+        <cac:CardAccount>
+            <cbc:PrimaryAccountNumberID>123236</cbc:PrimaryAccountNumberID>
+            <cbc:HolderName>Card holders name</cbc:HolderName>
+        </cac:CardAccount>
+    </cac:PaymentMeans>
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="EUR">250</cbc:TaxAmount>
+        <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="EUR">2500</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="EUR">250</cbc:TaxAmount>
+            <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>10</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="EUR">32500</cbc:TaxAmount>
+    </cac:TaxTotal>
+    <cac:TaxTotal>
+        <cac:TaxSubtotal>
+            <cbc:TaxAmount currencyID="EUR">32500</cbc:TaxAmount>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:TaxTotal>
+        <cac:TaxSubtotal>
+            <cbc:TaxAmount currencyID="JPY"/>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:TaxTotal>
+        <cac:TaxSubtotal>
+            <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:TaxTotal>
+        <cac:TaxSubtotal>
+            <cac:TaxCategory>
+                <cbc:Percent>10</cbc:Percent>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:TaxTotal>
+        <cac:TaxSubtotal>
+            <cac:TaxCategory>
+                <cac:TaxScheme>
+                    <cbc:ID currencyID="EUR">VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:LegalMonetaryTotal>
+        <cbc:LineExtensionAmount currencyID="EUR">2500</cbc:LineExtensionAmount>
+        <cbc:TaxExclusiveAmount currencyID="EUR">2500</cbc:TaxExclusiveAmount>
+        <cbc:TaxInclusiveAmount currencyID="EUR">2750</cbc:TaxInclusiveAmount>
+        <cbc:AllowanceTotalAmount currencyID="EUR">0</cbc:AllowanceTotalAmount>
+        <cbc:ChargeTotalAmount currencyID="EUR">0</cbc:ChargeTotalAmount>
+        <cbc:PayableAmount currencyID="EUR">2750</cbc:PayableAmount>
+    </cac:LegalMonetaryTotal>
+    <cac:InvoiceLine>
+        <cbc:ID>1</cbc:ID>
+        <cbc:InvoicedQuantity unitCode="H87">5</cbc:InvoicedQuantity>
+        <cbc:LineExtensionAmount currencyID="EUR">2500</cbc:LineExtensionAmount>
+        <cac:InvoicePeriod>
+            <cbc:StartDate>2023-10-18</cbc:StartDate>
+            <cbc:EndDate>2023-10-18</cbc:EndDate>
+        </cac:InvoicePeriod>
+        <cac:OrderLineReference>
+            <cbc:LineID>1</cbc:LineID>
+            <cac:OrderReference>
+                <cbc:ID>OR-123</cbc:ID>
+            </cac:OrderReference>
+        </cac:OrderLineReference>
+        <cac:Item>
+            <cbc:Name>1-day online lecture course</cbc:Name>
+            <cac:OriginCountry>
+                <cbc:IdentificationCode>BE</cbc:IdentificationCode>
+            </cac:OriginCountry>
+            <cac:ClassifiedTaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>10</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:ClassifiedTaxCategory>
+        </cac:Item>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">500</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
+        </cac:Price>
+    </cac:InvoiceLine>
+</Invoice>
