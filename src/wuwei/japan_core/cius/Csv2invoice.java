@@ -196,7 +196,7 @@ public class Csv2invoice {
 		
 		processCSV(IN_CSV, OUT_XML);
 		
-		if (TRACE) System.out.println("** END Csv2Invoice "+IN_CSV+" "+OUT_XML+" **");
+		System.out.println("** END ** Csv2Invoice "+PROCESSING+" "+IN_CSV+" "+OUT_XML);
 	}
 	
 	/**
@@ -323,8 +323,8 @@ public class Csv2invoice {
 				Binding binding = FileHandler.synBindingMap.get(synSort);
 				id              = binding.getID();
 				xPath           = binding.getXPath();
-				if (id.equals("JBT-320") || id.equals("JBT-330"))
-					System.out.println(id);
+//				if (id.equals("JBT-320") || id.equals("JBT-330"))
+//					System.out.println(id);
 				// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
 				if (xPath.indexOf("true")>0) {
 					xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=true\\(\\)\\]","[normalize-space($1/text())='true']");
@@ -450,8 +450,8 @@ public class Csv2invoice {
 		value = value.trim();
 		Binding binding = FileHandler.bindingDict.get(id);
 		Integer synSort = binding.getSynSort();
-		if (0==4090-synSort)
-			System.out.println(synSort+" "+xPath+" "+value);
+//		if (0==4090-synSort)
+//			System.out.println(synSort+" "+xPath+" "+value);
 		if (TRACE) {
 			if (value.length() > 0) {
 				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+id+"("+synSort+")\n"+xPath +" = "+value);
@@ -595,6 +595,12 @@ public class Csv2invoice {
 			if (TRACE) System.out.println("- fillLevelElement parent is NULL use root");
 			parent = FileHandler.root;
 		}
+		if (0==path.indexOf("@currencyID")) {
+			if (TRACE) System.out.println("- fillLevelElement setting @currencyID return Amount element");
+			return parent;
+		}			
+		if ("cbc:TaxAmount".equals(parent.getNodeName()))
+			System.out.println(parent.getNodeName());
 		String strippedPath  = FileHandler.stripSelector(path);
 		Binding boughBinding = FileHandler.synBindingMap.get(boughSort);
 		String boughXPath    = boughBinding.getXPath();

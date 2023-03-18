@@ -122,7 +122,7 @@ public class Invoice2csv {
 	
 		processInvoice(IN_XML, OUT_CSV);
 		
-		if (TRACE) System.out.println("** END Invoice2csv ** IN_XML "+IN_XML+" OUT_CSV "+OUT_CSV);
+		System.out.println("** END ** Invoice2csv "+PROCESSING+" "+IN_XML+" "+OUT_CSV);
 	}
 	
 	/**
@@ -296,8 +296,8 @@ public class Invoice2csv {
 		binding.setUsed(true);
 		value = value.trim();
 		if (TRACE) System.out.println("  fillData boughMap="+boughMap.toString()+" "+id+"("+semSort+") "+businessTerm+" = "+value);
-		if (id.indexOf("JBT-264")>=0)
-			System.out.println(id+" "+businessTerm);
+//		if (id.indexOf("JBT-264")>=0)
+//			System.out.println(id+" "+businessTerm);
 		String rowMapKey = "";
 		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) {
 			Integer boughSort = entry.getKey();

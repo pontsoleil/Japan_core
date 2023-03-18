@@ -24,6 +24,10 @@
                 <ram:Name>株式会社 〇〇商事</ram:Name>
                 <ram:RegisteredID>T1234567890123</ram:RegisteredID>
                 <ram:TypeCode>VAT</ram:TypeCode>
+                <ram:EndPointURICIUniversalCommunication>
+                    <ram:CompleteNumber>1234567890123</ram:CompleteNumber>
+                    <ram:ChannelCode>0188</ram:ChannelCode>
+                </ram:EndPointURICIUniversalCommunication>
                 <ram:DefinedCITradeContact>
                     <ram:PersonName>青木 志郎</ram:PersonName>
                     <ram:TelephoneCIUniversalCommunication>
@@ -39,10 +43,6 @@
                     <ram:LineTwo>〇〇商事ビル</ram:LineTwo>
                     <ram:CountryID>JP</ram:CountryID>
                 </ram:PostalCITradeAddress>
-                <ram:EndPointURICIUniversalCommunication>
-                    <ram:ChannelCode>0188</ram:ChannelCode>
-                    <ram:CompleteNumber>1234567890123</ram:CompleteNumber>
-                </ram:EndPointURICIUniversalCommunication>
             </ram:SellerCITradeParty>
             <ram:BuyerCITradeParty>
                 <ram:ID>654321:000321:0147:1</ram:ID>
@@ -50,6 +50,10 @@
                 <ram:Name>株式会社 〇〇物産</ram:Name>
                 <ram:RegisteredID>T3210987654321</ram:RegisteredID>
                 <ram:TypeCode>VAT</ram:TypeCode>
+                <ram:EndPointURICIUniversalCommunication>
+                    <ram:CompleteNumber>3210987654321</ram:CompleteNumber>
+                    <ram:ChannelCode>0188</ram:ChannelCode>
+                </ram:EndPointURICIUniversalCommunication>
                 <ram:DefinedCITradeContact>
                     <ram:PersonName>株式会社 〇〇物産</ram:PersonName>
                     <ram:TelephoneCIUniversalCommunication>
@@ -65,10 +69,6 @@
                     <ram:LineTwo>北十二条西76-X</ram:LineTwo>
                     <ram:CountryID>JP</ram:CountryID>
                 </ram:PostalCITradeAddress>
-                <ram:EndPointURICIUniversalCommunication>
-                    <ram:ChannelCode>0188</ram:ChannelCode>
-                    <ram:CompleteNumber>3210987654321</ram:CompleteNumber>
-                </ram:EndPointURICIUniversalCommunication>
             </ram:BuyerCITradeParty>
         </ram:ApplicableCIIHSupplyChainTradeAgreement>
         <ram:ApplicableCIIHSupplyChainTradeSettlement>
@@ -110,6 +110,30 @@
                 </ram:ShipToCITradeParty>
             </ram:SpecifiedCIILSupplyChainTradeDelivery>
             <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:ChargeTotalAmount>0</ram:ChargeTotalAmount>
+                    <ram:AllowanceTotalAmount>0</ram:AllowanceTotalAmount>
+                    <ram:TaxTotalAmount currencyID="JPY">26000</ram:TaxTotalAmount>
+                    <ram:GrossLineTotalAmount>263490</ram:GrossLineTotalAmount>
+                    <ram:NetLineTotalAmount>263490</ram:NetLineTotalAmount>
+                    <ram:NetIncludingTaxesLineTotalAmount>289490</ram:NetIncludingTaxesLineTotalAmount>
+                    <ram:GrandTotalAmount>289490</ram:GrandTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                <ram:InvoiceReferencedCIReferencedDocument>
+                    <ram:IssuerAssignedID>doc1</ram:IssuerAssignedID>
+                    <ram:AttachedSpecifiedBinaryFile fileName="report.csv">
+                        <ram:Description>Usage summary</ram:Description>
+                        <ram:URIID>http://www.salescompany.com/summary001.html</ram:URIID>
+                    </ram:AttachedSpecifiedBinaryFile>
+                    <ram:AttachedBinaryObject mimeCode="text/csv">aHR0cHM6Ly90ZXN0LXZlZmEuZGlmaS5uby9wZXBwb2xiaXMvcG9hY2MvYmlsbGluZy8zLjAvYmlzLw==</ram:AttachedBinaryObject>
+                </ram:InvoiceReferencedCIReferencedDocument>
+                <ram:InvoiceReferencedCIReferencedDocument>
+                    <ram:IssuerAssignedID>doc2</ram:IssuerAssignedID>
+                    <ram:AttachedSpecifiedBinaryFile>
+                        <ram:Description>Usage breakdown</ram:Description>
+                        <ram:URIID>http://www.salescompany.com/breakdown001.html</ram:URIID>
+                    </ram:AttachedSpecifiedBinaryFile>
+                </ram:InvoiceReferencedCIReferencedDocument>
                 <ram:ApplicableCITradeTax>
                     <ram:CalculatedAmount>26000</ram:CalculatedAmount>
                     <ram:TypeCode>VAT</ram:TypeCode>
@@ -126,110 +150,75 @@
                     <ram:CurrencyCode>JPY</ram:CurrencyCode>
                     <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
                 </ram:ApplicableCITradeTax>
-                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
-                    <ram:ChargeTotalAmount>0</ram:ChargeTotalAmount>
-                    <ram:AllowanceTotalAmount>0</ram:AllowanceTotalAmount>
-                    <ram:GrossLineTotalAmount>263490</ram:GrossLineTotalAmount>
-                    <ram:NetLineTotalAmount>263490</ram:NetLineTotalAmount>
-                    <ram:NetIncludingTaxesLineTotalAmount>289490</ram:NetIncludingTaxesLineTotalAmount>
-                    <ram:GrandTotalAmount>289490</ram:GrandTotalAmount>
-                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
-                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
-                    <ram:TaxTotalAmount>26000</ram:TaxTotalAmount>
-                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
-                <ram:InvoiceReferencedCIReferencedDocument>
-                    <ram:IssuerAssignedID>doc1</ram:IssuerAssignedID>
-                    <ram:AttachedBinaryObject mimeCode="text/csv">aHR0cHM6Ly90ZXN0LXZlZmEuZGlmaS5uby9wZXBwb2xiaXMvcG9hY2MvYmlsbGluZy8zLjAvYmlzLw==</ram:AttachedBinaryObject>
-                    <ram:AttachedSpecifiedBinaryFile fileName="report.csv">
-                        <ram:Description>Usage summary</ram:Description>
-                        <ram:URIID>http://www.salescompany.com/summary001.html</ram:URIID>
-                    </ram:AttachedSpecifiedBinaryFile>
-                </ram:InvoiceReferencedCIReferencedDocument>
-                <ram:InvoiceReferencedCIReferencedDocument>
-                    <ram:IssuerAssignedID>doc2</ram:IssuerAssignedID>
-                    <ram:AttachedSpecifiedBinaryFile>
-                        <ram:Description>Usage breakdown</ram:Description>
-                        <ram:URIID>http://www.salescompany.com/breakdown001.html</ram:URIID>
-                    </ram:AttachedSpecifiedBinaryFile>
-                </ram:InvoiceReferencedCIReferencedDocument>
             </ram:SpecifiedCIILSupplyChainTradeSettlement>
             <ram:SubordinateCIILBSubordinateTradeLineItem>
                 <ram:ID>1</ram:ID>
+                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                    <ram:ApplicableCITradeTax>
+                        <ram:BasisAmount>257500</ram:BasisAmount>
+                        <ram:TypeCode>VAT</ram:TypeCode>
+                        <ram:CategoryCode>S</ram:CategoryCode>
+                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
+                    </ram:ApplicableCITradeTax>
+                    <ram:BillingCISpecifiedPeriod>
+                        <ram:StartDateTime>
+                            <udt:DateTimeString>2023-10-16</udt:DateTimeString>
+                        </ram:StartDateTime>
+                        <ram:EndDateTime>
+                            <udt:DateTimeString>2023-10-16</udt:DateTimeString>
+                        </ram:EndDateTime>
+                    </ram:BillingCISpecifiedPeriod>
+                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                    <ram:BilledQuantity unitCode="H87">1</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                <ram:ApplicableCITradeProduct>
+                    <ram:Name>D001-1</ram:Name>
+                </ram:ApplicableCITradeProduct>
                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
                     <ram:NetPriceProductCITradePrice>
                         <ram:ChargeAmount>257500</ram:ChargeAmount>
                         <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
                     </ram:NetPriceProductCITradePrice>
                 </ram:SpecifiedCIILBSupplyChainTradeAgreement>
-                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
-                    <ram:BilledQuantity unitCode="H87">1</ram:BilledQuantity>
-                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+            </ram:SubordinateCIILBSubordinateTradeLineItem>
+            <ram:SubordinateCIILBSubordinateTradeLineItem>
+                <ram:ID>2</ram:ID>
                 <ram:SpecifiedCIILBSupplyChainTradeSettlement>
                     <ram:ApplicableCITradeTax>
+                        <ram:BasisAmount>2500</ram:BasisAmount>
                         <ram:TypeCode>VAT</ram:TypeCode>
-                        <ram:BasisAmount>257500</ram:BasisAmount>
                         <ram:CategoryCode>S</ram:CategoryCode>
                         <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
                     </ram:ApplicableCITradeTax>
                     <ram:BillingCISpecifiedPeriod>
                         <ram:StartDateTime>
-                            <udt:DateTimeString>2023-10-16</udt:DateTimeString>
+                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
                         </ram:StartDateTime>
                         <ram:EndDateTime>
-                            <udt:DateTimeString>2023-10-16</udt:DateTimeString>
+                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
                         </ram:EndDateTime>
                     </ram:BillingCISpecifiedPeriod>
                 </ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                    <ram:BilledQuantity unitCode="H87">1</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
                 <ram:ApplicableCITradeProduct>
-                    <ram:Name>D001-1</ram:Name>
+                    <ram:Name>D001-2</ram:Name>
                 </ram:ApplicableCITradeProduct>
-            </ram:SubordinateCIILBSubordinateTradeLineItem>
-            <ram:SubordinateCIILBSubordinateTradeLineItem>
-                <ram:ID>2</ram:ID>
                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
                     <ram:NetPriceProductCITradePrice>
                         <ram:ChargeAmount>2500</ram:ChargeAmount>
                         <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
                     </ram:NetPriceProductCITradePrice>
                 </ram:SpecifiedCIILBSupplyChainTradeAgreement>
-                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
-                    <ram:BilledQuantity unitCode="H87">1</ram:BilledQuantity>
-                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
-                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
-                    <ram:ApplicableCITradeTax>
-                        <ram:TypeCode>VAT</ram:TypeCode>
-                        <ram:BasisAmount>2500</ram:BasisAmount>
-                        <ram:CategoryCode>S</ram:CategoryCode>
-                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
-                    </ram:ApplicableCITradeTax>
-                    <ram:BillingCISpecifiedPeriod>
-                        <ram:StartDateTime>
-                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
-                        </ram:StartDateTime>
-                        <ram:EndDateTime>
-                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
-                        </ram:EndDateTime>
-                    </ram:BillingCISpecifiedPeriod>
-                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
-                <ram:ApplicableCITradeProduct>
-                    <ram:Name>D001-2</ram:Name>
-                </ram:ApplicableCITradeProduct>
             </ram:SubordinateCIILBSubordinateTradeLineItem>
             <ram:SubordinateCIILBSubordinateTradeLineItem>
                 <ram:ID>3</ram:ID>
-                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
-                    <ram:NetPriceProductCITradePrice>
-                        <ram:ChargeAmount>3490</ram:ChargeAmount>
-                        <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
-                    </ram:NetPriceProductCITradePrice>
-                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
-                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
-                    <ram:BilledQuantity unitCode="H87">1</ram:BilledQuantity>
-                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
                 <ram:SpecifiedCIILBSupplyChainTradeSettlement>
                     <ram:ApplicableCITradeTax>
-                        <ram:TypeCode>VAT</ram:TypeCode>
                         <ram:BasisAmount>3490</ram:BasisAmount>
+                        <ram:TypeCode>VAT</ram:TypeCode>
                         <ram:CategoryCode>E</ram:CategoryCode>
                         <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
                     </ram:ApplicableCITradeTax>
@@ -242,9 +231,18 @@
                         </ram:EndDateTime>
                     </ram:BillingCISpecifiedPeriod>
                 </ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                    <ram:BilledQuantity unitCode="H87">1</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
                 <ram:ApplicableCITradeProduct>
                     <ram:Name>D001-3</ram:Name>
                 </ram:ApplicableCITradeProduct>
+                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                    <ram:NetPriceProductCITradePrice>
+                        <ram:ChargeAmount>3490</ram:ChargeAmount>
+                        <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
+                    </ram:NetPriceProductCITradePrice>
+                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
             </ram:SubordinateCIILBSubordinateTradeLineItem>
         </ram:IncludedCIILSupplyChainTradeLineItem>
     </rsm:CIIHSupplyChainTradeTransaction>
