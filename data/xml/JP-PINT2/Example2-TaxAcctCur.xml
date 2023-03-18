@@ -23,6 +23,9 @@
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
                 <cbc:CompanyID>T1234567890123</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>XYZ Digital Learning Services, Inc.</cbc:RegistrationName>
@@ -53,6 +56,9 @@
         </cac:PostalAddress>
         <cac:PartyTaxScheme>
             <cbc:CompanyID>T7654321098765</cbc:CompanyID>
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
         </cac:PartyTaxScheme>
     </cac:TaxRepresentativeParty>
     <cac:PaymentMeans>
@@ -107,7 +113,7 @@
         <cac:TaxSubtotal>
             <cac:TaxCategory>
                 <cac:TaxScheme>
-                    <cbc:ID currencyID="EUR">VAT</cbc:ID>
+                    <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:TaxCategory>
         </cac:TaxSubtotal>

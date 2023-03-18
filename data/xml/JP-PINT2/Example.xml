@@ -15,6 +15,10 @@
         <cbc:StartDate>2023-10-18</cbc:StartDate>
         <cbc:EndDate>2023-10-18</cbc:EndDate>
     </cac:InvoicePeriod>
+    <cac:OrderReference>
+        <cbc:ID>O-998877</cbc:ID>
+        <cbc:SalesOrderID>SO-12343</cbc:SalesOrderID>
+    </cac:OrderReference>
     <cac:BillingReference>
         <cac:InvoiceDocumentReference>
             <cbc:ID>123</cbc:ID>
@@ -30,24 +34,12 @@
     <cac:OriginatorDocumentReference>
         <cbc:ID>ppid-123</cbc:ID>
     </cac:OriginatorDocumentReference>
+    <cac:ContractDocumentReference>
+        <cbc:ID>framework no 1</cbc:ID>
+    </cac:ContractDocumentReference>
     <cac:AdditionalDocumentReference>
-        <cbc:ID>DR35141</cbc:ID>
-        <cbc:DocumentDescription>Usage summary</cbc:DocumentDescription>
-        <cac:Attachment>
-            <cbc:EmbeddedDocumentBinaryObject filename="report.csv" mimeCode="text/csv"/>
-            <cac:ExternalReference>
-                <cbc:URI>http://www.salescompany.com/summary001.html</cbc:URI>
-            </cac:ExternalReference>
-        </cac:Attachment>
-    </cac:AdditionalDocumentReference>
-    <cac:AdditionalDocumentReference>
-        <cbc:ID schemeID="ABT"/>
-        <cbc:DocumentDescription>Usage breakdown</cbc:DocumentDescription>
-        <cac:Attachment>
-            <cac:ExternalReference>
-                <cbc:URI>http://www.salescompany.com/breakdown001.html</cbc:URI>
-            </cac:ExternalReference>
-        </cac:Attachment>
+        <cbc:ID schemeID="ABT">DR35141</cbc:ID>
+        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
     </cac:AdditionalDocumentReference>
     <cac:ProjectReference>
         <cbc:ID>project333</cbc:ID>
@@ -76,10 +68,14 @@
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
                 <cbc:CompanyID>T1234567890123</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>株式会社 〇〇商事</cbc:RegistrationName>
                 <cbc:CompanyID schemeID="0188">1234567890123</cbc:CompanyID>
+                <cbc:CompanyLegalForm>Private Limited Company</cbc:CompanyLegalForm>
             </cac:PartyLegalEntity>
             <cac:Contact>
                 <cbc:Name>青木 志郎</cbc:Name>
@@ -112,6 +108,9 @@
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
                 <cbc:CompanyID>T3210987654321</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>株式会社 〇〇物産</cbc:RegistrationName>
@@ -154,6 +153,9 @@
         </cac:PostalAddress>
         <cac:PartyTaxScheme>
             <cbc:CompanyID>T7654321098765</cbc:CompanyID>
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
         </cac:PartyTaxScheme>
     </cac:TaxRepresentativeParty>
     <cac:Delivery>
@@ -198,6 +200,9 @@
         <cac:TaxCategory>
             <cbc:ID>S</cbc:ID>
             <cbc:Percent>10</cbc:Percent>
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
         </cac:TaxCategory>
     </cac:AllowanceCharge>
     <cac:AllowanceCharge>
@@ -208,6 +213,9 @@
         <cac:TaxCategory>
             <cbc:ID>S</cbc:ID>
             <cbc:Percent>10</cbc:Percent>
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
         </cac:TaxCategory>
     </cac:AllowanceCharge>
     <cac:TaxTotal>
@@ -245,6 +253,12 @@
         <cbc:PayableAmount currencyID="JPY">289490</cbc:PayableAmount>
     </cac:LegalMonetaryTotal>
     <cac:InvoiceLine>
+        <cac:DespatchLineReference>
+            <cbc:LineID>NA</cbc:LineID>
+            <cac:DocumentReference>
+                <cbc:ID>789</cbc:ID>
+            </cac:DocumentReference>
+        </cac:DespatchLineReference>
         <cbc:ID>1</cbc:ID>
         <cbc:Note>The equipment has 3 year warranty.</cbc:Note>
         <cbc:InvoicedQuantity unitCode="H87">5</cbc:InvoicedQuantity>
@@ -260,19 +274,12 @@
                 <cbc:ID>1</cbc:ID>
             </cac:OrderReference>
         </cac:OrderLineReference>
-        <cac:DespatchLineReference>
-            <cac:DocumentReference>
-                <cbc:ID>789</cbc:ID>
-            </cac:DocumentReference>
-        </cac:DespatchLineReference>
+        <cac:DocumentReference>
+            <cbc:ID schemeID="ABZ">AB-123</cbc:ID>
+            <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+        </cac:DocumentReference>
         <cac:DocumentReference>
             <cbc:ID>D001-1</cbc:ID>
-        </cac:DocumentReference>
-        <cac:DocumentReference>
-            <cbc:ID>AB-123</cbc:ID>
-        </cac:DocumentReference>
-        <cac:DocumentReference>
-            <cbc:ID schemeID="ABZ"/>
         </cac:DocumentReference>
         <cac:AllowanceCharge>
             <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
@@ -320,6 +327,25 @@
             <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
         </cac:Price>
     </cac:InvoiceLine>
+    <cac:AdditionalDocumentReference>
+        <cbc:ID>doc1</cbc:ID>
+        <cbc:DocumentDescription>Usage summary</cbc:DocumentDescription>
+        <cac:Attachment>
+            <cbc:EmbeddedDocumentBinaryObject filename="report.csv" mimeCode="text/csv">aHR0cHM6Ly90ZXN0LXZlZmEuZGlmaS5uby9wZXBwb2xiaXMvcG9hY2MvYmlsbGluZy8zLjAvYmlzLw==</cbc:EmbeddedDocumentBinaryObject>
+            <cac:ExternalReference>
+                <cbc:URI>http://www.salescompany.com/summary001.html</cbc:URI>
+            </cac:ExternalReference>
+        </cac:Attachment>
+    </cac:AdditionalDocumentReference>
+    <cac:AdditionalDocumentReference>
+        <cbc:ID>doc2</cbc:ID>
+        <cbc:DocumentDescription>Usage breakdown</cbc:DocumentDescription>
+        <cac:Attachment>
+            <cac:ExternalReference>
+                <cbc:URI>http://www.salescompany.com/breakdown001.html</cbc:URI>
+            </cac:ExternalReference>
+        </cac:Attachment>
+    </cac:AdditionalDocumentReference>
     <cac:InvoiceLine>
         <cbc:ID>2</cbc:ID>
         <cbc:InvoicedQuantity unitCode="H87">5</cbc:InvoicedQuantity>
@@ -358,8 +384,8 @@
             <cbc:PriceAmount currencyID="JPY">500</cbc:PriceAmount>
             <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
             <cac:AllowanceCharge>
-                <cbc:Amount currencyID="JPY">100</cbc:Amount>
                 <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="JPY">100</cbc:Amount>
                 <cbc:BaseAmount currencyID="JPY">600</cbc:BaseAmount>
             </cac:AllowanceCharge>
         </cac:Price>

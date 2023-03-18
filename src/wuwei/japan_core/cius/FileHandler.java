@@ -294,16 +294,11 @@ public class FileHandler {
 							strippedXPath.indexOf("ram:FaxCIUniversalCommunication") > 0 ||
 							strippedXPath.indexOf("ram:EmailURICIUniversalCommunication") > 0 ))
 						level -= 1;
-//					if (null==synSort)
-//						if (TRACE) System.out.println(synSort);
 					parents[level] = synSort;
 					if (level > 0) {
 						parent_level                = level - 1;
 						Integer parentSynSort       = parents[parent_level];
 						ArrayList<Integer> children = null;
-//						if (null==parentSynSort) {
-//							if (TRACE) System.out.println(synSort);
-//						} else {
 						if (synChildMap.containsKey(parentSynSort)) {
 							children = synChildMap.get(parentSynSort);
 						} else {
@@ -314,7 +309,6 @@ public class FileHandler {
 						for (Integer childSynSort: children) {
 							synParentMap.put(childSynSort, parentSynSort);
 						}
-//						}
 					}
 				}
 			}
@@ -452,7 +446,6 @@ public class FileHandler {
 			Node node = nodes.get(i);
 			String value = node.getTextContent().trim();
 			nodeValueMap.put(i, value);
-//			if (TRACE) System.out.println(i+" "+node.getNodeName()+" "+value);
 		}
 		return nodeValueMap;
 	}
@@ -583,29 +576,32 @@ public class FileHandler {
 
 			}
 			// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
-			if (xPath.indexOf("true")>0)
+			if (xPath.indexOf("true")>0) {
 				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=true\\(\\)\\]","[normalize-space($1/text())='true']");
-			else if (xPath.indexOf("false")>0)
+			} else if (xPath.indexOf("false")>0) {
 				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=false\\(\\)\\]","[normalize-space($1/text())='false']");
 			// XMLパーサーが[cbc:TaxAmount/@currencyID=./cbc:DocumentCurrencyCode]を正しく判定できないので、固定値との比較に書き換える。
-			else if (xPath.indexOf("cbc:DocumentCurrencyCode]")>0)
-				xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:DocumentCurrencyCode","'"+DOCUMENT_CURRENCY+"'");
-			else if (xPath.indexOf("cbc:TaxCurrencyCode]")>0)
-				xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:TaxCurrencyCode","'"+TAX_CURRENCY+"'");				
+			} else if  (0==PROCESSING.indexOf("JP-PINT")) {
+				if (xPath.indexOf("cbc:DocumentCurrencyCode]")>0) {
+					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:DocumentCurrencyCode","'"+DOCUMENT_CURRENCY+"'");
+				} else if (xPath.indexOf("cbc:TaxCurrencyCode]")>0) {
+					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:TaxCurrencyCode","'"+TAX_CURRENCY+"'");
+				}
+			} else if (0==PROCESSING.indexOf("SME-COMMON")) {
+				if (xPath.indexOf("ram:InvoiceCurrencyCode]")>0) {
+					xPath = xPath.replaceAll(
+							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode",
+							"'"+DOCUMENT_CURRENCY+"'");
+				} else if (xPath.indexOf("ram:TaxCurrencyCode]")>0) {
+					xPath = xPath.replaceAll(
+							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode",
+							"'"+TAX_CURRENCY+"'");
+				}
+			}
 			expr     = xpath.compile(xPath);
 			result   = (NodeList) expr.evaluate(parent, XPathConstants.NODESET);
 			nodeList = asList(result); // https://stackoverflow.com/questions/50509663/convert-nodelist-to-list-in-java
 			int len  = nodeList.size();
-//			if (0==len) {
-//				String nodeName = parent.getNodeName();
-//				if ("Invoice".equals(nodeName) && "./".equals(xPath.substring(0,2))) {
-//					xPath    = "/*"+xPath.substring(1);
-//					expr     = xpath.compile(xPath);
-//					result   = (NodeList) expr.evaluate(root, XPathConstants.NODESET);
-//					nodeList = asList(result);
-//					len      = nodeList.size();
-//				}
-//			}
 			for (int i = 0; i < len; i++) {
 			  final Node node = nodeList.get(i);
 			  if (node.getNodeType() == Node.ELEMENT_NODE ||
@@ -830,14 +826,6 @@ public class FileHandler {
 		
 		CSV.writeFile(fileOutputStream, data, charset, delimiter);
 		fileOutputStream.close();
-		
-//		if (DEBUG) {
-//			int lastIndex = filename.lastIndexOf('.');
-//	        String fname = filename.substring(0, lastIndex);
-//			FileOutputStream fileOutputStream16LE = new FileOutputStream(fname+"_UTF-16LE.csv");
-//			CSV.writeFile(fileOutputStream16LE, data, "UTF-16LE", "\t");
-//			fileOutputStream16LE.close();
-//		}
 	}
 
 	/**

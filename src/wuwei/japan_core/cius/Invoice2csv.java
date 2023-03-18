@@ -10,6 +10,7 @@ import java.util.TreeMap;
 
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 /**
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
@@ -334,8 +335,8 @@ public class Invoice2csv {
 		Binding binding     = FileHandler.semBindingMap.get(sort);
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
-		if (0==id.indexOf("JBT-417"))
-			System.out.println(id+" "+businessTerm);
+//		if (0==id.indexOf("JBT-417"))
+//			System.out.println(id+" "+businessTerm);
 
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
@@ -380,6 +381,7 @@ public class Invoice2csv {
 						
 						if (FileHandler.semChildMap.containsKey(childSort)) {
 							ArrayList<Integer> grandchildren = FileHandler.semChildMap.get(childSort);
+//							Node childNode          = child.getFirstChild();
 							NamedNodeMap attributes = child.getAttributes();
 							for (Integer grandchildSort : grandchildren) {
 								Binding grandchildBinding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
@@ -395,6 +397,22 @@ public class Invoice2csv {
 											" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
 											"\n    @"+attrName+"("+grandchildSort+") = "+grandchildValue);
 										fillData(grandchildSort, grandchildValue, boughMap);
+									}
+								} else {									
+									ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
+									List<Node> grandchildNodes = parsedNode.nodes;
+									for (int j = 0; j < grandchildNodes.size(); j++) {
+										Integer lastKey = boughMap.lastKey();
+										Integer lastID = boughMap.get(lastKey);
+										if (0==i-lastID) {
+											Node grandchild           = grandchildNodes.get(lastID);
+											String grandchildNodeName = grandchild.getNodeName();
+											String grandchildValue    = grandchild.getTextContent().trim();
+											if (TRACE) System.out.println("* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+
+													" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
+													"\n    grand child["+lastKey+"] "+grandchildNodeName+"="+grandchildValue);		
+											fillData(grandchildSort, grandchildValue, boughMap);
+										}
 									}
 								}
 							}

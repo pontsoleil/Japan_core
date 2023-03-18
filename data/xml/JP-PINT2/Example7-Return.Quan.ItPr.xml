@@ -11,25 +11,6 @@
         <cbc:StartDate>2023-10-24</cbc:StartDate>
         <cbc:EndDate>2023-10-24</cbc:EndDate>
     </cac:InvoicePeriod>
-    <cac:AdditionalDocumentReference>
-        <cbc:ID>doc1</cbc:ID>
-        <cbc:DocumentDescription>Usage summary</cbc:DocumentDescription>
-        <cac:Attachment>
-            <cbc:EmbeddedDocumentBinaryObject filename="report.csv" mimeCode="text/csv"/>
-            <cac:ExternalReference>
-                <cbc:URI>http://www.salescompany.com/summary001.html</cbc:URI>
-            </cac:ExternalReference>
-        </cac:Attachment>
-    </cac:AdditionalDocumentReference>
-    <cac:AdditionalDocumentReference>
-        <cbc:ID>doc2</cbc:ID>
-        <cbc:DocumentDescription>Usage breakdown</cbc:DocumentDescription>
-        <cac:Attachment>
-            <cac:ExternalReference>
-                <cbc:URI>http://www.salescompany.com/breakdown001.html</cbc:URI>
-            </cac:ExternalReference>
-        </cac:Attachment>
-    </cac:AdditionalDocumentReference>
     <cac:AccountingSupplierParty>
         <cac:Party>
             <cbc:EndpointID schemeID="0188">1234567890123</cbc:EndpointID>
@@ -51,10 +32,14 @@
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
                 <cbc:CompanyID>T1234567890123</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>株式会社 〇〇商事</cbc:RegistrationName>
                 <cbc:CompanyID schemeID="0188">1234567890123</cbc:CompanyID>
+                <cbc:CompanyLegalForm>Private Limited Company</cbc:CompanyLegalForm>
             </cac:PartyLegalEntity>
             <cac:Contact>
                 <cbc:Name>青木 志郎</cbc:Name>
@@ -84,6 +69,9 @@
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
                 <cbc:CompanyID>T3210987654321</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>株式会社 〇〇物産</cbc:RegistrationName>
@@ -173,4 +161,23 @@
             <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
         </cac:Price>
     </cac:InvoiceLine>
+    <cac:AdditionalDocumentReference>
+        <cbc:ID>doc1</cbc:ID>
+        <cbc:DocumentDescription>Usage summary</cbc:DocumentDescription>
+        <cac:Attachment>
+            <cbc:EmbeddedDocumentBinaryObject filename="report.csv" mimeCode="text/csv">aHR0cHM6Ly90ZXN0LXZlZmEuZGlmaS5uby9wZXBwb2xiaXMvcG9hY2MvYmlsbGluZy8zLjAvYmlzLw==</cbc:EmbeddedDocumentBinaryObject>
+            <cac:ExternalReference>
+                <cbc:URI>http://www.salescompany.com/summary001.html</cbc:URI>
+            </cac:ExternalReference>
+        </cac:Attachment>
+    </cac:AdditionalDocumentReference>
+    <cac:AdditionalDocumentReference>
+        <cbc:ID>doc2</cbc:ID>
+        <cbc:DocumentDescription>Usage breakdown</cbc:DocumentDescription>
+        <cac:Attachment>
+            <cac:ExternalReference>
+                <cbc:URI>http://www.salescompany.com/breakdown001.html</cbc:URI>
+            </cac:ExternalReference>
+        </cac:Attachment>
+    </cac:AdditionalDocumentReference>
 </Invoice>
