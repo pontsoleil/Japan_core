@@ -69,8 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
         exec($cmd,$output,$retval);
 
         $csv_contents = file_get_contents($csvfile);
-        $xml_contents = file_get_contents($xmlfile);
+        $xml_contents = file_get_contents($xmlfile);        
         wh_log(substr($xml_contents,0,1000));
+
+        
+
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode(

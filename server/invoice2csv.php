@@ -50,43 +50,54 @@ function escaped_entities($string) {
 }
 
 chdir(__DIR__);
-wh_log(__DIR__);
+// wh_log(__DIR__);
 wh_log($_SERVER['REQUEST_METHOD']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
     $uuid = UUID::v4();
     $syntax = htmlspecialchars($_POST["syntax"]);
     $file_tmp = $_FILES['file']['tmp_name'];
     $basename = basename($_FILES['file']['name']);
-    $xmlfile = 'data/xml/' . $basename;
+    $file_dirXML = 'data/' . $syntax . '/';
+    $xmlfile = $file_dirXML . $basename;
     list($filename, $extension) = explode('.', $basename);
-    $csv_basename = $filename . ".csv";
-    $csvfile = 'data/csv/' . $csv_basename;
-    $cmd = "java -classpath core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv {$syntax} {$xmlfile} {$csvfile}";
-    wh_log($cmd);
+    $file_dirCSV = 'data/CSV/';
+    $csvbasename = $filename . '.csv';
+    $csvfile = $file_dirCSV . $csvbasename;
+    $workfile = $file_dirCSV . $filename . '_work.csv';
+    $transposedfile = $file_dirCSV . $filename . '_transposed.csv';
     if (move_uploaded_file($file_tmp, $xmlfile)) {
+        $cmd1 = "java -classpath core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv {$syntax} {$xmlfile} {$workfile}";
+        wh_log($cmd1);
+        
+        exec($cmd1,$output1,$retval1);
 
-        exec($cmd,$output,$retval);
+        $cmd2 = "python3 transpose.py {$workfile} -c {$csvfile} -t {$transposedfile}";
+        wh_log($cmd2);
 
-        $xml_contents = file_get_contents($xmlfile);
+        exec($cmd2,$output2,$retval2);
+
+        $transposed_contents = file_get_contents($transposedfile);
+        wh_log('transposed contents : '.substr($transposed_contents,0,1000));
+
         $csv_contents = file_get_contents($csvfile);
-        wh_log(substr($csv_contents,0,1000));
+        wh_log('csv contents : '.substr($csv_contents,0,1000));
 
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode(
             array(
-                'return'=>$retval,
+                'return'=>$retval2,
                 'uuid'=>$uuid,
                 'syntax'=>$syntax,
                 'xmlfile'=>$basename,
-                'csvfile'=>$csv_basename,
-                'xml_contents'=>$xml_contents,
+                'csvfile'=>$csvbasename,
+                'transposed_contents'=>$transposed_contents,
                 'csv_contents'=>$csv_contents,
             ),
             JSON_UNESCAPED_UNICODE
         );
     } else {
-        echo "Possible file upload attack!<br>\n";
+        echo "Possible file upload failure!<br>\n";
         echo 'Here is some more debugging info:';
         print_r($_FILES);                
     }      

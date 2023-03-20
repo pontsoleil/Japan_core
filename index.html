@@ -77,8 +77,20 @@
                                 </fieldset>
                                 <button type="submit" value="Submit" class="btn btn-primary">変換</button>
                             </form>
+                            <div id="transposed_title" class="mt-3" ></div>
+                            <div style="width:100%; height:300px;overflow:auto;">
+                                <table id="transposed_table" class="table table-sm table-bordered table-striped mb-3">
+                                    <thead></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
                             <div id="csv_title" class="mt-3" ></div>
-                            <textarea id="csv_area" class="mb-3" style="width:100%; height:300px;" disabled="true"></textarea>
+                            <div style="width:100%; height:300px;overflow:auto;">
+                                <table id="csv_table" class="table table-sm table-bordered table-striped mb-3">
+                                    <thead></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>                            
                             <div id="xml_title" class="mt-3" ></div>
                             <textarea id="xml_area" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
                         </div>
@@ -110,7 +122,13 @@
                                     <button type="submit" value="Submit" class="btn btn-primary">変換</button>
                                 </form>
                                 <div id="csv_title" class="mt-3" ></div>
-                                <textarea id="csv_area" class="mb-3" style="width:100%; height:300px;" disabled="true"></textarea>
+                                <!-- <textarea id="csv_area" class="mb-3" style="width:100%; height:300px;" disabled="true"></textarea> -->
+                                <div style="width:100%; height:300px;overflow:auto;">
+                                    <table id="csv_table" class="table table-sm table-bordered table-striped mb-3">
+                                        <thead></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
                                 <div id="xml_title" class="mt-3"></div>
                                 <textarea id="xml_area" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
                             </div>

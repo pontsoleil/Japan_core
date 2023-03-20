@@ -43,7 +43,7 @@ syntax_binding_file = 'syntax_binding.csv'
 jp_pint_binding_file = 'jp_pint_binding.csv'
 sme_binding_file = 'sme_binding.csv'
 
-out_base = 'data/TRANSPOSE/'
+transposed_base = 'data/TRANSPOSE/'
 
 def file_path(pathname):
 	if SEP == pathname[0:1]:
@@ -57,11 +57,12 @@ def file_path(pathname):
 if __name__ == '__main__':
 	# Create the parser
 	parser = argparse.ArgumentParser(prog='transpose-utf16.py',
-									 usage='%(prog)s infile -o outfile -e encoding [options] ',
+									 usage='%(prog)s infile -c csv_file -o transposed_file -e encoding [options] ',
 									 description='CSVファイルを転置する')
 	# Add the arguments
 	parser.add_argument('inFile', metavar='infile', type=str, help='定義CSVファイル')
-	parser.add_argument('-o', '--outfile')  # core.xsd
+	parser.add_argument('-c', '--csvFile')
+	parser.add_argument('-t', '--transposedFile')
 	parser.add_argument('-e', '--encoding')  # 'Shift_JIS' 'cp932' 'utf_8'
 	parser.add_argument('-v', '--verbose', action='store_true')
 	parser.add_argument('-d', '--debug', action='store_true')
@@ -75,13 +76,24 @@ if __name__ == '__main__':
 	if not in_file or not os.path.isfile(in_file):
 		print('入力定義CSVファイルがありません')
 		sys.exit()
-	if args.outfile:
-		out_file = args.outfile.lstrip()
-		out_file = out_file.replace('/', SEP)
-		out_file = file_path(out_file)
-		out_base = os.path.dirname(out_file)
-	out_base = out_base.replace('/', SEP)
-	if not os.path.isdir(out_base):
+
+	if args.csvFile:
+		csv_file = args.csvFile.lstrip()
+		csv_file = csv_file.replace('/', SEP)
+		csv_file = file_path(csv_file)
+		csv_base = os.path.dirname(csv_file)
+	csv_base = csv_base.replace('/', SEP)
+	if not os.path.isdir(csv_base):
+		print('作業ディレクトリがありません')
+		sys.exit()
+
+	if args.transposedFile:
+		transposed_file = args.transposedFile.lstrip()
+		transposed_file = transposed_file.replace('/', SEP)
+		transposed_file = file_path(transposed_file)
+		transposed_base = os.path.dirname(transposed_file)
+	transposed_base = transposed_base.replace('/', SEP)
+	if not os.path.isdir(transposed_base):
 		print('出力ディレクトリがありません')
 		sys.exit()
 
@@ -103,9 +115,9 @@ if __name__ == '__main__':
 	for x in range(cols):
 		for y in range(rows):
 			used[x] += len(content[y][x])>0 and 1 or 0
+
 	used_cols = len([x for x in used if x > 1])
 	selected = [[0 for x in range(used_cols)] for y in range(rows)]
-	
 	i = 0
 	for x in range(cols):
 		if used[x] > 1:
@@ -113,10 +125,18 @@ if __name__ == '__main__':
 				selected[y][i] = content[y][x]
 			i += 1
 
+	with open(csv_file, 'w', encoding='utf_8', newline='') as f:
+		csvwriter = csv.writer(f)
+		csvwriter.writerows(selected)
+
 	transposed = [[0 for x in range(rows)] for y in range(used_cols)]
 	i = 0
 	for x in range(used_cols):
 		for y in range(rows):
 			transposed[x][y] = selected[y][x]
-	
+
+	with open(transposed_file, 'w', encoding='utf_8', newline='') as f:
+		csvwriter = csv.writer(f)
+		csvwriter.writerows(transposed)
+
 	print('END')
