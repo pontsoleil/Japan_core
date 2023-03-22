@@ -42,7 +42,8 @@ function wh_log($log_msg)
     file_put_contents($log_file_data, $log_msg . "\n", FILE_APPEND);
 }
 
-class UUID {
+class UUID
+{
 // https://www.php.net/manual/ja/function.uniqid.php
 // 141 Andrew Moore
     public static function v4()
@@ -82,40 +83,48 @@ function escaped_entities($string)
     );
 }
 
+// 定義したエラーハンドラを設定する
+$old_error_handler = set_error_handler("errorHandler");
+
 chdir(__DIR__);
 wh_log($_SERVER['REQUEST_METHOD']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     $uuid = UUID::v4();
     $syntax = htmlspecialchars($_POST["syntax"]);
+    list($source, $target) = explode('_', $syntax);
     if (isset($_FILES['file'])) {
         $file_tmp = $_FILES['file']['tmp_name'];
         $basename = basename($_FILES['file']['name']);
-        $file_dirXML = 'data/source/xml/' . $syntax . '/';
-        $xml_file = $file_dirXML . $basename;
-        if (move_uploaded_file($file_tmp, $xml_file)) {
-            wh_log("moved uploaded file to {$xml_file}");
-        } else {
+        $file_dirFrom = 'data/source/xml/'.$source.'/';
+        $source_xml = $file_dirFrom . $basename;
+        if (move_uploaded_file($file_tmp, $source_xml)) {
+            wh_log("moved uploaded file to {$source_xml}");
+        }
+        else {
             echo "Possible file upload failure!<br>\n";
-            echo 'Failed to move uploaded file to {$xml_file}';
+            echo 'Failed to move uploaded file to {$source_xml}';
             return FALSE;
         }
     }
     else {
         $basename = htmlspecialchars($_POST["selected"]);
-        $file_dirXML = 'JP-PINT/';
-        $xml_file = $file_dirXML . $basename;
+        $file_dirFrom = 'JP-PINT/';
+        $source_xml = $file_dirFrom . $basename;
     }
     list($filename, $extension) = explode('.', $basename);
     $file_dirCSV = 'data/target/csv/';
-    $csvbasename = $filename . '.csv';
-    $csv_file = $file_dirCSV . $csvbasename;
+    $csv_basename = $filename . '.csv';
+    $csv_file = $file_dirCSV . $csv_basename;
     $workfile = $file_dirCSV . $filename . '_work.csv';
     $transposed_file = $file_dirCSV . $filename . '_transposed.csv';
 
-    $cmd1 = 'java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv '.$syntax.' "'.$xml_file.'" "'.$workfile.'"';
+    $file_dirTo = 'data/target/xml/'.$target.'/';
+    $target_xml = $file_dirTo . $basename;
+
+    $cmd1 = 'java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv '.$source.' "'.$source_xml.'" "'.$workfile.'"';
     exec($cmd1,$output1,$retval1);
-    wh_log($cmd1.' returns '.$retval1);
+    wh_log($cmd1.'returns '.$retval1);
     if ($retval1 > 0)
     {
         trigger_error("Failed {$retval1}<br />\n{$cmd1}<br />\n{$output1}", E_USER_ERROR);
@@ -123,31 +132,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
     $cmd2 = 'python3 transpose.py "'.$workfile.'" -c "'.$csv_file.'" -t "'.$transposed_file.'"';
     exec($cmd2,$output2,$retval2);
-    wh_log($cmd2.' returns '.$retval2);
+    wh_log($cmd2.'returns '.$retval2);
     if ($retval2 > 0)
     {
-        trigger_error("Failed {$retval2}<br />\n{$cmd2}<br />\n{$output2}", E_USER_ERROR);
+        trigger_error("Failed {$retval2}<br />\n$cmd2}<br />\n{$output2}", E_USER_ERROR);
     }
 
-    $xml_contents = file_get_contents($xml_file);
-    wh_log($xml_file.' xml contents: '.$xml_contents);
+    $cmd3 = 'java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Csv2invoice '.$target.' "'.$csv_file.'" "'.$target_xml.'"';
+    exec($cmd3,$output3,$retval3);
+    wh_log($cmd3.'returns '.$retval3);
+    if ($retval3 > 0)
+    {
+        trigger_error("Failed {$retval3}<br />\n{$cmd3}<br />\n{$output3}", E_USER_ERROR);
+    }
+
+    $source_contents = file_get_contents($source_xml);
+    wh_log($source_xml.' source contents: '.substr($source_contents,0,1024));
     $transposed_contents = file_get_contents($transposed_file);
-    wh_log($transposed_file.' transposed contents: '.$transposed_contents);
+    wh_log($transposed_file.' transposed contents: '.substr($transposed_contents,0,1024));
     $csv_contents = file_get_contents($csv_file);
-    wh_log($csv_file.' csv contents: '.$csv_contents);
+    wh_log($csv_file.' csv contents: '.substr($csv_contents,0,1024));
+    $target_contents = file_get_contents($target_xml);
+    wh_log($target_xml.' target contents: '.substr($target_contents,0,1024));
 
     header("HTTP/1.1 200 OK");
     header("Content-Type: application/json; charset=utf-8");
     echo json_encode(
         array(
             'uuid'=>$uuid,
-            'syntax'=>$syntax,
-            'xml_file'=>$xml_file,
-            'transposed_file'=>$transposed_file,
+            'source'=>$source,
+            'target'=>$target,
+            'source_xml'=>$source_xml,
             'csv_file'=>$csv_file,
-            'xml_contents'=>$xml_contents,
-            'transposed_contents'=>$transposed_contents,
+            'transposed_file'=>$transposed_file,
+            'target_xml'=>$target_xml,
+            'source_contents'=>$source_contents,
             'csv_contents'=>$csv_contents,
+            'transposed_contents'=>$transposed_contents,
+            'target_contents'=>$target_contents,
         ),
         JSON_UNESCAPED_UNICODE
     );

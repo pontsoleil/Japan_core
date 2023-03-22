@@ -12,10 +12,10 @@ convert = (function () {
           r.onload = function(e) { 
             var contents = e.target.result;
             if (f.name.indexOf(".csv") > 0) {
-                document.querySelector('#csv2invoice #csv_title').innerHTML = f.name;
+                document.querySelector('#csv2invoice #csv_title .name').innerHTML = f.name;
                 document.querySelector('#csv2invoice #csv_area').textContent = contents;
             } else {
-                document.querySelector('#invoice2csv #xml_title').textContent = f.name;
+                document.querySelector('#invoice2csv #xml_title .name').innerHTML = f.name;
                 document.querySelector('#invoice2csv #xml_area').textContent = contents;
                 contents = contents.substring(contents.indexOf(">")+1,100);
                 let start = 1 + contents.indexOf("<");
@@ -32,8 +32,8 @@ convert = (function () {
                     document.querySelectorAll('#invoice2csv input[name="syntax"]')[1].checked=true
                     document.querySelectorAll('#csv2invoice input[name="syntax"]')[1].checked=true
                 }
-                let xmlfile = f.name;
-                document.querySelector('#invoice2csv #xml_title').innerHTML = syntax + ': ' + xmlfile;
+                let xml_file = f.name;
+                document.querySelector('#invoice2csv #xml_title .name').innerHTML = syntax + ': ' + xml_file;
             }        
             // alert( "Got the file.n" 
             //       +"name: " + f.name + "n"
@@ -68,10 +68,10 @@ convert = (function () {
                 let response = JSON.parse(data);
                 let syntax = response.syntax;
                 let uuid = response.uuid;
-                let csvfile = response.csvfile;
-                document.querySelector('#invoice2csv #csv_title').innerHTML = csvfile;
-                let xmlfile = response.xmlfile;
-                document.querySelector('#invoice2csv #xml_title').innerHTML = syntax + ': ' + xmlfile;
+                let csv_file = response.csv_file;
+                document.querySelector('#invoice2csv #csv_title .name').innerHTML = csv_file;
+                let xml_file = response.xml_file;
+                document.querySelector('#invoice2csv #xml_title .name').innerHTML = syntax + ': ' + xml_file;
                 let csv_contents = response.csv_contents;
                 document.querySelector('#invoice2csv #csv_area').textContent = csv_contents;
                 let xml_contents = response.xml_contents;
@@ -100,10 +100,10 @@ convert = (function () {
                 let response = JSON.parse(data);
                 let syntax = response.syntax;
                 let uuid = response.uuid;
-                let csvfile = response.csvfile;
-                document.querySelector('#csv2invoice #csv_title').innerHTML = csvfile;
-                let xmlfile = response.xmlfile;
-                document.querySelector('#csv2invoice #xml_title').innerHTML = syntax + ': ' + xmlfile;
+                let csv_file = response.csv_file;
+                document.querySelector('#csv2invoice #csv_title .name').innerHTML = csv_file;
+                let xml_file = response.xml_file;
+                document.querySelector('#csv2invoice #xml_title .name').innerHTML = syntax + ': ' + xml_file;
                 let csv_contents = response.csv_contents;
                 document.querySelector('#csv2invoice #csv_area').textContent = csv_contents;
                 let xml_contents = response.xml_contents;

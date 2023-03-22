@@ -62,7 +62,7 @@ if __name__ == '__main__':
 		for row in reader:
 			desc = row['desc'].replace(r'\n', r'\\n')
 			if len(row['pint_xpath']) > 0:
-				pint_desc = row['pint_desc'].replace(r'\n', r'\\n')
+				desc_ja = row['pint_desc'].replace(r'\n', r'\\n')
 				jp_pint_entry = {}
 				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
 				jp_pint_entry['id'] = row['id']
@@ -73,15 +73,15 @@ if __name__ == '__main__':
 				jp_pint_entry['defaultValue'] = row['pint_defaultValue']
 				jp_pint_entry['dataType'] = row['datatype']
 				jp_pint_entry['syntaxID'] = row['pint_Id']
-				jp_pint_entry['businessTerm_ja'] = row['pint_name']
-				jp_pint_entry['desc_ja'] = pint_desc
+				jp_pint_entry['businessTerm'] = row['pint_name']
+				jp_pint_entry['businessTerm_ja'] = row['pint_name_ja']
+				jp_pint_entry['desc_ja'] = desc_ja
 				jp_pint_entry['synSort'] = row['pint_sort'] and int(row['pint_sort']) or 0
 				jp_pint_entry['xPath'] = row['pint_xpath']
 				jp_pint_entry['occur'] = row['pint_card']
 				jp_pint_entries.append(jp_pint_entry)
 			if len(row['sme_xpath']) > 0:
-				sme_desc = row['sme_desc']
-				sme_desc = sme_desc.replace(r'\n', r'\\n')
+				desc_ja = row['sme_desc'].replace(r'\n', r'\\n')
 				sme_entry = {}
 				sme_entry['semSort'] = row['num'] and int(row['num']) or 0
 				sme_entry['id'] = row['id']
@@ -93,7 +93,7 @@ if __name__ == '__main__':
 				sme_entry['dataType'] = row['datatype']
 				sme_entry['syntaxID'] = row['UN_CCL_ID']
 				sme_entry['businessTerm_ja'] = row['sme_name']
-				sme_entry['desc_ja'] = sme_desc
+				sme_entry['desc_ja'] = desc_ja
 				sme_entry['synSort'] = row['sme_sort'] and int(row['sme_sort']) or 0
 				sme_entry['xPath'] = row['sme_xpath']
 				sme_entry['occur'] = row['sme_occur']
