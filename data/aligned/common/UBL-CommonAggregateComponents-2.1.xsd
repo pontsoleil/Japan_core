@@ -32,6 +32,7 @@
   <xsd:element name="Party" type="PartyType"/>
   <xsd:element name="PartyIdentification" type="PartyIdentificationType"/>
   <xsd:element name="PartyName" type="PartyNameType"/>
+  <xsd:element name="Address" type="AddressType"/>
   <xsd:element name="PostalAddress" type="AddressType"/>
   <xsd:element name="AddressLine" type="AddressLineType"/>
   <xsd:element name="Country" type="CountryType"/>
@@ -60,10 +61,12 @@
   <xsd:element name="LegalMonetaryTotal" type="MonetaryTotalType"/>
   <xsd:element name="InvoiceLine" type="InvoiceLineType"/>
   <xsd:element name="OrderLineReference" type="OrderLineReferenceType"/>
-  <xsd:element name="OrderReference" type="OrderReferenceType"/>
+  <xsd:element name="DocumentReference" type="DocumentReferenceType"/>
   <xsd:element name="DespatchLineReference" type="LineReferenceType"/>
   <xsd:element name="Item" type="ItemType"/>
+  <xsd:element name="SellersItemIdentification" type="ItemIdentificationType"/>
   <xsd:element name="BuyersItemIdentification" type="ItemIdentificationType"/>
+  <xsd:element name="StandardItemIdentification" type="ItemIdentificationType"/>
   <xsd:element name="OriginCountry" type="CountryType"/>
   <xsd:element name="CommodityClassification" type="CommodityClassificationType"/>
   <xsd:element name="ClassifiedTaxCategory" type="TaxCategoryType"/>
