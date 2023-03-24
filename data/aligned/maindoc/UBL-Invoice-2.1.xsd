@@ -15,16 +15,11 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns:ccts="urn:un:unece:uncefact:documentation:2" 
   targetNamespace="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" 
-  elementFormDefault="qualified" 
-  attributeFormDefault="unqualified" 
-  version="2.1">
+  elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
   <!--  ===== Imports =====  -->
-  <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
-    schemaLocation="../common/UBL-CommonAggregateComponents-2.1.xsd"/>
-  <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
-    schemaLocation="../common/UBL-CommonBasicComponents-2.1.xsd"/>
-  <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" 
-    schemaLocation="../common/UBL-CommonExtensionComponents-2.1.xsd"/>
+  <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" schemaLocation="../common/UBL-CommonAggregateComponents-2.1.xsd"/>
+  <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" schemaLocation="../common/UBL-CommonBasicComponents-2.1.xsd"/>
+  <!--<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" schemaLocation="../common/UBL-CommonExtensionComponents-2.1.xsd"/>-->
   <!--  ===== Element Declarations =====  -->
   <xsd:element name="Invoice" type="InvoiceType">
     <xsd:annotation>
@@ -233,7 +228,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ref="cbc:Note" minOccurs="0" maxOccurs="1"><!--unbounded"-->
+      <xsd:element ref="cbc:Note" minOccurs="0" maxOccurs="1">        <!--unbounded"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>
@@ -265,7 +260,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ref="cbc:DocumentCurrencyCode" minOccurs="1" maxOccurs="1"><!--minOccurs="0"-->
+      <xsd:element ref="cbc:DocumentCurrencyCode" minOccurs="1" maxOccurs="1">        <!--minOccurs="0"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>
@@ -420,7 +415,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ref="cac:InvoicePeriod" minOccurs="0" maxOccurs="1"><!--maxOccurs="unbounded"-->
+      <xsd:element ref="cac:InvoicePeriod" minOccurs="0" maxOccurs="1">        <!--maxOccurs="unbounded"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>
@@ -469,7 +464,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ref="cac:DespatchDocumentReference" minOccurs="0" maxOccurs="1"><!--maxOccurs="unbounded"-->
+      <xsd:element ref="cac:DespatchDocumentReference" minOccurs="0" maxOccurs="1">        <!--maxOccurs="unbounded"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>
@@ -486,7 +481,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ref="cac:ReceiptDocumentReference" minOccurs="0" maxOccurs="1"><!-- maxOccurs="unbounded"-->
+      <xsd:element ref="cac:ReceiptDocumentReference" minOccurs="0" maxOccurs="1">        <!-- maxOccurs="unbounded"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>
@@ -520,7 +515,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element> -->
-      <xsd:element ref="cac:OriginatorDocumentReference" minOccurs="0" maxOccurs="1"><!--maxOccurs="unbounded"-->
+      <xsd:element ref="cac:OriginatorDocumentReference" minOccurs="0" maxOccurs="1">        <!--maxOccurs="unbounded"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>
@@ -537,7 +532,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ref="cac:ContractDocumentReference" minOccurs="0" maxOccurs="1"><!--maxOccurs="unbounded"-->
+      <xsd:element ref="cac:ContractDocumentReference" minOccurs="0" maxOccurs="1">        <!--maxOccurs="unbounded"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>
@@ -571,7 +566,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ref="cac:ProjectReference" minOccurs="0" maxOccurs="1"><!--maxOccurs="unbounded"-->
+      <xsd:element ref="cac:ProjectReference" minOccurs="0" maxOccurs="1">        <!--maxOccurs="unbounded"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>

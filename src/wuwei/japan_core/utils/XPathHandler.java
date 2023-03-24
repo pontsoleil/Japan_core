@@ -30,12 +30,12 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathEvaluationResult;
+//import javax.xml.xpath.XPathEvaluationResult;
 import javax.xml.xpath.XPathException;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-import javax.xml.xpath.XPathNodes;
+//import javax.xml.xpath.XPathNodes;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -637,7 +637,7 @@ public class XPathHandler {
 	 * 
 	 * @param xpath 親要素のXPath / XPath of the parent Node.
 	 * @param childID 子要素のid /　id of the child Node.
-	 * @param child_datatype 子要素のおデータ型 / Data type of the child Node.
+	 * @param child_datatype 子要素のデータ型 / Data type of the child Node.
 	 * @param child_xpath 子要素のXPath / XPath of the child Node.
 	 * @return　更新された子要素のXPath / Replaced XPath of the child Node.
 	 */

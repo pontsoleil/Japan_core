@@ -21,10 +21,13 @@ public class XML_SchemeValidation {
 	 * @param args an array of command-line arguments for the application
 	 */
 	public static void main(String[] args) {
-//		System.out.println("EmployeeRequest.xml validates against Employee.xsd? "
-//				+ validateXMLSchema("xml/UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd", "xml/Example4-SumInv2.xml"));
-//		System.out.println("EmployeeRequest.xml validates against Employee.xsd? "
-//				+ validateXMLSchema("xml/UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd", "xml/Example4-SumInv2_out.xml"));
+		String schema_file = args[0];
+		String xml_file = args[1];
+		boolean result = validateXMLSchema(schema_file, xml_file);
+		System.out.println(xml_file + " validates against " + schema_file + " result=" +result);
+//		data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example.xml
+//		System.out.println("EmployeeRequest.xml validates against Employee.xsd? " + validateXMLSchema("xml/UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd", "xml/Example4-SumInv2.xml"));
+//		System.out.println("EmployeeRequest.xml validates against Employee.xsd? " + validateXMLSchema("data/aligned/maindoc/UBL-Invoice-2.1.xsd", "data/xml/JP-PINT/Example4-SumInv2_out.xml"));
 	}
 
 	/**

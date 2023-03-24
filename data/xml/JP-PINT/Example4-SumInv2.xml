@@ -9,7 +9,7 @@
     xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" 
     xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+    xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 file:///C:/Users/nobuy/GitHub/Japan_core/data/aligned/maindoc/UBL-Invoice-2.1.xsd">
 	<cbc:CustomizationID>urn:fdc:peppol:jp:billing:3.0</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
 	<cbc:ID>103</cbc:ID>
