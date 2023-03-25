@@ -62,7 +62,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element> -->
-      <xsd:element ref="cbc:CustomizationID" minOccurs="0" maxOccurs="1">
+      <xsd:element ref="cbc:CustomizationID" minOccurs="1" maxOccurs="1"> <!--minOccurs="0"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>
@@ -79,7 +79,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ref="cbc:ProfileID" minOccurs="0" maxOccurs="1">
+      <xsd:element ref="cbc:ProfileID" minOccurs="1" maxOccurs="1"> <!--minOccurs="0"-->
         <xsd:annotation>
           <xsd:documentation>
             <ccts:Component>

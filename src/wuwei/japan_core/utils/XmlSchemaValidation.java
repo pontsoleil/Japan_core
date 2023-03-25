@@ -12,9 +12,9 @@ import javax.xml.validation.Validator;
 import org.xml.sax.SAXException;
 
 /**
- *
+ * XMLスキーマ検証
  */
-public class XML_SchemeValidation {
+public class XmlSchemaValidation {
 
 	/**
  	 * The application's entry point
@@ -24,15 +24,15 @@ public class XML_SchemeValidation {
 		String schema_file = args[0];
 		String xml_file = args[1];
 		boolean result = validateXMLSchema(schema_file, xml_file);
-		System.out.println(xml_file + " validates against " + schema_file + " result=" +result);
-//		data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example.xml
-//		System.out.println("EmployeeRequest.xml validates against Employee.xsd? " + validateXMLSchema("xml/UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd", "xml/Example4-SumInv2.xml"));
-//		System.out.println("EmployeeRequest.xml validates against Employee.xsd? " + validateXMLSchema("data/aligned/maindoc/UBL-Invoice-2.1.xsd", "data/xml/JP-PINT/Example4-SumInv2_out.xml"));
+		if (result)
+			System.out.println(xml_file + " は、 " + schema_file + " で定義されているXMLスキーマ定義に従った、妥当な定義内容です。");
+		else
+			System.out.println(xml_file + " は、 " + schema_file + " で定義されているXMLスキーマ定義に違反しています。");
 	}
 
 	/**
 	 * 
-	 * Copied from following page.<br>
+	 * Reprinted from the page below.<br>
 	 * https://www.digitalocean.com/community/tutorials/how-to-validate-xml-against-xsd-in-java
 	 * 
 	 * @param xsdPath XMLスキーマファイル
@@ -47,7 +47,10 @@ public class XML_SchemeValidation {
 			Validator validator = schema.newValidator();
 			validator.validate(new StreamSource(new File(xmlPath)));
 		} catch (IOException | SAXException e) {
-			System.out.println("Exception: " + e.getMessage());
+			String message = e.getMessage();
+			message = message.replaceAll("\"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2\"", "cbc");
+			message = message.replaceAll("\"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2\"", "cac");
+			System.out.println("Exception: " + message);
 			return false;
 		}
 		return true;
