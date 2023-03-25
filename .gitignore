@@ -138,5 +138,5 @@ xml/*.xml
 work/
 *.sh
 .classpath/
-data/pint-jp-resources-dev (23-mar)/
+data/pint-jp-resources-dev/
 *.zip
