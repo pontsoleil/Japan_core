@@ -140,3 +140,4 @@ work/
 .classpath/
 data/pint-jp-resources-dev/
 *.zip
+~$*.xlsx
