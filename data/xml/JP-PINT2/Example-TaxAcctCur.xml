@@ -357,7 +357,7 @@
     </cac:TaxTotal>
     <cac:TaxTotal>
         <cac:TaxSubtotal>
-            <cbc:TaxAmount currencyID="JPY"/>
+            <cbc:TaxAmount/>
         </cac:TaxSubtotal>
     </cac:TaxTotal>
     <cac:TaxTotal>
@@ -390,7 +390,7 @@
     </cac:TaxTotal>
     <cac:TaxTotal>
         <cac:TaxSubtotal>
-            <cbc:TaxAmount currencyID="JPY"/>
+            <cbc:TaxAmount/>
         </cac:TaxSubtotal>
     </cac:TaxTotal>
     <cac:TaxTotal>
