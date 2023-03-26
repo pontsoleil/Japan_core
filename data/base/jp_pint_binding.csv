@@ -203,13 +203,16 @@ semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessT
 5700,JBG-82,0..1,3,,明細行の参照注文書クラス,,__,,,,3050,/Invoice/cac:InvoiceLine/cac:OrderLineReference,0..1
 5710,JBT-354,0..1,4,Purchase order reference,この明細行が参照する注文書に記載の文書番号,,Document Reference,IBT-183,購買発注書参照,買い手が付番した発注番号を参照するためのID。,3070,/Invoice/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID,0..1
 5720,JBT-355,0..1,4,Referenced purchase order line reference,この明細行が参照する注文書に記載の明細行番号,,Document Reference,IBT-132,購買発注明細行参照,買い手が付番した発注書内の明細行を参照するためのID。,3060,/Invoice/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID,0..1
+5750,JBG-84,0..n,3,LINE DOCUMENT REFERENCE,明細行の参照文書クラス,,__,ibg-36,明細行文書参照,売り手によって指定された、請求書の明細行の請求の根拠となっているオブジェクトの識別子。,3150,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')],0..1
+5760,JBT-358,1..1,4,Invoice line document identifier,この明細行が参照する文書に記載の文書番号。\\n補完納品書の場合は必須,,Identifier,ibt-188,明細行文書ID,請求書明細行が参照する文書のID,3160,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:ID,1..1
+5800,JBT-362,1..1,4,Document type code,この明細行が参照する文書のタイプを識別するコード。デフォルトは納品書,,Code,IBT-189,文書タイプコード,参照する文書の種類を規定するコード,3170,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:DocumentTypeCode,0..1
 5960,JBG-83,0..n,3,,,,__,,,,3110,/Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentTypeCode='130'],0..1
 5970,JBT-377,1..1,4,Invoice line object identifier,,,Identifier,ibt-128,請求書明細行オブジェクトID,売り手によって提供された、請求書明細行の根拠となるオブジェクトのID。(注：必要に応じて、予約番号、電話番号、メーターポイントなどを指定できる。）,3120,/Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentTypeCode='130']/cbc:ID,1..1
 5980,JBT-377-1,0..1,5,Invoice line object identifier Scheme identifier,,,Code,ibt-128-1,スキーマID,請求書が参照する文書を識別するためのスキーマID。注：受信者にどのスキーマを使用したか明らかにしていない場合は、UNTDID 1153 code list  から選択した、スキーマIDを使用しなければならない。,3140,/Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentTypeCode='130']/cbc:ID/@schemeID,0..1
 5990,JBT-378,1..1,4,,,130,Code,,,,3130,/Invoice/cac:InvoiceLine/cac:DocumentReference/cbc:DocumentTypeCode,1..1
-5750,JBG-84,0..n,3,LINE DOCUMENT REFERENCE,明細行の参照文書クラス,,__,ibg-36,明細行文書参照,売り手によって指定された、請求書の明細行の請求の根拠となっているオブジェクトの識別子。,3150,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')],0..1
-5760,JBT-358,1..1,4,Invoice line document identifier,この明細行が参照する文書に記載の文書番号。\\n補完納品書の場合は必須,,Identifier,ibt-188,明細行文書ID,請求書明細行が参照する文書のID,3160,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:ID,1..1
-5800,JBT-362,1..1,4,Document type code,この明細行が参照する文書のタイプを識別するコード。デフォルトは納品書,,Code,IBT-189,文書タイプコード,参照する文書の種類を規定するコード,3170,/Invoice/cac:InvoiceLine/cac:DocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:DocumentTypeCode,0..1
+6000,JBG-88,0..n,3,,明細行が参照するインボイス文書（業界EDI電子インボイス等）に関するグループ,,__,,,,3080,/Invoice/cac:InvoiceLine/cac:DespatchLineReference,0..n
+6010,JBT-379,1..1,4,,この明細行が参照するインボイス文書の番号,NA,Code,,,,3090,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID,1..1
+6070,JBT-385,1..1,4,Despatch advice reference,この明細行が参照するインボイスの明細行番号,,Code,IBT-184,出荷案内書参照,この請求書が参照する出荷案内書を参照するためのID。,3100,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID,1..1
 5830,JBG-85,0..1,3,,明細行の納入に関する情報からなるクラス,,__,,,,2950,/Invoice/cac:InvoiceLine,0..0
 5870,JBT-370,1..1,4,Invoiced quantity,この明細行品目のバラ請求数量、またはセット請求数量。\\nバラ、セットの区分は数量単位コードで指定する\\n流通業取引では利用せず、「セット数量」「バラ数量」情報項目を利用する,,Quantity,IBT-129,請求する数量,請求書明細行で請求する品目(財又はサービス)の数量。,2960,/Invoice/cac:InvoiceLine/cbc:InvoicedQuantity,1..1
 5880,JBT-371,0..1,4,Invoiced quantity unit of measure code,数量単位のコード名,,Code,IBT-130,請求する数量の数量単位コード,請求数量に適用する数量単位コード。,2970,/Invoice/cac:InvoiceLine/cbc:InvoicedQuantity/@unitCode,1..1
