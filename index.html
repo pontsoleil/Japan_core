@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- this page -->
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/snackbar.js" crossorigin="anonymous"></script>
     <script src="js/convert.js" crossorigin="anonymous"></script>
     <script type="text/javascript" class="init">
         $(document).ready(function () {
@@ -37,32 +38,43 @@
 
 <body>
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa fa-square mr-2" aria-hidden="true"></i>日本版コアインボイス変換サービス</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item nab-pills">
-                        <a class="nav-link" id="coreInvoice-tab" data-toggle="tab" href="#coreInvoice" role="tab"
-                            aria-controls="coreInvoice" aria-selected="false">Home</a>
-                    </li>
-                    <li class="nav-item nab-pills">
-                        <a class="nav-link" id="source2target-tab" data-toggle="tab" href="#source2target" role="tab"
-                            aria-controls="source2target" aria-selected="false">XML構文変換</a>
-                    </li>
-                    <li class="nav-item nab-pills">
-                        <a class="nav-link" id="invoice2csv-tab" data-toggle="tab" href="#invoice2csv" role="tab"
-                            aria-controls="invoice2csv" aria-selected="false">コアインボイスCSVに変換</a>
-                    </li>
-                    <li class="nav-item nab-pills">
-                        <a class="nav-link" id="csv2invoice-tab" data-toggle="tab" href="#csv2invoice" role="tab"
-                            aria-controls="csv2invoice" aria-selected="false">CSVをデジタルインボイスに変換</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><i class="fa fa-square mr-2" aria-hidden="true"></i>日本版コアインボイス変換サービス</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item nab-pills">
+                    <a class="nav-link" id="coreInvoice-tab" data-toggle="tab" href="#coreInvoice" role="tab"
+                        aria-controls="coreInvoice" aria-selected="false">Home</a>
+                </li>
+                <li class="nav-item nab-pills">
+                    <a class="nav-link" id="source2target-tab" data-toggle="tab" href="#source2target" role="tab"
+                        aria-controls="source2target" aria-selected="false">XML構文変換</a>
+                </li>
+                <li class="nav-item nab-pills">
+                    <a class="nav-link" id="invoice2csv-tab" data-toggle="tab" href="#invoice2csv" role="tab"
+                        aria-controls="invoice2csv" aria-selected="false">コアインボイスCSVに変換</a>
+                </li>
+                <li class="nav-item nab-pills">
+                    <a class="nav-link" id="csv2invoice-tab" data-toggle="tab" href="#csv2invoice" role="tab"
+                        aria-controls="csv2invoice" aria-selected="false">CSVをデジタルインボイスに変換</a>
+                </li>
+                <li class="nav-item nab-pills">
+                    <a class="nav-link" id="coreinvoice-tab" data-toggle="tab" href="#coreinvoice" role="tab"
+                        aria-controls="coreinvoice" aria-selected="false">日本版コアインボイス</a>
+                </li>
+                <li class="nav-item nab-pills">
+                    <a class="nav-link" id="warning-tab" data-toggle="tab" href="#warning" role="tab"
+                        aria-controls="warning" aria-selected="false"><i class="fa fa-exclamation" aria-hidden="true"></i></a>
+                </li>
+            </ul>
         </div>
     </nav>
-    <!-- Begin page content -->
+
+   <!-- Begin page content -->
     <div class="container py-0">
         <div class="card p-3 bg-light">
             <div class="tab-content">
@@ -71,7 +83,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title" id="modalTitle">日本版コアインボイスゲートウェイ<a
-                                    href="https://www.sambuichi.jp/?p=8933#_6_%E6%97%A5%E6%9C%AC%E7%89%88%E3%82%B3%E3%82%A2%E3%82%A4%E3%83%B3%E3%83%9C%E3%82%A4%E3%82%B9%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4">（詳細記事はこちら<i
+                                    href="https://www.sambuichi.jp/?p=8933">（詳細記事はこちら<i
                                         class="fa fa-external-link" aria-hidden="true"></i>）</a></h5>
                         </div>
                         <div class="card-body">
@@ -174,43 +186,53 @@
                                     <fieldset class="form-group">
                                         <legend class="col-form-label pt-0" style="width:16rem">変換元デジタルインボイス仕様</legend>
                                         <div class="form-check">
-                                            <input class="form-check-input JP-PINT" type="radio" name="syntax" value="JP-PINT" checked>
+                                            <input class="form-check-input JP-PINT" type="radio" name="syntax" value="JP-PINT" checked disabled>
                                             <label class="form-check-label" for="JP-PINT">JP PINT V1.0</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input SME-COMMON" type="radio" name="syntax" value="SME-COMMON">
+                                            <input class="form-check-input SME-COMMON" type="radio" name="syntax" value="SME-COMMON" disabled>
                                             <label class="form-check-label" for="SME-COMMON">中小企業共通EDI ver.4.1</label>
                                         </div>
                                     </fieldset>
                                     <fieldset class="form-group">
                                         <legend class="col-form-label pt-0" style="width:16rem">変換先デジタルインボイス仕様</legend>
                                         <div class="form-check">
-                                            <input class="form-check-input JP-PINT" type="radio" name="target" value="JP-PINT" checked>
+                                            <input class="form-check-input JP-PINT" type="radio" name="target" value="JP-PINT">
                                             <label class="form-check-label" for="JP-PINT">JP PINT V1.0</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input SME-COMMON" type="radio" name="target" value="SME-COMMON">
+                                            <input class="form-check-input SME-COMMON" type="radio" name="target" value="SME-COMMON" checked>
                                             <label class="form-check-label" for="SME-COMMON">中小企業共通EDI ver.4.1</label>
                                         </div>
                                     </fieldset>
                                 </div>
                                 <button type="submit" value="Submit" class="btn btn-primary">変換</button>
                             </form>
-                            <div id="target_title" class="mt-3">
-                                <a  class="url" href="#"><span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
+                            <div id="xml_title" class="mt-3">
+                                <a class="url" href="#">変換元 <span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
                             </div>
-                            <textarea id="target_area" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
+                            <textarea id="xml_area" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
                             <nav class="nav nav-pills py-0 my-2">
                                 <a id="csv_button" class="nav-link bg-secondary active" href="#">通常</a>
                                 <a id="transposed_button" class="nav-link bg-light" href="#">転置</a>
                             </nav>
+                            <ul class="tidy_csv nav nav-pills d-none">
+                                <li class="nav-item">
+                                    <a id="core-japan" class="nav-link active" href="#">コアインボイス</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="jp-pint" class="nav-link" href="#">JP PINT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="sme-common" class="nav-link" href="#">中小企業共通EDI</a>
+                                </li>
+                            </ul>
                             <div id="transposed" class="d-none">
                                 <div id="transposed_title" class="mt-3">
-                                    <a  class="url" href="#"><span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
+                                    <a  class="url" href="#">中間 <span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
                                 </div>
                                 <div style="width:100%; height:600px;overflow:auto;">
-                                    <table id="transposed_table"
-                                        class="table table-sm table-bordered table-striped mb-3">
+                                    <table id="transposed_table" class="table table-sm table-bordered table-striped mb-3">
                                         <thead></thead>
                                         <tbody></tbody>
                                     </table>
@@ -218,7 +240,7 @@
                             </div>
                             <div id="csv">
                                 <div id="csv_title" class="mt-3">
-                                    <a  class="url" href="#"><span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
+                                    <a  class="url" href="#">中間 <span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
                                 </div>
                                 <div style="width:100%; height:600px;overflow:auto;">
                                     <table id="csv_table" class="table table-sm table-bordered table-striped mb-3">
@@ -227,10 +249,10 @@
                                     </table>
                                 </div>
                             </div>
-                            <div id="xml_title" class="mt-3">
-                                <a  class="url" href="#"><span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
+                            <div id="target_title" class="mt-3">
+                                <a  class="url" href="#">変換先 <span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
                             </div>
-                            <textarea id="xml_area" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
+                            <textarea id="target_area" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
                         </div>
                     </div>
                 </div>
@@ -273,13 +295,11 @@
                                 <fieldset class="form-group">
                                     <legend class="col-form-label col-sm-5 pt-0">デジタルインボイス仕様</legend>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="syntax" id="JP-PINT"
-                                            value="JP-PINT" checked>
+                                        <input class="form-check-input" type="radio" name="syntax" id="JP-PINT" value="JP-PINT" disabled checked>
                                         <label class="form-check-label" for="JP-PINT">JP PINT V1.0</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="syntax" id="SME-COMMON"
-                                            value="SME-COMMON">
+                                        <input class="form-check-input" type="radio" name="syntax" id="SME-COMMON" value="SME-COMMON" disabled>
                                         <label class="form-check-label" for="SME-COMMON">中小企業共通EDI ver.4.1</label>
                                     </div>
                                 </fieldset>
@@ -291,7 +311,7 @@
                             </nav>
                             <div id="transposed" class="d-none">
                                 <div id="transposed_title" class="mt-3">
-                                    <a  class="url" href="#"><span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
+                                    <a  class="url" href="#">変換先 <span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
                                 </div>
                                 <div style="width:100%; height:600px;overflow:auto;">
                                     <table id="transposed_table"
@@ -303,7 +323,7 @@
                             </div>
                             <div id="csv">
                                 <div id="csv_title" class="mt-3">
-                                    <a  class="url" href="#"><span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
+                                    <a  class="url" href="#">変換先 <span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
                                 </div>
                                 <div style="width:100%; height:600px;overflow:auto;">
                                     <table id="csv_table" class="table table-sm table-bordered table-striped mb-3">
@@ -329,7 +349,7 @@
                             <div class="card-body">
                                 <form id="csv2invoice-form" method="post" enctype="multipart/form-data">
                                     <fieldset class="form-group">
-                                        <label for="file">xBRL-CSV</label>
+                                        <label for="file">変換元 xBRL-CSV</label>
                                         <input type="file" name="file" class="form-control-file" id="file">
                                     </fieldset>
                                     <fieldset class="form-group">
@@ -348,7 +368,7 @@
                                     <button type="submit" value="Submit" class="btn btn-primary">変換</button>
                                 </form>
                                 <div id="csv_title" class="mt-3">
-                                    <a  class="url" href="#"><span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
+                                    <a  class="url" href="#">変換元 <span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
                                 </div>
                                 <div style="width:100%; height:600px;overflow:auto;">
                                     <table id="csv_table" class="table table-sm table-bordered table-striped mb-3">
@@ -357,10 +377,93 @@
                                     </table>
                                 </div>
                                 <div id="xml_title" class="mt-3">
-                                    <a  class="url" href="#"><span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
+                                    <a  class="url" href="#">変換先 <span class="name"></span><i class="fa fa-download d-none" aria-hidden="true"></i></a>
                                 </div>
-                                <textarea id="xml_area" class="mb-3" style="width:100%; height:900px;"
-                                    disabled="true"></textarea>
+                                <textarea id="xml_area" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="coreinvoice" class="tab-pane fade" role="tabpanel" aria-labelledby="coreinvoice-tab">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h5 class="card-title" id="modalTitle">日本版コアインボイス</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="core_japan">
+                                    <div id="core_japan_title" class="mt-3">
+                                        <a  class="url" href="https://www.wuwei.space/core-japan/server/data/base/core_japan.csv" download="core_japan.csv">日本版コアインボイス <i class="fa fa-download" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div style="width:100%; height:600px;overflow:auto;">
+                                        <table id="core_japan_table"
+                                            class="table table-sm table-bordered table-striped mb-3">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="jp-pint_binding">
+                                    <div id="jp-pint_binding_title" class="mt-3">
+                                        <a  class="url" href="https://www.wuwei.space/core-japan/server/data/base/jp_pint_binding.csv" download="jp_pint_binding.csv">JP PINT 構文バインディング <i class="fa fa-download" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div style="width:100%; height:600px;overflow:auto;">
+                                        <table id="jp-pint_binding_table"
+                                            class="table table-sm table-bordered table-striped mb-3">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="sme_binding">
+                                    <div id="sme_binding_title" class="mt-3">
+                                        <a  class="url" href="https://www.wuwei.space/core-japan/server/data/base/sme_binding.csv" download="sme_binding.csv">中小企業共通EDI構文バインディング <i class="fa fa-download" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div style="width:100%; height:600px;overflow:auto;">
+                                        <table id="sme_binding_table"
+                                            class="table table-sm table-bordered table-striped mb-3">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="warning" class="tab-pane fade" role="tabpanel" aria-labelledby="warning-tab">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h5 class="card-title" id="modalTitle">制限事項 2023-03-23</h5>
+                            </div>
+                            <div class="card-body">
+                                <h4>JP PINT</h4>
+                                <ol>
+                                    <li>使用しているJP PINTデジタルインボイスのサンプルXMLファイルは、Open Peppolがら公開されているダウンロードファイルをそのまま使用しています。<br/>
+                                    このため、JP PINTで定義されていない&lt;cbc:UBLVersionID>2.1&lt;/cbc:UBLVersionID>が記載されていたり、XML構文で要請される値の設定値が公開仕様と異なるなど、Syntax Binding定義に沿っていない要素定義も含まれていますので注意してください。</li>
+                                    <li>ダウンロードしたXMLインスタンス文書には、xsi:schemaLocationの定義が含まれていないのでXML編集ソフトで開くとエラーメッセージが発行される事がありますので、必要に応じて次の定義を&lt;Invoice>要素に追加してください。<br/>
+                                        xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2<br/>
+                                        http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"</li>
+                                    <li>Syntax Binding定義で記載している日本語は、三分一技術士事務所で定義したものです。</li>
+                                </ol>
+                                <h4>中小企業共通EDI</h4>
+                                <ol>
+                                    <li>変換が設計通りに処理されていない箇所が残っている。<br/>
+                                        例えば、&lt;ram:ApplicableCITradeTax>が税率ごとにまとまっていない(税率と税額などが分かれて記載されている)。など</li>
+                                    <li>中小企業共通EDIのXMLスキーマは、正式に提供されているものではなく、検証のために三分一技術士事務所で試作したものです。<br/>
+                                        正式に公開されるものとは異なる箇所があります。<br/>
+                                        xsi:schemaLocationの定義は、次のとおりです。<br/>
+                                        xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice <br/>
+                                        https://www.wuwei.space/core-japan/server/data/schema/data/standard/SMEinvoice.xsd"
+                                    </li>
+                                    <li>日本版コアインボイスの定義表は、試作途中のものです。<br/>
+                                        検証結果に応じて、随時改訂を行います。</li>
+                                    <li>変換されたデジタルインボイスにXMLスキーマ検証でエラーとなる箇所が含まれているかもしれません。<br/>
+                                        この場合、中小企業共通EDIの試作版XMLスキーマを改訂することがあります。</li>
+                                </ol>
+                                <span>画面下部に表示しているUUIDは利用者のデータを区別するために使用していますが、利用者ごとの環境については未サポートです(現在試行中)。アップロードしたファイルは保存されませんので必要に応じてファイル名をクリックしてダウンロードしてください。<br/>
+                                    その他の予期しない不具合が含まれていることがあります。</span>
                             </div>
                         </div>
                     </div>
@@ -397,6 +500,8 @@
         data-placement="top" title="Go to top">
         <i class="fa fa-arrow-up fa-2x" aria-hidden="true"></i>
     </button>
+
+    <div id="snackbar"></div>
 </body>
 
 </html>
