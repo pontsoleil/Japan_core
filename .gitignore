@@ -138,5 +138,4 @@ xml/*.xml
 work/
 *.sh
 .classpath/
-data/pint-jp-resources-dev/
-~$.*.xlsx
+data/pint-jp-resources-dev (23-mar)/
