@@ -35,6 +35,7 @@ SEP = os.sep
 
 base = ''
 core_japan_file = 'core_japan.csv'
+_core_japan_file = '_core_japan.csv'
 syntax_binding_file = 'syntax_binding.csv'
 jp_pint_binding_file = 'jp_pint_binding.csv'
 sme_binding_file = 'sme_binding.csv'
@@ -50,19 +51,22 @@ def file_path(pathname):
 		return new_path
 
 if __name__ == '__main__':
+	core_japan_entries = []
 	jp_pint_entries = []
 	sme_entries = []
+	_core_japan_file = f'{base}{_core_japan_file}'.replace('/', SEP)
+	_core_japan_file = file_path(_core_japan_file)
 	core_japan_file = f'{base}{core_japan_file}'.replace('/', SEP)
 	core_japan_file = file_path(core_japan_file)
 	header = ['num','kind','id','lvl','occur','name','desc','datatype','UN_CCL_ID','sme_kind','sme_sort','sme_id','sme_name','sme_desc','sme_defaultValue','sme_occur','sme_level','sme_xpath','pint_sort','pint_Id','pint_card','Level','pint_name','pint_name_ja','Description','pint_desc','pint_defaultValue','pint_xpath']
-	binding_header = ['semSort','id','card','level','businessTerm','desc','defaultValue','dataType','syntaxID','businessTerm_ja','desc_ja','synSort','xPath','occur']
+	binding_header = ['semSort','id','card','level','businessTerm','desc','defaultValue','dataType','syntaxID','businessTerm_en','businessTerm_ja','desc_ja','synSort','xPath','occur']
 	with open(core_japan_file, encoding='utf_8', newline='') as f:
 		reader = csv.DictReader(f, fieldnames=header)
 		next(reader)
 		for row in reader:
-			desc = row['desc'].replace(r'\n', r'\\n')
+			desc = row['desc'].replace(r'[\r|\n]', r'\\n')
 			if len(row['pint_xpath']) > 0:
-				desc_ja = row['pint_desc'].replace(r'\n', r'\\n')
+				desc_ja = row['pint_desc'].replace(r'[\r|\n]', r'\\n')
 				jp_pint_entry = {}
 				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
 				jp_pint_entry['id'] = row['id']
@@ -81,7 +85,7 @@ if __name__ == '__main__':
 				jp_pint_entry['occur'] = row['pint_card']
 				jp_pint_entries.append(jp_pint_entry)
 			if len(row['sme_xpath']) > 0:
-				desc_ja = row['sme_desc'].replace(r'\n', r'\\n')
+				desc_ja = row['sme_desc'].replace(r'[\r|\n]', r'\\n')
 				sme_entry = {}
 				sme_entry['semSort'] = row['num'] and int(row['num']) or 0
 				sme_entry['id'] = row['id']
@@ -98,9 +102,16 @@ if __name__ == '__main__':
 				sme_entry['xPath'] = row['sme_xpath']
 				sme_entry['occur'] = row['sme_occur']
 				sme_entries.append(sme_entry)
+			core_japan_entries.append(row)
 
 	jp_pint_binding_file = f'{base}{jp_pint_binding_file}'.replace('/', SEP)
 	jp_pint_binding_file = file_path(jp_pint_binding_file)
+
+	with open(_core_japan_file, 'w', encoding='utf_8', newline='') as f:
+		writer = csv.DictWriter(f, fieldnames=header)
+		writer.writeheader()
+		writer.writerows(core_japan_entries)
+
 	with open(jp_pint_binding_file, 'w', encoding='utf_8', newline='') as f:
 		writer = csv.DictWriter(f, fieldnames=binding_header)
 		writer.writeheader()
@@ -125,4 +136,4 @@ if __name__ == '__main__':
 		writer.writeheader()
 		writer.writerows(sme_entries)
 
-	print(f'** END \n{jp_pint_binding_file} \n{sme_binding_file}')
+	print(f'** END \n{_core_japan_file} \n{jp_pint_binding_file} \n{sme_binding_file}')
