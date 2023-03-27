@@ -37,6 +37,7 @@ convert = (function () {
 	let sme_binding = {};
 	let syntax;
 	let uuid;
+	let base_url;
 
 	// cf. https://stackoverflow.com/questions/376373/pretty-printing-xml-with-javascript
 	function formatXml(xml, tab) { // tab = optional indent value, default is tab (\t)
@@ -147,9 +148,9 @@ convert = (function () {
 				if (column == 'C') {
 					id = 'C' + ('' + j);
 				} else {
-					id = headers[j];
+					id = headers[j].trim();
 				}
-				obj[id] = _unescape_comma(currentline[j]);
+				obj[id] = _unescape_comma(currentline[j]).trim();
 			}
 			result.push(obj);
 		}
@@ -258,8 +259,8 @@ convert = (function () {
 		if (uuid) {
 			formData.append("uuid", uuid);
 		}
-		snackbar.open({'message':'変換中','type':'info'});
-		fetch('https://www.wuwei.space/core-japan/server/source2target.php', {
+		snackbar.open({'message':'<i class="fa fa-cog fa-spin"></i> 変換中','type':'info'});
+		fetch(base_url+'/server/source2target.php', {
 			method: 'POST',
 			body: formData
 		})
@@ -336,8 +337,8 @@ convert = (function () {
 		if (uuid) {
 			formData.append("uuid", uuid);
 		}
-		snackbar.open({'message':'変換中','type':'info'});
-		fetch('https://www.wuwei.space/core-japan/server/invoice2csv.php', {
+		snackbar.open({'message':'<i class="fa fa-cog fa-spin"></i> 変換中','type':'info'});
+		fetch(base_url+'/server/invoice2csv.php', {
 			method: 'POST',
 			body: formData
 		})
@@ -397,8 +398,8 @@ convert = (function () {
 		if (uuid) {
 			formData.append("uuid", uuid);
 		}
-		snackbar.open({'message':'変換中','type':'info'});
-		fetch('https://www.wuwei.space/core-japan/server/csv2invoice.php', {
+		snackbar.open({'message':'<i class="fa fa-cog fa-spin"></i> 変換中','type':'info'});
+		fetch(base_url+'/server/csv2invoice.php', {
 			method: 'POST',
 			body: formData
 		})
@@ -435,6 +436,9 @@ convert = (function () {
 	}
 
 	function initModule() {
+		base_url = location.href;
+		base_url = base_url.substring(0,base_url.lastIndexOf('/'));
+
 		uuid = localStorage.getItem('uuid');
 		if (uuid) {
 			document.getElementById('uuid').value = uuid;
@@ -527,6 +531,11 @@ convert = (function () {
 				$(this).tab('show');
 				updateTransposedLabel('jp-pint');
 			});
+			document.querySelector('#source2target .tidy_csv a#jp-pint_ja').addEventListener('click', function (e) {
+				e.preventDefault();
+				$(this).tab('show');
+				updateTransposedLabel('jp-pint_ja');
+			});
 			document.querySelector('#source2target .tidy_csv a#sme-common').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
@@ -540,14 +549,15 @@ convert = (function () {
 				let id = tr.childNodes[0].innerText;
 				let label = '';
 				if (mode=='core-japan') {
-					tr.childNodes[1].innerText = core_japan[id]['businessTerm_ja'] || '';
+					tr.childNodes[1].innerText = core_japan[id]['name'] || '(未定義)';
 				} else if (mode=='jp-pint') {
-					tr.childNodes[1].innerText = jp_pint_binding[id]['businessTerm_ja'] || '';
+					tr.childNodes[1].innerText = (core_japan[id]['pint_Id'] || '') + (core_japan[id]['pint_name'] || '(undefined)');
+				} else if (mode=='jp-pint_ja') {
+					tr.childNodes[1].innerText = (core_japan[id]['pint_Id'] || '') + (core_japan[id]['pint_name_ja'] || '(未定義)');
 				} else if (mode=='sme-common') {
-					tr.childNodes[1].innerText = sme_binding[id]['businessTerm_ja'] || '';
+					tr.childNodes[1].innerText = (core_japan[id]['UN_CCL_ID'] || '') + (core_japan[id]['sme_name'] || '(未定義)');
 				}					
-			}	
-
+			}
 		}
 		document.querySelector('#invoice2csv #selected_file').addEventListener('change', e => {
 			e.preventDefault();
@@ -584,6 +594,28 @@ convert = (function () {
 			document.querySelector('#invoice2csv #transposed_button').classList.remove('bg-light');
 		});
 
+		document.querySelector('#source2target #selected_file').addEventListener('change', e => {
+			e.preventDefault();
+			let upload = document.querySelector('#source2target #upload_file');
+			let option = document.querySelector('#source2target #selected_file').value;
+			if ('initial' == option) {
+				upload.classList.remove('d-none');
+			} else {
+				upload.classList.add('d-none');
+			}
+		});
+
+		document.querySelector('#invoice2csv #selected_file').addEventListener('change', e => {
+			e.preventDefault();
+			let upload = document.querySelector('#invoice2csv #upload_file');
+			let option = document.querySelector('#invoice2csv #selected_file').value;
+			if ('initial' == option) {
+				upload.classList.remove('d-none');
+			} else {
+				upload.classList.add('d-none');
+			}
+		});
+
 		// https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 		//Get the button:
 		let gotoTopButton = document.getElementById("gotoTopButton");
@@ -611,22 +643,26 @@ convert = (function () {
 			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 		}
 
-		fetch('https://www.wuwei.space/core-japan/server/data/base/core_japan.csv')
+		fetch(base_url+'/server/data/base/core_japan.csv')
 		.then(res => res.text())
 		.then(csv => {
+			fillTable(csv,'#coreinvoice #core_japan_table','')
 			let json = _convertCSVtoJSON(csv);
 			for (let i = 0; i < json.length; i++) {
 				let data = json[i];
-				let id = data['ID']
+				let id = data['id']
 				core_japan[id] = {};
-				core_japan[id]['businessTerm'] = data['Business Term'];
-				core_japan[id]['businessTerm_ja'] = data['Business Term ja'];
+				core_japan[id]['name'] = data['name'];
+				core_japan[id]['pint_name'] = data['pint_name'];
+				core_japan[id]['pint_name_ja'] = data['pint_name_ja'];
+				core_japan[id]['sme_name'] = data['sme_name'];
 			}
 		});
 
-		fetch('https://www.wuwei.space/core-japan/server/data/base/jp_pint_binding.csv')
+		fetch(base_url+'/server/data/base/jp_pint_binding.csv')
 			.then(res => res.text())
 			.then(csv => {
+				fillTable(csv,'#coreinvoice #jp-pint_binding_table','')
 				let json = _convertCSVtoJSON(csv);
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
@@ -637,9 +673,10 @@ convert = (function () {
 				}
 			});
 
-		fetch('https://www.wuwei.space/core-japan/server/data/base/sme_binding.csv')
+		fetch(base_url+'/server/data/base/sme_binding.csv')
 			.then(res => res.text())
 			.then(csv => {
+				fillTable(csv,'#coreinvoice #sme_binding_table','')
 				let json = _convertCSVtoJSON(csv);
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
