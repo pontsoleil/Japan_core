@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (c) 2022 XBRL Japan  inc. -->
+<schema 
+    targetTermspace="http://www.xbrl.jp/core-japan" 
+    elementFormDefault="qualified" 
+    xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:adc="http://www.xbrl.jp/core-japan" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns:link="http://www.xbrl.org/2003/linkbase" 
+    xmlns:xbrli="http://www.xbrl.org/2003/instance" 
+    xmlns:xbrldt="http://xbrl.org/2005/xbrldt"> 
+    <import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
+    <import namespace="http://xbrl.org/2005/xbrldt" schemaLocation="http://www.xbrl.org/2005/xbrldt-2005.xsd"/>
+    <import namespace="http://www.xbrl.org/dtr/type/numeric" schemaLocation="http://www.xbrl.org/dtr/type/numeric-2009-12-16.xsd"/>
+    <import namespace="http://www.xbrl.org/dtr/type/non-numeric" schemaLocation="http://www.xbrl.org/dtr/type/nonNumeric-2009-12-16.xsd"/>
+    <annotation>
+        <appinfo>
+            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-en.xml"/>
+            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/presentationLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-pre.xml"/>
+            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-def.xml"/>
+            <!-- 
+                role type
+            -->
+            <link:roleType id="audit-data-collection-role" roleURI="http://www.xbrl.jp/core-japan/role">
+                <link:definition>link audit-data-collection</link:definition>
+                <link:usedOn>link:definitionLink</link:usedOn>
+                <link:usedOn>link:presentationLink</link:usedOn>
+            </link:roleType>
+            <!--
+                description: roleType arcroleType
+            -->
+            <link:roleType id="description" roleURI="http://www.xbrl.jp/core-japan/role/description">
+                <link:definition>description</link:definition>
+                <link:usedOn>link:label</link:usedOn>
+            </link:roleType>
+            <link:arcroleType id="concept-description" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-description">
+                <link:definition>concept to description</link:definition>
+                <link:usedOn>link:labelArc</link:usedOn>
+            </link:arcroleType >
+            <!--
+                primary key: roleType arcroleType
+            -->
+            <link:roleType id="primary-key" roleURI="http://www.xbrl.jp/core-japan/role/primary-key">
+                <link:definition>primary key</link:definition>
+                <link:usedOn>link:definitionLink</link:usedOn>
+            </link:roleType>
+            <link:arcroleType id="concept-primary-key" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-primary-key">
+                <link:definition>concept primary key</link:definition>
+                <link:usedOn>link:definitionArc</link:usedOn>
+            </link:arcroleType >
+            <!--
+                reference identifier: roleType arcroleType
+            -->
+            <link:roleType id="reference-identifier" roleURI="http://www.xbrl.jp/core-japan/role/reference-identifier">
+                <link:definition>reference identifier</link:definition>
+                <link:usedOn>link:definitionLink</link:usedOn>
+            </link:roleType>
+            <link:arcroleType id="concept-reference-identifier" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-reference-identifier">
+                <link:definition>concept reference identifier</link:definition>
+                <link:usedOn>link:definitionArc</link:usedOn>
+            </link:arcroleType >
+            <!--
+                require: roleType
+            -->
+            <link:roleType id="require" roleURI="http://www.xbrl.jp/core-japan/role/require">
+                <link:definition>require</link:definition>
+                <link:usedOn>link:definitionLink</link:usedOn>
+            </link:roleType>
+        </appinfo>
+    </annotation>
+    <!-- typed dimension referenced element -->
+    <element name="_v" id="_v">
+        <simpleType>
+            <restriction base="string"/>
+        </simpleType>
+    </element>
+    <element name="_activity" id="_activity">        <simpleType>            <restriction base="string">                <pattern value="\s*(Created|Approved|LastModified|Entered|Posted)\s*"/>            </restriction>        </simpleType>    </element>    <!-- Hypercube -->
+    <!-- Dimension -->
+    <!-- item type -->
+        <complexType name="stringItemType">
+            <simpleContent>
+                <restriction base="xbrli:stringItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="amountItemType">
+            <simpleContent>
+                <restriction base="xbrli:monetaryItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="binaryObjectItemType">
+            <simpleContent>
+                <restriction base="xbrli:stringItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="codeItemType">
+            <simpleContent>
+                <restriction base="xbrli:tokenItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="dateItemType">
+            <simpleContent>
+                <restriction base="xbrli:dateItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="documentReferenceItemType">
+            <simpleContent>
+                <restriction base="xbrli:tokenItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="identifierItemType">
+            <simpleContent>
+                <restriction base="xbrli:tokenItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="indicatorItemType">
+            <simpleContent>
+                <restriction base="xbrli:booleanItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="textItemType">
+            <simpleContent>
+                <restriction base="xbrli:stringItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="timeItemType">
+            <simpleContent>
+                <restriction base="xbrli:timeItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="percentageItemType">
+            <simpleContent>
+                <restriction base="xbrli:pureItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="quantityItemType">
+            <simpleContent>
+                <restriction base="xbrli:intItemType"/>
+            </simpleContent>
+        </complexType>
+        <complexType name="unitPriceAmountItemType">
+            <simpleContent>
+                <restriction base="xbrli:monetaryItemType"/>
+            </simpleContent>
+        </complexType>
+    <!-- element -->
+        <element name="JBT-427" id="JBT-427" type="adc:Text" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+</schema>
