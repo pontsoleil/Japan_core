@@ -584,7 +584,7 @@ convert = (function () {
 		function updateTransposedLabel(mode) {
 			let trs = document.querySelectorAll('#transposed_table tbody tr');
 			for (tr of trs) {
-				if (!tr.childNodes[0]) {
+				if (''==tr.firstChild.innerText) {
 					continue;
 				}
 				let id = tr.childNodes[0].innerText;
