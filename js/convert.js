@@ -39,6 +39,44 @@ convert = (function () {
 	let uuid;
 	let base_url;
 
+	// FormData polyfill by ChatGPT
+	if (!window.FormData) {
+		window.FormData = function() {
+		  this.fake = true;
+		  this.boundary = '--------FormDataPolyfill' + Math.random();
+		  this._fields = [];
+		}
+		
+		window.FormData.prototype.append = function(key, value, filename) {
+		  if (value instanceof File) {
+			this._fields.push([key, value, filename || value.name]);
+		  } else {
+			this._fields.push([key, value]);
+		  }
+		}
+		
+		window.FormData.prototype.toString = function() {
+		  var boundary = this.boundary;
+		  var body = '';
+		  
+		  this._fields.forEach(function(field) {
+			body += '--' + boundary + '\r\n';
+			
+			if (field[1] instanceof File) {
+			  body += 'Content-Disposition: form-data; name="' + field[0] + '"; filename="' + field[2] + '"\r\n';
+			  body += 'Content-Type: ' + field[1].type + '\r\n\r\n';
+			  body += field[1] + '\r\n';
+			} else {
+			  body += 'Content-Disposition: form-data; name="' + field[0] + '"\r\n\r\n';
+			  body += field[1] + '\r\n';
+			}
+		  });
+		  
+		  body += '--' + boundary + '--';
+		  return body;
+		}
+	  }
+	  
 	// cf. https://stackoverflow.com/questions/376373/pretty-printing-xml-with-javascript
 	function formatXml(xml, tab) { // tab = optional indent value, default is tab (\t)
 		var formatted = '', indent= '';
