@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  (c) 2022 XBRL Japan inc. -->
+<link:linkbase
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:link="http://www.xbrl.org/2003/linkbase"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">
+    <link:roleRef roleURI="http://www.xbrl.jp/core-japan/role/description" xlink:type="simple" xlink:href="core.xsd#description"/>
+    <link:arcroleRef arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-description" xlink:type="simple" xlink:href="core.xsd#concept-description"/>
+    <link:labelLink xlink:type="extended" xlink:role="http://www.xbrl.org/2003/role/link">
+        <!-- JBT-427 品目属性値 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#JBT-427" xlink:label="JBT-427" xlink:title="JBT-427"/>
+        <link:label xlink:type="resource" xlink:label="label_JBT-427" xlink:title="label_JBT-427" id="label_JBT-427" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">品目属性値</link:label>
+        <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="JBT-427" xlink:to="label_JBT-427" xlink:title="label: JBT-427 to label_JBT-427"/>
+        <link:label xlink:type="resource" xlink:label="description_JBT-427" xlink:title="description_JBT-427" id="description_JBT-427" xml:lang="en" xlink:role="http://www.xbrl.jp/core-japan/role/description">この取引品目の属性の値</link:label>
+        <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/core-japan/arcrole/concept-description" xlink:from="JBT-427" xlink:to="description_JBT-427" xlink:title="label: JBT-427 to label_JBT-427"/>
+    </link:labelLink>
+</link:linkbase>
