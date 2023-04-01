@@ -89,6 +89,38 @@ convert = (function () {
 		return formatted.substring(1, formatted.length-3);
 	}
 
+	function updateSyntax(syntax,f) {
+		if (document.getElementById('source2target').classList.contains('active')) {
+			document.querySelectorAll('#source2target input[name="syntax"]').disabled = true;
+			if (syntax == "JP-PINT") {
+				document.querySelectorAll('#source2target input[name="syntax"]')[0].checked = true;
+				document.querySelectorAll('#source2target input[name="target"]')[1].checked = true;
+			} else if (syntax == "SME-COMMON") {
+				document.querySelectorAll('#source2target input[name="syntax"]')[1].checked = true;
+				document.querySelectorAll('#source2target input[name="target"]')[0].checked = true;
+			}
+			if (f && f.name) {
+				let xmlfile = f.name;
+				document.querySelector('#source2target #xml_title .name').innerHTML = syntax + ': ' + xmlfile;
+				document.querySelector('#source2target #xml_area').textContent = contents;
+			}
+		} else if (document.getElementById('invoice2csv').classList.contains('active')) {
+			document.querySelectorAll('#invoice2csv input[name="syntax"]').disabled = true;
+			if (syntax == "JP-PINT") {
+				document.querySelectorAll('#invoice2csv input[name="syntax"]')[0].checked = true;
+				document.querySelectorAll('#invoice2csv input[name="target"]')[1].checked = true;
+			} else if (syntax == "SME-COMMON") {
+				document.querySelectorAll('#invoice2csv input[name="syntax"]')[1].checked = true;
+				document.querySelectorAll('#invoice2csv input[name="target"]')[0].checked = true;
+			}
+			if (f && f.name) {
+				let xmlfile = f.name;
+				document.querySelector('#invoice2csv #xml_title .name').innerHTML = syntax + ': ' + xmlfile;
+				document.querySelector('#invoice2csv #xml_area').textContent = contents;
+			}
+		}
+	}
+
 	function readSelectedFile(f) {
 		if (f) {
 			var r = new FileReader();
@@ -108,31 +140,12 @@ convert = (function () {
 					else if (0 == target.indexOf("rsm:SME")) {
 						syntax = "SME-COMMON";
 					}
-					if (document.getElementById('source2target').classList.contains('active')) {
-						document.querySelectorAll('#source2target input[name="syntax"]').disabled = true;
-						if (syntax == "JP-PINT") {
-							document.querySelectorAll('#source2target input[name="syntax"]')[0].checked = true;
-						} else if (syntax == "SME-COMMON") {
-							document.querySelectorAll('#source2target input[name="syntax"]')[1].checked = true;
-						}
-						let xmlfile = f.name;
-						document.querySelector('#source2target #xml_title .name').innerHTML = syntax + ': ' + xmlfile;
-						document.querySelector('#source2target #xml_area').textContent = contents;
-					} else if (document.getElementById('invoice2csv').classList.contains('active')) {
-						document.querySelectorAll('#invoice2csv input[name="syntax"]').disabled = true;
-						if (syntax == "JP-PINT") {
-							document.querySelectorAll('#invoice2csv input[name="syntax"]')[0].checked = true;
-						} else if (syntax == "SME-COMMON") {
-							document.querySelectorAll('#invoice2csv input[name="syntax"]')[1].checked = true;
-						}
-						let xmlfile = f.name;
-						document.querySelector('#invoice2csv #xml_title .name').innerHTML = syntax + ': ' + xmlfile;
-						document.querySelector('#invoice2csv #xml_area').textContent = contents;
-					}
+					updateSyntax(syntax,f);
 				}
 			}
 			r.readAsText(f);
 		} else {
+			snackbar.close();
 			alert("Failed to load file");
 		}
 	}
@@ -284,7 +297,8 @@ convert = (function () {
 		} else {
 			let selected = document.querySelector('#source2target #selected_file').value;
 			if (selected && 'initial'!=selected) {
-				formData.append('selected', selected);
+				let file_name = selected.substring(1+selected.indexOf(':'));
+				formData.append('selected', file_name);
 			} else {
 				snackbar.open({'message':'ファイルを指定してください','type':'danger'});
 				return;
@@ -308,6 +322,7 @@ convert = (function () {
 			.then(data => {
 				snackbar.close();
 				if (0 == data.indexOf("ERROR") || '{' != data.substring(0, 1)) {
+					snackbar.close();
 					alert(data)
 				}
 				else {
@@ -342,6 +357,7 @@ convert = (function () {
 							xml_area.textContent = xml_contents;
 						}
 					} catch (error) {
+						snackbar.close();
 						alert('受信メッセージの処理に失敗しました', error);
 					}
 				}
@@ -386,6 +402,7 @@ convert = (function () {
 			.then(data => {
 				snackbar.close();
 				if (0 == data.indexOf("ERROR") || '{' != data.substring(0, 1)) {
+					snackbar.close();
 					alert(data)
 				}
 				else {
@@ -410,6 +427,7 @@ convert = (function () {
 						document.querySelector('#invoice2csv #xml_area').textContent = xml_contents;
 					}
 					catch (error) {
+						snackbar.close();
 						alert('受信メッセージの処理に失敗しました', error);
 					}
 				}
@@ -425,6 +443,9 @@ convert = (function () {
 		let file = document.querySelector('#csv2invoice-form input[type="file"]').files[0];
 		if (!file) {
 			file = evt.target.querySelector('#csv2invoice-form input[type="file"]').files[0];
+		} 
+		if (file) {
+			formData.append('file', file);
 		} else {
 			snackbar.open({'message':'ファイルを指定してください','type':'danger'});
 			return;
@@ -447,6 +468,7 @@ convert = (function () {
 			.then(data => {
 				snackbar.close();
 				if (0 == data.indexOf("ERROR") || '{' != data.substring(0, 1)) {
+					snackbar.close();
 					alert(data)
 				}
 				else {
@@ -461,8 +483,12 @@ convert = (function () {
 						let xml_file = response.xml_file;
 						let xml_contents = response.xml_contents;
 						updateNameURL('#csv2invoice #xml_title',xml_file,syntax)
-						document.querySelector('#csv2invoice #xml_area').textContent = xml_contents;
+						let xml_area = document.querySelector('#csv2invoice #xml_area');
+						if (xml_area) {
+							xml_area.textContent = formatXml(xml_contents);
+						}
 					} catch (error) {
+						snackbar.close();
 						alert('受信メッセージの処理に失敗しました', error);
 					}
 				}
@@ -533,6 +559,8 @@ convert = (function () {
 			} else {
 				upload.classList.add('d-none');
 			}
+			let syntax = option.substring(0,option.indexOf(':'));
+			updateSyntax(syntax);
 		});
 
 		document.querySelector('#source2target #csv_button').addEventListener('click', e => {
