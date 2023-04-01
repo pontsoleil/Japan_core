@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<rsm:SMEinvoice xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice" xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:31" xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice https://www.wuwei.space/core-japan/server/data/schema/data/standard/SMEinvoice.xsd">
-    
+<rsm:SMEinvoice xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice"
+    xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:31"
+    xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31"
+    xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice https://www.wuwei.space/core-japan/server/data/schema/data/standard/SMEinvoice.xsd">
+
     <rsm:CIExchangedDocumentContext>
         <ram:BusinessProcessSpecifiedCIDocumentContextParameter>
             <ram:ID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</ram:ID>
@@ -110,30 +115,6 @@
                 </ram:ShipToCITradeParty>
             </ram:SpecifiedCIILSupplyChainTradeDelivery>
             <ram:SpecifiedCIILSupplyChainTradeSettlement>
-                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
-                    <ram:ChargeTotalAmount>0</ram:ChargeTotalAmount>
-                    <ram:AllowanceTotalAmount>0</ram:AllowanceTotalAmount>
-                    <ram:TaxTotalAmount currencyID="JPY">26000</ram:TaxTotalAmount>
-                    <ram:GrossLineTotalAmount>263490</ram:GrossLineTotalAmount>
-                    <ram:NetLineTotalAmount>263490</ram:NetLineTotalAmount>
-                    <ram:NetIncludingTaxesLineTotalAmount>289490</ram:NetIncludingTaxesLineTotalAmount>
-                    <ram:GrandTotalAmount>289490</ram:GrandTotalAmount>
-                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
-                <ram:InvoiceReferencedCIReferencedDocument>
-                    <ram:IssuerAssignedID>doc1</ram:IssuerAssignedID>
-                    <ram:AttachedSpecifiedBinaryFile fileName="report.csv">
-                        <ram:Description>Usage summary</ram:Description>
-                        <ram:URIID>http://www.salescompany.com/summary001.html</ram:URIID>
-                    </ram:AttachedSpecifiedBinaryFile>
-                    <ram:AttachedBinaryObject mimeCode="text/csv">aHR0cHM6Ly90ZXN0LXZlZmEuZGlmaS5uby9wZXBwb2xiaXMvcG9hY2MvYmlsbGluZy8zLjAvYmlzLw==</ram:AttachedBinaryObject>
-                </ram:InvoiceReferencedCIReferencedDocument>
-                <ram:InvoiceReferencedCIReferencedDocument>
-                    <ram:IssuerAssignedID>doc2</ram:IssuerAssignedID>
-                    <ram:AttachedSpecifiedBinaryFile>
-                        <ram:Description>Usage breakdown</ram:Description>
-                        <ram:URIID>http://www.salescompany.com/breakdown001.html</ram:URIID>
-                    </ram:AttachedSpecifiedBinaryFile>
-                </ram:InvoiceReferencedCIReferencedDocument>
                 <ram:ApplicableCITradeTax>
                     <ram:CalculatedAmount>26000</ram:CalculatedAmount>
                     <ram:TypeCode>VAT</ram:TypeCode>
@@ -150,51 +131,34 @@
                     <ram:CurrencyCode>JPY</ram:CurrencyCode>
                     <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
                 </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:ChargeTotalAmount>0</ram:ChargeTotalAmount>
+                    <ram:AllowanceTotalAmount>0</ram:AllowanceTotalAmount>
+                    <ram:TaxTotalAmount currencyID="JPY">26000</ram:TaxTotalAmount>
+                    <ram:GrossLineTotalAmount>263490</ram:GrossLineTotalAmount>
+                    <ram:NetLineTotalAmount>263490</ram:NetLineTotalAmount>
+                    <ram:NetIncludingTaxesLineTotalAmount>289490</ram:NetIncludingTaxesLineTotalAmount>
+                    <ram:GrandTotalAmount>289490</ram:GrandTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                <ram:InvoiceReferencedCIReferencedDocument>
+                    <ram:IssuerAssignedID>doc1</ram:IssuerAssignedID>
+                    <ram:AttachmentBinaryObject mimeCode="text/csv">aHR0cHM6Ly90ZXN0LXZlZmEuZGlmaS5uby9wZXBwb2xiaXMvcG9hY2MvYmlsbGluZy8zLjAvYmlzLw==</ram:AttachmentBinaryObject>
+                    <ram:AttachedSpecifiedBinaryFile>
+                        <ram:FileName>report.csv</ram:FileName>
+                        <ram:URIID>http://www.salescompany.com/summary001.html</ram:URIID>
+                        <ram:Description>Usage summary</ram:Description>
+                    </ram:AttachedSpecifiedBinaryFile>               
+                </ram:InvoiceReferencedCIReferencedDocument>
+                <ram:InvoiceReferencedCIReferencedDocument>
+                    <ram:IssuerAssignedID>doc2</ram:IssuerAssignedID>
+                    <ram:AttachedSpecifiedBinaryFile>
+                        <ram:URIID>http://www.salescompany.com/breakdown001.html</ram:URIID>
+                         <ram:Description>Usage breakdown</ram:Description>
+                   </ram:AttachedSpecifiedBinaryFile>
+                </ram:InvoiceReferencedCIReferencedDocument>
             </ram:SpecifiedCIILSupplyChainTradeSettlement>
             <ram:SubordinateCIILBSubordinateTradeLineItem>
                 <ram:ID>1</ram:ID>
-                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
-                    <ram:ApplicableCITradeTax>
-                        <ram:BasisAmount>257500</ram:BasisAmount>
-                        <ram:TypeCode>VAT</ram:TypeCode>
-                        <ram:CategoryCode>S</ram:CategoryCode>
-                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
-                    </ram:ApplicableCITradeTax>
-                    <ram:SpecifiedCITradeAllowanceCharge>
-                        <ram:ChargeIndicator>
-                            <udt:Indicator>false</udt:Indicator>
-                        </ram:ChargeIndicator>
-                        <ram:ActualAmount>1500</ram:ActualAmount>
-                        <ram:ReasonCode>CG</ram:ReasonCode>
-                        <ram:Reason>クリーニング</ram:Reason>
-                    </ram:SpecifiedCITradeAllowanceCharge>
-                    <ram:SpecifiedCITradeAllowanceCharge>
-                        <ram:ActualAmount>1679</ram:ActualAmount>
-                        <ram:ReasonCode>95</ram:ReasonCode>
-                        <ram:Reason>値引</ram:Reason>
-                    </ram:SpecifiedCITradeAllowanceCharge>
-                    <ram:BillingCISpecifiedPeriod>
-                        <ram:StartDateTime>
-                            <udt:DateTimeString>2023-10-16</udt:DateTimeString>
-                        </ram:StartDateTime>
-                        <ram:EndDateTime>
-                            <udt:DateTimeString>2023-10-16</udt:DateTimeString>
-                        </ram:EndDateTime>
-                    </ram:BillingCISpecifiedPeriod>
-                    <ram:SpecifiedCITradeAllowanceCharge>
-                        <ram:ChargeIndicator>
-                            <udt:Indicator>true</udt:Indicator>
-                        </ram:ChargeIndicator>
-                        <ram:ActualAmount>7679</ram:ActualAmount>
-                        <ram:ReasonCode>FC</ram:ReasonCode>
-                        <ram:Reason>配送サービス</ram:Reason>
-                    </ram:SpecifiedCITradeAllowanceCharge>
-                    <ram:SpecifiedCITradeAllowanceCharge>
-                        <ram:ChargeIndicator>
-                            <udt:Indicator>true</udt:Indicator>
-                        </ram:ChargeIndicator>
-                    </ram:SpecifiedCITradeAllowanceCharge>
-                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
                 <ram:IncludedCINote>
                     <ram:Content>The equipment has 3 year warranty.</ram:Content>
                 </ram:IncludedCINote>
@@ -210,6 +174,46 @@
                 <ram:SpecifiedCIILBSupplyChainTradeDelivery>
                     <ram:BilledQuantity unitCode="H87">5</ram:BilledQuantity>
                 </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                    <ram:ApplicableCITradeTax>
+                        <ram:TypeCode>VAT</ram:TypeCode>
+                        <ram:BasisAmount>257500</ram:BasisAmount>
+                        <ram:CategoryCode>S</ram:CategoryCode>
+                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
+                    </ram:ApplicableCITradeTax>
+                    <ram:SpecifiedCITradeAllowanceCharge>
+                        <ram:ChargeIndicator>
+                            <udt:Indicator>true</udt:Indicator>
+                        </ram:ChargeIndicator>
+                        <ram:ActualAmount>1500</ram:ActualAmount>
+                        <ram:ReasonCode>CG</ram:ReasonCode>
+                        <ram:Reason>クリーニング</ram:Reason>
+                    </ram:SpecifiedCITradeAllowanceCharge>
+                    <ram:SpecifiedCITradeAllowanceCharge>
+                        <ram:ChargeIndicator>
+                            <udt:Indicator>false</udt:Indicator>
+                        </ram:ChargeIndicator>
+                        <ram:ActualAmount>1679</ram:ActualAmount>
+                        <ram:ReasonCode>95</ram:ReasonCode>
+                        <ram:Reason>値引</ram:Reason>
+                    </ram:SpecifiedCITradeAllowanceCharge>
+                    <ram:SpecifiedCITradeAllowanceCharge>
+                        <ram:ChargeIndicator>
+                            <udt:Indicator>true</udt:Indicator>
+                        </ram:ChargeIndicator>
+                        <ram:ActualAmount>7679</ram:ActualAmount>
+                        <ram:ReasonCode>FC</ram:ReasonCode>
+                        <ram:Reason>配送サービス</ram:Reason>
+                    </ram:SpecifiedCITradeAllowanceCharge>
+                     <ram:BillingCISpecifiedPeriod>
+                        <ram:StartDateTime>
+                            <udt:DateTimeString>2023-10-16</udt:DateTimeString>
+                        </ram:StartDateTime>
+                        <ram:EndDateTime>
+                            <udt:DateTimeString>2023-10-16</udt:DateTimeString>
+                        </ram:EndDateTime>
+                    </ram:BillingCISpecifiedPeriod>
+                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
                 <ram:ApplicableCITradeProduct>
                     <ram:Name>デスクチェア</ram:Name>
                     <ram:ApplicableCIProductCharacteristic>
@@ -220,22 +224,6 @@
             </ram:SubordinateCIILBSubordinateTradeLineItem>
             <ram:SubordinateCIILBSubordinateTradeLineItem>
                 <ram:ID>2</ram:ID>
-                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
-                    <ram:ApplicableCITradeTax>
-                        <ram:BasisAmount>2500</ram:BasisAmount>
-                        <ram:TypeCode>VAT</ram:TypeCode>
-                        <ram:CategoryCode>S</ram:CategoryCode>
-                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
-                    </ram:ApplicableCITradeTax>
-                    <ram:BillingCISpecifiedPeriod>
-                        <ram:StartDateTime>
-                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
-                        </ram:StartDateTime>
-                        <ram:EndDateTime>
-                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
-                        </ram:EndDateTime>
-                    </ram:BillingCISpecifiedPeriod>
-                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
                     <ram:AdditionalReferencedCIReferencedDocument>
                         <ram:IssuerAssignedID>D001-2</ram:IssuerAssignedID>
@@ -248,6 +236,22 @@
                 <ram:SpecifiedCIILBSupplyChainTradeDelivery>
                     <ram:BilledQuantity unitCode="H87">5</ram:BilledQuantity>
                 </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                    <ram:ApplicableCITradeTax>
+                        <ram:TypeCode>VAT</ram:TypeCode>
+                        <ram:BasisAmount>2500</ram:BasisAmount>
+                        <ram:CategoryCode>S</ram:CategoryCode>
+                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
+                    </ram:ApplicableCITradeTax>
+                    <ram:BillingCISpecifiedPeriod>
+                        <ram:StartDateTime>
+                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
+                        </ram:StartDateTime>
+                        <ram:EndDateTime>
+                            <udt:DateTimeString>2023-10-18</udt:DateTimeString>
+                        </ram:EndDateTime>
+                    </ram:BillingCISpecifiedPeriod>
+                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
                 <ram:ApplicableCITradeProduct>
                     <ram:Name>コピー用紙（A4）</ram:Name>
                     <ram:ApplicableCIProductCharacteristic>
@@ -258,10 +262,22 @@
             </ram:SubordinateCIILBSubordinateTradeLineItem>
             <ram:SubordinateCIILBSubordinateTradeLineItem>
                 <ram:ID>3</ram:ID>
-                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                    <ram:AdditionalReferencedCIReferencedDocument>
+                        <ram:IssuerAssignedID>D001-3</ram:IssuerAssignedID>
+                    </ram:AdditionalReferencedCIReferencedDocument>
+                    <ram:NetPriceProductCITradePrice>
+                        <ram:ChargeAmount>349</ram:ChargeAmount>
+                        <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
+                    </ram:NetPriceProductCITradePrice>
+                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                    <ram:BilledQuantity unitCode="H87">10</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+               <ram:SpecifiedCIILBSupplyChainTradeSettlement>
                     <ram:ApplicableCITradeTax>
-                        <ram:BasisAmount>3490</ram:BasisAmount>
                         <ram:TypeCode>VAT</ram:TypeCode>
+                        <ram:BasisAmount>3490</ram:BasisAmount>
                         <ram:CategoryCode>E</ram:CategoryCode>
                         <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
                     </ram:ApplicableCITradeTax>
@@ -274,18 +290,6 @@
                         </ram:EndDateTime>
                     </ram:BillingCISpecifiedPeriod>
                 </ram:SpecifiedCIILBSupplyChainTradeSettlement>
-                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
-                    <ram:AdditionalReferencedCIReferencedDocument>
-                        <ram:IssuerAssignedID>D001-3</ram:IssuerAssignedID>
-                    </ram:AdditionalReferencedCIReferencedDocument>
-                    <ram:NetPriceProductCITradePrice>
-                        <ram:ChargeAmount>349</ram:ChargeAmount>
-                        <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
-                    </ram:NetPriceProductCITradePrice>
-                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
-                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
-                    <ram:BilledQuantity unitCode="H87">10</ram:BilledQuantity>
-                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
                 <ram:ApplicableCITradeProduct>
                     <ram:Name>検定済教科書(算数)</ram:Name>
                     <ram:ApplicableCIProductCharacteristic>
