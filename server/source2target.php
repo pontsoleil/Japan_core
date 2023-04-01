@@ -1,4 +1,34 @@
 <?php
+/**
+ * source2target.php
+ *
+ * convert source e-Invoice XML document to target  e-Invoice XML document
+ *
+ * designed by SAMBUICHI, Nobuyuki (Sambuichi Professional Engineers Office)
+ * written by SAMBUICHI, Nobuyuki (Sambuichi Professional Engineers Office)
+ *
+ * MIT License
+ *
+ * (c) 2023 SAMBUICHI Nobuyuki (Sambuichi Professional Engineers Office)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ **/
 // cf. https://www.php.net/manual/ja/function.set-error-handler.php
 function errorHandler($errno, $errstr, $errfile, $errline)
 {
@@ -109,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     }
     else {
         $basename = htmlspecialchars($_POST["selected"]);
-        $file_dirFrom = 'JP-PINT/';
+        $file_dirFrom = $source . '/';
         $source_xml = $file_dirFrom . $basename;
     }
     list($filename, $extension) = explode('.', $basename);
@@ -122,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $file_dirTo = 'data/target/xml/'.$target.'/';
     $target_xml = $file_dirTo . $basename;
 
-    $cmd1 = 'java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv '.$source.' "'.$source_xml.'" "'.$workfile.'"';
+    $cmd1 = 'java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv '.$source.' "'.$source_xml.'" "'.$csv_file.'"';
     exec($cmd1,$output1,$retval1);
     wh_log($cmd1.'returns '.$retval1);
     if ($retval1 > 0)
@@ -130,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         trigger_error("Failed {$retval1}<br />\n{$cmd1}<br />\n{$output1}", E_USER_ERROR);
     }
 
-    $cmd2 = 'python3 transpose.py "'.$workfile.'" -c "'.$csv_file.'" -t "'.$transposed_file.'"';
+    $cmd2 = 'python3 transpose.py "'.$csv_file.'" -c "'.$workfile.'" -t "'.$transposed_file.'"';
     exec($cmd2,$output2,$retval2);
     wh_log($cmd2.'returns '.$retval2);
     if ($retval2 > 0)
@@ -177,3 +207,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 else {
     echo "NOT POST";
 }
+// source2target.phhp 2023-03-31
