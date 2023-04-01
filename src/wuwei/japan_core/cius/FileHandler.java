@@ -572,8 +572,7 @@ public class FileHandler {
 			if (0==PROCESSING.indexOf("JP-PINT")) {
 				xPath = xPath.replace("/Invoice", "/*");
 			} else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("ram:TaxCurrencyCode]")>0) {
-				if (TRACE) System.out.println(" (FileHandler) getXPathNodes "+xPath);
-
+				if (TRACE) System.out.println(" (FileHandler) getXPathNodes "+Invoice2csv.getShortPath(xPath));
 			}
 			// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
 			if (xPath.indexOf("true")>0) {
