@@ -1119,11 +1119,11 @@ Schema date:    31MAR23
 	<xsd:complexType name="CIILBSupplyChainTradeAgreementType">
 		<!--UN01009653-->
 		<xsd:sequence>
-			<xsd:element name="SellerOrderReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
-				<!--UN01009654-->
+			<xsd:element name="SellerOrderReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
+				<!--UN01009654 SAMBUICHI changed to maxOccurs="unbounded"-->
 			</xsd:element>
-			<xsd:element name="BuyerOrderReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
-				<!--UN01009655-->
+			<xsd:element name="BuyerOrderReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
+				<!--UN01009655 SAMBUICHI changed to maxOccurs="unbounded"-->
 			</xsd:element>
 			<xsd:element name="AdditionalReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
 				<!--UN01009656-->
