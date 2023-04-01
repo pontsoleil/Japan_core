@@ -417,6 +417,14 @@ This document and the information contained herein is provided on an "AS IS" bas
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:enumeration>
+			<xsd:enumeration value="0208">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:Name>Numero d'entreprise / ondernemingsnummer / Unternehmensnummer</ccts:Name>
+						<ccts:Description>Intended Purpose/App. Area: Identification number attributed by the BCE/KBO/ZDU (the Belgian register) to identify entities and establishment units operating in Belgium. Issuing agency: Banque-Carrefour des Entreprises (BCE) / Kruispuntbank van Ondernemingen (KBO) / Zentrale Datenbank der Unternehmen (ZOU) Service public fédéral Economie, P.M.E.in Belgium. Classes moyennes et Energie Corporate Number of The Social Security and Tax Number System.</ccts:Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
 		</xsd:restriction>
 	</xsd:simpleType>
 </xsd:schema>
