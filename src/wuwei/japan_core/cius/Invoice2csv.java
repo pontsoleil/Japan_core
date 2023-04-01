@@ -126,6 +126,28 @@ public class Invoice2csv {
 	}
 	
 	/**
+	 * ログ出力のためにXPathの文字列を短縮する。
+	 * 
+	 * @param path XPath文字列
+	 * @return　短縮された path
+	 */
+	public static String getShortPath(String path) {
+		if (0==PROCESSING.indexOf("SME-COMMON"))
+		{
+			String _path = path;
+			_path = _path.replace("[ram:TaxTotalAmount/@currencyID=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:TaxTotalAmount/@currencyID=...");
+			_path = _path.replace("[ram:CurrencyCode=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:CurrencyCode=...");
+			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeAgreement/","...Agreement/");
+			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:IncludedCIILSupplyChainTradeLineItem/","...LineItem/");
+			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/","...Settlement/");
+			return _path;
+		} else
+		{
+			return path;
+		}
+	
+	}
+	/**
 	 * を読み込んで Tidy dataテーブルに展開し、CSVファイルに出力する.
 	 * 
 	 * @param in_xml デジタルインボイス（XMLインスタンス文書）.
@@ -329,15 +351,18 @@ public class Invoice2csv {
 	private static void fillGroup (
 			Node parent, 
 			Integer sort, 
-			TreeMap<Integer, Integer> boughMap ) {		
+			TreeMap<Integer, Integer> boughMap ) {
+		Integer lastKey = boughMap.lastKey();
+		Integer lastID = boughMap.get(lastKey);
 		rowMap = new TreeMap<Integer, String>();		
 		// get child Nodes
 		Binding binding     = FileHandler.semBindingMap.get(sort);
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
-//		if (0==id.indexOf("JBT-417"))
-//			System.out.println(id+" "+businessTerm);
 
+		if (TRACE && ("JBG-53".equals(id)||"JBG-74".equals(id)||"JBG-79".equals(id))) {
+			System.out.println(id);
+		}
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (TRACE) {
@@ -350,22 +375,20 @@ public class Invoice2csv {
 			}
 		}
    	
-		for (Integer childSort : childList.keySet()) {
-			// childList includes both #text and @attribute
+		for (Integer childSort : childList.keySet()) { // childList includes both #text and @attribute
 			Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
 			String childID           = childBinding.getID();
 			String childBusinessTerm = childBinding.getBT();
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
-			if (TRACE) System.out.println("- fillGroup "+childID+"("+childSort+") "+childBusinessTerm+" XPath = "+childXPath);
-//			if (0==childID.indexOf("JBT-417"))
-//				System.out.println(childID+" "+childBusinessTerm);
+			if (TRACE) System.out.println("- fillGroup "+childID+"("+childSort+") "+childBusinessTerm+" XPath = "+getShortPath(childXPath));
 
 			List<Node> children = childList.get(childSort);
 			
 			Integer countChildren = children.size();
 			if (countChildren > 0) {
 				for (int i = 0; i < countChildren; i++) {
+//					int i                = lastID;
 					Node child           = children.get(i);
 					String childNodeName = child.getNodeName();
 					String value         = child.getTextContent().trim();					
@@ -374,7 +397,7 @@ public class Invoice2csv {
 						fillData(childSort, value, boughMap); // @attribute
 						
 					} else if (null!=child && null != value && value.length() > 0 &&
-							childID.toLowerCase().matches("jbt-.+$")) {
+							childID.toUpperCase().matches("JBT-.+$")) {
 						if (TRACE) System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
 
 						fillData(childSort, value, boughMap); // #text	
@@ -402,8 +425,6 @@ public class Invoice2csv {
 									ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
 									List<Node> grandchildNodes = parsedNode.nodes;
 									for (int j = 0; j < grandchildNodes.size(); j++) {
-										Integer lastKey = boughMap.lastKey();
-										Integer lastID = boughMap.get(lastKey);
 										if (0==i-lastID) {
 											Node grandchild           = grandchildNodes.get(lastID);
 											String grandchildNodeName = grandchild.getNodeName();
