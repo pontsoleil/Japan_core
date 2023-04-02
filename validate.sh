@@ -1,0 +1,11 @@
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example.xml"
+
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example.xml"
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example1-minimum.xml"
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example2-TaxAcctCur.xml"
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example3-SumInv1.xml"
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example4-SumInv2.xml"
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example5-AllowanceCharge.xml"
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example6-CorrInv.xml"
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example7-Return.Quan.ItPr.xml"
+java -classpath core-japan-0.0.1.jar wuwei.japan_core.utils.XmlSchemaValidation data/aligned/maindoc/UBL-Invoice-2.1.xsd "data/pint-jp-resources-dev/trn-invoice/example/Japan PINT Invoice UBL Example9-SumInv1 and O.xml"
