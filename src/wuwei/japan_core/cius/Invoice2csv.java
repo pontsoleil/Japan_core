@@ -198,9 +198,7 @@ public class Invoice2csv {
 			Binding binding = entry.getValue();
 			Integer sort    = binding.getSemSort();
 			String id       = binding.getID();
-//			String xPath    = binding.getXPath();
 			String card     = binding.getCard();
-//			String occur    = binding.getOccur();
 			if (id.toUpperCase().matches("^JBG-.+$") &&
 					card.matches("^.*n$") && //!occur.matches("^.*0$") &&
 					isMultiple(sort)) {
@@ -317,9 +315,8 @@ public class Invoice2csv {
 		String businessTerm = binding.getBT();
 		binding.setUsed(true);
 		value = value.trim();
-		if (TRACE) System.out.println("  fillData boughMap="+boughMap.toString()+" "+id+"("+semSort+") "+businessTerm+" = "+value);
-//		if (id.indexOf("JBT-264")>=0)
-//			System.out.println(id+" "+businessTerm);
+		if (TRACE) 
+			System.out.println("  fillData boughMap="+boughMap.toString()+" "+id+"("+semSort+") "+businessTerm+" = "+value);
 		String rowMapKey = "";
 		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) {
 			Integer boughSort = entry.getKey();
@@ -342,7 +339,8 @@ public class Invoice2csv {
 	}
 	
 	/**
-	 * デジタルインボイスのXMLインスタンス文書を読み込み、セマンティックモデルの階層定義に従って親要素から子要素のXPathを使用して探し出し、その値をTidy data定義用の2次元リストに設定する。
+	 * デジタルインボイスのXMLインスタンス文書を読み込み、セマンティックモデルの階層定義に従って親要素から子要素のXPathを使用して探し出し、
+	 * その値をTidy data定義用の2次元リストに設定する。
 	 * 
 	 * @param parent 親のXML要素
 	 * @param sort モデル定義における親要素のソート番号
@@ -676,8 +674,6 @@ public class Invoice2csv {
 		Binding binding   = FileHandler.semBindingMap.get(semSort);
 		String id         = binding.getID();
 		String xPath      = binding.getXPath();
-//		if (xPath.indexOf("true") > 0)
-//			System.out.println(xPath);
 		List<Node> founds = FileHandler.getXPath(FileHandler.root, xPath);
 		if (null!=founds) {
 			if (xPath.indexOf("true") > 0 || xPath.indexOf("false") > 0 ||
