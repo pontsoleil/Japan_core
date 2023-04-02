@@ -136,7 +136,6 @@ old-version/
 10DEC22/
 xml/*.xml
 work/
-*.sh
 .classpath/
 data/pint-jp-resources-dev (23-mar)/
 *.zip
