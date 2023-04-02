@@ -306,7 +306,7 @@ public class Invoice2csv {
 	 * 
 	 * @param semSort セマンティックモデルのセマンティックソート番号
 	 * @param value 要素の値
-	 * @param boughMap 
+	 * @param boughMap Tidy dataテーブルの行を指定する索引データ
 	 */
 	private static void fillData (
 			Integer semSort, 
@@ -345,32 +345,31 @@ public class Invoice2csv {
 	 * デジタルインボイスのXMLインスタンス文書を読み込み、セマンティックモデルの階層定義に従って親要素から子要素のXPathを使用して探し出し、その値をTidy data定義用の2次元リストに設定する。
 	 * 
 	 * @param parent 親のXML要素
-	 * @param sort セマンティックモデル定義における親要素のセマンティックソート番号
-	 * @param boughMap　要素が定義されたTidy dataの行に対応する索引
+	 * @param sort モデル定義における親要素のソート番号
+	 * @param boughMap　Tidy dataテーブルの行を指定する索引データ
 	 */
 	private static void fillGroup (
 			Node parent, 
 			Integer sort, 
 			TreeMap<Integer, Integer> boughMap ) {
-		Integer lastKey = boughMap.lastKey();
-		Integer lastID = boughMap.get(lastKey);
-		rowMap = new TreeMap<Integer, String>();		
-		// get child Nodes
 		Binding binding     = FileHandler.semBindingMap.get(sort);
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
+		rowMap = new TreeMap<Integer, String>();		
 
-		if (TRACE && ("JBG-53".equals(id)||"JBG-74".equals(id)||"JBG-79".equals(id))) {
+		/*if (TRACE && ("JBG-53".equals(id)||"JBG-74".equals(id)||"JBG-79".equals(id)||"JBG-85".equals(id)||"JBG-86".equals(id)||"JBG-87".equals(id))) {
 			System.out.println(id);
-		}
+		}*/
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (TRACE) {
 			System.out.print("- 0 fillGroup boughMap="+boughMap.toString()+" "+id+"("+sort+") "+businessTerm);
-			if (0==childList.size()) {
+			if (0==childList.size()) 
+			{
 				System.out.println(" is Empty");
 				return;
-			} else {
+			} else 
+			{
 				System.out.println("");
 			}
 		}
@@ -385,89 +384,282 @@ public class Invoice2csv {
 
 			List<Node> children = childList.get(childSort);
 			
-			Integer countChildren = children.size();
-			if (countChildren > 0) {
-				for (int i = 0; i < countChildren; i++) {
-//					int i                = lastID;
+			int countChildren = children.size();
+			if (countChildren > 0) 
+			{
+				if (countChildren > 1 && children.get(0).getNodeName().equals(children.get(1).getNodeName()))
+				{
+					if (childID.toUpperCase().matches("^JBT-.+$"))
+					{
+						for (int i = 0; i < countChildren; i++) 
+						{
+							fillMultipleJBT(boughMap, sort, childSort, children, i);
+						}
+					} else if (childID.toUpperCase().matches("^JBG-.+$"))
+					{
+						for (int i = 0; i < countChildren; i++) 
+						{
+							fillMultipleJBG(boughMap, sort, childSort, children, i);
+						}
+					}						
+				}
+				for (int i = 0; i < countChildren; i++) 
+				{
 					Node child           = children.get(i);
 					String childNodeName = child.getNodeName();
 					String value         = child.getTextContent().trim();					
-					if (! "Invoice".equals(childNodeName) && childNodeName.indexOf(":")<0) {						
-						
+					if (! "Invoice".equals(childNodeName) && childNodeName.indexOf(":")<0)
+					{
 						fillData(childSort, value, boughMap); // @attribute
 						
-					} else if (null!=child && null != value && value.length() > 0 &&
-							childID.toUpperCase().matches("JBT-.+$")) {
-						if (TRACE) System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
+					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("JBT-.+$")) 
+					{
+						if (TRACE) 
+							System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
 
 						fillData(childSort, value, boughMap); // #text	
 						
-						if (FileHandler.semChildMap.containsKey(childSort)) {
+						if (FileHandler.semChildMap.containsKey(childSort)) 
+						{
 							ArrayList<Integer> grandchildren = FileHandler.semChildMap.get(childSort);
-//							Node childNode          = child.getFirstChild();
 							NamedNodeMap attributes = child.getAttributes();
 							for (Integer grandchildSort : grandchildren) {
-								Binding grandchildBinding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
-								String grandchildID        = grandchildBinding.getID();
-								String grandchildBT        = grandchildBinding.getBT();
-								String grandchildXPath     = grandchildBinding.getXPath();
-								String attrName            = grandchildXPath.substring(2+grandchildXPath.lastIndexOf("/@"));
-								if (attributes.getLength() > 0) {
-									Node attribute = attributes.getNamedItem(attrName);
-									if (null!=attribute) {
-										String grandchildValue     = attribute.getNodeValue();
-										if (TRACE) System.out.print("* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+
-											" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
-											"\n    @"+attrName+"("+grandchildSort+") = "+grandchildValue);
-										fillData(grandchildSort, grandchildValue, boughMap);
-									}
-								} else {									
-									ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
-									List<Node> grandchildNodes = parsedNode.nodes;
-									for (int j = 0; j < grandchildNodes.size(); j++) {
-										if (0==i-lastID) {
-											Node grandchild           = grandchildNodes.get(lastID);
-											String grandchildNodeName = grandchild.getNodeName();
-											String grandchildValue    = grandchild.getTextContent().trim();
-											if (TRACE) System.out.println("* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+
-													" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
-													"\n    grand child["+lastKey+"] "+grandchildNodeName+"="+grandchildValue);		
-											fillData(grandchildSort, grandchildValue, boughMap);
-										}
-									}
-								}
+								fillGrandChildren(boughMap, childSort, i, childNodeName, attributes, grandchildSort);
 							}
 						}						
-					} else {
-						@SuppressWarnings("unchecked")
-						TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
+					} else 
+					{
 						boolean is_multiple = isMultiple(childSort);
-						if (is_multiple && countChildren > 1) {
-							Integer lastkey   = boughMap1.lastKey();
-							Integer lastvalue = boughMap1.get(lastkey);
-							if (TRACE) System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
-							if (childSort != lastkey) {
-								if (boughMap.size() < childLevel + 1) {
-									boughMap1.put(childSort, i);
-								} else {
-									boughMap1.pollLastEntry();
-									boughMap1.put(childSort, i);
-									boughMapList.remove(boughMapList.size() - 1);
-								}
-							} else if (countChildren > 1) {
-								Integer lastvalue1 = lastvalue + 1;
-								boughMap1.put(lastkey, lastvalue1);
-							}
-							boughMapList.add(boughMap1);
-							if (TRACE) System.out.println("\n    UPDATED boughMapList="+boughMapList.toString()+"\n    boughMap1="+boughMap1.toString());
+						if (is_multiple && countChildren > 1) 
+						{
+							fillNewGroup(boughMap, sort, childSort, /*childID, childBusinessTerm, childLevel,*/	countChildren, i, child);
+						} else
+						{
+							if (TRACE) 
+								System.out.println("* fillGroup "+ businessTerm+" -> level="+childLevel+" "+childID+"("+childSort+") "+childBusinessTerm+
+									"\n    boughMapList="+boughMapList.toString()+"\n    boughMap"+boughMap.toString());
+							fillGroup(child, childSort, boughMap);
 						}
-						if (TRACE) System.out.println("* fillGroup "+ businessTerm+" -> level="+childLevel+" "+childID+"("+childSort+") "+childBusinessTerm+
-								"\n    boughMapList="+boughMapList.toString()+"\n    boughMap"+boughMap1.toString());
-						fillGroup(child, childSort, boughMap1);
 					}
 				}
 			}
 		}
+	}
+
+	/**
+	 * Tidy dataテーブルに新たな行を追加する
+	 * 
+	 * @param boughMap Tidy dataテーブルの行を指定する索引データ
+	 * @param sort モデル定義における親要素のソート番号 
+	 * @param childSort モデル定義における子要素のソート番号
+	 * @param countChildren 親要素が含む子要素の数 
+	 * @param i 処理中の子要素の順序番号
+	 * @param child 子要素
+	 */
+	private static void fillNewGroup(
+			TreeMap<Integer, Integer> boughMap, 
+			Integer sort,
+			Integer childSort,
+			Integer countChildren, 
+			int i, 
+			Node child) {
+		Integer lastkey          = boughMap.lastKey();
+		Integer lastvalue        = boughMap.get(lastkey);
+		Binding binding          = FileHandler.semBindingMap.get(sort);
+		String businessTerm      = binding.getBT();
+		Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
+		String childID           = childBinding.getID();
+		String childBusinessTerm = childBinding.getBT();
+		int childLevel           = childBinding.getLevel();
+		
+		@SuppressWarnings("unchecked")
+		TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
+		if (TRACE) 
+			System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
+		if (childSort != lastkey) 
+		{
+			if (boughMap1.size() < childLevel) 
+			{
+				boughMap1.put(childSort, i);
+			} else 
+			{
+				boughMap1.pollLastEntry();
+				boughMap1.put(childSort, i);
+				boughMapList.remove(boughMapList.size() - 1);
+			}
+		} else if (countChildren > 1) 
+		{
+			Integer lastvalue1 = lastvalue + 1;
+			boughMap1.put(lastkey, lastvalue1);
+		}
+		if (boughMapList.size() >= childLevel)
+			boughMapList.remove(boughMapList.size() - 1);
+		boughMapList.add(boughMap1);
+		if (TRACE) 
+			System.out.println("\n    UPDATED boughMapList="+boughMapList.toString()+"\n    boughMap1="+boughMap1.toString());
+		if (TRACE) 
+			System.out.println("* fillGroup "+ businessTerm+" -> level="+childLevel+" "+childID+"("+childSort+") "+childBusinessTerm+
+				"\n    boughMapList="+boughMapList.toString()+"\n    boughMap"+boughMap1.toString());
+		fillGroup(child, childSort, boughMap1);
+	}
+
+	/**
+	 * 子要素が含む孫要素を Tidy data テーブルに追加する。
+	 * 
+	 * @param boughMap Tidy dataテーブルの行を指定する索引データ
+	 * @param sort モデル定義における親要素のソート番号
+	 * @param childSort モデル定義における子要素のソート番号
+	 * @param i
+	 * @param childNodeName
+	 * @param attributes
+	 * @param grandchildSort
+	 */
+	private static void fillGrandChildren(
+			TreeMap<Integer, Integer> boughMap, 
+			Integer childSort,
+			int i, 
+			String childNodeName,
+			NamedNodeMap attributes, 
+			Integer grandchildSort) {
+		Integer lastKey           = boughMap.lastKey();
+		Integer lastID            = boughMap.get(lastKey);
+		Binding childBinding      = (Binding) FileHandler.semBindingMap.get(childSort);
+		String childID            = childBinding.getID();
+		String childBusinessTerm  = childBinding.getBT();
+		int childLevel            = childBinding.getLevel();
+		Binding grandchildBinding = (Binding) FileHandler.semBindingMap.get(grandchildSort);
+		String grandchildID       = grandchildBinding.getID();
+		String grandchildBT       = grandchildBinding.getBT();
+		String grandchildXPath    = grandchildBinding.getXPath();
+		String attrName           = grandchildXPath.substring(2+grandchildXPath.lastIndexOf("/@"));
+		if (attributes.getLength() > 0) 
+		{
+			Node attribute = attributes.getNamedItem(attrName);
+			if (null!=attribute) 
+			{
+				String grandchildValue     = attribute.getNodeValue();
+				if (TRACE) 
+					System.out.print(
+							"* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
+							"\n    @"+attrName+"("+grandchildSort+") = "+grandchildValue);
+				fillData(grandchildSort, grandchildValue, boughMap);
+			}
+		} else 
+		{									
+			ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
+			List<Node> grandchildNodes = parsedNode.nodes;
+			for (int j = 0; j < grandchildNodes.size(); j++) 
+			{
+				if (0==i-lastID) 
+				{
+					Node grandchild           = grandchildNodes.get(lastID);
+					String grandchildNodeName = grandchild.getNodeName();
+					String grandchildValue    = grandchild.getTextContent().trim();
+					if (TRACE) 
+						System.out.println(
+								"* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
+								"\n    grand child["+lastKey+"] "+grandchildNodeName+"="+grandchildValue);		
+					fillData(grandchildSort, grandchildValue, boughMap);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Tidy data テーブルに親要素が含むXPathで見つかった複数の子要素(JBG)を追加する。
+	 * 
+	 * @param boughMap Tidy dataテーブルの行を指定する索引データ
+	 * @param sort モデル定義における親要素のソート番号
+	 * @param childSort モデル定義における子要素のソート番号
+	 * @param children
+	 * @param i
+	 */
+	private static void fillMultipleJBG(
+			TreeMap<Integer, Integer> boughMap, 
+			Integer sort, 
+			Integer childSort,
+			List<Node> children, 
+			int i) {
+		Binding binding          = FileHandler.semBindingMap.get(sort);
+		String businessTerm      = binding.getBT();
+		Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
+		String childID           = childBinding.getID();
+		String childBusinessTerm = childBinding.getBT();
+		int childLevel           = childBinding.getLevel();
+		int countChildren = children.size();
+		Node child   = children.get(i);
+		@SuppressWarnings("unchecked")
+		TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
+		Integer lastkey   = boughMap1.lastKey();
+		Integer lastvalue = boughMap1.get(lastkey);
+		if (TRACE) 
+			System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
+		if (childSort != lastkey) 
+		{
+			if (boughMap1.size() < childLevel) 
+			{
+				boughMap1.put(childSort, i);
+			} else 
+			{
+				boughMap1.pollLastEntry();
+				boughMap1.put(childSort, i);
+				boughMapList.remove(boughMapList.size() - 1);
+			}
+		} else if (countChildren > 1) 
+		{
+			Integer lastvalue1 = lastvalue + 1;
+			boughMap1.put(lastkey, lastvalue1);
+		}
+		if (boughMapList.size() >= childLevel)
+			boughMapList.remove(boughMapList.size() - 1);
+		boughMapList.add(boughMap1);							
+		if (TRACE) 
+			System.out.println("\n    UPDATED boughMapList="+boughMapList.toString()+" boughMap="+boughMap1.toString()+
+					"\n* fillGroup "+ businessTerm+" -> level="+childLevel+" "+childID+"("+childSort+") "+childBusinessTerm);
+		fillGroup(child, childSort, boughMap1);
+	}
+
+	/**
+	 * Tidy data テーブルに親要素が含むXPathで見つかった複数の子要素(JBT)を追加する。
+	 * 
+	 * @param boughMap Tidy dataテーブルの行を指定する索引データ
+	 * @param sort モデル定義における親要素のソート番号
+	 * @param childSort モデル定義における子要素のソート番号
+	 * @param children
+	 * @param i
+	 */
+	private static void fillMultipleJBT(
+			TreeMap<Integer, Integer> boughMap, 
+			Integer sort, 
+			Integer childSort, 
+			List<Node> children, 
+			int i) {
+		Integer lastKey          = boughMap.lastKey();
+		Binding binding          = FileHandler.semBindingMap.get(sort);
+		String businessTerm      = binding.getBT();
+		Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
+		String childID           = childBinding.getID();
+		String childBusinessTerm = childBinding.getBT();
+		int childLevel           = childBinding.getLevel();
+		Node child   = children.get(i);
+		String value = child.getTextContent().trim();	
+		@SuppressWarnings("unchecked")
+		TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
+		Integer lastkey   = boughMap1.lastKey();
+		Integer lastvalue = boughMap1.get(lastkey);
+		if (TRACE) 
+			System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
+		if (i != lastvalue)
+		{
+			boughMap1.pollLastEntry();
+			boughMap1.put(lastKey, i);
+			boughMapList.remove(boughMapList.size() - 1);
+			boughMapList.add(boughMap1);
+		}
+		if (TRACE) 
+			System.out.println("\n    UPDATED boughMapList="+boughMapList.toString()+
+				"\n* fillGroup "+ businessTerm+" -> level="+childLevel+" "+childID+"("+childSort+") "+childBusinessTerm);
+		fillData(childSort, value, boughMap1);
 	}
 
 	/**

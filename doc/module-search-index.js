@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"wuwei.japan_core"}];updateSearchResults();
+moduleSearchIndex = [];updateSearchResults();

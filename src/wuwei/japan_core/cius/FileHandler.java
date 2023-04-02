@@ -66,6 +66,8 @@ public class FileHandler {
 	public static boolean DEBUG     = false;
 	public static String PROCESSING = null;
 	
+	public static String SME_ROOT   = "/rsm:SMEinvoice";
+	
 	public static ArrayList<String> MULTIPLE_ID = new ArrayList<>();
 	public static HashMap<String, String> nsURIMap = null;
 	
@@ -450,29 +452,29 @@ public class FileHandler {
 		return nodeValueMap;
 	}
 	
-	/**
-	 * 子要素のidからバインディング定義のXPathを取り出してそれを使用して親要素の下位にある子要素を探し出し、その結果をリストとして返す。
-	 * 
-	 * @param parent　親要素
-	 * @param id　子要素のid
-	 * @return nodes XPathに該当する要素のリスト List&lt;Node&gt; nodes
-	 */
-	public static List<Node> getElements(Element parent, String id) 
-	{
-		Binding binding = (Binding) bindingDict.get(id);
-		String xpath = binding.getXPath();
-		xpath = xpath.replaceAll("/Invoice", "/*");
-		xpath = xpath.replaceAll("/ubl:Invoice", "/*");
-		if (null==parent) {
-			if (TRACE) System.out.println("- FileHaldler.getElements parent null");
-			return null;
-		}
-		if (id.toLowerCase().matches("^ibt-.+$")) {
-			xpath += "/text()";
-		}
-		List<Node> nodes = getXPathNodes(parent, xpath);
-		return nodes;
-	}
+//	/**
+//	 * 子要素のidからバインディング定義のXPathを取り出してそれを使用して親要素の下位にある子要素を探し出し、その結果をリストとして返す。
+//	 * 
+//	 * @param parent　親要素
+//	 * @param id　子要素のid
+//	 * @return nodes XPathに該当する要素のリスト List&lt;Node&gt; nodes
+//	 */
+//	public static List<Node> getElements(Element parent, String id) 
+//	{
+//		Binding binding = (Binding) bindingDict.get(id);
+//		String xpath = binding.getXPath();
+//		xpath = xpath.replaceAll("/Invoice", "/*");
+//		xpath = xpath.replaceAll("/ubl:Invoice", "/*");
+//		if (null==parent) {
+//			if (TRACE) System.out.println("- FileHaldler.getElements parent null");
+//			return null;
+//		}
+//		if (id.toLowerCase().matches("^ibt-.+$")) {
+//			xpath += "/text()";
+//		}
+//		List<Node> nodes = getXPathNodes(parent, xpath);
+//		return nodes;
+//	}
 	
 	/**
 	 * 親要素から指定されたXPathに該当する要素を探す。
@@ -508,8 +510,8 @@ public class FileHandler {
 		TreeMap<Integer, List<Node>> childList = new TreeMap<>();	
 		Binding binding = (Binding) bindingDict.get(parent_id);
 		Integer parentSemSort = binding.getSemSort();
-		String xpath = binding.getXPath();
-		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"("+parentSemSort+") "+xpath);
+		String parentXPath = binding.getXPath();
+		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"("+parentSemSort+") "+parentXPath);
 
 		ArrayList<Integer> children = semChildMap.get(parentSemSort);
 		
@@ -520,7 +522,7 @@ public class FileHandler {
 				String defaultValue         = child_binding.getDefaultValue();
 				Set<String> additionalXPath = child_binding.getAdditionalXPath();
 				if (child_xpath.substring(1).indexOf("/") > 0)
-					child_xpath = child_xpath.replace(xpath, ".");
+					child_xpath = child_xpath.replace(parentXPath, ".");
 				
 				List<Node> nodes = getXPathNodes(parent, child_xpath);
 				
