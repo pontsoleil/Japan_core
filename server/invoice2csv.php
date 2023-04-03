@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $workfile = $file_dirCSV . $filename . '_work.csv';
     $transposed_file = $file_dirCSV . $filename . '_transposed.csv';
 
-    $cmd1 = 'java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv '.$syntax.' "'.$xml_file.'" "'.$workfile.'"';
+    $cmd1 = 'java -classpath lib/core-japan-0.0.2.jar wuwei.japan_core.cius.Invoice2csv '.$syntax.' "'.$xml_file.'" "'.$workfile.'"';
     exec($cmd1,$output1,$retval1);
     wh_log($cmd1.' returns '.$retval1);
     if ($retval1 > 0)

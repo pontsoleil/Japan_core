@@ -70,7 +70,7 @@
 
    <!-- Begin page content -->
     <div class="container py-0">
-        <div class="card p-3 bg-light">
+        <div class="card p-3 bg-light" style="margin-bottom:120px;">
             <div class="tab-content">
                 <div id="source2target" class="tab-pane fade show active" role="tabpanel" aria-labelledby="source2target-tab">
                     <div class="card">
@@ -85,6 +85,13 @@
                                         aria-label="Japanese PINT example">
                                         <option value="initial" selected>サンプルを選択</option>
                                         <option value="SME-COMMON:Example1-minimum.xml">中小企業共通EDI Example1-minimum.xml</option>
+                                        <option value="SME-COMMON:Example2-TaxAcctCur.xml">中小企業共通EDI Example2-TaxAcctCur.xml</option>
+                                        <option value="SME-COMMON:Example3-SumInv1.xml">中小企業共通EDI Example3-SumInv1.xml</option>
+                                        <option value="SME-COMMON:Example4-SumInv2.xml">中小企業共通EDI Example4-SumInv2.xml</option>
+                                        <option value="SME-COMMON:Example5-AllowanceCharge.xml">中小企業共通EDI Example5-AllowanceCharge.xml</option>
+                                        <option value="SME-COMMON:Example6-CorrInv.xml">中小企業共通EDI Example6-CorrInv.xml</option>
+                                        <option value="SME-COMMON:Example7-Return.Quan.ItPr.xml">中小企業共通EDI Example7-Return.Quan.ItPr.xml</option>
+                                        <option value="SME-COMMON:Example9-SumInv1andO.xml">中小企業共通EDI Example9-SumInv1andO.xml</option>
                                         <option value="JP-PINT:Japan PINT Invoice UBL Example.xml">Japan PINT Invoice UBL Example.xml</option>
                                         <option value="JP-PINT:Japan PINT Invoice UBL Example1-minimum.xml">Japan PINT Invoice UBL Example1-minimum.xml</option>
                                         <option value="JP-PINT:Japan PINT Invoice UBL Example2-TaxAcctCur.xml">Japan PINT Invoice UBL Example2-TaxAcctCur.xml</option>
@@ -190,6 +197,13 @@
                                         aria-label="Japanese PINT example">
                                         <option value="initial" selected>サンプルを選択</option>
                                         <option value="SME-COMMON:Example1-minimum.xml">中小企業共通EDI Example1-minimum.xml</option>
+                                        <option value="SME-COMMON:Example2-TaxAcctCur.xml">中小企業共通EDI Example2-TaxAcctCur.xml</option>
+                                        <option value="SME-COMMON:Example3-SumInv1.xml">中小企業共通EDI Example3-SumInv1.xml</option>
+                                        <option value="SME-COMMON:Example4-SumInv2.xml">中小企業共通EDI Example4-SumInv2.xml</option>
+                                        <option value="SME-COMMON:Example5-AllowanceCharge.xml">中小企業共通EDI Example5-AllowanceCharge.xml</option>
+                                        <option value="SME-COMMON:Example6-CorrInv.xml">中小企業共通EDI Example6-CorrInv.xml</option>
+                                        <option value="SME-COMMON:Example7-Return.Quan.ItPr.xml">中小企業共通EDI Example7-Return.Quan.ItPr.xml</option>
+                                        <option value="SME-COMMON:Example9-SumInv1andO.xml">中小企業共通EDI Example9-SumInv1andO.xml</option>
                                         <option value="JP-PINT:Japan PINT Invoice UBL Example.xml">Japan PINT Invoice UBL Example.xml</option>
                                         <option value="JP-PINT:Japan PINT Invoice UBL Example1-minimum.xml">Japan PINT Invoice UBL Example1-minimum.xml</option>
                                         <option value="JP-PINT:Japan PINT Invoice UBL Example2-TaxAcctCur.xml">Japan PINT Invoice UBL Example2-TaxAcctCur.xml</option>
@@ -416,22 +430,24 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-header">
-                                <h5 class="card-title" id="modalTitle">制限事項 2023-03-23</h5>
+                                <h5 class="card-title" id="modalTitle">制限事項 2023-04-03</h5>
                             </div>
                             <div class="card-body">
                                 <h4>JP PINT</h4>
                                 <ol>
-                                    <li>使用しているJP PINTデジタルインボイスのサンプルXMLファイルは、Open Peppolがら公開されているダウンロードファイルをそのまま使用しています。<br/>
-                                    このため、JP PINTで定義されていない&lt;cbc:UBLVersionID>2.1&lt;/cbc:UBLVersionID>が記載されていたり、XML構文で要請される値の設定値が公開仕様と異なるなど、Syntax Binding定義に沿っていない要素定義も含まれていますので注意してください。</li>
-                                    <li>ダウンロードしたXMLインスタンス文書には、xsi:schemaLocationの定義が含まれていないのでXML編集ソフトで開くとエラーメッセージが発行される事がありますので、必要に応じて次の定義を&lt;Invoice>要素に追加してください。<br/>
+                                    <li>使用しているJP PINTデジタルインボイスのサンプルXMLファイルは、Open Peppolがら公開されているダウンロードファイルを<del>そのまま</del>使用しています。
+                                    このため、<del>JP PINTで定義されていない&lt;cbc:UBLVersionID>2.1&lt;/cbc:UBLVersionID>が記載されていたり、</del>
+                                    XML構文で要請される値の設定値が公開仕様と異なるなど、Syntax Binding定義に沿っていない要素定義も含まれていますので注意してください。</li>
+                                    <del><li>ダウンロードしたXMLインスタンス文書には、xsi:schemaLocationの定義が含まれていないのでXML編集ソフトで開くとエラーメッセージが発行される事がありますので、必要に応じて次の定義を&lt;Invoice>要素に追加してください。<br/>
                                         xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2<br/>
-                                        http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"</li>
+                                        http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"</li></del>
+                                    <li><a href="https://www.wuwei.space/core-japan/server/data/aligned/maindoc/UBL-Invoice-2.1.xsd">検証用のXMLスキーマ</a>をxsi:schemaLocationに指定しています。</li>
                                     <li>Syntax Binding定義で記載している日本語は、三分一技術士事務所で定義したものです。</li>
                                 </ol>
                                 <h4>中小企業共通EDI</h4>
                                 <ol>
                                     <li>インボイスからCSV変換はテスト未実施であり、これから確認します。</li>
-                                    <li>変換が設計通りに処理されていない箇所が残っている。<br/>
+                                    <li>>変換が設計通りに処理されていない箇所が残っている。<br/>
                                         例えば、&lt;ram:ApplicableCITradeTax>が税率ごとにまとまっていない(税率と税額などが分かれて記載されている)。など</li>
                                     <li>中小企業共通EDIのXMLスキーマは、正式に提供されているものではなく、検証のために三分一技術士事務所で試作したものです。<br/>
                                         正式に公開されるものとは異なる箇所があります。<br/>

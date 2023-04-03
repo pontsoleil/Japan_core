@@ -152,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $file_dirTo = 'data/target/xml/'.$target.'/';
     $target_xml = $file_dirTo . $basename;
 
-    $cmd1 = 'java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Invoice2csv '.$source.' "'.$source_xml.'" "'.$csv_file.'"';
+    $cmd1 = 'java -classpath lib/core-japan-0.0.2.jar wuwei.japan_core.cius.Invoice2csv '.$source.' "'.$source_xml.'" "'.$csv_file.'"';
     exec($cmd1,$output1,$retval1);
     wh_log($cmd1.'returns '.$retval1);
     if ($retval1 > 0)
@@ -168,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         trigger_error("Failed {$retval2}<br />\n$cmd2}<br />\n{$output2}", E_USER_ERROR);
     }
 
-    $cmd3 = 'java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Csv2invoice '.$target.' "'.$csv_file.'" "'.$target_xml.'"';
+    $cmd3 = 'java -classpath lib/core-japan-0.0.2.jar wuwei.japan_core.cius.Csv2invoice '.$target.' "'.$csv_file.'" "'.$target_xml.'"';
     exec($cmd3,$output3,$retval3);
     wh_log($cmd3.'returns '.$retval3);
     if ($retval3 > 0)

@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file']))
     $xml_basename = $filename . ".xml";
     $xml_file = 'data/target/xml/'.$syntax.'/' . $xml_basename;
     if (move_uploaded_file($file_tmp, $csv_file)) {
-        $cmd = "java -classpath lib/core-japan-0.0.1.jar wuwei.japan_core.cius.Csv2invoice {$syntax} {$csv_file} {$xml_file}";
+        $cmd = "java -classpath lib/core-japan-0.0.2.jar wuwei.japan_core.cius.Csv2invoice {$syntax} {$csv_file} {$xml_file}";
         exec($cmd,$output,$retval);
         wh_log($cmd.' returns '.$retval);
         if ($retval > 0)
