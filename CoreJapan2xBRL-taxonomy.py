@@ -29,7 +29,7 @@
 # SOFTWARE.
 
 # from jsonschema import validate
-from cgi import print_directory
+# from cgi import print_directory
 # from distutils.debug import DEBUG
 # import json
 # from pyrsistent import b
@@ -48,8 +48,8 @@ SEP = os.sep
 
 xbrl_source = 'source/'
 xbrl_source = xbrl_source.replace('/', SEP)
-core_head = 'coreead.txt'
-primarykey_file = 'primarykey.csv'
+# core_head = 'corehead.txt'
+# primarykey_file = 'primarykey.csv'
 
 xbrl_base = 'taxonomy/H/'
 # xbrl_base = xbrl_base.replace('/', SEP)
@@ -134,7 +134,7 @@ targetTables = ['GL02','GL03']
 duplicateNames = set()
 names = set()
 coreDict = {}
-parentRefDict = {}
+targetRefDict = {}
 associationDict = {}
 referenceDict = {}
 childRefDict = {}
@@ -222,8 +222,8 @@ def getParent(parent_id_list):
     return parent
 
 def getChildren(core_id):
-    record = coreDict[core_id]
-    if record:
+    if core_id in coreDict:
+        record = coreDict[core_id]
         return record['children']
     return []
 
@@ -231,7 +231,7 @@ def defineHypercube(core_id, role,n):
     global lines
     global locsDefined
     global arcsDefined
-    global parentRefDict
+    global targetRefDict
     global referenceDict
     root_id = None
     root_id = core_id
@@ -296,7 +296,7 @@ def defineHypercube(core_id, role,n):
             alias_id = child_id
             child = coreDict[child_id]#[-8:]]
             child_kind = child['id'][:3]
-            if child_id in parentRefDict:
+            if child_id in targetRefDict:
                 if 'JBG'!=child_kind or 'n'!=child['card'][-1:]:
                     if not alias_id in locsDefined[link_id]:
                         locsDefined[link_id].add(alias_id)
@@ -307,7 +307,7 @@ def defineHypercube(core_id, role,n):
                         arcsDefined[link_id].add(arc_id)
                         lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="{link_id}" xlink:to="{alias_id}" xlink:title="domain-member: {link_id} to {alias_id}" order="{count}"/>\n')
                 # targetRole
-                target_id = parentRefDict[child_id]
+                target_id = targetRefDict[child_id]
                 target_id = f'{target_id}_{child_id}'
                 role_id = f'link_{target_id}'
                 URI = f'/{role_id}'
@@ -366,7 +366,7 @@ def defineHypercube(core_id, role,n):
 #     return core_id
 
 # def addChildren(parent_id_list,core_id):
-#     global parentRefDict
+#     global targetRefDict
 #     global referenceDict
 #     record = coreDict[core_id]
 #     if not record:
@@ -384,8 +384,8 @@ def defineHypercube(core_id, role,n):
 #         if core_id in associationDict:
 #             ref_id = associationDict[core_id]
 #             if DEBUG: print(f'(b) addChild ( {parent_id_list}, {core_id} )<{kind}>{ref_id}({ref_id})')
-#         elif core_id in parentRefDict:
-#             targetRef_id =  parentRefDict[core_id]
+#         elif core_id in targetRefDict:
+#             targetRef_id =  targetRefDict[core_id]
 #             if DEBUG: print(f'(c) addChild ( {parent_id_list}, {core_id} )<{kind}>{targetRef_id}({targetRef_id})')
 #     elif 'ASBIE'==kind:# and 'n'==record['occMax']:
 #         record2 = None
@@ -395,8 +395,8 @@ def defineHypercube(core_id, role,n):
 #             if DEBUG: print(f'(c) addChild( {parent_id_list}, {core_id} )<{kind}>{ref_id}({ref_id})')
 #             addChild(parent_id_list,core_id)
 #             parent_id_list += [core_id]
-#         elif core_id in parentRefDict:
-#             targetRef_id = parentRefDict[core_id]
+#         elif core_id in targetRefDict:
+#             targetRef_id = targetRefDict[core_id]
 #             record2 = coreDict[targetRef_id]
 #             if DEBUG: print(f'(c) addChild( {parent_id_list}, {core_id} )<{kind}>{targetRef_id}({targetRef_id})')
 #             addChild(parent_id_list,core_id)
@@ -405,7 +405,7 @@ def defineHypercube(core_id, role,n):
 #             associatedClass = record['associatedClass']
 #             for adc2_id,record2 in coreDict.items():
 #                 if associatedClass==record2['class']:
-#                     parentRefDict[core_id] = adc2_id
+#                     targetRefDict[core_id] = adc2_id
 #                     targetRef_id = adc2_id
 #                     addChild(parent_id_list,core_id)
 #                     break
@@ -490,7 +490,7 @@ if __name__ == '__main__':
                 record[header[i]] = col.strip()
             records.append(record)
 
-    parentIDs = []
+    parentIDs = ['']*8
     childIDs = {}
     for record in records:
         core_id = record['id']
@@ -500,6 +500,7 @@ if __name__ == '__main__':
         if ''==level:
             level = 0
             parentID = 'JBG-00'
+            # parentIDs[level] = core_id
             coreDict[core_id]['parent'] = [parentID]
             if not parentID in childIDs:
                 childIDs[parentID] = []
@@ -507,15 +508,12 @@ if __name__ == '__main__':
                 childIDs[parentID].append(core_id)
         else:
             level = int(level)
-        if 'JBG'==core_id[:3]:
-            if level < len(parentIDs):
-                parentIDs[level] = core_id
-            else:
-                parentIDs.append(core_id)
-                childIDs[parentID] = []
-        elif 'JBT'==core_id[:3]:
-            parentIDlist = parentIDs[:level]
-            coreDict[core_id]['parent'] = parentIDlist
+            parentIDs[level] = core_id
+        if not parentID in parentIDs:
+            childIDs[parentID] = []
+        parentIDlist = parentIDs[:level]
+        coreDict[core_id]['parent'] = parentIDlist
+        if len(parentIDlist) > 0:
             parentID = parentIDlist[-1:][0]
             if not parentID in childIDs:
                 childIDs[parentID] = []
@@ -525,14 +523,31 @@ if __name__ == '__main__':
          if core_id in childIDs:
             coreDict[core_id]['children'] = childIDs[core_id]
 
-    parentRefDict = {}   # parent-child
+    targetRefDict = {}   # parent-child
+    childRefDict = {}
+    for core_id, record in coreDict.items():
+        if 'children' in record:
+            children = record['children']
+            for child_id in children:
+                child = coreDict[child_id]
+                if not child:
+                    continue
+                referenceDict[child_id] = core_id          
+                if child['card']:
+                    if 'n' == child['card'][-1]:
+                        targetRefDict[child_id] = child['parent']
+                        if DEBUG: print(f'=2= {child_id} targetRef {child["parent"]}')
+                    else:
+                        associationDict[child_id] = child['parent']
+                        if DEBUG: print(f'=3= {child_id} associationDict {child["parent"]}')
+
+    # targetRefDict = {}   # parent-child
     childRefDict = {}
     for core_id, record in coreDict.items():
         term = record['term']
-        # source_id = core_id
-        if 'parent' in record:
-            parent_id = record['parent'][-1:][0]
-            parentRefDict[core_id] = parent_id
+        if 'parent' in record and len(record['parent']) > 0:
+            parent_id = record['parent'][-1]
+            targetRefDict[core_id] = parent_id
             if not parent_id in childRefDict:
                  childRefDict[parent_id] = {'term':term, 'source':[]}
             childRefDict[parent_id]['source'].append(core_id)
@@ -557,9 +572,9 @@ if __name__ == '__main__':
             URI = f'/{role_id}'
             roleMap[link_id] = {'core_id':link_id,'link_id':link_id,'URI':URI,'role_id':role_id,'term':term}
 
-    for core_id,parent_id in parentRefDict.items():
+    for core_id,parent_id in targetRefDict.items():
         link_id = f'{parent_id}_{core_id}'
-        if link_id not in roleMap:# and source_id!=target_id and '0'!=target_id:
+        if link_id not in roleMap:
             core_term = getTerm(core_id)
             parent_term = getTerm(parent_id)
             term = f'{parent_term}_{core_term}'
@@ -781,7 +796,7 @@ if __name__ == '__main__':
         if core_id:
             defineElement(core_id,record)
 
-    for core_id,parent_id in parentRefDict.items():
+    for core_id,parent_id in targetRefDict.items():
         referenced_id = f'{parent_id}_{core_id}'
         parent = coreDict[parent_id]
         defineElement(referenced_id,parent)
@@ -864,7 +879,7 @@ if __name__ == '__main__':
         Desc = record['desc']
         linkLabel(core_id,term,Desc)
 
-    for core_id,referenced_id in parentRefDict.items():
+    for core_id,referenced_id in targetRefDict.items():
         record = coreDict[referenced_id]
         term = record['term']
         Desc = record['desc']
@@ -905,7 +920,7 @@ if __name__ == '__main__':
             level = child['level']
             if level != n:
                 continue
-            if child_id in parentRefDict:
+            if child_id in targetRefDict:
                 target_id = child_id
                 if not target_id in locsDefined:
                     locsDefined[target_id] = child_term
