@@ -221,13 +221,17 @@ convert = (function () {
 	}
 
 	function fillTable(contents, table_id, column) {
-		let json = _convertCSVtoJSON(contents, column);
 		let table = document.querySelector(table_id);
 		let thead = table.querySelector('thead');
-		let header = Object.keys(json[0])
 		thead.innerHTML = '';
+		let tbody = table.querySelector('tbody');
+		tbody.innerHTML = '';
+		if (!contents) {
+			return;
+		}
+		let json = _convertCSVtoJSON(contents, column);
+		let header = Object.keys(json[0])
 		let tr = thead.insertRow();
-		// let th = document.createElement('th');
 		let td_id = tr.insertCell();
 		tr.append(td_id);
 		td_id.setAttribute('scope', 'col');
@@ -244,11 +248,8 @@ convert = (function () {
 			td.style = 'text-align: center;';
 			td.innerHTML = header[i];
 		}
-		let tbody = table.querySelector('tbody');
-		tbody.innerHTML = '';
 		for (let row of json) {
 			let tr = tbody.insertRow();
-			// let th = document.createElement('th');
 			let td_id = tr.insertCell();
 			tr.append(td_id);
 			td_id.setAttribute('scope', 'row')
@@ -287,6 +288,20 @@ convert = (function () {
 	}
 
 	function source2target(evt) {
+		updateNameURL('#source2target #target_title','','');
+		let target_area = document.querySelector('#source2target #target_area');
+		if (target_area) {
+			target_area.textContent = ''
+		}
+		updateNameURL('#source2target #transposed_title','','縦横転置');
+		fillTable('','#source2target #transposed_table','C')
+		updateNameURL('#source2target #csv_title','','')
+		fillTable('','#source2target #csv_table','');
+		updateNameURL('#source2target #xml_title','','')
+		let xml_area = document.querySelector('#source2target #xml_area');
+		if (xml_area) {
+			xml_area.textContent = '';
+		}
 		const formData = new FormData();
 		let file = document.querySelector('#source2target-form input[type="file"]').files[0];
 		if (!file) {
@@ -343,7 +358,6 @@ convert = (function () {
 						let transposed_contents = response.transposed_contents;
 						let target_contents = response.target_contents;
 						updateNameURL('#source2target #target_title',target_xml,target);
-						let target_area = document.querySelector('#source2target #target_area');
 						if (target_area) {
 							target_area.textContent = formatXml(target_contents);
 						}
@@ -352,7 +366,6 @@ convert = (function () {
 						updateNameURL('#source2target #csv_title',csv_file,'')
 						fillTable(csv_contents,'#source2target #csv_table','');
 						updateNameURL('#source2target #xml_title',source_xml,source)
-						let xml_area = document.querySelector('#source2target #xml_area');
 						if (xml_area) {
 							xml_area.textContent = xml_contents;
 						}
@@ -369,6 +382,12 @@ convert = (function () {
 	}
 
 	function invoice2csv(evt) {
+		updateNameURL('#invoice2csv #transposed_title','','縦横転置')
+		fillTable('', '#invoice2csv #transposed_table', 'C')
+		updateNameURL('#invoice2csv #csv_title','','')
+		fillTable('', '#invoice2csv #csv_table', '');
+		updateNameURL('#invoice2csv #xml_title','','');
+		document.querySelector('#invoice2csv #xml_area').textContent = '';
 		const formData = new FormData();
 		let file = document.querySelector('#invoice2csv-form input[type="file"]').files[0];
 		if (!file) {
@@ -439,6 +458,11 @@ convert = (function () {
 	}
 
 	function csv2invoice(evt) {
+		updateNameURL('#csv2invoice #xml_title','','')
+		let xml_area = document.querySelector('#csv2invoice #xml_area');
+		if (xml_area) {
+			xml_area.textContent = '';
+		}
 		const formData = new FormData();
 		let file = document.querySelector('#csv2invoice-form input[type="file"]').files[0];
 		if (!file) {
@@ -483,7 +507,6 @@ convert = (function () {
 						let xml_file = response.xml_file;
 						let xml_contents = response.xml_contents;
 						updateNameURL('#csv2invoice #xml_title',xml_file,syntax)
-						let xml_area = document.querySelector('#csv2invoice #xml_area');
 						if (xml_area) {
 							xml_area.textContent = formatXml(xml_contents);
 						}
@@ -616,7 +639,10 @@ convert = (function () {
 					continue;
 				}
 				let id = tr.childNodes[0].innerText;
-				let label = '';
+				// let label = '';
+				if (undefined==core_japan[id]) {
+					core_japan[id] = {};
+				}
 				if (mode=='core-japan') {
 					tr.childNodes[1].innerText = core_japan[id]['name'] || '(未定義)';
 				} else if (mode=='jp-pint') {
