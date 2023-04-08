@@ -1,0 +1,562 @@
+﻿No,module,core_id,kind,object class id,Object Class Term,Level,Card,attribute id,Property term,Representation term qualifier,Representation term,Associated Class,Semantic data type,term,Description
+1000,Invoice,JBG-00,ABIE,NC00,Invoice,0,0..n,NV00,,,,,,統合請求書,売り手が発注者に交付する月締め統合請求文書（メッセージ）
+1010,Invoice,JBT-001,BBIE,NC00,Invoice,1,1..1,01,InvoiceCurrencyCode,,Code,,Code,文書通貨コード,文書の通貨コード。デフォルトはJPY
+1020,Invoice,JBT-002,BBIE,NC00,Invoice,1,0..1,02,TaxCurrencyCode,,Code,,Code,税通貨コード,税の通貨コード。JPY
+1030,Invoice,JBT-003,BBIE,NC00,Invoice,1,0..1,03,PaymentCurrencyCode,,Code,,Code,支払通貨コード,請求支払通貨コード（デフォルトはJPY）
+1040,Invoice,JBT-004,BBIE,NC00,Invoice,1,0..1,04,BuyerReference,,Code,,Code,買い手参照,買い手によって割り当てられたIDで、買い手の請求書精算業務の処理ワークフローで使用する。
+1050,Invoice,,,,,,,,,,,,,,メッセージの設定内容に関する情報からなるクラス
+1060,Invoice,JBT-005,BBIE,NC00,Invoice,1,0..1,05,TransactionID,,Code,,Code,取引識別子,メッセージがやり取りされる取引番号
+1070,Invoice,JBT-006,BBIE,NC00,Invoice,1,0..1,06,TransactionDateTime,,Date,,Date,処理日時,メッセージがやり取りされる日時
+1080,Invoice,,,,,,,,,,,,,,取引設定内容の取引プロセスに関する情報
+1090,Invoice,JBT-007,BBIE,NC00,Invoice,1,1..1,07,ProcessID,,Code,,Code,取引プロセス識別子,取引プロセスの識別子(ID)\n共通EDIプロバイダがプロセスをセットする
+1100,Invoice,JBT-008,BBIE,NC00,Invoice,1,0..1,08,ProcessName,,Text,,Text,取引プロセス名,取引プロセスの名称
+1110,Invoice,,,,,,,,,,,,,,取引プロセスのバージョンに関する情報
+1120,Invoice,JBT-009,BBIE,NC00,Invoice,1,1..1,09,DocumentVersionID,,Code,,Code,バージョン識別子,取引プロセスのバージョン識別子
+1130,Invoice,JBT-010,BBIE,NC00,Invoice,1,1..1,10,DocumentVersionIssueDateTime,,Date,,Date,バージョン発行日,取引プロセスのバージョン発行日
+1140,Invoice,,,,,,,,,,,,,,取引設定内容の取引シナリオに関する情報
+1150,Invoice,JBT-011,BBIE,NC00,Invoice,1,0..1,11,ScenarioID,,Code,,Code,取引シナリオ識別子,取引シナリオの識別子(ID)
+1160,Invoice,JBT-012,BBIE,NC00,Invoice,1,0..1,12,ScenarioValue,,Text,,Text,取引シナリオ名,取引シナリオの名称
+1170,Invoice,,,,,,,,,,,,,,取引設定内容のアプリケーションに関する情報
+1180,Invoice,JBT-013,BBIE,NC00,Invoice,1,0..1,13,ApplicationID,,Code,,Code,アプリケーション識別子,業務アプリケーションの識別子
+1190,Invoice,JBT-014,BBIE,NC00,Invoice,1,0..1,14,ApplicationValue,,Text,,Text,アプリケーション名,業務アプリケーションの名称
+1200,Invoice,,,,,,,,,,,,,,取引設定内容の業務領域の情報に関する情報
+1210,Invoice,JBT-015,BBIE,NC00,Invoice,1,1..1,15,SubsetID,,Code,,Code,業務領域識別子,SIPSが付与したメッセージ業務領域識別子(ID)
+1220,Invoice,JBT-016,BBIE,NC00,Invoice,1,0..1,16,SubsetValue,,Text,,Text,業務領域名,SIPSが付与したメッセージ業務領域名称
+1230,Invoice,,,,,,,,,,,,,,業務領域のバージョンに関する情報
+1240,Invoice,JBT-017,BBIE,NC00,Invoice,1,0..1,17,VersionID,,Code,,Code,バージョン識別子,業務領域のバージョン識別子
+1250,Invoice,JBT-018,BBIE,NC00,Invoice,1,0..1,18,VersionDateTime,,Date,,Date,バージョン発行日,業務領域のバージョン発行日
+1260,Invoice,,,,,,,,,,,,,,インボイス文書に関する情報項目のクラス
+1270,Invoice,JBT-019,BBIE,NC00,Invoice,1,1..1,19,DocumentID,,Identifier,,Identifier,インボイス文書番号,インボイス文書を識別する文書番号または文書文字列
+1280,Invoice,JBT-020,BBIE,NC00,Invoice,1,0..1,20,DocumentName,,Text,,Text,インボイス文書名,インボイス文書の文書名称
+1290,Invoice,JBT-021,BBIE,NC00,Invoice,1,1..1,21,DocumentTypeCode,,Code,,Code,インボイス文書タイプコード,インボイス文書のタイプを識別するコード\nデフォルトは「合算請求書パターン１」
+1300,Invoice,JBT-022,BBIE,NC00,Invoice,1,1..1,22,DocumentIssueDateTime,,Date,,Date,インボイス文書発効日,インボイス文書の発行日付，またはインボイス文書の書面上の発行日付。
+1310,Invoice,,,,,,,,,,,,,,インボイス文書の発行時刻，またはインボイス文書の書面上の発行異国。
+1320,Invoice,JBT-023,BBIE,NC00,Invoice,1,0..1,23,DocumentPurposeCode,,Code,,Code,インボイス文書目的コード,請求者が請求書の目的（新規、変更、取消、打切り）を管理するために付番したコード
+1330,Invoice,JBT-024,BBIE,NC00,Invoice,1,0..1,24,DocumentPreviousRevisionID,,Code,,Code,インボイス文書履歴番号,インボイス文書の変更履歴を管理する番
+1340,Invoice,JBT-025,BBIE,NC00,Invoice,1,1..1,25,DocumentCategoryCode,,Code,,Code,インボイス文書類型コード,インボイス文書の類型（単一文書日本円取引、単一文書外貨建て取引、統合文書日本円取引等）を識別するコード\nデフォルトは「単一文書日本円取引」
+1350,Invoice,JBT-026,BBIE,NC00,Invoice,1,1..1,26,DocumentSubtypeCode,,Code,,Code,インボイス文書サブタイプコード,地域固有の文書のタイプを識別するコード\nデフォルトは「合算請求書パターン１」
+1360,Invoice,,,,,,,,,,,,,,プロジェクト調達に関する情報のクラス
+1370,Invoice,JBT-027,BBIE,NC00,Invoice,1,0..1,27,ProcureingProjectID,,Document Reference,,Document Reference,プロジェクト調達番号,発注品に関するプロジェクト・工事案件等を管理するための番号。
+1380,Invoice,JBT-028,BBIE,NC00,Invoice,1,0..1,28,ProcureingProjectName,,Text,,Text,プロジェクト調達名,発注品に関するプロジェクト・工事案件等の名称。
+1390,Invoice,,,,,,,,,,,,,,ヘッダ取引期間に関する情報からなるクラス
+1400,Invoice,JBT-029,BBIE,NC00,Invoice,1,1..1,29,PeriodStartDateTime,,Date,,Date,鑑ヘッダ取引開始日,インボイス文書の取引開始日
+1410,Invoice,JBT-030,BBIE,NC00,Invoice,1,1..1,30,PeriodEndDateTime,,Date,,Date,鑑ヘッダ取引終了日,インボイス文書の取引終了日
+1420,Invoice,JBG-01,ASBIE,NC00,Invoice,1,0..1,31,Applicable,,__,Invoice_CurrencyExchange,__,請求者為替,請求に関する為替に関するグループ
+1430,Invoice,JBT-031,BBIE,NC01,Invoice_CurrencyExchange,2,0..1,01,SourceCurrencyCode,,Code,,Code,為替交換元通貨コード,為替における交換元通貨を表すコード\nデフォルト＝「JPY」
+1440,Invoice,JBT-032,BBIE,NC01,Invoice_CurrencyExchange,2,0..1,02,TargetCurrencyCode,,Code,,Code,為替交換先通貨コード,為替における交換先通貨を表すコード\nデフォルト＝「JPY」
+1450,Invoice,JBT-033,BBIE,NC01,Invoice_CurrencyExchange,2,0..1,03,ConversionRate,,Percentage,,Percentage,為替レート,為替交換のレート
+1460,Invoice,JBT-034,BBIE,NC01,Invoice_CurrencyExchange,2,0..1,04,ConversionRateDateTime,,Date,,Date,為替レート日時,為替交換レートの適用日。
+1470,Invoice,JBG-02,ASBIE,NC00,Invoice,1,0..1,32,Applicable,,__,Payment_CurrencyExchange,__,支払者為替,支払いに関する為替に関するグループ
+1480,Invoice,JBT-035,BBIE,NC02,Payment_CurrencyExchange,2,0..1,01,SourceCurrencyCode,,Code,,Code,為替交換元通貨コード,為替における交換元通貨を表すコード
+1490,Invoice,JBT-036,BBIE,NC02,Payment_CurrencyExchange,2,0..1,02,TargetCurrencyCode,,Code,,Code,為替交換先通貨コード,為替における交換先通貨を表すコード
+1500,Invoice,JBT-037,BBIE,NC02,Payment_CurrencyExchange,2,0..1,03,ConversionRate,,Percentage,,Percentage,為替レート,為替交換のレート
+1510,Invoice,JBT-038,BBIE,NC02,Payment_CurrencyExchange,2,0..1,04,ConversionRateDateTime,,Date,,Date,為替レート日時,為替交換レートの適用日。
+1520,Invoice,JBG-03,ASBIE,NC00,Invoice,1,0..n,33,Included,,__,Note,__,インボイス文書注釈,インボイス文書の注釈を記述するためのクラス
+1530,Invoice,JBT-039,BBIE,NC03,Note,2,0..1,01,Subject,,Text,,Text,インボイス文書注釈表題,注釈内容の表題を示す。
+1540,Invoice,JBT-040,BBIE,NC03,Note,2,0..1,02,Content,,Text,,Text,インボイス文書注釈内容,注釈項目毎の内容情報を入力するフリースペース。
+1550,Invoice,JBT-041,BBIE,NC03,Note,2,0..1,03,ID,,Code,,Code,インボイス文書注釈識別子,注釈の識別番号
+1560,Invoice,JBG-04,ASBIE,NC00,Invoice,1,0..n,34,Reference,,__,Reference_ReferencedDocument,__,鑑ヘッダ参照文書,インボイス文書が参照する文書クラス
+1570,Invoice,JBT-042,BBIE,NC04,Reference_ReferencedDocument,2,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,鑑ヘッダ参照文書番号,インボイス文書が参照する参照文書の番号
+1580,Invoice,JBT-043,BBIE,NC04,Reference_ReferencedDocument,2,0..1,02,IssueDateTime,,Date,,Date,鑑ヘッダ参照文書発行日,インボイス文書が参照する参照文書の発行日
+1590,Invoice,JBT-044,BBIE,NC04,Reference_ReferencedDocument,2,0..1,03,ReferenceTypeCode,,Code,,Code,鑑ヘッダ参照文書参照タイプコード,この調整で参照する前回インボイス文書の参照タイプを指定するコード　（デフォルト属性）OI  (Previous invoice number)
+1600,Invoice,JBT-045,BBIE,NC04,Reference_ReferencedDocument,2,0..1,04,RevisionID,,Code,,Code,鑑ヘッダ参照文書履歴番号,インボイス文書が参照する文書の変更履歴を管理する番号。
+1610,Invoice,JBT-046,BBIE,NC04,Reference_ReferencedDocument,2,0..1,05,Information,,Code,,Code,鑑ヘッダ参照文書情報,インボイス文書が参照する参照文書に記載の情報
+1620,Invoice,JBT-047,BBIE,NC04,Reference_ReferencedDocument,2,1..1,06,TypeCode,,Code,,Code,鑑ヘッダ参照文書タイプコード,インボイス文書が参照する参照文書の文書タイプを識別するコード
+1630,Invoice,JBT-048,BBIE,NC04,Reference_ReferencedDocument,2,0..1,07,SubtypeCode,,Code,,Code,鑑ヘッダ参照文書サブタイプコード,インボイス文書が参照する参照文書のサブタイプコード
+1640,Invoice,JBG-05,ASBIE,NC04,Reference_ReferencedDocument,2,0..1,08,Reference,,__,AttachmentBinaryObject,Code,鑑ヘッダ参照文書添付ファイル,インボイス文書の添付バイナリファイルの有無を識別するコード\nなしの場合はNULL（デファクト）\nありの場合はヘッダの添付バイナリファイル識別子（UN01006015）を指定する。
+1650,Invoice,JBT-049,BBIE,NC05,AttachmentBinaryObject,3,1..1,01,MIMECode,,Code,,Code,鑑ヘッダ参照文書添付ファイルMIMEコード,許可されているMIMEコード:\napplication/pdf\nimage/png\nimage/jpeg\ntext/csv\napplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet\napplication/vnd.oasis.opendocument. Spreadsheet
+1660,Invoice,JBT-050,BBIE,NC05,AttachmentBinaryObject,3,1..1,02,FileName,,Code,,Code,鑑ヘッダ参照文書添付ファイルのファイル名,
+1670,Invoice,JBT-051,BBIE,NC05,AttachmentBinaryObject,3,0..1,03,URI,,Code,,Code,鑑ヘッダ参照文書添付ファイル外部ドキュメントのロケーション,外部ドキュメントの所在を示すURL（ユニフォームリソースロケータ）
+1680,Invoice,JBG-06,ASBIE,NC00,Invoice,1,0..n,35,AttachedSpecified,,Code,BinaryFile,Code,添付バイナリファイル,添付バイナリファイルを記述するためのクラス
+1690,Invoice,JBT-052,BBIE,NC06,BinaryFile,2,0..1,01,ID,,Code,,Code,添付バイナリファイル識別子,添付バイナリファイルの識別子
+1700,Invoice,JBT-053,BBIE,NC06,BinaryFile,2,1..1,02,MIMECode,,Code,,Code,添付バイナリファイルのMIMEコード,添付バイナリファイルのMIMEコード
+1710,Invoice,JBT-054,BBIE,NC06,BinaryFile,2,0..1,03,FileName,,Code,,Code,添付バイナリファイル名,添付バイナリファイルの名称
+1720,Invoice,JBT-055,BBIE,NC06,BinaryFile,2,0..1,04,URIID,,Code,,Code,添付バイナリファイルURI識別子,添付バイナリファイルの外部保管URI識別子
+1730,Invoice,JBT-056,BBIE,NC06,BinaryFile,2,0..1,05,Description,,Code,,Code,添付バイナリファイルの説明文,添付バイナリファイルの説明文
+1740,Invoice,JBG-07,ASBIE,NC00,Invoice,1,0..n,36,Specified,,Code,SettlementMonetarySummation_ReferencedDocument,Code,未決済合計金額参照文書,未決済合計金額が参照する文書に関するグループ
+1750,Invoice,JBT-057,BBIE,NC07,SettlementMonetarySummation_ReferencedDocument,2,1..1,01,IssuerAssignedID,,Code,,Code,未決済参照文書番号,未決済合計金額が参照する文書に記載の文書番号
+1760,Invoice,JBT-058,BBIE,NC07,SettlementMonetarySummation_ReferencedDocument,2,0..1,02,IssueDateTime,,Code,,Code,未決済参照文書発行日,未決済合計金額が参照する文書に記載の発行日付
+1770,Invoice,JBT-059,BBIE,NC07,SettlementMonetarySummation_ReferencedDocument,2,0..1,03,ReferenceTypeCode,,Code,,Code,未決済参照インボイス文書参照タイプコード,未決済合計金額が参照する文書を識別するコード。\n属性＝「OI」Previous invoice number
+1780,Invoice,JBT-060,BBIE,NC07,SettlementMonetarySummation_ReferencedDocument,2,0..1,04,RevisionID,,Code,,Code,未決済参照文書履歴番号,未決済合計金額が参照する文書の変更履歴を管理する番号。
+1790,Invoice,JBT-061,BBIE,NC07,SettlementMonetarySummation_ReferencedDocument,2,0..1,05,Information,,Code,,Code,未決済参照文書情報,未決済合計金額が参照する文書に関する情報
+1800,Invoice,JBT-062,BBIE,NC07,SettlementMonetarySummation_ReferencedDocument,2,1..1,06,TypeCode,,Code,,Code,未決済参照文書タイプコード,未決済合計金額が参照する文書のタイプを識別するコード
+1810,Invoice,JBT-063,BBIE,NC07,SettlementMonetarySummation_ReferencedDocument,2,0..1,07,AttachmentBinaryObject,,Code,,Code,未決済参照文書添付ファイル,未決済合計金額の添付バイナリファイルの有無を識別するコード\nなしの場合はNULL（デファクト）\nありの場合は鑑ヘッダの添付バイナリファイル識別子（UN01006015）を指定する。
+1820,Invoice,JBT-064,BBIE,NC07,SettlementMonetarySummation_ReferencedDocument,2,0..1,08,SubtypeCode,,Code,,Code,未決済参照文書サブタイプコード,未決済合計金額が参照する文書のサブタイプを識別するコード
+1830,Invoice,JBG-08,ASBIE,NC00,Invoice,1,0..n,37,InvoiceReference,,Code,FinancialAdjustment_ReferencedDocument,Code,鑑ヘッダ参照文書,この調整で修正インボイス文書が参照する文書のクラス
+1840,Invoice,JBT-227,BBIE,NC08,FinancialAdjustment_ReferencedDocument,2,1..1,01,IssuerAssignedID,,Code,,Code,鑑ヘッダ参照文書番号,この調整でインボイス文書が参照する文書に記載の文書番号
+1850,Invoice,JBT-228,BBIE,NC08,FinancialAdjustment_ReferencedDocument,2,0..1,02,IssueDateTime,,Code,,Code,鑑ヘッダ参照文書発行日,この調整でインボイスが参照する文書に記載の発行日付
+1860,Invoice,JBT-229,BBIE,NC08,FinancialAdjustment_ReferencedDocument,2,1..1,03,ReferenceTypeCode,,Code,,Code,鑑ヘッダ文書参照文書参照タイプコード,この調整で参照する前回インボイス文書の参照タイプに関するコード＝OI  (Previous invoice number)
+1870,Invoice,JBT-230,BBIE,NC08,FinancialAdjustment_ReferencedDocument,2,0..1,04,RevisionID,,Code,,Code,鑑ヘッダ参照文書履歴番号,この調整でインボイスが参照する文書の変更履歴を管理する番号。
+1880,Invoice,JBT-231,BBIE,NC08,FinancialAdjustment_ReferencedDocument,2,0..1,05,TypeCode,,Code,,Code,鑑ヘッダ参照文書タイプコード,この調整でインボイス文書が参照する文書のタイプを識別するコード
+1890,Invoice,JBT-232,BBIE,NC08,FinancialAdjustment_ReferencedDocument,2,0..1,06,SubtypeCode,,Code,,Code,鑑ヘッダ参照文書サブタイプコード,この調整で修正インボイス文書が参照する文書のサブタイプを識別するコード
+1900,Invoice,JBG-09,ASBIE,NC00,Invoice,1,1..1,38,Seller,,Code,Seller_Partry,Code,売り手,売り手に関する情報のグループ
+1910,Invoice,JBT-065,BBIE,NC09,Seller_Partry,2,1..1,01,ID,,Code,,Code,売り手コード,注文を受ける企業/工場・事業所・事業部門等を表すコード。デフォルトはデータなし。
+1920,Invoice,JBT-065-1,BBIE,NC09,Seller_Partry,2,0..1,02,IDSchemeID,,Code,,Code,売り手コードスキーマID,コードの発番機関コード
+1930,Invoice,JBT-066,BBIE,NC09,Seller_Partry,2,0..1,03,GlobalID,,Code,,Code,売り手国際企業コード,注文を受ける企業を表す国際企業コード。中小企業共通EDIでは法人番号を利用
+1940,Invoice,JBT-066-1,BBIE,NC09,Seller_Partry,2,0..1,04,GlobalIDSchemeID,,Code,,Code,売り手国際企業コードスキーマID,コードの発番機関コード
+1950,Invoice,JBT-067,BBIE,NC09,Seller_Partry,2,1..1,05,Name,,Code,,Code,売り手名称,注文を受ける企業/工場・事業所・事業部門等を表す名称。適格請求書、または区分記載請求書を発行する事業者名。
+1960,Invoice,JBT-068,BBIE,NC09,Seller_Partry,2,0..1,06,TradeName,,Code,,Code,売り手商号,売り手名称以外で、知られているビジネス上の名称（商号ともよばれる）。
+1970,Invoice,JBT-069,BBIE,NC09,Seller_Partry,2,1..1,07,RegisteredID,,Code,,Code,適格請求書発行事業者登録番号,国税庁へ登録された適格請求書発行事業者登録番号（区分記載請求書発行者についてはなし）\nT1234567890123
+1980,Invoice,JBT-069-1,BBIE,NC09,Seller_Partry,2,0..1,08,RegisteredIDTaxSchema,,Code,,Code,適格請求書発行事業者登録番号税スキーマ,適格請求書発行事業者の課税区分を識別するコード
+1990,Invoice,JBT-070,BBIE,NC09,Seller_Partry,2,1..1,09,TaxRegisteredID,,Code,,Code,売り手税登録ID,適格請求書発行事業者の課税区分を識別するコード
+2000,Invoice,JBT-070-1,BBIE,NC09,Seller_Partry,2,0..1,10,TaxRegisteredIDTaxSchema,,Code,,Code,売り手税登録ID税スキーマ,VAT以外の固定値
+2010,Invoice,,,,,,,,,,,,,,
+2020,Invoice,,,,,,,,,,,,,,送信者の国際アドレスグループ
+2030,Invoice,JBT-071,BBIE,NC09,Seller_Partry,2,1..1,11,EndPointAddress,,Code,,Code,売り手国際アドレス,jp-pint対応国際アドレス番号
+2040,Invoice,JBT-071-1,BBIE,NC09,Seller_Partry,2,1..1,12,EndPointAddressChannelCode,,Code,,Code,売り手国際アドレス登録機関コード,JP-PINT対応国際アドレス登録機関のコード
+2050,Invoice,JBG-10,ASBIE,NC09,Seller_Partry,2,0..1,13,Defined,,__,Seller_Contact,__,売り手連絡先,連絡先に関する情報のグループ
+2060,Invoice,JBT-072,BBIE,NC10,Seller_Contact,3,0..1,01,ID,,Code,,Code,受注部門コード,売り手の受注部門を表すコード。
+2070,Invoice,JBT-073,BBIE,NC10,Seller_Contact,3,0..1,02,PersonName,,Text,,Text,売り手担当名,売り手連絡先の個人の、文字で表現された名前。
+2080,Invoice,JBT-074,BBIE,NC10,Seller_Contact,3,0..1,03,DepartmentName,,Text,,Text,売り手部門名,売り手の受注部門の名称。
+2090,Invoice,JBT-075,BBIE,NC10,Seller_Contact,3,0..1,04,PersonID,,Code,,Code,売り手担当コード,売り手個人を表すコード
+2100,Invoice,JBT-076,BBIE,NC10,Seller_Contact,3,0..1,05,PhoneNumber,,Code,,Code,売り手電話番号,売り手の電話番号。
+2110,Invoice,JBT-077,BBIE,NC10,Seller_Contact,3,0..1,06,FaxNumber,,Code,,Code,売り手FAX番号,売り手のFAX番号
+2120,Invoice,JBT-078,BBIE,NC10,Seller_Contact,3,0..1,07,MailAddress,,Text,,Text,売り手メールアドレス,売り手の電子メールアドレス。
+2130,Invoice,JBG-11,ASBIE,NC09,Seller_Partry,2,0..1,14,Postal,,__,Seller_Address,__,売り手住所,売り手住所に関する情報のグループ
+2140,Invoice,JBT-079,BBIE,NC11,Seller_Address,3,0..1,01,PostCode,,Code,,Code,売り手郵便番号,売り手の郵便番号。
+2150,Invoice,JBT-080,BBIE,NC11,Seller_Address,3,0..1,02,LineOne,,Text,,Text,売り手住所1,売り手の住所1行目。
+2160,Invoice,JBT-081,BBIE,NC11,Seller_Address,3,0..1,03,LineTwo,,Text,,Text,売り手住所2,売り手の住所2行目。
+2170,Invoice,JBT-082,BBIE,NC11,Seller_Address,3,0..1,04,LineThree,,Text,,Text,売り手住所3,売り手の住所3行目。
+2180,Invoice,JBT-083,BBIE,NC11,Seller_Address,3,0..1,05,CityName,,Text,,Text,売り手住所 市区町村,売り手が所在する市、町、村の通称。
+2190,Invoice,JBT-084,BBIE,NC11,Seller_Address,3,0..1,06,CountrySubentity,,Text,,Text,売り手住所 都道府県,売り手の住所の地方区分。
+2200,Invoice,JBT-085,BBIE,NC11,Seller_Address,3,1..1,07,CountryID,,Code,,Code,売り手国識別子,売り手の国ID。デフォルトは「JP」
+2210,Invoice,JBG-12,ASBIE,NC00,Invoice,1,1..1,39,Buyer,,__,Buyer_Partry,__,買い手,買い手に関する情報のグループ
+2220,Invoice,JBT-086,BBIE,NC12,Buyer_Partry,2,1..1,01,ID,,Identifier,,Identifier,買い手コード,注文を行う企業/工場・事業所・事業部門等を表すコード。デフォルトはデータなし。
+2230,Invoice,JBT-086-1,BBIE,NC12,Buyer_Partry,2,0..1,02,IDSchemeID,,Code,,Code,買い手コードスキーマID,コードの発番機関コード
+2240,Invoice,JBT-087,BBIE,NC12,Buyer_Partry,2,0..1,03,GlobalID,,Identifier,,Identifier,買い手国際企業コード,注文を行う企業を表す国際企業コード。中小企業共通EDIでは法人番号を利用
+2250,Invoice,JBT-087-1,BBIE,NC12,Buyer_Partry,2,0..1,04,GlobalIDSchemeID,,Code,,Code,買い手国際企業コードスキーマID,コードの発番機関コード
+2260,Invoice,JBT-088,BBIE,NC12,Buyer_Partry,2,1..1,05,Name,,Text,,Text,買い手名称,発注を行う企業/工場・事業所・事業部門等の名称
+2270,Invoice,JBT-089,BBIE,NC12,Buyer_Partry,2,0..1,06,TradeName,,Text,,Text,買い手商号,買い手名称以外で、知られているビジネス上の名称。
+2280,Invoice,JBT-090,BBIE,NC12,Buyer_Partry,2,0..1,07,RegisteredID,,Identifier,,Identifier,適格請求書発行事業者登録番号,登録された買い手の適格請求書発行事業者登録番号\n（免税事業者についてはなし）
+2290,Invoice,JBT-090-1,BBIE,NC12,Buyer_Partry,2,1..1,08,RegisteredIDTaxSchema,,Code,,Code,適格請求書発行事業者登録番号税スキーマ,適格請求書発行事業者の課税区分を識別するコード
+2300,Invoice,,,,,,,,,,,,,,送信者の国際アドレスグループ
+2310,Invoice,JBT-091,BBIE,NC12,Buyer_Partry,2,1..1,09,EndPointAddress,,Code,,Code,買い手国際アドレス,jp-pint対応国際EDIアドレス番号
+2320,Invoice,JBT-091-1,BBIE,NC12,Buyer_Partry,2,1..1,10,EndPointAddressChannelCode,,Code,,Code,買い手国際アドレス登録機関コード,JP-PINT対応国際EDIアドレス登録機関のコード
+2330,Invoice,JBG-13,ASBIE,NC12,Buyer_Partry,2,0..1,11,Defined,,__,Buyer_Contact,__,買い手連絡先,連絡先に関する情報のグループ
+2340,Invoice,JBT-092,BBIE,NC13,Buyer_Contact,3,0..1,01,ID,,Code,,Code,買い手部門コード,買い手の発注部門を表すコード。
+2350,Invoice,JBT-093,BBIE,NC13,Buyer_Contact,3,0..1,02,PersonName,,Text,,Text,買い手担当名,買い手の発注担当者の名称
+2360,Invoice,JBT-094,BBIE,NC13,Buyer_Contact,3,0..1,03,DepartmentName,,Text,,Text,買い手部門名,買い手の発注部門の名称。
+2370,Invoice,JBT-095,BBIE,NC13,Buyer_Contact,3,0..1,04,PersonID,,Code,,Code,買い手担当コード,買い手個人を表すコード
+2380,Invoice,JBT-096,BBIE,NC13,Buyer_Contact,3,0..1,05,PhoneNumber,,Code,,Code,買い手電話番号,買い手の電話番号。
+2390,Invoice,JBT-097,BBIE,NC13,Buyer_Contact,3,0..1,06,FaxNumber,,Code,,Code,買い手FAX番号,買い手のFAX番号
+2400,Invoice,JBT-098,BBIE,NC13,Buyer_Contact,3,0..1,07,MailAddress,,Text,,Text,買い手メールアドレス,買い手の電子メールアドレス。
+2410,Invoice,JBG-14,ASBIE,NC12,Buyer_Partry,2,0..1,12,Postal,,__,Buyer_Address,__,買い手住所,買い手住所に関する情報のグループ
+2420,Invoice,JBT-099,BBIE,NC14,Buyer_Address,3,0..1,01,PostcodeCode,,Code,,Code,買い手郵便番号,買い手の郵便番号。
+2430,Invoice,JBT-100,BBIE,NC14,Buyer_Address,3,0..1,02,LineOne,,Text,,Text,買い手住所1,買い手の住所1行目。
+2440,Invoice,JBT-101,BBIE,NC14,Buyer_Address,3,0..1,03,LineTwo,,Text,,Text,買い手住所2,買い手の住所2行目。
+2450,Invoice,JBT-102,BBIE,NC14,Buyer_Address,3,0..1,04,LineThree,,Text,,Text,買い手住所3,買い手の住所3行目。
+2460,Invoice,JBT-103,BBIE,NC14,Buyer_Address,3,0..1,05,CityName,,Text,,Text,買い手住所 市区町村,買い手が所在する市、町、村の通称。
+2470,Invoice,JBT-104,BBIE,NC14,Buyer_Address,3,0..1,06,CountrySubentity,,Text,,Text,買い手住所 都道府県,買い手の住所の地方区分。
+2480,Invoice,JBT-105,BBIE,NC14,Buyer_Address,3,0..1,07,CountryID,,Code,,Code,買い手国識別子,買い手の国ID。デフォルトは「JP」
+2490,Invoice,JBG-15,ASBIE,NC00,Invoice,1,0..1,40,Invoicer,,__,Invoicer_Partry,__,請求者,請求者に関する情報のグループ
+2500,Invoice,JBT-106,BBIE,NC15,Invoicer_Partry,2,0..1,01,ID,,Identifier,,Identifier,請求者コード,請求者のコード。
+2510,Invoice,JBT-106-1,BBIE,NC15,Invoicer_Partry,2,0..1,02,IDSchemeID,,Code,,Code,スキーマID,コードの発番機関コード
+2520,Invoice,JBT-107,BBIE,NC15,Invoicer_Partry,2,0..1,03,GlobalID,,Identifier,,Identifier,請求者国際企業コード,請求者の国際企業コード。中小企業共通EDIでは法人番号を利用
+2530,Invoice,JBT-107-1,BBIE,NC15,Invoicer_Partry,2,0..1,04,GlobalIDSchemeID,,Code,,Code,スキーマID,コードの発番機関コード
+2540,Invoice,JBT-108,BBIE,NC15,Invoicer_Partry,2,0..1,05,Name,,Text,,Text,請求者名称,請求者の企業等を表す名称。
+2550,Invoice,JBT-109,BBIE,NC15,Invoicer_Partry,2,0..1,06,RegisteredID,,Code,,Code,請求者適格請求書発行事業者登録番号,登録された請求者の適格請求書発行事業者登録番号
+2560,Invoice,JBT-110,BBIE,NC15,Invoicer_Partry,2,1..1,07,TypeCode,,Code,,Code,請求者タイプコード,適格請求書発行事業者の課税区分を識別するコード
+2570,Invoice,,,,,,,,,,,,,,送信者の国際アドレスグループ
+2580,Invoice,JBT-111,BBIE,NC15,Invoicer_Partry,2,1..1,08,EndPointAddress,,Code,,Code,国際アドレス,jp-pint対応国際アドレス番号
+2590,Invoice,JBT-111-1,BBIE,NC15,Invoicer_Partry,2,1..1,09,EndPointAddressChannelCode,,Code,,Code,国際アドレス登録機関コード,JP-PINT対応国際アドレス登録機関のコード
+2600,Invoice,JBG-16,ASBIE,NC15,Invoicer_Partry,2,0..1,10,Defined,,__,Invoicer_Contact,__,請求者連絡先,連絡先に関する情報のグループ
+2610,Invoice,JBT-112,BBIE,NC16,Invoicer_Contact,3,0..1,01,ID,,Code,,Code,請求部門コード,請求者の請求部門を表すコード。
+2620,Invoice,JBT-113,BBIE,NC16,Invoicer_Contact,3,0..1,02,PersonName,,Text,,Text,請求者担当名,請求者個人の、文字で表現された名前。
+2630,Invoice,JBT-114,BBIE,NC16,Invoicer_Contact,3,0..1,03,DepartmentName,,Text,,Text,請求者部門名,請求者の請求部門の名称。
+2640,Invoice,JBT-115,BBIE,NC16,Invoicer_Contact,3,0..1,04,PersonID,,Code,,Code,請求者担当コード,請求者個人を表すコード
+2650,Invoice,JBT-116,BBIE,NC16,Invoicer_Contact,3,0..1,05,PhoneNumber,,Code,,Code,請求者電話番号,請求者の電話番号。
+2660,Invoice,JBT-117,BBIE,NC16,Invoicer_Contact,3,0..1,06,FaxNumber,,Code,,Code,請求者FAX番号,請求者のFAX番号
+2670,Invoice,JBT-118,BBIE,NC16,Invoicer_Contact,3,0..1,07,MailAddress,,Code,,Code,請求者メールアドレス,請求者の電子メールアドレス。
+2680,Invoice,JBG-17,ASBIE,NC15,Invoicer_Partry,2,0..1,11,Postal,,__,Invoicer_Address,__,請求者住所,請求者住所に関する情報のグループ
+2690,Invoice,JBT-119,BBIE,NC17,Invoicer_Address,3,0..1,01,PostcodeCode,,Code,,Code,請求者郵便番号,請求者の郵便番号。
+2700,Invoice,JBT-120,BBIE,NC17,Invoicer_Address,3,0..1,02,LineOne,,Text,,Text,請求者住所1,請求者の住所1行目。
+2710,Invoice,JBT-121,BBIE,NC17,Invoicer_Address,3,0..1,03,LineTwo,,Text,,Text,請求者住所2,請求者の住所2行目。
+2720,Invoice,JBT-122,BBIE,NC17,Invoicer_Address,3,0..1,04,LineThree,,Text,,Text,請求者住所3,請求者の住所3行目。
+2730,Invoice,JBT-123,BBIE,NC17,Invoicer_Address,3,1..1,05,CountryID,,Code,,Code,請求者国識別子,請求者の国ID。デフォルトは「JP」
+2740,Invoice,JBG-18,ASBIE,NC00,Invoice,1,0..1,41,Invoicee,,__,Invoicee_Partry,__,請求先,請求先にかかわるグループ
+2750,Invoice,JBT-124,BBIE,NC18,Invoicee_Partry,2,0..1,01,ID,,Code,,Code,請求先識別子,請求を受ける企業等を表す識別子。
+2760,Invoice,JBT-125,BBIE,NC18,Invoicee_Partry,2,0..1,02,GlobalID,,Code,,Code,請求先国際企業識別子,請求を受ける企業等を表す法人識別子。
+2770,Invoice,JBT-126,BBIE,NC18,Invoicee_Partry,2,0..1,03,Name,,Text,,Text,請求先名称,請求を受ける企業等の名称
+2780,Invoice,,,,,,,,,,,,,,送信者の国際アドレスグループ
+2790,Invoice,JBT-127,BBIE,NC18,Invoicee_Partry,2,1..1,04,EndPointAddress,,Code,,Code,請求先国際アドレス,JP-PINT対応国際アドレス登録機関のコード
+2800,Invoice,JBT-127-1,BBIE,NC18,Invoicee_Partry,2,1..1,05,EndPointAddressChannelCode,,Code,,Code,請求先国際アドレス登録機関コード,jp-pint対応国際アドレス番号
+2810,Invoice,JBG-19,ASBIE,NC18,Invoicee_Partry,2,0..1,06,Defined,,__,Invoicee_Contact,__,請求先連絡先,請求先の連絡先に関するグループ
+2820,Invoice,JBT-128,BBIE,NC19,Invoicee_Contact,3,0..1,01,ID,,Code,,Code,請求先部門識別子,請求先の部門を表すコード。
+2830,Invoice,JBT-129,BBIE,NC19,Invoicee_Contact,3,0..1,02,PersonName,,Text,,Text,請求先担当名,請求先の担当者の名称
+2840,Invoice,JBT-130,BBIE,NC19,Invoicee_Contact,3,0..1,03,DepartmentName,,Text,,Text,請求先部門名,請求先の部門を表す名称
+2850,Invoice,JBT-131,BBIE,NC19,Invoicee_Contact,3,0..1,04,PersonID,,Code,,Code,請求先担当識別子,請求先個人を表す識別子
+2860,Invoice,JBT-132,BBIE,NC19,Invoicee_Contact,3,0..1,05,PhoneNumber,,Code,,Code,請求先電話番号,請求先の電話番号。
+2870,Invoice,JBT-133,BBIE,NC19,Invoicee_Contact,3,0..1,06,FaxNumber,,Code,,Code,請求先FAX番号,請求先のFAX番号
+2880,Invoice,JBT-134,BBIE,NC19,Invoicee_Contact,3,0..1,07,MailAddress,,Code,,Code,請求先メールアドレス,請求先の電子メールアドレス。
+2890,Invoice,JBG-20,ASBIE,NC18,Invoicee_Partry,2,0..1,07,Postal,,__,Invoicee_Address,__,請求先住所,請求先の住所に関するグループ。
+2900,Invoice,JBT-135,BBIE,NC20,Invoicee_Address,3,0..1,01,PostcodeCode,,Code,,Code,請求先郵便番号,請求先の郵便番号。
+2910,Invoice,JBT-136,BBIE,NC20,Invoicee_Address,3,0..1,02,LineOne,,Text,,Text,請求先住所1,請求先の住所1行目。
+2920,Invoice,JBT-137,BBIE,NC20,Invoicee_Address,3,0..1,03,LineTwo,,Text,,Text,請求先住所2,請求先の住所2行目。
+2930,Invoice,JBT-138,BBIE,NC20,Invoicee_Address,3,0..1,04,LineThree,,Text,,Text,請求先住所3,請求先の住所3行目。
+2940,Invoice,JBT-139,BBIE,NC20,Invoicee_Address,3,1..1,05,CountryID,,Code,,Code,請求先国識別子,請求先の国ID。デフォルトは「JP」
+2950,Invoice,JBG-21,ASBIE,NC00,Invoice,1,0..1,42,Payee,,__,Payee_Partry,__,支払先,支払先にかかわる情報
+2960,Invoice,JBT-140,BBIE,NC21,Payee_Partry,2,0..1,01,ID,,Code,,Code,支払先識別子,支払先の識別子。
+2970,Invoice,JBT-141,BBIE,NC21,Payee_Partry,2,0..1,02,GlobalID,,Code,,Code,支払先国際企業識別子,支払先の国際企業識別子。
+2980,Invoice,JBT-142,BBIE,NC21,Payee_Partry,2,0..1,03,Name,,Text,,Text,支払先名称,支払先の企業等を表す名称。
+2990,Invoice,JBG-22,ASBIE,NC21,Payee_Partry,2,0..1,04,Defined,,__,Payee_Contact,__,支払先連絡先,支払先の連絡先に関するグループ
+3000,Invoice,JBT-143,BBIE,NC22,Payee_Contact,3,0..1,01,ID,,Code,,Code,支払先部門識別子,支払先の支払先部門を表す識別子。
+3010,Invoice,JBT-144,BBIE,NC22,Payee_Contact,3,0..1,02,PersonName,,Text,,Text,支払先担当名,支払先個人の、文字で表現された名前。
+3020,Invoice,JBT-145,BBIE,NC22,Payee_Contact,3,0..1,03,DepartmentName,,Text,,Text,支払先部門名,支払先の請求部門の名称。
+3030,Invoice,JBT-146,BBIE,NC22,Payee_Contact,3,0..1,04,PersonID,,Code,,Code,支払先担当識別子,支払先個人を表す識別子
+3040,Invoice,JBT-147,BBIE,NC22,Payee_Contact,3,0..1,05,PhoneNumber,,Code,,Code,支払先電話番号,支払先の電話番号。
+3050,Invoice,JBT-148,BBIE,NC22,Payee_Contact,3,0..1,06,FaxNumber,,Code,,Code,支払先FAX番号,支払先のFAX番号
+3060,Invoice,JBT-149,BBIE,NC22,Payee_Contact,3,0..1,07,MailAddress,,Code,,Code,支払先メールアドレス,支払先の電子メールアドレス。
+3070,Invoice,JBG-23,ASBIE,NC21,Payee_Partry,2,0..1,05,Postal,,__,Payee_Address,__,支払先住所,支払先の住所に関するグループ。
+3080,Invoice,JBT-150,BBIE,NC23,Payee_Address,3,0..1,01,PostcodeCode,,Code,,Code,支払先郵便番号,支払先の郵便番号。
+3090,Invoice,JBT-151,BBIE,NC23,Payee_Address,3,0..1,02,LineOne,,Text,,Text,支払先住所1,支払先の住所1行目。
+3100,Invoice,JBT-152,BBIE,NC23,Payee_Address,3,0..1,03,LineTwo,,Text,,Text,支払先住所2,支払先の住所2行目。
+3110,Invoice,JBT-153,BBIE,NC23,Payee_Address,3,0..1,04,LineThree,,Text,,Text,支払先住所3,支払先の住所3行目。
+3120,Invoice,JBT-154,BBIE,NC23,Payee_Address,3,1..1,05,CountryID,,Code,,Code,支払先国識別子,支払先の国ID。デフォルトは「JP」
+3130,Invoice,JBG-24,ASBIE,NC00,Invoice,1,1..1,43,Payer,,__,Payer_Partry,__,支払人,支払人にかかわる情報
+3140,Invoice,JBT-155,BBIE,NC24,Payer_Partry,2,1..1,01,ID,,Code,,Code,支払人識別子,支払人の識別子。
+3150,Invoice,JBT-156,BBIE,NC24,Payer_Partry,2,1..1,02,GlobalID,,Code,,Code,支払人国際企業識別子,支払人の国際企業識別子。
+3160,Invoice,JBT-157,BBIE,NC24,Payer_Partry,2,0..1,03,Name,,Text,,Text,支払人名称,支払人の企業等を表す名称。
+3170,Invoice,JBG-25,ASBIE,NC24,Payer_Partry,2,0..1,03,Defined,,__,Payer_Contact,__,支払人連絡先,支払人の連絡先に関する情報
+3180,Invoice,JBT-158,BBIE,NC25,Payer_Contact,3,0..1,01,ID,,Code,,Code,支払人部門識別子,支払人の支払人部門を表す識別子。
+3190,Invoice,JBT-159,BBIE,NC25,Payer_Contact,3,0..1,02,PersonName,,Text,,Text,支払人担当名,支払人個人の、文字で表現された名前。
+3200,Invoice,JBT-160,BBIE,NC25,Payer_Contact,3,0..1,03,DepartmentName,,Text,,Text,支払人部門名,支払人の請求部門の名称。
+3210,Invoice,JBT-161,BBIE,NC25,Payer_Contact,3,0..1,04,PersonID,,Code,,Code,支払人担当識別子,支払人個人を表す識別子
+3220,Invoice,JBT-162,BBIE,NC25,Payer_Contact,3,0..1,05,PhoneNumber,,Code,,Code,支払人電話番号,支払人の電話番号。
+3230,Invoice,JBT-163,BBIE,NC25,Payer_Contact,3,0..1,06,FaxNumber,,Code,,Code,支払人FAX番号,支払人のFAX番号
+3240,Invoice,JBT-164,BBIE,NC25,Payer_Contact,3,0..1,07,MailAddress,,Code,,Code,支払人メールアドレス,支払人の電子メールアドレス。
+3250,Invoice,JBG-26,ASBIE,NC24,Payer_Partry,2,0..1,04,Postal,,__,Payer_Address,__,支払人住所,支払人の住所に関するグループ。
+3260,Invoice,JBT-165,BBIE,NC26,Payer_Address,3,0..1,01,PostcodeCode,,Code,,Code,支払人郵便番号,支払人の郵便番号。
+3270,Invoice,JBT-166,BBIE,NC26,Payer_Address,3,0..1,02,LineOne,,Text,,Text,支払人住所1,支払人の住所1行目。
+3280,Invoice,JBT-167,BBIE,NC26,Payer_Address,3,0..1,03,LineTwo,,Text,,Text,支払人住所2,支払人の住所2行目。
+3290,Invoice,JBT-168,BBIE,NC26,Payer_Address,3,0..1,04,LineThree,,Text,,Text,支払人住所3,支払人の住所3行目。
+3300,Invoice,JBT-169,BBIE,NC26,Payer_Address,3,1..1,05,CountryID,,Code,,Code,支払人国識別子,支払人の国ID。デフォルトは「JP」
+3310,Invoice,JBG-27,ASBIE,NC00,Invoice,1,0..1,44,TaxRepesentative,,__,TaxRepresentative_Partry,__,売り手税務代理人,売り手の税務代理人に係る情報を提供するビジネス用語のグループ。
+3320,Invoice,JBT-170,BBIE,NC27,TaxRepresentative_Partry,2,1..1,01,Name,,Text,,Text,売り手税務代理人名称,売り手の税務代理人の名称。
+3330,Invoice,JBT-171,BBIE,NC27,TaxRepresentative_Partry,2,1..1,02,RegisteredID,,Identifier,,Identifier,売り手税務代理人税ID,売り手の税務代理人の税ID。
+3340,Invoice,JBT-171-1,BBIE,NC27,TaxRepresentative_Partry,2,1..1,03,RegisteredIDTaxSchema,,Code,,Code,売り手税務代理人税ID税スキーマ,適格請求書発行事業者の課税区分を識別するコード
+3350,Invoice,JBG-28,ASBIE,NC27,TaxRepresentative_Partry,2,1..1,04,Postal,,__,TaxRepresentative_Address,__,売り手税務代理人住所,税務代理人の住所に関する情報を提供するビジネス用語のグループ。
+3360,Invoice,JBT-172,BBIE,NC28,TaxRepresentative_Address,3,0..1,01,PostcodeCode,,Code,,Code,税務代理人住所欄1,税務代理人の住所の主な記載欄。
+3370,Invoice,JBT-173,BBIE,NC28,TaxRepresentative_Address,3,0..1,02,LineOne,,Text,,Text,税務代理人住所欄2,税務代理人の住所の主な記載内容に加えて詳細な情報のために使用する追加記載欄。
+3380,Invoice,JBT-174,BBIE,NC28,TaxRepresentative_Address,3,0..1,03,LineTwo,,Text,,Text,税務代理人住所欄3,税務代理人の住所の上記の記載内容に加えてより詳細な情報のために使用する追加記載欄。
+3390,Invoice,JBT-175,BBIE,NC28,TaxRepresentative_Address,3,0..1,04,LineThree,,Text,,Text,税務代理人住所 市区町村,税務代理人が所在する市、町、村の通称。
+3400,Invoice,JBT-176,BBIE,NC28,TaxRepresentative_Address,3,0..1,05,CityName,,Text,,Text,税務代理人郵便番号,税務代理人の住所の郵便番号。
+3410,Invoice,JBT-177,BBIE,NC28,TaxRepresentative_Address,3,0..1,06,CountrySubentity,,Text,,Text,税務代理人住所 都道府県,税務代理人の住所の地方区分。
+3420,Invoice,JBT-178,BBIE,NC28,TaxRepresentative_Address,3,1..1,07,CountryID,,Code,,Code,税務代理人国コード,税務代理人の住所の国コード。
+3430,Invoice,,,,,,,,,,,,,,
+3440,Invoice,JBG-29,ASBIE,NC00,Invoice,1,0..n,45,Specified,,__,AdvancePayment,__,支払済,前払に関するグループ
+3450,Invoice,JBT-179,BBIE,NC29,AdvancePayment,2,0..1,01,PaidAmount,,Amount,,Amount,前払金額,前払の金額
+3460,Invoice,JBT-180,BBIE,NC29,AdvancePayment,2,0..1,02,ReceivedDateTime,,Date,,Date,前払受領日,前払金額の受領日
+3470,Invoice,JBT-181,BBIE,NC29,AdvancePayment,2,0..1,03,ID,,Code,,Code,前払識別子,前払者が付与した前払識別子
+3480,Invoice,,,,,,,,,,,,,,
+3490,Invoice,JBT-182,BBIE,NC29,AdvancePayment,2,0..1,04,TypeCode,,Code,,Code,前払条件タイプコード,前払い支払条件のタイプを指定するコード
+3500,Invoice,JBG-30,ASBIE,NC00,Invoice,1,0..1,46,OutstandingSpecified,,__,Outstanding_MonetarySummation,__,未決済合計金額,未決済合計金額に関するグループ
+3510,Invoice,JBT-183,BBIE,NC30,Outstanding_MonetarySummation,2,0..1,01,ChargeTotalAmount,,Amount,,Amount,追加請求合計金額（消費税対象外）,消費税が関係しない追加請求合計金額。立替金等。\n（課税分類コード＝Ｏの取引）
+3520,Invoice,JBT-184,BBIE,NC30,Outstanding_MonetarySummation,2,0..1,02,AllowanceTotalAmount,,Amount,,Amount,返金合計金額（消費税対象外）,消費税が関係しない返金合計金額。立替返金等。\n（課税分類コード＝Ｏの取引）
+3530,Invoice,JBT-185,BBIE,NC30,Outstanding_MonetarySummation,2,1..1,03,GrandTotalAmount,,Amount,,Amount,前回インボイス総合計金額（税込み）,前回インボイス文書の総合計金額（税込み）
+3540,Invoice,JBT-186,BBIE,NC30,Outstanding_MonetarySummation,2,1..1,04,TotalPrepaidAmount,,Amount,,Amount,入金済金額（前回インボイス分）,前回インボイス文書総合計金額のうち、入金済合計金額
+3550,Invoice,JBT-187,BBIE,NC30,Outstanding_MonetarySummation,2,0..1,05,DuePayableAmount,,Amount,,Amount,未決済総合計金額,未決済総合計金額＝\n前回インボイス総合計金額（税込み）ー入金済金額(前回インボイス分)＋追加請求合計額（消費税対象外）ー返金合計額（消費税対象外）
+3560,Invoice,JBG-31,ASBIE,NC00,Invoice,1,0..n,47,Specified,,__,PaymentMeans,__,支払手段, 取引決済の目的で支払が行われる、あるいは行われた手段のクラス
+3570,Invoice,JBT-188,BBID,NC31,PaymentMeans,2,0..1,01,PaymentMeans,,Identifier,,Identifier,支払指示ID,各支払指示に対して割り当てられるID。
+3580,Invoice,JBT-189,BBIE,NC31,PaymentMeans,2,0..1,02,TypeCode,,Code,,Code,支払手段タイプコード,取引決済手段のタイプを識別するコード
+3590,Invoice,JBT-190,BBIE,NC31,PaymentMeans,2,0..1,03,Information,,Text,,Text,支払手段情報,取引決済手段に関する情報
+3600,Invoice,JBT-191,BBIE,NC31,PaymentMeans,2,0..1,04,PaidAmount,,Amount,,Amount,支払金額,取引決済手段で支払う金額
+3610,Invoice,JBG-32,ASBIE,NC31,PaymentMeans,2,0..1,05,PayeePartyCreditor,,__,FinancialAccount,__,金融口座,取引決済の支払手段に関する受取人である当事者の債権者金融口座のグループ
+3620,Invoice,JBT-192,BBIE,NC32,FinancialAccount,3,0..1,01,AccountName,,Text,,Text,口座名義,債権者金融口座の、文字で表現された口座名。\n半角カナ（日本の場合）
+3630,Invoice,JBT-193,BBIE,NC32,FinancialAccount,3,0..1,02,ProprietaryID,,Identifier,,Identifier,口座番号,債権者金融口座の一意の所有者識別子。
+3640,Invoice,JBT-194,BBIE,NC32,FinancialAccount,3,0..1,03,TypeCode,,Code,,Code,口座種別コード,債権者金融口座種別の識別子。
+3650,Invoice,,,,,,,,,,,,,,
+3660,Invoice,JBT-195,BBIE,NC32,FinancialAccount,3,0..1,04,Name,,Text,,Text,金融機関名,債権者金融機関の、文字で表現された名前。
+3670,Invoice,JBT-196,BBIE,NC32,FinancialAccount,3,0..1,05,JapanFinancialInstitutionCommonID,,Identifier,,Identifier,金融機関番号,債権者の金融機関番号（日本の場合）
+3680,Invoice,,,,,,,,,,,,,,
+3690,Invoice,JBT-197,BBIE,NC32,FinancialAccount,3,0..1,06,ID,,Identifier,,Identifier,金融機関支店番号,金融機関のこの支店の一意識別子
+3700,Invoice,JBT-198,BBIE,NC32,FinancialAccount,3,0..1,07,Name,,Text,,Text,金融機関支店名,金融機関のこの支店の、文字で表現された名前
+3710,Invoice,JBG-33,ASBIE,NC31,PaymentMeans,2,0..1,06,ApplicableTradeSettlement,,__,FinancialCard,__,金融カード,支払人の金融カードのクラス
+3720,Invoice,JBT-199,BBIE,NC33,FinancialCard,3,1..1,01,ID,,Text,,Text,金融カード番号,支払人の金融カード番号
+3730,Invoice,JBT-200,BBIE,NC33,FinancialCard,3,0..1,02,TypeCode,,Code,,Code,金融カードタイプ,金融カードのタイプ
+3740,Invoice,JBT-201,BBIE,NC33,FinancialCard,3,1..1,03,CardholderName,,Text,,Text,金融カード名義人名,支払人の金融カード名義人名
+3750,Invoice,JBT-202,BBIE,NC33,FinancialCard,3,0..1,04,IssuingCompanyName,,Text,,Text,金融カード発行企業名,金融カードの発行企業名
+3760,Invoice,JBG-34,ASBIE,NC00,Invoice,1,0..n,48,Applicable,,__,TradeTax,__,鑑ヘッダ税,ヘッダの税に関する情報からなるクラス
+3770,Invoice,JBT-203,BBIE,NC34,TradeTax,2,0..1,01,CalculatedAmount,,Amount,,Amount,鑑ヘッダ課税分類税額,①文書タイプコード＝単一文書の場合\n　課税分類毎に計算した税額＝ヘッダ課税分類譲渡資産合計金額（税抜き）×ヘッダ税率\n算出した税額は切り上げ、切り捨て、四捨五入のいずれかで処理し、税額は整数とする\n②文書タイプコード＝統合文書の場合\n　消費税額計算はヘッダ税クラスでは行わない。　
+3780,Invoice,JBT-204,BBIE,NC34,TradeTax,2,0..1,02,CategoryCode,,Code,,Code,鑑ヘッダ課税分類コード,消費税の課税分類（標準税率、軽減税率、非課税、免税等）を識別するコード
+3790,Invoice,JBT-205,BBIE,NC34,TradeTax,2,0..1,03,CategoryName,,Text,,Text,鑑ヘッダ課税分類名,消費税の課税分類（標準税率、軽減税率、非課税、免税等）の名称
+3800,Invoice,JBT-206,BBIE,NC34,TradeTax,2,0..1,04,TaxPointDate,,Date,,Date,課税基準日,売り手、買い手が税を記帳する日付
+3810,Invoice,JBT-207,BBIE,NC34,TradeTax,2,0..1,05,DueDateTypeCode,,Code,,Code,課税基準日コード,売り手、買い手が税を記帳する日付が何であるかを示すコード。
+3820,Invoice,JBT-208,BBIE,NC34,TradeTax,2,0..1,06,RateApplicablePercent,,Percentage,,Percentage,鑑ヘッダ税率,課税分類毎の税額計算のための率。\n
+3830,Invoice,JBT-209,BBIE,NC34,TradeTax,2,0..1,07,CalculationMethodCode,,Code,,Code,鑑ヘッダ税計算方式,金額の税込み、税抜きを指定。\nデフォルトは「税抜き」
+3840,Invoice,JBT-210,BBIE,NC34,TradeTax,2,0..1,08,LocalTaxSystemID,,Code,,Code,鑑ヘッダ適用税制識別子,取引の税制年度を識別するID\nデフォルトは「2019」（2019年度税制）
+3850,Invoice,JBG-35,ASBIE,NC00,Invoice,1,0..1,49,Specified,,__,PaymentTerms,__,支払条件, 取引決済の目的で支払が行われる、あるいは行われた条件のクラス
+3860,Invoice,JBT-211,BBIE,NC35,PaymentTerms,2,0..1,01,ID,,Code,,Code,支払条件識別子,支払条件の識別子
+3870,Invoice,JBT-212,BBIE,NC35,PaymentTerms,2,0..1,02,Description,,Text,,Text,支払条件説明,支払条件の文字による説明
+3880,Invoice,JBT-213,BBIE,NC35,PaymentTerms,2,0..1,03,DueDateDateTime,,Date,,Date,支払期日,支払条件で示された支払期日。
+3890,Invoice,,,,,,,,,,,,,,
+3900,Invoice,JBT-214,BBIE,NC35,PaymentTerms,2,0..1,04,TypeCode,,Code,,Code,支払条件タイプコード,取引決済条件のタイプを識別するコード
+3910,Invoice,JBT-215,BBIE,NC35,PaymentTerms,2,0..1,05,InstructedAmount,,Amount,,Amount,支払条件金額,支払条件の金額
+3920,Invoice,JBG-36,ASBIE,NC00,Invoice,1,0..1,50,Specified,,__,MonetarySummation,__,鑑ヘッダ合計金額,インボイス文書合計金額に関する情報からなるクラス
+3930,Invoice,JBT-216,BBIE,NC36,MonetarySummation,2,1..1,01,TaxBasisTotalAmount,,Amount,,Amount,鑑ヘッダ総合計金額税抜き,インボイス文書の総合計金額（税抜き）\n=ヘッダ譲渡資産合計金額（税抜き）ーヘッダ返金合計金額+ヘッダ追加請求合計金額
+3940,Invoice,JBT-217,BBIE,NC36,MonetarySummation,2,1..1,02,TaxTotalAmount,,Amount,,Amount,鑑ヘッダ総合計税額,ヘッダ課税分類税額の総合計税額
+3950,Invoice,JBT-218,BBIE,NC36,MonetarySummation,2,1..1,03,GrandTotalAmount,,Amount,,Amount,鑑ヘッダ総合計金額税込み,インボイス文書の総合計金額（税込み）＝\nインボイス文書総合計金額（税抜き）＋ヘッダ総合計税額\n+未決済総合計金額
+3960,Invoice,JBT-219,BBIE,NC36,MonetarySummation,2,0..1,04,TotalPrepaidAmount,,Amount,,Amount,前払金額,インボイス文書総合計金額のうち、すでに前払いで支払済合計金額\n前払いユースケースでは必須
+3970,Invoice,JBT-220,BBIE,NC36,MonetarySummation,2,1..1,05,DuePayableAmount,,Amount,,Amount,支払責務金額総合計,前払いユースケースの支払責務金額＝\n
+3980,Invoice,JBT-221,BBIE,NC36,MonetarySummation,2,1..1,06,NetLineTotalAmount,,Amount,,Amount,鑑ヘッダ譲渡資産合計金額税抜き,ヘッダ譲渡資産金額総合計金額（税抜き）＝∑ヘッダ課税分類譲渡資産合計金額（税抜き）
+3990,Invoice,JBT-222,BBIE,NC36,MonetarySummation,2,0..1,07,IncludingTaxesLineTotalAmount,,Amount,,Amount,鑑ヘッダ譲渡資産合計金額税込み,ヘッダ譲渡資産金額総合計金額（税込み）＝∑ヘッダ課税分類譲渡資産合計金額（税込み）
+4000,Invoice,JBG-37,ASBIE,NC00,Invoice,1,0..n,51,Specified,,__,FinancialAdjustment,__,鑑ヘッダ調整,ヘッダ調整に関する情報からなるクラス
+4010,Invoice,JBT-223,BBIE,NC37,FinancialAdjustment,2,0..1,01,ReasonCode,,Code,,Code,鑑ヘッダ調整理由コード,ヘッダ調整金額の内容を識別するコード
+4020,Invoice,JBT-224,BBIE,NC37,FinancialAdjustment,2,0..1,02,Reason,,Text,,Text,鑑ヘッダ調整理由,ヘッダ調整の内容説明
+4030,Invoice,JBT-225,BBIE,NC37,FinancialAdjustment,2,1..1,03,ActualAmount,,Amount,,Amount,鑑ヘッダ調整金額,ヘッダ調整金額\n'＝（修正インボイス金額ー誤りインボイス金額）\n調整ユースケースでは必須
+4040,Invoice,JBT-226,BBIE,NC37,FinancialAdjustment,2,1..1,04,DirectionCode,,Code,,Code,鑑ヘッダ調整取引方向コード,ヘッダ調整額、ヘッダ調整税額の＋ーを識別するコード\n調整ユースケースでは必須
+4050,Invoice,JBG-38,ASBIE,NC00,Invoice,1,0..n,52,Related,,__,FinancialAjustment_TradeTax,__,鑑ヘッダ調整税,ヘッダ調整の税クラス
+4060,Invoice,JBT-233,BBIE,NC38,FinancialAjustment_TradeTax,2,1..1,01,CalculatedAmount,,Amount,,Amount,鑑ヘッダ調整税額,ヘッダの調整税額\n＝修正インボイス税額ー誤りインボイス税額
+4070,Invoice,JBT-234,BBIE,NC38,FinancialAjustment_TradeTax,2,1..1,02,CalculatedRate,,Percentage,,Percentage,鑑ヘッダ調整税率,ヘッダ調整の税率
+4080,Invoice,JBT-235,BBIE,NC38,FinancialAjustment_TradeTax,2,1..1,03,CategoryCode,,Code,,Code,鑑ヘッダ調整課税分類コード,ヘッダ調整の課税分類コード
+4090,Invoice,JBG-39,ASBIE,NC00,Invoice,1,1..n,53,Included,,__,InvoiceDocument,__,明細文書,統合請求（区分３請求）で複数の文書を統合する場合に、統合する複数の文書を明細文書行として識別するグループ。\n\n単一請求（区分」請求、区分2請求）の場合はこのグループは明細文書番号＝１のみを利用する
+4100,Invoice,,,,,,,,,,,,,,統合文書の明細文書行を構成する明細文書に関するグループ。
+4110,Invoice,JBT-236,BBIE,NC39,InvoiceDocument,2,1..1,01,DocumentID,,Code,,Code,文書ヘッダ番号,この統合文書に統合する複数の明細文書を特定し、識別するために付与した番号。\nデフォルトは「１」\n単一文書（区分1請求、区分２請求）の場合は非公開とし、EDIプロバイダが「１」をセットする。
+4120,Invoice,JBT-237,BBIE,NC39,InvoiceDocument,2,1..1,02,DocumentCategoryCode,,Code,,Code,文書ヘッダ類型コード,この明細文書の取引類型（資産譲渡、補完、返金・追加請求、相殺、調整、参照等）を識別するコード。\nデフォルトは資産譲渡
+4130,Invoice,,,NC39,InvoiceDocument,,,,,,,,,,この統合文書が統合する明細文書に関するグループ。\n文書タイプが「統合文書」を指定する場合にこのグループは必須。「単一請求」の場合はこのクラスは実装しない。
+4140,Invoice,JBT-238,BBIE,NC39,InvoiceDocument,2,1..1,03,IssuerAssignedID,,Document Reference,,Document Reference,統合文書ヘッダ番号,この統合文書が統合する明細文書の文書番号
+4150,Invoice,JBT-239,BBIE,NC39,InvoiceDocument,2,0..1,04,IssueDateTime,,Date,,Date,統合文書ヘッダ発行日,この統合文書が統合する明細文書の発行日
+4160,Invoice,JBT-240,BBIE,NC39,InvoiceDocument,2,0..1,05,RevisionID,,Code,,Code,統合文書ヘッダ履歴番号,この統合文書が統合する明細文書の変更履歴を管理する番号。
+4170,Invoice,JBT-241,BBIE,NC39,InvoiceDocument,2,0..1,06,TypeCode,,Code,,Code,統合文書ヘッダタイプコード,この統合文書が統合する明細文書の文書タイプを識別するコード
+4180,Invoice,JBT-242,BBIE,NC39,InvoiceDocument,2,0..1,07,SubtypeCode,,Code,,Code,統合文書ヘッダサブタイプコード,この統合文書が統合する明細文書の文書サブタイプを識別するコード
+4190,Invoice,JBT-248,BBIE,NC39,InvoiceDocument,2,0..1,08,OriginatorDocumentReferenceID,,Document Reference,,Document Reference,入札又はロット参照,参照する入札またはロットの番号。
+4200,Invoice,JBT-249,BBIE,NC39,InvoiceDocument,2,0..1,09,ReceiptDocumentReference,,Document Reference,,Document Reference,受取通知書参照,参照する受取通知書に買い手が付番した番号。
+4210,Invoice,JBG-40,ASBIE,NC39,InvoiceDocument,2,0..1,10,PurchaseSpecified,,__,AccountingAccount,__,文書ヘッダ購買会計アカウント,この文書ヘッダの購買会計アカウントに関するグループ
+4220,Invoice,JBT-243,BBIE,NC40,AccountingAccount,3,1..1,01,TypeCode,,Code,,Code,購買会計アカウントタイプコード,売り手が付与する買い手の購買会計アカウント
+4230,Invoice,JBT-244,BBIE,NC40,AccountingAccount,3,0..1,02,Name,,Code,,Code,購買会計アカウント名,買い手の購買会計アカウント名
+4240,Invoice,JBG-41,ASBIE,NC39,InvoiceDocument,2,0..n,11,Included,,__,Document_Note,__,文書ヘッダ注釈,文書ヘッダの注釈に関するグループ
+4250,Invoice,JBT-245,BBIE,NC41,Document_Note,3,0..1,01,Subject,,Text,,Text,文書ヘッダ注釈表題,文書ヘッダの注釈内容の表題を示す。
+4260,Invoice,JBT-246,BBIE,NC41,Document_Note,3,0..1,02,Content,,Text,,Text,文書ヘッダ注釈内容,文書ヘッダの注釈表題毎の内容情報を入力するフリースペース。
+4270,Invoice,JBT-247,BBIE,NC41,Document_Note,3,0..1,03,ID,,Code,,Code,文書ヘッダ注釈識別子,文書ヘッダ注釈の識別番号
+4280,Invoice,,,,,,,,,,,,,,
+4290,Invoice,JBG-42,ASBIE,NC39,InvoiceDocument,2,0..1,12,SellerOrderReferenced,,__,SellerOrder_ReferencedDocument,__,文書ヘッダ参照受注書,文書ヘッダが参照する受注書に関するグループ。
+4300,Invoice,JBT-250,BBIE,NC42,SellerOrder_ReferencedDocument,3,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,文書ヘッダ参照受注書番号,この文書ヘッダが参照する受注書に記載の文書番号
+4310,Invoice,JBT-251,BBIE,NC42,SellerOrder_ReferencedDocument,3,0..1,02,RevisionID,,Code,,Code,文書ヘッダ参照受注書履歴番号,この文書ヘッダが参照する受注書の変更履歴を管理する番号。
+4320,Invoice,JBG-43,ASBIE,NC39,InvoiceDocument,2,0..1,13,BuyerOrderReferenced,,__,BuyerOrder_ReferencedDocument,__,文書ヘッダ参照注文書,文書ヘッダが参照する注文書に関するグループ。
+4330,Invoice,JBT-252,BBIE,NC43,BuyerOrder_ReferencedDocument,3,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,文書ヘッダ参照注文書番号,この文書ヘッダが参照する注文書に記載の文書番号。注文履歴番号(枝番)を利用している場合は「注文番号＋注文履歴番号」に変換する
+4340,Invoice,JBT-253,BBIE,NC43,BuyerOrder_ReferencedDocument,3,0..1,02,RevisionID,,Code,,Code,文書ヘッダ参照注文書履歴番号,この文書ヘッダが参照する注文書の変更履歴を管理する番号。
+4350,Invoice,JBG-44,ASBIE,NC39,InvoiceDocument,2,0..1,14,ContractReferenced,,__,Contract_ReferencedDocument,__,文書ヘッダ参照契約書,文書ヘッダが参照する契約書に関するグループ。
+4360,Invoice,JBT-254,BBIE,NC44,Contract_ReferencedDocument,3,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,文書ヘッダ参照契約文書番号,この文書ヘッダが参照する契約書に記載の文書番号
+4370,Invoice,JBT-255,BBIE,NC44,Contract_ReferencedDocument,3,0..1,02,RevisionID,,Code,,Code,文書ヘッダ参照契約書履歴番号,この文書が参照する契約書の変更履歴を管理する番号。
+4380,Invoice,,,,,,,,,,,,,,
+4390,Invoice,JBG-45,ASBIE,NC39,InvoiceDocument,2,0..1,15,InvoiceReferenced,,__,Object_ReferencedDocument,__,請求するオブジェクト,
+4400,Invoice,JBT-256,BBIE,NC45,Object_ReferencedDocument,3,0..1,01,ObjectID,,Document Reference,,Document Reference,請求するオブジェクトID,請求書の根拠となるIDで、売り手が指定。請求書の根拠となるオブジェクトのIDで、売り手が指定したもの。
+4410,Invoice,JBT-256-1,BBIE,NC45,Object_ReferencedDocument,3,0..1,02,ObjectIDSchemeID,,Code,,Code,請求するオブジェクトIDのスキーマID,
+4420,Invoice,JBT-257,BBIE,NC45,Object_ReferencedDocument,3,1..1,03,ReferenceTypeCode,,Code,,Code,文書タイプコード,受信者にとって、IDにどのスキーマが使用されているかが明確でない場合は、UNTDID1153コードリストから選択される条件付きスキーマIDを使用する必要がある。
+4430,Invoice,JBG-46,ASBIE,NC39,InvoiceDocument,2,0..n,16,InvoiceReferenced,,__,Document_ReferencedDocument,__,文書ヘッダ参照文書,インボイス文書ヘッダの参照インボイス文書に関するグループ
+4440,Invoice,JBT-258,BBIE,NC46,Document_ReferencedDocument,3,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,文書ヘッダ参照文書番号,この文書ヘッダが参照するインボイス文書に記載の文書番号
+4450,Invoice,JBT-259,BBIE,NC46,Document_ReferencedDocument,3,0..1,02,IssueDateTime,,Date,,Date,文書ヘッダ参照文書発行日,この文書ヘッダが参照するインボイス文書に記載の発行日付
+4460,Invoice,JBT-260,BBIE,NC46,Document_ReferencedDocument,3,0..1,03,ReferenceTypeCode,,Code,,Code,文書ヘッダ参照文書参照タイプコード,この文書ヘッダが参照するインボイス文書を識別するコード。\n属性＝「OI」Previous invoice number
+4470,Invoice,JBT-261,BBIE,NC46,Document_ReferencedDocument,3,0..1,04,RevisionID,,Code,,Code,文書ヘッダ参照文書履歴番号,この文書ヘッダが参照するインボイス文書の変更履歴を管理する番号。
+4480,Invoice,JBT-262,BBIE,NC46,Document_ReferencedDocument,3,0..1,05,TypeCode,,Code,,Code,文書ヘッダ参照文書タイプ,この文書ヘッダが参照するインボイス文書のタイプを識別するコード
+4490,Invoice,JBT-263,BBIE,NC46,Document_ReferencedDocument,3,0..1,06,SubtypeCode,,Code,,Code,文書ヘッダ参照文書サブタイプ,この文書ヘッダが参照するインボイス文書のサブタイプを識別するコード
+4500,Invoice,,,,,,,,,,,,,,
+4510,Invoice,JBT-264,BBIE,NC46,Document_ReferencedDocument,3,0..1,07,Description,,Text,,Text,文書ヘッダ参照文書説明,
+4520,Invoice,JBT-265,BBIE,NC46,Document_ReferencedDocument,3,0..1,08,URIID,,Code,,Code,文書ヘッダ参照文書外部ファイルロケーション,
+4530,Invoice,JBT-266,BBIE,NC46,Document_ReferencedDocument,3,0..1,09,AttachmentBinaryObject,,Code,,Code,文書ヘッダ参照文書添付バイナリファイル,この文書ヘッダが参照するインボイス文書のサブタイプを識別するコード
+4540,Invoice,JBT-266-1,BBIE,NC46,Document_ReferencedDocument,3,0..1,10,AttachmentBinaryObjectMIMECode,,Code,,Code,文書ヘッダ参照文書添付バイナリファイルmimeコード,
+4550,Invoice,JBT-266-2,BBIE,NC46,Document_ReferencedDocument,3,0..1,11,AttachmentBinaryObjectFileName,,Code,,Code,文書ヘッダ参照文書添付バイナリファイルファイル名,
+4560,Invoice,JBG-47,ASBIE,NC39,InvoiceDocument,2,0..n,17,AdditionalReferenced,,__,Additional_ReferencedDocument,__,文書ヘッダ付加文書,文書ヘッダ決済の付加文書に関するグループ
+4570,Invoice,JBT-267,BBIE,NC47,Additional_ReferencedDocument,3,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,文書ヘッダ付加文書番号,この文書ヘッダ付加文書の文書番号
+4580,Invoice,JBT-268,BBIE,NC47,Additional_ReferencedDocument,3,0..1,02,IssueDateTime,,Date,,Date,文書ヘッダ参照付加文書発行日,この文書ヘッダ付加文書に記載の発行日付
+4590,Invoice,JBT-269,BBIE,NC47,Additional_ReferencedDocument,3,0..1,03,ReferenceTypeCode,,Code,,Code,文書ヘッダ付加文書参照タイプコード,この文書ヘッダ付加文書の参照タイプを識別するコード。\nデフォルト属性＝null
+4600,Invoice,JBT-270,BBIE,NC47,Additional_ReferencedDocument,3,0..1,04,RevisionID,,Code,,Code,文書ヘッダ付加文書履歴番号,この文書ヘッダ付加文書の変更履歴を管理する番号。
+4610,Invoice,JBT-271,BBIE,NC47,Additional_ReferencedDocument,3,0..1,05,Information,,Text,,Text,文書ヘッダ付加文書説明,この文書ヘッダ付加文書の説明
+4620,Invoice,JBT-272,BBIE,NC47,Additional_ReferencedDocument,3,0..1,06,TypeCode,,Code,,Code,文書ヘッダ付加文書タイプ,この文書ヘッダ付加文書のタイプを識別するコード\n属性＝「758」(Tender：入札書)の場合\n　　　　→JP-PINT[IBT-017]へマッピング
+4630,Invoice,JBT-273,BBIE,NC47,Additional_ReferencedDocument,3,0..1,07,AttachmentBinaryObject,,Code,,Code,文書ヘッダ付加文書添付ファイル,この文書ヘッダ付加文書の添付バイナリファイルの有無を識別するコード\nなしの場合はNULL（デファクト）\nありの場合はヘッダの添付バイナリファイル識別子（UN01006015）を指定する。
+4640,Invoice,JBT-274,BBIE,NC47,Additional_ReferencedDocument,3,0..1,08,SubtypeCode,,Code,,Code,文書ヘッダ付加文書サブタイプコード,この文書ヘッダ付加文書のサブタイプを識別するコード
+4650,Invoice,,,,,,,,,,,,,,
+4660,Invoice,JBG-48,ASBIE,NC39,InvoiceDocument,2,0..n,18,ReceivingAdviceReferenced,,__,ReceivingAdvice_ReferencedDocument,__,出荷回答書,この文書ヘッダが参照する出荷回答書のグループ
+4670,Invoice,JBT-275,BBIE,NC48,ReceivingAdvice_ReferencedDocument,3,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,文書ヘッダ参照出荷回答書番号,この文書ヘッダが参照する発注者が付番した出荷回答書番号
+4680,Invoice,JBT-276,BBIE,NC48,ReceivingAdvice_ReferencedDocument,3,0..1,02,RevisionID,,Code,,Code,文書ヘッダ参照出荷回答書履歴番号,この文書ヘッダが参照する出荷回答書の変更履歴を管理する番号。
+4690,Invoice,JBT-277,BBIE,NC48,ReceivingAdvice_ReferencedDocument,3,0..1,03,TypeCode,,Code,,Code,文書ヘッダ参照出荷回答書タイプコード,この文書ヘッダが参照する出荷回答書のタイプを識別するコード\n＝「632」（Goods receipt）（デフォルト）
+4700,Invoice,JBT-278,BBIE,NC48,ReceivingAdvice_ReferencedDocument,3,0..1,04,SubtypeCode,,Code,,Code,文書ヘッダ参照文書サブタイプコード,この文書ヘッダが参照する出荷回答書のサブタイプを識別するコード\n＝[63201](出荷回答書：デフォルト）
+4710,Invoice,JBG-49,ASBIE,NC39,InvoiceDocument,2,0..n,19,DespatchAdviceReferenced,,__,DespatchAdvice_ReferencedDocument,__,参照納品書,明細文書が参照する納品書のクラス
+4720,Invoice,,,,,,,,,,,,,,
+4730,Invoice,JBT-279,BBIE,NC49,DespatchAdvice_ReferencedDocument,3,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,参照納品書番号,この明細文書が参照する売り手が付番した納品書番号
+4740,Invoice,JBT-280,BBIE,NC49,DespatchAdvice_ReferencedDocument,3,0..1,02,RevisionID,,Code,,Code,参照納品書履歴番号,この明細文書が参照する納品書の変更履歴を管理する番号。
+4750,Invoice,JBT-281,BBIE,NC49,DespatchAdvice_ReferencedDocument,3,1..1,03,TypeCode,,Code,,Code,参照納品書タイプコード,この明細文書が参照する納品書のタイプを識別するコード\nデフォルトは「納品書」
+4760,Invoice,JBT-282,BBIE,NC49,DespatchAdvice_ReferencedDocument,3,1..1,04,CategoryCode,,Code,,Code,参照納品書類型コード,この明細文書が参照する納品書の類型（適格請求書等対応、適格請求書等部分対応、適格請求書非適合）を識別するコード\nデフォルトは「適格請求書非適合」
+4770,Invoice,JBT-283,BBIE,NC49,DespatchAdvice_ReferencedDocument,3,1..1,05,SubtypeCode,,Code,,Code,参照文書サブタイプコード,この明細文書が参照する納品書のサブタイプを識別するコード\nデフォルトは「納品書」
+4780,Invoice,JBG-50,ASBIE,NC39,InvoiceDocument,2,0..1,20,ShipTo,,__,ShipTo_ Partry,__,納入先,納入先に関する情報のグループ
+4790,Invoice,JBT-284,BBIE,NC50,ShipTo_ Partry,3,0..1,01,OccurrenceDateTime,,Date,,Date,配送日,納入先へ発送した日時
+4800,Invoice,JBT-285,BBIE,NC50,ShipTo_ Partry,3,0..1,02,ID,,Identifier,,Identifier,納入先コード,納入先の企業/工場・事業所・事業部門等を表す発注者が付与したコード。
+4810,Invoice,JBT-285-1,BBIE,NC50,ShipTo_ Partry,3,0..1,03,IDSchemeID,,Code,,Code,納入先コードスキーマID,コードの発番機関コード
+4820,Invoice,JBT-286,BBIE,NC50,ShipTo_ Partry,3,0..1,04,GlobalID,,Identifier,,Identifier,納入先国際企業コード,納入先企業を表す国際企業コード。中小企業共通EDIでは法人番号を利用
+4830,Invoice,JBT-286-1,BBIE,NC50,ShipTo_ Partry,3,0..1,05,GlobalIDSchemeID,,Code,,Code,納入先国際企業コードスキーマID,コードの発番機関コード
+4840,Invoice,JBT-287,BBIE,NC50,ShipTo_ Partry,3,0..1,06,Name,,Text,,Text,納入先名称,納入先の企業/工場・事業所・事業部門等の名称
+4850,Invoice,JBG-51,ASBIE,NC50,ShipTo_ Partry,3,0..1,07,Postal,,__,ShipTo_Address,__,納入先住所,住所に関する情報のグループ
+4860,Invoice,JBT-288,BBIE,NC51,ShipTo_Address,4,0..1,01,PostcodeCode,,Code,,Code,納入先郵便番号,納入先の郵便番号
+4870,Invoice,JBT-289,BBIE,NC51,ShipTo_Address,4,0..1,02,LineOne,,Text,,Text,納入先住所1,納入先の住所1行目
+4880,Invoice,JBT-290,BBIE,NC51,ShipTo_Address,4,0..1,03,LineTwo,,Text,,Text,納入先住所2,納入先の住所2行目。
+4890,Invoice,JBT-291,BBIE,NC51,ShipTo_Address,4,0..1,04,LineThree,,Text,,Text,納入先住所3,納入先の住所3行目。
+4900,Invoice,JBT-292,BBIE,NC51,ShipTo_Address,4,0..1,05,CityName,,Text,,Text,納入先住所 市区町村,納入先が所在する市、町、村の通称。
+4910,Invoice,JBT-293,BBIE,NC51,ShipTo_Address,4,0..1,06,CountrySubentity,,Text,,Text,納入先住所 都道府県,納入先の住所の地方区分。
+4920,Invoice,JBT-294,BBIE,NC51,ShipTo_Address,4,0..1,07,CountryID,,Code,,Code,納入先国識別子,納入先の国ID。
+4930,Invoice,,,,,,,,,,,,,,
+4940,Invoice,JBG-52,ASBIE,NC39,InvoiceDocument,2,0..1,21,Billing,,__,SpecifiedPeriod,__,文書ヘッダ取引期間,文書ヘッダの取引期間に関するグループ
+4950,Invoice,JBT-295,BBIE,NC52,SpecifiedPeriod,3,1..1,01,StartDateTime,,Date,,Date,文書ヘッダ取引開始日,この文書ヘッダの取引開始日
+4960,Invoice,JBT-296,BBIE,NC52,SpecifiedPeriod,3,1..1,02,EndDateTime,,Date,,Date,文書ヘッダ取引終了日,この文書ヘッダの取引終了日
+4970,Invoice,JBG-53,ASBIE,NC39,InvoiceDocument,2,0..n,22,Allowance,,__,Allowance,__,文書ヘッダ返金,ヘッダ返金のクラス
+4980,Invoice,JBT-297,BBIE,NC53,Allowance,3,1..1,01,ChargeIndicator,,Indicator,,Indicator,明細行追加請求フラグ,この明細行が追加請求（チャージ）か識別する識別子。\n固定値 fault=Allowance
+4990,Invoice,JBT-298,BBIE,NC53,Allowance,3,0..1,02,CalculationPercent,,Percentage,,Percentage,文書ヘッダ返金の率,ヘッダ返金を計算するための率
+5000,Invoice,JBT-299,BBIE,NC53,Allowance,3,1..1,03,ActualAmount,,Amount,,Amount,文書ヘッダ返金課税分類合計金額,ヘッダ返金課税分類合計金額＝Σ課税分類明細行返金金額
+5010,Invoice,JBT-300,BBIE,NC53,Allowance,3,0..1,04,ReasonCode,,Code,,Code,文書ヘッダ返金の理由,ヘッダ返金の理由を識別するコード
+5020,Invoice,JBT-301,BBIE,NC53,Allowance,3,0..1,05,Reason,,Code,,Code,文書ヘッダ返金の理由コード,ヘッダ返金の理由（内容）の説明
+5030,Invoice,JBT-302,BBIE,NC53,Allowance,3,0..1,06,BasisAmount,,Amount,,Amount,文書ヘッダ返金金額の基準となる金額,ヘッダ返金の計算根拠となる金額
+5040,Invoice,,,,,,,,,,,,,,
+5050,Invoice,JBT-303,BBIE,NC53,Allowance,3,1..1,07,CalculatedRate,,Percentage,,Percentage,文書ヘッダ返金税率,ヘッダ返金の税率
+5060,Invoice,JBT-304,BBIE,NC53,Allowance,3,1..1,08,CategoryCode,,Code,,Code,文書ヘッダ返金課税分類コード,ヘッダ返金の課税分類コード
+5070,Invoice,JBT-304-1,BBIE,NC53,Allowance,3,1..1,09,TaxSchema,,Code,,Code,税スキーマ,適格請求書発行事業者の課税区分を識別するコード
+5080,Invoice,JBG-54,ASBIE,NC39,InvoiceDocument,2,0..n,23,Charge,,__,Charge,__,文書ヘッダ追加請求,ヘッダ追加請求のクラス
+5090,Invoice,JBT-305,BBIE,NC54,Charge,3,1..1,01,ChargeIndicator,,Indicator,,Indicator,明細行追加請求フラグ,この明細行が追加請求（チャージ）か識別する識別子。\n固定値 true=harge
+5100,Invoice,JBT-306,BBIE,NC54,Charge,3,0..1,02,CalculationPercent,,Percentage,,Percentage,文書ヘッダ追加請求の率,ヘッダ追加請求を計算するための率
+5110,Invoice,JBT-307,BBIE,NC54,Charge,3,1..1,03,ActualAmount,,Amount,,Amount,文書ヘッダ追加請求課税分類合計金額,ヘッダ追加請求課税分類合計金額＝Σ課税分類明細行追加請求金額
+5120,Invoice,JBT-308,BBIE,NC54,Charge,3,0..1,04,ReasonCode,,Code,,Code,文書ヘッダ追加請求の理由,ヘッダ追加請求の理由を識別するコード
+5130,Invoice,JBT-309,BBIE,NC54,Charge,3,0..1,05,Reason,,Code,,Code,文書ヘッダ追加請求の理由コード,ヘッダ追加請求の理由（内容）の説明
+5140,Invoice,JBT-310,BBIE,NC54,Charge,3,0..1,06,BasisAmount,,Amount,,Amount,文書ヘッダ追加請求金額の基準となる金額,ヘッダ追加請求の計算根拠となる金額
+5150,Invoice,,,,,,,,,,,,,,
+5160,Invoice,JBT-311,BBIE,NC54,Charge,3,1..1,07,CalculatedRate,,Percentage,,Percentage,文書ヘッダ追加請求税率,ヘッダ追加請求の税率
+5170,Invoice,JBT-312,BBIE,NC54,Charge,3,1..1,08,CategoryCode,,Code,,Code,文書ヘッダ追加請求課税分類コード,ヘッダ追加請求の課税分類コード
+5180,Invoice,JBT-312-1,BBIE,NC54,Charge,3,1..1,09,TaxSchema,,Code,,Code,税スキーマ,適格請求書発行事業者の課税区分を識別するコード
+5190,Invoice,JBG-55,ASBIE,NC39,InvoiceDocument,2,0..1,24,Specified,,__,Document_MonetarySummation,__,文書ヘッダ合計金額,明細文書の合計金額に関するグループ
+5200,Invoice,JBT-313,BBIE,NC55,Document_MonetarySummation,3,0..1,01,ChargeTotalAmount,,Amount,,Amount,文書ヘッダ追加請求合計金額,明細文書レベルの追加請求合計金額
+5210,Invoice,JBT-314,BBIE,NC55,Document_MonetarySummation,3,0..1,02,AllowanceTotalAmount,,Amount,,Amount,文書ヘッダ返金合計金額,明細文書レベルの返金合計金額
+5220,Invoice,JBT-315,BBIE,NC55,Document_MonetarySummation,3,1..1,03,TaxTotalAmount,,Amount,,Amount,文書ヘッダ合計税額,明細文書の合計税額
+5230,Invoice,JBT-316,BBIE,NC55,Document_MonetarySummation,3,1..1,04,GrossLineTotalAmount,,Amount,,Amount,文書ヘッダグロス合計金額,明細文書レベルの追加請求・返金を除く明細文薗の資産譲渡金額の合計金額（税抜き）
+5240,Invoice,JBT-317,BBIE,NC55,Document_MonetarySummation,3,1..1,05,NetLineTotalAmount,,Amount,,Amount,文書ヘッダ合計金額(税抜き),明細文書明細行の合計金額（税抜き）\n明細文書レベルの追加請求・返金を含む
+5250,Invoice,JBT-318,BBIE,NC55,Document_MonetarySummation,3,0..1,06,NetIncludingTaxesLineTotalAmount,,Amount,,Amount,文書ヘッダ合計金額(税込み),明細文書明細行の合計金額（税込み）\n明細文書レベルの追加請求・返金を含む
+5260,Invoice,JBT-319,BBIE,NC55,Document_MonetarySummation,3,1..1,07,GrandTotalAmount,,Amount,,Amount,文書ヘッダ総合計金額,明細文書の総合計金額（税込み）\n=明細文書合計金額（税抜き）＋明細文書合計税額
+5270,Invoice,JBG-56,ASBIE,NC39,InvoiceDocument,2,0..1,25,AccountingSpecified,,__,Accounting_MonetarySummation,__,文書ヘッダ外貨建て請求書合計金額,外貨建て請求書明細文書の合計金額に関するグループ。\n
+5280,Invoice,JBT-320,BBIE,NC56,Accounting_MonetarySummation,3,0..1,01,TaxTotalAmount,,Amount,,Amount,外貨建て請求書文書ヘッダ合計税額,外貨建て適格請求明細文書の日本円合計税額。\n通貨コード属性＝JPY\nインボイス文書通貨コード＝「外貨」、税通貨コード＝「JPY」の場合に利用する
+5290,Invoice,JBG-57,ASBIE,NC39,InvoiceDocument,2,1..n,26,Applicable,,__,Document_TradeTax,__,文書ヘッダ課税分類,明細文書の課税分類ごとの税に関するグループ。
+5300,Invoice,JBT-321,BBIE,NC57,Document_TradeTax,3,1..1,01,CalculatedAmount,,Amount,,Amount,文書ヘッダ課税分類税額,明細文書の課税分類毎に端数処理計算した税額。\n明細文書課税分類資産譲渡合計金額×税率\n算出した税額は切り上げ、切り捨て、四捨五入のいずれかで処理し、税額は整数とする
+5310,Invoice,JBT-322,BBIE,NC57,Document_TradeTax,3,0..1,02,TypeCode,,Code,,Code,文書ヘッダ税タイプコード,税の種類(消費税、所得税など）を識別するコード。デフォルトは消費税
+5320,Invoice,JBT-323,BBIE,NC57,Document_TradeTax,3,1..1,03,BasisAmount,,Amount,,Amount,文書ヘッダ課税分類譲渡資産合計金額（税抜き）,明細行の課税分類毎の税抜き譲渡資産金額の合計金額\n明細文書譲渡資産総合計金額（税抜き）＝∑明細行譲渡資産金額（税抜き）＋Σ明細文書追加請求金額ーΣ明細文書返金金額
+5330,Invoice,JBT-324,BBIE,NC57,Document_TradeTax,3,1..1,04,CategoryCode,,Code,,Code,文書ヘッダ課税分類コード,明細文書の課税分類（標準税率、軽減税率、不課税、非課税、免税等）を識別するコード\n課税分類ごとにクラスを設ける
+5340,Invoice,JBT-325,BBIE,NC57,Document_TradeTax,3,1..1,05,CurrencyCode,,Code,,Code,文書ヘッダ課税分類税通貨コード,「JPY」\n文書通貨コード（UN01005914）の指定と合わせる。文書通貨コードが「外貨」を指定された場合は文書ヘッダ税クラス（外貨建て適格請求書用）とセットで利用する
+5350,Invoice,JBT-326,BBIE,NC57,Document_TradeTax,3,0..1,06,CategoryName,,Text,,Text,文書ヘッダ課税分類名,明細文書の課税分類（標準税率、軽減税率、不課税、非課税、免税等）の名称
+5360,Invoice,JBT-327,BBIE,NC57,Document_TradeTax,3,1..1,07,RateApplicablePercent,,Percentage,,Percentage,文書ヘッダ税率,明細明細文書の課税分類毎の税額計算のための率。
+5370,Invoice,JBT-328,BBIE,NC57,Document_TradeTax,3,1..1,08,GrandTotalAmount,,Amount,,Amount,文書ヘッダ課税分類譲渡資産合計金額(税込み),明細行の課税分類毎の税額を含む譲渡資産金額の合計金額
+5380,Invoice,JBT-329,BBIE,NC57,Document_TradeTax,3,1..1,09,CalculationMethodCode,,Code,,Code,文書ヘッダ税計算方式,明細文書の金額の税込み、税抜きを指定。\nデフォルトは「税抜き」
+5390,Invoice,JBT-330,BBIE,NC57,Document_TradeTax,3,0..1,10,LocalTaxSystemID,,Code,,Code,文書ヘッダ適用税制識別子,取引の税制年度を識別するID\nデフォルトは「2019」（2019年度税制）
+5400,Invoice,JBG-58,ASBIE,NC39,InvoiceDocument,2,0..n,27,AccountingApplicable,,__,Accounting_TradeTax,__,文書ヘッダ外貨建て課税分類,外貨建て請求書の税率別課税分類合計額算出のための税グループ
+5410,Invoice,JBT-331,BBIE,NC58,Accounting_TradeTax,3,1..1,01,CalculatedAmount,,Amount,,Amount,文書ヘッダ外貨建て課税分類税額,外貨建て請求書の明細文書の課税分類毎に端数処理計算した税額。\n外貨建て請求書の明細文書課税分類資産譲渡合計金額×税率\n算出した税額は切り上げ、切り捨て、四捨五入のいずれかで処理し、税額は整数とする
+5420,Invoice,JBT-332,BBIE,NC58,Accounting_TradeTax,3,0..1,02,TypeCode,,Code,,Code,文書ヘッダ外貨建て税タイプコード,
+5430,Invoice,JBT-333,BBIE,NC58,Accounting_TradeTax,3,1..1,03,BasisAmount,,Amount,,Amount,文書ヘッダ外貨建て課税分類譲渡資産合計金額（税抜き）,明細行の課税分類毎の税抜き譲渡資産金額の合計金額\n明細文書譲渡資産総合計金額（税抜き）＝∑明細行譲渡資産金額（税抜き）＋Σ明細文書追加請求金額ーΣ明細文書返金金額
+5440,Invoice,JBT-334,BBIE,NC58,Accounting_TradeTax,3,1..1,04,CategoryCode,,Code,,Code,文書ヘッダ外貨建て課税分類コード,外貨建て請求書の明細文書の課税分類（標準税率、軽減税率）を識別するコード
+5450,Invoice,JBT-335,BBIE,NC58,Accounting_TradeTax,3,1..1,05,CurrencyCode,,Code,,Code,文書ヘッダ外貨建て課税分類税通貨コード,’=「外貨」\n文書通貨コード＝「外貨」、税通貨コード＝[JPY」の場合に利用する'。
+5460,Invoice,JBT-336,BBIE,NC58,Accounting_TradeTax,3,1..1,06,RateApplicablePercent,,Percentage,,Percentage,文書ヘッダ外貨建て税率,外貨建て請求書の明細明細文書の課税分類毎の税額計算のための率。
+5470,Invoice,JBG-59,ASBIE,NC39,InvoiceDocument,2,0..n,28,Specified,,Code,Document_FinancialAdjustment,Code,文書ヘッダ調整,文書ヘッダの調整に関するグループ\n調整ユースケースで文書タイプが「統合文書」を指定する場合にこのグループは必須。「単一文書」を指定する場合はこのグループは実装しない。
+5480,Invoice,JBT-337,BBIE,NC59,Document_FinancialAdjustment,3,0..1,01,ReasonCode,,Code,,Code,文書ヘッダ調整理由コード,文書ヘッダの調整理由を示す識別コード
+5490,Invoice,JBT-338,BBIE,NC59,Document_FinancialAdjustment,3,0..1,02,Reason,,Text,,Text,文書ヘッダ調整理由,文書ヘッダの調整理由を文字で表現した内容
+5500,Invoice,JBT-339,BBIE,NC59,Document_FinancialAdjustment,3,1..1,03,ActualAmount,,Amount,,Amount,文書ヘッダ調整金額,文書ヘッダの調整金額\n'=（修正インボイス明細金額ー前回インボイス明細金額）
+5510,Invoice,JBT-340,BBIE,NC59,Document_FinancialAdjustment,3,1..1,04,DirectionCode,,Code,,Code,文書ヘッダ調整取引方向コード,文書ヘッダ調整金額、および税額の＋ーを識別するコード\n調整ユースケースでは必須
+5520,Invoice,JBG-60,ASBIE,NC39,InvoiceDocument,2,0..n,29,Related,,__,DocumentFinancialAjustment_TradeTax,__,文書ヘッダ調整税,文書ヘッダの調整税クラスに関するグループ
+5530,Invoice,JBT-341,BBIE,NC60,DocumentFinancialAjustment_TradeTax,3,1..1,01,CalculatedAmount,,Amount,,Amount,文書ヘッダ調整税額,文書ヘッダの調整税額\n＝文書ヘッダ課税分類税額ー文書ヘッダ調整参照文書課税分類税額
+5540,Invoice,JBT-342,BBIE,NC60,DocumentFinancialAjustment_TradeTax,3,1..1,02,CalculatedRate,,Percentage,,Percentage,文書ヘッダ調整税率,文書ヘッダ調整の税率
+5550,Invoice,JBT-343,BBIE,NC60,DocumentFinancialAjustment_TradeTax,3,1..1,03,CategoryCode,,Code,,Code,文書ヘッダ調整課税分類コード,文書ヘッダ調整の課税分類コード
+5560,Invoice,JBG-61,ASBIE,NC39,InvoiceDocument,2,1..n,30,Subordinate,,__,InvoiceLineItem,__,明細行,明細行に関する情報からなるクラス
+5570,Invoice,JBT-344,BBIE,NC61,InvoiceLineItem,3,1..1,01,ID,,Identifier,,Identifier,明細行番号,この文書の明細行に関する情報を特定するために付与した行番号。明細行をユニークに識別するために付番する場合は文書番号との複合キーで明細行を特定する。
+5580,Invoice,JBT-345,BBIE,NC61,InvoiceLineItem,3,0..1,02,CategoryCode,,Code,,Code,明細行類型コード,この明細行の取引類型（資産譲渡、返金・追加請求、調整等）を識別するコード。\n=101：資産譲渡（デフォルト）\n＝102：返金\n=103：追加請求\n=104：調整（修正差月請求）
+5590,Invoice,JBT-346,BBIE,NC61,InvoiceLineItem,3,1..1,03,BasisAmount,,Amount,,Amount,明細行課税分類譲渡資産金額税抜き,この明細行の課税分類（明細行課税分類コード／税率）毎の税抜き譲渡資産金額（契約単価×請求数量）\n契約単価×数量で指定できない場合は金額
+5600,Invoice,JBT-347,BBIE,NC61,InvoiceLineItem,3,0..1,04,GrandTotalAmount,,Amount,,Amount,明細行課税分類譲渡資産金額税込み,この明細行の課税分類毎の税額を含む譲渡資産金額
+5610,Invoice,,,,,,,,,,,,,,明細行の決済入に関する情報からなるクラス
+5620,Invoice,JBT-370,BBIE,NC61,InvoiceLineItem,3,1..1,05,SettlementDirectionCode,,Code,,Code,明細行取引方向コード,明細行の取引方向を識別するコード\nデフォルトは「プラス」\n明細行取引類型コードが「返金・追加請求」「調整」を指定場合に利用する。\n金額の「プラス」「マイナス」表示を許容する場合は実装しない。
+5630,Invoice,JBG-62,ASBIE,NC61,InvoiceLineItem,3,1..1,06,Billing,,__,LineItem_SpecifiedPeriod,__,明細行取引期間,明細行の取引期間に関する情報からなるクラス
+5640,Invoice,JBT-402,BBIE,NC62,LineItem_SpecifiedPeriod,4,1..1,01,StartDateTime,,Date,,Date,明細行取引開始日,この明細行の取引開始日
+5650,Invoice,JBT-403,BBIE,NC62,LineItem_SpecifiedPeriod,4,1..1,02,EndDateTime,,Date,,Date,明細行取引終了日,この明細行の取引終了日
+5660,Invoice,JBG-63,ASBIE,NC61,InvoiceLineItem,3,0..1,07,Specified,,__,LineItem_Delivery,__,明細行配送,明細行の納入に関する情報からなるクラス
+5670,Invoice,JBT-365,BBIE,NC63,LineItem_Delivery,4,0..1,01,PackageQuantity,,Quantity,,Quantity,セット数量,この明細行品目がセットで請求された場合のセット数量\n流通業の固有仕様
+5680,Invoice,JBT-366,BBIE,NC63,LineItem_Delivery,4,0..1,02,ProductUnitQuantity,,Quantity,,Quantity,バラ数量,この明細行品目が単体（バラ）で請求された場合の数量\n流通業の固有仕様
+5690,Invoice,JBT-367,BBIE,NC63,LineItem_Delivery,4,0..1,03,PerPackageUnitQuantity,,Quantity,,Quantity,セット単位数量入り数,●定貫品目の数量単位指定が「セット」の場合：1セット当たりのバラ数量。\n●定貫品目の数量単位指定が「個」の場合：利用しない\n●不定貫品目の数量単位指定の場合：\n　利用しない。\n●ハイブリッド品目の場合：指定した定貫品目数量単位の1単位当たりの重量等
+5700,Invoice,JBT-368,BBIE,NC63,LineItem_Delivery,4,1..1,04,BilledQuantity,,Quantity,,Quantity,請求数量,この明細行品目のバラ請求数量、またはセット請求数量。\nバラ、セットの区分は数量単位コードで指定する\n流通業取引では利用せず、「セット数量」「バラ数量」情報項目を利用する
+5710,Invoice,JBT-369,BBIE,NC63,LineItem_Delivery,4,0..1,05,UnitCode,,Code,,Code,数量単位コード,数量単位のコード名
+5720,Invoice,JBG-64,ASBIE,NC61,InvoiceLineItem,3,0..1,08,PurchaseSpecified,,__,LineItem_AccountingAccount,__,明細行購買会計アカウント,この明細行の購買会計アカウントに関するグループ
+5730,Invoice,JBT-404,BBIE,NC64,LineItem_AccountingAccount,4,0..1,01,TypeCode,,Code,,Code,明細行購買会計アカウントタイプコード,売り手が付与する買い手の明細行購買会計アカウント
+5740,Invoice,JBT-405,BBIE,NC64,LineItem_AccountingAccount,4,1..1,02,Name,,Text,,Text,明細行購買会計アカウント名,買い手の明細行購買会計アカウント名
+5750,Invoice,JBG-65,ASBIE,NC61,InvoiceLineItem,3,0..n,09,Included,,__,LineItem_Note,__,明細行注釈,明細行の注釈に関するグループ
+5760,Invoice,JBT-348,BBIE,NC65,LineItem_Note,4,0..1,01,Subject,,Text,,Text,明細行注釈表題,明細行の注釈内容の表題を示す。
+5770,Invoice,JBT-349,BBIE,NC65,LineItem_Note,4,0..1,02,Content,,Text,,Text,明細行注釈内容,明細行の注釈表題毎の内容情報を入力するフリースペース。
+5780,Invoice,JBT-350,BBIE,NC65,LineItem_Note,4,0..1,03,ID,,Code,,Code,明細行注釈識別子,明細行注釈の識別番号
+5790,Invoice,JBG-66,ASBIE,NC61,InvoiceLineItem,3,0..1,10,SellerOrderReferenced,,__,LineItemSellerOrder_ReferencedDocument,__,明細行参照受注書,明細行の参照受注書クラス
+5800,Invoice,JBT-351,BBIE,NC66,LineItemSellerOrder_ReferencedDocument,4,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,明細行参照受注書番号,この明細行が参照する受注書に記載の文書番号
+5810,Invoice,JBT-352,BBIE,NC66,LineItemSellerOrder_ReferencedDocument,4,0..1,02,LineID,,Code,,Code,明細行参照受注書明細行番号,この明細行が参照する受注書に記載の明細行番号
+5820,Invoice,JBT-353,BBIE,NC66,LineItemSellerOrder_ReferencedDocument,4,0..1,03,RevisionID,,Code,,Code,明細行参照受注書履歴番号,この明細行が参照する受注書の変更履歴を管理する番号。
+5830,Invoice,JBT-354,BBIE,NC66,LineItemSellerOrder_ReferencedDocument,4,1..1,04,TypeCode,,Code,,Code,明細行参照文書タイプコード,この明細行が参照する文書のタイプを識別するコード。デフォルトは納品書
+5840,Invoice,JBG-67,ASBIE,NC61,InvoiceLineItem,3,0..1,11,BuyerOrderReferenced,,__,LineItemBuyerOrder_ReferencedDocument,__,明細行参照注文書,明細行の参照注文書クラス
+5850,Invoice,JBT-355,BBIE,NC67,LineItemBuyerOrder_ReferencedDocument,4,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,明細行参照注文書番号,この明細行が参照する注文書に記載の文書番号
+5860,Invoice,JBT-356,BBIE,NC67,LineItemBuyerOrder_ReferencedDocument,4,0..1,02,LineID,,Document Reference,,Document Reference,明細行参照注文書明細行番号,この明細行が参照する注文書に記載の明細行番号
+5870,Invoice,JBT-357,BBIE,NC67,LineItemBuyerOrder_ReferencedDocument,4,0..1,03,RevisionID,,Code,,Code,明細行参照注文書履歴番号,この明細行が参照する注文書の変更履歴を管理する番号。
+5880,Invoice,JBT-358,BBIE,NC67,LineItemBuyerOrder_ReferencedDocument,4,1..1,04,TypeCode,,Code,,Code,明細行参照文書タイプコード,この明細行が参照する文書のタイプを識別するコード。デフォルトは納品書
+5890,Invoice,JBG-68,ASBIE,NC61,InvoiceLineItem,3,0..n,12,AdditionalReferenced,,__,LineItemAdditional_ReferencedDocument,__,明細行参照文書,明細行の参照文書クラス
+5900,Invoice,JBT-359,BBIE,NC68,LineItemAdditional_ReferencedDocument,4,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,明細行参照文書番号,この明細行が参照する文書に記載の文書番号。\n補完納品書の場合は必須
+5910,Invoice,JBT-359-1,BBIE,NC68,LineItemAdditional_ReferencedDocument,4,0..1,02,LineID,,Code,,Code,明細行参照文書明細行番号,この明細行が参照する文書に記載の文書明細行番号。デフォルトは納品書
+5920,Invoice,JBT-360,BBIE,NC68,LineItemAdditional_ReferencedDocument,4,0..1,03,ReferenceTypeCode,,Code,,Code,明細行参照文書参照タイプコード,
+5930,Invoice,JBT-361,BBIE,NC68,LineItemAdditional_ReferencedDocument,4,0..1,04,RevisionID,,Code,,Code,明細行参照文書履歴番号,この明細行が参照する文書の変更履歴を管理する番号。
+5940,Invoice,JBT-362,BBIE,NC68,LineItemAdditional_ReferencedDocument,4,1..1,05,TypeCode,,Code,,Code,明細行参照文書タイプコード,この明細行が参照する文書のタイプを識別するコード。デフォルトは納品書
+5950,Invoice,JBT-363,BBIE,NC68,LineItemAdditional_ReferencedDocument,4,0..1,06,AttachmentBinaryObject,,Code,,Code,明細行参照文書添付ファイル,この明細行が参照する文書の添付バイナリファイルの有無を識別するコード\nなしの場合はNULL（デファクト）\nありの場合はヘッダの添付バイナリファイル識別子（UN01006015）を指定する。
+5960,Invoice,JBT-364,BBIE,NC68,LineItemAdditional_ReferencedDocument,4,1..1,07,SubtypeCode,,Code,,Code,明細行参照文書サブタイプコード,この明細行が参照する文書のタイプを識別するコード。デフォルトは納品書
+5970,Invoice,JBG-69,ASBIE,NC61,InvoiceLineItem,3,0..n,13,InvoiceObjectReferenced,,__,LineItemObject_ReferencedDocument,__,請求書明細行オブジェクト,
+5980,Invoice,JBT-376,BBIE,NC69,LineItemObject_ReferencedDocument,4,1..1,01,ObjectID,,Document Reference,,Document Reference,請求書明細行オブジェクトID,
+5990,Invoice,JBT-377,BBIE,NC69,LineItemObject_ReferencedDocument,4,0..1,02,ObjectIDSchemeID,,Code,,Code,請求書明細行オブジェクトIDスキーマID,
+6000,Invoice,JBT-378,BBIE,NC69,LineItemObject_ReferencedDocument,4,1..1,03,TypeCode,,Code,,Code,文書タイプコード,
+6010,Invoice,JBG-70,ASBIE,NC61,InvoiceLineItem,3,0..n,14,InvoiceReferenced,,__,LineItemInvoice_ReferencedDocument,__,明細行参照インボイス文書,明細行が参照するインボイス文書（業界EDI電子インボイス等）に関するグループ
+6020,Invoice,JBT-379,BBIE,NC70,LineItemInvoice_ReferencedDocument,4,1..1,01,IssuerAssignedID,,Document Reference,,Document Reference,明細行参照インボイス文書番号,この明細行が参照するインボイス文書の番号
+6030,Invoice,JBT-380,BBIE,NC70,LineItemInvoice_ReferencedDocument,4,0..1,02,IssueDateTime,,Date,,Date,明細行参照インボイス文書発行日,この明細行が参照するインボイス文書の発行日
+6040,Invoice,JBT-381,BBIE,NC70,LineItemInvoice_ReferencedDocument,4,1..1,03,LineID,,Code,,Code,明細行参照インボイス文書ヘッダ番号,この明細行が参照するインボイス文書の明細文書番号
+6050,Invoice,JBT-382,BBIE,NC70,LineItemInvoice_ReferencedDocument,4,0..1,04,RevisionID,,Code,,Code,明細行参照インボイス文書履歴番号,この明細行が参照するインボイス文書の変更履歴を管理する番号。
+6060,Invoice,JBT-383,BBIE,NC70,LineItemInvoice_ReferencedDocument,4,0..1,05,Information,,Text,,Text,明細行参照インボイス文書情報,この明細行が参照するインボイス文書に記載の情報
+6070,Invoice,JBT-384,BBIE,NC70,LineItemInvoice_ReferencedDocument,4,0..1,06,TypeCode,,Code,,Code,明細行参照文書タイプコード,この明細行が参照するインボイス文書のタイプを識別するコード
+6080,Invoice,JBT-385,BBIE,NC70,LineItemInvoice_ReferencedDocument,4,1..1,07,SubordinateLineID,,Code,,Code,明細行参照インボイス明細行番号,この明細行が参照するインボイスの明細行番号
+6090,Invoice,JBT-386,BBIE,NC70,LineItemInvoice_ReferencedDocument,4,0..1,08,SubtypeCode,,Code,,Code,明細行参照文書サブタイプコード,この明細行が参照する文書のサブタイプコード
+6100,Invoice,JBG-71,ASBIE,NC61,InvoiceLineItem,3,1..1,15,Applicable,,__,LineOtem_TradeTax,__,明細行税,明細行の税に関する情報に関するクラス
+6110,Invoice,JBT-371,BBIE,NC71,LineOtem_TradeTax,4,0..1,01,TaxSchema,,Code,,Code,税スキーマ,適格請求書発行事業者の課税区分を識別するコード
+6120,Invoice,JBT-372,BBIE,NC71,LineOtem_TradeTax,4,1..1,02,CategoryCode,,Code,,Code,明細行課税分類コード,この明細行の消費税の課税分類（標準税率、軽減税率、不課税、非課税、免税等）を識別するコード
+6130,Invoice,JBT-373,BBIE,NC71,LineOtem_TradeTax,4,0..1,03,CategoryName,,Text,,Text,明細行課税分類名,消費税の課税分類（標準税率、軽減税率、不課税、非課税、免税等）の名称
+6140,Invoice,JBT-374,BBIE,NC71,LineOtem_TradeTax,4,0..1,04,RateApplicablePercent,,Percentage,,Percentage,明細行税率,この明細行の課税分類区分を識別するため、明細行課税分類コードと組み合わせて利用する。
+6150,Invoice,JBT-375,BBIE,NC71,LineOtem_TradeTax,4,0..1,05,LocalTaxSystemID,,Code,,Code,明細行適用税制識別子,この明細行取引の税制年度を識別するID\nデフォルトは「2019」（2019年度税制）
+6160,Invoice,JBG-72,ASBIE,NC61,InvoiceLineItem,3,0..n,16,Allowance,,__,LineItem_Allowance,__,明細行返金,明細行返金のクラス
+6170,Invoice,JBT-387,BBIE,NC72,LineItem_Allowance,4,1..1,01,ChargeIndicator,,Indicator,,Indicator,明細行追加請求フラグ,この明細行が追加請求（チャージ）か識別する識別子。\n固定値 fault=Allowance
+6180,Invoice,JBT-388,BBIE,NC72,LineItem_Allowance,4,0..1,02,CalculationPercent,,Percentage,,Percentage,明細行返金率,この明細行の返金を計算するための率
+6190,Invoice,JBT-389,BBIE,NC72,LineItem_Allowance,4,0..1,03,ActualAmount,,Amount,,Amount,明細行返金金額,この明細行の返金金額。\n契約単価×返金数量、または金額。\n契約単価×返金数量で指定できない場合には金額\n明細行取引類型コード＝「資産譲渡」を指定した場合は利用しない。
+6200,Invoice,JBT-390,BBIE,NC72,LineItem_Allowance,4,0..1,04,ReasonCode,,Code,,Code,明細行返金理由コード,この明細行の返金理由を識別するコード
+6210,Invoice,JBT-391,BBIE,NC72,LineItem_Allowance,4,0..1,05,Reason,,Text,,Text,明細行返金理由,この明細行の返金理由（内容）の説明
+6220,Invoice,JBT-392,BBIE,NC72,LineItem_Allowance,4,0..1,06,BasisAmount,,Amount,,Amount,明細行返金基準金額,この明細行の返金の計算根拠となる金額
+6230,Invoice,JBG-73,ASBIE,NC61,InvoiceLineItem,3,0..n,17,Charge,,__,"LineIte,_Charge",__,明細行追加請求,明細行追加請求のクラス
+6240,Invoice,JBT-393,BBIE,NC73,"LineIte,_Charge",4,1..1,01,ChargeIndicator,,Indicator,,Indicator,明細行追加請求フラグ,この明細行が追加請求（チャージ）か識別する識別子。\n固定値 true=Charge
+6250,Invoice,JBT-394,BBIE,NC73,"LineIte,_Charge",4,0..1,02,CalculationPercent,,Percentage,,Percentage,明細行追加請求率,この明細行の追加請求を計算するための率
+6260,Invoice,JBT-395,BBIE,NC73,"LineIte,_Charge",4,0..1,03,ActualAmount,,Amount,,Amount,明細行追加請求金額,この明細行の追加請求金額。\n契約単価×追加請求数量、または金額。\n契約単価×追加請求数量で指定できない場合には金額\n明細行取引類型コード＝「資産譲渡」を指定した場合は利用しない。
+6270,Invoice,JBT-396,BBIE,NC73,"LineIte,_Charge",4,0..1,04,ReasonCode,,Code,,Code,明細行追加請求理由コード,この明細行の追加請求理由を識別するコード
+6280,Invoice,JBT-397,BBIE,NC73,"LineIte,_Charge",4,0..1,05,Reason,,Text,,Text,明細行追加請求理由,この明細行の追加請求理由（内容）の説明
+6290,Invoice,JBT-398,BBIE,NC73,"LineIte,_Charge",4,0..1,06,BasisAmount,,Amount,,Amount,明細行追加請求基準金額,この明細行の追加請求の計算根拠となる金額
+6300,Invoice,JBG-74,ASBIE,NC61,InvoiceLineItem,3,0..n,18,Specified,,__,LineItem_FinancialAdjustment,__,明細行調整,明細行決済の調整に関するグループ
+6310,Invoice,JBT-399,BBIE,NC74,LineItem_FinancialAdjustment,4,0..1,01,ReasonCode,,Code,,Code,明細行調整理由コード,この明細行の調整理由を示す識別コード
+6320,Invoice,JBT-400,BBIE,NC74,LineItem_FinancialAdjustment,4,0..1,02,Reason,,Text,,Text,明細行調整理由,この明細行の調整理由を文字で表現した内容
+6330,Invoice,JBT-401,BBIE,NC74,LineItem_FinancialAdjustment,4,1..1,03,ActualAmount,,Amount,,Amount,明細行調整金額,この明細行の調整金額\n調整ユースケースの場合は必須
+6340,Invoice,JBG-75,ASBIE,NC61,InvoiceLineItem,3,1..1,19,Applicable,,__,Product,__,取引品目,取引品目に関する情報のグループ
+6350,Invoice,JBT-406,BBIE,NC75,Product,4,0..1,01,ID,,Code,,Code,品目コード,品名を特定するために付与したコード
+6360,Invoice,JBT-407,BBIE,NC75,Product,4,0..1,02,GlobalID,,Identifier,,Identifier,品目標準ID,GTIN、JAN識別子などの国際的に登録された品目識別子
+6370,Invoice,JBT-407-1,BBIE,NC75,Product,4,1..1,03,GlobalIDSchemeID,,Code,,Code,スキーマID,使用する場合、識別スキーマは、ISO/IEC 6523 保守機関が公開しているリストから選択しなければならない。
+6380,Invoice,JBT-408,BBIE,NC75,Product,4,0..1,04,SellerAssignedID,,Identifier,,Identifier,買い手による品目ID,売り手が品目を特定するために付与した識別子
+6390,Invoice,JBT-409,BBIE,NC75,Product,4,0..1,05,BuyerAssignedID,,Identifier,,Identifier,売り手による品目ID,発注者が品目を特定するために付与した識別子
+6400,Invoice,JBT-410,BBIE,NC75,Product,4,0..n,06,ManufacturerAssignedID,,Code,,Code,メーカー品目識別子,品目を特定するために製造者が付与した識別子
+6410,Invoice,JBT-411,BBIE,NC75,Product,4,0..1,07,Name,,Text,,Text,品名,この取引の品名。
+6420,Invoice,JBT-412,BBIE,NC75,Product,4,1..1,08,Description,,Text,,Text,品目摘要,この取引品目内容を文字で説明したもの
+6430,Invoice,JBT-413,BBIE,NC75,Product,4,0..1,09,TypeCode,,Code,,Code,品目タイプコード,品目のタイプ（定貫品目、不定貫品目、ハイブリッド品目）を識別するコード\nデフォルトは定貫品目
+6440,Invoice,JBT-414,BBIE,NC75,Product,4,0..n,10,ProductGroupID,,Code,,Code,品目分類ID,この取引品目の分類の識別子
+6450,Invoice,JBT-415,BBIE,NC75,Product,4,0..1,11,CountryID,,Code,,Code,品目の原産国,この取引品目の原産国を識別するコード
+6460,Invoice,JBT-416,BBIE,NC75,Product,4,0..n,12,ItemClassificationCode,,Identifier,,Identifier,品目分類ID,種類や性質によって品目を分類するコード。
+6470,Invoice,JBT-416-1,BBIE,NC75,Product,4,1..1,13,ItemClassificationCodeSchemeID,,Code,,Code,スキーマID,品目分類IDの識別スキーマIDは、UNTDID 7143にある項目から選択すること。
+6480,Invoice,JBT-416-2,BBIE,NC75,Product,4,0..1,14,ItemClassificationCodeSchemeVersionID,,Code,,Code,スキーマのバージョンID,スキーマのバージョン。
+6490,Invoice,JBG-76,ASBIE,NC61,InvoiceLineItem,3,1..1,20,NetPriceProduct,,__,Price,__,契約単価,明細行の契約単価に関する情報のグループ
+6500,Invoice,JBT-417,BBIE,NC76,Price,4,0..1,01,TypeCode,,Code,,Code,単価コード,単価の区分（確定、仮単価等）を識別するコード
+6510,Invoice,JBT-418,BBIE,NC76,Price,4,1..1,02,ChargeAmount,,Unit Price Amount,,Unit Price Amount,品目単価(値引後)(税抜き),発注者と売り手が合意した明細発注品の単価。単価基準数量と単価基準数量単位の指定に従う。\n税込み、税抜きの識別はヘッダ部の「UN01013096：税計算方式」で指定（指定がない場合（デフォルト）は税抜き）。
+6520,Invoice,JBT-419,BBIE,NC76,Price,4,0..1,03,TaxIncludedChargeAmount,,Unit Price Amount,,Unit Price Amount,品目単価(値引後)(税込み),
+6530,Invoice,JBT-420,BBIE,NC76,Price,4,0..1,04,PriceDiscount,,Unit Price Amount,,Unit Price Amount,品目単価値引(税抜き),
+6540,Invoice,JBT-421,BBIE,NC76,Price,4,0..1,05,ChargeIndicator,,Indicator,,Indicator,品目単価追加請求フラグ,
+6550,Invoice,JBT-422,BBIE,NC76,Price,4,0..1,06,BaseAmount,,Unit Price Amount,,Unit Price Amount,品目単価(値引前)(税抜き),
+6560,Invoice,JBT-423,BBIE,NC76,Price,4,0..1,07,BasisQuantity,,Quantity,,Quantity,単価基準数量,不定貫品目（個数でカウントできない品目）の場合：\n　単価基準数量＝単価の基準となる重量・容量\n定貫品目（個数でカウントできる品目）の場合：\n　単価基準数量＝１（デフォルト）
+6570,Invoice,JBT-424,BBIE,NC76,Price,4,0..1,08,UnitCode,,Code,,Code,単価基準数量単位コード,単価基準数量単位のコード名
+6580,Invoice,JBG-77,ASBIE,NC61,InvoiceLineItem,3,0..n,21,Applicable,,__,ProductCharacteristic,__,品目属性,取引品目の属性のグループ
+6590,Invoice,JBT-425,BBIE,NC77,ProductCharacteristic,4,1..1,01,Description,,Text,,Text,品目属性名,この取引品目の属性を文字で説明したもの
+6600,Invoice,JBT-426,BBIE,NC77,ProductCharacteristic,4,1..1,02,Value,,Text,,Text,品目属性値,この取引品目の属性の値

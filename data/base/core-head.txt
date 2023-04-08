@@ -1,284 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- (c) 2022 XBRL Japan  inc. -->
 <schema 
-    targetNamespace="http://www.xbrl.jp/pint-jp/work-v1" 
-    elementFormDefault="qualified" 
-    attributeFormDefault="unqualified" 
-    xmlns="http://www.w3.org/2001/XMLSchema" 
-    xmlns:pint-jp="http://www.xbrl.jp/pint-jp/work-v1" 
-    xmlns:xlink="http://www.w3.org/1999/xlink" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:xl="http://www.xbrl.org/2003/XLink" 
-    xmlns:xbrli="http://www.xbrl.org/2003/instance" 
-    xmlns:link="http://www.xbrl.org/2003/linkbase" 
-    xmlns:nonnum="http://www.xbrl.org/dtr/type/non-numeric" 
-    xmlns:num="http://www.xbrl.org/dtr/type/numeric" 
-    xmlns:xbrldt="http://xbrl.org/2005/xbrldt" 
-    xmlns:label="http://xbrl.org/2008/label" 
-    xmlns:reference="http://xbrl.org/2008/reference" >
-    <annotation>
-        <appinfo>
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_ibr-co-10.xml"/> -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_ibr-co-11.xml"/> -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_ibr-co-12.xml"/> -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_ibr-x-08.xml"/> -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_aligned-ibrp-x-09.xml"/> -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_aligned-ibrp-045-48.xml"/> -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_aligned-ibrp-045-48.xml"/> -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_aligned-ibrp-051-jp.xml"/>  -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_EN16931-R046.xml"/> -->
-            <!-- <link:linkbaseRef xlink:type="simple" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core_formula_EN16931-R120.xml"/> -->
-            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/presentationLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-pre.xml"/>
-            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-def.xml"/>
-            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/referenceLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-ref.xml"/>
-            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-ja.xml"/>
-            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-en.xml"/>
-            <!-- 
-                 role type
-            -->
-            <link:roleType id="invoice" roleURI="http://www.xbrl.jp/peppol/invoice">
-                <link:definition>Invoice</link:definition>
-                <link:usedOn>link:presentationLink</link:usedOn>
-                <link:usedOn>link:definitionLink</link:usedOn>
-                <link:usedOn>link:referenceLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="invoiceLine" roleURI="http://www.xbrl.jp/peppol/invoice/Line">
-                <link:definition>Invoice Line</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="invoiceTaxCategory" roleURI="http://www.xbrl.jp/peppol/invoice/taxCategory">
-                <link:definition>Invoice Tax Category</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="documentCharge" roleURI="http://www.xbrl.jp/peppol/invoice/documentCharge">
-                <link:definition>Document Charge</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="documentAllowance" roleURI="http://www.xbrl.jp/peppol/invoice/documentAllowance">
-                <link:definition>Document Allowance</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="lineCharfge" roleURI="http://www.xbrl.jp/peppol/invoice/lineCharge">
-                <link:definition>Line Charge</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="lineAllowance" roleURI="http://www.xbrl.jp/peppol/invoice/lineAllowance">
-                <link:definition>Line Allowance</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="itemAttribute" roleURI="http://www.xbrl.jp/peppol/invoice/itemAttribute">
-                <link:definition>Item Attribute</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="invoiceTerm" roleURI="http://www.xbrl.jp/peppol/invoice/invoiceTerm">
-                <link:definition>Invoice Term</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="preceedingInvoiceReference" roleURI="http://www.xbrl.jp/peppol/invoice/preceedingInvoiceReference">
-                <link:definition>Preceeding Invoice Reference</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="paymentInstruction" roleURI="http://www.xbrl.jp/peppol/invoice/paymentInstruction">
-                <link:definition>Payment Instruction</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="paidAmounts" roleURI="http://www.xbrl.jp/peppol/invoice/paidAmounts">
-                <link:definition>Paid Amounts</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="taxBreakdown" roleURI="http://www.xbrl.jp/peppol/invoice/taxBreakdown">
-                <link:definition>Tax Breakdown</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="lineTaxInformation" roleURI="http://www.xbrl.jp/peppol/invoice/lineTaxInformation">
-                <link:definition>Line Tax Information</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="additionalSupportingDocuments" roleURI="http://www.xbrl.jp/peppol/invoice/additionalSupportingDocuments">
-                <link:definition>Additional Supporting Documents</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <!-- label -->
-            <link:roleType roleURI="http://www.xbrl.jp/peppol/role/description" id="description">
-                <link:definition>description</link:definition>
-                <link:usedOn>link:label</link:usedOn>
-            </link:roleType>
-            <!-- Aligned Japan -->
-            <link:roleType roleURI="http://www.xbrl.jp/peppol/role/aligned-jp" id="aligned-jp">
-                <link:definition>Aligned Japan</link:definition>
-                <link:usedOn>link:label</link:usedOn>
-            </link:roleType>
-            <!--
-                 arcroleType
-            -->
-            <!-- label -->
-            <link:arcroleType id="concept-description" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/peppol/arcrole/concept-description">
-                <link:definition>concept to description</link:definition>
-                <link:usedOn>link:labelArc</link:usedOn>
-            </link:arcroleType>
-            <!-- Aligned Japan -->
-            <link:arcroleType id="domain-member-aligned-jp" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/peppol/arcrole/domain-member-aligned-jp">
-                <link:definition>Domain to Member for Aligned Japan</link:definition>
-                <link:usedOn>link:definitionArc</link:usedOn>
-            </link:arcroleType>
-        </appinfo>
-    </annotation>
-    <import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
-	<import namespace="http://www.xbrl.org/2003/linkbase" schemaLocation="http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"/>
-    <import namespace="http://xbrl.org/2005/xbrldt" schemaLocation="http://www.xbrl.org/2005/xbrldt-2005.xsd"/>
-    <import namespace="http://www.xbrl.org/dtr/type/numeric" schemaLocation="http://www.xbrl.org/dtr/type/numeric-2009-12-16.xsd"/>
-    <import namespace="http://www.xbrl.org/dtr/type/non-numeric" schemaLocation="http://www.xbrl.org/dtr/type/nonNumeric-2009-12-16.xsd"/>
-    <import namespace="http://xbrl.org/2008/label" schemaLocation="http://www.xbrl.org/2008/generic-label.xsd"/>
-    <import namespace="http://xbrl.org/2008/reference" schemaLocation="http://www.xbrl.org/2008/generic-reference.xsd"/>
-    <!-- reference part element -->
-    <!-- semantic-model -->
-    <element name="id" type="string" substitutionGroup="link:part"/>
-    <element name="semantic_sort" type="string" substitutionGroup="link:part"/>
-    <element name="section" type="string" substitutionGroup="link:part"/>
-    <element name="cardinality" type="string" substitutionGroup="link:part"/>
-    <element name="aligned_cardinality" type="string" substitutionGroup="link:part"/>
-    <element name="semantic_datatype" type="string" substitutionGroup="link:part"/>
-    <element name="business_term" type="string" substitutionGroup="link:part"/>
-    <element name="business_term_ja" type="string" substitutionGroup="link:part"/>
-    <element name="description" type="string" substitutionGroup="link:part"/>
-    <element name="description_ja" type="string" substitutionGroup="link:part"/>
-    <element name="explanation" type="string" substitutionGroup="link:part"/>
-    <element name="explanation_ja" type="string" substitutionGroup="link:part"/>
-    <element name="example" type="string" substitutionGroup="link:part"/>
-    <element name="xpath" type="string" substitutionGroup="link:part"/>
-    <!-- syntax-binding -->
-    <element name="element" type="string" substitutionGroup="link:part"/>
-    <element name="syntax_sort" type="string" substitutionGroup="link:part"/>
-    <element name="syntax_cardinality" type="string" substitutionGroup="link:part"/>
-    <element name="parent_xpath" type="string" substitutionGroup="link:part"/>
-    <element name="syntax_parent_sort" type="string" substitutionGroup="link:part"/>
-    <element name="syntax_parent_cardinality" type="string" substitutionGroup="link:part"/>
-    <!--
-    <element name="selector" type="string" substitutionGroup="link:part"/>
-    <element name="binding_note" type="string" substitutionGroup="link:part"/>
-    <element name="reference" type="string" substitutionGroup="link:part"/>
-    <element name="rule" type="string" substitutionGroup="link:part"/>
-    -->
-    <!-- TypedDimension -->
-    <element name="_v" id="_v">
-        <simpleType>
-            <restriction base="string"/>
-        </simpleType>
-    </element>
-    <element name="_uncl4461" id="_uncl4461">
-        <simpleType>
-            <restriction base="string">
-                <pattern value="\s*(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|70|74|75|76|77|78|91|92|93|94|95|96|97|ZZZ|Z01|Z02)\s*"/>
-            </restriction>
-        </simpleType>
-    </element>
-    <!-- Hypercube -->
-    <element name="H_none" id="pint_H_none" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_invoice" id="pint_H_invoice" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_invoiceLine" id="pint_H_invoiceLine" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_taxBreakdown" id="pint_H_taxBreakdown" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_lineAllowance" id="pint_H_lineAllowance" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_lineCharge" id="pint_H_lineCharge" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_lineTaxInformation" id="pint_H_lineTaxInformation" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_invoiceAllowance" id="pint_H_invoiceAllowance" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_invoiceCharge" id="pint_H_invoiceCharge" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_itemAttribute" id="pint_H_itemAttribute" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_invoiceTerms" id="pint_H_invoiceTerms" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_preceedingInvoiceReference" id="pint_H_preceedingInvoiceReference" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_paymentInstruction" id="pint_H_paymentInstruction" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_paidAmounts" id="pint_H_paidAmounts" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="H_additionalSupportingDocuments" id="pint_H_additionalSupportingDocuments" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <!-- Dimension -->
-    <element name="dimProhibited" id="pint_dimProhibited" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="_380" id="pint_InvoiceID" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G33" id="pint_InvoiceTerms" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G03" id="pint_PreceedingInvoiceReference" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G16" id="pint_PaymentInstruction" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_uncl4461"/>
-    <element name="G35" id="pint_PaidAmounts" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="taxBreakdown" id="pint_taxBreakdown" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G20" id="pint_DocumentAllowance" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G21" id="pint_DocumentCharge" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G24" id="pint_AdditionalSupportingDocuments" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G25" id="pint_InvoiceLineID" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G27" id="pint_LineAllowance" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G28" id="pint_LineCharge" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G30" id="pint_LineTaxInformation" substitutionGroup="xbrldt:dimensionItem" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="G32" id="pint_ItemAttribute" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="TCC" id="pint_TaxCategoryCode" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="TCC_TC" id="pint_TaxCategoryCode_TaxCurrency" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="TCC_L" id="pint_TaxCategoryCode_Line" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="PaymentMeansCode" id="pint_PaymentMeansCode" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <element name="CurrencyCode" id="pint_CurrencyCode" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
-    <!-- Domain item -->
-    <element name="ConsumptionTax" id="pint_ConsumptionTax" substitutionGroup="xbrli:item" nillable="true" abstract="false" type="nonnum:domainItemType" xbrli:periodType="instant"/>
-    <element name="TCC_S10" id="pint_TaxCategory_S10" substitutionGroup="xbrli:item" nillable="true" abstract="false" type="nonnum:domainItemType" xbrli:periodType="instant"/>
-    <element name="TCC_AA8" id="pint_TaxCategory_AA8" substitutionGroup="xbrli:item" nillable="true" abstract="false" type="nonnum:domainItemType" xbrli:periodType="instant"/>
-    <element name="TCC_E0" id="pint_TaxCategory_E0" substitutionGroup="xbrli:item" nillable="true" abstract="false" type="nonnum:domainItemType" xbrli:periodType="instant"/>
-    <element name="TCC_O0" id="pint_TaxCategory_O" substitutionGroup="xbrli:item" nillable="true" abstract="false" type="nonnum:domainItemType" xbrli:periodType="instant"/>
-    <element name="TCC_G0" id="pint_TaxCategory_G0" substitutionGroup="xbrli:item" nillable="true" abstract="false" type="nonnum:domainItemType" xbrli:periodType="instant"/>
-    <!-- item type -->
-    <complexType name="amountItemType">
-        <simpleContent>
-        <restriction base="xbrli:monetaryItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="percentageItemType">
-        <simpleContent>
-        <restriction base="xbrli:pureItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="quantityItemType">
-        <simpleContent>
-        <restriction base="xbrli:pureItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="textItemType">
-        <simpleContent>
-        <restriction base="xbrli:stringItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="codeItemType">
-        <simpleContent>
-        <restriction base="xbrli:tokenItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="unitPriceAmountItemType">
-        <simpleContent>
-        <restriction base="xbrli:monetaryItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="dateItemType">
-        <simpleContent>
-        <restriction base="xbrli:dateTimeItemType"/>
-        </simpleContent>
-    </complexType>
-        <complexType name="timeItemType">
-        <simpleContent>
-        <restriction base="xbrli:dateTimeItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="identifierItemType">
-        <simpleContent>
-        <restriction base="xbrli:tokenItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="documentReferenceItemType">
-        <simpleContent>
-        <restriction base="xbrli:tokenItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="binaryObjectItemType">
-        <simpleContent>
-        <restriction base="xbrli:stringItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="street3ItemType">
-        <simpleContent>
-        <restriction base="xbrli:stringItemType"/>
-        </simpleContent>
-    </complexType>
-    <complexType name="tradingNameItemType">
-        <simpleContent>
-        <restriction base="xbrli:stringItemType"/>
-        </simpleContent>
-    </complexType>  
+	targetNamespace="http://www.xbrl.jp/ADC" 
+	elementFormDefault="qualified" 
+	xmlns:altovaext="http://www.altova.com/xslt-extensions" 
+	xmlns:altova-xfi="http://www.altova.com/xslt-extensions/xbrl" 
+	xmlns:model="http://www.eurofiling.info/xbrl/ext/model" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:adc="http://www.xbrl.jp/ADC" 
+	xmlns:xl="http://www.xbrl.org/2003/XLink" 
+	xmlns:xbrli="http://www.xbrl.org/2003/instance" 
+	xmlns:link="http://www.xbrl.org/2003/linkbase" 
+	xmlns:xfi="http://www.xbrl.org/2008/function/instance" 
+	xmlns:xff="http://www.xbrl.org/2010/function/formula" 
+	xmlns:nonnum="http://www.xbrl.org/dtr/type/non-numeric" 
+	xmlns:num="http://www.xbrl.org/dtr/type/numeric" 
+	xmlns:e="http://www.xbrl.org/int/gl/cen/2020-12-31" 
+	xmlns:c="http://www.xbrl.org/int/gl/cor/2020-12-31" 
+	xmlns:xbrldt="http://xbrl.org/2005/xbrldt" 
+	xmlns:ca="http://xbrl.org/2008/assertion/consistency" 
+	xmlns:ea="http://xbrl.org/2008/assertion/existence" 
+	xmlns:va="http://xbrl.org/2008/assertion/value" 
+	xmlns:bf="http://xbrl.org/2008/filter/boolean" 
+	xmlns:cf="http://xbrl.org/2008/filter/concept" 
+	xmlns:df="http://xbrl.org/2008/filter/dimension" 
+	xmlns:ef="http://xbrl.org/2008/filter/entity" 
+	xmlns:gf="http://xbrl.org/2008/filter/general" 
+	xmlns:mf="http://xbrl.org/2008/filter/match" 
+	xmlns:pf="http://xbrl.org/2008/filter/period" 
+	xmlns:rf="http://xbrl.org/2008/filter/relative" 
+	xmlns:ssf="http://xbrl.org/2008/filter/segment-scenario" 
+	xmlns:tf="http://xbrl.org/2008/filter/tuple" 
+	xmlns:uf="http://xbrl.org/2008/filter/unit" 
+	xmlns:vf="http://xbrl.org/2008/filter/value" 
+	xmlns:formula="http://xbrl.org/2008/formula" 
+	xmlns:gen="http://xbrl.org/2008/generic" 
+	xmlns:label="http://xbrl.org/2008/label" 
+	xmlns:reference="http://xbrl.org/2008/reference" 
+	xmlns:validation="http://xbrl.org/2008/validation" 
+	xmlns:variable="http://xbrl.org/2008/variable" 
+	xmlns:msg="http://xbrl.org/2010/message" 
+	xmlns:valm="http://xbrl.org/2010/message/validation" 
+	xmlns:table="http://xbrl.org/2014/table" 
+	xmlns:sev="http://xbrl.org/2016/assertion-severity">
+
+	<import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
+	<import namespace="http://xbrl.org/2005/xbrldt" schemaLocation="http://www.xbrl.org/2005/xbrldt-2005.xsd"/>
+	<import namespace="http://www.xbrl.org/dtr/type/numeric" schemaLocation="http://www.xbrl.org/dtr/type/numeric-2009-12-16.xsd"/>
+	<import namespace="http://xbrl.org/2014/table" schemaLocation="http://www.xbrl.org/2014/table.xsd"/>
+	<import namespace="http://xbrl.org/2008/label" schemaLocation="http://www.xbrl.org/2008/generic-label.xsd"/>
+	<import namespace="http://xbrl.org/2008/reference" schemaLocation="http://www.xbrl.org/2008/generic-reference.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/boolean" schemaLocation="http://www.xbrl.org/2008/boolean-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/concept" schemaLocation="http://www.xbrl.org/2008/concept-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/dimension" schemaLocation="http://www.xbrl.org/2008/dimension-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/entity" schemaLocation="http://www.xbrl.org/2008/entity-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/general" schemaLocation="http://www.xbrl.org/2008/general-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/match" schemaLocation="http://www.xbrl.org/2008/match-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/period" schemaLocation="http://www.xbrl.org/2008/period-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/relative" schemaLocation="http://www.xbrl.org/2008/relative-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/segment-scenario" schemaLocation="http://www.xbrl.org/2008/segment-scenario-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/tuple" schemaLocation="http://www.xbrl.org/2008/tuple-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/unit" schemaLocation="http://www.xbrl.org/2008/unit-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/filter/value" schemaLocation="http://www.xbrl.org/2008/value-filter.xsd"/>
+	<import namespace="http://xbrl.org/2008/validation" schemaLocation="http://www.xbrl.org/2008/validation.xsd"/>
+	<import namespace="http://xbrl.org/2008/assertion/consistency" schemaLocation="http://www.xbrl.org/2008/consistency-assertion.xsd"/>
+	<import namespace="http://xbrl.org/2008/assertion/existence" schemaLocation="http://www.xbrl.org/2008/existence-assertion.xsd"/>
+	<import namespace="http://xbrl.org/2008/assertion/value" schemaLocation="http://www.xbrl.org/2008/value-assertion.xsd"/>
+	<import namespace="http://www.eurofiling.info/xbrl/ext/model" schemaLocation="http://www.eurofiling.info/eu/fr/xbrl/ext/model.xsd"/>
+	<import namespace="http://www.xbrl.org/dtr/type/non-numeric" schemaLocation="http://www.xbrl.org/dtr/type/nonNumeric-2009-12-16.xsd"/>
+	<element name="_v" id="_v">
+		<simpleType>
+			<restriction base="string"/>
+		</simpleType>
+	</element>
+	<!-- <element name="_uncl4461" id="_uncl4461">
+		<simpleType>
+			<restriction base="string">
+				<pattern value="\s*(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|70|74|75|76|77|78|91|92|93|94|95|96|97|ZZZ|Z01|Z02)\s*"/>
+			</restriction>
+		</simpleType>
+	</element>-->
+	<!-- Hypercube -->
+	<element name="H_purchaseOrder" id="adc_H_purchaseOrder" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
+	<element name="H_purchaseOrderLine" id="adc_H_purchaseOrderLine" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
+	<element name="H_transactionTaxN" id="adc_H_transactionTaxN" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant"/>
+	<!-- Dimension -->
+	<element name="H_A51" id="adc_purchaseOrderID" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
+	<element name="H_A52" id="adc_purchaseOrderLineID" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
+	<element name="H_A80" id="adc_transactionTaxNID" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" type="xbrli:stringItemType" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
+	<!-- Domain item -->
+
+	<!-- item type -->
+	<complexType name="amountItemType">
+		<simpleContent>
+		<restriction base="xbrli:monetaryItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="percentageItemType">
+		<simpleContent>
+		<restriction base="xbrli:pureItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="quantityItemType">
+		<simpleContent>
+		<restriction base="xbrli:intItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="textItemType">
+		<simpleContent>
+		<restriction base="xbrli:stringItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="codeItemType">
+		<simpleContent>
+		<restriction base="xbrli:tokenItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="unitPriceAmountItemType">
+		<simpleContent>
+		<restriction base="xbrli:monetaryItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="dateItemType">
+		<simpleContent>
+		<restriction base="xbrli:dateTimeItemType"/>
+		</simpleContent>
+	</complexType>
+		<complexType name="timeItemType">
+		<simpleContent>
+		<restriction base="xbrli:dateTimeItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="identifierItemType">
+		<simpleContent>
+		<restriction base="xbrli:tokenItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="documentReferenceItemType">
+		<simpleContent>
+		<restriction base="xbrli:tokenItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="binaryObjectItemType">
+		<simpleContent>
+		<restriction base="xbrli:stringItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="street3ItemType">
+		<simpleContent>
+		<restriction base="xbrli:stringItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="tradingNameItemType">
+		<simpleContent>
+		<restriction base="xbrli:stringItemType"/>
+		</simpleContent>
+	</complexType> 

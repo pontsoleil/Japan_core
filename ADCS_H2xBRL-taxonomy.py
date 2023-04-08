@@ -46,12 +46,12 @@ DEBUG = False
 VERBOSE = True
 SEP = os.sep
 
-xbrl_source = 'source/'
+xbrl_source = 'data/base/'
 xbrl_source = xbrl_source.replace('/', SEP)
-core_head = 'coreead.txt'
+core_head = 'corehead.txt'
 primarykey_file = 'primarykey.csv'
 
-xbrl_base = 'taxonomy/H/'
+xbrl_base = 'data/xbrl/'
 # xbrl_base = xbrl_base.replace('/', SEP)
 core_xsd = 'core.xsd'
 core_label = 'core-lbl'
@@ -489,9 +489,10 @@ if __name__ == '__main__':
     def lookupModule(table_id):
         module = None
         prefix = table_id[:2]
-        if 'BS'==prefix: module = 'Base'
-        if 'GL'==prefix: module = 'GL'
-        if 'CM'==prefix: module = 'Common'
+        if 'NC'==prefix: module = 'Invoice'
+        elif 'BS'==prefix: module = 'Base'
+        elif 'GL'==prefix: module = 'GL'
+        elif 'CM'==prefix: module = 'Common'
         return module
 
     records = []
@@ -500,7 +501,9 @@ if __name__ == '__main__':
     tableDict = {}
     classDict = {}
     asbieDict = {}
-    header = ['no','module','kind','table_id','class','level','occurrence','field_id','propertyTerm','representationQualifier','representation','associatedClass','datatype','desc','type','entity','attribute','domain','refClass','refProperty','tag']
+
+    # header = ['no','module','kind','table_id','class','level','occurrence','field_id','propertyTerm','representationQualifier','representation','associatedClass','datatype','desc','type','entity','attribute','domain','refClass','refProperty','tag']
+    header = ['no','module','core_id','kind','table_id','class','level','occurrence','field_id','propertyTerm','representationQualifier','representation','associatedClass','datatype','term','desc']
     with open(adc_file, encoding='utf-8', newline='') as f:
         reader = csv.reader(f)#, delimiter='\t')
         next(reader)
@@ -534,14 +537,18 @@ if __name__ == '__main__':
             adc_id = ''
             name = ''
             type = ''
+            if not record['core_id']:
+                continue
             kind = record['kind']
             cls = record['class']
+            term = record['term']
             occurrence = record['occurrence']
-            record['occMin'] = occurrence[:1]
-            record['occMax'] = occurrence[-1:]
-            if len(kind) > 5 and 'IDBIE' == kind[:5]:
-                kind = 'IDBIE'
-            record['kind'] = kind
+            if 4==len(occurrence):
+                record['occMin'] = occurrence[0]
+                record['occMax'] = occurrence[-1]
+            # if len(kind) > 5 and 'IDBIE' == kind[:5]:
+            #     kind = 'IDBIE'
+            # record['kind'] = kind
             level = record['level']
             if re.match('[0-9]+',level):
                 level = int(level)
@@ -553,7 +560,7 @@ if __name__ == '__main__':
             elif 'ASBIE'==kind:# and 'n'==record['occMax']:
                 adc_id = f"{record['table_id']}-{tableDict[record['associatedClass']]}"
             else:
-                adc_id = f"{record['table_id']}-{record['field_id'].zfill(3)}"
+                adc_id = f"{record['table_id']}-{record['field_id'].zfill(2)}"
             if kind == 'ABIE':
                 record['parent'] = []
                 parentIDs = [adc_id]
@@ -567,7 +574,7 @@ if __name__ == '__main__':
                 if adc_id in adcDict:
                     if DEBUG: print(f'** Duplicate {adc_id} is already in adcDict.')
                     continue
-                record['name'] = cls
+                record['name'] = term
                 record['type'] = ''
                 adcDict[adc_id] = record
                 this_class = cls
@@ -586,10 +593,10 @@ if __name__ == '__main__':
                         DEN = f'{cls}. {propertyTerm}. {representation}'                
                 record['DEN'] = DEN                
                 if level > 0:
-                    parent_id = parentIDs[level-2]
+                    parent_id = parentIDs[level-1]
                 else:
                     parent_id = ''
-                record['name'] = propertyTerm
+                record['name'] = term# propertyTerm
                 datatype = record['datatype']
                 if datatype in ['PK','REF']:
                     type = datatypeMap['Identifier']['adc']
@@ -598,7 +605,7 @@ if __name__ == '__main__':
                 else:
                     type = 'stringItemType'
                 record['type'] = type
-                if not adc_id in adcDict[parent_id]['children']:
+                if parent_id and not adc_id in adcDict[parent_id]['children']:
                     adcDict[parent_id]['children'].append(adc_id)
                     if 9==len(parent_id):
                         parent_id2 = parent_id[-4:]
@@ -608,11 +615,11 @@ if __name__ == '__main__':
                             adcDict[parent_id2]['children'].append(adc_id)
                 adcDict[adc_id] = record
                 if 'ASBIE' == kind:
-                    while len(parentIDs) > level-1:
+                    while len(parentIDs) > level:
                         parentIDs.pop()
-                    while len(parentIDs) <= level-1:
+                    while len(parentIDs) <= level:
                         parentIDs.append('')
-                    parentIDs[level-1] = adc_id
+                    parentIDs[level] = adc_id
             records.append(record)
             if 'ASBIE' == kind and len(adc_id) > 8:
                 d = {}
@@ -632,7 +639,7 @@ if __name__ == '__main__':
                 d['occMax'] = '-'
                 d['parent'] = []
                 d['children'] = []
-                d['name'] = d['class']
+                d['name'] = d['term']
                 d['DEN'] = f'{d["name"]}. Details'  
                 adcDict[table_id] = d
                 records.append(d)
@@ -792,7 +799,7 @@ if __name__ == '__main__':
                 print(f'NOT DEFINED {adc_id} record')
                 return
             kind = record['kind']
-            type = record['type']
+            type = 'type' in record and record['type']  or ''
             if 'ABIE'==kind or adc_id in targetRefDict or adc_id in referenceDict:
                 line = f'        <element name="{adc_id}" id="{adc_id}" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>\n'
             else:
@@ -835,7 +842,7 @@ if __name__ == '__main__':
     html_annotation_head = [
         '    <annotation>\n',
         '        <appinfo>\n',
-        '            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-en.xml"/>\n',
+        '            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-ja.xml"/>\n',
         '            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/presentationLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-pre.xml"/>\n',
         '            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-def.xml"/>\n',
         # '            <!-- formula -->\n',
@@ -1016,27 +1023,27 @@ if __name__ == '__main__':
         defineElement(adc_id,record)
         if 'IDBIE'==kind:
             primaryKeys[adc_id[:4]] = adc_id
-        # if 'ASBIE'==kind and 'n'==record['occMax']:
-        #     if adc_id in referenceDict:
-        #         referenced_id = referenceDict[adc_id]['ABIE']
-        #     elif adc_id in targetRefDict:
-        #         referenced_id = targetRefDict[adc_id]
-        #     else:
-        #         associatedClass = record['associatedClass']
-        #         referenced_id = None
-        #         for adc2_id,record2 in adcDict.items():
-        #             if associatedClass==record2['class']:
-        #                 referenced_id = f'{adc_id[:4]}-{adc2_id}'
-        #                 defineElement(referenced_id,record2)
-        #                 break
-        #     if referenced_id:
-        #         record2 = getRecord(referenced_id[-4:])
-        #         if 'children' in record2:
-        #             children = record2['children']
-        #             for child_id in children:
-        #                 child = getRecord(child_id)
-        #                 referenced_id = f'{adc_id[:4]}-{child_id}'
-        #                 defineElement(referenced_id,child)
+        if 'ASBIE'==kind and 'n'==record['occMax']:
+            if adc_id in referenceDict:
+                referenced_id = referenceDict[adc_id]['ABIE']
+            elif adc_id in targetRefDict:
+                referenced_id = targetRefDict[adc_id]
+            else:
+                associatedClass = record['associatedClass']
+                referenced_id = None
+                for adc2_id,record2 in adcDict.items():
+                    if associatedClass==record2['class']:
+                        referenced_id = f'{adc_id[:4]}-{adc2_id}'
+                        defineElement(referenced_id,record2)
+                        break
+            if referenced_id:
+                record2 = getRecord(referenced_id[-4:])
+                if 'children' in record2:
+                    children = record2['children']
+                    for child_id in children:
+                        child = getRecord(child_id)
+                        referenced_id = f'{adc_id[:4]}-{child_id}'
+                        defineElement(referenced_id,child)
         
     for link_id,role in roleMap.items():
         if 4==len(link_id):
@@ -1064,14 +1071,14 @@ if __name__ == '__main__':
 
     lines.append('</schema>')
 
-    adc_xsd_file = file_path(f'{xbrl_base}{core_xsd}')
+    adc_xsd_file = file_path(f'{xbrl_base}/{core_xsd}')
     with open(adc_xsd_file, 'w', encoding='utf_8', newline='') as f:
         f.writelines(lines)
     if VERBOSE:
         print(f'-- {adc_xsd_file}')
 
     ###################################
-    # labelLink en
+    # labelLink ja
     #
     def linkLabel(adc_id,name,Desc):
         global locsDefined
@@ -1089,7 +1096,7 @@ if __name__ == '__main__':
         # name
         if not adc_id in definedLabels:
             definedLabels[adc_id] = adc_id
-            line = f'        <link:label xlink:type="resource" xlink:label="label_{adc_id}" xlink:title="label_{adc_id}" id="label_{adc_id}" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">{name}</link:label>\n'
+            line = f'        <link:label xlink:type="resource" xlink:label="label_{adc_id}" xlink:title="label_{adc_id}" id="label_{adc_id}" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">{name}</link:label>\n'
         else:
             line = f'            <!-- link:label http://www.xbrl.org/2003/role/label defined -->\n'
         lines.append(line)
@@ -1103,7 +1110,7 @@ if __name__ == '__main__':
         if name != Desc:
             if not adc_id in definedDescs:
                 definedDescs[adc_id] = adc_id
-                line = f'        <link:label xlink:type="resource" xlink:label="description_{adc_id}" xlink:title="description_{adc_id}" id="description_{adc_id}" xml:lang="en" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">{Desc}</link:label>\n'
+                line = f'        <link:label xlink:type="resource" xlink:label="description_{adc_id}" xlink:title="description_{adc_id}" id="description_{adc_id}" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">{Desc}</link:label>\n'
             else:
                 line = f'            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->\n'
             lines.append(line)
@@ -1162,7 +1169,7 @@ if __name__ == '__main__':
     lines.append('    </link:labelLink>\n')
     lines.append('</link:linkbase>\n')
 
-    adc_label_file = file_path(f'{xbrl_base}{core_label}-en.xml')
+    adc_label_file = file_path(f'{xbrl_base}/{core_label}-ja.xml')
     with open(adc_label_file, 'w', encoding='utf_8', newline='') as f:
         f.writelines(lines)
     if VERBOSE:
@@ -1243,12 +1250,12 @@ if __name__ == '__main__':
     kind = record['kind']
     count = 0
     children = record['children']
-    linkPresentation(adc_id,children,2)
+    linkPresentation(adc_id,children,1)
        
     lines.append('    </link:presentationLink>\n')
     lines.append('</link:linkbase>\n')
 
-    adc_presentation_file = file_path(f'{xbrl_base}{core_presentation}.xml')
+    adc_presentation_file = file_path(f'{xbrl_base}/{core_presentation}.xml')
     with open(adc_presentation_file, 'w', encoding='utf_8', newline='') as f:
         f.writelines(lines)
     if VERBOSE:
@@ -1294,7 +1301,7 @@ if __name__ == '__main__':
 
     lines.append('</link:linkbase>\n')
 
-    adc_definition_file = file_path(f'{xbrl_base}{core_definition}.xml')
+    adc_definition_file = file_path(f'{xbrl_base}/{core_definition}.xml')
     with open(adc_definition_file, 'w', encoding='utf_8', newline='') as f:
         f.writelines(lines)
     if VERBOSE:
