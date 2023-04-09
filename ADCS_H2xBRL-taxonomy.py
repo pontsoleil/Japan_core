@@ -502,8 +502,8 @@ if __name__ == '__main__':
     classDict = {}
     asbieDict = {}
 
-    # header = ['no','module','kind','table_id','class','level','occurrence','field_id','propertyTerm','representationQualifier','representation','associatedClass','datatype','desc','type','entity','attribute','domain','refClass','refProperty','tag']
-    header = ['no','module','core_id','kind','table_id','class','level','occurrence','field_id','propertyTerm','representationQualifier','representation','associatedClass','datatype','term','desc']
+    # header = ['no','module','core_id','kind','table_id','class','level','occurrence','field_id','propertyTerm','representationQualifier','representation','associatedClass','datatype','term','desc']
+    header = ['semSort','鑑ヘッダ\n文書ヘッダ\n明細行','id','core_id','seq','level','繰返し','項目名','項目種','Object Class','Property','Representation','Associated Class','項目定義','UN_CCL_ID','項目種','行番号','SME ID','項目名','項目定義','既定値','繰返し','Level','SME CII XPath','PINT syntax sort','Id','Card.','Level','Business Term','Business Term ja','Description','説明','既定値','UBL XPath']
     with open(adc_file, encoding='utf-8', newline='') as f:
         reader = csv.reader(f)#, delimiter='\t')
         next(reader)
