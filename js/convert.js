@@ -35,61 +35,62 @@ convert = (function () {
 	let core_japan = {};
 	let jp_pint_binding = {};
 	let sme_binding = {};
+	let sort_dict = {}
 	let syntax;
 	let uuid;
 	let base_url;
 
 	// FormData polyfill by ChatGPT
 	if (!window.FormData) {
-		window.FormData = function() {
-		  this.fake = true;
-		  this.boundary = '--------FormDataPolyfill' + Math.random();
-		  this._fields = [];
+		window.FormData = function () {
+			this.fake = true;
+			this.boundary = '--------FormDataPolyfill' + Math.random();
+			this._fields = [];
 		}
-		
-		window.FormData.prototype.append = function(key, value, filename) {
-		  if (value instanceof File) {
-			this._fields.push([key, value, filename || value.name]);
-		  } else {
-			this._fields.push([key, value]);
-		  }
-		}
-		
-		window.FormData.prototype.toString = function() {
-		  var boundary = this.boundary;
-		  var body = '';
-		  
-		  this._fields.forEach(function(field) {
-			body += '--' + boundary + '\r\n';
-			
-			if (field[1] instanceof File) {
-			  body += 'Content-Disposition: form-data; name="' + field[0] + '"; filename="' + field[2] + '"\r\n';
-			  body += 'Content-Type: ' + field[1].type + '\r\n\r\n';
-			  body += field[1] + '\r\n';
+
+		window.FormData.prototype.append = function (key, value, filename) {
+			if (value instanceof File) {
+				this._fields.push([key, value, filename || value.name]);
 			} else {
-			  body += 'Content-Disposition: form-data; name="' + field[0] + '"\r\n\r\n';
-			  body += field[1] + '\r\n';
+				this._fields.push([key, value]);
 			}
-		  });
-		  
-		  body += '--' + boundary + '--';
-		  return body;
 		}
-	  }
-	  
-	// cf. https://stackoverflow.com/questions/376373/pretty-printing-xml-with-javascript
-	function formatXml(xml, tab) { // tab = optional indent value, default is tab (\t)
-		var formatted = '', indent= '';
-		tab = tab || '\t';
-		xml.split(/>\s*</).forEach(function(node) {
-			if (node.match( /^\/\w/ )) indent = indent.substring(tab.length); // decrease indent by one 'tab'
-			formatted += indent + '<' + node + '>\r\n';
-			if (node.match( /^<?\w[^>]*[^\/]$/ )) indent += tab;              // increase indent
-		});
-		return formatted.substring(1, formatted.length-3);
+
+		window.FormData.prototype.toString = function () {
+			var boundary = this.boundary;
+			var body = '';
+
+			this._fields.forEach(function (field) {
+				body += '--' + boundary + '\r\n';
+
+				if (field[1] instanceof File) {
+					body += 'Content-Disposition: form-data; name="' + field[0] + '"; filename="' + field[2] + '"\r\n';
+					body += 'Content-Type: ' + field[1].type + '\r\n\r\n';
+					body += field[1] + '\r\n';
+				} else {
+					body += 'Content-Disposition: form-data; name="' + field[0] + '"\r\n\r\n';
+					body += field[1] + '\r\n';
+				}
+			});
+
+			body += '--' + boundary + '--';
+			return body;
+		}
 	}
 
-	function updateSyntax(syntax,f) {
+	// cf. https://stackoverflow.com/questions/376373/pretty-printing-xml-with-javascript
+	function formatXml(xml, tab) { // tab = optional indent value, default is tab (\t)
+		var formatted = '', indent = '';
+		tab = tab || '\t';
+		xml.split(/>\s*</).forEach(function (node) {
+			if (node.match(/^\/\w/)) indent = indent.substring(tab.length); // decrease indent by one 'tab'
+			formatted += indent + '<' + node + '>\r\n';
+			if (node.match(/^<?\w[^>]*[^\/]$/)) indent += tab;              // increase indent
+		});
+		return formatted.substring(1, formatted.length - 3);
+	}
+
+	function updateSyntax(syntax, f) {
 		if (document.getElementById('source2target').classList.contains('active')) {
 			document.querySelectorAll('#source2target input[name="syntax"]').disabled = true;
 			if (syntax == "JP-PINT") {
@@ -140,7 +141,7 @@ convert = (function () {
 					else if (0 == target.indexOf("rsm:SME")) {
 						syntax = "SME-COMMON";
 					}
-					updateSyntax(syntax,f);
+					updateSyntax(syntax, f);
 				}
 			}
 			r.readAsText(f);
@@ -269,10 +270,10 @@ convert = (function () {
 	}
 
 	function updateNameURL(selector, file, option) {
-		document.querySelector(selector+' .fa').classList.remove('d-none');
-		let name = file.substring(1+file.lastIndexOf('/'));
+		document.querySelector(selector + ' .fa').classList.remove('d-none');
+		let name = file.substring(1 + file.lastIndexOf('/'));
 		let url = location.origin + '/core-japan/server/' + file;
-		let title = document.querySelector(selector+' .name');
+		let title = document.querySelector(selector + ' .name');
 		if (title) {
 			if (option) {
 				title.innerHTML = name + '(' + option + ')';
@@ -280,7 +281,7 @@ convert = (function () {
 				title.innerHTML = name;
 			}
 		}
-		let anchor = document.querySelector(selector+' .url');
+		let anchor = document.querySelector(selector + ' .url');
 		if (anchor) {
 			anchor.setAttribute('href', url);
 			anchor.setAttribute('download', name);
@@ -288,16 +289,16 @@ convert = (function () {
 	}
 
 	function source2target(evt) {
-		updateNameURL('#source2target #target_title','','');
+		updateNameURL('#source2target #target_title', '', '');
 		let target_area = document.querySelector('#source2target #target_area');
 		if (target_area) {
 			target_area.textContent = ''
 		}
-		updateNameURL('#source2target #transposed_title','','縦横転置');
-		fillTable('','#source2target #transposed_table','C')
-		updateNameURL('#source2target #csv_title','','')
-		fillTable('','#source2target #csv_table','');
-		updateNameURL('#source2target #xml_title','','')
+		updateNameURL('#source2target #transposed_title', '', '縦横転置');
+		fillTable('', '#source2target #transposed_table', 'C')
+		updateNameURL('#source2target #csv_title', '', '')
+		fillTable('', '#source2target #csv_table', '');
+		updateNameURL('#source2target #xml_title', '', '')
 		let xml_area = document.querySelector('#source2target #xml_area');
 		if (xml_area) {
 			xml_area.textContent = '';
@@ -311,11 +312,11 @@ convert = (function () {
 			formData.append('file', file);
 		} else {
 			let selected = document.querySelector('#source2target #selected_file').value;
-			if (selected && 'initial'!=selected) {
-				let file_name = selected.substring(1+selected.indexOf(':'));
+			if (selected && 'initial' != selected) {
+				let file_name = selected.substring(1 + selected.indexOf(':'));
 				formData.append('selected', file_name);
 			} else {
-				snackbar.open({'message':'ファイルを指定してください','type':'danger'});
+				snackbar.open({ 'message': 'ファイルを指定してください', 'type': 'danger' });
 				return;
 			}
 		}
@@ -326,8 +327,8 @@ convert = (function () {
 		if (uuid) {
 			formData.append("uuid", uuid);
 		}
-		snackbar.open({'message':'<i class="fa fa-cog fa-spin"></i> 変換中','type':'info'});
-		fetch(base_url+'/server/source2target.php', {
+		snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 変換中', 'type': 'info' });
+		fetch(base_url + '/server/source2target.php', {
 			method: 'POST',
 			body: formData
 		})
@@ -357,15 +358,15 @@ convert = (function () {
 						let csv_contents = response.csv_contents;
 						let transposed_contents = response.transposed_contents;
 						let target_contents = response.target_contents;
-						updateNameURL('#source2target #target_title',target_xml,target);
+						updateNameURL('#source2target #target_title', target_xml, target);
 						if (target_area) {
 							target_area.textContent = formatXml(target_contents);
 						}
-						updateNameURL('#source2target #transposed_title',transposed_file,'縦横転置');
-						fillTable(transposed_contents,'#source2target #transposed_table','C')
-						updateNameURL('#source2target #csv_title',csv_file,'')
-						fillTable(csv_contents,'#source2target #csv_table','');
-						updateNameURL('#source2target #xml_title',source_xml,source)
+						updateNameURL('#source2target #transposed_title', transposed_file, '縦横転置');
+						fillTable(transposed_contents, '#source2target #transposed_table', 'C')
+						updateNameURL('#source2target #csv_title', csv_file, '')
+						fillTable(csv_contents, '#source2target #csv_table', '');
+						updateNameURL('#source2target #xml_title', source_xml, source)
 						if (xml_area) {
 							xml_area.textContent = xml_contents;
 						}
@@ -382,11 +383,11 @@ convert = (function () {
 	}
 
 	function invoice2csv(evt) {
-		updateNameURL('#invoice2csv #transposed_title','','縦横転置')
+		updateNameURL('#invoice2csv #transposed_title', '', '縦横転置')
 		fillTable('', '#invoice2csv #transposed_table', 'C')
-		updateNameURL('#invoice2csv #csv_title','','')
+		updateNameURL('#invoice2csv #csv_title', '', '')
 		fillTable('', '#invoice2csv #csv_table', '');
-		updateNameURL('#invoice2csv #xml_title','','');
+		updateNameURL('#invoice2csv #xml_title', '', '');
 		document.querySelector('#invoice2csv #xml_area').textContent = '';
 		const formData = new FormData();
 		let file = document.querySelector('#invoice2csv-form input[type="file"]').files[0];
@@ -397,10 +398,10 @@ convert = (function () {
 			formData.append('file', file);
 		} else {
 			let selected = document.querySelector('#invoice2csv #selected_file').value;
-			if (selected && 'initial'!=selected) {
+			if (selected && 'initial' != selected) {
 				formData.append('selected', selected);
 			} else {
-				snackbar.open({'message':'ファイルを指定してください','type':'danger'});
+				snackbar.open({ 'message': 'ファイルを指定してください', 'type': 'danger' });
 				return;
 			}
 		}
@@ -410,8 +411,8 @@ convert = (function () {
 		if (uuid) {
 			formData.append("uuid", uuid);
 		}
-		snackbar.open({'message':'<i class="fa fa-cog fa-spin"></i> 変換中','type':'info'});
-		fetch(base_url+'/server/invoice2csv.php', {
+		snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 変換中', 'type': 'info' });
+		fetch(base_url + '/server/invoice2csv.php', {
 			method: 'POST',
 			body: formData
 		})
@@ -438,11 +439,11 @@ convert = (function () {
 						let xml_contents = response.xml_contents;
 						let csv_contents = response.csv_contents;
 						let transposed_contents = response.transposed_contents;
-						updateNameURL('#invoice2csv #transposed_title',transposed_file,'縦横転置')
+						updateNameURL('#invoice2csv #transposed_title', transposed_file, '縦横転置')
 						fillTable(transposed_contents, '#invoice2csv #transposed_table', 'C')
-						updateNameURL('#invoice2csv #csv_title',csv_file,'')
+						updateNameURL('#invoice2csv #csv_title', csv_file, '')
 						fillTable(csv_contents, '#invoice2csv #csv_table', '');
-						updateNameURL('#invoice2csv #xml_title',xml_file,syntax);
+						updateNameURL('#invoice2csv #xml_title', xml_file, syntax);
 						document.querySelector('#invoice2csv #xml_area').textContent = xml_contents;
 					}
 					catch (error) {
@@ -458,7 +459,7 @@ convert = (function () {
 	}
 
 	function csv2invoice(evt) {
-		updateNameURL('#csv2invoice #xml_title','','')
+		updateNameURL('#csv2invoice #xml_title', '', '')
 		let xml_area = document.querySelector('#csv2invoice #xml_area');
 		if (xml_area) {
 			xml_area.textContent = '';
@@ -467,11 +468,11 @@ convert = (function () {
 		let file = document.querySelector('#csv2invoice-form input[type="file"]').files[0];
 		if (!file) {
 			file = evt.target.querySelector('#csv2invoice-form input[type="file"]').files[0];
-		} 
+		}
 		if (file) {
 			formData.append('file', file);
 		} else {
-			snackbar.open({'message':'ファイルを指定してください','type':'danger'});
+			snackbar.open({ 'message': 'ファイルを指定してください', 'type': 'danger' });
 			return;
 		}
 		formData.append('file', file);
@@ -481,8 +482,8 @@ convert = (function () {
 		if (uuid) {
 			formData.append("uuid", uuid);
 		}
-		snackbar.open({'message':'<i class="fa fa-cog fa-spin"></i> 変換中','type':'info'});
-		fetch(base_url+'/server/csv2invoice.php', {
+		snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 変換中', 'type': 'info' });
+		fetch(base_url + '/server/csv2invoice.php', {
 			method: 'POST',
 			body: formData
 		})
@@ -506,7 +507,7 @@ convert = (function () {
 						let csv_file = response.csv_file;
 						let xml_file = response.xml_file;
 						let xml_contents = response.xml_contents;
-						updateNameURL('#csv2invoice #xml_title',xml_file,syntax)
+						updateNameURL('#csv2invoice #xml_title', xml_file, syntax)
 						if (xml_area) {
 							xml_area.textContent = formatXml(xml_contents);
 						}
@@ -524,7 +525,7 @@ convert = (function () {
 
 	function initModule() {
 		base_url = location.href;
-		base_url = base_url.substring(0,base_url.lastIndexOf('/'));
+		base_url = base_url.substring(0, base_url.lastIndexOf('/'));
 
 		uuid = localStorage.getItem('uuid');
 		if (uuid) {
@@ -582,7 +583,7 @@ convert = (function () {
 			} else {
 				upload.classList.add('d-none');
 			}
-			let syntax = option.substring(0,option.indexOf(':'));
+			let syntax = option.substring(0, option.indexOf(':'));
 			updateSyntax(syntax);
 		});
 
@@ -614,44 +615,71 @@ convert = (function () {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('core-japan');
+				sortTable('transposed_table','num') 
 			});
 			document.querySelector('#source2target .tidy_csv a#jp-pint').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('jp-pint');
+				sortTable('transposed_table','jp_pint') 
 			});
 			document.querySelector('#source2target .tidy_csv a#jp-pint_ja').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('jp-pint_ja');
+				sortTable('transposed_table','jp_pint') 
 			});
 			document.querySelector('#source2target .tidy_csv a#sme-common').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('sme-common');
+				sortTable('transposed_table','sme') 
 			});
 		});
+
+		function sortTable(table_id, key) {
+			let table = document.getElementById(table_id);
+			let rows = table.rows;
+			let rowsArray = Array.from(rows);
+			rowsArray.sort(function (rowA, rowB) {
+				let idA = rowA.cells[0].textContent;
+				let idB = rowB.cells[0].textContent;
+				let sortA = 0
+				if ('ID'!=idA && 'JBG'!=idA.substring(0,3)) {
+					sortA = sort_dict[idA][key];
+				}
+				let sortB = 0
+				if ('ID'!=idB && 'JBG'!=idB.substring(0,3)) {
+					sortB = sort_dict[idB][key];
+				}
+				return sortA - sortB;
+			});
+			table.tBodies[0].innerHTML = '';
+			rowsArray.forEach(function (row) {
+				table.tBodies[0].appendChild(row);
+			});
+		}
 
 		function updateTransposedLabel(mode) {
 			let trs = document.querySelectorAll('#transposed_table tbody tr');
 			for (tr of trs) {
-				if (''==tr.firstChild.innerText) {
+				if ('' == tr.firstChild.innerText) {
 					continue;
 				}
 				let id = tr.childNodes[0].innerText;
 				// let label = '';
-				if (undefined==core_japan[id]) {
+				if (undefined == core_japan[id]) {
 					core_japan[id] = {};
 				}
-				if (mode=='core-japan') {
+				if (mode == 'core-japan') {
 					tr.childNodes[1].innerText = core_japan[id]['name'] || '(未定義)';
-				} else if (mode=='jp-pint') {
+				} else if (mode == 'jp-pint') {
 					tr.childNodes[1].innerText = (core_japan[id]['pint_Id'] || '') + (core_japan[id]['pint_name'] || '(undefined)');
-				} else if (mode=='jp-pint_ja') {
+				} else if (mode == 'jp-pint_ja') {
 					tr.childNodes[1].innerText = (core_japan[id]['pint_Id'] || '') + (core_japan[id]['pint_name_ja'] || '(未定義)');
-				} else if (mode=='sme-common') {
+				} else if (mode == 'sme-common') {
 					tr.childNodes[1].innerText = (core_japan[id]['UN_CCL_ID'] || '') + (core_japan[id]['sme_name'] || '(未定義)');
-				}					
+				}
 			}
 		}
 		document.querySelector('#invoice2csv #selected_file').addEventListener('change', e => {
@@ -738,26 +766,30 @@ convert = (function () {
 			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 		}
 
-		fetch(base_url+'/server/data/base/core_japan.csv')
-		.then(res => res.text())
-		.then(csv => {
-			fillTable(csv,'#coreinvoice #core_japan_table','')
-			let json = _convertCSVtoJSON(csv);
-			for (let i = 0; i < json.length; i++) {
-				let data = json[i];
-				let id = data['id']
-				core_japan[id] = {};
-				core_japan[id]['name'] = data['name'];
-				core_japan[id]['pint_name'] = data['pint_name'];
-				core_japan[id]['pint_name_ja'] = data['pint_name_ja'];
-				core_japan[id]['sme_name'] = data['sme_name'];
-			}
-		});
-
-		fetch(base_url+'/server/data/base/jp_pint_binding.csv')
+		fetch(base_url + '/server/data/base/core_japan.csv')
 			.then(res => res.text())
 			.then(csv => {
-				fillTable(csv,'#coreinvoice #jp-pint_binding_table','')
+				fillTable(csv, '#coreinvoice #core_japan_table', '')
+				let json = _convertCSVtoJSON(csv);
+				for (let i = 0; i < json.length; i++) {
+					let data = json[i];
+					let id = data['id']
+					core_japan[id] = {};
+					core_japan[id]['name'] = data['name'];
+					core_japan[id]['pint_name'] = data['pint_name'];
+					core_japan[id]['pint_name_ja'] = data['pint_name_ja'];
+					core_japan[id]['sme_name'] = data['sme_name'];
+					sort_dict[id] = {}
+					sort_dict[id]['num'] = parseInt(data['num'])
+					sort_dict[id]['jp_pint'] = parseInt(data['pint_sort'])
+					sort_dict[id]['sme'] = parseInt(data['sme_sort'])
+				}
+			});
+
+		fetch(base_url + '/server/data/base/jp_pint_binding.csv')
+			.then(res => res.text())
+			.then(csv => {
+				fillTable(csv, '#coreinvoice #jp-pint_binding_table', '')
 				let json = _convertCSVtoJSON(csv);
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
@@ -768,10 +800,10 @@ convert = (function () {
 				}
 			});
 
-		fetch(base_url+'/server/data/base/sme_binding.csv')
+		fetch(base_url + '/server/data/base/sme_binding.csv')
 			.then(res => res.text())
 			.then(csv => {
-				fillTable(csv,'#coreinvoice #sme_binding_table','')
+				fillTable(csv, '#coreinvoice #sme_binding_table', '')
 				let json = _convertCSVtoJSON(csv);
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
