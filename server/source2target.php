@@ -120,7 +120,10 @@ chdir(__DIR__);
 wh_log($_SERVER['REQUEST_METHOD']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    $uuid = UUID::v4();
+    $uuid = $_POST["uuid"];
+    if (!$uuid || !UUID::is_valid($uuid)) {
+        $uuid = UUID::v4();
+    }
     $syntax = htmlspecialchars($_POST["syntax"]);
     list($source, $target) = explode('_', $syntax);
     if (isset($_FILES['file'])) {
