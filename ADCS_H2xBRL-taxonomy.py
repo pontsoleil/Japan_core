@@ -503,7 +503,7 @@ if __name__ == '__main__':
     asbieDict = {}
 
     # header = ['no','module','core_id','kind','table_id','class','level','occurrence','field_id','propertyTerm','representationQualifier','representation','associatedClass','datatype','term','desc']
-    header = ['semSort','鑑ヘッダ\n文書ヘッダ\n明細行','id','core_id','seq','level','繰返し','項目名','項目種','Object Class','Property','Representation','Associated Class','項目定義','UN_CCL_ID','項目種','行番号','SME ID','項目名','項目定義','既定値','繰返し','Level','SME CII XPath','PINT syntax sort','Id','Card.','Level','Business Term','Business Term ja','Description','説明','既定値','UBL XPath']
+    header = ['semSort','group','core_id','table_id','field_id','level','occurrence','term','kind','class','propertyTerm','representation','associatedClass','desc','UN_CCL_ID','smeKind','smeSeq','smeID','smeTerm','smeDesc','smeDefault','smeOccur','smeLevel','smeXPath','pintSort','pintID','pintOccur.','pintLevel','pintTerm','pintTermJA','pintDesc','pintDescJA','pintDefault','pintXPath']
     with open(adc_file, encoding='utf-8', newline='') as f:
         reader = csv.reader(f)#, delimiter='\t')
         next(reader)
@@ -513,7 +513,7 @@ if __name__ == '__main__':
                 col = cols[i]
                 record[header[i]] = col.strip()
             if not record['module']:
-                continue
+                record['module'] = 'Invoice'
             kind = record['kind']
             if not kind in ['ABIE','ASBIE']:
                 module = record['module']
