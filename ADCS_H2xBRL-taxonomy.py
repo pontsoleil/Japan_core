@@ -171,6 +171,18 @@ def LC3(term):
             name += terms[i][0].upper() + terms[i][1:]
     return name
 
+def titleCase(text):
+    text = text.replace('ID', 'Identification Identifier')
+    # ChatGPT 2023-04-10 modified by Nobu
+    # Example Camel case string
+    camel_case_str = text# "exampleCamelCaseString"
+    # Use regular expression to split the string at each capital letter
+    split_str = re.findall('[A-Z][a-z]*[_]?', camel_case_str)
+    # Join the split string with a space and capitalize each word
+    title_case_str = ' '.join([x.capitalize() for x in split_str])
+    title_case_str = title_case_str.replace('Identification Identifier','ID')
+    return title_case_str
+
 # snake concatenate
 def SC(term):
     if not term:
@@ -210,7 +222,10 @@ def getRecord(adc_id):
         record = adcDict[adc_id]
     else:
         target_id = adc_id[-4:]
-        record = adcDict[target_id] #2023-02-06
+        if target_id in adcDict:
+            record = adcDict[target_id] #2023-02-06
+        else:
+            record = None
     return record
 
 def getParent(parent_id_list):
@@ -512,15 +527,17 @@ if __name__ == '__main__':
             for i in range(len(cols)):
                 col = cols[i]
                 record[header[i]] = col.strip()
-            if not record['module']:
+            if not 'module' in record:
                 record['module'] = 'Invoice'
             kind = record['kind']
             if not kind in ['ABIE','ASBIE']:
                 module = record['module']
                 cls = record['class']
-                table_id = record['table_id']
-                tableDict[cls] = table_id
-                classDict[table_id] = cls
+                cls = titleCase(cls)
+                if len(cls) > 0:
+                    table_id = record['table_id']
+                    tableDict[cls] = table_id
+                    classDict[table_id] = cls
 
     with open(adc_file, encoding='utf-8', newline='') as f:
         reader = csv.reader(f)#, delimiter='\t')
@@ -532,8 +549,8 @@ if __name__ == '__main__':
             for i in range(len(cols)):
                 col = cols[i]
                 record[header[i]] = col.strip()
-            if not record['module']:
-                continue
+            if not 'module' in record:
+                record['module'] = 'Invoice'
             adc_id = ''
             name = ''
             type = ''
@@ -541,6 +558,7 @@ if __name__ == '__main__':
                 continue
             kind = record['kind']
             cls = record['class']
+            cls = titleCase(cls)
             term = record['term']
             occurrence = record['occurrence']
             if 4==len(occurrence):
@@ -558,7 +576,9 @@ if __name__ == '__main__':
             if 'ABIE'==kind:
                 adc_id = record['table_id']
             elif 'ASBIE'==kind:# and 'n'==record['occMax']:
-                adc_id = f"{record['table_id']}-{tableDict[record['associatedClass']]}"
+                associatedClass = record['associatedClass']
+                associatedClass = titleCase(associatedClass)
+                adc_id = f"{record['table_id']}-{tableDict[associatedClass]}"
             else:
                 adc_id = f"{record['table_id']}-{record['field_id'].zfill(2)}"
             if kind == 'ABIE':
@@ -568,25 +588,31 @@ if __name__ == '__main__':
                 record['parent'] = parentIDs
             record['children'] = []
             record['adc_id'] = adc_id
-            if 'ABIE'==kind:
+            if 'ABIE'==kind:                
                 DEN = f'{cls}. Details'
                 record['DEN'] = DEN
                 if adc_id in adcDict:
                     if DEBUG: print(f'** Duplicate {adc_id} is already in adcDict.')
                     continue
-                record['name'] = term
+                record['name'] = titleCase(term)
                 record['type'] = ''
                 adcDict[adc_id] = record
                 this_class = cls
                 this_table_id = table_id
             else:
                 propertyTerm = record['propertyTerm']
+                propertyTerm = titleCase(propertyTerm)
                 if kind in ['RFBIE','ASBIE']:
                     associatedClass = record['associatedClass']
+                    associatedClass = titleCase(associatedClass)
                     DEN = f'{cls}. {propertyTerm}. {associatedClass}'
                 else:
-                    representationQualifier = record['representationQualifier']
+                    representationQualifier = ''
+                    if'representationQualifier' in record:
+                        representationQualifier = record['representationQualifier']
+                        representationQualifier = titleCase(representationQualifier)
                     representation = record['representation']
+                    representation = titleCase(representation)
                     if representationQualifier:
                         DEN = f'{cls}. {propertyTerm}. {representationQualifier}_ {representation}'
                     else:
@@ -597,11 +623,12 @@ if __name__ == '__main__':
                 else:
                     parent_id = ''
                 record['name'] = term# propertyTerm
-                datatype = record['datatype']
-                if datatype in ['PK','REF']:
-                    type = datatypeMap['Identifier']['adc']
-                elif datatype in datatypeMap:
-                    type = datatypeMap[datatype]['adc']
+                representation = record['representation']                
+                # if datatype in ['PK','REF']:
+                #     type = datatypeMap['Identifier']['adc']
+                # el
+                if representation in datatypeMap:
+                    type = datatypeMap[representation]['adc']
                 else:
                     type = 'stringItemType'
                 record['type'] = type
@@ -627,7 +654,7 @@ if __name__ == '__main__':
                     col = cols[i]
                     d[header[i]] = ''
                 table_id = adc_id[-4:]
-                d['no'] = record['no']
+                # d['no'] = record['no']
                 d['module'] = lookupModule(table_id)
                 d['kind'] = 'ABIE'
                 d['adc_id'] = table_id
@@ -639,8 +666,10 @@ if __name__ == '__main__':
                 d['occMax'] = '-'
                 d['parent'] = []
                 d['children'] = []
-                d['name'] = d['term']
-                d['DEN'] = f'{d["name"]}. Details'  
+                cls = d['class']
+                cls = titleCase(cls)
+                d['name'] = cls
+                d['DEN'] = f'{cls}. Details'  
                 adcDict[table_id] = d
                 records.append(d)
 
@@ -843,6 +872,7 @@ if __name__ == '__main__':
         '    <annotation>\n',
         '        <appinfo>\n',
         '            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-ja.xml"/>\n',
+        '            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-en.xml"/>\n',
         '            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/presentationLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-pre.xml"/>\n',
         '            <link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-def.xml"/>\n',
         # '            <!-- formula -->\n',
@@ -1030,20 +1060,22 @@ if __name__ == '__main__':
                 referenced_id = targetRefDict[adc_id]
             else:
                 associatedClass = record['associatedClass']
+                associatedClass = titleCase(associatedClass)
                 referenced_id = None
                 for adc2_id,record2 in adcDict.items():
-                    if associatedClass==record2['class']:
+                    cls = titleCase(record2['class'])
+                    if associatedClass==cls:#record2['class']:
                         referenced_id = f'{adc_id[:4]}-{adc2_id}'
                         defineElement(referenced_id,record2)
-                        break
-            if referenced_id:
-                record2 = getRecord(referenced_id[-4:])
-                if 'children' in record2:
-                    children = record2['children']
-                    for child_id in children:
-                        child = getRecord(child_id)
-                        referenced_id = f'{adc_id[:4]}-{child_id}'
-                        defineElement(referenced_id,child)
+                        # break
+            # if referenced_id:
+            #     record2 = getRecord(referenced_id[-4:])
+            #     if 'children' in record2:
+            #         children = record2['children']
+            #         for child_id in children:
+            #             child = getRecord(child_id)
+            #             referenced_id = f'{adc_id[:4]}-{child_id}'
+            #             defineElement(referenced_id,child)
         
     for link_id,role in roleMap.items():
         if 4==len(link_id):
@@ -1078,9 +1110,83 @@ if __name__ == '__main__':
         print(f'-- {adc_xsd_file}')
 
     ###################################
+    # labelLink en
+    #
+    def linkLabelTerm(adc_id,term,lang):
+        global locsDefined
+        global definedLabels
+        global arcsDefined
+        global definedDescs
+        global definedDescArcs
+        lines.append(f'        <!-- {adc_id} {term} -->\n')
+        if not adc_id in locsDefined:
+            locsDefined[adc_id] = adc_id
+            line = f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{adc_id}" xlink:label="{adc_id}" xlink:title="{adc_id}"/>\n'
+        else:
+            line = f'            <!-- link:loc defined -->\n'
+        lines.append(line)
+        # term
+        if not adc_id in definedLabels:
+            definedLabels[adc_id] = adc_id
+            line = f'        <link:label xlink:type="resource" xlink:label="label_{adc_id}_{lang}" xlink:title="label_{adc_id}_{lang}" id="label_{adc_id}_{lang}" xml:labg="{lang}" xlink:role="http://www.xbrl.org/2003/role/label">{term}</link:label>\n'
+        else:
+            line = f'            <!-- link:label http://www.xbrl.org/2003/role/label defined -->\n'
+        lines.append(line)
+        if not adc_id in arcsDefined:
+            arcsDefined[adc_id] = adc_id
+            line = f'        <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="{adc_id}" xlink:to="label_{adc_id}_{lang}" xlink:title="label: {adc_id} to label_{adc_id}_{lang}"/>\n'
+        else:
+            line = f'            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->\n'
+        lines.append(line)
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>\n',
+        '<!--  (c) 2022 XBRL Japan inc. -->\n',
+        '<link:linkbase\n',
+        '    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n',
+        '    xmlns:link="http://www.xbrl.org/2003/linkbase"\n',
+        '    xmlns:xlink="http://www.w3.org/1999/xlink"\n',
+        '    xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">\n',
+        f'    <!--link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role/description" xlink:type="simple" xlink:href="{core_xsd}#description"/>\n',
+        f'    <link:arcroleRef arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:type="simple" xlink:href="{core_xsd}#concept-description"/-->\n',
+        '    <link:labelLink xlink:type="extended" xlink:role="http://www.xbrl.org/2003/role/link">\n'
+    ]
+    locsDefined = {}
+    arcsDefined = {}
+    definedLabels = {}
+    for record in adcDict.values():
+        adc_id = record['adc_id']
+        kind = record['kind']
+        if 'ABIE'==kind:
+            term = titleCase(record['class'])
+        elif 'ASBIE'==kind:
+            term = record['associatedClass']
+        elif 'BBIE'==kind:
+            term = titleCase(record['propertyTerm'])
+        if len(term) > 0:
+            linkLabelTerm(adc_id,term,'en')
+
+    for adc_id,referenced_id in targetRefDict.items():
+        record = getRecord(referenced_id)
+        name = record['name']
+        if len(name) > 0:
+            linkLabelTerm(adc_id,name,'en')
+            adc_id = f'{adc_id[:4]}-{referenced_id}'
+            linkLabelTerm(adc_id,name,'en')
+
+    lines.append('    </link:labelLink>\n')
+    lines.append('</link:linkbase>\n')
+
+    adc_label_file = file_path(f'{xbrl_base}/{core_label}-en.xml')
+    with open(adc_label_file, 'w', encoding='utf_8', newline='') as f:
+        f.writelines(lines)
+    if VERBOSE:
+        print(f'-- {adc_label_file}')
+
+    ###################################
     # labelLink ja
     #
-    def linkLabel(adc_id,name,Desc):
+    def linkLabel(adc_id,name,desc,lang):
         global locsDefined
         global definedLabels
         global arcsDefined
@@ -1096,27 +1202,27 @@ if __name__ == '__main__':
         # name
         if not adc_id in definedLabels:
             definedLabels[adc_id] = adc_id
-            line = f'        <link:label xlink:type="resource" xlink:label="label_{adc_id}" xlink:title="label_{adc_id}" id="label_{adc_id}" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">{name}</link:label>\n'
+            line = f'        <link:label xlink:type="resource" xlink:label="label_{adc_id}_{lang}" xlink:title="label_{adc_id}_{lang}" id="label_{adc_id}_{lang}" xml:lang="{lang}" xlink:role="http://www.xbrl.org/2003/role/label">{name}</link:label>\n'
         else:
             line = f'            <!-- link:label http://www.xbrl.org/2003/role/label defined -->\n'
         lines.append(line)
         if not adc_id in arcsDefined:
             arcsDefined[adc_id] = adc_id
-            line = f'        <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="{adc_id}" xlink:to="label_{adc_id}" xlink:title="label: {adc_id} to label_{adc_id}"/>\n'
+            line = f'        <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="{adc_id}" xlink:to="label_{adc_id}_{lang}" xlink:title="label: {adc_id} to label_{adc_id}_{lang}"/>\n'
         else:
             line = f'            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->\n'
         lines.append(line)
-        # Desc
-        if name != Desc:
+        # desc
+        if name != desc:
             if not adc_id in definedDescs:
                 definedDescs[adc_id] = adc_id
-                line = f'        <link:label xlink:type="resource" xlink:label="description_{adc_id}" xlink:title="description_{adc_id}" id="description_{adc_id}" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">{Desc}</link:label>\n'
+                line = f'        <link:label xlink:type="resource" xlink:label="description_{adc_id}_{lang}" xlink:title="description_{adc_id}_{lang}" id="description_{adc_id}_{lang}" xml:lang="{lang}" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">{desc}</link:label>\n'
             else:
                 line = f'            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->\n'
             lines.append(line)
             if not adc_id in definedDescArcs:
                 definedDescArcs[adc_id] = adc_id
-                line = f'        <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="{adc_id}" xlink:to="description_{adc_id}" xlink:title="label: {adc_id} to label_{adc_id}"/>\n'
+                line = f'        <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="{adc_id}" xlink:to="description_{adc_id}_{lang}" xlink:title="label: {adc_id} to label_{adc_id}_{lang}"/>\n'
             else:
                 line = f'            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->\n'
             lines.append(line)
@@ -1142,29 +1248,31 @@ if __name__ == '__main__':
         adc_id = record['adc_id']
         kind = record['kind']
         name = record['name']
-        Desc = record['desc']
-        linkLabel(adc_id,name,Desc)
-        if 'ASBIE'==kind:# and 'n'==record['occMax']:
-            if adc_id in referenceDict:
-                referenced_id = referenceDict[adc_id]['ABIE']
-            elif adc_id in targetRefDict:
-                referenced_id = targetRefDict[adc_id]
-            else:
-                associatedClass = record['associatedClass']
-                referenced_id = None
-                for adc2_id,record2 in adcDict.items():
-                    if associatedClass==record2['class']:
-                        referenced_id = f'{adc_id[:4]}-{adc2_id}'
-                        linkLabel(referenced_id,name,Desc)
-                        break
+        desc = record['desc']
+        if len(name) > 0 or len(desc) > 0:
+            linkLabel(adc_id,name,desc,'ja')
+            if 'ASBIE'==kind:# and 'n'==record['occMax']:
+                if adc_id in referenceDict:
+                    referenced_id = referenceDict[adc_id]['ABIE']
+                elif adc_id in targetRefDict:
+                    referenced_id = targetRefDict[adc_id]
+                else:
+                    associatedClass = record['associatedClass']
+                    referenced_id = None
+                    for adc2_id,record2 in adcDict.items():
+                        if associatedClass==record2['class']:
+                            referenced_id = f'{adc_id[:4]}-{adc2_id}'
+                            linkLabel(referenced_id,name,desc,'ja')
+                            break
 
     for adc_id,referenced_id in targetRefDict.items():
         record = getRecord(referenced_id)
         name = record['name']
-        Desc = record['desc']
-        linkLabel(adc_id,name,Desc)
-        adc_id = f'{adc_id[:4]}-{referenced_id}'
-        linkLabel(adc_id,name,Desc)
+        desc = record['desc']
+        if len(name) > 0 or len(desc) > 0:
+            linkLabel(adc_id,name,desc,'ja')
+            adc_id = f'{adc_id[:4]}-{referenced_id}'
+            linkLabel(adc_id,name,desc,'ja')
 
     lines.append('    </link:labelLink>\n')
     lines.append('</link:linkbase>\n')
@@ -1306,5 +1414,7 @@ if __name__ == '__main__':
         f.writelines(lines)
     if VERBOSE:
         print(f'-- {adc_definition_file}')
+
+
 
     print('** END **')
