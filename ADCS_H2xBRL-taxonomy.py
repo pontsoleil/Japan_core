@@ -792,17 +792,17 @@ if __name__ == '__main__':
             URI = f'/{role_id}'
             roleMap[link_id] = {'adc_id':adc_id,'link_id':link_id,'URI':URI,'role_id':role_id,'den':den}
 
-    for adc_id,association in referenceDict.items():
-        source_id = adc_id[:4]
-        association_id = association['ABIE']
-        link_id = f'{source_id}-{association_id}'
-        if link_id not in roleMap and source_id!=association_id:
-            source_den = getLC3_DEN(source_id)
-            association_den = getLC3_DEN(association_id)
-            den = f'{source_den}-{association_den}'
-            role_id = f'link_{link_id}'
-            URI = f'/{role_id}'
-            roleMap[link_id] = {'adc_id':adc_id,'link_id':link_id,'URI':URI,'role_id':role_id,'den':den}
+    # for adc_id,association in referenceDict.items():
+    #     source_id = adc_id[:4]
+    #     association_id = association['ABIE']
+    #     link_id = f'{source_id}-{association_id}'
+    #     if link_id not in roleMap and source_id!=association_id:
+    #         source_den = getLC3_DEN(source_id)
+    #         association_den = getLC3_DEN(association_id)
+    #         den = f'{source_den}-{association_den}'
+    #         role_id = f'link_{link_id}'
+    #         URI = f'/{role_id}'
+    #         roleMap[link_id] = {'adc_id':adc_id,'link_id':link_id,'URI':URI,'role_id':role_id,'den':den}
 
     ###################################
     # core.xsd
