@@ -284,6 +284,12 @@
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC00-NC03" xlink:to="label_NC00-NC03_ja" xlink:title="label: NC00-NC03 to label_NC00-NC03_ja"/>
         <link:label xlink:type="resource" xlink:label="description_NC00-NC03_ja" xlink:title="description_NC00-NC03_ja" id="description_NC00-NC03_ja" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">インボイス文書の注釈を記述するためのクラス</link:label>
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC00-NC03" xlink:to="description_NC00-NC03_ja" xlink:title="label: NC00-NC03 to label_NC00-NC03_ja"/>
+        <!-- NC00-NC03 インボイス文書注釈 -->
+            <!-- link:loc defined -->
+            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
+            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
+            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
+            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
         <!-- NC03 Note -->
         <link:loc xlink:type="locator" xlink:href="core.xsd#NC03" xlink:label="NC03" xlink:title="NC03"/>
         <link:label xlink:type="resource" xlink:label="label_NC03_ja" xlink:title="label_NC03_ja" id="label_NC03_ja" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Note</link:label>
@@ -2836,6 +2842,12 @@
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC39-NC53" xlink:to="label_NC39-NC53_ja" xlink:title="label: NC39-NC53 to label_NC39-NC53_ja"/>
         <link:label xlink:type="resource" xlink:label="description_NC39-NC53_ja" xlink:title="description_NC39-NC53_ja" id="description_NC39-NC53_ja" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">ヘッダ返金のクラス</link:label>
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC39-NC53" xlink:to="description_NC39-NC53_ja" xlink:title="label: NC39-NC53 to label_NC39-NC53_ja"/>
+        <!-- NC39-NC53 文書ヘッダ返金 -->
+            <!-- link:loc defined -->
+            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
+            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
+            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
+            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
         <!-- NC53 Allowance -->
         <link:loc xlink:type="locator" xlink:href="core.xsd#NC53" xlink:label="NC53" xlink:title="NC53"/>
         <link:label xlink:type="resource" xlink:label="label_NC53_ja" xlink:title="label_NC53_ja" id="label_NC53_ja" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Allowance</link:label>
@@ -2902,6 +2914,12 @@
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC39-NC54" xlink:to="label_NC39-NC54_ja" xlink:title="label: NC39-NC54 to label_NC39-NC54_ja"/>
         <link:label xlink:type="resource" xlink:label="description_NC39-NC54_ja" xlink:title="description_NC39-NC54_ja" id="description_NC39-NC54_ja" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">ヘッダ追加請求のクラス</link:label>
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC39-NC54" xlink:to="description_NC39-NC54_ja" xlink:title="label: NC39-NC54 to label_NC39-NC54_ja"/>
+        <!-- NC39-NC54 文書ヘッダ追加請求 -->
+            <!-- link:loc defined -->
+            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
+            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
+            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
+            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
         <!-- NC54 Charge -->
         <link:loc xlink:type="locator" xlink:href="core.xsd#NC54" xlink:label="NC54" xlink:title="NC54"/>
         <link:label xlink:type="resource" xlink:label="label_NC54_ja" xlink:title="label_NC54_ja" id="label_NC54_ja" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Charge</link:label>
@@ -3892,6 +3910,12 @@
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC61-NC75" xlink:to="label_NC61-NC75_ja" xlink:title="label: NC61-NC75 to label_NC61-NC75_ja"/>
         <link:label xlink:type="resource" xlink:label="description_NC61-NC75_ja" xlink:title="description_NC61-NC75_ja" id="description_NC61-NC75_ja" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">取引品目に関する情報のグループ</link:label>
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC61-NC75" xlink:to="description_NC61-NC75_ja" xlink:title="label: NC61-NC75 to label_NC61-NC75_ja"/>
+        <!-- NC61-NC75 取引品目 -->
+            <!-- link:loc defined -->
+            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
+            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
+            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
+            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
         <!-- NC75 Product -->
         <link:loc xlink:type="locator" xlink:href="core.xsd#NC75" xlink:label="NC75" xlink:title="NC75"/>
         <link:label xlink:type="resource" xlink:label="label_NC75_ja" xlink:title="label_NC75_ja" id="label_NC75_ja" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Product</link:label>
@@ -3988,6 +4012,12 @@
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC61-NC76" xlink:to="label_NC61-NC76_ja" xlink:title="label: NC61-NC76 to label_NC61-NC76_ja"/>
         <link:label xlink:type="resource" xlink:label="description_NC61-NC76_ja" xlink:title="description_NC61-NC76_ja" id="description_NC61-NC76_ja" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">明細行の契約単価に関する情報のグループ</link:label>
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC61-NC76" xlink:to="description_NC61-NC76_ja" xlink:title="label: NC61-NC76 to label_NC61-NC76_ja"/>
+        <!-- NC61-NC76 契約単価 -->
+            <!-- link:loc defined -->
+            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
+            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
+            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
+            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
         <!-- NC76 Price -->
         <link:loc xlink:type="locator" xlink:href="core.xsd#NC76" xlink:label="NC76" xlink:title="NC76"/>
         <link:label xlink:type="resource" xlink:label="label_NC76_ja" xlink:title="label_NC76_ja" id="label_NC76_ja" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Price</link:label>
@@ -4072,41 +4102,5 @@
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC77-02" xlink:to="label_NC77-02_ja" xlink:title="label: NC77-02 to label_NC77-02_ja"/>
         <link:label xlink:type="resource" xlink:label="description_NC77-02_ja" xlink:title="description_NC77-02_ja" id="description_NC77-02_ja" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">この取引品目の属性の値</link:label>
         <link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC77-02" xlink:to="description_NC77-02_ja" xlink:title="label: NC77-02 to label_NC77-02_ja"/>
-        <!-- NC00-NC03 Note -->
-            <!-- link:loc defined -->
-            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
-            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
-            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-        <!-- NC00-NC03 Note -->
-            <!-- link:loc defined -->
-            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
-            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
-            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-        <!-- NC39-NC53 Allowance -->
-            <!-- link:loc defined -->
-            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
-            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
-            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-        <!-- NC39-NC53 Allowance -->
-            <!-- link:loc defined -->
-            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
-            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
-            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-        <!-- NC39-NC54 Charge -->
-            <!-- link:loc defined -->
-            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
-            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
-            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-        <!-- NC39-NC54 Charge -->
-            <!-- link:loc defined -->
-            <!-- link:label http://www.xbrl.org/2003/role/label defined -->
-            <!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-            <!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
-            <!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
     </link:labelLink>
 </link:linkbase>
