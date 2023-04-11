@@ -339,18 +339,6 @@
                 <link:definition>productCharacteristic</link:definition>
                 <link:usedOn>link:definitionLink</link:usedOn>
             </link:roleType>
-            <link:roleType id="link_NC00-NC03" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC03">
-                <link:definition>invoice to note</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="link_NC39-NC53" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC53">
-                <link:definition>invoiceDocument to allowance</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
-            <link:roleType id="link_NC39-NC54" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC54">
-                <link:definition>invoiceDocument to charge</link:definition>
-                <link:usedOn>link:definitionLink</link:usedOn>
-            </link:roleType>
             <!--
                 description: roleType arcroleType
             -->
@@ -478,9 +466,6 @@
     <element name="h_NC75" id="h_NC75" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
     <element name="h_NC76" id="h_NC76" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
     <element name="h_NC77" id="h_NC77" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
-    <element name="h_NC00-NC03" id="h_NC00-NC03" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
-    <element name="h_NC39-NC53" id="h_NC39-NC53" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
-    <element name="h_NC39-NC54" id="h_NC39-NC54" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
     <!-- Dimension -->
     <element name="d_NC00" id="d_NC00" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
     <element name="d_NC01" id="d_NC01" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
@@ -560,9 +545,6 @@
     <element name="d_NC75" id="d_NC75" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
     <element name="d_NC76" id="d_NC76" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
     <element name="d_NC77" id="d_NC77" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="d_NC00-NC03" id="d_NC00-NC03" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="d_NC39-NC53" id="d_NC39-NC53" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
-    <element name="d_NC39-NC54" id="d_NC39-NC54" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
     <!-- item type -->
         <complexType name="stringItemType">
             <simpleContent>
@@ -673,7 +655,10 @@
         <element name="NC02-02" id="NC02-02" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC02-03" id="NC02-03" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC02-04" id="NC02-04" type="adc:dateItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC00-NC03" id="NC00-NC03" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC00-NC03" id="NC00-NC03" type="adc:stringItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC00-NC03-01" id="NC00-NC03-01" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC00-NC03-02" id="NC00-NC03-02" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC00-NC03-03" id="NC00-NC03-03" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC03" id="NC03" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC03-01" id="NC03-01" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC03-02" id="NC03-02" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
@@ -1163,7 +1148,16 @@
         <element name="NC52" id="NC52" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC52-01" id="NC52-01" type="adc:dateItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC52-02" id="NC52-02" type="adc:dateItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53" id="NC39-NC53" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53" id="NC39-NC53" type="adc:stringItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-01" id="NC39-NC53-01" type="adc:indicatorItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-02" id="NC39-NC53-02" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-03" id="NC39-NC53-03" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-04" id="NC39-NC53-04" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-05" id="NC39-NC53-05" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-06" id="NC39-NC53-06" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-07" id="NC39-NC53-07" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-08" id="NC39-NC53-08" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC53-09" id="NC39-NC53-09" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC53" id="NC53" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC53-01" id="NC53-01" type="adc:indicatorItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC53-02" id="NC53-02" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
@@ -1174,7 +1168,16 @@
         <element name="NC53-07" id="NC53-07" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC53-08" id="NC53-08" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC53-09" id="NC53-09" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54" id="NC39-NC54" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54" id="NC39-NC54" type="adc:stringItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-01" id="NC39-NC54-01" type="adc:indicatorItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-02" id="NC39-NC54-02" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-03" id="NC39-NC54-03" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-04" id="NC39-NC54-04" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-05" id="NC39-NC54-05" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-06" id="NC39-NC54-06" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-07" id="NC39-NC54-07" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-08" id="NC39-NC54-08" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC39-NC54-09" id="NC39-NC54-09" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC54" id="NC54" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC54-01" id="NC54-01" type="adc:indicatorItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC54-02" id="NC54-02" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
@@ -1399,7 +1402,7 @@
         <element name="NC74-01" id="NC74-01" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC74-02" id="NC74-02" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC74-03" id="NC74-03" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC61-NC75" id="NC61-NC75" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC61-NC75" id="NC61-NC75" type="adc:stringItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC75" id="NC75" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC75-01" id="NC75-01" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC75-02" id="NC75-02" type="adc:identifierItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
@@ -1415,7 +1418,7 @@
         <element name="NC75-12" id="NC75-12" type="adc:identifierItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC75-13" id="NC75-13" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC75-14" id="NC75-14" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC61-NC76" id="NC61-NC76" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+        <element name="NC61-NC76" id="NC61-NC76" type="adc:stringItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC76" id="NC76" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC76-01" id="NC76-01" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC76-02" id="NC76-02" type="adc:unitPriceAmountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
@@ -1431,25 +1434,4 @@
         <element name="NC77" id="NC77" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC77-01" id="NC77-01" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
         <element name="NC77-02" id="NC77-02" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC00-NC03-01" id="NC00-NC03-01" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC00-NC03-02" id="NC00-NC03-02" type="adc:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC00-NC03-03" id="NC00-NC03-03" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-01" id="NC39-NC53-01" type="adc:indicatorItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-02" id="NC39-NC53-02" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-03" id="NC39-NC53-03" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-04" id="NC39-NC53-04" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-05" id="NC39-NC53-05" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-06" id="NC39-NC53-06" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-07" id="NC39-NC53-07" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-08" id="NC39-NC53-08" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC53-09" id="NC39-NC53-09" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-01" id="NC39-NC54-01" type="adc:indicatorItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-02" id="NC39-NC54-02" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-03" id="NC39-NC54-03" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-04" id="NC39-NC54-04" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-05" id="NC39-NC54-05" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-06" id="NC39-NC54-06" type="adc:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-07" id="NC39-NC54-07" type="adc:percentageItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-08" id="NC39-NC54-08" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
-        <element name="NC39-NC54-09" id="NC39-NC54-09" type="adc:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
 </schema>
