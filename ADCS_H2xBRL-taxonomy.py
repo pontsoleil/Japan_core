@@ -46,6 +46,9 @@ DEBUG = False
 VERBOSE = True
 SEP = os.sep
 
+LEN_KEY = 4
+LEN_NUM = 2
+
 xbrl_source = 'data/base/'
 xbrl_source = xbrl_source.replace('/', SEP)
 core_head = 'corehead.txt'
@@ -210,18 +213,18 @@ def getLC3_DEN(adc_id):
         return LC3(den)
     return ''
 
-def getClassName(adc_id):
-    den = getDEN(adc_id)
-    if den:
-        cn = den[5:den.find('.')]
-        return cn
-    return ''
+# def getClassName(adc_id):
+#     den = getDEN(adc_id)
+#     if den:
+#         cn = den[1+LEN_KEY:den.find('.')]
+#         return cn
+#     return ''
 
 def getRecord(adc_id):
     if adc_id in adcDict:
         record = adcDict[adc_id]
     else:
-        target_id = adc_id[-4:]
+        target_id = adc_id[-LEN_KEY:]
         if target_id in adcDict:
             record = adcDict[target_id] #2023-02-06
         else:
@@ -264,22 +267,22 @@ def defineHypercube(adc_id, role,n):
     dimension_id_list = set()
     source_id = None
     origin_id = None
-    if 4==len(adc_id):
+    if LEN_KEY==len(adc_id):
         root_dimension = f"d_{root_id}"
         dimension_id_list.add(root_dimension)
-    elif 9==len(adc_id):
-        root_id = link_id[5:]
+    elif 1+2*LEN_KEY==len(adc_id):
+        root_id = link_id[-LEN_KEY:]
         root_dimension_id = f'd_{root_id}'
         dimension_id_list.add(root_dimension_id)
         root = getRecord(root_id)
-        source_id = link_id[:4]
+        source_id = link_id[:LEN_KEY]
         source_dimension = f'd_{source_id}'
         dimension_id_list.add(source_dimension)
-        # anchor_id = [x for x in sourceRefDict[root_id]['source'] if source_id==x[:4]][0]
+        # anchor_id = [x for x in sourceRefDict[root_id]['source'] if source_id==x[:LEN_KEY]][0]
         if source_id in sourceRefDict:
             origin = sourceRefDict[source_id]
             origin_id = origin['source'][0]
-            origin_id = origin_id[:4]
+            origin_id = origin_id[:LEN_KEY]
             anchor_id = f'{origin_id}-{anchor_id}'
             origin_dimension = f'd_{origin_id}'
             dimension_id_list.add(origin_dimension)
@@ -288,7 +291,7 @@ def defineHypercube(adc_id, role,n):
     lines.append(f'        <!-- {link_id} all (has-hypercube) {hypercube_id} {role_id} -->\n')
     lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{link_id}" xlink:label="{link_id}" xlink:title="{link_id}"/>\n')
     lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{hypercube_id}" xlink:label="{hypercube_id}" xlink:title="{hypercube_id}"/>\n')
-    lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="{link_id}" xlink:to="{hypercube_id}" xlink:title="all (has-hypercube): {link_id} to {hypercube_id}" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>\n')
+    lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="{link_id}" xlink:to="{hypercube_id}" xlink:title="all (has-hypercube): {link_id} to {hypercube_id}" order="1" xbrldt:closed="true" xbrldt:contextElement="scenario"/>\n')
     if DEBUG:
         print(f'all(has-hypercube) {link_id} to {hypercube_id} ')
     # hypercube-dimension
@@ -306,59 +309,67 @@ def defineHypercube(adc_id, role,n):
     if 'children' in root and len(root['children']) > 0:
         children =  root['children']
         for child_id in children:
-            # alias_id = not link_id[:4] in child_id and f"{link_id[:4]}-{child_id}" or child_id
-            alias_id = child_id
+            # alias_id = not link_id[:LEN_KEY] in child_id and f"{link_id[:LEN_KEY]}-{child_id}" or child_id
+            # alias_id = child_id
             child = getRecord(child_id)#[-8:])
             child_kind = child['kind']
             if child_id in targetRefDict:
                 if 'ASBIE'!=child_kind or 'n'!=child['occMax']:
-                    if not alias_id in locsDefined[link_id]:
-                        locsDefined[link_id].add(alias_id)
-                        lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{alias_id}" xlink:label="{alias_id}" xlink:title="{alias_id}"/>\n')
+                    if not child_id in locsDefined[link_id]:
+                        locsDefined[link_id].add(child_id)
+                        lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{child_id}" xlink:label="{child_id}" xlink:title="{child_id}"/>\n')
                     count += 1
-                    arc_id = f'{link_id} {alias_id}'
+                    arc_id = f'{link_id} {child_id}'
                     if not arc_id in arcsDefined[link_id]:
                         arcsDefined[link_id].add(arc_id)
-                        lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="{link_id}" xlink:to="{alias_id}" xlink:title="domain-member: {link_id} to {alias_id}" order="{count}"/>\n')
+                        lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id}" order="{count}"/>\n')
                 # targetRole
-                target_id = targetRefDict[child_id]
-                target_id = f'{child_id[:4]}-{target_id}'
-                role_id = f'link_{target_id}'
+                # target_id = targetRefDict[child_id]
+                # role_id = f'link_{child_id[:LEN_KEY]}-{target_id}'
+                role_id = f'link_{child_id}'
                 URI = f'/{role_id}'
                 lines.append(f'        <!-- {child_id} targetRole {role_id} -->\n')
                 if not target_id in locsDefined[link_id]:
-                    locsDefined[link_id].add(target_id)
-                    lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{target_id}" xlink:label="{target_id}" xlink:title="{target_id}"/>\n')
+                    locsDefined[link_id].add(child_id)
+                    lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{child_id}" xlink:label="{child_id}" xlink:title="{child_id}"/>\n')
+                    # lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{target_id}" xlink:label="{target_id}" xlink:title="{target_id}"/>\n')
                 count += 1
-                arc_id = f'{link_id} {target_id}'
+                arc_id = f'{link_id} {child_id}'
+                # arc_id = f'{link_id} {target_id}'
                 if not arc_id in arcsDefined[link_id]:
                     arcsDefined[link_id].add(arc_id)
-                    lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{target_id}" xlink:title="domain-member: {link_id} to {target_id} in {role_id}" order="{count}"/>\n')
+                    lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id} in {role_id}" order="{count}"/>\n')
+                    # lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{target_id}" xlink:title="domain-member: {link_id} to {target_id} in {role_id}" order="{count}"/>\n')
             else:
                 if 'ASBIE'==child_kind and '1'==child['occMax']:
                     # targetRole
-                    target_id = child_id[-4:]
-                    target_id = f'{child_id[:4]}-{target_id}'
-                    role_id = f'link_{target_id}'
+                    # target_id = child_id[-LEN_KEY:]
+                    # role_id = f'link_{child_id[:LEN_KEY]}-{target_id}'
+                    role_id = f'link_{child_id}'
                     URI = f'/{role_id}'
                     lines.append(f'        <!-- {child_id} targetRole {role_id} -->\n')
-                    if not target_id in locsDefined[link_id]:
-                        locsDefined[link_id].add(target_id)
-                        lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{target_id}" xlink:label="{target_id}" xlink:title="{target_id}"/>\n')
+                    if not child_id in locsDefined[link_id]:
+                        locsDefined[link_id].add(child_id)
+                        lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{child_id}" xlink:label="{child_id}" xlink:title="{child_id}"/>\n')
+                    # if not target_id in locsDefined[link_id]:
+                    #     locsDefined[link_id].add(target_id)
+                    #     lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{target_id}" xlink:label="{target_id}" xlink:title="{target_id}"/>\n')
                     count += 1
-                    arc_id = f'{link_id} {target_id}'
+                    arc_id = f'{link_id} {child_id}'
+                    # arc_id = f'{link_id} {target_id}'
                     if not arc_id in arcsDefined[link_id]:
                         arcsDefined[link_id].add(arc_id)
-                        lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{target_id}" xlink:title="domain-member: {link_id} to {target_id} in {role_id}" order="{count}"/>\n')
+                        lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id} in {role_id}" order="{count}"/>\n')
+                        # lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{target_id}" xlink:title="domain-member: {link_id} to {target_id} in {role_id}" order="{count}"/>\n')
                 else:
-                    if not alias_id in locsDefined[link_id]:
-                        locsDefined[link_id].add(alias_id)
-                        lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{alias_id}" xlink:label="{alias_id}" xlink:title="{alias_id}"/>\n')
+                    if not child_id in locsDefined[link_id]:
+                        locsDefined[link_id].add(child_id)
+                        lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{child_id}" xlink:label="{child_id}" xlink:title="{child_id}"/>\n')
                     count += 1
-                    arc_id = f'{link_id} {alias_id}'
+                    arc_id = f'{link_id} {child_id}'
                     if not arc_id in arcsDefined[link_id]:
                         arcsDefined[link_id].add(arc_id)
-                        lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="{link_id}" xlink:to="{alias_id}" xlink:title="domain-member: {link_id} to {alias_id}" order="{count}"/>\n')
+                        lines.append(f'        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id}" order="{count}"/>\n')
 
                     # if not child_id in associationDict:
                     #     print(f'** {child_id} not in associationDict')
@@ -367,7 +378,7 @@ def defineHypercube(adc_id, role,n):
                     # association = getRecord(association_id)
                     # grand_children = association['children']
                     # for grand_child_id in grand_children:
-                    #     grand_alias_id = not link_id[:4] in grand_child_id and f"{link_id[:4]}-{grand_child_id}" or grand_child_id
+                    #     grand_alias_id = not link_id[:LEN_KEY] in grand_child_id and f"{link_id[:LEN_KEY]}-{grand_child_id}" or grand_child_id
                     #     if not grand_alias_id in locsDefined[link_id]:
                     #         locsDefined[link_id].add(grand_alias_id)
                     #         lines.append(f'        <link:loc xlink:type="locator" xlink:href="{core_xsd}#{grand_alias_id}" xlink:label="{grand_alias_id}" xlink:title="{grand_alias_id}"/>\n')
@@ -392,8 +403,8 @@ def addChild(parent_id_list,adc_id):
         parent['children'] = []
     if not adc_id in parent['children']:
         parent['children'].append(adc_id)
-    if DEBUG:
-        print(f'   {parent_id_list} add {adc_id}')
+        if DEBUG:
+            print(f'   {parent_id_list} add {adc_id}')
     return adc_id
 
 def addChildren(parent_id_list,adc_id):
@@ -512,7 +523,6 @@ if __name__ == '__main__':
 
     records = []
     adc_file = file_path(adc_file)
-    parentIDs = []
     tableDict = {}
     classDict = {}
     asbieDict = {}
@@ -561,10 +571,10 @@ if __name__ == '__main__':
             cls = titleCase(cls)
             term = record['term']
             occurrence = record['occurrence']
-            if 4==len(occurrence):
+            if LEN_KEY==len(occurrence):
                 record['occMin'] = occurrence[0]
                 record['occMax'] = occurrence[-1]
-            # if len(kind) > 5 and 'IDBIE' == kind[:5]:
+            # if len(kind) > 1+LEN_KEY and 'IDBIE' == kind[:1+LEN_KEY]:
             #     kind = 'IDBIE'
             # record['kind'] = kind
             level = record['level']
@@ -581,11 +591,11 @@ if __name__ == '__main__':
                 adc_id = f"{record['table_id']}-{tableDict[associatedClass]}"
             else:
                 adc_id = f"{record['table_id']}-{record['field_id'].zfill(2)}"
-            if kind == 'ABIE':
-                record['parent'] = []
-                parentIDs = [adc_id]
-            else:
-                record['parent'] = parentIDs
+            # if kind == 'ABIE':
+            #     record['parent'] = []
+            #     parentIDs = [adc_id]
+            # else:
+            #     record['parent'] = parentIDs
             record['children'] = []
             record['adc_id'] = adc_id
             if 'ABIE'==kind:                
@@ -618,10 +628,10 @@ if __name__ == '__main__':
                     else:
                         DEN = f'{cls}. {propertyTerm}. {representation}'                
                 record['DEN'] = DEN                
-                if level > 0:
-                    parent_id = parentIDs[level-1]
-                else:
-                    parent_id = ''
+                # if level > 0:
+                #     parent_id = parentIDs[level-1]
+                # else:
+                #     parent_id = ''
                 record['name'] = term# propertyTerm
                 representation = record['representation']                
                 # if datatype in ['PK','REF']:
@@ -632,31 +642,34 @@ if __name__ == '__main__':
                 else:
                     type = 'stringItemType'
                 record['type'] = type
-                if parent_id and not adc_id in adcDict[parent_id]['children']:
-                    adcDict[parent_id]['children'].append(adc_id)
-                    if 9==len(parent_id):
-                        parent_id2 = parent_id[-4:]
-                        if 0==len(adcDict[parent_id2]['parent']):
-                            adcDict[parent_id2]['parent'] = parentIDs[:level-1]
-                        if not adc_id in adcDict[parent_id2]['children']:
-                            adcDict[parent_id2]['children'].append(adc_id)
+                # if parent_id and not adc_id in adcDict[parent_id]['children']:
+                #     adcDict[parent_id]['children'].append(adc_id)
+                #     if 1+2*LEN_KEY==len(parent_id):
+                #         parent_id2 = parent_id[-LEN_KEY:]
+                #         if 0==len(adcDict[parent_id2]['parent']):
+                #             adcDict[parent_id2]['parent'] = parentIDs[:level-1]
+                #         if not adc_id in adcDict[parent_id2]['children']:
+                #             adcDict[parent_id2]['children'].append(adc_id)
+                # adcDict[adc_id] = record
+                # if 'ASBIE' == kind:
+                #     while len(parentIDs) > level:
+                #         parentIDs.pop()
+                #     while len(parentIDs) <= level:
+                #         parentIDs.append('')
+                #     parentIDs[level] = adc_id
+            if adc_id:
                 adcDict[adc_id] = record
-                if 'ASBIE' == kind:
-                    while len(parentIDs) > level:
-                        parentIDs.pop()
-                    while len(parentIDs) <= level:
-                        parentIDs.append('')
-                    parentIDs[level] = adc_id
-            records.append(record)
-            if 'ASBIE' == kind and len(adc_id) > 8:
+                records.append(record)
+            if 'ASBIE' == kind and len(adc_id) == 1+2*LEN_KEY:
                 d = {}
                 for i in range(len(cols)):
                     col = cols[i]
                     d[header[i]] = ''
-                table_id = adc_id[-4:]
+                table_id = adc_id[-LEN_KEY:]
                 # d['no'] = record['no']
                 d['module'] = lookupModule(table_id)
                 d['kind'] = 'ABIE'
+                d['level'] = level
                 d['adc_id'] = table_id
                 d['table_id'] = table_id
                 d['class'] = classDict[table_id]
@@ -665,13 +678,53 @@ if __name__ == '__main__':
                 d['occMin'] = '-'
                 d['occMax'] = '-'
                 d['parent'] = []
-                d['children'] = []
+                # d['children'] = []
                 cls = d['class']
                 cls = titleCase(cls)
                 d['name'] = cls
                 d['DEN'] = f'{cls}. Details'  
                 adcDict[table_id] = d
                 records.append(d)
+
+    parentIDs = ['']*8
+    for record in records:
+        adc_id = record['adc_id']
+        kind = record['kind']
+        level = record['level']
+        # if re.match('[0-9]+',level):
+        #     level = int(level)
+        # else:
+        #     level = 0
+        # record['level'] = level
+        if 'ASBIE' == kind:
+            # while len(parentIDs) > level:
+            #     parentIDs.pop()
+            # while len(parentIDs) <= level:
+            #     parentIDs.append('')
+            parentIDs[level] = adc_id
+        if kind == 'ABIE':
+            # record['parent'] = []
+            parentIDs[level] = adc_id
+        # else:
+        #     record['parent'] = parentIDs[:level]
+        if level > 0:
+            parent_id = parentIDs[level-1]
+        else:
+            parent_id = ''
+        record['parent'] = parentIDs[:level]
+        if DEBUG: print(f'adcDict[{adc_id}][parent]={record["parent"]}')
+        record['children'] = []
+        adcDict[adc_id] = record
+        if parent_id and not adc_id in adcDict[parent_id]['children'] and len(parent_id) > LEN_KEY:
+            adcDict[parent_id]['children'].append(adc_id)
+            # if 1+2*LEN_KEY==len(parent_id):
+            #     parent_id2 = parent_id[-LEN_KEY:]
+            #     if 0==len(adcDict[parent_id2]['parent']):
+            #         adcDict[parent_id2]['parent'] = parentIDs[:level-1]
+            #     if not adc_id in adcDict[parent_id2]['children']:
+            #         adcDict[parent_id2]['children'].append(adc_id)
+
+        
 
     targetRefDict = {}   # parent-child
     associationDict = {} # associatedClass
@@ -692,32 +745,34 @@ if __name__ == '__main__':
                 if not child:
                     continue
                 kind = child['kind']
-                if len(kind) > 5 and 'IDBIE' == kind[:5]:
-                    kind = 'IDBIE'
-                if kind in ['BBIE','IDBIE','RFBIE']:
-                    if DEBUG: print(f'=1= addChild( {[adc_id]}, {child_id} )[{kind}]{getDEN(child_id)}')
-                    addChild([adc_id],child_id)
-                    if 'RFBIE'==kind:
-                        if not child_id in referenceDict:
-                            associatedClass = child['associatedClass']
-                            idAs = [k for k,v in adcDict.items() if associatedClass==v['class'] and 'ABIE'==v['kind']]
-                            if len(idAs) > 0:
-                                abieID = idAs[0]
-                            else:
-                                if DEBUG: print(f'=X= NOT found associatedClass of ( {[adc_id]}, {child_id} )[{kind}]{getDEN(child_id)}({child_id})')
-                                continue
-                            idIs = [k for k,v in adcDict.items() if associatedClass==v['class'] and 'IDBIE'==v['kind']]
-                            if len(idIs) > 0:
-                                idbieID = idIs[0]
-                            assocChildren = [k for k,v in adcDict.items() if associatedClass==v['class'] and 'ABIE'!=v['kind']]
-                            for adc2_id in assocChildren:
-                                record2 = adcDict[adc2_id]
-                                if not child_id in referenceDict:
-                                    referenceDict[child_id] = {}
-                                referenceDict[child_id]['ABIE'] = abieID
-                                referenceDict[child_id]['IDBIE'] = idbieID
-                elif 'ASBIE'==kind:# and 'n'==child['occMax']:
-                    associatedClass = child['associatedClass']
+                # if len(kind) > 1+LEN_KEY and 'IDBIE' == kind[:1+LEN_KEY]:
+                #     kind = 'IDBIE'
+                # if kind in ['BBIE','IDBIE','RFBIE']:
+                #     continue
+                    # if DEBUG: print(f'=1= addChild( {[adc_id]}, {child_id} )[{kind}]{getDEN(child_id)}')
+                    # addChild([adc_id],child_id)
+                    # if 'RFBIE'==kind:
+                    #     if not child_id in referenceDict:
+                    #         associatedClass = child['associatedClass']
+                    #         idAs = [k for k,v in adcDict.items() if associatedClass==v['class'] and 'ABIE'==v['kind']]
+                    #         if len(idAs) > 0:
+                    #             abieID = idAs[0]
+                    #         else:
+                    #             if DEBUG: print(f'=X= NOT found associatedClass of ( {[adc_id]}, {child_id} )[{kind}]{getDEN(child_id)}({child_id})')
+                    #             continue
+                    #         idIs = [k for k,v in adcDict.items() if associatedClass==v['class'] and 'IDBIE'==v['kind']]
+                    #         if len(idIs) > 0:
+                    #             idbieID = idIs[0]
+                    #         assocChildren = [k for k,v in adcDict.items() if associatedClass==v['class'] and 'ABIE'!=v['kind']]
+                    #         for adc2_id in assocChildren:
+                    #             record2 = adcDict[adc2_id]
+                    #             if not child_id in referenceDict:
+                    #                 referenceDict[child_id] = {}
+                    #             referenceDict[child_id]['ABIE'] = abieID
+                    #             referenceDict[child_id]['IDBIE'] = idbieID
+                # el
+                if 'ASBIE'==kind:# and 'n'==child['occMax']:
+                    associatedClass = titleCase(child['associatedClass'])
                     # abieID = [k for k,v in adcDict.items() if associatedClass==v['class'] and 'ABIE'==v['kind']]
                     idAs = [k for k,v in adcDict.items() if associatedClass==v['class'] and 'ABIE'==v['kind']]
                     if len(idAs) > 0:
@@ -744,8 +799,8 @@ if __name__ == '__main__':
                         if DEBUG: print(f'=2= {child_id} associationDict {abieID}')
                     record2 = adcDict[abieID]
                     kind2 = record2['kind']
-                elif DEBUG: print(f'=X= NOT ( {[adc_id]}, {child_id} )[{kind}]{getDEN(child_id)}({child_id})')
-        elif DEBUG: print(f'=X= NOT ( {[adc_id]}, {child_id} )[{kind}]{getDEN(child_id)}({child_id})')
+        #         elif DEBUG: print(f'=X= NOT ( {[adc_id]}, {child_id} )[{kind}]{getDEN(child_id)}({child_id})')
+        # elif DEBUG: print(f'=X= NOT ( {[adc_id]}, {child_id} )[{kind}]{getDEN(child_id)}({child_id})')
 
     sourceRefDict = {}
     for source_id,target_id in targetRefDict.items():
@@ -782,7 +837,7 @@ if __name__ == '__main__':
             roleMap[link_id] = {'adc_id':link_id,'link_id':link_id,'URI':URI,'role_id':role_id,'den':den}
 
     for adc_id,target_id in targetRefDict.items():
-        source_id = adc_id[:4]
+        source_id = adc_id[:LEN_KEY]
         link_id = f'{source_id}-{target_id}'
         if link_id not in roleMap and source_id!=target_id:
             source_den = getLC3_DEN(source_id)
@@ -792,17 +847,17 @@ if __name__ == '__main__':
             URI = f'/{role_id}'
             roleMap[link_id] = {'adc_id':adc_id,'link_id':link_id,'URI':URI,'role_id':role_id,'den':den}
 
-    # for adc_id,association in referenceDict.items():
-    #     source_id = adc_id[:4]
-    #     association_id = association['ABIE']
-    #     link_id = f'{source_id}-{association_id}'
-    #     if link_id not in roleMap and source_id!=association_id:
-    #         source_den = getLC3_DEN(source_id)
-    #         association_den = getLC3_DEN(association_id)
-    #         den = f'{source_den}-{association_den}'
-    #         role_id = f'link_{link_id}'
-    #         URI = f'/{role_id}'
-    #         roleMap[link_id] = {'adc_id':adc_id,'link_id':link_id,'URI':URI,'role_id':role_id,'den':den}
+    for adc_id,association in referenceDict.items():
+        source_id = adc_id[:LEN_KEY]
+        association_id = association['ABIE']
+        link_id = f'{source_id}-{association_id}'
+        if link_id not in roleMap and source_id!=association_id:
+            source_den = getLC3_DEN(source_id)
+            association_den = getLC3_DEN(association_id)
+            den = f'{source_den}-{association_den}'
+            role_id = f'link_{link_id}'
+            URI = f'/{role_id}'
+            roleMap[link_id] = {'adc_id':adc_id,'link_id':link_id,'URI':URI,'role_id':role_id,'den':den}
 
     ###################################
     # core.xsd
@@ -837,9 +892,9 @@ if __name__ == '__main__':
             lines.append(line) 
 
     def lookupPrimarykey(link_id):
-        source_id = link_id[:4]
-        adc_id = link_id[5:]
-        children = [record for record in records if adc_id==record['adc_id'][:4]]
+        source_id = link_id[:LEN_KEY]
+        adc_id = link_id[-LEN_KEY:]
+        children = [record for record in records if adc_id==record['adc_id'][:LEN_KEY]]
         for child in children:
             child_kind = child['kind']
             child_id = child['adc_id']
@@ -903,7 +958,7 @@ if __name__ == '__main__':
         URI = role['URI']
         link_id = role['link_id']
         den = role["den"]
-        if 4==len(adc_id):
+        if LEN_KEY==len(adc_id):
             html.append(f'            <link:roleType id="{role_id}" roleURI="http://www.xbrl.jp/audit-data-collection/role{URI}">\n')
             html.append(f'                <link:definition>{den}</link:definition>\n')
             html.append(f'                <link:usedOn>link:definitionLink</link:usedOn>\n')
@@ -1011,10 +1066,6 @@ if __name__ == '__main__':
     # Dimension
     for adc_id,role in roleMap.items():
         link_id = role['link_id']
-        # if 4==len(link_id):
-            # if 'A075'==link_id:
-            #     html_dimension.append(f'    <element name="d_{link_id}" id="d_{link_id}" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_activity"/>\n')
-            # else:
         html_dimension.append(f'    <element name="d_{link_id}" id="d_{link_id}" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>\n')
     lines += html_dimension
 
@@ -1052,7 +1103,7 @@ if __name__ == '__main__':
         referenced_id = None
         defineElement(adc_id,record)
         if 'IDBIE'==kind:
-            primaryKeys[adc_id[:4]] = adc_id
+            primaryKeys[adc_id[:LEN_KEY]] = adc_id
         if 'ASBIE'==kind and 'n'==record['occMax']:
             if adc_id in referenceDict:
                 referenced_id = referenceDict[adc_id]['ABIE']
@@ -1065,22 +1116,22 @@ if __name__ == '__main__':
                 for adc2_id,record2 in adcDict.items():
                     cls = titleCase(record2['class'])
                     if associatedClass==cls:#record2['class']:
-                        referenced_id = f'{adc_id[:4]}-{adc2_id}'
+                        referenced_id = f'{adc_id[:LEN_KEY]}-{adc2_id}'
                         defineElement(referenced_id,record2)
                         # break
             # if referenced_id:
-            #     record2 = getRecord(referenced_id[-4:])
+            #     record2 = getRecord(referenced_id[-LEN_KEY:])
             #     if 'children' in record2:
             #         children = record2['children']
             #         for child_id in children:
             #             child = getRecord(child_id)
-            #             referenced_id = f'{adc_id[:4]}-{child_id}'
+            #             referenced_id = f'{adc_id[:LEN_KEY]}-{child_id}'
             #             defineElement(referenced_id,child)
         
     for link_id,role in roleMap.items():
-        if 4==len(link_id):
+        if LEN_KEY==len(link_id):
             continue
-        adc_id = link_id[5:]
+        adc_id = link_id[-LEN_KEY:]
         record = getRecord(adc_id)
         defineElement(link_id,record)
         lookupPrimarykey(link_id)
@@ -1128,7 +1179,7 @@ if __name__ == '__main__':
         # term
         if not adc_id in definedLabels:
             definedLabels[adc_id] = adc_id
-            line = f'        <link:label xlink:type="resource" xlink:label="label_{adc_id}_{lang}" xlink:title="label_{adc_id}_{lang}" id="label_{adc_id}_{lang}" xml:labg="{lang}" xlink:role="http://www.xbrl.org/2003/role/label">{term}</link:label>\n'
+            line = f'        <link:label xlink:type="resource" xlink:label="label_{adc_id}_{lang}" xlink:title="label_{adc_id}_{lang}" id="label_{adc_id}_{lang}" xml:lang="{lang}" xlink:role="http://www.xbrl.org/2003/role/label">{term}</link:label>\n'
         else:
             line = f'            <!-- link:label http://www.xbrl.org/2003/role/label defined -->\n'
         lines.append(line)
@@ -1171,7 +1222,7 @@ if __name__ == '__main__':
         name = record['name']
         if len(name) > 0:
             linkLabelTerm(adc_id,name,'en')
-            adc_id = f'{adc_id[:4]}-{referenced_id}'
+            adc_id = f'{adc_id[:LEN_KEY]}-{referenced_id}'
             linkLabelTerm(adc_id,name,'en')
 
     lines.append('    </link:labelLink>\n')
@@ -1261,7 +1312,7 @@ if __name__ == '__main__':
                     referenced_id = None
                     for adc2_id,record2 in adcDict.items():
                         if associatedClass==record2['class']:
-                            referenced_id = f'{adc_id[:4]}-{adc2_id}'
+                            referenced_id = f'{adc_id[:LEN_KEY]}-{adc2_id}'
                             linkLabel(referenced_id,name,desc,'ja')
                             break
 
@@ -1271,7 +1322,7 @@ if __name__ == '__main__':
         desc = record['desc']
         if len(name) > 0 or len(desc) > 0:
             linkLabel(adc_id,name,desc,'ja')
-            adc_id = f'{adc_id[:4]}-{referenced_id}'
+            adc_id = f'{adc_id[:LEN_KEY]}-{referenced_id}'
             linkLabel(adc_id,name,desc,'ja')
 
     lines.append('    </link:labelLink>\n')
@@ -1414,7 +1465,5 @@ if __name__ == '__main__':
         f.writelines(lines)
     if VERBOSE:
         print(f'-- {adc_definition_file}')
-
-
 
     print('** END **')
