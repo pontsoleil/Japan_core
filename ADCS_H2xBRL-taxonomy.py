@@ -203,15 +203,15 @@ def getName(adc_id):
 def getDEN(adc_id):
     record = getRecord(adc_id)
     if record:
-        return record['DEN']
+        return record['DEN'].replace('_','')
     return ''
 
-def getLC3_DEN(adc_id):
-    den = getDEN(adc_id)
-    if den:
-        den = den[:den.find('.')]
-        return LC3(den)
-    return ''
+# def getLC3_DEN(adc_id):
+#     den = getDEN(adc_id)
+#     if den:
+#         # den = den[:den.find('.')]
+#         return LC3(den)
+#     return ''
 
 # def getClassName(adc_id):
 #     den = getDEN(adc_id)
@@ -244,6 +244,9 @@ def getChildren(adc_id):
     if record:
         return record['children']
     return []
+
+def checkASBIE():
+    return True
 
 def defineHypercube(adc_id, role,n):
     global lines
@@ -283,7 +286,7 @@ def defineHypercube(adc_id, role,n):
             origin = sourceRefDict[source_id]
             origin_id = origin['source'][0]
             origin_id = origin_id[:LEN_KEY]
-            anchor_id = f'{origin_id}-{anchor_id}'
+            # anchor_id = f'{origin_id}-{anchor_id}'
             origin_dimension = f'd_{origin_id}'
             dimension_id_list.add(origin_dimension)
     lines.append(f'\t<link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/audit-data-collection/role{URI}">\n')
@@ -311,8 +314,6 @@ def defineHypercube(adc_id, role,n):
         for child_id in children:
             if LEN_KEY==len(child_id):
                 continue
-            # alias_id = not link_id[:LEN_KEY] in child_id and f"{link_id[:LEN_KEY]}-{child_id}" or child_id
-            # alias_id = child_id
             child = getRecord(child_id)#[-8:])
             child_kind = child['kind']
             if child_id in targetRefDict:
@@ -325,44 +326,30 @@ def defineHypercube(adc_id, role,n):
                     if not arc_id in arcsDefined[link_id]:
                         arcsDefined[link_id].add(arc_id)
                         lines.append(f'\t\t<link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id}" order="{count}"/>\n')
-                # targetRole
-                # target_id = targetRefDict[child_id]
-                # role_id = f'link_{child_id[:LEN_KEY]}-{target_id}'
                 role_id = f'link_{child_id}'
                 URI = f'/{role_id}'
                 lines.append(f'\t\t<!-- {child_id} targetRole {role_id} -->\n')
                 if not target_id in locsDefined[link_id]:
                     locsDefined[link_id].add(child_id)
                     lines.append(f'\t\t<link:loc xlink:type="locator" xlink:href="{core_xsd}#{child_id}" xlink:label="{child_id}" xlink:title="{child_id}"/>\n')
-                    # lines.append(f'\t\t<link:loc xlink:type="locator" xlink:href="{core_xsd}#{target_id}" xlink:label="{target_id}" xlink:title="{target_id}"/>\n')
                 count += 1
                 arc_id = f'{link_id} {child_id}'
-                # arc_id = f'{link_id} {target_id}'
                 if not arc_id in arcsDefined[link_id]:
                     arcsDefined[link_id].add(arc_id)
                     lines.append(f'\t\t<link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id} in {role_id}" order="{count}"/>\n')
-                    # lines.append(f'\t\t<link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{target_id}" xlink:title="domain-member: {link_id} to {target_id} in {role_id}" order="{count}"/>\n')
             else:
                 if 'ASBIE'==child_kind and '1'==child['occMax']:
-                    # targetRole
-                    # target_id = child_id[-LEN_KEY:]
-                    # role_id = f'link_{child_id[:LEN_KEY]}-{target_id}'
                     role_id = f'link_{child_id}'
                     URI = f'/{role_id}'
                     lines.append(f'\t\t<!-- {child_id} targetRole {role_id} -->\n')
                     if not child_id in locsDefined[link_id]:
                         locsDefined[link_id].add(child_id)
                         lines.append(f'\t\t<link:loc xlink:type="locator" xlink:href="{core_xsd}#{child_id}" xlink:label="{child_id}" xlink:title="{child_id}"/>\n')
-                    # if not target_id in locsDefined[link_id]:
-                    #     locsDefined[link_id].add(target_id)
-                    #     lines.append(f'\t\t<link:loc xlink:type="locator" xlink:href="{core_xsd}#{target_id}" xlink:label="{target_id}" xlink:title="{target_id}"/>\n')
                     count += 1
                     arc_id = f'{link_id} {child_id}'
-                    # arc_id = f'{link_id} {target_id}'
                     if not arc_id in arcsDefined[link_id]:
                         arcsDefined[link_id].add(arc_id)
                         lines.append(f'\t\t<link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id} in {role_id}" order="{count}"/>\n')
-                        # lines.append(f'\t\t<link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{target_id}" xlink:title="domain-member: {link_id} to {target_id} in {role_id}" order="{count}"/>\n')
                 else:
                     if not child_id in locsDefined[link_id]:
                         locsDefined[link_id].add(child_id)
@@ -372,7 +359,6 @@ def defineHypercube(adc_id, role,n):
                     if not arc_id in arcsDefined[link_id]:
                         arcsDefined[link_id].add(arc_id)
                         lines.append(f'\t\t<link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id}" order="{count}"/>\n')
-
                     # if not child_id in associationDict:
                     #     print(f'** {child_id} not in associationDict')
                     #     continue
@@ -530,7 +516,7 @@ if __name__ == '__main__':
     asbieDict = {}
 
     # header = ['no','module','core_id','kind','table_id','class','level','occurrence','field_id','propertyTerm','representationQualifier','representation','associatedClass','datatype','term','desc']
-    header = ['semSort','group','core_id','table_id','field_id','level','occurrence','term','kind','class','propertyTerm','representation','associatedClass','desc','UN_CCL_ID','smeKind','smeSeq','smeID','smeTerm','smeDesc','smeDefault','smeOccur','smeLevel','smeXPath','pintSort','pintID','pintOccur.','pintLevel','pintTerm','pintTermJA','pintDesc','pintDescJA','pintDefault','pintXPath']
+    header = ['semSort','group','core_id','table_id','field_id','level','occurrence','term','kind','class','propertyTerm','representation','associatedClass','desc','UN_CCL_ID','smeKind','smeSeq','smeID','smeTerm','smeDesc','smeDefault','smeOccur','smeLevel','smeXPath','pintSort','pintID','pintOccur','pintLevel','pintTerm','pintTermJA','pintDesc','pintDescJA','pintDefault','pintXPath']
     with open(adc_file, encoding='utf-8', newline='') as f:
         reader = csv.reader(f)#, delimiter='\t')
         next(reader)
@@ -721,9 +707,6 @@ if __name__ == '__main__':
             adcDict[parent_id]['children'].append(adc_id)
             for key in [x for x in adcDict.keys() if len(x) > LEN_KEY and parent_id==x[-LEN_KEY:]]:
                 adcDict[key]['children'].append(adc_id)
-
-
-
             # if 1+2*LEN_KEY==len(parent_id):
             #     parent_id2 = parent_id[-LEN_KEY:]
             #     if 0==len(adcDict[parent_id2]['parent']):
@@ -810,7 +793,7 @@ if __name__ == '__main__':
     sourceRefDict = {}
     for source_id,target_id in targetRefDict.items():
         if not target_id in sourceRefDict:
-            den = getLC3_DEN(target_id)
+            den = getDEN(target_id)
             sourceRefDict[target_id] = {'den':den, 'source':[]}
         sourceRefDict[target_id]['source'].append(source_id)
 
@@ -823,7 +806,7 @@ if __name__ == '__main__':
             parent_id = record['parent'][-1]
             if DEBUG: print(f"{adc_id} max occurence:{record['occMax']} parent:{parent_id}")
             if not parent_id in repeatables:
-                den = getLC3_DEN(parent_id)
+                den = getDEN(parent_id)
                 repeatables[parent_id] = {'den':den, 'source':[]}
             repeatables[parent_id]['source'].append(adc_id)
 
@@ -833,10 +816,10 @@ if __name__ == '__main__':
     roleMap = {}
 
     for adc_id,record in adcDict.items():
-        den = getLC3_DEN(adc_id)
+        # den = getDEN(adc_id)
         if 'ABIE'==record['kind'] and not adc_id in roleMap:
             link_id = adc_id
-            den = getLC3_DEN(link_id)
+            den = getDEN(link_id)
             role_id = f'link_{link_id}'
             URI = f'/{role_id}'
             roleMap[link_id] = {'adc_id':link_id,'link_id':link_id,'URI':URI,'role_id':role_id,'den':den}
@@ -845,8 +828,8 @@ if __name__ == '__main__':
         source_id = adc_id[:LEN_KEY]
         link_id = f'{source_id}-{target_id}'
         if link_id not in roleMap and source_id!=target_id:
-            source_den = getLC3_DEN(source_id)
-            target_den = getLC3_DEN(target_id)
+            source_den = getDEN(source_id)
+            target_den = getDEN(target_id)
             den = f'{source_den}-{target_den}'
             role_id = f'link_{link_id}'
             URI = f'/{role_id}'
@@ -857,8 +840,8 @@ if __name__ == '__main__':
         association_id = association['ABIE']
         link_id = f'{source_id}-{association_id}'
         if link_id not in roleMap and source_id!=association_id:
-            source_den = getLC3_DEN(source_id)
-            association_den = getLC3_DEN(association_id)
+            source_den = getDEN(source_id)
+            association_den = getDEN(association_id)
             den = f'{source_den}-{association_den}'
             role_id = f'link_{link_id}'
             URI = f'/{role_id}'
@@ -1203,7 +1186,7 @@ if __name__ == '__main__':
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
-        '<!--  (c) 2022 XBRL Japan inc. -->\n',
+        '<!--  (c) 2023 XBRL Japan inc. -->\n',
         '<link:linkbase\n',
         '\txmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n',
         '\txmlns:link="http://www.xbrl.org/2003/linkbase"\n',
@@ -1291,7 +1274,7 @@ if __name__ == '__main__':
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
-        '<!--  (c) 2022 XBRL Japan inc. -->\n',
+        '<!--  (c) 2023 XBRL Japan inc. -->\n',
         '<link:linkbase\n',
         '\txmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n',
         '\txmlns:link="http://www.xbrl.org/2003/linkbase"\n',
@@ -1403,7 +1386,7 @@ if __name__ == '__main__':
         children = None
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
-        '<!--  (c) 2022 XBRL Japan inc. -->\n',
+        '<!--  (c) 2023 XBRL Japan inc. -->\n',
         '<link:linkbase\n',
         '\txmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n',
         '\txsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"\n',
@@ -1438,7 +1421,7 @@ if __name__ == '__main__':
     arcsDefined = {}
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
-        '<!--(c) 2022 XBRL Japan inc. -->\n',
+        '<!--(c) 2023 XBRL Japan inc. -->\n',
         '<link:linkbase\n',
         '\txmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n',
         '\txsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"\n',
@@ -1476,5 +1459,141 @@ if __name__ == '__main__':
         f.writelines(lines)
     if VERBOSE:
         print(f'-- {adc_definition_file}')
+
+    ###################################
+    # referenceLink
+    #
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>\n',
+        '<!--  (c) 2023 XBRL Japan inc. -->\n',
+        '<link:linkbase\n',
+        '\txmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n',
+        '\txmlns:pint-jp="http://www.xbrl.jp/pint-jp/work-v1"\n', 
+        '\txmlns:link="http://www.xbrl.org/2003/linkbase"\n',
+        '\txmlns:xlink="http://www.w3.org/1999/xlink"\n',
+        '\txsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd http://www.xbrl.jp/pint-jp/work-v1 core.xsd">\n',
+        '\t<link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice" xlink:type="simple" xlink:href="core.xsd#invoice"/>\n',
+        '\t<link:referenceLink xlink:type="extended" xlink:role="http://www.xbrl.org/2003/role/link">\n'
+    ]
+
+    def escape_text(str):
+        if not str:
+            return ''
+        escaped = str.replace('<','&lt;')
+        escaped = escaped.replace('>','&gt;')
+        return escaped
+
+    # for record in records:
+    #     #     header = ['semSort','group','core_id','table_id','field_id','level','occurrence','term','kind','class','propertyTerm','representation','associatedClass','desc','UN_CCL_ID','smeKind','smeSeq','smeID','smeTerm','smeDesc','smeDefault','smeOccur','smeLevel','smeXPath','pintSort','pintID','pintOccur','pintLevel','pintTerm','pintTermJA','pintDesc','pintDescJA','pintDefault','pintXPath',,module','occMin','occMax','children','adc_id','DEN','name','type','parent']
+    #     semSort = record['semSort']
+    #     group = record['group']
+    #     core_id = record['core_id']
+    #     table_id = record['table_id']
+    #     field_id = record['field_id']
+    #     level = record['level']
+    #     occurrence = record['occurrence']
+    #     term = record['term']
+    #     kind = record['kind']
+    #     cls = record['class']
+    #     propertyTerm = record['propertyTerm']
+    #     representation = record['representation']
+    #     associatedClass = record['associatedClass']
+    #     desc = record['desc']
+    #     UN_CCL_ID = record['UN_CCL_ID']
+    #     smeKind = record['smeKind']
+    #     smeSeq = record['smeSeq']
+    #     smeID = record['smeID']
+    #     smeTerm = record['smeTerm']
+    #     smeDesc = record['smeDesc']
+    #     smeDefault = record['smeDefault']
+    #     smeOccur = record['smeOccur']
+    #     smeLevel = record['smeLevel']
+    #     smeXPath = record['smeXPath']
+    #     pintSort = record['pintSort']
+    #     pintID = record['pintID']
+    #     pintOccur = record['pintOccur']
+    #     pintLevel = record['pintLevel']
+    #     pintTerm = record['pintTerm']
+    #     pintTermJA = record['pintTermJA']
+    #     pintDesc = record['pintDesc']
+    #     pintDescJA = record['pintDescJA']
+    #     pintDefault = record['pintDefault']
+    #     pintXPath = record['pintXPath']
+    #     module = record['module']
+    #     occMin = record['occMin']
+    #     occMax = record['occMax']
+    #     children = record['children']
+    #     adc_id = record['adc_id']
+    #     DEN = record['DEN']
+    #     name = record['name']
+    #     type = record['type']
+    #     parent = record['parent']
+    #     lines.append(f'\t\t<!-- {adc_id} {name} -->\n')
+    #     lines.append(f'\t\t<link:loc xlink:type="locator" xlink:href="{core_xsd}#pint_{adc_id}" xlink:label="{adc_id}"/>\n')
+    #     lines.append(f'\t\t<link:referenceArc xlink:type="arc" xlink:from="{adc_id}" xlink:to="{adc_id}_REF" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-reference"/>\n')
+    #     # definitionRef
+    #     lines.append(f'\t\t<link:reference xlink:type="resource" xlink:label="{adc_id}_REF" xlink:role="http://www.xbrl.org/2003/role/definitionRef">\n')
+    #     if adc_id:
+    #         lines.append(f'\t\t\t<pint-jp:id>{adc_id}</pint-jp:id>\n')
+    #     if semantic_sort:
+    #         lines.append(f'\t\t\t<pint-jp:semantic_sort>{semantic_sort}</pint-jp:semantic_sort>\n')
+    #     if section:
+    #         lines.append(f'\t\t\t<pint-jp:section>{section}</pint-jp:section>\n')
+    #     if pint_cardinality:
+    #         lines.append(f'\t\t\t<pint-jp:cardinality>{pint_cardinality}</pint-jp:cardinality>\n')
+    #     if 'Aligned'==section and aligned_cardinality:
+    #         lines.append(f'\t\t\t<pint-jp:aligned_cardinality>{aligned_cardinality}</pint-jp:aligned_cardinality>\n')
+    #     if semantic_datatype:
+    #         lines.append(f'\t\t\t<pint-jp:semantic_datatype>{semantic_datatype}</pint-jp:semantic_datatype>\n')
+    #     if business_term:
+    #         lines.append(f'\t\t\t<pint-jp:business_term>{business_term}</pint-jp:business_term>\n')
+    #     if business_term_ja:
+    #         lines.append(f'\t\t\t<pint-jp:business_term_ja>{business_term_ja}</pint-jp:business_term_ja>\n')
+    #     if xpath:
+    #         lines.append(f'\t\t\t<pint-jp:xpath>{xpath}</pint-jp:xpath>\n')
+    #     lines.append(f'\t\t</link:reference>\n')
+    #     # presentationRef
+    #     if element or syntax_sort or syntax_cardinality or xpath or parent_xpath or syntax_parent_sort or syntax_parent_cardinality:
+    #         lines.append(f'\t\t<link:reference xlink:type="resource" xlink:label="{adc_id}_REF" xlink:role="http://www.xbrl.org/2003/role/presentationRef">\n')
+    #         if element:
+    #             lines.append(f'\t\t\t<pint-jp:element>{element}</pint-jp:element>\n')
+    #         if syntax_sort:
+    #             lines.append(f'\t\t\t<pint-jp:syntax_sort>{syntax_sort}</pint-jp:syntax_sort>\n')
+    #         if syntax_cardinality:
+    #             lines.append(f'\t\t\t<pint-jp:syntax_cardinality>{syntax_cardinality}</pint-jp:syntax_cardinality>\n')
+    #         if parent_xpath:
+    #             lines.append(f'\t\t\t<pint-jp:parent_xpath>{parent_xpath}</pint-jp:parent_xpath>\n')
+    #         if syntax_parent_sort:
+    #             lines.append(f'\t\t\t<pint-jp:syntax_parent_sort>{syntax_parent_sort}</pint-jp:syntax_parent_sort>\n')
+    #         if syntax_parent_cardinality:
+    #             lines.append(f'\t\t\t<pint-jp:syntax_parent_cardinality>{syntax_parent_cardinality}</pint-jp:syntax_parent_cardinality>\n')
+    #         lines.append(f'\t\t</link:reference>\n')
+    #     # commentaryRef
+    #     if description or description_ja or explanation or explanation_ja:
+    #         lines.append(f'\t\t<link:reference xlink:type="resource" xlink:label="{adc_id}_REF" xlink:role="http://www.xbrl.org/2003/role/commentaryRef">\n')
+    #         if description:
+    #             lines.append(f'\t\t\t<pint-jp:description>{description}</pint-jp:description>\n')
+    #         if description_ja:
+    #             lines.append(f'\t\t\t<pint-jp:description_ja>{description_ja}</pint-jp:description_ja>\n')
+    #         if explanation:
+    #             lines.append(f'\t\t\t<pint-jp:explanation>{explanation}</pint-jp:explanation>\n')
+    #         if explanation_ja:
+    #             lines.append(f'\t\t\t<pint-jp:explanation_ja>{explanation_ja}</pint-jp:explanation_ja>\n')
+    #         lines.append(f'\t\t</link:reference>\n')
+    #     # exampleRef
+    #     if example:
+    #         lines.append(f'\t\t<link:reference xlink:type="resource" xlink:label="{adc_id}_REF" xlink:role="http://www.xbrl.org/2003/role/exampleRef">\n')
+    #         lines.append(f'\t\t\t<pint-jp:example>{example}</pint-jp:example>\n')
+    #         lines.append(f'\t\t</link:reference>\n')
+
+    # lines.append('\t</link:referenceLink>\n')
+    # lines.append('</link:linkbase>\n')
+
+    # pint_reference_file = file_path(f'{xbrl_base}{core_reference}.xml'.replace('/',SEP))
+    # with open(pint_reference_file, 'w', encoding='utf_8', newline='') as f:
+    #     f.writelines(lines)
+
+    # if VERBOSE:
+    #     print(f'== {pint_reference_file}')
 
     print('** END **')

@@ -28,623 +28,623 @@
 				<link:usedOn>link:presentationLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00">
-				<link:definition></link:definition>
+				<link:definition>Invoice Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC01" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC01">
-				<link:definition>Currency Exchange</link:definition>
+				<link:definition>Invoice Currency Exchange Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC02" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC02">
-				<link:definition>Currency Exchange</link:definition>
+				<link:definition>Payment Currency Exchange Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC03" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC03">
-				<link:definition></link:definition>
+				<link:definition>Note Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC04" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC04">
-				<link:definition>Referenced Document</link:definition>
+				<link:definition>Reference Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC05" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC05">
-				<link:definition>Binary Object</link:definition>
+				<link:definition>Attachment Binary Object Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC06" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC06">
-				<link:definition>File</link:definition>
+				<link:definition>Binary File Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC07" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC07">
-				<link:definition>Monetary Summation_ Referenced Document</link:definition>
+				<link:definition>Settlement Monetary Summation Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC08" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC08">
-				<link:definition>Adjustment_ Referenced Document</link:definition>
+				<link:definition>Financial Adjustment Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC09" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC09">
-				<link:definition>Party</link:definition>
+				<link:definition>Seller Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC10" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC10">
-				<link:definition>Contact</link:definition>
+				<link:definition>Seller Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC11" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC11">
-				<link:definition>Address</link:definition>
+				<link:definition>Seller Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC12" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC12">
-				<link:definition>Party</link:definition>
+				<link:definition>Buyer Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC13" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC13">
-				<link:definition>Contact</link:definition>
+				<link:definition>Buyer Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC14" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC14">
-				<link:definition>Address</link:definition>
+				<link:definition>Buyer Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC15" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC15">
-				<link:definition>Party</link:definition>
+				<link:definition>Invoicer Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC16" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC16">
-				<link:definition>Contact</link:definition>
+				<link:definition>Invoicer Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC17" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC17">
-				<link:definition>Address</link:definition>
+				<link:definition>Invoicer Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC18" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC18">
-				<link:definition>Party</link:definition>
+				<link:definition>Invoicee Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC19" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC19">
-				<link:definition>Contact</link:definition>
+				<link:definition>Invoicee Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC20" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC20">
-				<link:definition>Address</link:definition>
+				<link:definition>Invoicee Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC21" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC21">
-				<link:definition>Party</link:definition>
+				<link:definition>Payee Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC22" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC22">
-				<link:definition>Contact</link:definition>
+				<link:definition>Payee Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC23" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC23">
-				<link:definition>Address</link:definition>
+				<link:definition>Payee Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC24" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC24">
-				<link:definition>Party</link:definition>
+				<link:definition>Payer Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC25" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC25">
-				<link:definition>Contact</link:definition>
+				<link:definition>Payer Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC26" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC26">
-				<link:definition>Address</link:definition>
+				<link:definition>Payer Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC27" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC27">
-				<link:definition>Representative_ Party</link:definition>
+				<link:definition>Tax Representative Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC28" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC28">
-				<link:definition>Representative_ Address</link:definition>
+				<link:definition>Tax Representative Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC29" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC29">
-				<link:definition>Payment</link:definition>
+				<link:definition>Advance Payment Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC30" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC30">
-				<link:definition>Monetary Summation</link:definition>
+				<link:definition>Outstanding Monetary Summation Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC31" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC31">
-				<link:definition>Means</link:definition>
+				<link:definition>Payment Means Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC32" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC32">
-				<link:definition>Account</link:definition>
+				<link:definition>Financial Account Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC33" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC33">
-				<link:definition>Card</link:definition>
+				<link:definition>Financial Card Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC34" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC34">
-				<link:definition>Tax</link:definition>
+				<link:definition>Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC35" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC35">
-				<link:definition>Terms</link:definition>
+				<link:definition>Payment Terms Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC36" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC36">
-				<link:definition>Summation</link:definition>
+				<link:definition>Monetary Summation Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC37" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC37">
-				<link:definition>Adjustment</link:definition>
+				<link:definition>Financial Adjustment Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC38" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC38">
-				<link:definition>Ajustment_ Trade Tax</link:definition>
+				<link:definition>Financial Ajustment Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39">
-				<link:definition>Document</link:definition>
+				<link:definition>Invoice Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC40" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC40">
-				<link:definition>Account</link:definition>
+				<link:definition>Accounting Account Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC41" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC41">
-				<link:definition>Note</link:definition>
+				<link:definition>Document Note Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC42" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC42">
-				<link:definition>Order_ Referenced Document</link:definition>
+				<link:definition>Seller Order Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC43" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC43">
-				<link:definition>Order_ Referenced Document</link:definition>
+				<link:definition>Buyer Order Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC44" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC44">
-				<link:definition>Referenced Document</link:definition>
+				<link:definition>Contract Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC45" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC45">
-				<link:definition>Referenced Document</link:definition>
+				<link:definition>Object Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC46" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC46">
-				<link:definition>Referenced Document</link:definition>
+				<link:definition>Document Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC47" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC47">
-				<link:definition>Referenced Document</link:definition>
+				<link:definition>Additional Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC48" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC48">
-				<link:definition>Advice_ Referenced Document</link:definition>
+				<link:definition>Receiving Advice Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC49" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC49">
-				<link:definition>Advice_ Referenced Document</link:definition>
+				<link:definition>Despatch Advice Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC50" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC50">
-				<link:definition>To_ Party</link:definition>
+				<link:definition>Ship To Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC51" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC51">
-				<link:definition>To_ Address</link:definition>
+				<link:definition>Ship To Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC52" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC52">
-				<link:definition>Period</link:definition>
+				<link:definition>Specified Period Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC53" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC53">
-				<link:definition></link:definition>
+				<link:definition>Allowance Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC54" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC54">
-				<link:definition></link:definition>
+				<link:definition>Charge Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC55" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC55">
-				<link:definition>Monetary Summation</link:definition>
+				<link:definition>Document Monetary Summation Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC56" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC56">
-				<link:definition>Monetary Summation</link:definition>
+				<link:definition>Accounting Monetary Summation Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC57" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC57">
-				<link:definition>Trade Tax</link:definition>
+				<link:definition>Document Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC58" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC58">
-				<link:definition>Trade Tax</link:definition>
+				<link:definition>Accounting Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC59" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC59">
-				<link:definition>Financial Adjustment</link:definition>
+				<link:definition>Document Financial Adjustment Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC60" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC60">
-				<link:definition>Financial Ajustment_ Trade Tax</link:definition>
+				<link:definition>Document Financial Ajustment Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61">
-				<link:definition>Line Item</link:definition>
+				<link:definition>Invoice Line Item Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC62" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC62">
-				<link:definition>Item_ Specified Period</link:definition>
+				<link:definition>Line Item Specified Period Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC63" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC63">
-				<link:definition>Item_ Delivery</link:definition>
+				<link:definition>Line Item Delivery Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC64" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC64">
-				<link:definition>Item_ Accounting Account</link:definition>
+				<link:definition>Line Item Accounting Account Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC65" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC65">
-				<link:definition>Item_ Note</link:definition>
+				<link:definition>Line Item Note Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC66" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC66">
-				<link:definition>Item Seller Order_ Referenced Document</link:definition>
+				<link:definition>Line Item Seller Order Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC67" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC67">
-				<link:definition>Item Buyer Order_ Referenced Document</link:definition>
+				<link:definition>Line Item Buyer Order Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC68" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC68">
-				<link:definition>Item Additional_ Referenced Document</link:definition>
+				<link:definition>Line Item Additional Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC69" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC69">
-				<link:definition>Item Object_ Referenced Document</link:definition>
+				<link:definition>Line Item Object Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC70" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC70">
-				<link:definition>Item Invoice_ Referenced Document</link:definition>
+				<link:definition>Line Item Invoice Referenced Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC71" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC71">
-				<link:definition>Otem_ Trade Tax</link:definition>
+				<link:definition>Line Otem Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC72" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC72">
-				<link:definition>Item_ Allowance</link:definition>
+				<link:definition>Line Item Allowance Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC73" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC73">
-				<link:definition>Ite Charge</link:definition>
+				<link:definition>Line Ite Charge Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC74" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC74">
-				<link:definition>Item_ Financial Adjustment</link:definition>
+				<link:definition>Line Item Financial Adjustment Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC75" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC75">
-				<link:definition></link:definition>
+				<link:definition>Product Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC76" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC76">
-				<link:definition></link:definition>
+				<link:definition>Price Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC77" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC77">
-				<link:definition>Characteristic</link:definition>
+				<link:definition>Product Characteristic Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC03" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC03">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Note Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC04" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC04">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC06" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC06">
-				<link:definition> to File</link:definition>
+				<link:definition>Invoice Details to File Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC07" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC07">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC08" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC08">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC29" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC29">
-				<link:definition> to Payment</link:definition>
+				<link:definition>Invoice Details to Payment Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC31" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC31">
-				<link:definition> to Means</link:definition>
+				<link:definition>Invoice Details to Means Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC34" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC34">
-				<link:definition> to Tax</link:definition>
+				<link:definition>Invoice Details to Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC37" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC37">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC38" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC38">
-				<link:definition> to Tax</link:definition>
+				<link:definition>Invoice Details to Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC39" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC39">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC41" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC41">
-				<link:definition>Document to Note</link:definition>
+				<link:definition>Invoice Document Details to Document Note Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC46" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC46">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC47" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC47">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC48" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC48">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC49" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC49">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC53" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC53">
-				<link:definition>Document to </link:definition>
+				<link:definition>Invoice Document Details to Allowance Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC54" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC54">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Details Charge Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC57" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC57">
-				<link:definition>Document to Trade Tax</link:definition>
+				<link:definition>Invoice Document Details to Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC58" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC58">
-				<link:definition>Document to Trade Tax</link:definition>
+				<link:definition>Invoice Document Details to Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC59" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC59">
-				<link:definition>Document to Adjustment</link:definition>
+				<link:definition>Invoice Document Details to Adjustment Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC60" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC60">
-				<link:definition>Document to Trade Tax</link:definition>
+				<link:definition>Invoice Document Details to Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC61" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC61">
-				<link:definition>Document to Line Item</link:definition>
+				<link:definition>Invoice Document Details to Line Item Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC65" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC65">
-				<link:definition>Line Item to Item_ Note</link:definition>
+				<link:definition>Invoice Line Item Details to Line Item Note Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC68" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC68">
-				<link:definition>Line Item to Document</link:definition>
+				<link:definition>Invoice Line Item Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC69" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC69">
-				<link:definition>Line Item to Document</link:definition>
+				<link:definition>Invoice Line Item Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC70" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC70">
-				<link:definition>Line Item to Document</link:definition>
+				<link:definition>Invoice Line Item Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC72" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC72">
-				<link:definition>Line Item to Item_ Allowance</link:definition>
+				<link:definition>Invoice Line Item Details to Item Allowance Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC73" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC73">
-				<link:definition>Line Item to Ite Charge</link:definition>
+				<link:definition>Invoice Line Item Details to Line Ite Charge Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC74" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC74">
-				<link:definition>Line Item to Adjustment</link:definition>
+				<link:definition>Invoice Line Item Details to Adjustment Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC77" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC77">
-				<link:definition>Line Item to Characteristic</link:definition>
+				<link:definition>Invoice Line Item Details to Characteristic Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC01" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC01">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC02" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC02">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC09" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC09">
-				<link:definition> to Party</link:definition>
+				<link:definition>Invoice Details to Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC12" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC12">
-				<link:definition> to Party</link:definition>
+				<link:definition>Invoice Details to Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC15" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC15">
-				<link:definition> to Party</link:definition>
+				<link:definition>Invoice Details to Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC18" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC18">
-				<link:definition> to Party</link:definition>
+				<link:definition>Invoice Details to Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC21" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC21">
-				<link:definition> to Party</link:definition>
+				<link:definition>Invoice Details to Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC24" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC24">
-				<link:definition> to Party</link:definition>
+				<link:definition>Invoice Details to Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC27" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC27">
-				<link:definition> to Party</link:definition>
+				<link:definition>Invoice Details to Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC30" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC30">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC35" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC35">
-				<link:definition> to Terms</link:definition>
+				<link:definition>Invoice Details to Terms Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC00-NC36" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC00-NC36">
-				<link:definition> to </link:definition>
+				<link:definition>Invoice Details to Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC04-NC05" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC04-NC05">
-				<link:definition>Referenced Document to Binary Object</link:definition>
+				<link:definition>Reference Referenced Document Details to Attachment Binary Object Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC09-NC10" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC09-NC10">
-				<link:definition>Party to Contact</link:definition>
+				<link:definition>Seller Party Details to Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC09-NC11" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC09-NC11">
-				<link:definition>Party to Address</link:definition>
+				<link:definition>Seller Party Details to Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC12-NC13" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC12-NC13">
-				<link:definition>Party to Contact</link:definition>
+				<link:definition>Buyer Party Details to Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC12-NC14" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC12-NC14">
-				<link:definition>Party to Address</link:definition>
+				<link:definition>Buyer Party Details to Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC15-NC16" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC15-NC16">
-				<link:definition>Party to Contact</link:definition>
+				<link:definition>Invoicer Party Details to Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC15-NC17" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC15-NC17">
-				<link:definition>Party to Address</link:definition>
+				<link:definition>Invoicer Party Details to Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC18-NC19" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC18-NC19">
-				<link:definition>Party to Contact</link:definition>
+				<link:definition>Invoicee Party Details to Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC18-NC20" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC18-NC20">
-				<link:definition>Party to Address</link:definition>
+				<link:definition>Invoicee Party Details to Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC21-NC22" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC21-NC22">
-				<link:definition>Party to Contact</link:definition>
+				<link:definition>Payee Party Details to Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC21-NC23" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC21-NC23">
-				<link:definition>Party to Address</link:definition>
+				<link:definition>Payee Party Details to Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC24-NC25" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC24-NC25">
-				<link:definition>Party to Contact</link:definition>
+				<link:definition>Payer Party Details to Contact Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC24-NC26" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC24-NC26">
-				<link:definition>Party to Address</link:definition>
+				<link:definition>Payer Party Details to Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC27-NC28" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC27-NC28">
-				<link:definition>Representative_ Party to Representative_ Address</link:definition>
+				<link:definition>Tax Representative Party Details to Representative Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC31-NC32" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC31-NC32">
-				<link:definition>Means to Account</link:definition>
+				<link:definition>Payment Means Details to Account Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC31-NC33" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC31-NC33">
-				<link:definition>Means to Card</link:definition>
+				<link:definition>Payment Means Details to Card Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC40" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC40">
-				<link:definition>Document to Account</link:definition>
+				<link:definition>Invoice Document Details to Account Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC42" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC42">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC43" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC43">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC44" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC44">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC45" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC45">
-				<link:definition>Document to Document</link:definition>
+				<link:definition>Invoice Document Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC50" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC50">
-				<link:definition>Document to To_ Party</link:definition>
+				<link:definition>Invoice Document Details to Ship To Party Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC52" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC52">
-				<link:definition>Document to Period</link:definition>
+				<link:definition>Invoice Document Details to Specified Period Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC55" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC55">
-				<link:definition>Document to Summation</link:definition>
+				<link:definition>Invoice Document Details to Summation Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC39-NC56" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC39-NC56">
-				<link:definition>Document to Summation</link:definition>
+				<link:definition>Invoice Document Details to Summation Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC50-NC51" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC50-NC51">
-				<link:definition>To_ Party to To_ Address</link:definition>
+				<link:definition>Ship To Party Details to To Address Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC62" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC62">
-				<link:definition>Line Item to Specified Period</link:definition>
+				<link:definition>Invoice Line Item Details to Specified Period Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC63" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC63">
-				<link:definition>Line Item to Item_ Delivery</link:definition>
+				<link:definition>Invoice Line Item Details to Item Delivery Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC64" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC64">
-				<link:definition>Line Item to Account</link:definition>
+				<link:definition>Invoice Line Item Details to Account Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC66" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC66">
-				<link:definition>Line Item to Document</link:definition>
+				<link:definition>Invoice Line Item Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC67" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC67">
-				<link:definition>Line Item to Document</link:definition>
+				<link:definition>Invoice Line Item Details to Document Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC71" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC71">
-				<link:definition>Line Item to Otem_ Trade Tax</link:definition>
+				<link:definition>Invoice Line Item Details to Otem Trade Tax Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC75" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC75">
-				<link:definition>Line Item to Item</link:definition>
+				<link:definition>Invoice Line Item Details to Details Product Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<link:roleType id="link_NC61-NC76" roleURI="http://www.xbrl.jp/audit-data-collection/role/link_NC61-NC76">
-				<link:definition>Line Item to Line Item</link:definition>
+				<link:definition>Invoice Line Item Details to Details Price Details</link:definition>
 				<link:usedOn>link:definitionLink</link:usedOn>
 			</link:roleType>
 			<!--

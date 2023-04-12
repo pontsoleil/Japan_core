@@ -70,6 +70,30 @@
 	<import namespace="http://xbrl.org/2008/assertion/value" schemaLocation="http://www.xbrl.org/2008/value-assertion.xsd"/>
 	<import namespace="http://www.eurofiling.info/xbrl/ext/model" schemaLocation="http://www.eurofiling.info/eu/fr/xbrl/ext/model.xsd"/>
 	<import namespace="http://www.xbrl.org/dtr/type/non-numeric" schemaLocation="http://www.xbrl.org/dtr/type/nonNumeric-2009-12-16.xsd"/>
+	<!-- reference part element -->
+	<!-- semantic-model -->
+	<element name="id" type="string" substitutionGroup="link:part"/>
+	<element name="semantic_sort" type="string" substitutionGroup="link:part"/>
+	<element name="section" type="string" substitutionGroup="link:part"/>
+	<element name="cardinality" type="string" substitutionGroup="link:part"/>
+	<element name="aligned_cardinality" type="string" substitutionGroup="link:part"/>
+	<element name="semantic_datatype" type="string" substitutionGroup="link:part"/>
+	<element name="business_term" type="string" substitutionGroup="link:part"/>
+	<element name="business_term_ja" type="string" substitutionGroup="link:part"/>
+	<element name="description" type="string" substitutionGroup="link:part"/>
+	<element name="description_ja" type="string" substitutionGroup="link:part"/>
+	<element name="explanation" type="string" substitutionGroup="link:part"/>
+	<element name="explanation_ja" type="string" substitutionGroup="link:part"/>
+	<element name="example" type="string" substitutionGroup="link:part"/>
+	<element name="xpath" type="string" substitutionGroup="link:part"/>
+	<!-- syntax-binding -->
+	<element name="element" type="string" substitutionGroup="link:part"/>
+	<element name="syntax_sort" type="string" substitutionGroup="link:part"/>
+	<element name="syntax_cardinality" type="string" substitutionGroup="link:part"/>
+	<element name="parent_xpath" type="string" substitutionGroup="link:part"/>
+	<element name="syntax_parent_sort" type="string" substitutionGroup="link:part"/>
+	<element name="syntax_parent_cardinality" type="string" substitutionGroup="link:part"/>
+	<!-- TypedDimension -->
 	<element name="_v" id="_v">
 		<simpleType>
 			<restriction base="string"/>
