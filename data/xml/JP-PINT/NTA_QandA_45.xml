@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+	xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+	xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+	xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+	xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 https://www.wuwei.space/core-japan/server/data/aligned/maindoc/UBL-Invoice-2.1.xsd">
+<!-- 
+	
+-->
+	<!--<cbc:UBLVersionID>2.1</cbc:UBLVersionID>-->
+	<cbc:CustomizationID>urn:fdc:peppol:jp:billing:3.0</cbc:CustomizationID>
+	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+	<cbc:ID>156</cbc:ID>
+	<cbc:IssueDate>2023-12-01</cbc:IssueDate>
+	<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+	<cbc:DocumentCurrencyCode>JPY</cbc:DocumentCurrencyCode>
+	<cac:InvoicePeriod>
+		<cbc:StartDate>2023-11-01</cbc:StartDate>
+		<cbc:EndDate>2023-11-30</cbc:EndDate>
+	</cac:InvoicePeriod>
+	<cac:AccountingSupplierParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0188">1234567890123</cbc:EndpointID>
+			<cac:PostalAddress>
+				<cac:Country>
+					<cbc:IdentificationCode>JP</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyTaxScheme>
+				<cbc:CompanyID>T1234567890123</cbc:CompanyID>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:PartyTaxScheme>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>株式会社 △△商事</cbc:RegistrationName>
+			</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:AccountingSupplierParty>
+	<cac:AccountingCustomerParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0188">3210987654321</cbc:EndpointID>
+			<cac:PostalAddress>
+				<cac:Country>
+					<cbc:IdentificationCode>JP</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>株式会社 〇〇</cbc:RegistrationName>
+			</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:AccountingCustomerParty>
+	<cac:TaxTotal>
+		<cbc:TaxAmount currencyID="JPY">1400</cbc:TaxAmount>
+		<cac:TaxSubtotal>
+			<cbc:TaxableAmount currencyID="JPY">15000</cbc:TaxableAmount>
+			<cbc:TaxAmount currencyID="JPY">1200</cbc:TaxAmount>
+			<cac:TaxCategory>
+				<cbc:ID>AA</cbc:ID>
+				<cbc:Percent>8</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</cac:TaxSubtotal>
+		<cac:TaxSubtotal>
+			<cbc:TaxableAmount currencyID="JPY">2000</cbc:TaxableAmount>
+			<cbc:TaxAmount currencyID="JPY">200</cbc:TaxAmount>
+			<cac:TaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>10</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</cac:TaxSubtotal>
+	</cac:TaxTotal>
+	<cac:LegalMonetaryTotal>
+		<cbc:LineExtensionAmount currencyID="JPY">17000</cbc:LineExtensionAmount>
+		<cbc:TaxExclusiveAmount currencyID="JPY">17000</cbc:TaxExclusiveAmount>
+		<cbc:TaxInclusiveAmount currencyID="JPY">18400</cbc:TaxInclusiveAmount>
+		<cbc:AllowanceTotalAmount currencyID="JPY">0</cbc:AllowanceTotalAmount>
+		<cbc:ChargeTotalAmount currencyID="JPY">0</cbc:ChargeTotalAmount>
+		<cbc:PrepaidAmount currencyID="JPY">0</cbc:PrepaidAmount>
+		<cbc:PayableRoundingAmount currencyID="JPY">0</cbc:PayableRoundingAmount>
+		<cbc:PayableAmount currencyID="JPY">18400</cbc:PayableAmount>
+	</cac:LegalMonetaryTotal>
+	<cac:InvoiceLine>
+		<cbc:ID>1</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="H87">1</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="JPY">5000</cbc:LineExtensionAmount>
+		<cac:InvoicePeriod>
+			<cbc:StartDate>2023-11-01</cbc:StartDate>
+			<cbc:EndDate>2023-11-01</cbc:EndDate>
+		</cac:InvoicePeriod>
+		<cac:Item>
+			<cbc:Name>小麦粉</cbc:Name>
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>AA</cbc:ID>
+				<cbc:Percent>8</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="JPY">5000</cbc:PriceAmount>
+			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
+		</cac:Price>
+	</cac:InvoiceLine>
+	<cac:InvoiceLine>
+		<cbc:ID>2</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="H87">1</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="JPY">10000</cbc:LineExtensionAmount>
+		<cac:InvoicePeriod>
+			<cbc:StartDate>2023-11-01</cbc:StartDate>
+			<cbc:EndDate>2023-11-01</cbc:EndDate>
+		</cac:InvoicePeriod>
+		<cac:Item>
+			<cbc:Name>牛肉</cbc:Name>
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>AA</cbc:ID>
+				<cbc:Percent>8</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="JPY">10000</cbc:PriceAmount>
+			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
+		</cac:Price>
+	</cac:InvoiceLine>
+	<cac:InvoiceLine>
+		<cbc:ID>3</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="H87">1</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="JPY">2000</cbc:LineExtensionAmount>
+		<cac:InvoicePeriod>
+			<cbc:StartDate>2023-11-02</cbc:StartDate>
+			<cbc:EndDate>2023-11-02</cbc:EndDate>
+		</cac:InvoicePeriod>
+		<cac:Item>
+			<cbc:Name>キッチンペーパー</cbc:Name>
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>10</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="JPY">2000</cbc:PriceAmount>
+			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
+		</cac:Price>
+	</cac:InvoiceLine>
+</Invoice>
