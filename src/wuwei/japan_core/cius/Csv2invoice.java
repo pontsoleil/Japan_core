@@ -31,25 +31,29 @@ public class Csv2invoice {
 	static String OUT_XML        = null;
 	static String CHARSET        = "UTF-8";
 	
-	static String DOCUMENT_CURRENCY_ID = "JBT-090"; /*文書通貨コードのID*/
-	static String TAX_CURRENCY_ID      = "JBT-091"; /*税通貨コードのID*/
+	public static String ROOT_ID       = "NC00";
+	public static Integer ROOT_SEMSORT = 1000;
+	
+	static String DOCUMENT_CURRENCY_ID = "NC00-01"; /*文書通貨コードのID*/
+	static String TAX_CURRENCY_ID      = "NC00-02"; /*税通貨コードのID*/
 	static String DOCUMENT_CURRENCY    = null;      /*文書通貨コード*/
 	static String TAX_CURRENCY         = null;      /*税通貨コード*/
-	static String INVOICE_ID           = "JBT-019"; /*インボイス番号のID*/
+	static String INVOICE_ID           = "NC00-19"; /*インボイス番号のID*/
 	static String INVOICE_NUMBER       = null;      /*インボイス番号*/
 	
-	static int MIN_TAX_BREAKDOWN = 4800; /*JBG-74  synSort*/
-	static int MAX_TAX_BREAKDOWN = 4900; /*JBT-329 synSort*/
-	static int MIN_TAX_CURRENCY_BREAKDOWN = 4910; /*JBG-75 */
-	static int MAX_TAX_CURRENCY_BREAKDOWN = 4970; /*JBT-335*/
+	static int MIN_TAX_BREAKDOWN = 5290; /*NC39-NC57  synSort*/
+	static int MAX_TAX_BREAKDOWN = 5390; /*NC57-10 synSort*/
+	static int MIN_TAX_CURRENCY_BREAKDOWN = 5400; /*NC39-NC585 */
+	static int MAX_TAX_CURRENCY_BREAKDOWN = 5460; /*NC58-06 */
 	
-	static int MIN_DOCUMENT_TOTAL = 4700;
-	static int MAX_DOCUMENT_TOTAL = 4780;
-	static String TOTAL_TAX_ID              = "JBT-314"; /*文書ヘッダ合計税額のID*/
-	static int TOTAL_TAX                    = 4730;      /*JBT-314 synSort*/
-	static String TOTAL_TAX_CURRENCY_TAX_ID = "JBT-319"; /*外貨建て請求書文書ヘッダ合計税額のID*/
-	static int TOTAL_TAX_CURRENCY_TAX       = 4740;      /*JBT-319 synSort*/
-	
+	static int MIN_DOCUMENT_TOTAL = 5190;
+	static int MAX_DOCUMENT_TOTAL = 5260;
+
+	static String TOTAL_TAX_ID              = "NC55-03"; /*文書ヘッダ合計税額のID*/
+	static int TOTAL_TAX                    = 5220;      /*NC55-03 synSort*/
+	static String TOTAL_TAX_CURRENCY_TAX_ID = "NC56-01"; /*外貨建て請求書文書ヘッダ合計税額のID*/
+	static int TOTAL_TAX_CURRENCY_TAX       = 5280;      /*NC56-01 synSort*/
+
 	static int COUNT_TAX_BREAKDOWN = 0;
 	
 	/**
@@ -241,20 +245,18 @@ public class Csv2invoice {
 				if (field != null && field.length() > 0) {
 					String id       = FileHandler.header.get(i);
 					Binding binding = FileHandler.bindingDict.get(id);
-//					if ("JBG-74".equals(id) || "JBG-75".equals(id))
-//						System.out.println(binding.toString());
 					if (null==binding) {
 						if (TRACE) System.out.println(id+" is NOT DEFINED in bindingDict");
 						String[] ids = FileHandler.header.get(0).split(",");
 						if (i<ids.length) {
 							id      = ids[i];
 							binding = FileHandler.bindingDict.get(id);
-						} else {
-							continue;
 						}
 					}
+					if (null==binding)
+						continue;
 					Integer synSort = binding.getSynSort();
-					if (id.toUpperCase().matches("^JBG-.+$")) {
+					if (id.toUpperCase().matches("^NC00$") || id.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$")) {
 						key += synSort+"="+field+" ";
 						if (0 == PROCESSING.indexOf("SME-COMMON") && 0 == synSort - MIN_TAX_BREAKDOWN)
 							COUNT_TAX_BREAKDOWN = 1 + Integer.parseInt(field);
@@ -271,6 +273,8 @@ public class Csv2invoice {
 					}
 				}
 			}
+			if ("".equals(key))
+				System.out.println(key);
 			key = key.trim();
 			rowMapList.put(key, rowMap);
 		}
@@ -315,6 +319,8 @@ public class Csv2invoice {
 			String[] data   = bough.split(" ");
 			String   ds     = data[data.length-1];
 			String[] d      = ds.split("=");
+			if (d.length < 2)
+				System.out.println(d);
 			boughSort       = Integer.parseInt(d[0]);
 			boughSeq        = Integer.parseInt(d[1]);
 			TreeMap<Integer, String> row = rowMapList.get(rowKey);
@@ -323,8 +329,6 @@ public class Csv2invoice {
 				Binding binding = FileHandler.synBindingMap.get(synSort);
 				id              = binding.getID();
 				xPath           = binding.getXPath();
-//				if (id.equals("JBT-320") || id.equals("JBT-330"))
-//					System.out.println(id);
 				// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
 				if (xPath.indexOf("true")>0) {
 					xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=true\\(\\)\\]","[normalize-space($1/text())='true']");
@@ -383,8 +387,8 @@ public class Csv2invoice {
 					value      = dataValue.value;
 					attributes = dataValue.attributes;
 					if (null!=xPath && xPath.length() > 0) {					
-						if (0==PROCESSING.indexOf("JP-PINT") && id.equals("JBT-294")) { 
-							// JBT-294(IBT-184 Despatch advice reference cac:DespatchLineReference/cac:DocumentReference/cbc:ID )
+						if (0==PROCESSING.indexOf("JP-PINT") && id.equals("NC70-07")) { 
+							// NC70-07(IBT-184 Despatch advice reference cac:DespatchLineReference/cac:DocumentReference/cbc:ID )
 							// では、UBL構文が必須としている cac:DespatchLineReference/cbc:LineID　に　NA を定義する。
 							// Syntax required item. Value shall be NA. 構文必須要素。値として 'NA'を使用する。							
 							if (TRACE) System.out.println("call appendElementNS /Invoice/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID = NA");

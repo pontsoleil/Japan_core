@@ -56,8 +56,10 @@ public class FileHandler {
 	public static Document doc               = null;
 	public static XPath xpath                = null;
 	public static Element root               = null;
+
 	public static String ROOT_ID             = "NC00";
 	public static Integer ROOT_SEMSORT       = 1000;
+	
 	public static String INVOICE_NUMBER      = null; /*インボイス番号*/
 	public static String DOCUMENT_CURRENCY   = null; /*文書通貨コード*/
 	public static String TAX_CURRENCY        = null; /*税通貨コード*/
@@ -150,7 +152,7 @@ public class FileHandler {
 						break;
 					case "id":
 						binding.setID(value);
-						if (0==value.toUpperCase().indexOf("JBG"))
+						if (value.length() > 0 && value.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$"))
 							MULTIPLE_ID.add(value);
 						break;
 					case "defaultValue":

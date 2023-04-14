@@ -24,12 +24,15 @@ public class Invoice2csv {
 	static String OUT_CSV        = null;
 	static String IN_XML         = null;
 	static String CHARSET        = "UTF-8";
+
+	public static String ROOT_ID       = "NC00";
+	public static Integer ROOT_SEMSORT = 1000;
 	
-	static String DOCUMENT_CURRENCY_ID = "JBT-090"; /*文書通貨コードのID*/
-	static String TAX_CURRENCY_ID      = "JBT-091"; /*税通貨コードのID*/
+	static String DOCUMENT_CURRENCY_ID = "NC00-01"; /*文書通貨コードのID*/
+	static String TAX_CURRENCY_ID      = "NC00-02"; /*税通貨コードのID*/
 	static String DOCUMENT_CURRENCY    = null;      /*文書通貨コード*/
 	static String TAX_CURRENCY         = null;      /*税通貨コード*/
-	static String INVOICE_ID           = "JBT-019"; /*インボイス番号のID*/
+	static String INVOICE_ID           = "NC00-19"; /*インボイス番号のID*/
 	static String INVOICE_NUMBER       = null;      /*インボイス番号*/
 	
 	/**
@@ -199,7 +202,7 @@ public class Invoice2csv {
 			Integer sort    = binding.getSemSort();
 			String id       = binding.getID();
 			String card     = binding.getCard();
-			if (id.toUpperCase().matches("^JBG-.+$") &&
+			if (id.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$") &&
 					card.matches("^.*n$") && //!occur.matches("^.*0$") &&
 					isMultiple(sort)) {
 				multipleMap.put(sort, id);
@@ -238,7 +241,7 @@ public class Invoice2csv {
 		for (Map.Entry<Integer,String> multipleEntry : multipleMap.entrySet()) {
 			String multipleID       = multipleEntry.getValue();
 			Binding multipleBinding = FileHandler.bindingDict.get(multipleID);
-			if (multipleID.toUpperCase().matches("^JBG-.+$") && multipleBinding.isUsed()) {
+			if (multipleID.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$") && multipleBinding.isUsed()) {
 				FileHandler.header.add(multipleID);
 			}
 		}
@@ -248,7 +251,7 @@ public class Invoice2csv {
 			Binding dataBinding = dataEntry.getValue();
 			String dataID       = dataBinding.getID();
 			if (1!=dataSort &&
-					dataID.toUpperCase().matches("^JBT-.+$") &&
+					dataID.toUpperCase().matches("^NC[0-9]+-[0-9]+$") &&
 					dataBinding.isUsed() &&
 					! FileHandler.header.contains(dataID)) {
 				FileHandler.header.add(dataID);
@@ -387,17 +390,17 @@ public class Invoice2csv {
 			{
 				if (countChildren > 1 && children.get(0).getNodeName().equals(children.get(1).getNodeName()))
 				{
-					if (childID.toUpperCase().matches("^JBT-.+$"))
+					if (childID.toUpperCase().matches("^NC[0-9]+-[0-9]+$"))
 					{
 						for (int i = 0; i < countChildren; i++) 
 						{
-							fillMultipleJBT(boughMap, sort, childSort, children, i);
+							fillMultipleBusinessTerm(boughMap, sort, childSort, children, i);
 						}
-					} else if (childID.toUpperCase().matches("^JBG-.+$"))
+					} else if (childID.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$"))
 					{
 						for (int i = 0; i < countChildren; i++) 
 						{
-							fillMultipleJBG(boughMap, sort, childSort, children, i);
+							fillMultipleBusinessTermGroup(boughMap, sort, childSort, children, i);
 						}
 					}						
 				}
@@ -410,7 +413,7 @@ public class Invoice2csv {
 					{
 						fillData(childSort, value, boughMap); // @attribute
 						
-					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("JBT-.+$")) 
+					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("^NC[0-9]+-[0-9]+$")) 
 					{
 						if (TRACE) 
 							System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
@@ -572,7 +575,7 @@ public class Invoice2csv {
 	 * @param children
 	 * @param i
 	 */
-	private static void fillMultipleJBG(
+	private static void fillMultipleBusinessTermGroup(
 			TreeMap<Integer, Integer> boughMap, 
 			Integer sort, 
 			Integer childSort,
@@ -618,7 +621,7 @@ public class Invoice2csv {
 	}
 
 	/**
-	 * Tidy data テーブルに親要素が含むXPathで見つかった複数の子要素(JBT)を追加する。
+	 * Tidy data テーブルに親要素が含むXPathで見つかった複数の子要素を追加する。
 	 * 
 	 * @param boughMap Tidy dataテーブルの行を指定する索引データ
 	 * @param sort モデル定義における親要素のソート番号
@@ -626,7 +629,7 @@ public class Invoice2csv {
 	 * @param children
 	 * @param i
 	 */
-	private static void fillMultipleJBT(
+	private static void fillMultipleBusinessTerm(
 			TreeMap<Integer, Integer> boughMap, 
 			Integer sort, 
 			Integer childSort, 
