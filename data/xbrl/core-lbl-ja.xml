@@ -1936,9 +1936,9 @@
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC00-NC38" xlink:to="label_NC00-NC38" xlink:title="label: NC00-NC38 to label_NC00-NC38"/>
 		<link:label xlink:type="resource" xlink:label="description_NC00-NC38" xlink:title="description_NC00-NC38" id="description_NC00-NC38" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">ヘッダ調整の税クラス</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC00-NC38" xlink:to="description_NC00-NC38" xlink:title="label: NC00-NC38 to label_NC00-NC38"/>
-		<!-- NC38 Financial Ajustment_ Trade Tax -->
+		<!-- NC38 Financial Adjustment_ Trade Tax -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC38" xlink:label="NC38" xlink:title="NC38"/>
-		<link:label xlink:type="resource" xlink:label="label_NC38" xlink:title="label_NC38" id="label_NC38" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Financial Ajustment_ Trade Tax</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC38" xlink:title="label_NC38" id="label_NC38" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Financial Adjustment_ Trade Tax</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC38" xlink:to="label_NC38" xlink:title="label: NC38 to label_NC38"/>
 		<link:label xlink:type="resource" xlink:label="description_NC38" xlink:title="description_NC38" id="description_NC38" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description"></link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC38" xlink:to="description_NC38" xlink:title="label: NC38 to label_NC38"/>
@@ -2890,9 +2890,9 @@
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC39-NC60" xlink:to="label_NC39-NC60" xlink:title="label: NC39-NC60 to label_NC39-NC60"/>
 		<link:label xlink:type="resource" xlink:label="description_NC39-NC60" xlink:title="description_NC39-NC60" id="description_NC39-NC60" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">文書ヘッダの調整税クラスに関するグループ</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC39-NC60" xlink:to="description_NC39-NC60" xlink:title="label: NC39-NC60 to label_NC39-NC60"/>
-		<!-- NC60 Document Financial Ajustment_ Trade Tax -->
+		<!-- NC60 Document Financial Adjustment_ Trade Tax -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC60" xlink:label="NC60" xlink:title="NC60"/>
-		<link:label xlink:type="resource" xlink:label="label_NC60" xlink:title="label_NC60" id="label_NC60" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Document Financial Ajustment_ Trade Tax</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC60" xlink:title="label_NC60" id="label_NC60" xml:lang="ja" xlink:role="http://www.xbrl.org/2003/role/label">Document Financial Adjustment_ Trade Tax</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC60" xlink:to="label_NC60" xlink:title="label: NC60 to label_NC60"/>
 		<link:label xlink:type="resource" xlink:label="description_NC60" xlink:title="description_NC60" id="description_NC60" xml:lang="ja" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description"></link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="NC60" xlink:to="description_NC60" xlink:title="label: NC60 to label_NC60"/>
@@ -3748,13 +3748,13 @@
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
 			<!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
 			<!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-		<!-- NC00-NC38 Financial Ajustment_ Trade Tax -->
+		<!-- NC00-NC38 Financial Adjustment_ Trade Tax -->
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
 			<!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
 			<!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-		<!-- NC00-NC38 Financial Ajustment_ Trade Tax -->
+		<!-- NC00-NC38 Financial Adjustment_ Trade Tax -->
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
@@ -3892,13 +3892,13 @@
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
 			<!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
 			<!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-		<!-- NC39-NC60 Document Financial Ajustment_ Trade Tax -->
+		<!-- NC39-NC60 Document Financial Adjustment_ Trade Tax -->
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
 			<!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->
 			<!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->
-		<!-- NC39-NC60 Document Financial Ajustment_ Trade Tax -->
+		<!-- NC39-NC60 Document Financial Adjustment_ Trade Tax -->
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->

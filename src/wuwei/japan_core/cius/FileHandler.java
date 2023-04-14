@@ -56,7 +56,7 @@ public class FileHandler {
 	public static Document doc               = null;
 	public static XPath xpath                = null;
 	public static Element root               = null;
-	public static String ROOT_ID             = "JBG-00";
+	public static String ROOT_ID             = "NC00";
 	public static Integer ROOT_SEMSORT       = 1000;
 	public static String INVOICE_NUMBER      = null; /*インボイス番号*/
 	public static String DOCUMENT_CURRENCY   = null; /*文書通貨コード*/
@@ -131,8 +131,8 @@ public class FileHandler {
 			ArrayList<String> headers = binding_data.get(0);
 			for (int n=1; n < binding_data.size(); n++) {
 				ArrayList<String> cells = binding_data.get(n);
-				// Integer semSort, String id, Integer level, String businessTerm, String defaultValue, String card, String datatype, Integer synSort, String xPath, String occur
-				//         1               2           3             4                    5            6                 7               8             9
+				// semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessTerm_en,businessTerm_ja,desc_ja,synSort,xPath,occur			
+				// 0       1  2    3     4            5    6            7        8        9               10              11      12      13    14
 				binding = new Binding(0, "", 0, "", "", "", "", 0, "", "");
 				for (int i = 0; i < cells.size(); i++) {
 					String key = headers.get(i);
@@ -192,8 +192,10 @@ public class FileHandler {
 				semSort = binding.getSemSort();
 				synSort = binding.getSynSort();
 				bindingDict.put(id, binding);
-				semBindingMap.put(semSort, binding);
-				synBindingMap.put(synSort, binding);
+				if (semSort > 0)
+					semBindingMap.put(semSort, binding);
+				if (synSort > 0)
+					synBindingMap.put(synSort, binding);
 				if (TRACE) System.out.println(" (FileHandler) parseBinding "+binding.getID()+" "+binding.getXPath());
 			}
 			

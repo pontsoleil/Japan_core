@@ -1292,13 +1292,13 @@
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC37-04" xlink:label="NC37-04" xlink:title="NC37-04"/>
 		<link:label xlink:type="resource" xlink:label="label_NC37-04" xlink:title="label_NC37-04" id="label_NC37-04" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Direction Code</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC37-04" xlink:to="label_NC37-04" xlink:title="label: NC37-04 to label_NC37-04"/>
-		<!-- NC00-NC38 FinancialAjustment_TradeTax -->
+		<!-- NC00-NC38 FinancialAdjustment_TradeTax -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC00-NC38" xlink:label="NC00-NC38" xlink:title="NC00-NC38"/>
-		<link:label xlink:type="resource" xlink:label="label_NC00-NC38" xlink:title="label_NC00-NC38" id="label_NC00-NC38" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">FinancialAjustment_TradeTax</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC00-NC38" xlink:title="label_NC00-NC38" id="label_NC00-NC38" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">FinancialAdjustment_TradeTax</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC00-NC38" xlink:to="label_NC00-NC38" xlink:title="label: NC00-NC38 to label_NC00-NC38"/>
-		<!-- NC38 Financial Ajustment_ Trade Tax -->
+		<!-- NC38 Financial Adjustment_ Trade Tax -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC38" xlink:label="NC38" xlink:title="NC38"/>
-		<link:label xlink:type="resource" xlink:label="label_NC38" xlink:title="label_NC38" id="label_NC38" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Financial Ajustment_ Trade Tax</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC38" xlink:title="label_NC38" id="label_NC38" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Financial Adjustment_ Trade Tax</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC38" xlink:to="label_NC38" xlink:title="label: NC38 to label_NC38"/>
 		<!-- NC38-01 Calculated Amount -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC38-01" xlink:label="NC38-01" xlink:title="NC38-01"/>
@@ -1928,13 +1928,13 @@
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC59-04" xlink:label="NC59-04" xlink:title="NC59-04"/>
 		<link:label xlink:type="resource" xlink:label="label_NC59-04" xlink:title="label_NC59-04" id="label_NC59-04" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Direction Code</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC59-04" xlink:to="label_NC59-04" xlink:title="label: NC59-04 to label_NC59-04"/>
-		<!-- NC39-NC60 DocumentFinancialAjustment_TradeTax -->
+		<!-- NC39-NC60 DocumentFinancialAdjustment_TradeTax -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC39-NC60" xlink:label="NC39-NC60" xlink:title="NC39-NC60"/>
-		<link:label xlink:type="resource" xlink:label="label_NC39-NC60" xlink:title="label_NC39-NC60" id="label_NC39-NC60" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">DocumentFinancialAjustment_TradeTax</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC39-NC60" xlink:title="label_NC39-NC60" id="label_NC39-NC60" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">DocumentFinancialAdjustment_TradeTax</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC39-NC60" xlink:to="label_NC39-NC60" xlink:title="label: NC39-NC60 to label_NC39-NC60"/>
-		<!-- NC60 Document Financial Ajustment_ Trade Tax -->
+		<!-- NC60 Document Financial Adjustment_ Trade Tax -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC60" xlink:label="NC60" xlink:title="NC60"/>
-		<link:label xlink:type="resource" xlink:label="label_NC60" xlink:title="label_NC60" id="label_NC60" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Document Financial Ajustment_ Trade Tax</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC60" xlink:title="label_NC60" id="label_NC60" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Document Financial Adjustment_ Trade Tax</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC60" xlink:to="label_NC60" xlink:title="label: NC60 to label_NC60"/>
 		<!-- NC60-01 Calculated Amount -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC60-01" xlink:label="NC60-01" xlink:title="NC60-01"/>
@@ -2504,11 +2504,11 @@
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-		<!-- NC00-NC38 Financial Ajustment_ Trade Tax -->
+		<!-- NC00-NC38 Financial Adjustment_ Trade Tax -->
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-		<!-- NC00-NC38 Financial Ajustment_ Trade Tax -->
+		<!-- NC00-NC38 Financial Adjustment_ Trade Tax -->
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
@@ -2600,11 +2600,11 @@
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-		<!-- NC39-NC60 Document Financial Ajustment_ Trade Tax -->
+		<!-- NC39-NC60 Document Financial Adjustment_ Trade Tax -->
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->
-		<!-- NC39-NC60 Document Financial Ajustment_ Trade Tax -->
+		<!-- NC39-NC60 Document Financial Adjustment_ Trade Tax -->
 			<!-- link:loc defined -->
 			<!-- link:label http://www.xbrl.org/2003/role/label defined -->
 			<!-- link:labelArc http://www.xbrl.org/2003/arcrole/concept-label defined -->

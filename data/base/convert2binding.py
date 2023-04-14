@@ -58,49 +58,54 @@ if __name__ == '__main__':
 	_core_japan_file = file_path(_core_japan_file)
 	core_japan_file = f'{base}{core_japan_file}'.replace('/', SEP)
 	core_japan_file = file_path(core_japan_file)
-	header = ['num','kind','id','lvl','occur','name','desc','datatype','UN_CCL_ID','sme_kind','sme_sort','sme_id','sme_name','sme_desc','sme_defaultValue','sme_occur','sme_level','sme_xpath','pint_sort','pint_Id','pint_card','Level','pint_name','pint_name_ja','Description','pint_desc','pint_defaultValue','pint_xpath']
+	# header = ['semSort','kind','id','level','occurrence','term','desc','representation',
+	# 'UN_CCL_ID','smeKind','smeSeq','smeID','smeTerm','smeDesc','smeDefault','smeOccur','smeLevel','smeXPath',
+	# 'pintSort','pintID','pintOccur','pintLevel','pintTerm','pintTermJA','pintDesc','pintDefault','pintDefault','pintXPath']
+	header = ['semSort','group','id','table_id','field_id','level','occurrence','term','kind','class','propertyTerm','representation','associatedClass','desc',
+	   'UN_CCL_ID','smeKind','smeSeq','smeID','smeTerm','smeDesc','smeDefault','smeOccur','smeLevel','smeXPath',
+	   'pintSort','pintID','pintOccur','pintLevel','pintTerm','pintTermJA','pintDesc','pintDescJA','pintDefault','pintXPath']
 	binding_header = ['semSort','id','card','level','businessTerm','desc','defaultValue','dataType','syntaxID','businessTerm_en','businessTerm_ja','desc_ja','synSort','xPath','occur']
 	with open(core_japan_file, encoding='utf_8', newline='') as f:
 		reader = csv.DictReader(f, fieldnames=header)
 		next(reader)
 		for row in reader:
 			desc = row['desc'].replace(r'[\r|\n]', r'\\n')
-			if len(row['pint_xpath']) > 0:
-				desc_ja = row['pint_desc'].replace(r'[\r|\n]', r'\\n')
+			if len(row['pintXPath']) > 0:
+				desc_ja = row['pintDefault'].replace(r'[\r|\n]', r'\\n')
 				jp_pint_entry = {}
-				jp_pint_entry['semSort'] = row['num'] and int(row['num']) or 0
+				jp_pint_entry['semSort'] = row['semSort'] and int(row['semSort']) or 0
 				jp_pint_entry['id'] = row['id']
-				jp_pint_entry['card'] = row['occur']
-				jp_pint_entry['level'] = row['lvl'] and int(row['lvl']) or 0
-				jp_pint_entry['businessTerm'] = row['name']
+				jp_pint_entry['card'] = row['occurrence']
+				jp_pint_entry['level'] = row['level'] and int(row['level']) or 0
+				jp_pint_entry['businessTerm'] = row['term']
 				jp_pint_entry['desc'] = desc
-				jp_pint_entry['defaultValue'] = row['pint_defaultValue']
-				jp_pint_entry['dataType'] = row['datatype']
-				jp_pint_entry['syntaxID'] = row['pint_Id']
-				jp_pint_entry['businessTerm'] = row['pint_name']
-				jp_pint_entry['businessTerm_ja'] = row['pint_name_ja']
+				jp_pint_entry['defaultValue'] = row['pintDefault']
+				jp_pint_entry['dataType'] = row['representation']
+				jp_pint_entry['syntaxID'] = row['pintID']
+				jp_pint_entry['businessTerm'] = row['pintTerm']
+				jp_pint_entry['businessTerm_ja'] = row['pintTermJA']
 				jp_pint_entry['desc_ja'] = desc_ja
-				jp_pint_entry['synSort'] = row['pint_sort'] and int(row['pint_sort']) or 0
-				jp_pint_entry['xPath'] = row['pint_xpath']
-				jp_pint_entry['occur'] = row['pint_card']
+				jp_pint_entry['synSort'] = row['pintSort'] and int(row['pintSort']) or 0
+				jp_pint_entry['xPath'] = row['pintXPath']
+				jp_pint_entry['occur'] = row['pintOccur']
 				jp_pint_entries.append(jp_pint_entry)
-			if len(row['sme_xpath']) > 0:
-				desc_ja = row['sme_desc'].replace(r'[\r|\n]', r'\\n')
+			if len(row['smeXPath']) > 0:
+				desc_ja = row['smeDesc'].replace(r'[\r|\n]', r'\\n')
 				sme_entry = {}
-				sme_entry['semSort'] = row['num'] and int(row['num']) or 0
+				sme_entry['semSort'] = row['semSort'] and int(row['semSort']) or 0
 				sme_entry['id'] = row['id']
-				sme_entry['card'] = row['occur']
-				sme_entry['level'] = row['lvl'] and int(row['lvl']) or 0
-				sme_entry['businessTerm'] = row['name']
+				sme_entry['card'] = row['occurrence']
+				sme_entry['level'] = row['level'] and int(row['level']) or 0
+				sme_entry['businessTerm'] = row['term']
 				sme_entry['desc'] = desc
-				sme_entry['defaultValue'] = row['sme_defaultValue']
-				sme_entry['dataType'] = row['datatype']
+				sme_entry['defaultValue'] = row['smeDefault']
+				sme_entry['dataType'] = row['representation']
 				sme_entry['syntaxID'] = row['UN_CCL_ID']
-				sme_entry['businessTerm_ja'] = row['sme_name']
+				sme_entry['businessTerm_ja'] = row['smeTerm']
 				sme_entry['desc_ja'] = desc_ja
-				sme_entry['synSort'] = row['sme_sort'] and int(row['sme_sort']) or 0
-				sme_entry['xPath'] = row['sme_xpath']
-				sme_entry['occur'] = row['sme_occur']
+				sme_entry['synSort'] = row['smeSeq'] and int(row['smeSeq']) or 0
+				sme_entry['xPath'] = row['smeXPath']
+				sme_entry['occur'] = row['smeOccur']
 				sme_entries.append(sme_entry)
 			core_japan_entries.append(row)
 
