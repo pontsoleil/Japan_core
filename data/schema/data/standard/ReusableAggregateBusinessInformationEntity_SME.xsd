@@ -574,32 +574,6 @@ Schema date:    31MAR23
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CITradeTaxType              SAMBUICHI ===== -->
     <!-- ================================================================== -->
-    <!--<xsd:complexType name="CITradeTaxType">
-        --><!--UN01005832--><!--
-        <xsd:sequence>
-            <xsd:element name="CalculatedAmount" type="udt:AmountType" minOccurs="0">
-                --><!--UN01005833 SAMBUICHI change min to 0--><!--
-            </xsd:element>
-            <xsd:element name="TypeCode" type="qdt:TaxTypeCodeType" minOccurs="0">
-                --><!--UN01005834 SAMBUICHI--><!--
-            </xsd:element>
-            <xsd:element name="CalculatedRate" type="udt:RateType" minOccurs="0">
-                --><!--UN01005836 SAMBUICHI change min to 0--><!--
-            </xsd:element>
-            <xsd:element name="BasisAmount" type="udt:AmountType" minOccurs="0">
-                --><!--UN01005839 SAMBUICHI change min to 0--><!--
-            </xsd:element>
-            <xsd:element name="CategoryCode" type="udt:CodeType" minOccurs="1">
-                --><!--UN01005841--><!--
-            </xsd:element>
-            <xsd:element name="CurrencyCode" type="udt:CodeType" minOccurs="0">
-                --><!--UN01005842--><!--
-            </xsd:element>
-            <xsd:element name="RateApplicablePercent" type="udt:PercentType" minOccurs="0">
-                --><!--UN01007174--><!--
-            </xsd:element>
-        </xsd:sequence>
-    </xsd:complexType>-->
 	<xsd:complexType name="CITradeTaxType">
 		<!--UN01005832-->
 		<xsd:sequence>
@@ -612,9 +586,9 @@ Schema date:    31MAR23
 			<!--<xsd:element name="ExemptionReason" type="udt:TextType" minOccurs="0">
 				--><!--UN01005835--><!--
 			</xsd:element>-->
-			<xsd:element name="CalculatedRate" type="udt:RateType" minOccurs="0">
+			<!--<xsd:element name="CalculatedRate" type="udt:RateType" minOccurs="0">-->
 				<!--UN01005836-->
-			</xsd:element>
+			<!--</xsd:element>-->
 			<!--<xsd:element name="CalculationSequenceNumeric" type="udt:NumericType" minOccurs="0">
 				--><!--UN01005837--><!--
 			</xsd:element>-->
@@ -653,26 +627,26 @@ Schema date:    31MAR23
 			</xsd:element>
 			<xsd:element name="InformationAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
 				--><!--UN01005849--><!--
-			</xsd:element>
+			</xsd:element>-->
 			<xsd:element name="CategoryName" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
-				--><!--UN01005850--><!--
+				<!--UN01005850-->
 			</xsd:element>
-			<xsd:element name="DueDateTypeCode" type="qdt:TimeReferenceCodeType" minOccurs="0">
+		<!--	<xsd:element name="DueDateTypeCode" type="qdt:TimeReferenceCodeType" minOccurs="0">
 				--><!--UN01006052--><!--
 			</xsd:element>-->
 			<xsd:element name="RateApplicablePercent" type="udt:PercentType" minOccurs="0">
 				<!--UN01007174-->
 			</xsd:element>
-			<!--<xsd:element name="GrandTotalAmount" type="udt:AmountType" minOccurs="0" maxOccurs="1">
-				--><!--UN01013040--><!--
-			</xsd:element>-->
-	<!--        <xsd:element name="CalculationMethodCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
-				--><!--UN01013096--><!--
+			<xsd:element name="GrandTotalAmount" type="udt:AmountType" minOccurs="0" maxOccurs="1">
+				<!--UN01013040-->
+			</xsd:element>
+	        <xsd:element name="CalculationMethodCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
+				<!--UN01013096-->
 			</xsd:element>
 			<xsd:element name="LocalTaxSystemID" type="udt:IDType" minOccurs="0" maxOccurs="1">
-				--><!--UN01014650--><!--
+				<!--UN01014650-->
 			</xsd:element>
-			<xsd:element name="SpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
+		<!--	<xsd:element name="SpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
 				--><!--UN01005851--><!--
 			</xsd:element>
 			<xsd:element name="BuyerDeductibleTaxSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0">

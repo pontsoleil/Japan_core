@@ -613,6 +613,20 @@ public class Csv2invoice {
 		int boughLevel  = boughPaths.size()-1;
 		String selector = FileHandler.extractSelector(path);
 		
+		if (0==PROCESSING.indexOf("SME-COMMON")) {
+			if (path.indexOf("[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode]") > 0 )
+			{
+				path = path.replace(
+					"[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode]",
+					"");				
+			}
+			else if (path.indexOf("[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode]") > 0)
+			{
+				if (TRACE) System.out.println("TODO: support "+path);
+				return null;
+			}
+		}
+		
 		List<Node> elements = FileHandler.getXPath(parent, path);
 		
 		Element element = null;

@@ -137,7 +137,7 @@ semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessT
 4670,NC48-01,1..1,3,Despatch advice reference,この文書ヘッダが参照する発注者が付番した出荷回答書番号,,Document Reference,IBT-016,,出荷案内書参照,,1260,/Invoice/cac:DespatchDocumentReference/cbc:ID,0..1
 4710,NC39-NC49,0..n,2,,明細文書が参照する納品書のクラス,,__,,,,,3080,/Invoice/cac:InvoiceLine/cac:DespatchLineReference,0..n
 4720,,,0,,,NA,,,,,NA,3090,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID,1..1
-4730,NC49-01,1..1,3,Despatch advice reference,この明細文書が参照する売り手が付番した納品書番号,,Document Reference,IBT-184,,出荷案内書参照,,0,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID,1..1
+4730,NC49-01,1..1,3,Despatch advice reference,この明細文書が参照する売り手が付番した納品書番号,,Document Reference,IBT-184,,出荷案内書参照,,3100,/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID,1..1
 4780,NC39-NC50,0..1,2,DELIVERY INFORMATION,納入先に関する情報のグループ,,__,IBG-13,,納入先,,2130,/Invoice/cac:Delivery,0..1
 4790,NC50-01,0..1,3,Actual delivery date,納入先へ発送した日時,,Date,IBT-072,,実際納入日,,2140,/Invoice/cac:Delivery/cbc:ActualDeliveryDate,0..1
 4800,NC50-02,0..1,3,Deliver to location identifier,納入先の企業/工場・事業所・事業部門等を表す発注者が付与したコード。,,Identifier,IBT-071,,納入先ID,,2150,/Invoice/cac:Delivery/cac:DeliveryLocation/cbc:ID,0..1
