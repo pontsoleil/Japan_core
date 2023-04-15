@@ -25,15 +25,25 @@ public class Invoice2csv {
 	static String IN_XML         = null;
 	static String CHARSET        = "UTF-8";
 
-	public static String ROOT_ID       = "NC00";
-	public static Integer ROOT_SEMSORT = 1000;
-	
-	static String DOCUMENT_CURRENCY_ID = "NC00-01"; /*文書通貨コードのID*/
-	static String TAX_CURRENCY_ID      = "NC00-02"; /*税通貨コードのID*/
-	static String DOCUMENT_CURRENCY    = null;      /*文書通貨コード*/
-	static String TAX_CURRENCY         = null;      /*税通貨コード*/
-	static String INVOICE_ID           = "NC00-19"; /*インボイス番号のID*/
-	static String INVOICE_NUMBER       = null;      /*インボイス番号*/
+	static String ROOT_ID;
+	static Integer ROOT_SEMSORT;	
+	static String DOCUMENT_CURRENCY_ID;      /*文書通貨コードのID*/
+	static String TAX_CURRENCY_ID;           /*税通貨コードのID*/
+	static String INVOICE_ID;                /*インボイス番号のID*/
+	static int MIN_DOCUMENT_TOTAL;           /*semSort 文書ヘッダ合計金額*/
+	static int MAX_DOCUMENT_TOTAL;           /*semSort*/
+	static String TOTAL_TAX_ID;              /*文書ヘッダ合計税額のID*/
+	static int TOTAL_TAX;                    /*semSort*/
+	static String TOTAL_TAX_CURRENCY_TAX_ID; /*外貨建て請求書文書ヘッダ合計税額のID*/
+	static int TOTAL_TAX_CURRENCY_TAX;       /*semSort*/
+	static int MIN_TAX_BREAKDOWN;            /*semSort 文書ヘッダ課税分類*/
+	static int MAX_TAX_BREAKDOWN;            /*semSort*/
+	static int MIN_TAX_CURRENCY_BREAKDOWN;   /*semSort 文書ヘッダ外貨建て課税分類*/
+	static int MAX_TAX_CURRENCY_BREAKDOWN;   /*semSort*/	
+	static String DOCUMENT_CURRENCY = null;  /*文書通貨コード*/
+	static String TAX_CURRENCY      = null;  /*税通貨コード*/
+	static String INVOICE_NUMBER    = null;  /*インボイス番号*/
+	static int COUNT_TAX_BREAKDOWN  = 0;
 	
 	/**
 	 * 複数回繰り返され定義されているJBGグループ
@@ -68,6 +78,21 @@ public class Invoice2csv {
 	 */
 	public static void main(String[] args)
 	{
+		ROOT_ID                    = FileHandler.ROOT_ID;
+		ROOT_SEMSORT               = FileHandler.ROOT_SEMSORT;	
+		DOCUMENT_CURRENCY_ID       = FileHandler.DOCUMENT_CURRENCY_ID;       /*文書通貨コードのID*/
+		TAX_CURRENCY_ID            = FileHandler.TAX_CURRENCY_ID;            /*税通貨コードのID*/
+		INVOICE_ID                 = FileHandler.INVOICE_ID;                 /*インボイス番号のID*/	
+		MIN_DOCUMENT_TOTAL         = FileHandler.MIN_DOCUMENT_TOTAL;         /*semSort 文書ヘッダ合計金額*/
+		MAX_DOCUMENT_TOTAL         = FileHandler.MAX_DOCUMENT_TOTAL;         /*semSort*/
+		TOTAL_TAX_ID               = FileHandler.TOTAL_TAX_ID;               /*文書ヘッダ合計税額のID*/
+		TOTAL_TAX                  = FileHandler.TOTAL_TAX;                  /*semSort*/
+		TOTAL_TAX_CURRENCY_TAX_ID  = FileHandler.TOTAL_TAX_CURRENCY_TAX_ID;  /*外貨建て請求書文書ヘッダ合計税額のID*/
+		TOTAL_TAX_CURRENCY_TAX     = FileHandler.TOTAL_TAX_CURRENCY_TAX;     /*semSort*/
+		MIN_TAX_BREAKDOWN          = FileHandler.MIN_TAX_BREAKDOWN;          /*semSort 文書ヘッダ課税分類*/
+		MAX_TAX_BREAKDOWN          = FileHandler.MAX_TAX_BREAKDOWN;          /*semSort*/
+		MIN_TAX_CURRENCY_BREAKDOWN = FileHandler.MIN_TAX_CURRENCY_BREAKDOWN; /*semSort 文書ヘッダ外貨建て課税分類*/
+		MAX_TAX_CURRENCY_BREAKDOWN = FileHandler.MAX_TAX_CURRENCY_BREAKDOWN; /*semSort*/
 		TRACE = false;
 		DEBUG = false;
 		if (0 == args.length) {

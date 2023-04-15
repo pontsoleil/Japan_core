@@ -1039,8 +1039,8 @@ Schema date:    31MAR23
             <xsd:element name="IncludedCINote" type="ram:CINoteType" minOccurs="0" maxOccurs="unbounded">
                 <!--JPS2300004-->
             </xsd:element>
-            <xsd:element name="SpecifiedCIILBSupplyChainTradeAgreement" type="ram:CIILBSupplyChainTradeAgreementType" minOccurs="1">
-                <!--UN01009649-->
+            <xsd:element name="SpecifiedCIILBSupplyChainTradeAgreement" type="ram:CIILBSupplyChainTradeAgreementType" minOccurs="0">
+                <!--UN01009649 changed minOccurs to 0 2023-04-15 SAMBUICHI-->
             </xsd:element>
             <xsd:element name="SpecifiedCIILBSupplyChainTradeDelivery" type="ram:CIILBSupplyChainTradeDeliveryType" minOccurs="1">
                 <!--UN01009650-->

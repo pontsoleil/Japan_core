@@ -57,12 +57,24 @@ public class FileHandler {
 	public static XPath xpath                = null;
 	public static Element root               = null;
 
-	public static String ROOT_ID             = "NC00";
-	public static Integer ROOT_SEMSORT       = 1000;
-	
-	public static String INVOICE_NUMBER      = null; /*インボイス番号*/
-	public static String DOCUMENT_CURRENCY   = null; /*文書通貨コード*/
-	public static String TAX_CURRENCY        = null; /*税通貨コード*/
+	public static String ROOT_ID                   = "NC00";
+	public static Integer ROOT_SEMSORT             = 1000;	
+	public static String DOCUMENT_CURRENCY_ID      = "NC00-01"; /*文書通貨コードのID*/
+	public static String TAX_CURRENCY_ID           = "NC00-02"; /*税通貨コードのID*/
+	public static String INVOICE_ID                = "NC00-19"; /*インボイス番号のID*/	
+	public static int MIN_DOCUMENT_TOTAL           = 5190;      /*NC39-NC55 semSort 文書ヘッダ合計金額*/
+	public static int MAX_DOCUMENT_TOTAL           = 5260;      /*NC55-07   semSort*/
+	public static String TOTAL_TAX_ID              = "NC55-03"; /*文書ヘッダ合計税額のID*/
+	public static int TOTAL_TAX                    = 5220;      /*NC55-03 semSort*/
+	public static String TOTAL_TAX_CURRENCY_TAX_ID = "NC56-01"; /*外貨建て請求書文書ヘッダ合計税額のID*/
+	public static int TOTAL_TAX_CURRENCY_TAX       = 5280;      /*NC56-01 semSort*/
+	public static int MIN_TAX_BREAKDOWN            = 5290;      /*NC39-NC57 semSort 文書ヘッダ課税分類*/
+	public static int MAX_TAX_BREAKDOWN            = 5390;      /*NC57-10   semSort*/
+	public static int MIN_TAX_CURRENCY_BREAKDOWN   = 5400;      /*NC39-NC58 semSort 文書ヘッダ外貨建て課税分類*/
+	public static int MAX_TAX_CURRENCY_BREAKDOWN   = 5460;      /*NC58-06   semSort*/
+	public static String INVOICE_NUMBER            = null;      /*インボイス番号*/
+	public static String DOCUMENT_CURRENCY         = null;      /*文書通貨コード*/
+	public static String TAX_CURRENCY              = null;      /*税通貨コード*/
 			
 	public static boolean TRACE     = false;
 	public static boolean DEBUG     = false;
@@ -198,7 +210,7 @@ public class FileHandler {
 					semBindingMap.put(semSort, binding);
 				if (synSort > 0)
 					synBindingMap.put(synSort, binding);
-				if (TRACE) System.out.println(" (FileHandler) parseBinding "+binding.getID()+" "+binding.getXPath());
+				if (TRACE) System.out.println(" (FileHandler) parseBinding "+id+" semSort:"+semSort+" synSort:"+synSort+" "+binding.getXPath());
 			}
 			
 			if (PROCESSING.indexOf("SEMANTICS")>0) {
@@ -858,16 +870,39 @@ public class FileHandler {
 		header = new ArrayList<String>();
 		ArrayList<String> fields = data.get(0);
 		int headerCount = fields.size();
-		for (String field : fields) {
+		TreeMap<Integer,Integer> headerMap = new TreeMap<>();
+		for (int i = 0; i < headerCount; i++) {
+			String id = fields.get(i);
+			Binding binding = bindingDict.get(id);
+			if (null!=binding) {
+				Integer synSort = binding.getSynSort();
+				headerMap.put(synSort, i);
+			} else {
+				System.out.println(id + " is not defined in bindingMap.");
+//				headerMap.put(9999, i);
+			}
+		}
+		for(Map.Entry<Integer,Integer> entry : headerMap.entrySet()) {
+			Integer i = entry.getValue();
+			String field = "";
+			if (i < fields.size())
+				field = fields.get(i);
 			header.add(field);
 		}
 		// data
 		tidyData = new ArrayList<ArrayList<String>>();
 		for (int i = 1; i < data.size(); i++) {
 			fields = data.get(i);
-			while (fields.size() < headerCount)
-				fields.add(null);
-			tidyData.add(fields);
+			ArrayList<String> record = new ArrayList<String>();
+			for(Map.Entry<Integer,Integer> entry : headerMap.entrySet()) {
+				Integer synSort = entry.getKey();
+				Integer j = entry.getValue();
+				String field = "";
+				if (j < fields.size())
+					field = fields.get(j);
+				record.add(field);
+			}			
+			tidyData.add(record);
 		}
 		fileInputStream.close();
 	}
