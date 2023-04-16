@@ -15,7 +15,8 @@ import org.w3c.dom.NodeList;
 /**
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
  */
-public class Invoice2csv {
+public class Invoice2csv 
+{
 	static boolean TRACE         = false;	
 	static boolean DEBUG         = false;	
 	static String PROCESSING     = null;
@@ -95,12 +96,15 @@ public class Invoice2csv {
 		MAX_TAX_CURRENCY_BREAKDOWN = FileHandler.MAX_TAX_CURRENCY_BREAKDOWN; /*semSort*/
 		TRACE = false;
 		DEBUG = false;
-		if (0 == args.length) {
+		if (0 == args.length) 
+		{
 			PROCESSING = "JP-PINT SEMANTICS";
-		} else {
+		} else 
+		{
 			PROCESSING = args[0]+" SEMANTICS";
 		}
-		if (args.length <= 1) {
+		if (args.length <= 1) 
+		{
 			TRACE = true;
 			DEBUG = true;
 			if (0==PROCESSING.indexOf("JP-PINT")) {	
@@ -112,7 +116,8 @@ public class Invoice2csv {
 			} else {
 				return;
 			}
-		} else if (args.length >= 3) {
+		} else if (args.length >= 3) 
+		{
 			IN_XML     = args[1];	
 			OUT_CSV    = args[2];
 			if (4==args.length) {
@@ -122,7 +127,8 @@ public class Invoice2csv {
 					DEBUG = true;
 			}	
 		}
-		if (args.length>=5) {
+		if (args.length>=5) 
+		{
 			SYNTAX_BINDING = args[3];
 			XML_SKELTON    = args[4];
 			FileHandler.SYNTAX_BINDING = SYNTAX_BINDING;
@@ -133,14 +139,18 @@ public class Invoice2csv {
 				if (args[5].indexOf("D")>=0)
 					DEBUG = true;
 			}	
-		} else {
-			if (0==PROCESSING.indexOf("JP-PINT")) {		
+		} else 
+		{
+			if (0==PROCESSING.indexOf("JP-PINT")) 
+			{		
 				FileHandler.SYNTAX_BINDING = FileHandler.JP_PINT_CSV;
 				FileHandler.XML_SKELTON    = FileHandler.JP_PINT_XML_SKELTON;			
-			} else if (0==PROCESSING.indexOf("SME-COMMON")) {
+			} else if (0==PROCESSING.indexOf("SME-COMMON")) 
+			{
 				FileHandler.SYNTAX_BINDING = FileHandler.SME_CSV;
 				FileHandler.XML_SKELTON    = FileHandler.SME_XML_SKELTON;
-			} else {
+			} else 
+			{
 				return;
 			}
 		}
@@ -159,7 +169,8 @@ public class Invoice2csv {
 	 * @param path XPath文字列
 	 * @return　短縮された path
 	 */
-	public static String getShortPath(String path) {
+	public static String getShortPath(String path) 
+	{
 		if (0==PROCESSING.indexOf("SME-COMMON"))
 		{
 			String _path = path;
@@ -175,13 +186,15 @@ public class Invoice2csv {
 		}
 	
 	}
+	
 	/**
 	 * を読み込んで Tidy dataテーブルに展開し、CSVファイルに出力する.
 	 * 
 	 * @param in_xml デジタルインボイス（XMLインスタンス文書）.
 	 * @param out_csv Tidy dataのCSV(RFC4180形式)ファイル.
 	 */
-	private static void processInvoice(String in_xml, String out_csv) {
+	private static void processInvoice(String in_xml, String out_csv) 
+	{
 		if (TRACE) System.out.println("\n** processInvoice("+in_xml+", "+out_csv+")");
 		
 		boughMap     = new TreeMap<Integer/*sort*/,Integer/*seq*/>();
@@ -191,27 +204,34 @@ public class Invoice2csv {
 	
 		FileHandler.parseBinding();
 		
-		try {
+		try 
+		{
 			FileHandler.parseInvoice(in_xml);
-		} catch (Exception e) {
+		} catch (Exception e) 
+		{
 			e.printStackTrace();
 			return;
 		}
 		
 		// 通貨コードをチェック
-		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) {
+		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) 
+		{
 			Binding binding = entry.getValue();
 			String id       = binding.getID();
 			String xPath    = binding.getXPath();
-			if (id.equals(DOCUMENT_CURRENCY_ID)) {
+			if (id.equals(DOCUMENT_CURRENCY_ID)) 
+			{
 				List<Node> nodes = FileHandler.getXPathNodes(FileHandler.root, xPath);
-				if (nodes.size() > 0) {
+				if (nodes.size() > 0) 
+				{
 					DOCUMENT_CURRENCY = nodes.get(0).getTextContent();
 					FileHandler.DOCUMENT_CURRENCY = DOCUMENT_CURRENCY;
 				}
-			} else if (id.equals(TAX_CURRENCY_ID)) {
+			} else if (id.equals(TAX_CURRENCY_ID)) 
+			{
 				List<Node> nodes = FileHandler.getXPathNodes(FileHandler.root, xPath);
-				if (nodes.size() > 0) {
+				if (nodes.size() > 0) 
+				{
 					TAX_CURRENCY = nodes.get(0).getTextContent();
 					FileHandler.TAX_CURRENCY = TAX_CURRENCY;
 				}
@@ -222,14 +242,16 @@ public class Invoice2csv {
 		
 		// 複数繰返しをチェック
 		multipleMap = new TreeMap<>();
-		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) {
+		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) 
+		{
 			Binding binding = entry.getValue();
 			Integer sort    = binding.getSemSort();
 			String id       = binding.getID();
 			String card     = binding.getCard();
 			if (id.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$") &&
 					card.matches("^.*n$") && //!occur.matches("^.*0$") &&
-					isMultiple(sort)) {
+					isMultiple(sort)) 
+			{
 				multipleMap.put(sort, id);
 			}
 		}
@@ -257,66 +279,80 @@ public class Invoice2csv {
 	/**
 	 * Tidy dataテーブル作成用の2次元リストrowMapListをTidy dataテーブル(FileHandler/tidyData)に変換する.
 	 */
-	private static void fillTable() {
+	private static void fillTable() 
+	{
 		FileHandler.tidyData = new ArrayList<ArrayList<String>>();
 		if (TRACE) System.out.println();
 
 		FileHandler.header.add(FileHandler.ROOT_ID);
 		// bough
-		for (Map.Entry<Integer,String> multipleEntry : multipleMap.entrySet()) {
+		for (Map.Entry<Integer,String> multipleEntry : multipleMap.entrySet()) 
+		{
 			String multipleID       = multipleEntry.getValue();
 			Binding multipleBinding = FileHandler.bindingDict.get(multipleID);
-			if (multipleID.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$") && multipleBinding.isUsed()) {
+			if (multipleID.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$") && multipleBinding.isUsed()) 
+			{
 				FileHandler.header.add(multipleID);
 			}
 		}
 		// data
-		for (Map.Entry<Integer,Binding> dataEntry : FileHandler.semBindingMap.entrySet()) {
+		for (Map.Entry<Integer,Binding> dataEntry : FileHandler.semBindingMap.entrySet()) 
+		{
 			Integer dataSort    = dataEntry.getKey();
 			Binding dataBinding = dataEntry.getValue();
 			String dataID       = dataBinding.getID();
 			if (1!=dataSort &&
 					dataID.toUpperCase().matches("^NC[0-9]+-[0-9]+$") &&
 					dataBinding.isUsed() &&
-					! FileHandler.header.contains(dataID)) {
+					! FileHandler.header.contains(dataID)) 
+			{
 				FileHandler.header.add(dataID);
 			}
 		}
 		if (TRACE) System.out.println("* FileHandler.tidyData\n"+FileHandler.header.toString());
-		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) {
+		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) 
+		{
 			ArrayList<String> record = new ArrayList<>();
-			for (int i = 0; i < FileHandler.header.size(); i++) {
+			for (int i = 0; i < FileHandler.header.size(); i++) 
+			{
 				record.add("");
 			}
 			// bough
 			String rowMapKey = entryRow.getKey();
 			String[] boughs = rowMapKey.split(" ");
-			for (String bough : boughs) {
+			for (String bough : boughs) 
+			{
 				String[] index       = bough.split("=");
 				Integer boughSort    = Integer.parseInt(index[0]);
 				Binding boughBinding = FileHandler.semBindingMap.get(boughSort);
-				if (null!=boughBinding) {
+				if (null!=boughBinding) 
+				{
 					String boughID  = boughBinding.getID();
 					String boughSeq = index[1];
 					int boughIndex  = FileHandler.header.indexOf(boughID);
-					if (boughIndex!=-1) {
+					if (boughIndex!=-1) 
+					{
 						record.set(boughIndex, boughSeq);
-					} else {
+					} else 
+					{
 						if (TRACE) System.out.println("xx "+boughID+" NOT FOUND in the header");
 					}
 				}
 			}
 			// data
 			TreeMap<Integer, String> rowMap = entryRow.getValue();
-			for (Map.Entry<Integer, String> entry : rowMap.entrySet()) {
+			for (Map.Entry<Integer, String> entry : rowMap.entrySet()) 
+			{
 				Integer sort    = entry.getKey();
 				String value    = entry.getValue();
 				Binding binding = FileHandler.semBindingMap.get(sort);
 				String id       = binding.getID();
 				int dataIndex   = FileHandler.header.indexOf(id);
-				if (dataIndex!=-1) {
+				if (dataIndex!=-1) 
+				{
 					record.set(dataIndex, value);
-				} else {
+				} else 
+				{
 					if (TRACE) System.out.println(id+" NOT FOUND in the header");
 				}
 			}
@@ -337,7 +373,8 @@ public class Invoice2csv {
 	private static void fillData (
 			Integer semSort, 
 			String value, 
-			TreeMap<Integer, Integer> boughMap ) {
+			TreeMap<Integer, Integer> boughMap ) 
+	{
 		Binding binding     = (Binding) FileHandler.semBindingMap.get(semSort);
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
@@ -346,14 +383,16 @@ public class Invoice2csv {
 		if (TRACE) 
 			System.out.println("  fillData boughMap="+boughMap.toString()+" "+id+"("+semSort+") "+businessTerm+" = "+value);
 		String rowMapKey = "";
-		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) {
+		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) 
+		{
 			Integer boughSort = entry.getKey();
 			Integer seq       = entry.getValue();
 			rowMapKey += (boughSort+"="+seq+" ");
 		}
 		rowMap = new TreeMap<>();
 		rowMapKey = rowMapKey.trim();
-		if (rowMapList.containsKey(rowMapKey)) {
+		if (rowMapList.containsKey(rowMapKey)) 
+		{
 			rowMap = rowMapList.get(rowMapKey);
 		}
 		rowMap.put(semSort, value);
@@ -377,7 +416,8 @@ public class Invoice2csv {
 	private static void fillGroup (
 			Node parent, 
 			Integer sort, 
-			TreeMap<Integer, Integer> boughMap ) {
+			TreeMap<Integer, Integer> boughMap ) 
+	{
 		Binding binding     = FileHandler.semBindingMap.get(sort);
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
@@ -388,7 +428,8 @@ public class Invoice2csv {
 		}*/
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
-		if (TRACE) {
+		if (TRACE) 
+		{
 			System.out.print("- 0 fillGroup boughMap="+boughMap.toString()+" "+id+"("+sort+") "+businessTerm);
 			if (0==childList.size()) 
 			{
@@ -400,7 +441,8 @@ public class Invoice2csv {
 			}
 		}
    	
-		for (Integer childSort : childList.keySet()) { // childList includes both #text and @attribute
+		for (Integer childSort : childList.keySet()) 
+		{ // childList includes both #text and @attribute
 			Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
 			String childID           = childBinding.getID();
 			String childBusinessTerm = childBinding.getBT();
@@ -449,7 +491,8 @@ public class Invoice2csv {
 						{
 							ArrayList<Integer> grandchildren = FileHandler.semChildMap.get(childSort);
 							NamedNodeMap attributes = child.getAttributes();
-							for (Integer grandchildSort : grandchildren) {
+							for (Integer grandchildSort : grandchildren) 
+							{
 								fillGrandChildren(boughMap, childSort, i, childNodeName, attributes, grandchildSort);
 							}
 						}						
@@ -488,7 +531,8 @@ public class Invoice2csv {
 			Integer childSort,
 			Integer countChildren, 
 			int i, 
-			Node child) {
+			Node child) 
+	{
 		Integer lastkey          = boughMap.lastKey();
 		Integer lastvalue        = boughMap.get(lastkey);
 		Binding binding          = FileHandler.semBindingMap.get(sort);
@@ -546,7 +590,8 @@ public class Invoice2csv {
 			int i, 
 			String childNodeName,
 			NamedNodeMap attributes, 
-			Integer grandchildSort) {
+			Integer grandchildSort) 
+	{
 		Integer lastKey           = boughMap.lastKey();
 		Integer lastID            = boughMap.get(lastKey);
 		Binding childBinding      = (Binding) FileHandler.semBindingMap.get(childSort);
@@ -605,7 +650,8 @@ public class Invoice2csv {
 			Integer sort, 
 			Integer childSort,
 			List<Node> children, 
-			int i) {
+			int i) 
+	{
 		Binding binding          = FileHandler.semBindingMap.get(sort);
 		String businessTerm      = binding.getBT();
 		Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
@@ -659,7 +705,8 @@ public class Invoice2csv {
 			Integer sort, 
 			Integer childSort, 
 			List<Node> children, 
-			int i) {
+			int i) 
+	{
 		Integer lastKey          = boughMap.lastKey();
 		Binding binding          = FileHandler.semBindingMap.get(sort);
 		String businessTerm      = binding.getBT();
@@ -697,7 +744,8 @@ public class Invoice2csv {
 	 * @return multiple 複数であればtrue.　存在しないか1件しかなければfalse.
 	 */
 	@SuppressWarnings("unlikely-arg-type")
-	private static boolean isMultiple(Integer semSort) {
+	private static boolean isMultiple(Integer semSort) 
+	{
 		boolean multiple  = false;
 		Binding binding   = FileHandler.semBindingMap.get(semSort);
 		String id         = binding.getID();

@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<rsm:SMEinvoice 
-	xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice" 
-	xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:31" 
-	xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31" 
-	xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice https://www.wuwei.space/core-japan/server/data/schema/data/standard/SMEinvoice.xsd">
-    <!-- xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice ../../data/schema/data/standard/SMEinvoice.xsd"> -->
+<rsm:SMEinvoice xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice" xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:31" xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:31" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice https://www.wuwei.space/core-japan/server/data/schema/data/standard/SMEinvoice.xsd">
+    
     <rsm:CIExchangedDocumentContext>
         <ram:BusinessProcessSpecifiedCIDocumentContextParameter>
             <ram:ID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</ram:ID>
@@ -88,7 +82,7 @@
             </ram:SpecifiedCIILSupplyChainTradeSettlement>
             <ram:SubordinateCIILBSubordinateTradeLineItem>
                 <ram:ID>1</ram:ID>
-                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
                     <ram:NetPriceProductCITradePrice>
                         <ram:ChargeAmount>50000</ram:ChargeAmount>
                         <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>
@@ -150,7 +144,7 @@
             </ram:SubordinateCIILBSubordinateTradeLineItem>
             <ram:SubordinateCIILBSubordinateTradeLineItem>
                 <ram:ID>3</ram:ID>
-                 <ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
                     <ram:NetPriceProductCITradePrice>
                         <ram:ChargeAmount>349</ram:ChargeAmount>
                         <ram:BasisQuantity unitCode="H87">1</ram:BasisQuantity>

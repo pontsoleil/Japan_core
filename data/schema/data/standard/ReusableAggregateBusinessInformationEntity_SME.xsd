@@ -575,13 +575,38 @@ Schema date:    31MAR23
     <!-- ===== Type Definition: CITradeTaxType              SAMBUICHI ===== -->
     <!-- ================================================================== -->
 	<xsd:complexType name="CITradeTaxType">
-		<!--UN01005832-->
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				<ccts:UniqueID>UN01005832</ccts:UniqueID>
+				<ccts:Acronym>ABIE</ccts:Acronym>
+				<ccts:DictionaryEntryName>CI_ Trade_ Tax. Details</ccts:DictionaryEntryName>
+				<ccts:Version>1.0</ccts:Version>
+				<ccts:Definition>A Cross Industry (CI) trade related fiscal tax, duty or levy.</ccts:Definition>
+			</xsd:documentation>
+		</xsd:annotation>
 		<xsd:sequence>
 			<xsd:element name="CalculatedAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01005833-->
+		        <xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01005833</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Calculated. Amount</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>A monetary value resulting from the calculation of this CI trade related tax, levy or duty.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="TypeCode" type="qdt:TaxTypeCodeType" minOccurs="0">
-				<!--UN01005834-->
+			<!-- SAMBUICHI added to specify VAT or other code defined in UNECE 5153 code list. e.g. SWT see https://www.sambuichi.jp/?p=9585 -->
+				<xsd:annotation>
+				  <xsd:documentation xml:lang="en">
+					<ccts:UniqueID>UN01005834</ccts:UniqueID>
+					<ccts:Acronym>BBIE</ccts:Acronym>
+					<ccts:DictionaryEntryName>CI_ Trade_ Tax. Type. Code</ccts:DictionaryEntryName>
+					<ccts:Version>1.0</ccts:Version>
+					<ccts:Definition>The code specifying the type of CI trade related tax, levy or duty, such as a code for a Value Added Tax (VAT).</ccts:Definition>
+				  </xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
 			<!--<xsd:element name="ExemptionReason" type="udt:TextType" minOccurs="0">
 				--><!--UN01005835--><!--
@@ -596,6 +621,15 @@ Schema date:    31MAR23
 				--><!--UN01005838--><!--
 			</xsd:element>-->
 			<xsd:element name="BasisAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
+			    <xsd:annotation>
+				    <xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01005839</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Basis. Amount</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>A monetary value used as the basis on which this CI trade related tax, levy or duty is calculated.</ccts:Definition>
+				    </xsd:documentation>
+				</xsd:annotation>
 				<!--UN01005839-->
 			</xsd:element>
 			<!--<xsd:element name="UnitBasisAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
@@ -603,6 +637,15 @@ Schema date:    31MAR23
 			</xsd:element>-->
 			<xsd:element name="CategoryCode" type="qdt:TaxCategoryCodeType" minOccurs="1">
 				<!--UN01005841-->
+			    <xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01005841</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Category. Code</ccts:DictionaryEntryName>
+						<ccts:Version>1.1</ccts:Version>
+						<ccts:Definition>The code specifying the category to which this CI trade related tax, levy or duty applies, such as codes for "Exempt from Tax", "Standard Rate", "Free Export Item - Tax Not Charged" .</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="CurrencyCode" type="qdt:CurrencyCodeType" minOccurs="0">
 				<!--UN01005842-->
@@ -618,11 +661,20 @@ Schema date:    31MAR23
 			</xsd:element>
 			<xsd:element name="TaxBasisAllowanceRate" type="udt:RateType" minOccurs="0">
 				--><!--UN01005846--><!--
-			</xsd:element>
+			</xsd:element>-->
 			<xsd:element name="TaxPointDate" type="udt:DateType" minOccurs="0">
-				--><!--UN01005847--><!--
+				<!--SAMBUICHI added to bind IBT-007 TAX point date-->
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01005847</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Tax Point. Date</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>The date of the tax point when this CI trade related tax, levy or duty becomes applicable.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Type" type="udt:TextType" minOccurs="0">
+		<!--	<xsd:element name="Type" type="udt:TextType" minOccurs="0">
 				--><!--UN01005848--><!--
 			</xsd:element>
 			<xsd:element name="InformationAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
@@ -630,21 +682,73 @@ Schema date:    31MAR23
 			</xsd:element>-->
 			<xsd:element name="CategoryName" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
 				<!--UN01005850-->
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01005850</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Category Name. Text</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>A category name, expressed as text, of this CI trade related tax, levy or duty.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
-		<!--	<xsd:element name="DueDateTypeCode" type="qdt:TimeReferenceCodeType" minOccurs="0">
-				--><!--UN01006052--><!--
-			</xsd:element>-->
+			<xsd:element name="DueDateTypeCode" type="qdt:TimeReferenceCodeType" minOccurs="0">
+				<!--SAMBUICHI added to bind JP PINT IBT-008 TAX point date code-->
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01006052</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Due Date Type. Code</ccts:DictionaryEntryName>
+						<ccts:Version>1.1</ccts:Version>
+						<ccts:Definition>The code specifying a type of due date for this CI trade tax.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="RateApplicablePercent" type="udt:PercentType" minOccurs="0">
 				<!--UN01007174-->
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01007174</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Rate_ Applicable. Percent</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>The applicable rate of CI trade tax, expressed as a percentage.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="GrandTotalAmount" type="udt:AmountType" minOccurs="0" maxOccurs="1">
-				<!--UN01013040-->
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01013040</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Grand Total. Amount</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>The monetary value of the grand total of the basis plus tax for this CI trade tax.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
 	        <xsd:element name="CalculationMethodCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
 				<!--UN01013096-->
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01013096</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Calculation Method. Code</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>The code specifying the method by which this CI trade related tax, levy or duty is calculated, such as codes for "tax calculated after line total summation", "tax calculated before line total summation", "tax back calculated based on grand total".</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="LocalTaxSystemID" type="udt:IDType" minOccurs="0" maxOccurs="1">
-				<!--UN01014650-->
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01014650</ccts:UniqueID>
+						<ccts:Acronym>BBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Local Tax System. Identifier</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>The identifier of the local tax system for this CI trade tax.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
 		<!--	<xsd:element name="SpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
 				--><!--UN01005851--><!--
@@ -1039,8 +1143,8 @@ Schema date:    31MAR23
             <xsd:element name="IncludedCINote" type="ram:CINoteType" minOccurs="0" maxOccurs="unbounded">
                 <!--JPS2300004-->
             </xsd:element>
-            <xsd:element name="SpecifiedCIILBSupplyChainTradeAgreement" type="ram:CIILBSupplyChainTradeAgreementType" minOccurs="0">
-                <!--UN01009649 changed minOccurs to 0 2023-04-15 SAMBUICHI-->
+            <xsd:element name="SpecifiedCIILBSupplyChainTradeAgreement" type="ram:CIILBSupplyChainTradeAgreementType" minOccurs="1">
+                <!--UN01009649-->
             </xsd:element>
             <xsd:element name="SpecifiedCIILBSupplyChainTradeDelivery" type="ram:CIILBSupplyChainTradeDeliveryType" minOccurs="1">
                 <!--UN01009650-->

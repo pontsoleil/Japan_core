@@ -7,7 +7,6 @@
     <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
     <cbc:ID>156</cbc:ID>
     <cbc:IssueDate>2023-10-24</cbc:IssueDate>
-    <cbc:DueDate>2023-11-20</cbc:DueDate>
     <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
     <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
     <cbc:TaxCurrencyCode>JPY</cbc:TaxCurrencyCode>

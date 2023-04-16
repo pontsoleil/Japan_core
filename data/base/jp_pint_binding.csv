@@ -160,8 +160,9 @@ semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessT
 5030,NC53-06,0..1,3,Document level allowance base amount,ヘッダ返金の計算根拠となる金額,,Amount,IBT-093,,請求書レベルの返金金額の基準となる金額,,2530,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cbc:BaseAmount,0..1
 5050,NC53-07,1..1,3,Document level allowance TAX rate,ヘッダ返金の税率,,Percentage,IBT-096,,請求書レベルの返金の税率,,2550,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cbc:Percent,0..1
 5060,NC53-08,1..1,3,Document level allowance TAX category code,ヘッダ返金の課税分類コード,,Code,IBT-095,,請求書レベルの返金の課税分類コード,,2540,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cbc:ID,1..1
-5070,NC53-09,1..1,3,Document level allowance TAX category code Tax Scheme,適格請求書発行事業者の課税区分を識別するコード,VAT,Code,IBT-095-1,,税スキーマ,VAT,2560,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cac:TaxScheme/cbc:ID,1..1
+5070,NC53-09,1..1,3,Document level allowance TAX category code Tax Scheme,ヘッダ返金の課税分類コード,VAT,Code,IBT-095-1,,税スキーマ,VAT,2560,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory/cac:TaxScheme/cbc:ID,1..1
 5080,NC39-NC54,0..n,2,DOCUMENT LEVEL CHARGES,ヘッダ追加請求のクラス,,__,IBG-21,,請求書レベルの追加請求,,2570,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()],0..n
+5080,NC54-09,1..1,3,Document level charge TAX category code Tax Scheme,ヘッダ追加請求の課税分類コード,VAT,Code,IBT-102-1,,税スキーマ,VAT,2660,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cac:TaxScheme/cbc:ID,1..1
 5090,NC54-01,1..1,3,,この明細行が追加請求（チャージ）か識別する識別子。\n固定値 true=harge,true,Indicator,,,,true,2580,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:ChargeIndicator,1..1
 5100,NC54-02,0..1,3,Document level charge percentage,ヘッダ追加請求を計算するための率,,Percentage,IBT-101,,請求書レベルの追加請求の率,,2610,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:MultiplierFactorNumeric,0..1
 5110,NC54-03,1..1,3,Document level charge amount,ヘッダ追加請求課税分類合計金額＝Σ課税分類明細行追加請求金額,,Amount,IBT-099,,請求書レベルの追加請求金額(税抜き),,2620,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:Amount,1..1
@@ -170,7 +171,6 @@ semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessT
 5140,NC54-06,0..1,3,Document level charge base amount,ヘッダ追加請求の計算根拠となる金額,,Amount,IBT-100,,請求書レベルの追加請求金額の基準となる金額,,2630,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cbc:BaseAmount,0..1
 5160,NC54-07,1..1,3,Document level charge TAX rate,ヘッダ追加請求の税率,,Percentage,IBT-103,,請求書レベルの追加請求の税率,,2650,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cbc:Percent,0..1
 5170,NC54-08,1..1,3,Document level charge TAX category code,ヘッダ追加請求の課税分類コード,,Code,IBT-102,,請求書レベルの追加請求の課税分類コード,,2640,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cbc:ID,1..1
-5180,NC54-09,1..1,3,Document level charge TAX category code Tax Scheme,適格請求書発行事業者の課税区分を識別するコード,VAT,Code,IBT-102-1,,税スキーマ,VAT,2660,/Invoice/cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory/cac:TaxScheme/cbc:ID,1..1
 5190,NC39-NC55,0..1,2,DOCUMENT TOTALS,明細文書の合計金額に関するグループ,,__,IBG-22,,請求書総合計金額,,2830,/Invoice/cac:LegalMonetaryTotal,1..1
 5200,NC55-01,0..1,3,Sum of charges on document level,明細文書レベルの追加請求合計金額,,Amount,IBT-108,,請求書レベルの追加請求の合計,,2880,/Invoice/cac:LegalMonetaryTotal/cbc:ChargeTotalAmount,0..1
 5210,NC55-02,0..1,3,Sum of allowances on document level,明細文書レベルの返金合計金額,,Amount,IBT-107,,請求書レベルの返金の合計,,2870,/Invoice/cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount,0..1
