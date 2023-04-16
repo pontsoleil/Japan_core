@@ -6,7 +6,7 @@
 Copyright (C) XBRL Japan. All Rights Reserved.   
 Schema agency:  XBRL Japan
 Schema version: 0.1
-Schema date:    31MAR23
+Schema date:    16APR23
 -->
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2"
