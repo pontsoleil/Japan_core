@@ -163,29 +163,28 @@ public class Invoice2csv
 		System.out.println("** END ** Invoice2csv "+PROCESSING+" "+IN_XML+" "+OUT_CSV);
 	}
 	
-	/**
-	 * ログ出力のためにXPathの文字列を短縮する。
-	 * 
-	 * @param path XPath文字列
-	 * @return　短縮された path
-	 */
-	public static String getShortPath(String path) 
-	{
-		if (0==PROCESSING.indexOf("SME-COMMON"))
-		{
-			String _path = path;
-			_path = _path.replace("[ram:TaxTotalAmount/@currencyID=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:TaxTotalAmount/@currencyID=...");
-			_path = _path.replace("[ram:CurrencyCode=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:CurrencyCode=...");
-			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeAgreement/","...Agreement/");
-			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:IncludedCIILSupplyChainTradeLineItem/","...LineItem/");
-			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/","...Settlement/");
-			return _path;
-		} else
-		{
-			return path;
-		}
-	
-	}
+//	/**
+//	 * ログ出力のためにXPathの文字列を短縮する。
+//	 * 
+//	 * @param path XPath文字列
+//	 * @return　短縮された path
+//	 */
+//	public static String getShortPath(String path) 
+//	{
+//		if (0==PROCESSING.indexOf("SME-COMMON"))
+//		{
+//			String _path = path;
+//			_path = _path.replace("[ram:TaxTotalAmount/@currencyID=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:TaxTotalAmount/@currencyID=...");
+//			_path = _path.replace("[ram:CurrencyCode=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:CurrencyCode=...");
+//			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeAgreement/","...Agreement/");
+//			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:IncludedCIILSupplyChainTradeLineItem/","...LineItem/");
+//			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/","...Settlement/");
+//			return _path;
+//		} else
+//		{
+//			return path;
+//		}
+//	}
 	
 	/**
 	 * を読み込んで Tidy dataテーブルに展開し、CSVファイルに出力する.
@@ -448,7 +447,7 @@ public class Invoice2csv
 			String childBusinessTerm = childBinding.getBT();
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
-			if (TRACE) System.out.println("- fillGroup "+childID+"("+childSort+") "+childBusinessTerm+" XPath = "+getShortPath(childXPath));
+			if (TRACE) System.out.println("- fillGroup "+childID+"("+childSort+") "+childBusinessTerm+" XPath = "+FileHandler.getShortPath(childXPath));
 
 			List<Node> children = childList.get(childSort);
 			

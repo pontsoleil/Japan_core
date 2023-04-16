@@ -130,9 +130,9 @@ semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessT
 4440,NC46-01,1..1,3,Supporting document reference,この文書ヘッダが参照するインボイス文書に記載の文書番号,,Document Reference,IBT-122,,添付書類への参照,,1360,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:ID,1..1
 4510,NC46-07,0..1,3,Supporting document description,,,Text,IBT-123,,添付書類の説明,,1370,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cbc:DocumentDescription,0..1
 4520,NC46-08,0..1,3,External document location,,,Code,IBT-124,,外部ドキュメントのロケーション,,1410,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cac:ExternalReference/cbc:URI,0..1
-4530,NC46-09,0..1,3,Attached document,この文書ヘッダが参照するインボイス文書のサブタイプを識別するコード,,Code,IBT-125,,添付書類,,1380,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject,0..1
-4540,NC46-10,0..1,3,Attached document Mime code,,,Code,ibt-125-1,,添付書類MIMEコード,,1390,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode,1..1
-4550,NC46-11,0..1,3,Attached document Filename,,,Code,ibt-125-2,,添付書類ファイル名,,1400,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename,1..1
+4530,NC46-11,0..1,3,Attached document Filename,,,Code,ibt-125-2,,添付書類ファイル名,,1400,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename,1..1
+4540,NC46-09,0..1,3,Attached document,この文書ヘッダが参照するインボイス文書のサブタイプを識別するコード,,Code,IBT-125,,添付書類,,1380,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject,0..1
+4550,NC46-10,0..1,3,Attached document Mime code,,,Code,ibt-125-1,,添付書類MIMEコード,,1390,/Invoice/cac:AdditionalDocumentReference[not(cbc:DocumentTypeCode='130')]/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode,1..1
 4660,NC39-NC48,0..n,2,,この文書ヘッダが参照する出荷回答書のグループ,,__,,,,,1250,/Invoice/cac:DespatchDocumentReference,0..1
 4670,NC48-01,1..1,3,Despatch advice reference,この文書ヘッダが参照する発注者が付番した出荷回答書番号,,Document Reference,IBT-016,,出荷案内書参照,,1260,/Invoice/cac:DespatchDocumentReference/cbc:ID,0..1
 4710,NC39-NC49,0..n,2,,明細文書が参照する納品書のクラス,,__,,,,,3080,/Invoice/cac:InvoiceLine/cac:DespatchLineReference,0..n

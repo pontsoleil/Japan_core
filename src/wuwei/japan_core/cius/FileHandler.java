@@ -656,37 +656,52 @@ public class FileHandler
 				xPath = xPath.replace("/Invoice", "/*");
 			} else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("ram:TaxCurrencyCode]")>0) 
 			{
-				if (TRACE) System.out.println(" (FileHandler) getXPathNodes "+Invoice2csv.getShortPath(xPath));
+				if (TRACE) System.out.println(" (FileHandler) getXPathNodes "+xPath);
 			}
 			// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
-			if (xPath.indexOf("true")>0) 
+			if (xPath.indexOf("true")>0 || xPath.indexOf("false")>0) 
+//			{
+//				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=true\\(\\)\\]","[normalize-space($1/text())='true']");
+//			} else if (xPath.indexOf("false")>0) 
 			{
-				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=true\\(\\)\\]","[normalize-space($1/text())='true']");
-			} else if (xPath.indexOf("false")>0) 
-			{
-				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=false\\(\\)\\]","[normalize-space($1/text())='false']");
+				xPath = xPath.replace("[", "[normalize-space(");
+				xPath = xPath.replace("=", "/text())='");
+				xPath = xPath.replace("()]", "']");				
+//				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=false\\(\\)\\]","[normalize-space($1/text())='false']");
 			// XMLパーサーが[cbc:TaxAmount/@currencyID=./cbc:DocumentCurrencyCode]を正しく判定できないので、固定値との比較に書き換える。
 			} else if  (0==PROCESSING.indexOf("JP-PINT")) 
 			{
 				if (xPath.indexOf("cbc:DocumentCurrencyCode]")>0) 
 				{
-					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:DocumentCurrencyCode","'"+DOCUMENT_CURRENCY+"'");
+					int pos = xPath.indexOf("=");
+					String leading = xPath.substring(0,pos);
+					xPath = leading + "'"+DOCUMENT_CURRENCY+"']";
+//					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:DocumentCurrencyCode","'"+DOCUMENT_CURRENCY+"'");
 				} else if (xPath.indexOf("cbc:TaxCurrencyCode]")>0) 
 				{
-					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:TaxCurrencyCode","'"+TAX_CURRENCY+"'");
+					int pos = xPath.indexOf("=");
+					String leading = xPath.substring(0,pos);
+					xPath = leading + "'"+TAX_CURRENCY+"']";
+//					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:TaxCurrencyCode","'"+TAX_CURRENCY+"'");
 				}
 			} else if (0==PROCESSING.indexOf("SME-COMMON")) 
 			{
 				if (xPath.indexOf("ram:InvoiceCurrencyCode]")>0) 
 				{
-					xPath = xPath.replaceAll(
-							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode",
-							"'"+DOCUMENT_CURRENCY+"'");
+					int pos = xPath.indexOf("=");
+					String leading = xPath.substring(0,pos);
+					xPath = leading + "'"+DOCUMENT_CURRENCY+"']";
+//					xPath = xPath.replaceAll(
+//							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode",
+//							"'"+DOCUMENT_CURRENCY+"'");
 				} else if (xPath.indexOf("ram:TaxCurrencyCode]")>0) 
 				{
-					xPath = xPath.replaceAll(
-							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode",
-							"'"+TAX_CURRENCY+"'");
+					int pos = xPath.indexOf("=");
+					String leading = xPath.substring(0,pos);
+					xPath = leading + "'"+TAX_CURRENCY+"']";
+//					xPath = xPath.replaceAll(
+//							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode",
+//							"'"+TAX_CURRENCY+"'");
 				}
 			}
 			expr     = xpath.compile(xPath);
@@ -853,7 +868,7 @@ public class FileHandler
 				{
 					element.setTextContent(value);					
 				}
-				if (null!=attrMap) 
+				if (null!=attrMap && attrMap.size() > 0) 
 				{
 					for (Map.Entry<String, String> entry : attrMap.entrySet()) 
 					{
@@ -1029,6 +1044,29 @@ public class FileHandler
 			tidyData.add(record);
 		}
 		fileInputStream.close();
+	}
+	
+	/**
+	 * ログ出力のためにXPathの文字列を短縮する。
+	 * 
+	 * @param path XPath文字列
+	 * @return　短縮された path
+	 */
+	public static String getShortPath(String path) 
+	{
+		if (0==PROCESSING.indexOf("SME-COMMON"))
+		{
+			String _path = path;
+			_path = _path.replace("[ram:TaxTotalAmount/@currencyID=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:TaxTotalAmount/@currencyID=...");
+			_path = _path.replace("[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:CurrencyCode=...");
+			_path = _path.replace("/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeAgreement/","...Agreement/");
+			_path = _path.replace("/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:IncludedCIILSupplyChainTradeLineItem/","...LineItem/");
+			_path = _path.replace("/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/","...Settlement/");
+			return _path;
+		} else
+		{
+			return path;
+		}
 	}
 
 }

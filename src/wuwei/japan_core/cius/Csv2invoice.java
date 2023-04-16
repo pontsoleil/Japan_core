@@ -433,7 +433,7 @@ public class Csv2invoice
 				// Converting entrySet to ArrayList
 				List<Integer> entryList = new ArrayList<>(keySet);
 				int j = entryList.indexOf(synSort);
-				if (TRACE) System.out.println("dataRedords["+i+"]["+j+"] = DataValue("+boughSort+" "+boughSeq+"  "+id+" "+xPath+" "+value+" "+attributes);
+				if (TRACE) System.out.println("dataRedords["+i+"]["+j+"] = DataValue("+boughSort+" "+boughSeq+"  "+id+" "+FileHandler.getShortPath(xPath)+" "+value+" "+attributes);
 				dataRedords[i][j] = new DataValue(boughSeq, boughSort, id, xPath, value, attributes);
 			}
 			i++;
@@ -511,10 +511,10 @@ public class Csv2invoice
 //								}
 //							}
 						}
-						if (DEBUG && (id.matches("^.*NC53.*$") || id.matches("^.*NC54.*$") || id.matches("^.*NC72.*$") || id.matches("^.*NC73.*$")))
-							System.out.println(id);
+//						if (DEBUG && (id.matches("^.*NC53.*$") || id.matches("^.*NC54.*$") || id.matches("^.*NC72.*$") || id.matches("^.*NC73.*$")))
+//							System.out.println(id);
 						if (TRACE) 
-							System.out.println("call appendElementNS "+id+" "+xPath+" = "+value);
+							System.out.println("call appendElementNS "+id+" "+FileHandler.getShortPath(xPath)+" = "+value);
 						appendElementNS(boughSort, boughSeq, id, xPath, value, attributes);
 					}
 				}
@@ -569,10 +569,10 @@ public class Csv2invoice
 		if (TRACE) {
 			if (value.length() > 0) 
 			{
-				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+id+"("+synSort+")\n"+xPath +" = "+value);
+				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+id+"("+synSort+")\n"+FileHandler.getShortPath(xPath) +" = "+value);
 			} else 
 			{
-				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+"\n"+xPath);
+				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+"\n"+FileHandler.getShortPath(xPath));
 			}
 		}
 		Element element1, element2, element3, element4, element5, element6, element7, element8, element9;

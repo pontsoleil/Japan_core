@@ -1252,13 +1252,32 @@ Schema date:    31MAR23
             <xsd:element name="ApplicableCITradeTax" type="ram:CITradeTaxType" minOccurs="1">
                 <!--UN01009665-->
             </xsd:element>
-            <xsd:element name="SpecifiedCITradeAllowanceCharge" type="ram:CITradeAllowanceChargeType" minOccurs="0" maxOccurs="unbounded">
-                <!--UN01014644-->
+            <xsd:element name="InvoiceReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01014642</ccts:UniqueID>
+						<ccts:Acronym>ASBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CIILB_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>The invoice document referenced for this CIILB supply chain trade settlement.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
             </xsd:element>
             <xsd:element name="SpecifiedCIFinancialAdjustment" type="ram:CIFinancialAdjustmentType" minOccurs="0" maxOccurs="unbounded">
 				<!--UN01014643-->
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						<ccts:UniqueID>UN01014643</ccts:UniqueID>
+						<ccts:Acronym>ASBIE</ccts:Acronym>
+						<ccts:DictionaryEntryName>CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment</ccts:DictionaryEntryName>
+						<ccts:Version>1.0</ccts:Version>
+						<ccts:Definition>A financial adjustment specified for this CIILB supply chain trade settlement.</ccts:Definition>
+					</xsd:documentation>
+				</xsd:annotation>
 			</xsd:element>
-            <xsd:element name="BillingCISpecifiedPeriod" type="ram:CISpecifiedPeriodType" minOccurs="0">
+            <xsd:element name="SpecifiedCITradeAllowanceCharge" type="ram:CITradeAllowanceChargeType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01014644-->
+            </xsd:element>            <xsd:element name="BillingCISpecifiedPeriod" type="ram:CISpecifiedPeriodType" minOccurs="0">
                 <!--UN01014894 SAMBUICHI change min to 0-->
             </xsd:element>
             <!--ram:PurchaseSpecifiedCITradeAccountingAccount 31p0ではCIILBSupplyChainTradeSettlementType未定義
