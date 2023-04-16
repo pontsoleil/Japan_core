@@ -1264,7 +1264,6 @@ Schema date:    31MAR23
 				</xsd:annotation>
             </xsd:element>
             <xsd:element name="SpecifiedCIFinancialAdjustment" type="ram:CIFinancialAdjustmentType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01014643-->
 				<xsd:annotation>
 					<xsd:documentation xml:lang="en">
 						<ccts:UniqueID>UN01014643</ccts:UniqueID>
@@ -1277,7 +1276,8 @@ Schema date:    31MAR23
 			</xsd:element>
             <xsd:element name="SpecifiedCITradeAllowanceCharge" type="ram:CITradeAllowanceChargeType" minOccurs="0" maxOccurs="unbounded">
                 <!--UN01014644-->
-            </xsd:element>            <xsd:element name="BillingCISpecifiedPeriod" type="ram:CISpecifiedPeriodType" minOccurs="0">
+            </xsd:element>
+            <xsd:element name="BillingCISpecifiedPeriod" type="ram:CISpecifiedPeriodType" minOccurs="0">
                 <!--UN01014894 SAMBUICHI change min to 0-->
             </xsd:element>
             <!--ram:PurchaseSpecifiedCITradeAccountingAccount 31p0ではCIILBSupplyChainTradeSettlementType未定義
