@@ -293,13 +293,13 @@
                     <ram:SellerAssignedID>b-13214</ram:SellerAssignedID>
                     <ram:BuyerAssignedID>97iugug876</ram:BuyerAssignedID>
                     <ram:Name>デスクチェア</ram:Name>
-                    <ram:OriginCITradeCountry>
-                        <ram:ID>JP</ram:ID>
-                    </ram:OriginCITradeCountry>
                     <ram:ApplicableCIProductCharacteristic>
                         <ram:Description>表示単位名称</ram:Description>
                         <ram:Value>脚</ram:Value>
                     </ram:ApplicableCIProductCharacteristic>
+                    <ram:OriginCITradeCountry>
+                        <ram:ID>JP</ram:ID>
+                    </ram:OriginCITradeCountry>
                 </ram:ApplicableCITradeProduct>
             </ram:SubordinateCIILBSubordinateTradeLineItem>
             <ram:SubordinateCIILBSubordinateTradeLineItem>

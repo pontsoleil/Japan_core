@@ -594,10 +594,14 @@ public class FileHandler
 				String child_xpath          = child_binding.getXPath();
 				String defaultValue         = child_binding.getDefaultValue();
 				Set<String> additionalXPath = child_binding.getAdditionalXPath();
-				if (child_xpath.substring(1).indexOf("/") > 0)
-					child_xpath = child_xpath.replace(parentXPath, ".");
-				
-				List<Node> nodes = getXPathNodes(parent, child_xpath);
+				List<Node> nodes            = null;
+				if (child_xpath.substring(1).indexOf("/") > 0 && 0==child_xpath.indexOf(parentXPath)) 
+				{
+					child_xpath = child_xpath.replace(parentXPath, ".");				
+					nodes = getXPathNodes(parent, child_xpath);
+				} else {
+					nodes = getXPathNodes(root, child_xpath);
+				}
 				
 				if (null!=nodes && nodes.size() > 0) 
 				{
@@ -626,7 +630,7 @@ public class FileHandler
 								childList.put(sort, nodes);
 						}
 					}
-				}
+				} 
 			}
 		}
 		return childList;
@@ -669,39 +673,27 @@ public class FileHandler
 				xPath = xPath.replace("()]", "']");				
 //				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=false\\(\\)\\]","[normalize-space($1/text())='false']");
 			// XMLパーサーが[cbc:TaxAmount/@currencyID=./cbc:DocumentCurrencyCode]を正しく判定できないので、固定値との比較に書き換える。
-			} else if  (0==PROCESSING.indexOf("JP-PINT")) 
+			} else if (0==PROCESSING.indexOf("JP-PINT")) 
 			{
 				if (xPath.indexOf("cbc:DocumentCurrencyCode]")>0) 
 				{
-					int pos = xPath.indexOf("=");
-					String leading = xPath.substring(0,pos);
-					xPath = leading + "'"+DOCUMENT_CURRENCY+"']";
-//					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:DocumentCurrencyCode","'"+DOCUMENT_CURRENCY+"'");
-				} else if (xPath.indexOf("cbc:TaxCurrencyCode]")>0) 
+					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:DocumentCurrencyCode","'"+DOCUMENT_CURRENCY+"'");
+				} else if (null!=TAX_CURRENCY && xPath.indexOf("cbc:TaxCurrencyCode]")>0) 
 				{
-					int pos = xPath.indexOf("=");
-					String leading = xPath.substring(0,pos);
-					xPath = leading + "'"+TAX_CURRENCY+"']";
-//					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:TaxCurrencyCode","'"+TAX_CURRENCY+"'");
+					xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:TaxCurrencyCode","'"+TAX_CURRENCY+"'");
 				}
 			} else if (0==PROCESSING.indexOf("SME-COMMON")) 
 			{
 				if (xPath.indexOf("ram:InvoiceCurrencyCode]")>0) 
 				{
-					int pos = xPath.indexOf("=");
-					String leading = xPath.substring(0,pos);
-					xPath = leading + "'"+DOCUMENT_CURRENCY+"']";
-//					xPath = xPath.replaceAll(
-//							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode",
-//							"'"+DOCUMENT_CURRENCY+"'");
-				} else if (xPath.indexOf("ram:TaxCurrencyCode]")>0) 
+					xPath = xPath.replaceAll(
+							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode",
+							"'"+DOCUMENT_CURRENCY+"'");
+				} else if (null!=TAX_CURRENCY && xPath.indexOf("ram:TaxCurrencyCode]")>0) 
 				{
-					int pos = xPath.indexOf("=");
-					String leading = xPath.substring(0,pos);
-					xPath = leading + "'"+TAX_CURRENCY+"']";
-//					xPath = xPath.replaceAll(
-//							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode",
-//							"'"+TAX_CURRENCY+"'");
+					xPath = xPath.replaceAll(
+							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode",
+							"'"+TAX_CURRENCY+"'");
 				}
 			}
 			expr     = xpath.compile(xPath);

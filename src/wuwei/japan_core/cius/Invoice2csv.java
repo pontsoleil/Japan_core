@@ -4,8 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 import org.w3c.dom.NamedNodeMap;
@@ -280,10 +283,36 @@ public class Invoice2csv
 	 */
 	private static void fillTable() 
 	{
-		FileHandler.tidyData = new ArrayList<ArrayList<String>>();
-		if (TRACE) System.out.println();
-
-		FileHandler.header.add(FileHandler.ROOT_ID);
+		if (TRACE) System.out.println();		
+		Set<String> ids = new HashSet<>();
+		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) {
+		    String rowName = entryRow.getKey();
+		    TreeMap<Integer, String> rowData = entryRow.getValue();		    
+		    // Iterate over each column in the row
+		    for (Map.Entry<Integer, String> entryCol : rowData.entrySet()) {
+		        int colIndex = entryCol.getKey();
+		        String cellValue = entryCol.getValue();		        
+		        // Do something with the cell value
+		        if (cellValue.length() > 0)
+		        {
+			        if (TRACE)
+			        	System.out.println("Row: " + rowName + ", Column: " + colIndex + ", Value: " + cellValue);
+		        	Binding binding = FileHandler.synBindingMap.get(colIndex);
+		        	if (null!=binding)
+		        	{
+				        String id = binding.getID();
+				        if (id.toUpperCase().matches("^NC[0-9]+-[0-9]+$"))
+				        {
+				        	String d = id.substring(0,4);
+				        	ids.add(d);
+				        }
+		        	} else
+		        		continue;
+		        }
+		    }
+		}
+		
+		FileHandler.header.add(FileHandler.ROOT_ID);	
 		// bough
 		for (Map.Entry<Integer,String> multipleEntry : multipleMap.entrySet()) 
 		{
@@ -308,6 +337,8 @@ public class Invoice2csv
 				FileHandler.header.add(dataID);
 			}
 		}
+		
+		FileHandler.tidyData = new ArrayList<ArrayList<String>>();
 		if (TRACE) System.out.println("* FileHandler.tidyData\n"+FileHandler.header.toString());
 		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) 
 		{
@@ -347,7 +378,7 @@ public class Invoice2csv
 				Binding binding = FileHandler.semBindingMap.get(sort);
 				String id       = binding.getID();
 				int dataIndex   = FileHandler.header.indexOf(id);
-				if (dataIndex!=-1) 
+				if (dataIndex>=0) 
 				{
 					record.set(dataIndex, value);
 				} else 
@@ -358,6 +389,8 @@ public class Invoice2csv
 			FileHandler.tidyData.add(record);
 			if (TRACE) System.out.println(record.toString());
 		}
+		
+		
 		
 		if (TRACE) System.out.println("End fillTable()");
 	}
@@ -422,9 +455,10 @@ public class Invoice2csv
 		String businessTerm = binding.getBT();
 		rowMap = new TreeMap<Integer, String>();		
 
-		/*if (TRACE && ("JBG-53".equals(id)||"JBG-74".equals(id)||"JBG-79".equals(id)||"JBG-85".equals(id)||"JBG-86".equals(id)||"JBG-87".equals(id))) {
-			System.out.println(id);
-		}*/
+		if (TRACE)
+			System.out.println("FileHandler.getChildren "+id);		
+//		if ("NC39-NC55".equals(id))
+//			System.out.println(id);
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (TRACE) 
@@ -447,6 +481,9 @@ public class Invoice2csv
 			String childBusinessTerm = childBinding.getBT();
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
+			if (TRACE && "NC55-03".equals(id)) {
+				System.out.println(id);
+			}
 			if (TRACE) System.out.println("- fillGroup "+childID+"("+childSort+") "+childBusinessTerm+" XPath = "+FileHandler.getShortPath(childXPath));
 
 			List<Node> children = childList.get(childSort);
@@ -474,12 +511,17 @@ public class Invoice2csv
 				{
 					Node child           = children.get(i);
 					String childNodeName = child.getNodeName();
-					String value         = child.getTextContent().trim();					
+					String value         = "";
+					if (0==PROCESSING.indexOf("JP-PINT") && childNodeName.indexOf("cac:")>=0)
+						System.out.println(childNodeName);
+					else
+						value = child.getTextContent().trim();					
 					if (! "Invoice".equals(childNodeName) && childNodeName.indexOf(":")<0)
 					{
 						fillData(childSort, value, boughMap); // @attribute
 						
-					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("^NC[0-9]+-[0-9]+$")) 
+					} else if (null!=child && null != value && value.length() > 0 &&
+							childID.toUpperCase().matches("^NC[0-9]+-[0-9]+$")) 
 					{
 						if (TRACE) 
 							System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
