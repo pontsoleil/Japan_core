@@ -210,13 +210,13 @@ Schema date:    16APR23
                 <!--UN01006015-->
             </xsd:element>
             <!--<xsd:element name="Title" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006016--><!--
+                -->            <!--UN01006016-->            <!--
             </xsd:element>
             <xsd:element name="AuthorName" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006017--><!--
+                -->            <!--UN01006017-->            <!--
             </xsd:element>-->
             <!--<xsd:element name="VersionID" type="udt:IDType" minOccurs="0">
-                --><!--UN01006018--><!--
+                -->            <!--UN01006018-->            <!--
             </xsd:element>-->
             <xsd:element name="FileName" type="udt:TextType" minOccurs="0">
                 <!--UN01006019-->
@@ -228,25 +228,25 @@ Schema date:    16APR23
                 <!--UN01006021-->
             </xsd:element>
             <!--<xsd:element name="EncodingCode" type="udt:CodeType" minOccurs="0">
-                --><!--UN01006022--><!--
+                -->            <!--UN01006022-->            <!--
             </xsd:element>
             <xsd:element name="CharacterSetCode" type="udt:CodeType" minOccurs="0">
-                --><!--UN01006023--><!--
+                -->            <!--UN01006023-->            <!--
             </xsd:element>-->
             <xsd:element name="IncludedBinaryObject" type="udt:BinaryObjectType" minOccurs="0" maxOccurs="unbounded">
                 <!--UN01006024-->
             </xsd:element>
             <!--<xsd:element name="Access" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006025--><!--
+                -->            <!--UN01006025-->            <!--
             </xsd:element>-->
             <xsd:element name="Description" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
                 <!--UN01006026-->
             </xsd:element>
             <!--<xsd:element name="SizeMeasure" type="udt:MeasureType" minOccurs="0">
-                --><!--UN01006027--><!--
+                -->            <!--UN01006027-->            <!--
             </xsd:element>
             <xsd:element name="AccessAvailabilitySpecifiedPeriod" type="ram:SpecifiedPeriodType" minOccurs="0">
-                --><!--UN01006028--><!--
+                -->            <!--UN01006028-->            <!--
             </xsd:element>-->
         </xsd:sequence>
     </xsd:complexType>
@@ -355,9 +355,9 @@ Schema date:    16APR23
     <xsd:complexType name="CIUniversalCommunicationType">
         <!--UN01005857-->
         <xsd:sequence>
-			<xsd:element name="URIID" type="udt:IDType" minOccurs="0">
-				<!--UN01005858-->
-			</xsd:element>
+            <xsd:element name="URIID" type="udt:IDType" minOccurs="0">
+                <!--UN01005858-->
+            </xsd:element>
             <xsd:element name="CompleteNumber" type="udt:TextType" minOccurs="0">
                 <!--UN01005860-->
             </xsd:element>
@@ -574,209 +574,209 @@ Schema date:    16APR23
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CITradeTaxType              SAMBUICHI ===== -->
     <!-- ================================================================== -->
-	<xsd:complexType name="CITradeTaxType">
-		<xsd:annotation>
-			<xsd:documentation xml:lang="en">
-				<ccts:UniqueID>UN01005832</ccts:UniqueID>
-				<ccts:Acronym>ABIE</ccts:Acronym>
-				<ccts:DictionaryEntryName>CI_ Trade_ Tax. Details</ccts:DictionaryEntryName>
-				<ccts:Version>1.0</ccts:Version>
-				<ccts:Definition>A Cross Industry (CI) trade related fiscal tax, duty or levy.</ccts:Definition>
-			</xsd:documentation>
-		</xsd:annotation>
-		<xsd:sequence>
-			<xsd:element name="CalculatedAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
-		        <xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01005833</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Calculated. Amount</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>A monetary value resulting from the calculation of this CI trade related tax, levy or duty.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="TypeCode" type="qdt:TaxTypeCodeType" minOccurs="0">
-			<!-- SAMBUICHI added to specify VAT or other code defined in UNECE 5153 code list. e.g. SWT see https://www.sambuichi.jp/?p=9585 -->
-				<xsd:annotation>
-				  <xsd:documentation xml:lang="en">
-					<ccts:UniqueID>UN01005834</ccts:UniqueID>
-					<ccts:Acronym>BBIE</ccts:Acronym>
-					<ccts:DictionaryEntryName>CI_ Trade_ Tax. Type. Code</ccts:DictionaryEntryName>
-					<ccts:Version>1.0</ccts:Version>
-					<ccts:Definition>The code specifying the type of CI trade related tax, levy or duty, such as a code for a Value Added Tax (VAT).</ccts:Definition>
-				  </xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<!--<xsd:element name="ExemptionReason" type="udt:TextType" minOccurs="0">
-				--><!--UN01005835--><!--
+    <xsd:complexType name="CITradeTaxType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                <ccts:UniqueID>UN01005832</ccts:UniqueID>
+                <ccts:Acronym>ABIE</ccts:Acronym>
+                <ccts:DictionaryEntryName>CI_ Trade_ Tax. Details</ccts:DictionaryEntryName>
+                <ccts:Version>1.0</ccts:Version>
+                <ccts:Definition>A Cross Industry (CI) trade related fiscal tax, duty or levy.</ccts:Definition>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CalculatedAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005833</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Calculated. Amount</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>A monetary value resulting from the calculation of this CI trade related tax, levy or duty.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TypeCode" type="qdt:TaxTypeCodeType" minOccurs="0">
+                <!-- SAMBUICHI added to specify VAT or other code defined in UNECE 5153 code list. e.g. SWT see https://www.sambuichi.jp/?p=9585 -->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005834</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Type. Code</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>The code specifying the type of CI trade related tax, levy or duty, such as a code for a Value Added Tax (VAT).</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!--<xsd:element name="ExemptionReason" type="udt:TextType" minOccurs="0">
+				-->            <!--UN01005835-->            <!--
 			</xsd:element>-->
-			<!--<xsd:element name="CalculatedRate" type="udt:RateType" minOccurs="0">-->
-				<!--UN01005836-->
-			<!--</xsd:element>-->
-			<!--<xsd:element name="CalculationSequenceNumeric" type="udt:NumericType" minOccurs="0">
-				--><!--UN01005837--><!--
+            <!--<xsd:element name="CalculatedRate" type="udt:RateType" minOccurs="0">-->
+            <!--UN01005836-->
+            <!--</xsd:element>-->
+            <!--<xsd:element name="CalculationSequenceNumeric" type="udt:NumericType" minOccurs="0">
+				-->            <!--UN01005837-->            <!--
 			</xsd:element>-->
-			<!--<xsd:element name="BasisQuantity" type="udt:QuantityType" minOccurs="0">
-				--><!--UN01005838--><!--
+            <!--<xsd:element name="BasisQuantity" type="udt:QuantityType" minOccurs="0">
+				-->            <!--UN01005838-->            <!--
 			</xsd:element>-->
-			<xsd:element name="BasisAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
-			    <xsd:annotation>
-				    <xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01005839</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Basis. Amount</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>A monetary value used as the basis on which this CI trade related tax, levy or duty is calculated.</ccts:Definition>
-				    </xsd:documentation>
-				</xsd:annotation>
-				<!--UN01005839-->
-			</xsd:element>
-			<!--<xsd:element name="UnitBasisAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
-				--><!--UN01005840--><!--
+            <xsd:element name="BasisAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005839</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Basis. Amount</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>A monetary value used as the basis on which this CI trade related tax, levy or duty is calculated.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <!--UN01005839-->
+            </xsd:element>
+            <!--<xsd:element name="UnitBasisAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
+				-->            <!--UN01005840-->            <!--
 			</xsd:element>-->
-			<xsd:element name="CategoryCode" type="qdt:TaxCategoryCodeType" minOccurs="1">
-				<!--UN01005841-->
-			    <xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01005841</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Category. Code</ccts:DictionaryEntryName>
-						<ccts:Version>1.1</ccts:Version>
-						<ccts:Definition>The code specifying the category to which this CI trade related tax, levy or duty applies, such as codes for "Exempt from Tax", "Standard Rate", "Free Export Item - Tax Not Charged" .</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="CurrencyCode" type="qdt:CurrencyCodeType" minOccurs="0">
-				<!--UN01005842-->
-			</xsd:element>
-			<!--<xsd:element name="Jurisdiction" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
-				--><!--UN01005843--><!--
+            <xsd:element name="CategoryCode" type="qdt:TaxCategoryCodeType" minOccurs="1">
+                <!--UN01005841-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005841</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Category. Code</ccts:DictionaryEntryName>
+                        <ccts:Version>1.1</ccts:Version>
+                        <ccts:Definition>The code specifying the category to which this CI trade related tax, levy or duty applies, such as codes for "Exempt from Tax", "Standard Rate", "Free Export Item - Tax Not Charged" .</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CurrencyCode" type="qdt:CurrencyCodeType" minOccurs="0">
+                <!--UN01005842-->
+            </xsd:element>
+            <!--<xsd:element name="Jurisdiction" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
+				-->            <!--UN01005843-->            <!--
 			</xsd:element>-->
-			<!--<xsd:element name="CustomsDutyIndicator" type="udt:IndicatorType" minOccurs="0">
-				--><!--UN01005844--><!--
+            <!--<xsd:element name="CustomsDutyIndicator" type="udt:IndicatorType" minOccurs="0">
+				-->            <!--UN01005844-->            <!--
 			</xsd:element>
 			<xsd:element name="ExemptionReasonCode" type="udt:CodeType" minOccurs="0">
-				--><!--UN01005845--><!--
+				-->            <!--UN01005845-->            <!--
 			</xsd:element>
 			<xsd:element name="TaxBasisAllowanceRate" type="udt:RateType" minOccurs="0">
-				--><!--UN01005846--><!--
+				-->            <!--UN01005846-->            <!--
 			</xsd:element>-->
-			<xsd:element name="TaxPointDate" type="udt:DateType" minOccurs="0">
-				<!--SAMBUICHI added to bind IBT-007 TAX point date-->
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01005847</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Tax Point. Date</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>The date of the tax point when this CI trade related tax, levy or duty becomes applicable.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-		<!--	<xsd:element name="Type" type="udt:TextType" minOccurs="0">
-				--><!--UN01005848--><!--
+            <xsd:element name="TaxPointDate" type="udt:DateType" minOccurs="0">
+                <!--SAMBUICHI added to bind IBT-007 TAX point date-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005847</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Tax Point. Date</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>The date of the tax point when this CI trade related tax, levy or duty becomes applicable.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!--	<xsd:element name="Type" type="udt:TextType" minOccurs="0">
+				-->            <!--UN01005848-->            <!--
 			</xsd:element>
 			<xsd:element name="InformationAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
-				--><!--UN01005849--><!--
+				-->            <!--UN01005849-->            <!--
 			</xsd:element>-->
-			<xsd:element name="CategoryName" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01005850-->
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01005850</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Category Name. Text</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>A category name, expressed as text, of this CI trade related tax, levy or duty.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="DueDateTypeCode" type="qdt:TimeReferenceCodeType" minOccurs="0">
-				<!--SAMBUICHI added to bind JP PINT IBT-008 TAX point date code-->
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01006052</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Due Date Type. Code</ccts:DictionaryEntryName>
-						<ccts:Version>1.1</ccts:Version>
-						<ccts:Definition>The code specifying a type of due date for this CI trade tax.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="RateApplicablePercent" type="udt:PercentType" minOccurs="0">
-				<!--UN01007174-->
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01007174</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Rate_ Applicable. Percent</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>The applicable rate of CI trade tax, expressed as a percentage.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="GrandTotalAmount" type="udt:AmountType" minOccurs="0" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01013040</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Grand Total. Amount</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>The monetary value of the grand total of the basis plus tax for this CI trade tax.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-	        <xsd:element name="CalculationMethodCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
-				<!--UN01013096-->
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01013096</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Calculation Method. Code</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>The code specifying the method by which this CI trade related tax, levy or duty is calculated, such as codes for "tax calculated after line total summation", "tax calculated before line total summation", "tax back calculated based on grand total".</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="LocalTaxSystemID" type="udt:IDType" minOccurs="0" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01014650</ccts:UniqueID>
-						<ccts:Acronym>BBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CI_ Trade_ Tax. Local Tax System. Identifier</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>The identifier of the local tax system for this CI trade tax.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-		<!--	<xsd:element name="SpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
-				--><!--UN01005851--><!--
+            <xsd:element name="CategoryName" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01005850-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005850</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Category Name. Text</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>A category name, expressed as text, of this CI trade related tax, levy or duty.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DueDateTypeCode" type="qdt:TimeReferenceCodeType" minOccurs="0">
+                <!--SAMBUICHI added to bind JP PINT IBT-008 TAX point date code-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01006052</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Due Date Type. Code</ccts:DictionaryEntryName>
+                        <ccts:Version>1.1</ccts:Version>
+                        <ccts:Definition>The code specifying a type of due date for this CI trade tax.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="RateApplicablePercent" type="udt:PercentType" minOccurs="0">
+                <!--UN01007174-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01007174</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Rate_ Applicable. Percent</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>The applicable rate of CI trade tax, expressed as a percentage.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="GrandTotalAmount" type="udt:AmountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01013040</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Grand Total. Amount</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>The monetary value of the grand total of the basis plus tax for this CI trade tax.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CalculationMethodCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
+                <!--UN01013096-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01013096</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Calculation Method. Code</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>The code specifying the method by which this CI trade related tax, levy or duty is calculated, such as codes for "tax calculated after line total summation", "tax calculated before line total summation", "tax back calculated based on grand total".</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="LocalTaxSystemID" type="udt:IDType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01014650</ccts:UniqueID>
+                        <ccts:Acronym>BBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Tax. Local Tax System. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>The identifier of the local tax system for this CI trade tax.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!--	<xsd:element name="SpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
+				-->            <!--UN01005851-->            <!--
 			</xsd:element>
 			<xsd:element name="BuyerDeductibleTaxSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0">
-				--><!--UN01005852--><!--
+				-->            <!--UN01005852-->            <!--
 			</xsd:element>
 			<xsd:element name="BuyerNonDeductibleTaxSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0">
-				--><!--UN01005853--><!--
+				-->            <!--UN01005853-->            <!--
 			</xsd:element>
 			<xsd:element name="BuyerRepayableTaxSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0">
-				--><!--UN01005854--><!--
+				-->            <!--UN01005854-->            <!--
 			</xsd:element>
 			<xsd:element name="SellerPayableTaxSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0">
-				--><!--UN01005855--><!--
+				-->            <!--UN01005855-->            <!--
 			</xsd:element>
 			<xsd:element name="SellerRefundableTaxSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0">
-				--><!--UN01005856--><!--
+				-->            <!--UN01005856-->            <!--
 			</xsd:element>
 			<xsd:element name="ServiceSupplyCITradeCountry" type="ram:CITradeCountryType" minOccurs="0">
-				--><!--UN01006064--><!--
+				-->            <!--UN01006064-->            <!--
 			</xsd:element>
 			<xsd:element name="PlaceApplicableCITradeLocation" type="ram:CITradeLocationType" minOccurs="0" maxOccurs="unbounded">
-				--><!--UN01007175--><!--
+				-->            <!--UN01007175-->            <!--
 			</xsd:element>-->
-		</xsd:sequence>
-	</xsd:complexType>
-	<!-- ================================================================== -->
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- ================================================================== -->
     <!-- ===== Type Definition: CISpecifiedPeriodType                 ===== -->
     <!-- ================================================================== -->
     <xsd:complexType name="CISpecifiedPeriodType">
@@ -869,16 +869,16 @@ Schema date:    16APR23
             <xsd:element name="LineID" type="udt:IDType" minOccurs="1">
                 <!--UN01005954-->
             </xsd:element>
-			<xsd:element name="CategoryCode" type="udt:CodeType" minOccurs="0">
-				<!--UN01014645-->
-			</xsd:element>
-			<xsd:element name="IncludedCINote" type="ram:CINoteType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01005957-->
-			</xsd:element>
-			<xsd:element name="ReferenceCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01014895-->
-			</xsd:element>
-		</xsd:sequence>			
+            <xsd:element name="CategoryCode" type="udt:CodeType" minOccurs="0">
+                <!--UN01014645-->
+            </xsd:element>
+            <xsd:element name="IncludedCINote" type="ram:CINoteType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01005957-->
+            </xsd:element>
+            <xsd:element name="ReferenceCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01014895-->
+            </xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CIILSupplyChainTradeAgreementType
@@ -908,89 +908,89 @@ Schema date:    16APR23
     <!-- ===== Type Definition: CIILSupplyChainTradeDeliveryType
                                                             SAMBUICHI ===== -->
     <!-- ================================================================== -->
-	<xsd:complexType name="CIILSupplyChainTradeDeliveryType">
-		<!--UN01005968-->
-		<xsd:sequence>
-		  <xsd:element name="BilledQuantity" type="udt:QuantityType" minOccurs="0">
-			<!--UN01005969-->
-		  </xsd:element>
-		  <xsd:element name="ChargeFreeQuantity" type="udt:QuantityType" minOccurs="0">
-			<!--UN01005970-->
-		  </xsd:element>
-		  <xsd:element name="PackageQuantity" type="udt:QuantityType" minOccurs="0">
-			<!--UN01005971-->
-		  </xsd:element>
-		  <xsd:element name="ProductUnitQuantity" type="udt:QuantityType" minOccurs="0">
-			<!--UN01005972-->
-		  </xsd:element>
-		  <xsd:element name="PerPackageUnitQuantity" type="udt:QuantityType" minOccurs="0">
-			<!--UN01005973-->
-		  </xsd:element>
-		  <xsd:element name="NetWeightMeasure" type="udt:MeasureType" minOccurs="0">
-			<!--UN01005974-->
-		  </xsd:element>
-		  <xsd:element name="GrossWeightMeasure" type="udt:MeasureType" minOccurs="0">
-			<!--UN01005975-->
-		  </xsd:element>
-		  <xsd:element name="TheoreticalWeightMeasure" type="udt:MeasureType" minOccurs="0">
-			<!--UN01005976-->
-		  </xsd:element>
-		  <xsd:element name="RequestedQuantity" type="udt:QuantityType" minOccurs="0" maxOccurs="1">
-			<!--UN01011517-->
-		  </xsd:element>
-		  <xsd:element name="ReceivedQuantity" type="udt:QuantityType" minOccurs="0" maxOccurs="1">
-			<!--UN01011518-->
-		  </xsd:element>
-<!--		  <xsd:element name="SpecifiedCIDeliveryAdjustment" type="ram:CIDeliveryAdjustmentType" minOccurs="0" maxOccurs="unbounded">
-			--><!--UN01005977--><!--
+    <xsd:complexType name="CIILSupplyChainTradeDeliveryType">
+        <!--UN01005968-->
+        <xsd:sequence>
+            <xsd:element name="BilledQuantity" type="udt:QuantityType" minOccurs="0">
+                <!--UN01005969-->
+            </xsd:element>
+            <xsd:element name="ChargeFreeQuantity" type="udt:QuantityType" minOccurs="0">
+                <!--UN01005970-->
+            </xsd:element>
+            <xsd:element name="PackageQuantity" type="udt:QuantityType" minOccurs="0">
+                <!--UN01005971-->
+            </xsd:element>
+            <xsd:element name="ProductUnitQuantity" type="udt:QuantityType" minOccurs="0">
+                <!--UN01005972-->
+            </xsd:element>
+            <xsd:element name="PerPackageUnitQuantity" type="udt:QuantityType" minOccurs="0">
+                <!--UN01005973-->
+            </xsd:element>
+            <xsd:element name="NetWeightMeasure" type="udt:MeasureType" minOccurs="0">
+                <!--UN01005974-->
+            </xsd:element>
+            <xsd:element name="GrossWeightMeasure" type="udt:MeasureType" minOccurs="0">
+                <!--UN01005975-->
+            </xsd:element>
+            <xsd:element name="TheoreticalWeightMeasure" type="udt:MeasureType" minOccurs="0">
+                <!--UN01005976-->
+            </xsd:element>
+            <xsd:element name="RequestedQuantity" type="udt:QuantityType" minOccurs="0" maxOccurs="1">
+                <!--UN01011517-->
+            </xsd:element>
+            <xsd:element name="ReceivedQuantity" type="udt:QuantityType" minOccurs="0" maxOccurs="1">
+                <!--UN01011518-->
+            </xsd:element>
+            <!--		  <xsd:element name="SpecifiedCIDeliveryAdjustment" type="ram:CIDeliveryAdjustmentType" minOccurs="0" maxOccurs="unbounded">
+			-->            <!--UN01005977-->            <!--
 		  </xsd:element>
 		  <xsd:element name="IncludedCISupplyChainPackaging" type="ram:CISupplyChainPackagingType" minOccurs="0" maxOccurs="unbounded">
-			--><!--UN01005978--><!--
+			-->            <!--UN01005978-->            <!--
 		  </xsd:element>
 		  <xsd:element name="RelatedCISupplyChainConsignment" type="ram:CISupplyChainConsignmentType" minOccurs="0">
-			--><!--UN01005979--><!--
+			-->            <!--UN01005979-->            <!--
 		  </xsd:element>-->
-		  <xsd:element name="ShipToCITradeParty" type="ram:CITradePartyType" minOccurs="0">
-			<!--UN01005980-->
-		  </xsd:element>
-		  <xsd:element name="UltimateShipToCITradeParty" type="ram:CITradePartyType" minOccurs="0">
-			<!--UN01005981-->
-		  </xsd:element>
-		  <xsd:element name="ShipFromCITradeParty" type="ram:CITradePartyType" minOccurs="0">
-			<!--UN01005982-->
-		  </xsd:element>
-		  <xsd:element name="ActualDespatchCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
-			<!--UN01005983-->
-		  </xsd:element>
-		  <xsd:element name="ActualPickUpCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
-			<!--UN01005984-->
-		  </xsd:element>
-		  <xsd:element name="RequestedDeliveryCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
-			<!--UN01005985-->
-		  </xsd:element>
-		  <xsd:element name="ActualDeliveryCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
-			<!--UN01005986-->
-		  </xsd:element>
-		  <xsd:element name="ActualReceiptCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
-			<!--UN01005987-->
-		  </xsd:element>
-		  <xsd:element name="DespatchAdviceReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
-			<!--UN01006039-->
-		  </xsd:element>
-		  <xsd:element name="ReceivingAdviceReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
-			<!--UN01006040-->
-		  </xsd:element>
-		  <xsd:element name="DeliveryNoteReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
-			<!--UN01006041-->
-		  </xsd:element>
-		  <xsd:element name="AdditionalReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
-			<!--UN01006042-->
-		  </xsd:element>
-		  <xsd:element name="ConsumptionReportReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
-			<!--UN01008616-->
-		  </xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
+            <xsd:element name="ShipToCITradeParty" type="ram:CITradePartyType" minOccurs="0">
+                <!--UN01005980-->
+            </xsd:element>
+            <xsd:element name="UltimateShipToCITradeParty" type="ram:CITradePartyType" minOccurs="0">
+                <!--UN01005981-->
+            </xsd:element>
+            <xsd:element name="ShipFromCITradeParty" type="ram:CITradePartyType" minOccurs="0">
+                <!--UN01005982-->
+            </xsd:element>
+            <xsd:element name="ActualDespatchCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
+                <!--UN01005983-->
+            </xsd:element>
+            <xsd:element name="ActualPickUpCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
+                <!--UN01005984-->
+            </xsd:element>
+            <xsd:element name="RequestedDeliveryCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
+                <!--UN01005985-->
+            </xsd:element>
+            <xsd:element name="ActualDeliveryCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
+                <!--UN01005986-->
+            </xsd:element>
+            <xsd:element name="ActualReceiptCISupplyChainEvent" type="ram:CISupplyChainEventType" minOccurs="0">
+                <!--UN01005987-->
+            </xsd:element>
+            <xsd:element name="DespatchAdviceReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
+                <!--UN01006039-->
+            </xsd:element>
+            <xsd:element name="ReceivingAdviceReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
+                <!--UN01006040-->
+            </xsd:element>
+            <xsd:element name="DeliveryNoteReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
+                <!--UN01006041-->
+            </xsd:element>
+            <xsd:element name="AdditionalReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01006042-->
+            </xsd:element>
+            <xsd:element name="ConsumptionReportReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
+                <!--UN01008616-->
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CISupplyChainEventType                ===== -->
     <!-- ================================================================== -->
@@ -1021,83 +1021,83 @@ Schema date:    16APR23
             <xsd:element name="SpecifiedCIILTradeSettlementMonetarySummation" type="ram:CIILTradeSettlementMonetarySummationType" minOccurs="0">
                 <!--UN01006002-->
             </xsd:element>
-			<xsd:element name="SpecifiedCIFinancialAdjustment" type="ram:CIFinancialAdjustmentType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01006003-->
-			</xsd:element>
+            <xsd:element name="SpecifiedCIFinancialAdjustment" type="ram:CIFinancialAdjustmentType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01006003-->
+            </xsd:element>
             <xsd:element name="InvoiceReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
                 <!--UN01006004 SAMBUICHI changed to maxOccurs="unbounded"-->
-			</xsd:element>
-			<xsd:element name="AdditionalReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01006005-->
-			</xsd:element>
-			<xsd:element name="PurchaseSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01006080-->
-			</xsd:element>
+            </xsd:element>
+            <xsd:element name="AdditionalReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01006005-->
+            </xsd:element>
+            <xsd:element name="PurchaseSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01006080-->
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     <!--<xsd:complexType name="CIILSupplyChainTradeSettlementType">
-        --><!--UN01005994--><!--
+        -->    <!--UN01005994-->    <!--
         <xsd:sequence>-->
-            <!--<xsd:element name="PaymentReference" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01005995--><!--
+    <!--<xsd:element name="PaymentReference" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
+                -->    <!--UN01005995-->    <!--
             </xsd:element>
             <xsd:element name="InvoiceIssuerReference" type="udt:TextType" minOccurs="0">
-                --><!--UN01008774--><!--
+                -->    <!--UN01008774-->    <!--
             </xsd:element>
             <xsd:element name="InvoiceDateTime" type="udt:DateTimeType" minOccurs="0" maxOccurs="1">
-                --><!--UN01013029--><!--
+                -->    <!--UN01013029-->    <!--
             </xsd:element>
             <xsd:element name="DirectionCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
-                --><!--UN01014647--><!--
+                -->    <!--UN01014647-->    <!--
             </xsd:element>-->
-            <!--<xsd:element name="ApplicableCITradeTax" type="ram:CITradeTaxType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01005996--><!--
+    <!--<xsd:element name="ApplicableCITradeTax" type="ram:CITradeTaxType" minOccurs="0" maxOccurs="unbounded">
+                -->    <!--UN01005996-->    <!--
             </xsd:element>
             <xsd:element name="BillingCISpecifiedPeriod" type="ram:CISpecifiedPeriodType" minOccurs="0">
-                --><!--UN01005997--><!--
+                -->    <!--UN01005997-->    <!--
             </xsd:element>
             <xsd:element name="SpecifiedCITradeAllowanceCharge" type="ram:CITradeAllowanceChargeType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01005998--><!--
+                -->    <!--UN01005998-->    <!--
             </xsd:element>-->
-            <!--<xsd:element name="SubtotalCalculatedCITradeTax" type="ram:CITradeTaxType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01005999--><!--
+    <!--<xsd:element name="SubtotalCalculatedCITradeTax" type="ram:CITradeTaxType" minOccurs="0" maxOccurs="unbounded">
+                -->    <!--UN01005999-->    <!--
             </xsd:element>-->
-            <!--<xsd:element name="SpecifiedCILogisticsServiceCharge" type="ram:CILogisticsServiceChargeType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006000--><!--
+    <!--<xsd:element name="SpecifiedCILogisticsServiceCharge" type="ram:CILogisticsServiceChargeType" minOccurs="0" maxOccurs="unbounded">
+                -->    <!--UN01006000-->    <!--
             </xsd:element>-->
-            <!--<xsd:element name="SpecifiedCITradePaymentTerms" type="ram:CITradePaymentTermsType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006001--><!--
+    <!--<xsd:element name="SpecifiedCITradePaymentTerms" type="ram:CITradePaymentTermsType" minOccurs="0" maxOccurs="unbounded">
+                -->    <!--UN01006001-->    <!--
             </xsd:element>-->
-            <!--<xsd:element name="SpecifiedCIILTradeSettlementMonetarySummation" type="ram:CIILTradeSettlementMonetarySummationType" minOccurs="0">
-                --><!--UN01006002--><!--
+    <!--<xsd:element name="SpecifiedCIILTradeSettlementMonetarySummation" type="ram:CIILTradeSettlementMonetarySummationType" minOccurs="0">
+                -->    <!--UN01006002-->    <!--
             </xsd:element>
             <xsd:element name="SpecifiedCIFinancialAdjustment" type="ram:CIFinancialAdjustmentType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006003--><!--
+                -->    <!--UN01006003-->    <!--
             </xsd:element>
             <xsd:element name="InvoiceReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
-                --><!--UN01006004--><!--
+                -->    <!--UN01006004-->    <!--
             </xsd:element>
             <xsd:element name="AdditionalReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006005--><!--
+                -->    <!--UN01006005-->    <!--
             </xsd:element>-->
-            <!--<xsd:element name="SpecifiedTradeSettlementFinancialCard" type="ram:TradeSettlementFinancialCardType" minOccurs="0">
-                --><!--UN01006073--><!--
+    <!--<xsd:element name="SpecifiedTradeSettlementFinancialCard" type="ram:TradeSettlementFinancialCardType" minOccurs="0">
+                -->    <!--UN01006073-->    <!--
             </xsd:element>
             <xsd:element name="PayableSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006078--><!--
+                -->    <!--UN01006078-->    <!--
             </xsd:element>
             <xsd:element name="ReceivableSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006079--><!--
+                -->    <!--UN01006079-->    <!--
             </xsd:element>-->
-            <!--<xsd:element name="PurchaseSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006080--><!--
+    <!--<xsd:element name="PurchaseSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
+                -->    <!--UN01006080-->    <!--
             </xsd:element>-->
-            <!--<xsd:element name="SalesSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01006081--><!--
+    <!--<xsd:element name="SalesSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
+                -->    <!--UN01006081-->    <!--
             </xsd:element>-->
-        <!--</xsd:sequence>
-    </xsd:complexType> -->   
-    
+    <!--</xsd:sequence>
+    </xsd:complexType> -->
+
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CIILTradeSettlementMonetarySummationType
                                                  2023-02-19 SAMBUICHI ===== -->
@@ -1132,7 +1132,7 @@ Schema date:    16APR23
     <!-- ===== Type Definition: CIILBSubordinateTradeLineItemType     ===== -->
     <!-- ================================================================== -->
     <xsd:complexType name="CIILBSubordinateTradeLineItemType">
-        <!--UN01009669-->        
+        <!--UN01009669-->
         <xsd:sequence>
             <xsd:element name="ID" type="udt:IDType" minOccurs="1">
                 <!--UN01009648-->
@@ -1157,63 +1157,63 @@ Schema date:    16APR23
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
-<!--    <xsd:complexType name="CIILBSubordinateTradeLineItemType">
-        --><!--UN01009647--><!--
+    <!--    <xsd:complexType name="CIILBSubordinateTradeLineItemType">
+        -->    <!--UN01009647-->    <!--
         <xsd:sequence>
             <xsd:element name="ID" type="udt:IDType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01009648--><!--
+                -->    <!--UN01009648-->    <!--
             </xsd:element>
             <xsd:element name="CategoryCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
-                --><!--UN01014637--><!--
+                -->    <!--UN01014637-->    <!--
             </xsd:element>
             <xsd:element name="IncludedCINote" type="ram:CINoteType" minOccurs="0" maxOccurs="unbounded">
-                --><!--JPS2300004--><!--
+                -->    <!--JPS2300004-->    <!--
             </xsd:element>
-            --><!--<xsd:element name="ResponseReasonCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
-                --><!--UN01014638--><!--
-            </xsd:element>--><!--
-            --><!--<xsd:element name="SpecifiedReferencedProduct" type="ram:ReferencedProductType" minOccurs="0">
-                --><!--UN01009652--><!--
-            </xsd:element>--><!--
+            -->    <!--<xsd:element name="ResponseReasonCode" type="udt:CodeType" minOccurs="0" maxOccurs="1">
+                -->    <!--UN01014638-->    <!--
+            </xsd:element>-->    <!--
+            -->    <!--<xsd:element name="SpecifiedReferencedProduct" type="ram:ReferencedProductType" minOccurs="0">
+                -->    <!--UN01009652-->    <!--
+            </xsd:element>-->    <!--
             <xsd:element name="SpecifiedCIILBSupplyChainTradeAgreement" type="ram:CIILBSupplyChainTradeAgreementType" minOccurs="0">
-                --><!--UN01009649--><!--
+                -->    <!--UN01009649-->    <!--
             </xsd:element>
             <xsd:element name="SpecifiedCIILBSupplyChainTradeDelivery" type="ram:CIILBSupplyChainTradeDeliveryType" minOccurs="0">
-                --><!--UN01009650--><!--
+                -->    <!--UN01009650-->    <!--
             </xsd:element>
             <xsd:element name="SpecifiedCIILBSupplyChainTradeSettlement" type="ram:CIILBSupplyChainTradeSettlementType" minOccurs="0">
-                --><!--UN01009651--><!--
+                -->    <!--UN01009651-->    <!--
             </xsd:element>
             <xsd:element name="ApplicableCITradeProduct" type="ram:CITradeProductType" minOccurs="0" maxOccurs="unbounded">
-                --><!--UN01010016--><!--
+                -->    <!--UN01010016-->    <!--
             </xsd:element>
         </xsd:sequence>
-    </xsd:complexType>-->    
-    
+    </xsd:complexType>-->
+
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CIILBSupplyChainTradeAgreementType    
                                                             SAMBUICHI ===== -->
     <!-- ================================================================== -->
-	<xsd:complexType name="CIILBSupplyChainTradeAgreementType">
-		<!--UN01009653-->
-		<xsd:sequence>
-			<xsd:element name="SellerOrderReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01009654 SAMBUICHI changed to maxOccurs="unbounded"-->
-			</xsd:element>
-			<xsd:element name="BuyerOrderReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01009655 SAMBUICHI changed to maxOccurs="unbounded"-->
-			</xsd:element>
-			<xsd:element name="AdditionalReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01009656-->
-			</xsd:element>
-			<xsd:element name="GrossPriceProductCITradePrice" type="ram:CITradePriceType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01009657-->
-			</xsd:element>
-			<xsd:element name="NetPriceProductCITradePrice" type="ram:CITradePriceType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01009658-->
-			</xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
+    <xsd:complexType name="CIILBSupplyChainTradeAgreementType">
+        <!--UN01009653-->
+        <xsd:sequence>
+            <xsd:element name="SellerOrderReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01009654 SAMBUICHI changed to maxOccurs="unbounded"-->
+            </xsd:element>
+            <xsd:element name="BuyerOrderReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01009655 SAMBUICHI changed to maxOccurs="unbounded"-->
+            </xsd:element>
+            <xsd:element name="AdditionalReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01009656-->
+            </xsd:element>
+            <xsd:element name="GrossPriceProductCITradePrice" type="ram:CITradePriceType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01009657-->
+            </xsd:element>
+            <xsd:element name="NetPriceProductCITradePrice" type="ram:CITradePriceType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01009658-->
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CITradePriceType                      ===== -->
     <!-- ================================================================== -->
@@ -1246,34 +1246,34 @@ Schema date:    16APR23
     <xsd:complexType name="CIILBSupplyChainTradeSettlementType">
         <!--UN01009664-->
         <xsd:sequence>
-			<xsd:element name="DirectionCode" type="udt:CodeType" minOccurs="0">
-				<!--UN01014641-->
-			</xsd:element>
+            <xsd:element name="DirectionCode" type="udt:CodeType" minOccurs="0">
+                <!--UN01014641-->
+            </xsd:element>
             <xsd:element name="ApplicableCITradeTax" type="ram:CITradeTaxType" minOccurs="1">
                 <!--UN01009665-->
             </xsd:element>
             <xsd:element name="InvoiceReferencedCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01014642</ccts:UniqueID>
-						<ccts:Acronym>ASBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CIILB_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>The invoice document referenced for this CIILB supply chain trade settlement.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01014642</ccts:UniqueID>
+                        <ccts:Acronym>ASBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CIILB_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>The invoice document referenced for this CIILB supply chain trade settlement.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
             <xsd:element name="SpecifiedCIFinancialAdjustment" type="ram:CIFinancialAdjustmentType" minOccurs="0" maxOccurs="unbounded">
-				<xsd:annotation>
-					<xsd:documentation xml:lang="en">
-						<ccts:UniqueID>UN01014643</ccts:UniqueID>
-						<ccts:Acronym>ASBIE</ccts:Acronym>
-						<ccts:DictionaryEntryName>CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment</ccts:DictionaryEntryName>
-						<ccts:Version>1.0</ccts:Version>
-						<ccts:Definition>A financial adjustment specified for this CIILB supply chain trade settlement.</ccts:Definition>
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01014643</ccts:UniqueID>
+                        <ccts:Acronym>ASBIE</ccts:Acronym>
+                        <ccts:DictionaryEntryName>CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment</ccts:DictionaryEntryName>
+                        <ccts:Version>1.0</ccts:Version>
+                        <ccts:Definition>A financial adjustment specified for this CIILB supply chain trade settlement.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="SpecifiedCITradeAllowanceCharge" type="ram:CITradeAllowanceChargeType" minOccurs="0" maxOccurs="unbounded">
                 <!--UN01014644-->
             </xsd:element>
@@ -1282,46 +1282,46 @@ Schema date:    16APR23
             </xsd:element>
             <!--ram:PurchaseSpecifiedCITradeAccountingAccount 31p0ではCIILBSupplyChainTradeSettlementType未定義
 				定義されているのは CIILSupplyChainTradeSettlementType UN01005994 -->
-			<xsd:element name="PurchaseSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01006080-->
-			</xsd:element>
+            <xsd:element name="PurchaseSpecifiedCITradeAccountingAccount" type="ram:CITradeAccountingAccountType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01006080-->
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
-    
+
     <!-- ================================================================== -->
-	<!-- ===== Type Definition: CITradeAccountingAccountType SAMBUICHI===== -->
-	<!-- ================================================================== -->
-	<xsd:complexType name="CITradeAccountingAccountType">
-		<!--UN01005680-->
-		<xsd:sequence>
-			<xsd:element name="TypeCode" type="qdt:AccountingAccountTypeCodeType" minOccurs="0">
-				<!--UN01005683-->
-			</xsd:element>
-			<xsd:element name="Name" type="udt:TextType" minOccurs="0">
-				<!--UN01005685-->
-			</xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>	
+    <!-- ===== Type Definition: CITradeAccountingAccountType SAMBUICHI===== -->
+    <!-- ================================================================== -->
+    <xsd:complexType name="CITradeAccountingAccountType">
+        <!--UN01005680-->
+        <xsd:sequence>
+            <xsd:element name="TypeCode" type="qdt:AccountingAccountTypeCodeType" minOccurs="0">
+                <!--UN01005683-->
+            </xsd:element>
+            <xsd:element name="Name" type="udt:TextType" minOccurs="0">
+                <!--UN01005685-->
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CIFinancialAdjustmentType   SAMBUICHI ===== -->
     <!-- ================================================================== -->
     <xsd:complexType name="CIFinancialAdjustmentType">
-		<!--UN01005487-->
-		<xsd:sequence>
-			<xsd:element name="ReasonCode" type="qdt:FinancialAdjustmentReasonCodeType" minOccurs="0">
-				<!--UN01005488-->
-			</xsd:element>
-			<xsd:element name="Reason" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01005489-->
-			</xsd:element>
-			<xsd:element name="ActualAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
-				<!--UN01005490-->
-			</xsd:element>
-			<xsd:element name="InvoiceReferenceCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
-				<!--UN01009671-->
-			</xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
+        <!--UN01005487-->
+        <xsd:sequence>
+            <xsd:element name="ReasonCode" type="qdt:FinancialAdjustmentReasonCodeType" minOccurs="0">
+                <!--UN01005488-->
+            </xsd:element>
+            <xsd:element name="Reason" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01005489-->
+            </xsd:element>
+            <xsd:element name="ActualAmount" type="udt:AmountType" minOccurs="0" maxOccurs="unbounded">
+                <!--UN01005490-->
+            </xsd:element>
+            <xsd:element name="InvoiceReferenceCIReferencedDocument" type="ram:CIReferencedDocumentType" minOccurs="0">
+                <!--UN01009671-->
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
     <!-- ================================================================== -->
     <!-- ===== Type Definition: CITradeProductType          SAMBUICHI ===== -->
     <!-- ================================================================== -->
@@ -1329,28 +1329,76 @@ Schema date:    16APR23
         <!--UN01005809-->
         <xsd:sequence>
             <xsd:element name="GlobalID" type="udt:IDType" minOccurs="0">
-                <!--UN01005811 SAMBUICHI-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005811</ccts:UniqueID>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Product. Global_ Identification. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Definition>The unique global identifier for this CI trade product.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
             <xsd:element name="SellerAssignedID" type="udt:IDType" minOccurs="0">
-                <!--UN01005812 SAMBUICHI-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005812</ccts:UniqueID>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Product. Seller Assigned_ Identification. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Definition>The unique seller assigned identifier for this CI trade product.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
             <xsd:element name="BuyerAssignedID" type="udt:IDType" minOccurs="0">
-                <!--UN01005813 SAMBUICHI-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005813</ccts:UniqueID>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Product. Buyer Assigned_ Identification. Identifier</ccts:DictionaryEntryName>
+                        <ccts:Definition>The unique buyer assigned identifier for this CI trade product.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
-            <xsd:element name="Name" type="udt:TextType" minOccurs="0">
-                <!--UN01005815-->
+            <xsd:element name="Name" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005815</ccts:UniqueID>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Product. Name. Text</ccts:DictionaryEntryName>
+                        <ccts:Definition>A name, expressed as text, for this CI trade product.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
-            <xsd:element name="Description" type="udt:TextType" minOccurs="0">
-                <!--UN01005817 SAMBUICHI change min to 0-->
+            <xsd:element name="Description" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005817</ccts:UniqueID>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Product. Description. Text</ccts:DictionaryEntryName>
+                        <ccts:Definition>A textual description for this CI trade product.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
             <xsd:element name="ApplicableCIProductCharacteristic" type="ram:CIProductCharacteristicType" minOccurs="0" maxOccurs="unbounded">
-                <!--UN01005821 SAMBUICHI-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005821</ccts:UniqueID>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Product. Applicable. CI_ Product_ Characteristic</ccts:DictionaryEntryName>
+                        <ccts:Definition>A product characteristic applicable to this CI trade product.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
             <xsd:element name="DesignatedCIProductClassification" type="ram:CIProductClassificationType" minOccurs="0" maxOccurs="unbounded">
-                <!--UN01005823 SAMBUICHI-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005823</ccts:UniqueID>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Product. Designated. CI_ Product_ Classification</ccts:DictionaryEntryName>
+                        <ccts:Definition>A product classification designated for this CI trade product.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
             <xsd:element name="OriginCITradeCountry" type="ram:CITradeCountryType" minOccurs="0">
-                <!--UN01005827 SAMBUICHI-->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        <ccts:UniqueID>UN01005827</ccts:UniqueID>
+                        <ccts:DictionaryEntryName>CI_ Trade_ Product. Origin. CI_ Trade_ Country</ccts:DictionaryEntryName>
+                        <ccts:Definition>The country of origin for this Cross Industry (CI) trade product.</ccts:Definition>
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
@@ -1364,10 +1412,10 @@ Schema date:    16APR23
                 <!--UN01005736-->
             </xsd:element>
             <!--<xsd:element name="Name" type="udt:TextType" minOccurs="0" maxOccurs="unbounded">-->
-                <!--UN01005737-->
+            <!--UN01005737-->
             <!--</xsd:element>-->
             <!--<xsd:element name="SubordinateCITradeCountrySubDivision" type="ram:CITradeCountrySubDivisionType" minOccurs="0" maxOccurs="unbounded">-->
-                <!--UN01007156-->
+            <!--UN01007156-->
             <!--</xsd:element>-->
         </xsd:sequence>
     </xsd:complexType>
