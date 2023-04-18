@@ -1,0 +1,35 @@
+{
+    "documentInfo": {
+        "documentType": "https://xbrl.org/2021/xbrl-csv",
+        "namespaces": {
+            "core": "http://www.xbrl.jp/core-japan",
+            "ns0": "http://www.example.com",
+            "link": "http://www.xbrl.org/2003/linkbase",
+            "iso4217": "http://www.xbrl.org/2003/iso4217",
+            "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xbrli": "http://www.xbrl.org/2003/instance",
+            "xbrldi": "http://xbrl.org/2006/xbrldi",
+            "xlink": "http://www.w3.org/1999/xlink"
+        },
+        "taxonomy": [
+            "../xbrl/core.xsd"
+        ]
+    },
+    "tableTemplates": {
+        "core": {
+            "columns": {
+                "d_NC00": {}                
+            },
+            "dimensions": {
+                "core:d_NC00": "$d_NC00",
+                "period": "2023-11-01T00:00:00",
+                "entity": "ns0:Example co."
+            }
+        }
+    },
+    "tables": {
+        "core": {
+            "url": "core-instances.csv"
+        }
+    }
+}

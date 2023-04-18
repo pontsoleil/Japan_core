@@ -268,7 +268,7 @@ public class Invoice2csv
 		fillTable();
 
 		try {
-			FileHandler.csvFileWrite(out_csv, CHARSET, ",");
+			FileHandler.csvFileWrite(FileHandler.tidyData, out_csv, CHARSET, ",");
 		} catch (FileNotFoundException fnf) {
 			System.out.println("* File Not Found Exception "+out_csv);
 		} catch (IOException e) {
@@ -283,35 +283,7 @@ public class Invoice2csv
 	 */
 	private static void fillTable() 
 	{
-		if (TRACE) System.out.println();		
-		Set<String> ids = new HashSet<>();
-		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) {
-		    String rowName = entryRow.getKey();
-		    TreeMap<Integer, String> rowData = entryRow.getValue();		    
-		    // Iterate over each column in the row
-		    for (Map.Entry<Integer, String> entryCol : rowData.entrySet()) {
-		        int colIndex = entryCol.getKey();
-		        String cellValue = entryCol.getValue();		        
-		        // Do something with the cell value
-		        if (cellValue.length() > 0)
-		        {
-			        if (TRACE)
-			        	System.out.println("Row: " + rowName + ", Column: " + colIndex + ", Value: " + cellValue);
-		        	Binding binding = FileHandler.synBindingMap.get(colIndex);
-		        	if (null!=binding)
-		        	{
-				        String id = binding.getID();
-				        if (id.toUpperCase().matches("^NC[0-9]+-[0-9]+$"))
-				        {
-				        	String d = id.substring(0,4);
-				        	ids.add(d);
-				        }
-		        	} else
-		        		continue;
-		        }
-		    }
-		}
-		
+		FileHandler.tidyData = new ArrayList<ArrayList<String>>();		
 		FileHandler.header.add(FileHandler.ROOT_ID);	
 		// bough
 		for (Map.Entry<Integer,String> multipleEntry : multipleMap.entrySet()) 
@@ -336,10 +308,8 @@ public class Invoice2csv
 			{
 				FileHandler.header.add(dataID);
 			}
-		}
-		
-		FileHandler.tidyData = new ArrayList<ArrayList<String>>();
-		if (TRACE) System.out.println("* FileHandler.tidyData\n"+FileHandler.header.toString());
+		}		
+		FileHandler.tidyData.add(FileHandler.header);
 		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) 
 		{
 			ArrayList<String> record = new ArrayList<>();
@@ -378,7 +348,7 @@ public class Invoice2csv
 				Binding binding = FileHandler.semBindingMap.get(sort);
 				String id       = binding.getID();
 				int dataIndex   = FileHandler.header.indexOf(id);
-				if (dataIndex>=0) 
+				if (dataIndex >= 0) 
 				{
 					record.set(dataIndex, value);
 				} else 
@@ -387,12 +357,59 @@ public class Invoice2csv
 				}
 			}
 			FileHandler.tidyData.add(record);
-			if (TRACE) System.out.println(record.toString());
 		}
 		
+		int row_size = FileHandler.tidyData.size();
+		int col_size = FileHandler.tidyData.get(0).size();
+		ArrayList<Boolean> usedList = new ArrayList<>();        
+        for (int i = 0; i < col_size; i++) {
+            usedList.add(false);
+        }
+		for (int y = 1; y < row_size; y++) 
+		{
+			for (int x = 0; x < col_size; x++) 
+			{
+				String data = FileHandler.tidyData.get(y).get(x);
+				if (null!=data && data.length() > 0)
+					usedList.set(x, true);
+			}
+		}
+		int countUsed = 0;
+        for (Boolean b : usedList) {
+            if (b) {
+            	countUsed++;
+            }
+        }
+    	ArrayList<ArrayList<String>> revisedData = new ArrayList<>(row_size);
+		for (int y = 0; y < row_size; y++) 
+		{
+			ArrayList<String> row = new ArrayList<>(countUsed);
+			for (int x = 0; x < col_size; x++) 
+			{
+				String data = FileHandler.tidyData.get(y).get(x);
+				if (usedList.get(x))
+				{
+					if (0==y && data.toUpperCase().matches("^(NC00|NC[0-9]+-NC[0-9]+)$"))
+						data = "d_"+data;
+					System.out.println(data);
+					row.add(data);
+				}
+			}
+			revisedData.add(row);
+		}
 		
+		FileHandler.tidyData = revisedData;
+		FileHandler.header   = revisedData.get(0);
+
+		if (TRACE) System.out.println("* FileHandler.tidyData");
+		for (int y = 0; y < row_size; y++) 
+		{
+			ArrayList<String> row = new ArrayList<>();
+			row = FileHandler.tidyData.get(y);
+			if (TRACE) System.out.println(row.toString());
+		}
 		
-		if (TRACE) System.out.println("End fillTable()");
+		if (TRACE) System.out.println("-- End -- fillTable()");
 	}
 
 	/**
@@ -520,8 +537,7 @@ public class Invoice2csv
 					{
 						fillData(childSort, value, boughMap); // @attribute
 						
-					} else if (null!=child && null != value && value.length() > 0 &&
-							childID.toUpperCase().matches("^NC[0-9]+-[0-9]+$")) 
+					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("^NC[0-9]+-[0-9]+$")) 
 					{
 						if (TRACE) 
 							System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
@@ -627,11 +643,11 @@ public class Invoice2csv
 	 */
 	private static void fillGrandChildren(
 			TreeMap<Integer, Integer> boughMap, 
-			Integer childSort,
-			int i, 
-			String childNodeName,
+			Integer      childSort,
+			int          i, 
+			String       childNodeName,
 			NamedNodeMap attributes, 
-			Integer grandchildSort) 
+			Integer      grandchildSort) 
 	{
 		Integer lastKey           = boughMap.lastKey();
 		Integer lastID            = boughMap.get(lastKey);
@@ -649,10 +665,11 @@ public class Invoice2csv
 			Node attribute = attributes.getNamedItem(attrName);
 			if (null!=attribute) 
 			{
-				String grandchildValue     = attribute.getNodeValue();
+				String grandchildValue = attribute.getNodeValue();
 				if (TRACE) 
 					System.out.print(
-							"* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
+							"* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+
+							" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
 							"\n    @"+attrName+"("+grandchildSort+") = "+grandchildValue);
 				fillData(grandchildSort, grandchildValue, boughMap);
 			}
@@ -669,7 +686,8 @@ public class Invoice2csv
 					String grandchildValue    = grandchild.getTextContent().trim();
 					if (TRACE) 
 						System.out.println(
-								"* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
+								"* 2 fillGroup - fillData boughMap"+boughMap.toString()+"child "+childNodeName+" "+childID+
+								" grandchild("+grandchildSort+") "+grandchildID+" level="+childLevel+" "+ childBusinessTerm+"->"+grandchildBT+
 								"\n    grand child["+lastKey+"] "+grandchildNodeName+"="+grandchildValue);		
 					fillData(grandchildSort, grandchildValue, boughMap);
 				}
@@ -678,7 +696,7 @@ public class Invoice2csv
 	}
 
 	/**
-	 * Tidy data テーブルに親要素が含むXPathで見つかった複数の子要素(JBG)を追加する。
+	 * Tidy data テーブルに親要素が含むXPathで見つかった複数の子要素を追加する。
 	 * 
 	 * @param boughMap Tidy dataテーブルの行を指定する索引データ
 	 * @param sort モデル定義における親要素のソート番号
@@ -699,12 +717,12 @@ public class Invoice2csv
 		String childID           = childBinding.getID();
 		String childBusinessTerm = childBinding.getBT();
 		int childLevel           = childBinding.getLevel();
-		int countChildren = children.size();
-		Node child   = children.get(i);
+		int countChildren        = children.size();
+		Node child               = children.get(i);
 		@SuppressWarnings("unchecked")
 		TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
-		Integer lastkey   = boughMap1.lastKey();
-		Integer lastvalue = boughMap1.get(lastkey);
+		Integer lastkey          = boughMap1.lastKey();
+		Integer lastvalue        = boughMap1.get(lastkey);
 		if (TRACE) 
 			System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
 		if (childSort != lastkey) 
@@ -743,10 +761,10 @@ public class Invoice2csv
 	 */
 	private static void fillMultipleBusinessTerm(
 			TreeMap<Integer, Integer> boughMap, 
-			Integer sort, 
-			Integer childSort, 
+			Integer    sort, 
+			Integer    childSort, 
 			List<Node> children, 
-			int i) 
+			int        i) 
 	{
 		Integer lastKey          = boughMap.lastKey();
 		Binding binding          = FileHandler.semBindingMap.get(sort);
@@ -755,12 +773,12 @@ public class Invoice2csv
 		String childID           = childBinding.getID();
 		String childBusinessTerm = childBinding.getBT();
 		int childLevel           = childBinding.getLevel();
-		Node child   = children.get(i);
-		String value = child.getTextContent().trim();	
+		Node child               = children.get(i);
+		String value             = child.getTextContent().trim();	
 		@SuppressWarnings("unchecked")
 		TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
-		Integer lastkey   = boughMap1.lastKey();
-		Integer lastvalue = boughMap1.get(lastkey);
+		Integer lastkey          = boughMap1.lastKey();
+		Integer lastvalue        = boughMap1.get(lastkey);
 		if (TRACE) 
 			System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
 		if (i != lastvalue)
@@ -792,12 +810,14 @@ public class Invoice2csv
 		String id         = binding.getID();
 		String xPath      = binding.getXPath();
 		List<Node> founds = FileHandler.getXPath(FileHandler.root, xPath);
-		if (null!=founds) {
-			if (xPath.indexOf("true") > 0 || xPath.indexOf("false") > 0 ||
-					founds.size() > 1) {
+		if (null!=founds) 
+		{
+			if (xPath.indexOf("true") > 0 || xPath.indexOf("false") > 0 || founds.size() > 1) 
+			{
 				multiple = true;
 			}
-		} else if (Arrays.asList(FileHandler.MULTIPLE_ID).contains(id.toLowerCase())) {
+		} else if (Arrays.asList(FileHandler.MULTIPLE_ID).contains(id.toLowerCase())) 
+		{
 			multiple = true;
 		}
 		return multiple;

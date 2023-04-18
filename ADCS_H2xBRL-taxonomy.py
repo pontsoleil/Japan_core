@@ -241,7 +241,7 @@ def checkASBIE(child_id,link_id,lines):
         role_record = roleRecord(child_id)
         role_id = role_record['role_id']
         URI = role_record['URI']
-        if DEBUG: print(f'domain-member: {link_id} to {child_id} order={count} in {role_id} targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}')
+        if DEBUG: print(f'domain-member: {link_id} to {child_id} order={count} in {role_id} targetRole="http://www.xbrl.jp/core-japan/role{URI}')
         lines.append(f'\t\t<!-- {child_id} targetRole {role_id} -->\n')
         if not target_id in locsDefined[link_id]:
             locsDefined[link_id].add(child_id)
@@ -250,7 +250,7 @@ def checkASBIE(child_id,link_id,lines):
         arc_id = f'{link_id} {child_id}'
         if not arc_id in arcsDefined[link_id]:
             arcsDefined[link_id].add(arc_id)
-            lines.append(f'\t\t<link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id} in {role_id}" order="{count}"/>\n')
+            lines.append(f'\t\t<link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/core-japan/role{URI}" xlink:from="{link_id}" xlink:to="{child_id}" xlink:title="domain-member: {link_id} to {child_id} in {role_id}" order="{count}"/>\n')
     else:
         if 'ASBIE'==child_kind and '1'==child['occMax']:
             if 'children' in child and len(child['children']) > 0:
@@ -310,7 +310,7 @@ def defineHypercube(adc_id):
             origin_id = origin_id[:LEN_KEY]
             origin_dimension = f'd_{origin_id}'
             dimension_id_list.add(origin_dimension)
-    lines.append(f'\t<link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/audit-data-collection/role{URI}">\n')
+    lines.append(f'\t<link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/core-japan/role{URI}">\n')
     # all (has-hypercube)
     lines.append(f'\t\t<!-- {link_id} all (has-hypercube) {hypercube_id} {role_id} -->\n')
     lines.append(f'\t\t<link:loc xlink:type="locator" xlink:href="{core_xsd}#{link_id}" xlink:label="{link_id}" xlink:title="{link_id}"/>\n')
@@ -713,10 +713,10 @@ if __name__ == '__main__':
         '<?xml version="1.0" encoding="UTF-8"?>\n',
         '<!-- (c) 2022 XBRL Japan  inc. -->\n',
         '<schema \n',
-        '\ttargetNamespace="http://www.xbrl.jp/audit-data-collection" \n',
+        '\ttargetNamespace="http://www.xbrl.jp/core-japan" \n',
         '\telementFormDefault="qualified" \n',
         '\txmlns="http://www.w3.org/2001/XMLSchema" \n',
-        '\txmlns:adc="http://www.xbrl.jp/audit-data-collection" \n',
+        '\txmlns:adc="http://www.xbrl.jp/core-japan" \n',
         '\txmlns:xlink="http://www.w3.org/1999/xlink" \n',
         '\txmlns:link="http://www.xbrl.org/2003/linkbase" \n',
         '\txmlns:xbrli="http://www.xbrl.org/2003/instance" \n',
@@ -750,8 +750,8 @@ if __name__ == '__main__':
         '\t\t\t<!-- \n',
         '\t\t\t\trole type\n',
         '\t\t\t-->\n'
-        f'\t\t\t<link:roleType id="audit-data-collection-role" roleURI="http://www.xbrl.jp/audit-data-collection/role">\n',
-        f'\t\t\t\t<link:definition>link audit-data-collection</link:definition>\n',
+        f'\t\t\t<link:roleType id="core-japan-role" roleURI="http://www.xbrl.jp/core-japan/role">\n',
+        f'\t\t\t\t<link:definition>link core-japan</link:definition>\n',
         f'\t\t\t\t<link:usedOn>link:definitionLink</link:usedOn>\n',
         f'\t\t\t\t<link:usedOn>link:presentationLink</link:usedOn>\n',
         '\t\t\t</link:roleType>\n',
@@ -763,7 +763,7 @@ if __name__ == '__main__':
         den = role["den"]
         if LEN_KEY==len(adc_id):
             den = titleCase(den)
-            html.append(f'\t\t\t<link:roleType id="{role_id}" roleURI="http://www.xbrl.jp/audit-data-collection/role{URI}">\n')
+            html.append(f'\t\t\t<link:roleType id="{role_id}" roleURI="http://www.xbrl.jp/core-japan/role{URI}">\n')
             html.append(f'\t\t\t\t<link:definition>{den}</link:definition>\n')
             html.append(f'\t\t\t\t<link:usedOn>link:definitionLink</link:usedOn>\n')
             html.append('\t\t\t</link:roleType>\n')
@@ -775,7 +775,7 @@ if __name__ == '__main__':
             else:
                 source_den = den
                 target_den = ''
-            html.append(f'\t\t\t<link:roleType id="{role_id}" roleURI="http://www.xbrl.jp/audit-data-collection/role{URI}">\n')
+            html.append(f'\t\t\t<link:roleType id="{role_id}" roleURI="http://www.xbrl.jp/core-japan/role{URI}">\n')
             html.append(f'\t\t\t\t<link:definition>{source_den} to {target_den}</link:definition>\n')
             html.append(f'\t\t\t\t<link:usedOn>link:definitionLink</link:usedOn>\n')
             html.append('\t\t\t</link:roleType>\n')
@@ -785,11 +785,11 @@ if __name__ == '__main__':
         '\t\t\t<!--\n',
         '\t\t\t\tdescription: roleType arcroleType\n',
         '\t\t\t-->\n'
-        '\t\t\t<link:roleType id="description" roleURI="http://www.xbrl.jp/audit-data-collection/role/description">\n',
+        '\t\t\t<link:roleType id="description" roleURI="http://www.xbrl.jp/core-japan/role/description">\n',
         '\t\t\t\t<link:definition>description</link:definition>\n',
         '\t\t\t\t<link:usedOn>link:label</link:usedOn>\n',
         '\t\t\t</link:roleType>\n',
-        '\t\t\t<link:arcroleType id="concept-description" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description">\n',
+        '\t\t\t<link:arcroleType id="concept-description" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-description">\n',
         '\t\t\t\t<link:definition>concept to description</link:definition>\n',
         '\t\t\t\t<link:usedOn>link:labelArc</link:usedOn>\n',
         '\t\t\t</link:arcroleType >\n',
@@ -800,11 +800,11 @@ if __name__ == '__main__':
         '\t\t\t<!--\n',
         '\t\t\t\tprimary key: roleType arcroleType\n',
         '\t\t\t-->\n'
-        '\t\t\t<link:roleType id="primary-key" roleURI="http://www.xbrl.jp/audit-data-collection/role/primary-key">\n',
+        '\t\t\t<link:roleType id="primary-key" roleURI="http://www.xbrl.jp/core-japan/role/primary-key">\n',
         '\t\t\t\t<link:definition>primary key</link:definition>\n',
         '\t\t\t\t<link:usedOn>link:definitionLink</link:usedOn>\n',
         '\t\t\t</link:roleType>\n',
-        '\t\t\t<link:arcroleType id="concept-primary-key" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-primary-key">\n',
+        '\t\t\t<link:arcroleType id="concept-primary-key" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-primary-key">\n',
         '\t\t\t\t<link:definition>concept primary key</link:definition>\n',
         '\t\t\t\t<link:usedOn>link:definitionArc</link:usedOn>\n',
         '\t\t\t</link:arcroleType >\n',
@@ -815,11 +815,11 @@ if __name__ == '__main__':
         '\t\t\t<!--\n',
         '\t\t\t\treference identifier: roleType arcroleType\n',
         '\t\t\t-->\n'
-        '\t\t\t<link:roleType id="reference-identifier" roleURI="http://www.xbrl.jp/audit-data-collection/role/reference-identifier">\n',
+        '\t\t\t<link:roleType id="reference-identifier" roleURI="http://www.xbrl.jp/core-japan/role/reference-identifier">\n',
         '\t\t\t\t<link:definition>reference identifier</link:definition>\n',
         '\t\t\t\t<link:usedOn>link:definitionLink</link:usedOn>\n',
         '\t\t\t</link:roleType>\n',
-        '\t\t\t<link:arcroleType id="concept-reference-identifier" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-reference-identifier">\n',
+        '\t\t\t<link:arcroleType id="concept-reference-identifier" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-reference-identifier">\n',
         '\t\t\t\t<link:definition>concept reference identifier</link:definition>\n',
         '\t\t\t\t<link:usedOn>link:definitionArc</link:usedOn>\n',
         '\t\t\t</link:arcroleType >\n',
@@ -830,7 +830,7 @@ if __name__ == '__main__':
         '\t\t\t<!--\n',
         '\t\t\t\trequire: roleType\n',
         '\t\t\t-->\n'
-        '\t\t\t<link:roleType id="require" roleURI="http://www.xbrl.jp/audit-data-collection/role/require">\n',
+        '\t\t\t<link:roleType id="require" roleURI="http://www.xbrl.jp/core-japan/role/require">\n',
         '\t\t\t\t<link:definition>require</link:definition>\n',
         '\t\t\t\t<link:usedOn>link:definitionLink</link:usedOn>\n',
         '\t\t\t</link:roleType>\n',
@@ -973,8 +973,8 @@ if __name__ == '__main__':
         '\txmlns:link="http://www.xbrl.org/2003/linkbase"\n',
         '\txmlns:xlink="http://www.w3.org/1999/xlink"\n',
         '\txsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">\n',
-        f'\t<!--link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role/description" xlink:type="simple" xlink:href="{core_xsd}#description"/>\n',
-        f'\t<link:arcroleRef arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:type="simple" xlink:href="{core_xsd}#concept-description"/-->\n',
+        f'\t<!--link:roleRef roleURI="http://www.xbrl.jp/core-japan/role/description" xlink:type="simple" xlink:href="{core_xsd}#description"/>\n',
+        f'\t<link:arcroleRef arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-description" xlink:type="simple" xlink:href="{core_xsd}#concept-description"/-->\n',
         '\t<link:labelLink xlink:type="extended" xlink:role="http://www.xbrl.org/2003/role/link">\n'
     ]
     locsDefined = {}
@@ -1042,15 +1042,15 @@ if __name__ == '__main__':
         if name != desc:
             if not adc_id in definedDescs:
                 definedDescs[adc_id] = adc_id
-                line = f'\t\t<link:label xlink:type="resource" xlink:label="description_{adc_id}" xlink:title="description_{adc_id}" id="description_{adc_id}" xml:lang="{lang}" xlink:role="http://www.xbrl.jp/audit-data-collection/role/description">{desc}</link:label>\n'
+                line = f'\t\t<link:label xlink:type="resource" xlink:label="description_{adc_id}" xlink:title="description_{adc_id}" id="description_{adc_id}" xml:lang="{lang}" xlink:role="http://www.xbrl.jp/core-japan/role/description">{desc}</link:label>\n'
             else:
-                line = f'\t\t\t<!-- link:label http://www.xbrl.jp/audit-data-collection/role/description defined -->\n'
+                line = f'\t\t\t<!-- link:label http://www.xbrl.jp/core-japan/role/description defined -->\n'
             lines.append(line)
             if not adc_id in definedDescArcs:
                 definedDescArcs[adc_id] = adc_id
-                line = f'\t\t<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:from="{adc_id}" xlink:to="description_{adc_id}" xlink:title="label: {adc_id} to label_{adc_id}"/>\n'
+                line = f'\t\t<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.jp/core-japan/arcrole/concept-description" xlink:from="{adc_id}" xlink:to="description_{adc_id}" xlink:title="label: {adc_id} to label_{adc_id}"/>\n'
             else:
-                line = f'\t\t\t<!-- link:labelArc http://www.xbrl.jp/audit-data-collection/arcrole/concept-description defined -->\n'
+                line = f'\t\t\t<!-- link:labelArc http://www.xbrl.jp/core-japan/arcrole/concept-description defined -->\n'
             lines.append(line)
 
     lines = [
@@ -1061,8 +1061,8 @@ if __name__ == '__main__':
         '\txmlns:link="http://www.xbrl.org/2003/linkbase"\n',
         '\txmlns:xlink="http://www.w3.org/1999/xlink"\n',
         '\txsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">\n',
-        f'\t<link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role/description" xlink:type="simple" xlink:href="{core_xsd}#description"/>\n',
-        f'\t<link:arcroleRef arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:type="simple" xlink:href="{core_xsd}#concept-description"/>\n',
+        f'\t<link:roleRef roleURI="http://www.xbrl.jp/core-japan/role/description" xlink:type="simple" xlink:href="{core_xsd}#description"/>\n',
+        f'\t<link:arcroleRef arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-description" xlink:type="simple" xlink:href="{core_xsd}#concept-description"/>\n',
         '\t<link:labelLink xlink:type="extended" xlink:role="http://www.xbrl.org/2003/role/link">\n'
     ]
     locsDefined = {}
@@ -1170,8 +1170,8 @@ if __name__ == '__main__':
         '\txsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"\n',
         '\txmlns:link="http://www.xbrl.org/2003/linkbase"\n',
         '\txmlns:xlink="http://www.w3.org/1999/xlink">\n',
-        f'\t<link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role" xlink:type="simple" xlink:href="{core_xsd}#audit-data-collection-role"/>\n',
-        '\t<link:presentationLink xlink:type="extended" xlink:role="http://www.xbrl.jp/audit-data-collection/role">\n',
+        f'\t<link:roleRef roleURI="http://www.xbrl.jp/core-japan/role" xlink:type="simple" xlink:href="{core_xsd}#core-japan-role"/>\n',
+        '\t<link:presentationLink xlink:type="extended" xlink:role="http://www.xbrl.jp/core-japan/role">\n',
     ]
     locsDefined = {}
     arcsDefined = {}
@@ -1212,18 +1212,18 @@ if __name__ == '__main__':
         role_id = role["role_id"]
         link_id = role['link_id']
         URI = f"/{role_id}"
-        lines.append(f'\t<link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role{URI}" xlink:type="simple" xlink:href="{core_xsd}#{role_id}"/>\n')
+        lines.append(f'\t<link:roleRef roleURI="http://www.xbrl.jp/core-japan/role{URI}" xlink:type="simple" xlink:href="{core_xsd}#{role_id}"/>\n')
     html = [
-        f'\t<link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role/primary-key" xlink:type="simple" xlink:href="{core_xsd}#primary-key"/>\n',
-        f'\t<link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role/reference-identifier" xlink:type="simple" xlink:href="{core_xsd}#reference-identifier"/>\n',
-        f'\t<link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role/require" xlink:type="simple" xlink:href="{core_xsd}#require"/>\n',
+        f'\t<link:roleRef roleURI="http://www.xbrl.jp/core-japan/role/primary-key" xlink:type="simple" xlink:href="{core_xsd}#primary-key"/>\n',
+        f'\t<link:roleRef roleURI="http://www.xbrl.jp/core-japan/role/reference-identifier" xlink:type="simple" xlink:href="{core_xsd}#reference-identifier"/>\n',
+        f'\t<link:roleRef roleURI="http://www.xbrl.jp/core-japan/role/require" xlink:type="simple" xlink:href="{core_xsd}#require"/>\n',
         '\t<!-- arcroleRef -->\n',
         '\t<link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/all" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#all"/>\n',
         '\t<link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/domain-member" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#domain-member"/>\n',
         '\t<link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#hypercube-dimension"/>\n',
         '\t<link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#dimension-domain"/>\n',
-        f'\t<link:arcroleRef arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-primary-key" xlink:type="simple" xlink:href="{core_xsd}#concept-primary-key"/>\n',
-        f'\t<link:arcroleRef arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-reference-identifier" xlink:type="simple" xlink:href="{core_xsd}#concept-reference-identifier"/>\n',
+        f'\t<link:arcroleRef arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-primary-key" xlink:type="simple" xlink:href="{core_xsd}#concept-primary-key"/>\n',
+        f'\t<link:arcroleRef arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-reference-identifier" xlink:type="simple" xlink:href="{core_xsd}#concept-reference-identifier"/>\n',
     ]
     lines += html
 

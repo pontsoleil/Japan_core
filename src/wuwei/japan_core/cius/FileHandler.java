@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.lang.reflect.Method;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +18,8 @@ import java.util.Set;
 import java.util.List;
 import java.util.TreeMap;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -922,6 +924,7 @@ public class FileHandler
 	 * @throws IOException
 	 */
 	public static void csvFileWrite(
+			ArrayList<ArrayList<String>> data,
 			String filename, 
 			String charset,
 			String delimiter)
@@ -931,16 +934,6 @@ public class FileHandler
 	{
 		if (TRACE) System.out.println(" (FileHandler) csvFileWrite " + filename + " " + charset+" delimiter="+delimiter);
 		FileOutputStream fileOutputStream = new FileOutputStream(filename);
-
-		ArrayList<ArrayList<String>> data = new ArrayList<>();	
-		// header
-		data.add(header);
-		// data
-		for (ArrayList<String> row : tidyData) 
-		{
-			data.add(row);
-		}
-		
 		CSV.writeFile(fileOutputStream, data, charset, delimiter);
 		fileOutputStream.close();
 	}

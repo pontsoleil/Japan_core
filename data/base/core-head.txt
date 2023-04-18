@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- (c) 2022 XBRL Japan  inc. -->
+<!-- (c) 2023 XBRL Japan  inc. -->
 <schema 
-	targetNamespace="http://www.xbrl.jp/ADC" 
+	targetNamespace="http://www.xbrl.jp/core-japan" 
 	elementFormDefault="qualified" 
 	xmlns:altovaext="http://www.altova.com/xslt-extensions" 
 	xmlns:altova-xfi="http://www.altova.com/xslt-extensions/xbrl" 

@@ -5,8 +5,8 @@
 	xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"
 	xmlns:link="http://www.xbrl.org/2003/linkbase"
 	xmlns:xlink="http://www.w3.org/1999/xlink">
-	<link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role" xlink:type="simple" xlink:href="core.xsd#audit-data-collection-role"/>
-	<link:presentationLink xlink:type="extended" xlink:role="http://www.xbrl.jp/audit-data-collection/role">
+	<link:roleRef roleURI="http://www.xbrl.jp/core-japan/role" xlink:type="simple" xlink:href="core.xsd#core-japan-role"/>
+	<link:presentationLink xlink:type="extended" xlink:role="http://www.xbrl.jp/core-japan/role">
 		<!-- ABIE NC00  -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC00" xlink:label="NC00" xlink:title="presentation: NC00 "/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC00-01" xlink:label="NC00-01" xlink:title="presentation parent: NC00-01 文書通貨コード"/>
@@ -181,12 +181,12 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC09" xlink:to="NC09-06" order="85" xlink:title="presentation: NC00-NC09 売り手 to NC09-06 売り手商号"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC09-07" xlink:label="NC09-07" xlink:title="presentation parent: NC09-07 適格請求書発行事業者登録番号"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC09" xlink:to="NC09-07" order="86" xlink:title="presentation: NC00-NC09 売り手 to NC09-07 適格請求書発行事業者登録番号"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC09-08" xlink:label="NC09-08" xlink:title="presentation parent: NC09-08 適格請求書発行事業者登録番号税スキーマ"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC09" xlink:to="NC09-08" order="87" xlink:title="presentation: NC00-NC09 売り手 to NC09-08 適格請求書発行事業者登録番号税スキーマ"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC09-08" xlink:label="NC09-08" xlink:title="presentation parent: NC09-08 適格請求書発行事業者登録番号課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC09" xlink:to="NC09-08" order="87" xlink:title="presentation: NC00-NC09 売り手 to NC09-08 適格請求書発行事業者登録番号課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC09-09" xlink:label="NC09-09" xlink:title="presentation parent: NC09-09 売り手税登録ID"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC09" xlink:to="NC09-09" order="88" xlink:title="presentation: NC00-NC09 売り手 to NC09-09 売り手税登録ID"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC09-10" xlink:label="NC09-10" xlink:title="presentation parent: NC09-10 売り手税登録ID税スキーマ"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC09" xlink:to="NC09-10" order="89" xlink:title="presentation: NC00-NC09 売り手 to NC09-10 売り手税登録ID税スキーマ"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC09-10" xlink:label="NC09-10" xlink:title="presentation parent: NC09-10 売り手税登録ID課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC09" xlink:to="NC09-10" order="89" xlink:title="presentation: NC00-NC09 売り手 to NC09-10 売り手税登録ID課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC09-11" xlink:label="NC09-11" xlink:title="presentation parent: NC09-11 売り手国際アドレス"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC09" xlink:to="NC09-11" order="90" xlink:title="presentation: NC00-NC09 売り手 to NC09-11 売り手国際アドレス"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC09-12" xlink:label="NC09-12" xlink:title="presentation parent: NC09-12 売り手国際アドレス登録機関コード"/>
@@ -239,8 +239,8 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC12" xlink:to="NC12-06" order="114" xlink:title="presentation: NC00-NC12 買い手 to NC12-06 買い手商号"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC12-07" xlink:label="NC12-07" xlink:title="presentation parent: NC12-07 適格請求書発行事業者登録番号"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC12" xlink:to="NC12-07" order="115" xlink:title="presentation: NC00-NC12 買い手 to NC12-07 適格請求書発行事業者登録番号"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC12-08" xlink:label="NC12-08" xlink:title="presentation parent: NC12-08 適格請求書発行事業者登録番号税スキーマ"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC12" xlink:to="NC12-08" order="116" xlink:title="presentation: NC00-NC12 買い手 to NC12-08 適格請求書発行事業者登録番号税スキーマ"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC12-08" xlink:label="NC12-08" xlink:title="presentation parent: NC12-08 適格請求書発行事業者登録番号課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC12" xlink:to="NC12-08" order="116" xlink:title="presentation: NC00-NC12 買い手 to NC12-08 適格請求書発行事業者登録番号課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC12-09" xlink:label="NC12-09" xlink:title="presentation parent: NC12-09 買い手国際アドレス"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC12" xlink:to="NC12-09" order="117" xlink:title="presentation: NC00-NC12 買い手 to NC12-09 買い手国際アドレス"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC12-10" xlink:label="NC12-10" xlink:title="presentation parent: NC12-10 買い手国際アドレス登録機関コード"/>
@@ -281,12 +281,12 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00" xlink:to="NC00-NC15" order="135" xlink:title="presentation: NC00  to NC00-NC15 請求者"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC15-01" xlink:label="NC15-01" xlink:title="presentation parent: NC15-01 請求者コード"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC15" xlink:to="NC15-01" order="136" xlink:title="presentation: NC00-NC15 請求者 to NC15-01 請求者コード"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC15-02" xlink:label="NC15-02" xlink:title="presentation parent: NC15-02 スキーマID"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC15" xlink:to="NC15-02" order="137" xlink:title="presentation: NC00-NC15 請求者 to NC15-02 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC15-02" xlink:label="NC15-02" xlink:title="presentation parent: NC15-02 請求者コードスキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC15" xlink:to="NC15-02" order="137" xlink:title="presentation: NC00-NC15 請求者 to NC15-02 請求者コードスキーマID"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC15-03" xlink:label="NC15-03" xlink:title="presentation parent: NC15-03 請求者国際企業コード"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC15" xlink:to="NC15-03" order="138" xlink:title="presentation: NC00-NC15 請求者 to NC15-03 請求者国際企業コード"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC15-04" xlink:label="NC15-04" xlink:title="presentation parent: NC15-04 スキーマID"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC15" xlink:to="NC15-04" order="139" xlink:title="presentation: NC00-NC15 請求者 to NC15-04 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC15-04" xlink:label="NC15-04" xlink:title="presentation parent: NC15-04 請求者国際企業コードスキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC15" xlink:to="NC15-04" order="139" xlink:title="presentation: NC00-NC15 請求者 to NC15-04 請求者国際企業コードスキーマID"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC15-05" xlink:label="NC15-05" xlink:title="presentation parent: NC15-05 請求者名称"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC15" xlink:to="NC15-05" order="140" xlink:title="presentation: NC00-NC15 請求者 to NC15-05 請求者名称"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC15-06" xlink:label="NC15-06" xlink:title="presentation parent: NC15-06 請求者適格請求書発行事業者登録番号"/>
@@ -443,8 +443,8 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC27" xlink:to="NC27-01" order="216" xlink:title="presentation: NC00-NC27 売り手税務代理人 to NC27-01 売り手税務代理人名称"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC27-02" xlink:label="NC27-02" xlink:title="presentation parent: NC27-02 売り手税務代理人税ID"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC27" xlink:to="NC27-02" order="217" xlink:title="presentation: NC00-NC27 売り手税務代理人 to NC27-02 売り手税務代理人税ID"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC27-03" xlink:label="NC27-03" xlink:title="presentation parent: NC27-03 売り手税務代理人税ID税スキーマ"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC27" xlink:to="NC27-03" order="218" xlink:title="presentation: NC00-NC27 売り手税務代理人 to NC27-03 売り手税務代理人税ID税スキーマ"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC27-03" xlink:label="NC27-03" xlink:title="presentation parent: NC27-03 売り手税務代理人税ID課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC27" xlink:to="NC27-03" order="218" xlink:title="presentation: NC00-NC27 売り手税務代理人 to NC27-03 売り手税務代理人税ID課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC27-NC28" xlink:label="NC27-NC28" xlink:title="presentation parent: NC27-NC28 売り手税務代理人住所"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC27" xlink:to="NC27-NC28" order="219" xlink:title="presentation: NC00-NC27 売り手税務代理人 to NC27-NC28 売り手税務代理人住所"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC28-01" xlink:label="NC28-01" xlink:title="presentation parent: NC28-01 税務代理人住所欄1"/>
@@ -639,8 +639,8 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC39" xlink:to="NC39-NC45" order="314" xlink:title="presentation: NC00-NC39 明細文書 to NC39-NC45 請求するオブジェクト"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC45-01" xlink:label="NC45-01" xlink:title="presentation parent: NC45-01 請求するオブジェクトID"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC45" xlink:to="NC45-01" order="315" xlink:title="presentation: NC39-NC45 請求するオブジェクト to NC45-01 請求するオブジェクトID"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC45-02" xlink:label="NC45-02" xlink:title="presentation parent: NC45-02 請求するオブジェクトIDのスキーマID"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC45" xlink:to="NC45-02" order="316" xlink:title="presentation: NC39-NC45 請求するオブジェクト to NC45-02 請求するオブジェクトIDのスキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC45-02" xlink:label="NC45-02" xlink:title="presentation parent: NC45-02 請求するオブジェクトIDスキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC45" xlink:to="NC45-02" order="316" xlink:title="presentation: NC39-NC45 請求するオブジェクト to NC45-02 請求するオブジェクトIDスキーマID"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC45-03" xlink:label="NC45-03" xlink:title="presentation parent: NC45-03 文書タイプコード"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC45" xlink:to="NC45-03" order="317" xlink:title="presentation: NC39-NC45 請求するオブジェクト to NC45-03 文書タイプコード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC39-NC46" xlink:label="NC39-NC46" xlink:title="presentation parent: NC39-NC46 文書ヘッダ参照文書"/>
@@ -661,12 +661,12 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC46" xlink:to="NC46-07" order="325" xlink:title="presentation: NC39-NC46 文書ヘッダ参照文書 to NC46-07 文書ヘッダ参照文書説明"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-08" xlink:label="NC46-08" xlink:title="presentation parent: NC46-08 文書ヘッダ参照文書外部ファイルロケーション"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC46" xlink:to="NC46-08" order="326" xlink:title="presentation: NC39-NC46 文書ヘッダ参照文書 to NC46-08 文書ヘッダ参照文書外部ファイルロケーション"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-09" xlink:label="NC46-09" xlink:title="presentation parent: NC46-09 文書ヘッダ参照文書添付バイナリファイル"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC46" xlink:to="NC46-09" order="327" xlink:title="presentation: NC39-NC46 文書ヘッダ参照文書 to NC46-09 文書ヘッダ参照文書添付バイナリファイル"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-10" xlink:label="NC46-10" xlink:title="presentation parent: NC46-10 文書ヘッダ参照文書添付バイナリファイルmimeコード"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC46" xlink:to="NC46-10" order="328" xlink:title="presentation: NC39-NC46 文書ヘッダ参照文書 to NC46-10 文書ヘッダ参照文書添付バイナリファイルmimeコード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-11" xlink:label="NC46-11" xlink:title="presentation parent: NC46-11 文書ヘッダ参照文書添付バイナリファイルファイル名"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC46" xlink:to="NC46-11" order="329" xlink:title="presentation: NC39-NC46 文書ヘッダ参照文書 to NC46-11 文書ヘッダ参照文書添付バイナリファイルファイル名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC46" xlink:to="NC46-11" order="327" xlink:title="presentation: NC39-NC46 文書ヘッダ参照文書 to NC46-11 文書ヘッダ参照文書添付バイナリファイルファイル名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-09" xlink:label="NC46-09" xlink:title="presentation parent: NC46-09 文書ヘッダ参照文書添付バイナリファイル"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC46" xlink:to="NC46-09" order="328" xlink:title="presentation: NC39-NC46 文書ヘッダ参照文書 to NC46-09 文書ヘッダ参照文書添付バイナリファイル"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-10" xlink:label="NC46-10" xlink:title="presentation parent: NC46-10 文書ヘッダ参照文書添付バイナリファイルmimeコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC46" xlink:to="NC46-10" order="329" xlink:title="presentation: NC39-NC46 文書ヘッダ参照文書 to NC46-10 文書ヘッダ参照文書添付バイナリファイルmimeコード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC39-NC47" xlink:label="NC39-NC47" xlink:title="presentation parent: NC39-NC47 文書ヘッダ付加文書"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC39" xlink:to="NC39-NC47" order="330" xlink:title="presentation: NC00-NC39 明細文書 to NC39-NC47 文書ヘッダ付加文書"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC47-01" xlink:label="NC47-01" xlink:title="presentation parent: NC47-01 文書ヘッダ付加文書番号"/>
@@ -761,28 +761,28 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC53" xlink:to="NC53-07" order="375" xlink:title="presentation: NC39-NC53 文書ヘッダ返金 to NC53-07 文書ヘッダ返金税率"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC53-08" xlink:label="NC53-08" xlink:title="presentation parent: NC53-08 文書ヘッダ返金課税分類コード"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC53" xlink:to="NC53-08" order="376" xlink:title="presentation: NC39-NC53 文書ヘッダ返金 to NC53-08 文書ヘッダ返金課税分類コード"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC53-09" xlink:label="NC53-09" xlink:title="presentation parent: NC53-09 税スキーマ"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC53" xlink:to="NC53-09" order="377" xlink:title="presentation: NC39-NC53 文書ヘッダ返金 to NC53-09 税スキーマ"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC53-09" xlink:label="NC53-09" xlink:title="presentation parent: NC53-09 文書ヘッダ返金課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC53" xlink:to="NC53-09" order="377" xlink:title="presentation: NC39-NC53 文書ヘッダ返金 to NC53-09 文書ヘッダ返金課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC39-NC54" xlink:label="NC39-NC54" xlink:title="presentation parent: NC39-NC54 文書ヘッダ追加請求"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC39" xlink:to="NC39-NC54" order="378" xlink:title="presentation: NC00-NC39 明細文書 to NC39-NC54 文書ヘッダ追加請求"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-09" xlink:label="NC54-09" xlink:title="presentation parent: NC54-09 文書ヘッダ追加請求課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-09" order="379" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-09 文書ヘッダ追加請求課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-01" xlink:label="NC54-01" xlink:title="presentation parent: NC54-01 明細行追加請求フラグ"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-01" order="379" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-01 明細行追加請求フラグ"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-01" order="380" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-01 明細行追加請求フラグ"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-02" xlink:label="NC54-02" xlink:title="presentation parent: NC54-02 文書ヘッダ追加請求の率"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-02" order="380" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-02 文書ヘッダ追加請求の率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-02" order="381" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-02 文書ヘッダ追加請求の率"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-03" xlink:label="NC54-03" xlink:title="presentation parent: NC54-03 文書ヘッダ追加請求課税分類合計金額"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-03" order="381" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-03 文書ヘッダ追加請求課税分類合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-03" order="382" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-03 文書ヘッダ追加請求課税分類合計金額"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-04" xlink:label="NC54-04" xlink:title="presentation parent: NC54-04 文書ヘッダ追加請求の理由"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-04" order="382" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-04 文書ヘッダ追加請求の理由"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-04" order="383" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-04 文書ヘッダ追加請求の理由"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-05" xlink:label="NC54-05" xlink:title="presentation parent: NC54-05 文書ヘッダ追加請求の理由コード"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-05" order="383" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-05 文書ヘッダ追加請求の理由コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-05" order="384" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-05 文書ヘッダ追加請求の理由コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-06" xlink:label="NC54-06" xlink:title="presentation parent: NC54-06 文書ヘッダ追加請求金額の基準となる金額"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-06" order="384" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-06 文書ヘッダ追加請求金額の基準となる金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-06" order="385" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-06 文書ヘッダ追加請求金額の基準となる金額"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-07" xlink:label="NC54-07" xlink:title="presentation parent: NC54-07 文書ヘッダ追加請求税率"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-07" order="385" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-07 文書ヘッダ追加請求税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-07" order="386" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-07 文書ヘッダ追加請求税率"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-08" xlink:label="NC54-08" xlink:title="presentation parent: NC54-08 文書ヘッダ追加請求課税分類コード"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-08" order="386" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-08 文書ヘッダ追加請求課税分類コード"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-09" xlink:label="NC54-09" xlink:title="presentation parent: NC54-09 税スキーマ"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-09" order="387" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-09 税スキーマ"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC54" xlink:to="NC54-08" order="387" xlink:title="presentation: NC39-NC54 文書ヘッダ追加請求 to NC54-08 文書ヘッダ追加請求課税分類コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC39-NC55" xlink:label="NC39-NC55" xlink:title="presentation parent: NC39-NC55 文書ヘッダ合計金額"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC39" xlink:to="NC39-NC55" order="388" xlink:title="presentation: NC00-NC39 明細文書 to NC39-NC55 文書ヘッダ合計金額"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC55-01" xlink:label="NC55-01" xlink:title="presentation parent: NC55-01 文書ヘッダ追加請求合計金額"/>
@@ -807,8 +807,8 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC39" xlink:to="NC39-NC57" order="398" xlink:title="presentation: NC00-NC39 明細文書 to NC39-NC57 文書ヘッダ課税分類"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC57-01" xlink:label="NC57-01" xlink:title="presentation parent: NC57-01 文書ヘッダ課税分類税額"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC57" xlink:to="NC57-01" order="399" xlink:title="presentation: NC39-NC57 文書ヘッダ課税分類 to NC57-01 文書ヘッダ課税分類税額"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC57-02" xlink:label="NC57-02" xlink:title="presentation parent: NC57-02 文書ヘッダ税タイプコード"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC57" xlink:to="NC57-02" order="400" xlink:title="presentation: NC39-NC57 文書ヘッダ課税分類 to NC57-02 文書ヘッダ税タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC57-02" xlink:label="NC57-02" xlink:title="presentation parent: NC57-02 文書ヘッダ課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC57" xlink:to="NC57-02" order="400" xlink:title="presentation: NC39-NC57 文書ヘッダ課税分類 to NC57-02 文書ヘッダ課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC57-03" xlink:label="NC57-03" xlink:title="presentation parent: NC57-03 文書ヘッダ課税分類譲渡資産合計金額（税抜き）"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC57" xlink:to="NC57-03" order="401" xlink:title="presentation: NC39-NC57 文書ヘッダ課税分類 to NC57-03 文書ヘッダ課税分類譲渡資産合計金額（税抜き）"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC57-04" xlink:label="NC57-04" xlink:title="presentation parent: NC57-04 文書ヘッダ課税分類コード"/>
@@ -829,8 +829,8 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC00-NC39" xlink:to="NC39-NC58" order="409" xlink:title="presentation: NC00-NC39 明細文書 to NC39-NC58 文書ヘッダ外貨建て課税分類"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC58-01" xlink:label="NC58-01" xlink:title="presentation parent: NC58-01 文書ヘッダ外貨建て課税分類税額"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC58" xlink:to="NC58-01" order="410" xlink:title="presentation: NC39-NC58 文書ヘッダ外貨建て課税分類 to NC58-01 文書ヘッダ外貨建て課税分類税額"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC58-02" xlink:label="NC58-02" xlink:title="presentation parent: NC58-02 文書ヘッダ外貨建て税タイプコード"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC58" xlink:to="NC58-02" order="411" xlink:title="presentation: NC39-NC58 文書ヘッダ外貨建て課税分類 to NC58-02 文書ヘッダ外貨建て税タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC58-02" xlink:label="NC58-02" xlink:title="presentation parent: NC58-02 文書ヘッダ外貨建て課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC58" xlink:to="NC58-02" order="411" xlink:title="presentation: NC39-NC58 文書ヘッダ外貨建て課税分類 to NC58-02 文書ヘッダ外貨建て課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC58-03" xlink:label="NC58-03" xlink:title="presentation parent: NC58-03 文書ヘッダ外貨建て課税分類譲渡資産合計金額（税抜き）"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC58" xlink:to="NC58-03" order="412" xlink:title="presentation: NC39-NC58 文書ヘッダ外貨建て課税分類 to NC58-03 文書ヘッダ外貨建て課税分類譲渡資産合計金額（税抜き）"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC58-04" xlink:label="NC58-04" xlink:title="presentation parent: NC58-04 文書ヘッダ外貨建て課税分類コード"/>
@@ -965,8 +965,8 @@
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC61-NC70" xlink:to="NC70-08" order="477" xlink:title="presentation: NC61-NC70 明細行参照インボイス文書 to NC70-08 明細行参照文書サブタイプコード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC61-NC71" xlink:label="NC61-NC71" xlink:title="presentation parent: NC61-NC71 明細行税"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC39-NC61" xlink:to="NC61-NC71" order="478" xlink:title="presentation: NC39-NC61 明細行 to NC61-NC71 明細行税"/>
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC71-01" xlink:label="NC71-01" xlink:title="presentation parent: NC71-01 税スキーマ"/>
-		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC61-NC71" xlink:to="NC71-01" order="479" xlink:title="presentation: NC61-NC71 明細行税 to NC71-01 税スキーマ"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC71-01" xlink:label="NC71-01" xlink:title="presentation parent: NC71-01 明細行課税コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC61-NC71" xlink:to="NC71-01" order="479" xlink:title="presentation: NC61-NC71 明細行税 to NC71-01 明細行課税コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC71-02" xlink:label="NC71-02" xlink:title="presentation parent: NC71-02 明細行課税分類コード"/>
 		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="NC61-NC71" xlink:to="NC71-02" order="480" xlink:title="presentation: NC61-NC71 明細行税 to NC71-02 明細行課税分類コード"/>
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC71-03" xlink:label="NC71-03" xlink:title="presentation parent: NC71-03 明細行課税分類名"/>

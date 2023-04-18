@@ -5,8 +5,8 @@
 	xmlns:link="http://www.xbrl.org/2003/linkbase"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">
-	<!--link:roleRef roleURI="http://www.xbrl.jp/audit-data-collection/role/description" xlink:type="simple" xlink:href="core.xsd#description"/>
-	<link:arcroleRef arcroleURI="http://www.xbrl.jp/audit-data-collection/arcrole/concept-description" xlink:type="simple" xlink:href="core.xsd#concept-description"/-->
+	<!--link:roleRef roleURI="http://www.xbrl.jp/core-japan/role/description" xlink:type="simple" xlink:href="core.xsd#description"/>
+	<link:arcroleRef arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-description" xlink:type="simple" xlink:href="core.xsd#concept-description"/-->
 	<link:labelLink xlink:type="extended" xlink:role="http://www.xbrl.org/2003/role/link">
 		<!-- NC00 Invoice -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC00" xlink:label="NC00" xlink:title="NC00"/>
@@ -1500,6 +1500,10 @@
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-08" xlink:label="NC46-08" xlink:title="NC46-08"/>
 		<link:label xlink:type="resource" xlink:label="label_NC46-08" xlink:title="label_NC46-08" id="label_NC46-08" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">U R I ID</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC46-08" xlink:to="label_NC46-08" xlink:title="label: NC46-08 to label_NC46-08"/>
+		<!-- NC46-11 Attachment Binary Object File Name -->
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-11" xlink:label="NC46-11" xlink:title="NC46-11"/>
+		<link:label xlink:type="resource" xlink:label="label_NC46-11" xlink:title="label_NC46-11" id="label_NC46-11" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Attachment Binary Object File Name</link:label>
+		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC46-11" xlink:to="label_NC46-11" xlink:title="label: NC46-11 to label_NC46-11"/>
 		<!-- NC46-09 Attachment Binary Object -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-09" xlink:label="NC46-09" xlink:title="NC46-09"/>
 		<link:label xlink:type="resource" xlink:label="label_NC46-09" xlink:title="label_NC46-09" id="label_NC46-09" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Attachment Binary Object</link:label>
@@ -1508,10 +1512,6 @@
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-10" xlink:label="NC46-10" xlink:title="NC46-10"/>
 		<link:label xlink:type="resource" xlink:label="label_NC46-10" xlink:title="label_NC46-10" id="label_NC46-10" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Attachment Binary Object M I M E Code</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC46-10" xlink:to="label_NC46-10" xlink:title="label: NC46-10 to label_NC46-10"/>
-		<!-- NC46-11 Attachment Binary Object File Name -->
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC46-11" xlink:label="NC46-11" xlink:title="NC46-11"/>
-		<link:label xlink:type="resource" xlink:label="label_NC46-11" xlink:title="label_NC46-11" id="label_NC46-11" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Attachment Binary Object File Name</link:label>
-		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC46-11" xlink:to="label_NC46-11" xlink:title="label: NC46-11 to label_NC46-11"/>
 		<!-- NC39-NC47 Additional_ReferencedDocument -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC39-NC47" xlink:label="NC39-NC47" xlink:title="NC39-NC47"/>
 		<link:label xlink:type="resource" xlink:label="label_NC39-NC47" xlink:title="label_NC39-NC47" id="label_NC39-NC47" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Additional_ReferencedDocument</link:label>
@@ -1728,9 +1728,9 @@
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC53-08" xlink:label="NC53-08" xlink:title="NC53-08"/>
 		<link:label xlink:type="resource" xlink:label="label_NC53-08" xlink:title="label_NC53-08" id="label_NC53-08" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Category Code</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC53-08" xlink:to="label_NC53-08" xlink:title="label: NC53-08 to label_NC53-08"/>
-		<!-- NC53-09 Tax Schema -->
+		<!-- NC53-09 Type Code -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC53-09" xlink:label="NC53-09" xlink:title="NC53-09"/>
-		<link:label xlink:type="resource" xlink:label="label_NC53-09" xlink:title="label_NC53-09" id="label_NC53-09" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Tax Schema</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC53-09" xlink:title="label_NC53-09" id="label_NC53-09" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Type Code</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC53-09" xlink:to="label_NC53-09" xlink:title="label: NC53-09 to label_NC53-09"/>
 		<!-- NC39-NC54 Charge -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC39-NC54" xlink:label="NC39-NC54" xlink:title="NC39-NC54"/>
@@ -1740,6 +1740,10 @@
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54" xlink:label="NC54" xlink:title="NC54"/>
 		<link:label xlink:type="resource" xlink:label="label_NC54" xlink:title="label_NC54" id="label_NC54" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Charge</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC54" xlink:to="label_NC54" xlink:title="label: NC54 to label_NC54"/>
+		<!-- NC54-09 Type Code -->
+		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-09" xlink:label="NC54-09" xlink:title="NC54-09"/>
+		<link:label xlink:type="resource" xlink:label="label_NC54-09" xlink:title="label_NC54-09" id="label_NC54-09" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Type Code</link:label>
+		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC54-09" xlink:to="label_NC54-09" xlink:title="label: NC54-09 to label_NC54-09"/>
 		<!-- NC54-01 Charge Indicator -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-01" xlink:label="NC54-01" xlink:title="NC54-01"/>
 		<link:label xlink:type="resource" xlink:label="label_NC54-01" xlink:title="label_NC54-01" id="label_NC54-01" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Charge Indicator</link:label>
@@ -1772,10 +1776,6 @@
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-08" xlink:label="NC54-08" xlink:title="NC54-08"/>
 		<link:label xlink:type="resource" xlink:label="label_NC54-08" xlink:title="label_NC54-08" id="label_NC54-08" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Category Code</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC54-08" xlink:to="label_NC54-08" xlink:title="label: NC54-08 to label_NC54-08"/>
-		<!-- NC54-09 Tax Schema -->
-		<link:loc xlink:type="locator" xlink:href="core.xsd#NC54-09" xlink:label="NC54-09" xlink:title="NC54-09"/>
-		<link:label xlink:type="resource" xlink:label="label_NC54-09" xlink:title="label_NC54-09" id="label_NC54-09" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Tax Schema</link:label>
-		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC54-09" xlink:to="label_NC54-09" xlink:title="label: NC54-09 to label_NC54-09"/>
 		<!-- NC39-NC55 Document_MonetarySummation -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC39-NC55" xlink:label="NC39-NC55" xlink:title="NC39-NC55"/>
 		<link:label xlink:type="resource" xlink:label="label_NC39-NC55" xlink:title="label_NC39-NC55" id="label_NC39-NC55" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Document_MonetarySummation</link:label>
@@ -2200,17 +2200,17 @@
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC70-08" xlink:label="NC70-08" xlink:title="NC70-08"/>
 		<link:label xlink:type="resource" xlink:label="label_NC70-08" xlink:title="label_NC70-08" id="label_NC70-08" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Subtype Code</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC70-08" xlink:to="label_NC70-08" xlink:title="label: NC70-08 to label_NC70-08"/>
-		<!-- NC61-NC71 LineOtem_TradeTax -->
+		<!-- NC61-NC71 LineItem_TradeTax -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC61-NC71" xlink:label="NC61-NC71" xlink:title="NC61-NC71"/>
-		<link:label xlink:type="resource" xlink:label="label_NC61-NC71" xlink:title="label_NC61-NC71" id="label_NC61-NC71" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">LineOtem_TradeTax</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC61-NC71" xlink:title="label_NC61-NC71" id="label_NC61-NC71" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">LineItem_TradeTax</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC61-NC71" xlink:to="label_NC61-NC71" xlink:title="label: NC61-NC71 to label_NC61-NC71"/>
-		<!-- NC71 Line Otem_ Trade Tax -->
+		<!-- NC71 Line Item_ Trade Tax -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC71" xlink:label="NC71" xlink:title="NC71"/>
-		<link:label xlink:type="resource" xlink:label="label_NC71" xlink:title="label_NC71" id="label_NC71" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Line Otem_ Trade Tax</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC71" xlink:title="label_NC71" id="label_NC71" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Line Item_ Trade Tax</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC71" xlink:to="label_NC71" xlink:title="label: NC71 to label_NC71"/>
-		<!-- NC71-01 Tax Schema -->
+		<!-- NC71-01 Type Code -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC71-01" xlink:label="NC71-01" xlink:title="NC71-01"/>
-		<link:label xlink:type="resource" xlink:label="label_NC71-01" xlink:title="label_NC71-01" id="label_NC71-01" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Tax Schema</link:label>
+		<link:label xlink:type="resource" xlink:label="label_NC71-01" xlink:title="label_NC71-01" id="label_NC71-01" xml:lang="en" xlink:role="http://www.xbrl.org/2003/role/label">Type Code</link:label>
 		<link:labelArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/concept-label" xlink:from="NC71-01" xlink:to="label_NC71-01" xlink:title="label: NC71-01 to label_NC71-01"/>
 		<!-- NC71-02 Category Code -->
 		<link:loc xlink:type="locator" xlink:href="core.xsd#NC71-02" xlink:label="NC71-02" xlink:title="NC71-02"/>
