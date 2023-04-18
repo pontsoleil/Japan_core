@@ -1,4 +1,4 @@
-semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessTerm_en,businessTerm_ja,desc_ja,synSort,xPath,occur
+﻿semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessTerm_en,businessTerm_ja,desc_ja,synSort,xPath,occur
 1000,NC00,0..n,0,統合請求書,売り手が発注者に交付する月締め統合請求文書（メッセージ）,,,,,統合請求書,受注者が発注者に交付する月締め統合請求文書（メッセージ）,1000,/rsm:SMEinvoice,－
 1010,NC00-01,1..1,1,文書通貨コード,文書の通貨コード。デフォルトはJPY,,Code,UN01005914,,文書通貨コード,文書の通貨コード。デフォルトはJPY,2030,/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode,1..1
 1020,NC00-02,0..1,1,税通貨コード,税の通貨コード。JPY,JPY,Code,UN01005913,,税通貨コード,税の通貨コード。デフォルトはJPY,2040,/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode,1..1

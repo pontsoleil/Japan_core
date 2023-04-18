@@ -1,4 +1,4 @@
-semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessTerm_en,businessTerm_ja,desc_ja,synSort,xPath,occur
+﻿semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessTerm_en,businessTerm_ja,desc_ja,synSort,xPath,occur
 1000,NC00,0..n,0,Invoice,売り手が発注者に交付する月締め統合請求文書（メッセージ）,,,IBG-00,,デジタルインボイス,,1000,/Invoice,－
 1010,NC00-01,1..1,1,Invoice currency code,文書の通貨コード。デフォルトはJPY,,Code,IBT-005,,請求書通貨コード,,1110,/Invoice/cbc:DocumentCurrencyCode,1..1
 1020,NC00-02,0..1,1,Tax accounting currency,税の通貨コード。JPY,JPY,Code,IBT-006,,税会計報告用通貨コード,JPY,1120,/Invoice/cbc:TaxCurrencyCode,0..1

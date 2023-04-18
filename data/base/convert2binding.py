@@ -112,12 +112,12 @@ if __name__ == '__main__':
 	jp_pint_binding_file = f'{base}{jp_pint_binding_file}'.replace('/', SEP)
 	jp_pint_binding_file = file_path(jp_pint_binding_file)
 
-	with open(_core_japan_file, 'w', encoding='utf_8', newline='') as f:
+	with open(_core_japan_file, 'w', encoding='utf-8-sig', newline='') as f:
 		writer = csv.DictWriter(f, fieldnames=header)
 		writer.writeheader()
 		writer.writerows(core_japan_entries)
 
-	with open(jp_pint_binding_file, 'w', encoding='utf_8', newline='') as f:
+	with open(jp_pint_binding_file, 'w', encoding='utf-8-sig', newline='') as f:
 		writer = csv.DictWriter(f, fieldnames=binding_header)
 		writer.writeheader()
 		writer.writerows(jp_pint_entries)
@@ -130,7 +130,7 @@ if __name__ == '__main__':
 
 	sme_binding_file = f'{base}{sme_binding_file}'.replace('/', SEP)
 	sme_binding_file = file_path(sme_binding_file)
-	with open(sme_binding_file, 'w', encoding='utf_8', newline='') as f:
+	with open(sme_binding_file, 'w', encoding='utf-8-sig', newline='') as f:
 		writer = csv.DictWriter(f, fieldnames=binding_header)
 		writer.writeheader()
 		writer.writerows(sme_entries)
@@ -142,3 +142,19 @@ if __name__ == '__main__':
 		writer.writerows(sme_entries)
 
 	print(f'** END \n{_core_japan_file} \n{jp_pint_binding_file} \n{sme_binding_file}')
+# Q 2024-04-19
+# Following code produces UTF-8 csv file with BOM. How to change this to generate UTF-8 csv file without BOM.
+# To generate a UTF-8 CSV file without a BOM, you need to remove the BOM bytes from the file. In Python, you can achieve this by specifying the encoding parameter as "utf-8-sig", which will write the file in UTF-8 encoding without a BOM.
+# Chat GPT
+# Here is an example code snippet that demonstrates how to do this:
+# 
+# python
+# Copy code
+# import csv
+# 
+# with open('file.csv', mode='w', encoding='utf-8-sig', newline='') as file:
+#     writer = csv.writer(file)
+#     writer.writerow(['Column 1', 'Column 2', 'Column 3'])
+#     writer.writerow(['Row 1 Data 1', 'Row 1 Data 2', 'Row 1 Data 3'])
+#     writer.writerow(['Row 2 Data 1', 'Row 2 Data 2', 'Row 2 Data 3'])
+# In the above code, the encoding parameter is set to 'utf-8-sig', which will write the file in UTF-8 encoding without the BOM. The newline parameter is also set to an empty string to ensure that the file is written in the correct line endings for the platform.
