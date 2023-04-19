@@ -281,12 +281,12 @@ convert = (function () {
 			if (table_id.indexOf('core_japan_table') >= 0 ||
 				table_id.indexOf('pint_binding_table') >= 0 ||
 				table_id.indexOf('sme_binding_table') >= 0) {
-				let _id = row[header[2]];
+				let _id = data[header[2]];
 				if (0 == _id.length) {
 					continue;
 				}
 			} else {
-				let _id = row[header[0]];
+				let _id = data[header[0]];
 				if (0 == _id.length) {
 					continue;
 				}
