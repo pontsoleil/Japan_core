@@ -294,7 +294,7 @@ convert = (function () {
 			// Create a new tr element for the row
 			const row = document.createElement('tr');
 			// Loop through the cells in the row
-			for (let i = 0; i < data.length; i++) {
+			for (let i = 0; i < header.length; i++) {
 				// Create a new td element for the cell
 				const cell = document.createElement('td');
 				if (0==i) {
