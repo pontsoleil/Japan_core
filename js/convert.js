@@ -231,8 +231,8 @@ convert = (function () {
 			return;
 		}
 		let json = _convertCSVtoJSON(contents, column);
-		let header = Object.keys(json[0])
-		let tr = thead.insertRow();
+		let header = Object.keys(json[0]);
+		let tr = thead.appendRow();
 		let td_id = tr.insertCell();
 		tr.append(td_id);
 		td_id.setAttribute('scope', 'col');
@@ -250,22 +250,55 @@ convert = (function () {
 			td.innerHTML = header[i];
 		}
 		for (let row of json) {
-			let tr = tbody.insertRow();
-			let td_id = tr.insertCell();
-			tr.append(td_id);
-			td_id.setAttribute('scope', 'row')
+			if (table_id.indexOf('core_japan_table') >= 0 ||
+				table_id.indexOf('pint_binding_table') >= 0 ||
+				table_id.indexOf('sme_binding_table') >= 0) {
+				let _id = row[header[2]];
+				if (0 == _id.length) {
+					continue;
+				}
+			} else {
+				let _id = row[header[0]];
+				if (0 == _id.length) {
+					continue;
+				}
+			}
 			let core_id = row[header[0]];
-			td_id.innerHTML = core_id;
+			let tbody = table.querySelector('tbody');
+			const newRow = document.createElement('tr');
+			// let tr = tbody.appandChild(newRow);
+			const newCell = document.createElement('td');
+			newCell.textContent = core_id;
+			newRow.appandChild(newCell);
+			tbody.appandChild(newRow);
+			// tr.append(td_id);
+			// td_id.setAttribute('scope', 'row')
+			// td_id.innerHTML = core_id;
+
 			if (column) {
 				let td_term = tr.insertCell();
 				tr.append(td_term);
+				if ('d_' == core_id.substring(0, 2)) {
+					core_id = core_id.substring(2);
+				}
 				let core_term = jp_pint_binding[core_id]['businessTerm'];
+				
 				td_term.innerHTML = core_term;
 			}
 			for (var i = 1; i < header.length; i++) {
 				let td = tr.insertCell();
 				td.innerHTML = row[header[i]];
 			}
+			// tbody = table.querySelector('tbody');
+			// const rows = Array.from(tbody.getElementsbyTagName('tr'));
+			// rows.reverse();
+			// rows.forEach(row => tbody.appendChild(row));
+			// rows.sort((rowA,rowB) => {
+			//     const cellA = rowA.getElementsByTagName('td')[0].textContent;
+			//     const cellB = rowB.getElementsByTagName('td')[0].textContent;
+			//     return cellA - cellB;
+			// });
+			// rows.forEach(row => table.toBodied[0].appendChild(row));
 		}
 	}
 
@@ -615,25 +648,25 @@ convert = (function () {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('core-japan');
-				sortTable('transposed_table','num') 
+				sortTable('transposed_table', 'num')
 			});
 			document.querySelector('#source2target .tidy_csv a#jp-pint').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('jp-pint');
-				sortTable('transposed_table','jp_pint') 
+				sortTable('transposed_table', 'jp_pint')
 			});
 			document.querySelector('#source2target .tidy_csv a#jp-pint_ja').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('jp-pint_ja');
-				sortTable('transposed_table','jp_pint') 
+				sortTable('transposed_table', 'jp_pint')
 			});
 			document.querySelector('#source2target .tidy_csv a#sme-common').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('sme-common');
-				sortTable('transposed_table','sme') 
+				sortTable('transposed_table', 'sme')
 			});
 		});
 
@@ -643,13 +676,19 @@ convert = (function () {
 			let rowsArray = Array.from(rows);
 			rowsArray.sort(function (rowA, rowB) {
 				let idA = rowA.cells[0].textContent;
+				if ('d_' == idA.substring(0, 2)) {
+					idA = idA.substring(2);
+				}
 				let idB = rowB.cells[0].textContent;
+				if ('d_' == idB.substring(0, 2)) {
+					idB = idB.substring(2);
+				}
 				let sortA = 0
-				if ('ID'!=idA && 'JBG'!=idA.substring(0,3)) {
+				if ('ID' != idA && 'JBG' != idA.substring(0, 3)) {
 					sortA = sort_dict[idA][key];
 				}
 				let sortB = 0
-				if ('ID'!=idB && 'JBG'!=idB.substring(0,3)) {
+				if ('ID' != idB && 'JBG' != idB.substring(0, 3)) {
 					sortB = sort_dict[idB][key];
 				}
 				return sortA - sortB;
@@ -667,18 +706,21 @@ convert = (function () {
 					continue;
 				}
 				let id = tr.childNodes[0].innerText;
+				if ('d_' == id.substring(0, 2)) {
+					id = id.substring(2);
+				}
 				// let label = '';
 				if (undefined == core_japan[id]) {
 					core_japan[id] = {};
 				}
 				if (mode == 'core-japan') {
-					tr.childNodes[1].innerText = core_japan[id]['name'] || '(未定義)';
+					tr.childNodes[1].innerText = core_japan[id]['term'] || '(未定義)';
 				} else if (mode == 'jp-pint') {
-					tr.childNodes[1].innerText = (core_japan[id]['pint_Id'] || '') + (core_japan[id]['pint_name'] || '(undefined)');
+					tr.childNodes[1].innerText = (core_japan[id]['pintID'] || '') + (core_japan[id]['pintTerm'] || '(undefined)');
 				} else if (mode == 'jp-pint_ja') {
-					tr.childNodes[1].innerText = (core_japan[id]['pint_Id'] || '') + (core_japan[id]['pint_name_ja'] || '(未定義)');
+					tr.childNodes[1].innerText = (core_japan[id]['pintID'] || '') + (core_japan[id]['pintTermJA'] || '(未定義)');
 				} else if (mode == 'sme-common') {
-					tr.childNodes[1].innerText = (core_japan[id]['UN_CCL_ID'] || '') + (core_japan[id]['sme_name'] || '(未定義)');
+					tr.childNodes[1].innerText = (core_japan[id]['smeID'] || '') + (core_japan[id]['smeTerm'] || '(未定義)');
 				}
 			}
 		}
@@ -774,11 +816,14 @@ convert = (function () {
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
 					let id = data['id']
+					if (0 == id.length) {
+						continue;
+					}
 					core_japan[id] = {};
-					core_japan[id]['name'] = data['name'];
-					core_japan[id]['pint_name'] = data['pint_name'];
-					core_japan[id]['pint_name_ja'] = data['pint_name_ja'];
-					core_japan[id]['sme_name'] = data['sme_name'];
+					core_japan[id]['term'] = data['term'];
+					core_japan[id]['pintTerm'] = data['pintTerm'];
+					core_japan[id]['pintTermJA'] = data['pintTermJA'];
+					core_japan[id]['smeTerm'] = data['smeTerm'];
 					sort_dict[id] = {}
 					sort_dict[id]['num'] = parseInt(data['num'])
 					sort_dict[id]['jp_pint'] = parseInt(data['pint_sort'])
@@ -794,6 +839,9 @@ convert = (function () {
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
 					let id = data['id'];
+					if (0 == id.length) {
+						continue;
+					}
 					jp_pint_binding[id] = {};
 					jp_pint_binding[id]['businessTerm'] = data['businessTerm'];
 					jp_pint_binding[id]['businessTerm_ja'] = data['businessTerm_ja'];
@@ -808,6 +856,9 @@ convert = (function () {
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
 					let id = data['id'];
+					if (0 == id.length) {
+						continue;
+					}
 					sme_binding[id] = {};
 					sme_binding[id]['businessTerm'] = data['businessTerm'];
 					sme_binding[id]['businessTerm_ja'] = data['businessTerm_ja'];

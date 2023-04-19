@@ -1,3 +1,11 @@
+cd ~/tmp
+cd /ebs/www/sambuichi.jp/public_html/core-japan/server/lib
+s3cmd get s3://sambuichi.jp/tmp/*.csv --force
+
+cd /ebs/www/sambuichi.jp/public_html/core-japan/server/lib
+sudo s3cmd get s3://sambuichi.jp/tmp/*.jar --force
+
+
 cd /ebs/www/sambuichi.jp/public_html/core-japan
 
 cp index.html old-version/index.`date +'%Y-%m-%d'`.html
@@ -59,5 +67,6 @@ cp ~/tmp/core-japan-0.0.2.jar server/lib
 
 cd /ebs/www/sambuichi.jp/public_html/core-dev
 
-cp ~/tmp/core-japan-0.0.2-shaded.jar server/lib
 cp ~/tmp/core-japan-0.0.2.jar server/lib
+
+cp ~/tmp/*binding.csv /ebs/www/sambuichi.jp/public_html/core-dev/server/data/base
