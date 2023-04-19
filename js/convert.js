@@ -221,7 +221,7 @@ convert = (function () {
 		return escaped;
 	}
 
-	function fillTable(contents, table_id, column) {
+	function _fillTable(contents, table_id, column) {
 		const json = _convertCSVtoJSON(contents, column);
 		// Create a new table element
 		const table = ducument.querySelector(table_id);		
@@ -245,7 +245,7 @@ convert = (function () {
 		}
 	}
 
-	function fillTable2(contents, table_id, column) {
+	function fillTable(contents, table_id, column) {
 		if (!contents) {
 			return;
 		}
@@ -254,22 +254,26 @@ convert = (function () {
 		let thead = table.querySelector('thead');
 		thead.innerHTML = '';
 		let header = Object.keys(json[0]);
-		let tr = thead.appendRow();
-		let td_id = tr.insertCell();
-		tr.append(td_id);
+		const tr = document.createElement('tr');
+		thead.appendChild(tr);
+		// let tr = thead.appendRow();
+		const td_id = document.createElement('td');
 		td_id.setAttribute('scope', 'col');
 		td_id.innerHTML = 'ID';
+		tr.appendChild(td_id);
 		if (column) {
-			let td_term = tr.insertCell();
+			let td_term = document.createElement('td');
 			tr.append(td_term);
 			td_term.setAttribute('scope', 'col');
-			td_term.innerHTML = '項目名';
+			td_term.textContent = '項目名';
+			tr.appendChild(td_term);
 		}
 		for (var i = 1; i < header.length; i++) {
-			let td = tr.insertCell();
+			let td = document.createElement('td');
 			td.setAttribute('scope', 'col');
 			td.style = 'text-align: center;';
-			td.innerHTML = header[i];
+			td.textContent = header[i];
+			tr.appendChild(td);
 		}
 		let tbody = table.querySelector('tbody');
 		tbody.innerHTML = '';
@@ -308,14 +312,6 @@ convert = (function () {
 			}
 			// Append the row to the tbody
 			tbody.appendChild(row);
-
-
-
-
-
-
-
-
 
 			// let tbody = table.querySelector('tbody');
 			// const newRow = document.createElement('tr');
