@@ -222,6 +222,30 @@ convert = (function () {
 	}
 
 	function fillTable(contents, table_id, column) {
+		const json = _convertCSVtoJSON(contents, column);
+		// Create a new table element
+		const table = ducument.querySelector(table_id);		
+		// Create a new tbody element
+		const tbody = table.selectElementByTagname('tbody');		
+		// Loop through the rows in the matrix
+		for (let i = 0; i < json.length; i++) {
+			// Create a new tr element for the row
+			const row = document.createElement('tr');		
+			// Loop through the cells in the row
+			for (let j = 0; j < json[i].length; j++) {
+				// Create a new td element for the cell
+				const cell = document.createElement('td');			
+				// Set the text content of the cell
+				cell.textContent = json[i][j];			
+				// Append the cell to the row
+				row.appendChild(cell);
+			}		
+			// Append the row to the tbody
+			tbody.appendChild(row);
+		}
+	}
+
+	function fillTable2(contents, table_id, column) {
 		if (!contents) {
 			return;
 		}
