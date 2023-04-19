@@ -222,15 +222,13 @@ convert = (function () {
 	}
 
 	function fillTable(contents, table_id, column) {
-		let table = document.querySelector(table_id);
-		let thead = table.querySelector('thead');
-		thead.innerHTML = '';
-		let tbody = table.querySelector('tbody');
-		tbody.innerHTML = '';
 		if (!contents) {
 			return;
 		}
 		let json = _convertCSVtoJSON(contents, column);
+		let table = document.querySelector(table_id);
+		let thead = table.querySelector('thead');
+		thead.innerHTML = '';
 		let header = Object.keys(json[0]);
 		let tr = thead.appendRow();
 		let td_id = tr.insertCell();
@@ -249,7 +247,9 @@ convert = (function () {
 			td.style = 'text-align: center;';
 			td.innerHTML = header[i];
 		}
-		for (let row of json) {
+		let tbody = table.querySelector('tbody');
+		tbody.innerHTML = '';
+		for (let data of json) {
 			if (table_id.indexOf('core_japan_table') >= 0 ||
 				table_id.indexOf('pint_binding_table') >= 0 ||
 				table_id.indexOf('sme_binding_table') >= 0) {
@@ -263,32 +263,61 @@ convert = (function () {
 					continue;
 				}
 			}
-			let core_id = row[header[0]];
-			let tbody = table.querySelector('tbody');
-			const newRow = document.createElement('tr');
-			// let tr = tbody.appandChild(newRow);
-			const newCell = document.createElement('td');
-			newCell.textContent = core_id;
-			newRow.appandChild(newCell);
-			tbody.appandChild(newRow);
-			// tr.append(td_id);
-			// td_id.setAttribute('scope', 'row')
-			// td_id.innerHTML = core_id;
-
-			if (column) {
-				let td_term = tr.insertCell();
-				tr.append(td_term);
-				if ('d_' == core_id.substring(0, 2)) {
-					core_id = core_id.substring(2);
+			// Create a new tr element for the row
+			const row = document.createElement('tr');
+			// Loop through the cells in the row
+			for (let i = 0; i < data.length; i++) {
+				// Create a new td element for the cell
+				const cell = document.createElement('td');
+				if (0==i) {
+					let core_id = data[header[0]];
+					 if ('d_' == core_id.substring(0, 2)) {
+						core_id = core_id.substring(2);
+					}
+					cell.textContent = core_id;
+				} else {
+					// Set the text content of the cell
+					cell.textContent = data[header[i]];					
 				}
-				let core_term = jp_pint_binding[core_id]['businessTerm'];
+				// Append the cell to the row
+				row.appendChild(cell);
+			}
+			// Append the row to the tbody
+			tbody.appendChild(row);
+
+
+
+
+
+
+
+
+
+			// let tbody = table.querySelector('tbody');
+			// const newRow = document.createElement('tr');
+			// // let tr = tbody.appandChild(newRow);
+			// const newCell = document.createElement('td');
+			// newCell.textContent = core_id;
+			// newRow.appandChild(newCell);
+			// tbody.appandChild(newRow);
+			// // tr.append(td_id);
+			// // td_id.setAttribute('scope', 'row')
+			// // td_id.innerHTML = core_id;
+
+			// if (column) {
+			// 	let td_term = tr.insertCell();
+			// 	tr.append(td_term);
+			// 	if ('d_' == core_id.substring(0, 2)) {
+			// 		core_id = core_id.substring(2);
+			// 	}
+			// 	let core_term = jp_pint_binding[core_id]['businessTerm'];
 				
-				td_term.innerHTML = core_term;
-			}
-			for (var i = 1; i < header.length; i++) {
-				let td = tr.insertCell();
-				td.innerHTML = row[header[i]];
-			}
+			// 	td_term.innerHTML = core_term;
+			// }
+			// for (var i = 1; i < header.length; i++) {
+			// 	let td = tr.insertCell();
+			// 	td.innerHTML = row[header[i]];
+			// }
 			// tbody = table.querySelector('tbody');
 			// const rows = Array.from(tbody.getElementsbyTagName('tr'));
 			// rows.reverse();
