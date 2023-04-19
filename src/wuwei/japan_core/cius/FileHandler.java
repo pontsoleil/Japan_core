@@ -955,10 +955,8 @@ public class FileHandler
 			IOException 
 	{
 		if (TRACE) System.out.println(" (FileHandler) csvFileRead " + filename + " " + charset);
-		FileInputStream fileInputStream = new FileInputStream(filename);
-		
-		ArrayList<ArrayList<String>> data = CSV.readFile(fileInputStream, charset);
-		
+		FileInputStream fileInputStream = new FileInputStream(filename);		
+		ArrayList<ArrayList<String>> data = CSV.readFile(fileInputStream, charset);		
 		// header
 		header = new ArrayList<String>();
 		ArrayList<String> fields = data.get(0);
@@ -968,34 +966,38 @@ public class FileHandler
 		for (int i = 0; i < headerCount; i++) 
 		{
 			String id = fields.get(i);
+			if (0==id.indexOf("d_"))
+				id = id.substring(2);
 			if (id.toUpperCase().matches("^NC00$") || id.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$"))
 				offset += 1;
 			else
 				break;				
 		}
 		String id = "";
+		Integer synSort = 0;
 		for (int i = 0; i < headerCount; i++) 
 		{
 			if (i < offset)
 				continue;
 			id = fields.get(i);			
 			Binding binding = bindingDict.get(id);
-			if (null!=binding) 
+			if (null==binding)
+				System.out.println(id + " is not defined in bindingMap.");
+			else
 			{
-				Integer synSort = binding.getSynSort();
+				synSort = binding.getSynSort();
 				if (synSort >= 1000)
 					headerMap.put(synSort, i);
 				else
 					System.out.println(id + " is defined in bindingMap with NO synSort.");
-			} else 
-			{
-				System.out.println(id + " is not defined in bindingMap.");
 			}
-			
 		}
+		// header
 		for (int i = 0; i < offset; i++) 
 		{
 			String field = fields.get(i);
+			if (0==field.indexOf("d_"))
+				field = field.substring(2);
 			header.add(field);
 		}
 		for (Map.Entry<Integer,Integer> entry : headerMap.entrySet()) 
@@ -1019,7 +1021,6 @@ public class FileHandler
 			}			
 			for (Map.Entry<Integer,Integer> entry : headerMap.entrySet()) 
 			{
-//				Integer synSort = entry.getKey();
 				int i = entry.getValue();
 				String field = "";
 				if (i < fields.size())

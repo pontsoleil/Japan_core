@@ -277,7 +277,9 @@ public class Csv2invoice
 				{
 					String id       = FileHandler.header.get(i);
 					Binding binding = FileHandler.bindingDict.get(id);
-					if (null==binding) 
+					if (null==binding && 0==id.indexOf("d_"))
+							binding = FileHandler.bindingDict.get(id.substring(2));
+					if (null==binding)
 					{
 						if (TRACE) System.out.println(id+" is NOT DEFINED in bindingDict");
 						String[] ids = FileHandler.header.get(0).split(",");
@@ -563,8 +565,11 @@ public class Csv2invoice
 	{
 		value = value.trim();
 		Binding binding = FileHandler.bindingDict.get(id);
-		Integer semSort = binding.getSemSort();
+//		Integer semSort = binding.getSemSort();
 		Integer synSort = binding.getSynSort();
+		String defaultValue = binding.getDefaultValue();
+		if (defaultValue.length() > 0 && ! value.equals(defaultValue))
+			value = defaultValue;
 
 		if (TRACE) {
 			if (value.length() > 0) 
@@ -676,7 +681,7 @@ public class Csv2invoice
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 
 	 * 

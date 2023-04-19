@@ -212,7 +212,7 @@
                 </ram:SpecifiedCIILTradeSettlementMonetarySummation>
                 <ram:InvoiceReferencedCIReferencedDocument>
                     <ram:IssuerAssignedID>DR35141</ram:IssuerAssignedID>
-                    <ram:ReferenceTypeCode>130</ram:ReferenceTypeCode>
+                    <ram:ReferenceTypeCode>APH</ram:ReferenceTypeCode>
                     <ram:AttachedSpecifiedBinaryFile>
                         <ram:URIID>http://www.salescompany.com/summary001.html</ram:URIID>
                         <ram:IncludedBinaryObject mimeCode="text/csv">aHR0cHM6Ly90ZXN0LXZlZmEuZGlmaS5uby9wZXBwb2xiaXMvcG9hY2MvYmlsbGluZy8zLjAvYmlzLw==</ram:IncludedBinaryObject>
