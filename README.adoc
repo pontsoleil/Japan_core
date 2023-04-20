@@ -65,8 +65,7 @@ sme_binding.utf-16TSV.csv Excelで内容を確認するためのUTF-16のTSV形�
 
 === 変換処理サーバー
 
-https://www.wuwei.space/core-japan/ +
-GitHubのプログラムより古いバージョン
+https://www.wuwei.space/core-japan/index.html
 
 === 構文バインディング変換プログラム
 
