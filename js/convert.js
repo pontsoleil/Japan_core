@@ -190,15 +190,19 @@ convert = (function () {
 		var result = [];
 		var headers = lines[0].split(",");
 
-		for (var i = 1; i < lines.length; i++) {
+		let start = 0;
+		if (''==column) {
+			start = 1;
+		}
+		for (var i = start; i < lines.length; i++) {
 			var obj = {};
-			var line = _escape_comma(lines[i])
+			var line = _escape_comma(lines[i]);
 			var currentline = line.split(",");
 
 			for (var j = 0; j < headers.length; j++) {
 				var id;
 				if (column == 'C') {
-					id = 'C' + ('' + j);
+					id = 'C' + j;
 				} else {
 					id = headers[j].trim();
 				}
@@ -259,16 +263,26 @@ convert = (function () {
 		// let tr = thead.appendRow();
 		const td_id = document.createElement('td');
 		td_id.setAttribute('scope', 'col');
-		td_id.innerHTML = 'ID';
-		tr.appendChild(td_id);
+		td_id.style = 'text-align: center;';
 		if (column) {
+			td_id.innerHTML = 'ID';
+			tr.appendChild(td_id);
 			let td_term = document.createElement('td');
 			tr.append(td_term);
+			//
 			td_term.setAttribute('scope', 'col');
+			td_term.style = 'text-align: center;';
 			td_term.textContent = '項目名';
 			tr.appendChild(td_term);
+		} else {
+			td_id.innerHTML = 'NC00';
+			tr.appendChild(td_id);
 		}
-		for (var i = 1; i < header.length; i++) {
+		let start = 0;
+		if (''!=column) {
+			start = 1;
+		}
+		for (var i = start; i < header.length; i++) {
 			let td = document.createElement('td');
 			td.setAttribute('scope', 'col');
 			td.style = 'text-align: center;';
@@ -277,7 +291,12 @@ convert = (function () {
 		}
 		let tbody = table.querySelector('tbody');
 		tbody.innerHTML = '';
+		// let n = 0;
 		for (let data of json) {
+			// if (0==n && ''!=column) {
+			// 	n++;
+			// 	continue;
+			// }
 			if (table_id.indexOf('core_japan_table') >= 0 ||
 				table_id.indexOf('pint_binding_table') >= 0 ||
 				table_id.indexOf('sme_binding_table') >= 0) {
@@ -303,51 +322,23 @@ convert = (function () {
 						core_id = core_id.substring(2);
 					}
 					cell.textContent = core_id;
+					// td for term name
+					if (column) {
+						const cell_term = document.createElement('td');
+						row.appendChild(cell_term);
+					}
 				} else {
 					// Set the text content of the cell
 					cell.textContent = data[header[i]];					
+				}
+				if (column && i > 2) {
+					cell.style = 'text-align: center;';
 				}
 				// Append the cell to the row
 				row.appendChild(cell);
 			}
 			// Append the row to the tbody
 			tbody.appendChild(row);
-
-			// let tbody = table.querySelector('tbody');
-			// const newRow = document.createElement('tr');
-			// // let tr = tbody.appandChild(newRow);
-			// const newCell = document.createElement('td');
-			// newCell.textContent = core_id;
-			// newRow.appandChild(newCell);
-			// tbody.appandChild(newRow);
-			// // tr.append(td_id);
-			// // td_id.setAttribute('scope', 'row')
-			// // td_id.innerHTML = core_id;
-
-			// if (column) {
-			// 	let td_term = tr.insertCell();
-			// 	tr.append(td_term);
-			// 	if ('d_' == core_id.substring(0, 2)) {
-			// 		core_id = core_id.substring(2);
-			// 	}
-			// 	let core_term = jp_pint_binding[core_id]['businessTerm'];
-				
-			// 	td_term.innerHTML = core_term;
-			// }
-			// for (var i = 1; i < header.length; i++) {
-			// 	let td = tr.insertCell();
-			// 	td.innerHTML = row[header[i]];
-			// }
-			// tbody = table.querySelector('tbody');
-			// const rows = Array.from(tbody.getElementsbyTagName('tr'));
-			// rows.reverse();
-			// rows.forEach(row => tbody.appendChild(row));
-			// rows.sort((rowA,rowB) => {
-			//     const cellA = rowA.getElementsByTagName('td')[0].textContent;
-			//     const cellB = rowB.getElementsByTagName('td')[0].textContent;
-			//     return cellA - cellB;
-			// });
-			// rows.forEach(row => table.toBodied[0].appendChild(row));
 		}
 	}
 
@@ -377,10 +368,10 @@ convert = (function () {
 			target_area.textContent = ''
 		}
 		updateNameURL('#source2target #transposed_title', '', '縦横転置');
-		fillTable('', '#source2target #transposed_table', 'C')
-		updateNameURL('#source2target #csv_title', '', '')
+		fillTable('', '#source2target #transposed_table', 'C');
+		updateNameURL('#source2target #csv_title', '', '');
 		fillTable('', '#source2target #csv_table', '');
-		updateNameURL('#source2target #xml_title', '', '')
+		updateNameURL('#source2target #xml_title', '', '');
 		let xml_area = document.querySelector('#source2target #xml_area');
 		if (xml_area) {
 			xml_area.textContent = '';
@@ -421,7 +412,7 @@ convert = (function () {
 				snackbar.close();
 				if (0 == data.indexOf("ERROR") || '{' != data.substring(0, 1)) {
 					snackbar.close();
-					alert(data)
+					alert(data);
 				}
 				else {
 					try {
@@ -445,10 +436,11 @@ convert = (function () {
 							target_area.textContent = formatXml(target_contents);
 						}
 						updateNameURL('#source2target #transposed_title', transposed_file, '縦横転置');
-						fillTable(transposed_contents, '#source2target #transposed_table', 'C')
-						updateNameURL('#source2target #csv_title', csv_file, '')
+						fillTable(transposed_contents, '#source2target #transposed_table', 'C');
+						updateTransposedLabel('core-japan');
+						updateNameURL('#source2target #csv_title', csv_file, '');
 						fillTable(csv_contents, '#source2target #csv_table', '');
-						updateNameURL('#source2target #xml_title', source_xml, source)
+						updateNameURL('#source2target #xml_title', source_xml, source);
 						if (xml_area) {
 							xml_area.textContent = xml_contents;
 						}
@@ -465,9 +457,9 @@ convert = (function () {
 	}
 
 	function invoice2csv(evt) {
-		updateNameURL('#invoice2csv #transposed_title', '', '縦横転置')
-		fillTable('', '#invoice2csv #transposed_table', 'C')
-		updateNameURL('#invoice2csv #csv_title', '', '')
+		updateNameURL('#invoice2csv #transposed_title', '', '縦横転置');
+		fillTable('', '#invoice2csv #transposed_table', 'C');
+		updateNameURL('#invoice2csv #csv_title', '', '');
 		fillTable('', '#invoice2csv #csv_table', '');
 		updateNameURL('#invoice2csv #xml_title', '', '');
 		document.querySelector('#invoice2csv #xml_area').textContent = '';
@@ -481,7 +473,8 @@ convert = (function () {
 		} else {
 			let selected = document.querySelector('#invoice2csv #selected_file').value;
 			if (selected && 'initial' != selected) {
-				formData.append('selected', selected);
+				let file_name = selected.substring(1 + selected.indexOf(':'));
+				formData.append('selected', file_name);
 			} else {
 				snackbar.open({ 'message': 'ファイルを指定してください', 'type': 'danger' });
 				return;
@@ -505,7 +498,7 @@ convert = (function () {
 				snackbar.close();
 				if (0 == data.indexOf("ERROR") || '{' != data.substring(0, 1)) {
 					snackbar.close();
-					alert(data)
+					alert(data);
 				}
 				else {
 					try {
@@ -521,9 +514,10 @@ convert = (function () {
 						let xml_contents = response.xml_contents;
 						let csv_contents = response.csv_contents;
 						let transposed_contents = response.transposed_contents;
-						updateNameURL('#invoice2csv #transposed_title', transposed_file, '縦横転置')
-						fillTable(transposed_contents, '#invoice2csv #transposed_table', 'C')
-						updateNameURL('#invoice2csv #csv_title', csv_file, '')
+						updateNameURL('#invoice2csv #transposed_title', transposed_file, '縦横転置');
+						fillTable(transposed_contents, '#invoice2csv #transposed_table', 'C');
+						updateTransposedLabel('core-japan');
+						updateNameURL('#invoice2csv #csv_title', csv_file, '');
 						fillTable(csv_contents, '#invoice2csv #csv_table', '');
 						updateNameURL('#invoice2csv #xml_title', xml_file, syntax);
 						document.querySelector('#invoice2csv #xml_area').textContent = xml_contents;
@@ -541,7 +535,7 @@ convert = (function () {
 	}
 
 	function csv2invoice(evt) {
-		updateNameURL('#csv2invoice #xml_title', '', '')
+		updateNameURL('#csv2invoice #xml_title', '', '');
 		let xml_area = document.querySelector('#csv2invoice #xml_area');
 		if (xml_area) {
 			xml_area.textContent = '';
@@ -576,7 +570,7 @@ convert = (function () {
 				snackbar.close();
 				if (0 == data.indexOf("ERROR") || '{' != data.substring(0, 1)) {
 					snackbar.close();
-					alert(data)
+					alert(data);
 				}
 				else {
 					try {
@@ -589,7 +583,7 @@ convert = (function () {
 						let csv_file = response.csv_file;
 						let xml_file = response.xml_file;
 						let xml_contents = response.xml_contents;
-						updateNameURL('#csv2invoice #xml_title', xml_file, syntax)
+						updateNameURL('#csv2invoice #xml_title', xml_file, syntax);
 						if (xml_area) {
 							xml_area.textContent = formatXml(xml_contents);
 						}
@@ -603,6 +597,66 @@ convert = (function () {
 				snackbar.close();
 				alert('通信に失敗しました', error);
 			});
+	}
+
+	function sortTable(table_id, key) {
+		let table = document.getElementById(table_id);
+		let rows = table.rows;
+		let rowsArray = Array.from(rows);
+		rowsArray.sort(function (rowA, rowB) {
+			let idA = rowA.cells[0].textContent;
+			if ('d_' == idA.substring(0, 2)) {
+				idA = idA.substring(2);
+			}
+			let idB = rowB.cells[0].textContent;
+			if ('d_' == idB.substring(0, 2)) {
+				idB = idB.substring(2);
+			}
+			let sortA = 0
+			if ('ID' != idA && 'JBG' != idA.substring(0, 3)) {
+				sortA = sort_dict[idA][key];
+			}
+			let sortB = 0
+			if ('ID' != idB && 'JBG' != idB.substring(0, 3)) {
+				sortB = sort_dict[idB][key];
+			}
+			return sortA - sortB;
+		});
+		table.tBodies[0].innerHTML = '';
+		rowsArray.forEach(function (row) {
+			table.tBodies[0].appendChild(row);
+		});
+	}
+
+	function updateTransposedLabel(mode) {
+		let trs = document.querySelectorAll('#transposed_table tbody tr');
+		let n = 0;
+		for (tr of trs) {
+			// if (0==n) {
+			// 	n ++
+			// 	continue;
+			// }
+			if ('' == tr.firstChild.innerText) {
+				continue;
+			}
+			let id = tr.childNodes[0].innerText;
+			if ('d_' == id.substring(0, 2)) {
+				id = id.substring(2);
+			}
+			// let label = '';
+			if (undefined == core_japan[id]) {
+				core_japan[id] = {};
+			}
+			if (mode == 'core-japan') {
+				tr.childNodes[1].innerText = core_japan[id]['term'] || '';
+			} else if (mode == 'jp-pint') {
+				tr.childNodes[1].innerText = (core_japan[id]['pintID'] || '') + (core_japan[id]['pintTerm'] || '');
+			} else if (mode == 'jp-pint_ja') {
+				tr.childNodes[1].innerText = (core_japan[id]['pintID'] || '') + (core_japan[id]['pintTermJA'] || '');
+			} else if (mode == 'sme-common') {
+				tr.childNodes[1].innerText = (core_japan[id]['smeID'] || '') + (core_japan[id]['smeTerm'] || '');
+			}
+		}
 	}
 
 	function initModule() {
@@ -697,82 +751,28 @@ convert = (function () {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('core-japan');
-				sortTable('transposed_table', 'num')
+				sortTable('transposed_table', 'num');
 			});
 			document.querySelector('#source2target .tidy_csv a#jp-pint').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('jp-pint');
-				sortTable('transposed_table', 'jp_pint')
+				sortTable('transposed_table', 'jp_pint');
 			});
 			document.querySelector('#source2target .tidy_csv a#jp-pint_ja').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('jp-pint_ja');
-				sortTable('transposed_table', 'jp_pint')
+				sortTable('transposed_table', 'jp_pint');
 			});
 			document.querySelector('#source2target .tidy_csv a#sme-common').addEventListener('click', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 				updateTransposedLabel('sme-common');
-				sortTable('transposed_table', 'sme')
+				sortTable('transposed_table', 'sme');
 			});
 		});
 
-		function sortTable(table_id, key) {
-			let table = document.getElementById(table_id);
-			let rows = table.rows;
-			let rowsArray = Array.from(rows);
-			rowsArray.sort(function (rowA, rowB) {
-				let idA = rowA.cells[0].textContent;
-				if ('d_' == idA.substring(0, 2)) {
-					idA = idA.substring(2);
-				}
-				let idB = rowB.cells[0].textContent;
-				if ('d_' == idB.substring(0, 2)) {
-					idB = idB.substring(2);
-				}
-				let sortA = 0
-				if ('ID' != idA && 'JBG' != idA.substring(0, 3)) {
-					sortA = sort_dict[idA][key];
-				}
-				let sortB = 0
-				if ('ID' != idB && 'JBG' != idB.substring(0, 3)) {
-					sortB = sort_dict[idB][key];
-				}
-				return sortA - sortB;
-			});
-			table.tBodies[0].innerHTML = '';
-			rowsArray.forEach(function (row) {
-				table.tBodies[0].appendChild(row);
-			});
-		}
-
-		function updateTransposedLabel(mode) {
-			let trs = document.querySelectorAll('#transposed_table tbody tr');
-			for (tr of trs) {
-				if ('' == tr.firstChild.innerText) {
-					continue;
-				}
-				let id = tr.childNodes[0].innerText;
-				if ('d_' == id.substring(0, 2)) {
-					id = id.substring(2);
-				}
-				// let label = '';
-				if (undefined == core_japan[id]) {
-					core_japan[id] = {};
-				}
-				if (mode == 'core-japan') {
-					tr.childNodes[1].innerText = core_japan[id]['term'] || '(未定義)';
-				} else if (mode == 'jp-pint') {
-					tr.childNodes[1].innerText = (core_japan[id]['pintID'] || '') + (core_japan[id]['pintTerm'] || '(undefined)');
-				} else if (mode == 'jp-pint_ja') {
-					tr.childNodes[1].innerText = (core_japan[id]['pintID'] || '') + (core_japan[id]['pintTermJA'] || '(未定義)');
-				} else if (mode == 'sme-common') {
-					tr.childNodes[1].innerText = (core_japan[id]['smeID'] || '') + (core_japan[id]['smeTerm'] || '(未定義)');
-				}
-			}
-		}
 		document.querySelector('#invoice2csv #selected_file').addEventListener('change', e => {
 			e.preventDefault();
 			let upload = document.querySelector('#invoice2csv #upload_file');
@@ -849,7 +849,7 @@ convert = (function () {
 
 		$('#gotoTopButton').on('click', function () {
 			gotoTop();
-		})
+		});
 
 		// When the user clicks on the button, scroll to the top of the document
 		function gotoTop() {
@@ -860,7 +860,7 @@ convert = (function () {
 		fetch(base_url + '/server/data/base/core_japan.csv')
 			.then(res => res.text())
 			.then(csv => {
-				fillTable(csv, '#coreinvoice #core_japan_table', '')
+				fillTable(csv, '#coreinvoice #core_japan_table', '');
 				let json = _convertCSVtoJSON(csv);
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
@@ -874,16 +874,16 @@ convert = (function () {
 					core_japan[id]['pintTermJA'] = data['pintTermJA'];
 					core_japan[id]['smeTerm'] = data['smeTerm'];
 					sort_dict[id] = {}
-					sort_dict[id]['num'] = parseInt(data['num'])
-					sort_dict[id]['jp_pint'] = parseInt(data['pint_sort'])
-					sort_dict[id]['sme'] = parseInt(data['sme_sort'])
+					sort_dict[id]['num'] = parseInt(data['num']);
+					sort_dict[id]['jp_pint'] = parseInt(data['pint_sort']);
+					sort_dict[id]['sme'] = parseInt(data['sme_sort']);
 				}
 			});
 
 		fetch(base_url + '/server/data/base/jp_pint_binding.csv')
 			.then(res => res.text())
 			.then(csv => {
-				fillTable(csv, '#coreinvoice #jp-pint_binding_table', '')
+				fillTable(csv, '#coreinvoice #jp-pint_binding_table', '');
 				let json = _convertCSVtoJSON(csv);
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
@@ -900,7 +900,7 @@ convert = (function () {
 		fetch(base_url + '/server/data/base/sme_binding.csv')
 			.then(res => res.text())
 			.then(csv => {
-				fillTable(csv, '#coreinvoice #sme_binding_table', '')
+				fillTable(csv, '#coreinvoice #sme_binding_table', '');
 				let json = _convertCSVtoJSON(csv);
 				for (let i = 0; i < json.length; i++) {
 					let data = json[i];
