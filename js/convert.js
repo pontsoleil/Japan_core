@@ -271,11 +271,17 @@ convert = (function () {
 			td_term.textContent = '項目名';
 			tr.appendChild(td_term);
 		} else {
-			td_id.innerHTML = 'NC00';
+			let core_id =header[0];
+			if ('d_' == core_id.substring(0, 2)) {
+				core_id = core_id.substring(2);
+			}
+			td_id.innerHTML = core_id;
 			tr.appendChild(td_id);
 		}
 		let start = 0;
-		if (''!=column) {
+		let tid = table_id.split(' ').pop().substring(1);
+		if (''!=column || 
+				['core_japan_table','jp-pint_binding_table','sme_binding_table'].indexOf(tid) >= 0) {
 			start = 1;
 		}
 		for (var i = start; i < header.length; i++) {
@@ -287,12 +293,7 @@ convert = (function () {
 		}
 		let tbody = table.querySelector('tbody');
 		tbody.innerHTML = '';
-		// let n = 0;
 		for (let data of json) {
-			// if (0==n && ''!=column) {
-			// 	n++;
-			// 	continue;
-			// }
 			if (table_id.indexOf('core_japan_table') >= 0 ||
 				table_id.indexOf('pint_binding_table') >= 0 ||
 				table_id.indexOf('sme_binding_table') >= 0) {
@@ -317,12 +318,7 @@ convert = (function () {
 					 if ('d_' == core_id.substring(0, 2)) {
 						core_id = core_id.substring(2);
 					}
-					cell.textContent = core_id;
-					// td for term name
-					if (column) {
-						const cell_term = document.createElement('td');
-						row.appendChild(cell_term);
-					}
+					cell.textContent = core_id;					
 				} else {
 					// Set the text content of the cell
 					cell.textContent = data[header[i]];					
@@ -332,6 +328,13 @@ convert = (function () {
 				}
 				// Append the cell to the row
 				row.appendChild(cell);
+				if (0==i && column) {
+					// td for term name
+					if (column) {
+						const cell_term = document.createElement('td');
+						row.appendChild(cell_term);
+					}
+				}
 			}
 			// Append the row to the tbody
 			tbody.appendChild(row);
@@ -471,13 +474,13 @@ convert = (function () {
 			if (selected && 'initial' != selected) {
 				let file_name = selected.substring(1 + selected.indexOf(':'));
 				formData.append('selected', file_name);
+				let syntax = selected.substring(0,selected.indexOf(':'));
+				formData.append("syntax", syntax);
 			} else {
 				snackbar.open({ 'message': 'ファイルを指定してください', 'type': 'danger' });
 				return;
 			}
 		}
-		syntax = document.querySelector('#invoice2csv-form input[name="syntax"]:checked').value;
-		formData.append("syntax", syntax);
 		uuid = document.getElementById('uuid').value;
 		if (uuid) {
 			formData.append("uuid", uuid);
@@ -626,12 +629,7 @@ convert = (function () {
 
 	function updateTransposedLabel(mode) {
 		let trs = document.querySelectorAll('#transposed_table tbody tr');
-		let n = 0;
 		for (tr of trs) {
-			// if (0==n) {
-			// 	n ++
-			// 	continue;
-			// }
 			if ('' == tr.firstChild.innerText) {
 				continue;
 			}
@@ -778,6 +776,8 @@ convert = (function () {
 			} else {
 				upload.classList.add('d-none');
 			}
+			let syntax = option.substring(0, option.indexOf(':'));
+			updateSyntax(syntax);
 		});
 
 		document.querySelector('#invoice2csv #csv_button').addEventListener('click', e => {
@@ -917,4 +917,4 @@ convert = (function () {
 		csv2invoice: csv2invoice
 	};
 })();
-// convert.js
+// convert.js 2023-04-20

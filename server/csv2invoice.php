@@ -112,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file']))
 
         $csv_contents = file_get_contents($csv_file);
         $xml_contents = file_get_contents($xml_file);
-        wh_log($csv_file.' csv_contents: '.substr($csv_contents,0,1024));
-        wh_log($xml_file.' xml_contents: '.substr($xml_contents,0,1024));
+        // wh_log($csv_file.' csv_contents: '.substr($csv_contents,0,1024));
+        // wh_log($xml_file.' xml_contents: '.substr($xml_contents,0,1024));
 
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json; charset=utf-8");

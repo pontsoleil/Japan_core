@@ -180,13 +180,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 
     $source_contents = file_get_contents($source_xml);
-    wh_log($source_xml.' source contents: '.substr($source_contents,0,1024));
+    // wh_log($source_xml.' source contents: '.substr($source_contents,0,1024));
     $transposed_contents = file_get_contents($transposed_file);
     wh_log($transposed_file.' transposed contents: '.substr($transposed_contents,0,1024));
     $csv_contents = file_get_contents($csv_file);
-    wh_log($csv_file.' csv contents: '.substr($csv_contents,0,1024));
+    // wh_log($csv_file.' csv contents: '.substr($csv_contents,0,1024));
     $target_contents = file_get_contents($target_xml);
-    wh_log($target_xml.' target contents: '.substr($target_contents,0,1024));
+    // wh_log($target_xml.' target contents: '.substr($target_contents,0,1024));
 
     header("HTTP/1.1 200 OK");
     header("Content-Type: application/json; charset=utf-8");
