@@ -151,5 +151,4 @@ JSONObject jsonObj = new JSONObject();
 Map<String, Object> data = handler.convertJSONObjectToMap(jsonObj);
 
 Note that in these examples, data.json is the name of the JSON file to read in or write to. You'll need to replace this with the actual name of your JSON file. Additionally, you'll need to populate the Map<String, Object> or JSONObject with the actual data you want to read/write.
-
  */

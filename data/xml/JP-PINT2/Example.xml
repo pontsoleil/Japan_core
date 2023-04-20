@@ -211,32 +211,17 @@
     <cac:PaymentTerms>
         <cbc:Note>月末締め翌月20日払い, 銀行手数料振込人負担</cbc:Note>
     </cac:PaymentTerms>
-    <cac:AllowanceCharge>
-        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-        <cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>
-        <cbc:AllowanceChargeReason>値引</cbc:AllowanceChargeReason>
-        <cbc:Amount currencyID="JPY">179</cbc:Amount>
-        <cac:TaxCategory>
-            <cbc:ID>S</cbc:ID>
-            <cbc:Percent>10</cbc:Percent>
-            <cac:TaxScheme>
-                <cbc:ID>VAT</cbc:ID>
-            </cac:TaxScheme>
-        </cac:TaxCategory>
-    </cac:AllowanceCharge>
-    <cac:AllowanceCharge>
-        <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-        <cbc:AllowanceChargeReasonCode>FC</cbc:AllowanceChargeReasonCode>
-        <cbc:AllowanceChargeReason>配送サービス</cbc:AllowanceChargeReason>
-        <cbc:Amount currencyID="JPY">7679</cbc:Amount>
-        <cac:TaxCategory>
-            <cbc:ID>S</cbc:ID>
-            <cbc:Percent>10</cbc:Percent>
-            <cac:TaxScheme>
-                <cbc:ID>VAT</cbc:ID>
-            </cac:TaxScheme>
-        </cac:TaxCategory>
-    </cac:AllowanceCharge>
+    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>値引</cbc:AllowanceChargeReason>
+    <cbc:Amount currencyID="JPY">179</cbc:Amount>
+    <cac:TaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>10</cbc:Percent>
+        <cac:TaxScheme>
+            <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+    </cac:TaxCategory>
     <cac:TaxTotal>
         <cbc:TaxAmount currencyID="JPY">26000</cbc:TaxAmount>
         <cac:TaxSubtotal>
@@ -288,7 +273,7 @@
             </cac:OrderReference>
         </cac:OrderLineReference>
         <cac:DespatchLineReference>
-            <cbc:LineID>010</cbc:LineID>
+            <cbc:LineID>NA</cbc:LineID>
             <cac:DocumentReference>
                 <cbc:ID>789</cbc:ID>
             </cac:DocumentReference>
@@ -300,18 +285,6 @@
         <cac:DocumentReference>
             <cbc:ID>D001-1</cbc:ID>
         </cac:DocumentReference>
-        <cac:AllowanceCharge>
-            <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-            <cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>
-            <cbc:AllowanceChargeReason>値引</cbc:AllowanceChargeReason>
-            <cbc:Amount currencyID="JPY">1500</cbc:Amount>
-        </cac:AllowanceCharge>
-        <cac:AllowanceCharge>
-            <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-            <cbc:AllowanceChargeReasonCode>CG</cbc:AllowanceChargeReasonCode>
-            <cbc:AllowanceChargeReason>クリーニング</cbc:AllowanceChargeReason>
-            <cbc:Amount currencyID="JPY">1500</cbc:Amount>
-        </cac:AllowanceCharge>
         <cac:Item>
             <cbc:Name>デスクチェア</cbc:Name>
             <cac:BuyersItemIdentification>
@@ -385,8 +358,6 @@
             <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
             <cac:AllowanceCharge>
                 <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-                <cbc:Amount currencyID="JPY">100</cbc:Amount>
-                <cbc:BaseAmount currencyID="JPY">600</cbc:BaseAmount>
             </cac:AllowanceCharge>
         </cac:Price>
     </cac:InvoiceLine>
@@ -420,4 +391,5 @@
             <cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
         </cac:Price>
     </cac:InvoiceLine>
+    <cbc:BaseAmount currencyID="JPY">600</cbc:BaseAmount>
 </Invoice>
