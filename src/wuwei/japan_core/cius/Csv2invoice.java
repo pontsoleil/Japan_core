@@ -314,8 +314,8 @@ public class Csv2invoice
 					}
 				}
 			}
-			if (DEBUG && "".equals(key))
-				System.out.println(key);
+//			if (DEBUG && "".equals(key))
+//				System.out.println(key);
 			key = key.trim();
 			rowMapList.put(key, rowMap);
 		}
@@ -366,7 +366,10 @@ public class Csv2invoice
 			String   ds     = data[data.length-1];
 			String[] d      = ds.split("=");
 			if (d.length < 2)
+			{
 				System.out.println(d);
+				continue;
+			}
 			boughSort       = Integer.parseInt(d[0]);
 			boughSeq        = Integer.parseInt(d[1]);
 			TreeMap<Integer, String> row = rowMapList.get(rowKey);
@@ -716,8 +719,8 @@ public class Csv2invoice
 			if (TRACE) System.out.println("- fillLevelElement setting @currencyID return Amount element");
 			return parent;
 		}			
-		if ("cbc:TaxAmount".equals(parent.getNodeName()))
-			System.out.println(parent.getNodeName());
+//		if ("cbc:TaxAmount".equals(parent.getNodeName()))
+//			System.out.println(parent.getNodeName());
 		String strippedPath  = FileHandler.stripSelector(path);
 		Binding boughBinding = FileHandler.synBindingMap.get(boughSort);
 		String boughXPath    = boughBinding.getXPath();

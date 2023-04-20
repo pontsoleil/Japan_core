@@ -190,11 +190,7 @@ convert = (function () {
 		var result = [];
 		var headers = lines[0].split(",");
 
-		let start = 0;
-		if (''==column) {
-			start = 1;
-		}
-		for (var i = start; i < lines.length; i++) {
+		for (var i = 1; i < lines.length; i++) {
 			var obj = {};
 			var line = _escape_comma(lines[i]);
 			var currentline = line.split(",");

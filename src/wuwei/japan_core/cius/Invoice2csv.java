@@ -259,6 +259,8 @@ public class Invoice2csv
 		}
 		
 		Binding binding = FileHandler.bindingDict.get(FileHandler.ROOT_ID);
+		if (null==binding)
+			System.out.println("FileHandler.ROOT_ID "+FileHandler.ROOT_ID+" is null.");
 		Integer sort = binding.getSemSort();
 		boughMap.put(sort, 0);
 		boughMapList.add(boughMap);
@@ -391,7 +393,7 @@ public class Invoice2csv
 				{
 					if (0==y && data.toUpperCase().matches("^(NC00|NC[0-9]+-NC[0-9]+)$"))
 						data = "d_"+data;
-					System.out.println(data);
+//					System.out.println(data);
 					row.add(data);
 				}
 			}
@@ -498,9 +500,9 @@ public class Invoice2csv
 			String childBusinessTerm = childBinding.getBT();
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
-			if (TRACE && "NC55-03".equals(id)) {
-				System.out.println(id);
-			}
+//			if (TRACE && "NC55-03".equals(id)) {
+//				System.out.println(id);
+//			}
 			if (TRACE) System.out.println("- fillGroup "+childID+"("+childSort+") "+childBusinessTerm+" XPath = "+FileHandler.getShortPath(childXPath));
 
 			List<Node> children = childList.get(childSort);
