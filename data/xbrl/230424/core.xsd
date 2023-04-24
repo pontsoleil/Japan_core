@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (c) 2022 XBRL Japan  inc. -->
+<schema targetNamespace="http://www.xbrl.jp/core-japan" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:cor="http://www.xbrl.jp/core-japan" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xbrldt="http://xbrl.org/2005/xbrldt">
+	<import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
+	<import namespace="http://xbrl.org/2005/xbrldt" schemaLocation="http://www.xbrl.org/2005/xbrldt-2005.xsd"/>
+	<import namespace="http://www.xbrl.org/dtr/type/numeric" schemaLocation="http://www.xbrl.org/dtr/type/numeric-2009-12-16.xsd"/>
+	<import namespace="http://www.xbrl.org/dtr/type/non-numeric" schemaLocation="http://www.xbrl.org/dtr/type/nonNumeric-2009-12-16.xsd"/>
+	<annotation>
+		<appinfo>
+			<!--			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-ja.xml"/>
+			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-en.xml"/>-->
+			<!--			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/presentationLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-pre.xml"/>-->
+			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-def.xml"/>
+			<!-- 
+				role type
+			-->
+			<link:roleType id="core-japan-role" roleURI="http://www.xbrl.jp/core-japan/role">
+				<link:definition>link core-japan</link:definition>
+				<link:usedOn>link:definitionLink</link:usedOn>
+				<link:usedOn>link:presentationLink</link:usedOn>
+			</link:roleType>
+			<link:roleType id="link_NC00" roleURI="http://www.xbrl.jp/core-japan/role/link_NC00">
+				<link:definition>Invoice</link:definition>
+				<link:usedOn>link:definitionLink</link:usedOn>
+			</link:roleType>
+			<link:roleType id="link_NC00-NC61" roleURI="http://www.xbrl.jp/core-japan/role/link_NC00-NC61">
+				<link:definition>Invoice Line Item</link:definition>
+				<link:usedOn>link:definitionLink</link:usedOn>
+			</link:roleType>
+			<!--
+				description: roleType arcroleType
+			-->
+			<link:roleType id="description" roleURI="http://www.xbrl.jp/core-japan/role/description">
+				<link:definition>description</link:definition>
+				<link:usedOn>link:label</link:usedOn>
+			</link:roleType>
+			<link:arcroleType id="concept-description" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-description">
+				<link:definition>concept to description</link:definition>
+				<link:usedOn>link:labelArc</link:usedOn>
+			</link:arcroleType>
+			<!--
+				primary key: roleType arcroleType
+			-->
+			<link:roleType id="primary-key" roleURI="http://www.xbrl.jp/core-japan/role/primary-key">
+				<link:definition>primary key</link:definition>
+				<link:usedOn>link:definitionLink</link:usedOn>
+			</link:roleType>
+			<link:arcroleType id="concept-primary-key" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-primary-key">
+				<link:definition>concept primary key</link:definition>
+				<link:usedOn>link:definitionArc</link:usedOn>
+			</link:arcroleType>
+			<!--
+				reference identifier: roleType arcroleType
+			-->
+			<link:roleType id="reference-identifier" roleURI="http://www.xbrl.jp/core-japan/role/reference-identifier">
+				<link:definition>reference identifier</link:definition>
+				<link:usedOn>link:definitionLink</link:usedOn>
+			</link:roleType>
+			<link:arcroleType id="concept-reference-identifier" cyclesAllowed="undirected" arcroleURI="http://www.xbrl.jp/core-japan/arcrole/concept-reference-identifier">
+				<link:definition>concept reference identifier</link:definition>
+				<link:usedOn>link:definitionArc</link:usedOn>
+			</link:arcroleType>
+			<!--
+				require: roleType
+			-->
+			<link:roleType id="require" roleURI="http://www.xbrl.jp/core-japan/role/require">
+				<link:definition>require</link:definition>
+				<link:usedOn>link:definitionLink</link:usedOn>
+			</link:roleType>
+		</appinfo>
+	</annotation>
+	<!-- typed dimension referenced element -->
+	<element name="_v" id="_v">
+		<simpleType>
+			<restriction base="string"/>
+		</simpleType>
+	</element>
+	<element name="_activity" id="_activity">
+		<simpleType>
+			<restriction base="string">
+				<pattern value="\s*(Created|Approved|LastModified|Entered|Posted)\s*"/>
+			</restriction>
+		</simpleType>
+	</element>
+	<!-- Hypercube -->
+	<element name="h_NC00" id="h_NC00" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<element name="h_NC61" id="h_NC61" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<element name="h_NC00-NC61" id="h_NC00-NC61" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<!-- Dimension -->
+	<element name="d_NC00" id="d_NC00" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
+	<element name="d_NC61" id="d_NC61" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
+	<element name="d_NC00-NC61" id="d_NC00-NC61" substitutionGroup="xbrldt:dimensionItem" type="xbrli:stringItemType" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
+	<!-- item type -->
+	<complexType name="stringItemType">
+		<simpleContent>
+			<restriction base="xbrli:stringItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="amountItemType">
+		<simpleContent>
+			<restriction base="xbrli:monetaryItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="binaryObjectItemType">
+		<simpleContent>
+			<restriction base="xbrli:stringItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="codeItemType">
+		<simpleContent>
+			<restriction base="xbrli:tokenItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="dateItemType">
+		<simpleContent>
+			<restriction base="xbrli:dateItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="documentReferenceItemType">
+		<simpleContent>
+			<restriction base="xbrli:tokenItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="identifierItemType">
+		<simpleContent>
+			<restriction base="xbrli:tokenItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="indicatorItemType">
+		<simpleContent>
+			<restriction base="xbrli:booleanItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="textItemType">
+		<simpleContent>
+			<restriction base="xbrli:stringItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="timeItemType">
+		<simpleContent>
+			<restriction base="xbrli:timeItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="percentageItemType">
+		<simpleContent>
+			<restriction base="xbrli:pureItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="quantityItemType">
+		<simpleContent>
+			<restriction base="xbrli:intItemType"/>
+		</simpleContent>
+	</complexType>
+	<complexType name="unitPriceAmountItemType">
+		<simpleContent>
+			<restriction base="xbrli:monetaryItemType"/>
+		</simpleContent>
+	</complexType>
+	<!-- element -->
+	<element name="NC00" id="NC00" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC00-19" id="NC00-19" type="cor:identifierItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC00-21" id="NC00-21" type="cor:codeItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC00-NC61" id="NC00-NC61" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC61" id="NC61" abstract="true" type="xbrli:stringItemType" nillable="true" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC61-01" id="NC61-01" type="cor:identifierItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC61-03" id="NC61-03" type="cor:amountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC63-04" id="NC63-04" type="cor:quantityItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC75-07" id="NC75-07" type="cor:textItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+	<element name="NC76-02" id="NC76-02" type="cor:unitPriceAmountItemType" nillable="false" substitutionGroup="xbrli:item" xbrli:periodType="instant"/>
+</schema>

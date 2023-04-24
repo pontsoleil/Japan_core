@@ -1,19 +1,31 @@
 package wuwei.japan_core.cius;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+//import java.util.Collections;
+//import java.util.Comparator;
+//import java.util.HashMap;
+//import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+//import java.util.Set;
 import java.util.TreeMap;
 
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+//import org.w3c.dom.NodeList;
+
+//import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+//import wuwei.japan_core.utils.JSONHandler0;
 
 /**
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
@@ -166,31 +178,8 @@ public class Invoice2csv
 		System.out.println("** END ** Invoice2csv "+PROCESSING+" "+IN_XML+" "+OUT_CSV);
 	}
 	
-//	/**
-//	 * ログ出力のためにXPathの文字列を短縮する。
-//	 * 
-//	 * @param path XPath文字列
-//	 * @return　短縮された path
-//	 */
-//	public static String getShortPath(String path) 
-//	{
-//		if (0==PROCESSING.indexOf("SME-COMMON"))
-//		{
-//			String _path = path;
-//			_path = _path.replace("[ram:TaxTotalAmount/@currencyID=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:TaxTotalAmount/@currencyID=...");
-//			_path = _path.replace("[ram:CurrencyCode=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:CurrencyCode=...");
-//			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeAgreement/","...Agreement/");
-//			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:IncludedCIILSupplyChainTradeLineItem/","...LineItem/");
-//			_path = _path.replace("//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/","...Settlement/");
-//			return _path;
-//		} else
-//		{
-//			return path;
-//		}
-//	}
-	
 	/**
-	 * を読み込んで Tidy dataテーブルに展開し、CSVファイルに出力する.
+	 * インボイスXMLファイルを読み込んで Tidy dataテーブルに展開し、CSVファイルに出力する.
 	 * 
 	 * @param in_xml デジタルインボイス（XMLインスタンス文書）.
 	 * @param out_csv Tidy dataのCSV(RFC4180形式)ファイル.
@@ -276,8 +265,138 @@ public class Invoice2csv
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+        String out_json = out_csv.substring(0, out_csv.lastIndexOf('.')) + ".json";
+		try {
+			fillJsonMeta(out_csv, out_json);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		if (TRACE) System.out.println("-- END -- IN_XML "+in_xml);
+	}
+	
+	/**
+	 * This function creates a JSON object to store document, table template and table data.
+	 * The resulting JSON object is written to a file in a human-readable format.
+	 * 
+	 * @param out_json the path and filename for the output JSON file
+	 * @throws IOException if an I/O error occurs
+	 */
+	private static void fillJsonMeta(String out_csv, String out_json) throws IOException {
+	    ArrayList<String> columns = FileHandler.header;
+
+	    // Create ObjectMapper instance
+	    ObjectMapper mapper = new ObjectMapper();
+
+	    // Create documentInfo object
+	    ObjectNode documentInfoObj = mapper.createObjectNode();
+	    documentInfoObj.put("documentType", "https://xbrl.org/2021/xbrl-csv");
+
+	    // Create namespaces object
+	    ObjectNode namespacesObj = mapper.createObjectNode();
+	    namespacesObj.put("core", "http://www.xbrl.jp/core-japan");
+	    namespacesObj.put("ns0", "http://www.example.com");
+	    namespacesObj.put("link", "http://www.xbrl.org/2003/linkbase");
+	    namespacesObj.put("iso4217", "http://www.xbrl.org/2003/iso4217");
+	    namespacesObj.put("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+	    namespacesObj.put("xbrli", "http://www.xbrl.org/2003/instance");
+	    namespacesObj.put("xbrldi", "http://xbrl.org/2006/xbrldi");
+	    namespacesObj.put("xlink", "http://www.w3.org/1999/xlink");
+	    documentInfoObj.set("namespaces", namespacesObj);
+
+	    // Create taxonomy array
+	    ArrayNode taxonomyArr = mapper.createArrayNode();
+	    taxonomyArr.add("../../xbrl/core.xsd");
+	    documentInfoObj.set("taxonomy", taxonomyArr);
+
+	    // Add documentInfo object to json object
+	    ObjectNode json = mapper.createObjectNode();
+	    json.set("documentInfo", documentInfoObj);
+
+	    // Add tableTemplates object
+	    ObjectNode tableTemplatesObj = mapper.createObjectNode();
+	    ObjectNode coreObj = mapper.createObjectNode();
+	    ObjectNode columnsObj = mapper.createObjectNode();
+	    ArrayList<String> dimensions = new ArrayList<>();
+
+	    TreeMap<String, ObjectNode> sortedColumns = new TreeMap<>();
+
+	    for (String column : columns) {
+	        String id = column;
+
+	        if (id.startsWith("d_"))
+	            id = id.substring(2);
+
+	        Binding binding = FileHandler.bindingDict.get(id);
+	        String datatype = binding.getDatatype();
+
+	        ObjectNode columnObj = mapper.createObjectNode();
+
+	        if (column.startsWith("d_")) {
+	            columnsObj.set(column, mapper.createObjectNode());
+	            dimensions.add(column);
+	            sortedColumns.put(column, (ObjectNode) columnsObj.get(column));
+	        } else {
+	            String conceptName = column;
+	            ObjectNode dimensionsObj = mapper.createObjectNode();
+	            dimensionsObj.put("concept", "core:" + conceptName);
+
+	            if (datatype.equals("Amount") || datatype.equals("Unit Price Amount")) {
+	                dimensionsObj.put("unit", "iso4217:JPY");
+	            }
+
+	            columnObj.set("dimensions", dimensionsObj);
+	            columnsObj.set(column, columnObj);
+	            sortedColumns.put(column, columnObj);
+	        }
+	    }
+
+	    // Create a new ObjectNode from the sorted TreeMap
+	    ObjectNode sortedColumnsObj = mapper.createObjectNode();
+	    sortedColumns.forEach(sortedColumnsObj::set);
+	    coreObj.set("columns", sortedColumnsObj);
+
+	    // Add sorted columns object to coreObj
+	    coreObj.set("columns", mapper.readTree(columnsObj.toString()));
+
+	    ObjectNode dimensionsObj = mapper.createObjectNode();
+
+	    for (String dimension : dimensions) {
+	        dimensionsObj.put("core:" + dimension, "$" + dimension);
+	    }
+
+	    dimensionsObj.put("period", "2023-11-01T00:00:00");
+	    dimensionsObj.put("entity", "ns0:Example co.");
+	    coreObj.set("dimensions", dimensionsObj);
+	    tableTemplatesObj.set("core_japan_template", coreObj);
+	    json.set("tableTemplates", tableTemplatesObj);
+	    
+	    // Add tables object
+	    ObjectNode tablesObj = mapper.createObjectNode();
+	    ObjectNode coreTablesObj = mapper.createObjectNode();
+	    coreTablesObj.put("template", "core_japan_template");
+	    Path csvPath = Paths.get(out_csv);
+        Path jsonPath = Paths.get(out_json);        
+        Path relativePath = jsonPath.relativize(csvPath);
+        String relative_path = relativePath.toString().substring(3);
+	    coreTablesObj.put("url", relative_path);
+	    tablesObj.set("core_japan_table", coreTablesObj);
+	    
+	    json.set("tables", tablesObj);
+
+	    // convert the JSON object to a string and print it
+	    String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
+	    if (TRACE) System.out.println(jsonString);
+
+	    // write the JSON object to a file
+	    try {
+	        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(out_json), json);
+	        if (TRACE) System.out.println("JSON object written to " + out_json);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
 	
 	/**
@@ -393,7 +512,6 @@ public class Invoice2csv
 				{
 					if (0==y && data.toUpperCase().matches("^(NC00|NC[0-9]+-NC[0-9]+)$"))
 						data = "d_"+data;
-//					System.out.println(data);
 					row.add(data);
 				}
 			}
@@ -475,9 +593,8 @@ public class Invoice2csv
 		rowMap = new TreeMap<Integer, String>();		
 
 		if (TRACE)
-			System.out.println("FileHandler.getChildren "+id);		
-//		if ("NC39-NC55".equals(id))
-//			System.out.println(id);
+			System.out.println("FileHandler.getChildren "+id);	
+
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
 		if (TRACE) 
@@ -500,9 +617,7 @@ public class Invoice2csv
 			String childBusinessTerm = childBinding.getBT();
 			String childXPath        = childBinding.getXPath();
 			int childLevel           = childBinding.getLevel();
-//			if (TRACE && "NC55-03".equals(id)) {
-//				System.out.println(id);
-//			}
+
 			if (TRACE) System.out.println("- fillGroup "+childID+"("+childSort+") "+childBusinessTerm+" XPath = "+FileHandler.getShortPath(childXPath));
 
 			List<Node> children = childList.get(childSort);
