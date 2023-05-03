@@ -141,3 +141,4 @@ data/pint-jp-resources-dev (23-mar)/
 *.zip
 ~$*.xlsx
 work/
+data/xml/XBRL-GL/
