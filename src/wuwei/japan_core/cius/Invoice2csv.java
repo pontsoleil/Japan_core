@@ -127,7 +127,10 @@ public class Invoice2csv
 				OUT_CSV = "data/csv/JP-PINT/Example.csv";
 			} else if (0==PROCESSING.indexOf("SME-COMMON")) {
 				IN_XML  = "data/xml/SME-COMMON/Example.xml";				
-				OUT_CSV = "data/csvSME-COMMON/Example.csv";
+				OUT_CSV = "data/csv/SME-COMMON/Example.csv";
+			} else if (0==PROCESSING.indexOf("XBRL-GL")) {
+				IN_XML  = "data/xml/XBRL-GL/0001-20090401-18-1-1-463.xml";				
+				OUT_CSV = "data/csv/XBRL-GL/0001-20090401-18-1-1-463.csv";
 			} else {
 				return;
 			}
