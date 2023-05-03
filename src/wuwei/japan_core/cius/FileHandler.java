@@ -55,12 +55,19 @@ public class FileHandler
 	static String JP_PINT_CSV                = "data/base/jp_pint_binding.csv";
 	static String JP_PINT_XML_SKELTON        = "data/base/jp_pint_skeleton.xml";
 	static String SME_CSV                    = "data/base/sme_binding.csv";
-	static String SME_XML_SKELTON            = "data/base/sme_skeleton.xml";	
+	static String SME_XML_SKELTON            = "data/base/sme_skeleton.xml";
+	
+	static String XBRL_GL_CSV                = "data/base/xBRL_GL_binding.csv";
+	static String IN_DIR                     = "XBRL_GLinstances"; //"data/xml/XBRL-GL";
+	static String OUT_CSV                    = "data/csv/XBRL-GL/instances.csv";
+	
 	public static Document doc               = null;
 	public static XPath xpath                = null;
 	public static Element root               = null;
 
 	public static String ROOT_ID                   = "NC00";
+	public static String ROOT_GL_ID                = "GL02"; // "NC00";
+	
 	public static Integer ROOT_SEMSORT             = 1000;	
 	public static String DOCUMENT_CURRENCY_ID      = "NC00-01"; /*文書通貨コードのID*/
 	public static String TAX_CURRENCY_ID           = "NC00-02"; /*税通貨コードのID*/
@@ -131,7 +138,7 @@ public class FileHandler
 	 */
 	public static void parseBinding() 
 	{
-		if (TRACE) System.out.println(" (FileHandler) parseBinding");
+		if (DEBUG) System.out.println(" (FileHandler) parseBinding");
 
 		Integer[] parents       = new Integer[10];
 		Binding[] bindingParent = new Binding[10];
@@ -225,7 +232,7 @@ public class FileHandler
 					semBindingMap.put(semSort, binding);
 				if (synSort > 0)
 					synBindingMap.put(synSort, binding);
-				if (TRACE) System.out.println(" (FileHandler) parseBinding "+id+" semSort:"+semSort+" synSort:"+synSort+" "+binding.getXPath());
+				if (DEBUG) System.out.println(" (FileHandler) parseBinding "+id+" semSort:"+semSort+" synSort:"+synSort+" "+binding.getXPath());
 			}
 			
 			if (PROCESSING.indexOf("SEMANTICS")>0) 
@@ -239,7 +246,7 @@ public class FileHandler
 					if (null==id || "".equals(id))
 						continue;
 //					if (null==semSort)
-//						if (TRACE) System.out.println(id+"("+semSort+")");
+//						if (DEBUG) System.out.println(id+"("+semSort+")");
 					parents[level] = semSort;
 					parent_level   = 0;
 					ArrayList<Integer> children = null;
@@ -267,7 +274,7 @@ public class FileHandler
 							parent_level          = level - 1;
 							Integer parentSemSort = parents[parent_level];				
 							if (null==parentSemSort)
-								if (TRACE) System.out.println(semSort);
+								if (DEBUG) System.out.println(semSort);
 							if (semChildMap.containsKey(parentSemSort)) 
 							{
 								children = semChildMap.get(parentSemSort);
@@ -311,20 +318,20 @@ public class FileHandler
 						parentID      = parentBinding.getID();
 						parentXPath   = parentBinding.getXPath();
 						strippedParentXPath = stripSelector(parentXPath);
-						if (TRACE) System.out.println(" (FileHandler) parseBinding check additional XPath " + parentID + "->" + id);
+						if (DEBUG) System.out.println(" (FileHandler) parseBinding check additional XPath " + parentID + "->" + id);
 						if (additionalXPath.length() > 0 && additionalXPath.lastIndexOf("/") > 0 &&
 								strippedParentXPath.indexOf(additionalXPath) >= 0 &&
 								additionalXPath.indexOf(strippedParentXPath) < 0) 
 						{
 							additionalXPath = resumeSelector(additionalXPath, xPath);
-							if (TRACE) System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
+							if (DEBUG) System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
 							parentBinding.addAdditionalXPath(additionalXPath);
 						} else if (idx > 0 && xPath.length() > 0 && xPath.lastIndexOf("/") > 0 &&
 								strippedParentXPath.indexOf(xPath) >= 0 &&
 								xPath.indexOf(strippedParentXPath) < 0) 
 						{
 							additionalXPath = xPath;
-							if (TRACE) System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
+							if (DEBUG) System.out.println(id+" "+xPath+" "+parentID+" "+parentXPath+"\n    ADDED parent XPath: "+parentXPath+" additional Xpath: "+additionalXPath);
 							parentBinding.addAdditionalXPath(additionalXPath);
 						}
 					}
@@ -538,7 +545,7 @@ public class FileHandler
 //		xpath = xpath.replaceAll("/Invoice", "/*");
 //		xpath = xpath.replaceAll("/ubl:Invoice", "/*");
 //		if (null==parent) {
-//			if (TRACE) System.out.println("- FileHaldler.getElements parent null");
+//			if (DEBUG) System.out.println("- FileHaldler.getElements parent null");
 //			return null;
 //		}
 //		if (id.toLowerCase().matches("^ibt-.+$")) {
@@ -560,7 +567,7 @@ public class FileHandler
 		xpath = xpath.replaceAll("/(Invoice|ubl:Invoice)/", "/*/");
 		if (null==parent) 
 		{
-			if (TRACE) System.out.println("- FileHaldler.getXPath parent null");
+			if (DEBUG) System.out.println("- FileHaldler.getXPath parent null");
 			return null;
 		}
 		List<Node> nodes = getXPathNodes(parent, xpath);
@@ -584,7 +591,7 @@ public class FileHandler
 		Binding binding = (Binding) bindingDict.get(parent_id);
 		Integer parentSemSort = binding.getSemSort();
 		String parentXPath = binding.getXPath();
-		if (TRACE) System.out.println(" (FileHandler) getChildren "+parent_id+"("+parentSemSort+") "+parentXPath);
+		if (DEBUG) System.out.println(" (FileHandler) getChildren "+parent_id+"("+parentSemSort+") "+parentXPath);
 
 		ArrayList<Integer> children = semChildMap.get(parentSemSort);
 		
@@ -662,7 +669,7 @@ public class FileHandler
 				xPath = xPath.replace("/Invoice", "/*");
 			} else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("ram:TaxCurrencyCode]")>0) 
 			{
-				if (TRACE) System.out.println(" (FileHandler) getXPathNodes "+xPath);
+				if (DEBUG) System.out.println(" (FileHandler) getXPathNodes "+xPath);
 			}
 			// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
 			if (xPath.indexOf("true")>0 || xPath.indexOf("false")>0) 
@@ -839,7 +846,7 @@ public class FileHandler
 			HashMap<String, String> attrMap ) 
 	{
 		if (null==parent) {
-			if (TRACE) System.out.println("- FileHaldler.appendElementNS parent "+prefix+":"+qname+" is NULL. return null.");
+			if (DEBUG) System.out.println("- FileHaldler.appendElementNS parent "+prefix+":"+qname+" is NULL. return null.");
 			return null;
 		}
 		try 
@@ -927,15 +934,14 @@ public class FileHandler
 			ArrayList<ArrayList<String>> data,
 			String filename, 
 			String charset,
-			String delimiter)
+			String delimiter,
+			boolean append)
 		throws
 			FileNotFoundException,
 			IOException 
 	{
-		if (TRACE) System.out.println(" (FileHandler) csvFileWrite " + filename + " " + charset+" delimiter="+delimiter);
-		FileOutputStream fileOutputStream = new FileOutputStream(filename);
-		CSV.writeFile(fileOutputStream, data, charset, delimiter);
-		fileOutputStream.close();
+		if (DEBUG) System.out.println(" (FileHandler) csvFileWrite " + filename + " " + charset+" delimiter="+delimiter);
+		CSV.csvFileWrite(data, filename, charset, delimiter, append);
 	}
 
 	/**
@@ -954,7 +960,7 @@ public class FileHandler
 			FileNotFoundException,
 			IOException 
 	{
-		if (TRACE) System.out.println(" (FileHandler) csvFileRead " + filename + " " + charset);
+		if (DEBUG) System.out.println(" (FileHandler) csvFileRead " + filename + " " + charset);
 		FileInputStream fileInputStream = new FileInputStream(filename);		
 		ArrayList<ArrayList<String>> data = CSV.readFile(fileInputStream, charset);		
 		// header
@@ -1033,7 +1039,7 @@ public class FileHandler
 	}
 	
 	/**
-	 * ログ出力のためにXPathの文字列を短縮する。
+	 * デバッグ時のログ出力のためにXPathの文字列を短縮する。
 	 * 
 	 * @param path XPath文字列
 	 * @return　短縮された path
