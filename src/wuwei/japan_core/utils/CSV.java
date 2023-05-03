@@ -2,6 +2,7 @@ package wuwei.japan_core.utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -60,69 +61,49 @@ public class CSV {
 //			e.printStackTrace();
 //		}
 	}
-	
+	/**
+	 * 2D の文字列データを CSV ファイルに書き込みます。
+	 *
+	 * @param data     書き込む 2D の文字列データ。内側の ArrayList は行を表し、要素は列を表します。
+	 * @param filename 出力先の CSV ファイルの名前 (パスを含む)。
+	 * @param charset  出力先の CSV ファイルの文字エンコーディング。
+	 * @param delimiter CSV ファイルの列を区切るデリミタ。
+	 * @param append   新しいデータを既存のファイルに追記するかどうかを指定するフラグ。
+	 *                 true の場合は新しいデータを既存のファイルに追記し、
+	 *                 false の場合は既存のファイルを新しいデータで上書きします。
+	 * @throws FileNotFoundException 指定されたファイルが見つからない場合、または作成できない場合にスローされます。
+	 * @throws IOException           ファイルへの書き込み中に I/O エラーが発生した場合にスローされます。
+	 */
 	public static void csvFileWrite(
-			ArrayList<ArrayList<String>> data,
-			String filename, 
-			String charset,
-			String delimiter) 
-		throws 
-			FileNotFoundException, 
-			IOException 
+	        ArrayList<ArrayList<String>> data,
+	        String filename,
+	        String charset,
+	        String delimiter,
+	        boolean append)
+	        throws FileNotFoundException, IOException
 	{
-		System.out.println("- csvFileWrite " + filename + " " + charset);
-		FileOutputStream fileOutputStream = new FileOutputStream(filename);
+	    System.out.println("- csvFileWrite " + filename + " " + charset);
+	    File file = new File(filename);
 
-		writeFile(fileOutputStream, data, charset, delimiter);
-		
-		fileOutputStream.close();
-	}
+	    try (FileOutputStream fileOutputStream = new FileOutputStream(file, append);
+	         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream, Charset.forName(charset));
+	         BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter)) {
 
-	public static void writeFile(
-			FileOutputStream stream,
-			ArrayList<ArrayList<String>> data,
-			String charset,
-			String delimiter ) 
-	{
-		OutputStreamWriter outputStreamWriter = null;
-		BufferedWriter bufferedWriter         = null;
-		try {
-			Charset cs         = Charset.forName(charset);
-			outputStreamWriter = new OutputStreamWriter(stream, cs);
-			bufferedWriter     = new BufferedWriter(outputStreamWriter);
-			for (ArrayList<String> columns : data) {
-				for (int i=0; i < columns.size(); i++) {
-					String cell_value = columns.get(i);
-					if (cell_value.indexOf("\"") != -1 || cell_value.indexOf(",") != -1) {
-						cell_value = "\"" + cell_value.replaceAll("\"", "\"\"") + "\"";
-					}
-					bufferedWriter.write(cell_value);
-//					System.out.print(cell_value);
-					if (i < columns.size() - 1) {
-						bufferedWriter.write(delimiter);
-//						System.out.print(",");
-					}
-				}
-				bufferedWriter.write("\n");
-//				System.out.print("\n");
-			}
-		}
-		catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		finally {
-			try {
-				if (bufferedWriter != null) {
-					bufferedWriter.close();
-				}
-				if (outputStreamWriter != null) {
-					outputStreamWriter.close();
-				}
-				stream.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
+	        for (ArrayList<String> columns : data) {
+	            for (int i = 0; i < columns.size(); i++) {
+	                String cellValue = columns.get(i);
+	                if (cellValue.contains("\"") || cellValue.contains(",")) {
+	                    cellValue = "\"" + cellValue.replaceAll("\"", "\"\"") + "\"";
+	                }
+	                bufferedWriter.write(cellValue);
+	                if (i < columns.size() - 1) {
+	                    bufferedWriter.write(delimiter);
+	                }
+	            }
+	            bufferedWriter.write("\n");
+	        }
+	    }
+	    
 	}
 
 	public static ArrayList<ArrayList<String>> csvFileRead(
@@ -148,6 +129,39 @@ public class CSV {
 	 * 
 	 * @return data ２次元のArrayList
 	 */
+	public static ArrayList<ArrayList<String>> readFile(InputStream stream, String charset) {
+	    ArrayList<ArrayList<String>> data = new ArrayList<>();
+
+	    try (InputStreamReader inputStreamReader = new InputStreamReader(stream, Charset.forName(charset));
+	         BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+
+	        String record;
+	        ArrayList<String> columns;
+
+	        while ((record = buildRecord(bufferedReader)) != null) {
+	            if (record.length() <= 0) {
+	                continue;
+	            }
+	            if (record.startsWith("#")) {
+	                continue;
+	            }
+
+	            columns = splitRecord(record);
+
+	            if (columns.size() <= 0) {
+	                continue;
+	            }
+
+	            data.add(columns);
+	        }
+	    } catch (Exception ex) {
+	        ex.printStackTrace();
+	    }
+
+	    return data;
+	}
+
+/*
 	public static ArrayList<ArrayList<String>> readFile(
 			InputStream stream,
 			String charset )
@@ -192,7 +206,7 @@ public class CSV {
 		}
 		return data;
 	}
-
+*/
 	/**
 	 * レコードの確定
 	 * レコード確定では，入力テキストデータに対して，ダブルクォーテーション（二重引用符）のペアをヒントに各レコードの末尾を確定して，レコードの切り分けを行います。
