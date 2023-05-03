@@ -1,0 +1,182 @@
+{
+  "documentInfo" : {
+    "documentType" : "https://xbrl.org/2021/xbrl-csv",
+    "namespaces" : {
+      "core" : "http://www.xbrl.jp/core-japan",
+      "ns0" : "http://www.example.com",
+      "link" : "http://www.xbrl.org/2003/linkbase",
+      "iso4217" : "http://www.xbrl.org/2003/iso4217",
+      "xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+      "xbrli" : "http://www.xbrl.org/2003/instance",
+      "xbrldi" : "http://xbrl.org/2006/xbrldi",
+      "xlink" : "http://www.w3.org/1999/xlink"
+    },
+    "taxonomy" : [ "../../xbrl/core.xsd" ]
+  },
+  "tableTemplates" : {
+    "core_japan_template" : {
+      "columns" : {
+        "GL02" : {
+          "dimensions" : {
+            "concept" : "core:GL02"
+          }
+        },
+        "GL02-01" : {
+          "dimensions" : {
+            "concept" : "core:GL02-01"
+          }
+        },
+        "GL02-GL57" : {
+          "dimensions" : {
+            "concept" : "core:GL02-GL57"
+          }
+        },
+        "GL57-01" : {
+          "dimensions" : {
+            "concept" : "core:GL57-01"
+          }
+        },
+        "GL57-02" : {
+          "dimensions" : {
+            "concept" : "core:GL57-02"
+          }
+        },
+        "GL02-GL64" : {
+          "dimensions" : {
+            "concept" : "core:GL02-GL64"
+          }
+        },
+        "GL64-01" : {
+          "dimensions" : {
+            "concept" : "core:GL64-01"
+          }
+        },
+        "GL64-02" : {
+          "dimensions" : {
+            "concept" : "core:GL64-02"
+          }
+        },
+        "GL64-03" : {
+          "dimensions" : {
+            "concept" : "core:GL64-03"
+          }
+        },
+        "GL64-04" : {
+          "dimensions" : {
+            "concept" : "core:GL64-04"
+          }
+        },
+        "GL02-GL55" : {
+          "dimensions" : {
+            "concept" : "core:GL02-GL55"
+          }
+        },
+        "GL55-01" : {
+          "dimensions" : {
+            "concept" : "core:GL55-01"
+          }
+        },
+        "GL55-03" : {
+          "dimensions" : {
+            "concept" : "core:GL55-03"
+          }
+        },
+        "GL55-04" : {
+          "dimensions" : {
+            "concept" : "core:GL55-04"
+          }
+        },
+        "GL55-05" : {
+          "dimensions" : {
+            "concept" : "core:GL55-05"
+          }
+        },
+        "GL55-GL56" : {
+          "dimensions" : {
+            "concept" : "core:GL55-GL56"
+          }
+        },
+        "GL56-01" : {
+          "dimensions" : {
+            "concept" : "core:GL56-01"
+          }
+        },
+        "GL56-02" : {
+          "dimensions" : {
+            "concept" : "core:GL56-02"
+          }
+        },
+        "GL55-GL60" : {
+          "dimensions" : {
+            "concept" : "core:GL55-GL60"
+          }
+        },
+        "GL60-01" : {
+          "dimensions" : {
+            "concept" : "core:GL60-01"
+          }
+        },
+        "GL60-02" : {
+          "dimensions" : {
+            "concept" : "core:GL60-02"
+          }
+        },
+        "GL60-03" : {
+          "dimensions" : {
+            "concept" : "core:GL60-03"
+          }
+        },
+        "GL55-GL61" : {
+          "dimensions" : {
+            "concept" : "core:GL55-GL61"
+          }
+        },
+        "GL61-01" : {
+          "dimensions" : {
+            "concept" : "core:GL61-01"
+          }
+        },
+        "GL61-02" : {
+          "dimensions" : {
+            "concept" : "core:GL61-02"
+          }
+        },
+        "GL61-03" : {
+          "dimensions" : {
+            "concept" : "core:GL61-03"
+          }
+        },
+        "GL55-GL63" : {
+          "dimensions" : {
+            "concept" : "core:GL55-GL63"
+          }
+        },
+        "GL63-01" : {
+          "dimensions" : {
+            "concept" : "core:GL63-01"
+          }
+        },
+        "GL63-02" : {
+          "dimensions" : {
+            "concept" : "core:GL63-02"
+          }
+        },
+        "GL63-03" : {
+          "dimensions" : {
+            "concept" : "core:GL63-03"
+          }
+        }
+      },
+      "dimensions" : {
+        "period" : "2023-11-01T00:00:00",
+        "entity" : "ns0:Example co."
+      }
+    }
+  },
+  "tables" : {
+    "core_japan_table" : {
+      "template" : "core_japan_template",
+      "url" : "instances.csv"
+    }
+  }
+}
