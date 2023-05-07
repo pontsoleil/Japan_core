@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+           xmlns="urn:mycompany:names:specification:ubl:extension:xsd:MyUBLExtensions-1"
+           targetNamespace="urn:mycompany:names:specification:ubl:extension:xsd:MyUBLExtensions-1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <xs:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" schemaLocation="https://docs.oasis-open.org/ubl/prd1-UBL-2.1/xsd/common/UBL-CommonBasicComponents-2.1.xsd"/>
+
+  <xs:element name="TaxInclusiveLineExtensionAmount" type="cbc:AmountType"/>
+  
+</xs:schema>
+

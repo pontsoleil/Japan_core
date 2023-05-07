@@ -1,0 +1,464 @@
+<?xml version="1.0"?>
+<link:linkbase 
+    xsi:schemaLocation="
+    http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd 
+    http://xbrl.org/2008/generic http://www.xbrl.org/2008/generic-link.xsd 
+    http://xbrl.org/2008/assertion/value http://www.xbrl.org/2008/value-assertion.xsd 
+    http://xbrl.org/2008/variable http://www.xbrl.org/2008/variable.xsd 
+    http://xbrl.org/2010/message http://www.xbrl.org/2010/generic-message.xsd" 
+    xmlns:adc="http://www.xbrl.jp/audit-data-collection" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:link="http://www.xbrl.org/2003/linkbase" 
+    xmlns:va="http://xbrl.org/2008/assertion/value" 
+    xmlns:gen="http://xbrl.org/2008/generic" 
+    xmlns:variable="http://xbrl.org/2008/variable" 
+    xmlns:msg="http://xbrl.org/2010/message">
+    <link:arcroleRef arcroleURI="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:type="simple" xlink:href="http://www.xbrl.org/2010/validation-message.xsd#assertion-unsatisfied-message"/>
+    <link:arcroleRef arcroleURI="http://xbrl.org/arcrole/2010/assertion-satisfied-message" xlink:type="simple" xlink:href="http://www.xbrl.org/2010/validation-message.xsd#assertion-satisfied-message"/>
+    <link:roleRef roleURI="http://www.xbrl.org/2010/role/message" xlink:type="simple" xlink:href="http://www.xbrl.org/2010/generic-message.xsd#standard-message"/>
+    <link:arcroleRef arcroleURI="http://xbrl.org/arcrole/2008/variable-set" xlink:type="simple" xlink:href="http://www.xbrl.org/2008/variable.xsd#variable-set"/>
+    <link:roleRef roleURI="http://www.xbrl.org/2008/role/link" xlink:type="simple" xlink:href="http://www.xbrl.org/2008/generic-link.xsd#standard-link-role"/>
+    <gen:link xlink:type="extended" xlink:role="http://www.xbrl.org/2008/role/link">
+        <!-- A043-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A043-001" test="count($duplicates_A043-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A043-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A043-001" xlink:to="error-Card_A043-001"/>
+        <msg:message id="error-Card_A043-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A043-001" xml:lang="en">Not satisfied error: [Card A043] A043 shall not contain duplicate items. Fact { node-name($duplicates_A043-001) } in context { $duplicates_A043-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A043-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A043-001" xlink:to="gen_duplicates_A043-001"/>
+        <variable:generalVariable id="gen_duplicates_A043-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A043-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A043-001"/>
+        <!-- A044-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A044-001" test="count($duplicates_A044-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A044-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A044-001" xlink:to="error-Card_A044-001"/>
+        <msg:message id="error-Card_A044-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A044-001" xml:lang="en">Not satisfied error: [Card A044] A044 shall not contain duplicate items. Fact { node-name($duplicates_A044-001) } in context { $duplicates_A044-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A044-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A044-001" xlink:to="gen_duplicates_A044-001"/>
+        <variable:generalVariable id="gen_duplicates_A044-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A044-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A044-001"/>
+        <!-- A045-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A045-001" test="count($duplicates_A045-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A045-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A045-001" xlink:to="error-Card_A045-001"/>
+        <msg:message id="error-Card_A045-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A045-001" xml:lang="en">Not satisfied error: [Card A045] A045 shall not contain duplicate items. Fact { node-name($duplicates_A045-001) } in context { $duplicates_A045-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A045-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A045-001" xlink:to="gen_duplicates_A045-001"/>
+        <variable:generalVariable id="gen_duplicates_A045-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A045-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A045-001"/>
+        <!-- A046-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A046-001" test="count($duplicates_A046-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A046-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A046-001" xlink:to="error-Card_A046-001"/>
+        <msg:message id="error-Card_A046-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A046-001" xml:lang="en">Not satisfied error: [Card A046] A046 shall not contain duplicate items. Fact { node-name($duplicates_A046-001) } in context { $duplicates_A046-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A046-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A046-001" xlink:to="gen_duplicates_A046-001"/>
+        <variable:generalVariable id="gen_duplicates_A046-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A046-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A046-001"/>
+        <!-- A047-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A047-002" test="count($duplicates_A047-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A047-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A047-002" xlink:to="error-Card_A047-002"/>
+        <msg:message id="error-Card_A047-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A047-002" xml:lang="en">Not satisfied error: [Card A047] A047 shall not contain duplicate items. Fact { node-name($duplicates_A047-002) } in context { $duplicates_A047-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A047-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A047-002" xlink:to="gen_duplicates_A047-002"/>
+        <variable:generalVariable id="gen_duplicates_A047-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A047-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A047-002"/>
+        <!-- A048-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A048-001" test="count($duplicates_A048-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A048-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A048-001" xlink:to="error-Card_A048-001"/>
+        <msg:message id="error-Card_A048-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A048-001" xml:lang="en">Not satisfied error: [Card A048] A048 shall not contain duplicate items. Fact { node-name($duplicates_A048-001) } in context { $duplicates_A048-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A048-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A048-001" xlink:to="gen_duplicates_A048-001"/>
+        <variable:generalVariable id="gen_duplicates_A048-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A048-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A048-001"/>
+        <!-- A049-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A049-002" test="count($duplicates_A049-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A049-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A049-002" xlink:to="error-Card_A049-002"/>
+        <msg:message id="error-Card_A049-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A049-002" xml:lang="en">Not satisfied error: [Card A049] A049 shall not contain duplicate items. Fact { node-name($duplicates_A049-002) } in context { $duplicates_A049-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A049-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A049-002" xlink:to="gen_duplicates_A049-002"/>
+        <variable:generalVariable id="gen_duplicates_A049-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A049-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A049-002"/>
+        <!-- A050-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A050-001" test="count($duplicates_A050-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A050-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A050-001" xlink:to="error-Card_A050-001"/>
+        <msg:message id="error-Card_A050-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A050-001" xml:lang="en">Not satisfied error: [Card A050] A050 shall not contain duplicate items. Fact { node-name($duplicates_A050-001) } in context { $duplicates_A050-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A050-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A050-001" xlink:to="gen_duplicates_A050-001"/>
+        <variable:generalVariable id="gen_duplicates_A050-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A050-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A050-001"/>
+        <!-- A051-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A051-002" test="count($duplicates_A051-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A051-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A051-002" xlink:to="error-Card_A051-002"/>
+        <msg:message id="error-Card_A051-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A051-002" xml:lang="en">Not satisfied error: [Card A051] A051 shall not contain duplicate items. Fact { node-name($duplicates_A051-002) } in context { $duplicates_A051-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A051-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A051-002" xlink:to="gen_duplicates_A051-002"/>
+        <variable:generalVariable id="gen_duplicates_A051-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A051-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A051-002"/>
+        <!-- A052-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A052-001" test="count($duplicates_A052-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A052-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A052-001" xlink:to="error-Card_A052-001"/>
+        <msg:message id="error-Card_A052-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A052-001" xml:lang="en">Not satisfied error: [Card A052] A052 shall not contain duplicate items. Fact { node-name($duplicates_A052-001) } in context { $duplicates_A052-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A052-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A052-001" xlink:to="gen_duplicates_A052-001"/>
+        <variable:generalVariable id="gen_duplicates_A052-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A052-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A052-001"/>
+        <!-- A053-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A053-002" test="count($duplicates_A053-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A053-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A053-002" xlink:to="error-Card_A053-002"/>
+        <msg:message id="error-Card_A053-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A053-002" xml:lang="en">Not satisfied error: [Card A053] A053 shall not contain duplicate items. Fact { node-name($duplicates_A053-002) } in context { $duplicates_A053-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A053-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A053-002" xlink:to="gen_duplicates_A053-002"/>
+        <variable:generalVariable id="gen_duplicates_A053-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A053-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A053-002"/>
+        <!-- A054-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A054-001" test="count($duplicates_A054-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A054-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A054-001" xlink:to="error-Card_A054-001"/>
+        <msg:message id="error-Card_A054-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A054-001" xml:lang="en">Not satisfied error: [Card A054] A054 shall not contain duplicate items. Fact { node-name($duplicates_A054-001) } in context { $duplicates_A054-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A054-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A054-001" xlink:to="gen_duplicates_A054-001"/>
+        <variable:generalVariable id="gen_duplicates_A054-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A054-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A054-001"/>
+        <!-- A055-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A055-002" test="count($duplicates_A055-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A055-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A055-002" xlink:to="error-Card_A055-002"/>
+        <msg:message id="error-Card_A055-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A055-002" xml:lang="en">Not satisfied error: [Card A055] A055 shall not contain duplicate items. Fact { node-name($duplicates_A055-002) } in context { $duplicates_A055-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A055-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A055-002" xlink:to="gen_duplicates_A055-002"/>
+        <variable:generalVariable id="gen_duplicates_A055-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A055-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A055-002"/>
+        <!-- A056-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A056-001" test="count($duplicates_A056-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A056-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A056-001" xlink:to="error-Card_A056-001"/>
+        <msg:message id="error-Card_A056-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A056-001" xml:lang="en">Not satisfied error: [Card A056] A056 shall not contain duplicate items. Fact { node-name($duplicates_A056-001) } in context { $duplicates_A056-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A056-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A056-001" xlink:to="gen_duplicates_A056-001"/>
+        <variable:generalVariable id="gen_duplicates_A056-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A056-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A056-001"/>
+        <!-- A057-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A057-001" test="count($duplicates_A057-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A057-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A057-001" xlink:to="error-Card_A057-001"/>
+        <msg:message id="error-Card_A057-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A057-001" xml:lang="en">Not satisfied error: [Card A057] A057 shall not contain duplicate items. Fact { node-name($duplicates_A057-001) } in context { $duplicates_A057-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A057-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A057-001" xlink:to="gen_duplicates_A057-001"/>
+        <variable:generalVariable id="gen_duplicates_A057-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A057-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A057-001"/>
+        <!-- A043-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A043-A001-001" test="count($duplicates_A043-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A043-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A043-A001-001" xlink:to="error-Card_A043-A001-001"/>
+        <msg:message id="error-Card_A043-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A043-A001-001" xml:lang="en">Not satisfied error: [Card A043-A001] A043-A001 shall not contain duplicate items. Fact { node-name($duplicates_A043-A001-001) } in context { $duplicates_A043-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A043-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A043-A001-001" xlink:to="gen_duplicates_A043-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A043-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A043-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A043-A001-001"/>
+        <!-- A044-A076-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A044-A076-001" test="count($duplicates_A044-A076-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A044-A076-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A044-A076-001" xlink:to="error-Card_A044-A076-001"/>
+        <msg:message id="error-Card_A044-A076-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A044-A076-001" xml:lang="en">Not satisfied error: [Card A044-A076] A044-A076 shall not contain duplicate items. Fact { node-name($duplicates_A044-A076-001) } in context { $duplicates_A044-A076-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A044-A076-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A044-A076-001" xlink:to="gen_duplicates_A044-A076-001"/>
+        <variable:generalVariable id="gen_duplicates_A044-A076-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A044-A076-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A044-A076-001"/>
+        <!-- A044-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A044-A001-001" test="count($duplicates_A044-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A044-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A044-A001-001" xlink:to="error-Card_A044-A001-001"/>
+        <msg:message id="error-Card_A044-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A044-A001-001" xml:lang="en">Not satisfied error: [Card A044-A001] A044-A001 shall not contain duplicate items. Fact { node-name($duplicates_A044-A001-001) } in context { $duplicates_A044-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A044-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A044-A001-001" xlink:to="gen_duplicates_A044-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A044-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A044-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A044-A001-001"/>
+        <!-- A045-A076-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A045-A076-001" test="count($duplicates_A045-A076-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A045-A076-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A045-A076-001" xlink:to="error-Card_A045-A076-001"/>
+        <msg:message id="error-Card_A045-A076-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A045-A076-001" xml:lang="en">Not satisfied error: [Card A045-A076] A045-A076 shall not contain duplicate items. Fact { node-name($duplicates_A045-A076-001) } in context { $duplicates_A045-A076-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A045-A076-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A045-A076-001" xlink:to="gen_duplicates_A045-A076-001"/>
+        <variable:generalVariable id="gen_duplicates_A045-A076-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A045-A076-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A045-A076-001"/>
+        <!-- A045-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A045-A001-001" test="count($duplicates_A045-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A045-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A045-A001-001" xlink:to="error-Card_A045-A001-001"/>
+        <msg:message id="error-Card_A045-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A045-A001-001" xml:lang="en">Not satisfied error: [Card A045-A001] A045-A001 shall not contain duplicate items. Fact { node-name($duplicates_A045-A001-001) } in context { $duplicates_A045-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A045-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A045-A001-001" xlink:to="gen_duplicates_A045-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A045-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A045-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A045-A001-001"/>
+        <!-- A046-A076-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A046-A076-001" test="count($duplicates_A046-A076-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A046-A076-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A046-A076-001" xlink:to="error-Card_A046-A076-001"/>
+        <msg:message id="error-Card_A046-A076-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A046-A076-001" xml:lang="en">Not satisfied error: [Card A046-A076] A046-A076 shall not contain duplicate items. Fact { node-name($duplicates_A046-A076-001) } in context { $duplicates_A046-A076-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A046-A076-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A046-A076-001" xlink:to="gen_duplicates_A046-A076-001"/>
+        <variable:generalVariable id="gen_duplicates_A046-A076-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A046-A076-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A046-A076-001"/>
+        <!-- A046-A080-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A046-A080-001" test="count($duplicates_A046-A080-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A046-A080-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A046-A080-001" xlink:to="error-Card_A046-A080-001"/>
+        <msg:message id="error-Card_A046-A080-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A046-A080-001" xml:lang="en">Not satisfied error: [Card A046-A080] A046-A080 shall not contain duplicate items. Fact { node-name($duplicates_A046-A080-001) } in context { $duplicates_A046-A080-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A046-A080-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A046-A080-001" xlink:to="gen_duplicates_A046-A080-001"/>
+        <variable:generalVariable id="gen_duplicates_A046-A080-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A046-A080-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A046-A080-001"/>
+        <!-- A046-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A046-A001-001" test="count($duplicates_A046-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A046-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A046-A001-001" xlink:to="error-Card_A046-A001-001"/>
+        <msg:message id="error-Card_A046-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A046-A001-001" xml:lang="en">Not satisfied error: [Card A046-A001] A046-A001 shall not contain duplicate items. Fact { node-name($duplicates_A046-A001-001) } in context { $duplicates_A046-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A046-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A046-A001-001" xlink:to="gen_duplicates_A046-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A046-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A046-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A046-A001-001"/>
+        <!-- A046-A047-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A046-A047-002" test="count($duplicates_A046-A047-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A046-A047-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A046-A047-002" xlink:to="error-Card_A046-A047-002"/>
+        <msg:message id="error-Card_A046-A047-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A046-A047-002" xml:lang="en">Not satisfied error: [Card A046-A047] A046-A047 shall not contain duplicate items. Fact { node-name($duplicates_A046-A047-002) } in context { $duplicates_A046-A047-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A046-A047-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A046-A047-002" xlink:to="gen_duplicates_A046-A047-002"/>
+        <variable:generalVariable id="gen_duplicates_A046-A047-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A046-A047-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A046-A047-002"/>
+        <!-- A047-A080-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A047-A080-001" test="count($duplicates_A047-A080-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A047-A080-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A047-A080-001" xlink:to="error-Card_A047-A080-001"/>
+        <msg:message id="error-Card_A047-A080-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A047-A080-001" xml:lang="en">Not satisfied error: [Card A047-A080] A047-A080 shall not contain duplicate items. Fact { node-name($duplicates_A047-A080-001) } in context { $duplicates_A047-A080-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A047-A080-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A047-A080-001" xlink:to="gen_duplicates_A047-A080-001"/>
+        <variable:generalVariable id="gen_duplicates_A047-A080-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A047-A080-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A047-A080-001"/>
+        <!-- A047-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A047-A001-001" test="count($duplicates_A047-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A047-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A047-A001-001" xlink:to="error-Card_A047-A001-001"/>
+        <msg:message id="error-Card_A047-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A047-A001-001" xml:lang="en">Not satisfied error: [Card A047-A001] A047-A001 shall not contain duplicate items. Fact { node-name($duplicates_A047-A001-001) } in context { $duplicates_A047-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A047-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A047-A001-001" xlink:to="gen_duplicates_A047-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A047-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A047-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A047-A001-001"/>
+        <!-- A048-A076-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A048-A076-001" test="count($duplicates_A048-A076-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A048-A076-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A048-A076-001" xlink:to="error-Card_A048-A076-001"/>
+        <msg:message id="error-Card_A048-A076-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A048-A076-001" xml:lang="en">Not satisfied error: [Card A048-A076] A048-A076 shall not contain duplicate items. Fact { node-name($duplicates_A048-A076-001) } in context { $duplicates_A048-A076-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A048-A076-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A048-A076-001" xlink:to="gen_duplicates_A048-A076-001"/>
+        <variable:generalVariable id="gen_duplicates_A048-A076-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A048-A076-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A048-A076-001"/>
+        <!-- A048-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A048-A001-001" test="count($duplicates_A048-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A048-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A048-A001-001" xlink:to="error-Card_A048-A001-001"/>
+        <msg:message id="error-Card_A048-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A048-A001-001" xml:lang="en">Not satisfied error: [Card A048-A001] A048-A001 shall not contain duplicate items. Fact { node-name($duplicates_A048-A001-001) } in context { $duplicates_A048-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A048-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A048-A001-001" xlink:to="gen_duplicates_A048-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A048-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A048-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A048-A001-001"/>
+        <!-- A048-A049-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A048-A049-002" test="count($duplicates_A048-A049-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A048-A049-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A048-A049-002" xlink:to="error-Card_A048-A049-002"/>
+        <msg:message id="error-Card_A048-A049-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A048-A049-002" xml:lang="en">Not satisfied error: [Card A048-A049] A048-A049 shall not contain duplicate items. Fact { node-name($duplicates_A048-A049-002) } in context { $duplicates_A048-A049-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A048-A049-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A048-A049-002" xlink:to="gen_duplicates_A048-A049-002"/>
+        <variable:generalVariable id="gen_duplicates_A048-A049-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A048-A049-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A048-A049-002"/>
+        <!-- A049-A060-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A049-A060-001" test="count($duplicates_A049-A060-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A049-A060-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A049-A060-001" xlink:to="error-Card_A049-A060-001"/>
+        <msg:message id="error-Card_A049-A060-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A049-A060-001" xml:lang="en">Not satisfied error: [Card A049-A060] A049-A060 shall not contain duplicate items. Fact { node-name($duplicates_A049-A060-001) } in context { $duplicates_A049-A060-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A049-A060-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A049-A060-001" xlink:to="gen_duplicates_A049-A060-001"/>
+        <variable:generalVariable id="gen_duplicates_A049-A060-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A049-A060-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A049-A060-001"/>
+        <!-- A049-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A049-A001-001" test="count($duplicates_A049-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A049-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A049-A001-001" xlink:to="error-Card_A049-A001-001"/>
+        <msg:message id="error-Card_A049-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A049-A001-001" xml:lang="en">Not satisfied error: [Card A049-A001] A049-A001 shall not contain duplicate items. Fact { node-name($duplicates_A049-A001-001) } in context { $duplicates_A049-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A049-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A049-A001-001" xlink:to="gen_duplicates_A049-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A049-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A049-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A049-A001-001"/>
+        <!-- A050-A076-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A050-A076-001" test="count($duplicates_A050-A076-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A050-A076-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A050-A076-001" xlink:to="error-Card_A050-A076-001"/>
+        <msg:message id="error-Card_A050-A076-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A050-A076-001" xml:lang="en">Not satisfied error: [Card A050-A076] A050-A076 shall not contain duplicate items. Fact { node-name($duplicates_A050-A076-001) } in context { $duplicates_A050-A076-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A050-A076-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A050-A076-001" xlink:to="gen_duplicates_A050-A076-001"/>
+        <variable:generalVariable id="gen_duplicates_A050-A076-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A050-A076-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A050-A076-001"/>
+        <!-- A050-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A050-A001-001" test="count($duplicates_A050-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A050-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A050-A001-001" xlink:to="error-Card_A050-A001-001"/>
+        <msg:message id="error-Card_A050-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A050-A001-001" xml:lang="en">Not satisfied error: [Card A050-A001] A050-A001 shall not contain duplicate items. Fact { node-name($duplicates_A050-A001-001) } in context { $duplicates_A050-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A050-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A050-A001-001" xlink:to="gen_duplicates_A050-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A050-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A050-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A050-A001-001"/>
+        <!-- A050-A051-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A050-A051-002" test="count($duplicates_A050-A051-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A050-A051-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A050-A051-002" xlink:to="error-Card_A050-A051-002"/>
+        <msg:message id="error-Card_A050-A051-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A050-A051-002" xml:lang="en">Not satisfied error: [Card A050-A051] A050-A051 shall not contain duplicate items. Fact { node-name($duplicates_A050-A051-002) } in context { $duplicates_A050-A051-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A050-A051-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A050-A051-002" xlink:to="gen_duplicates_A050-A051-002"/>
+        <variable:generalVariable id="gen_duplicates_A050-A051-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A050-A051-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A050-A051-002"/>
+        <!-- A051-A060-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A051-A060-001" test="count($duplicates_A051-A060-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A051-A060-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A051-A060-001" xlink:to="error-Card_A051-A060-001"/>
+        <msg:message id="error-Card_A051-A060-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A051-A060-001" xml:lang="en">Not satisfied error: [Card A051-A060] A051-A060 shall not contain duplicate items. Fact { node-name($duplicates_A051-A060-001) } in context { $duplicates_A051-A060-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A051-A060-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A051-A060-001" xlink:to="gen_duplicates_A051-A060-001"/>
+        <variable:generalVariable id="gen_duplicates_A051-A060-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A051-A060-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A051-A060-001"/>
+        <!-- A051-A082-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A051-A082-001" test="count($duplicates_A051-A082-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A051-A082-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A051-A082-001" xlink:to="error-Card_A051-A082-001"/>
+        <msg:message id="error-Card_A051-A082-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A051-A082-001" xml:lang="en">Not satisfied error: [Card A051-A082] A051-A082 shall not contain duplicate items. Fact { node-name($duplicates_A051-A082-001) } in context { $duplicates_A051-A082-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A051-A082-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A051-A082-001" xlink:to="gen_duplicates_A051-A082-001"/>
+        <variable:generalVariable id="gen_duplicates_A051-A082-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A051-A082-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A051-A082-001"/>
+        <!-- A051-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A051-A001-001" test="count($duplicates_A051-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A051-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A051-A001-001" xlink:to="error-Card_A051-A001-001"/>
+        <msg:message id="error-Card_A051-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A051-A001-001" xml:lang="en">Not satisfied error: [Card A051-A001] A051-A001 shall not contain duplicate items. Fact { node-name($duplicates_A051-A001-001) } in context { $duplicates_A051-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A051-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A051-A001-001" xlink:to="gen_duplicates_A051-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A051-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A051-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A051-A001-001"/>
+        <!-- A052-A076-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A052-A076-001" test="count($duplicates_A052-A076-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A052-A076-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A052-A076-001" xlink:to="error-Card_A052-A076-001"/>
+        <msg:message id="error-Card_A052-A076-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A052-A076-001" xml:lang="en">Not satisfied error: [Card A052-A076] A052-A076 shall not contain duplicate items. Fact { node-name($duplicates_A052-A076-001) } in context { $duplicates_A052-A076-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A052-A076-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A052-A076-001" xlink:to="gen_duplicates_A052-A076-001"/>
+        <variable:generalVariable id="gen_duplicates_A052-A076-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A052-A076-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A052-A076-001"/>
+        <!-- A052-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A052-A001-001" test="count($duplicates_A052-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A052-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A052-A001-001" xlink:to="error-Card_A052-A001-001"/>
+        <msg:message id="error-Card_A052-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A052-A001-001" xml:lang="en">Not satisfied error: [Card A052-A001] A052-A001 shall not contain duplicate items. Fact { node-name($duplicates_A052-A001-001) } in context { $duplicates_A052-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A052-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A052-A001-001" xlink:to="gen_duplicates_A052-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A052-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A052-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A052-A001-001"/>
+        <!-- A052-A053-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A052-A053-002" test="count($duplicates_A052-A053-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A052-A053-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A052-A053-002" xlink:to="error-Card_A052-A053-002"/>
+        <msg:message id="error-Card_A052-A053-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A052-A053-002" xml:lang="en">Not satisfied error: [Card A052-A053] A052-A053 shall not contain duplicate items. Fact { node-name($duplicates_A052-A053-002) } in context { $duplicates_A052-A053-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A052-A053-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A052-A053-002" xlink:to="gen_duplicates_A052-A053-002"/>
+        <variable:generalVariable id="gen_duplicates_A052-A053-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A052-A053-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A052-A053-002"/>
+        <!-- A053-A082-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A053-A082-001" test="count($duplicates_A053-A082-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A053-A082-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A053-A082-001" xlink:to="error-Card_A053-A082-001"/>
+        <msg:message id="error-Card_A053-A082-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A053-A082-001" xml:lang="en">Not satisfied error: [Card A053-A082] A053-A082 shall not contain duplicate items. Fact { node-name($duplicates_A053-A082-001) } in context { $duplicates_A053-A082-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A053-A082-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A053-A082-001" xlink:to="gen_duplicates_A053-A082-001"/>
+        <variable:generalVariable id="gen_duplicates_A053-A082-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A053-A082-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A053-A082-001"/>
+        <!-- A053-A060-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A053-A060-001" test="count($duplicates_A053-A060-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A053-A060-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A053-A060-001" xlink:to="error-Card_A053-A060-001"/>
+        <msg:message id="error-Card_A053-A060-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A053-A060-001" xml:lang="en">Not satisfied error: [Card A053-A060] A053-A060 shall not contain duplicate items. Fact { node-name($duplicates_A053-A060-001) } in context { $duplicates_A053-A060-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A053-A060-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A053-A060-001" xlink:to="gen_duplicates_A053-A060-001"/>
+        <variable:generalVariable id="gen_duplicates_A053-A060-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A053-A060-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A053-A060-001"/>
+        <!-- A053-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A053-A001-001" test="count($duplicates_A053-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A053-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A053-A001-001" xlink:to="error-Card_A053-A001-001"/>
+        <msg:message id="error-Card_A053-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A053-A001-001" xml:lang="en">Not satisfied error: [Card A053-A001] A053-A001 shall not contain duplicate items. Fact { node-name($duplicates_A053-A001-001) } in context { $duplicates_A053-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A053-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A053-A001-001" xlink:to="gen_duplicates_A053-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A053-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A053-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A053-A001-001"/>
+        <!-- A054-A076-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A054-A076-001" test="count($duplicates_A054-A076-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A054-A076-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A054-A076-001" xlink:to="error-Card_A054-A076-001"/>
+        <msg:message id="error-Card_A054-A076-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A054-A076-001" xml:lang="en">Not satisfied error: [Card A054-A076] A054-A076 shall not contain duplicate items. Fact { node-name($duplicates_A054-A076-001) } in context { $duplicates_A054-A076-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A054-A076-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A054-A076-001" xlink:to="gen_duplicates_A054-A076-001"/>
+        <variable:generalVariable id="gen_duplicates_A054-A076-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A054-A076-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A054-A076-001"/>
+        <!-- A054-A082-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A054-A082-001" test="count($duplicates_A054-A082-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A054-A082-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A054-A082-001" xlink:to="error-Card_A054-A082-001"/>
+        <msg:message id="error-Card_A054-A082-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A054-A082-001" xml:lang="en">Not satisfied error: [Card A054-A082] A054-A082 shall not contain duplicate items. Fact { node-name($duplicates_A054-A082-001) } in context { $duplicates_A054-A082-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A054-A082-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A054-A082-001" xlink:to="gen_duplicates_A054-A082-001"/>
+        <variable:generalVariable id="gen_duplicates_A054-A082-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A054-A082-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A054-A082-001"/>
+        <!-- A054-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A054-A001-001" test="count($duplicates_A054-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A054-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A054-A001-001" xlink:to="error-Card_A054-A001-001"/>
+        <msg:message id="error-Card_A054-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A054-A001-001" xml:lang="en">Not satisfied error: [Card A054-A001] A054-A001 shall not contain duplicate items. Fact { node-name($duplicates_A054-A001-001) } in context { $duplicates_A054-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A054-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A054-A001-001" xlink:to="gen_duplicates_A054-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A054-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A054-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A054-A001-001"/>
+        <!-- A054-A055-002 duplicate assertion -->
+        <va:valueAssertion id="Card_A054-A055-002" test="count($duplicates_A054-A055-002)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A054-A055-002"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A054-A055-002" xlink:to="error-Card_A054-A055-002"/>
+        <msg:message id="error-Card_A054-A055-002" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A054-A055-002" xml:lang="en">Not satisfied error: [Card A054-A055] A054-A055 shall not contain duplicate items. Fact { node-name($duplicates_A054-A055-002) } in context { $duplicates_A054-A055-002/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A054-A055-002" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A054-A055-002" xlink:to="gen_duplicates_A054-A055-002"/>
+        <variable:generalVariable id="gen_duplicates_A054-A055-002" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A054-A055-002/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A054-A055-002"/>
+        <!-- A055-A060-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A055-A060-001" test="count($duplicates_A055-A060-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A055-A060-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A055-A060-001" xlink:to="error-Card_A055-A060-001"/>
+        <msg:message id="error-Card_A055-A060-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A055-A060-001" xml:lang="en">Not satisfied error: [Card A055-A060] A055-A060 shall not contain duplicate items. Fact { node-name($duplicates_A055-A060-001) } in context { $duplicates_A055-A060-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A055-A060-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A055-A060-001" xlink:to="gen_duplicates_A055-A060-001"/>
+        <variable:generalVariable id="gen_duplicates_A055-A060-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A055-A060-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A055-A060-001"/>
+        <!-- A055-A082-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A055-A082-001" test="count($duplicates_A055-A082-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A055-A082-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A055-A082-001" xlink:to="error-Card_A055-A082-001"/>
+        <msg:message id="error-Card_A055-A082-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A055-A082-001" xml:lang="en">Not satisfied error: [Card A055-A082] A055-A082 shall not contain duplicate items. Fact { node-name($duplicates_A055-A082-001) } in context { $duplicates_A055-A082-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A055-A082-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A055-A082-001" xlink:to="gen_duplicates_A055-A082-001"/>
+        <variable:generalVariable id="gen_duplicates_A055-A082-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A055-A082-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A055-A082-001"/>
+        <!-- A055-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A055-A001-001" test="count($duplicates_A055-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A055-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A055-A001-001" xlink:to="error-Card_A055-A001-001"/>
+        <msg:message id="error-Card_A055-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A055-A001-001" xml:lang="en">Not satisfied error: [Card A055-A001] A055-A001 shall not contain duplicate items. Fact { node-name($duplicates_A055-A001-001) } in context { $duplicates_A055-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A055-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A055-A001-001" xlink:to="gen_duplicates_A055-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A055-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A055-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A055-A001-001"/>
+        <!-- A056-A076-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A056-A076-001" test="count($duplicates_A056-A076-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A056-A076-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A056-A076-001" xlink:to="error-Card_A056-A076-001"/>
+        <msg:message id="error-Card_A056-A076-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A056-A076-001" xml:lang="en">Not satisfied error: [Card A056-A076] A056-A076 shall not contain duplicate items. Fact { node-name($duplicates_A056-A076-001) } in context { $duplicates_A056-A076-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A056-A076-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A056-A076-001" xlink:to="gen_duplicates_A056-A076-001"/>
+        <variable:generalVariable id="gen_duplicates_A056-A076-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A056-A076-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A056-A076-001"/>
+        <!-- A056-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A056-A001-001" test="count($duplicates_A056-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A056-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A056-A001-001" xlink:to="error-Card_A056-A001-001"/>
+        <msg:message id="error-Card_A056-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A056-A001-001" xml:lang="en">Not satisfied error: [Card A056-A001] A056-A001 shall not contain duplicate items. Fact { node-name($duplicates_A056-A001-001) } in context { $duplicates_A056-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A056-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A056-A001-001" xlink:to="gen_duplicates_A056-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A056-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A056-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A056-A001-001"/>
+        <!-- A056-A057-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A056-A057-001" test="count($duplicates_A056-A057-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A056-A057-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A056-A057-001" xlink:to="error-Card_A056-A057-001"/>
+        <msg:message id="error-Card_A056-A057-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A056-A057-001" xml:lang="en">Not satisfied error: [Card A056-A057] A056-A057 shall not contain duplicate items. Fact { node-name($duplicates_A056-A057-001) } in context { $duplicates_A056-A057-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A056-A057-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A056-A057-001" xlink:to="gen_duplicates_A056-A057-001"/>
+        <variable:generalVariable id="gen_duplicates_A056-A057-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A056-A057-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A056-A057-001"/>
+        <!-- A057-A060-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A057-A060-001" test="count($duplicates_A057-A060-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A057-A060-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A057-A060-001" xlink:to="error-Card_A057-A060-001"/>
+        <msg:message id="error-Card_A057-A060-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A057-A060-001" xml:lang="en">Not satisfied error: [Card A057-A060] A057-A060 shall not contain duplicate items. Fact { node-name($duplicates_A057-A060-001) } in context { $duplicates_A057-A060-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A057-A060-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A057-A060-001" xlink:to="gen_duplicates_A057-A060-001"/>
+        <variable:generalVariable id="gen_duplicates_A057-A060-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A057-A060-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A057-A060-001"/>
+        <!-- A057-A001-001 duplicate assertion -->
+        <va:valueAssertion id="Card_A057-A001-001" test="count($duplicates_A057-A001-001)=0" aspectModel="dimensional" implicitFiltering="true" xlink:type="resource" xlink:label="Card_A057-A001-001"/>
+        <!-- unsatisfied message -->
+        <gen:arc order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2010/assertion-unsatisfied-message" xlink:from="Card_A057-A001-001" xlink:to="error-Card_A057-A001-001"/>
+        <msg:message id="error-Card_A057-A001-001" xlink:type="resource" xlink:role="http://www.xbrl.org/2010/role/message" xlink:label="error-Card_A057-A001-001" xml:lang="en">Not satisfied error: [Card A057-A001] A057-A001 shall not contain duplicate items. Fact { node-name($duplicates_A057-A001-001) } in context { $duplicates_A057-A001-001/@contextRef }</msg:message>
+        <!-- variable -->
+        <variable:variableArc name="duplicates_A057-A001-001" order="1.0" xlink:type="arc" xlink:arcrole="http://xbrl.org/arcrole/2008/variable-set" xlink:from="Card_A057-A001-001" xlink:to="gen_duplicates_A057-A001-001"/>
+        <variable:generalVariable id="gen_duplicates_A057-A001-001" bindAsSequence="true" select="//*[self::node()/@contextRef=preceding-sibling::adc:A057-A001-001/@contextRef and name(self::node())=preceding-sibling::*[1]/name(self::node())]" xlink:type="resource" xlink:label="gen_duplicates_A057-A001-001"/>
+    </gen:link>
+</link:linkbase>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--(c) 2022 XBRL Japan inc. -->
+<link:linkbase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <link:roleRef roleURI="http://www.xbrl.jp/core-japan/invoice" xlink:type="simple" xlink:href="core.xsd#invoice"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/core-japan/invoiceLine" xlink:type="simple" xlink:href="core.xsd#invoiceLine"/>
+        <link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/all" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#all"/>
+        <link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/domain-member" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#domain-member"/>
+        <link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#hypercube-dimension"/>
+        <link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#dimension-domain"/>
+     <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/core-japan/invoice">
+        <!-- NC00 all (has-hypercube) invoice -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#h_NC00" xlink:label="h_NC00" xlink:title="h_NC00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="NC00" xlink:to="h_NC00" xlink:title="definition: NC00 to h_NC00" order="51" xbrldt:closed="true" xbrldt:contextElement="scenario"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#d_NC00" xlink:label="d_NC00" xlink:title="d_NC00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="h_NC00" xlink:to="d_NC00" xlink:title="definition: invoice to InvoiceID" order="1"/>
+        <!-- domain-member -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC00" xlink:label="NC00" xlink:title="NC00"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC00-19" xlink:label="NC00-19" xlink:title="NC00-19"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC00" xlink:to="NC00-19" xlink:title="definition: NC00 to NC00-19" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC00-21" xlink:label="NC00-21" xlink:title="NC00-21"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC00" xlink:to="NC00-21" xlink:title="definition: NC00 to NC00-21" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC39" xlink:label="NC39" xlink:title="NC39"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC00" xlink:to="NC39" xlink:title="definition: NC00 to NC00-21" order="2"/>
+        <!-- NC61 targetRole http://www.xbrl.jp/core-japan/invoiceLine -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC61" xlink:label="NC61" xlink:title="NC61"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/core-japan/invoiceLine" xlink:from="NC39" xlink:to="NC61" xlink:title="definition: NC39 to NC61" order="45"/>
+     </link:definitionLink>
+     <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/core-japan/invoiceLine">
+        <!-- NC61 all (has-hypercube) invoice -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#h_NC61" xlink:label="h_NC61" xlink:title="h_NC61"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="NC61" xlink:to="h_NC61" xlink:title="definition: NC61 to h_NC61" order="51" xbrldt:closed="true" xbrldt:contextElement="scenario"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#d_NC00" xlink:label="d_NC00" xlink:title="d_NC00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="h_NC61" xlink:to="d_NC00" xlink:title="definition: invoice to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#d_NC61" xlink:label="d_NC61" xlink:title="d_NC61"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="h_NC61" xlink:to="d_NC61" xlink:title="definition: invoice to InvoiceID" order="1"/>
+        <!-- domain-member -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC61" xlink:label="NC61" xlink:title="NC61"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC61-01" xlink:label="NC61-01" xlink:title="NC61-01"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC61" xlink:to="NC61-01" xlink:title="definition: NC61 to NC61-01" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC61-03" xlink:label="NC61-03" xlink:title="NC61-03"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC61" xlink:to="NC61-03" xlink:title="definition: NC61 to NC61-03" order="1"/>
+        <!-- NC63 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC63" xlink:label="NC63" xlink:title="NC63"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC61" xlink:to="NC63" xlink:title="definition: NC61 to NC63" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC63-04" xlink:label="NC63-04" xlink:title="NC63-04"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC63" xlink:to="NC63-04" xlink:title="definition: NC63 to NC63-04" order="1"/>
+        <!-- NC75 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC75" xlink:label="NC75" xlink:title="NC75"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC61" xlink:to="NC75" xlink:title="definition: NC61 to NC75" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC75-07" xlink:label="NC75-07" xlink:title="NC75-07"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC75" xlink:to="NC75-07" xlink:title="definition: NC75 to NC75-07" order="1"/>
+        <!-- NC76 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC76" xlink:label="NC76" xlink:title="NC76"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC61" xlink:to="NC76" xlink:title="definition: NC61 to NC76" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#NC76-02" xlink:label="NC76-02" xlink:title="NC76-02"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="NC76" xlink:to="NC76-02" xlink:title="definition: NC76 to NC76-02" order="1"/>
+    </link:definitionLink>
+</link:linkbase>

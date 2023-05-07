@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--(c) 2022 XBRL Japan inc. -->
+<link:linkbase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice" xlink:type="simple" xlink:href="core.xsd#invoice"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/invoiceTerm" xlink:type="simple" xlink:href="core.xsd#invoiceTerm"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/preceedingInvoiceReference" xlink:type="simple" xlink:href="core.xsd#preceedingInvoiceReference"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/paymentInstruction" xlink:type="simple" xlink:href="core.xsd#paymentInstruction"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/documentAllowance" xlink:type="simple" xlink:href="core.xsd#documentAllowance"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/documentCharge" xlink:type="simple" xlink:href="core.xsd#documentCharge"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/taxCategory" xlink:type="simple" xlink:href="core.xsd#invoiceTaxCategory"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/paidAmounts" xlink:type="simple" xlink:href="core.xsd#paidAmounts"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/additionalSupportingDocuments" xlink:type="simple" xlink:href="core.xsd#additionalSupportingDocuments"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/Line" xlink:type="simple" xlink:href="core.xsd#invoiceLine"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/lineAllowance" xlink:type="simple" xlink:href="core.xsd#lineAllowance"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/lineCharge" xlink:type="simple" xlink:href="core.xsd#lineCharfge"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/lineTaxInformation" xlink:type="simple" xlink:href="core.xsd#lineTaxInformation"/>
+        <link:roleRef roleURI="http://www.xbrl.jp/peppol/invoice/itemAttribute" xlink:type="simple" xlink:href="core.xsd#itemAttribute"/>
+        <link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/all" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#all"/>
+        <link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/domain-member" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#domain-member"/>
+        <link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#hypercube-dimension"/>
+        <link:arcroleRef arcroleURI="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:type="simple" xlink:href="http://www.xbrl.org/2005/xbrldt-2005.xsd#dimension-domain"/>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-001" xlink:label="ibt-001" xlink:title="ibt-001"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-001" xlink:title="definition: ibg-00 to ibt-001" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-002" xlink:label="ibt-002" xlink:title="ibt-002"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-002" xlink:title="definition: ibg-00 to ibt-002" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-168" xlink:label="ibt-168" xlink:title="ibt-168"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-168" xlink:title="definition: ibg-00 to ibt-168" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-003" xlink:label="ibt-003" xlink:title="ibt-003"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-003" xlink:title="definition: ibg-00 to ibt-003" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-005" xlink:label="ibt-005" xlink:title="ibt-005"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-005" xlink:title="definition: ibg-00 to ibt-005" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-006" xlink:label="ibt-006" xlink:title="ibt-006"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-006" xlink:title="definition: ibg-00 to ibt-006" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-007" xlink:label="ibt-007" xlink:title="ibt-007"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-007" xlink:title="definition: ibg-00 to ibt-007" order="7"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-008" xlink:label="ibt-008" xlink:title="ibt-008"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-008" xlink:title="definition: ibg-00 to ibt-008" order="8"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-009" xlink:label="ibt-009" xlink:title="ibt-009"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-009" xlink:title="definition: ibg-00 to ibt-009" order="9"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-010" xlink:label="ibt-010" xlink:title="ibt-010"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-010" xlink:title="definition: ibg-00 to ibt-010" order="10"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-011" xlink:label="ibt-011" xlink:title="ibt-011"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-011" xlink:title="definition: ibg-00 to ibt-011" order="11"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-012" xlink:label="ibt-012" xlink:title="ibt-012"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-012" xlink:title="definition: ibg-00 to ibt-012" order="12"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-013" xlink:label="ibt-013" xlink:title="ibt-013"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-013" xlink:title="definition: ibg-00 to ibt-013" order="13"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-014" xlink:label="ibt-014" xlink:title="ibt-014"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-014" xlink:title="definition: ibg-00 to ibt-014" order="14"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-015" xlink:label="ibt-015" xlink:title="ibt-015"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-015" xlink:title="definition: ibg-00 to ibt-015" order="15"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-016" xlink:label="ibt-016" xlink:title="ibt-016"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-016" xlink:title="definition: ibg-00 to ibt-016" order="16"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-017" xlink:label="ibt-017" xlink:title="ibt-017"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-017" xlink:title="definition: ibg-00 to ibt-017" order="17"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-018" xlink:label="ibt-018" xlink:title="ibt-018"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-018" xlink:title="definition: ibg-00 to ibt-018" order="18"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-018-1" xlink:label="ibt-018-1" xlink:title="ibt-018-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-018-1" xlink:title="definition: ibg-00 to ibt-018-1" order="19"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-019" xlink:label="ibt-019" xlink:title="ibt-019"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-019" xlink:title="definition: ibg-00 to ibt-019" order="20"/>
+        <!-- ibg-33 targetRole http://www.xbrl.jp/peppol/invoice/invoiceTerm -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-33" xlink:label="ibg-33" xlink:title="ibg-33"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/invoiceTerm" xlink:from="ibg-00" xlink:to="ibg-33" xlink:title="definition: ibg-00 to ibg-33" order="21"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-022" xlink:label="ibt-022" xlink:title="ibt-022"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-022" xlink:title="definition: ibg-00 to ibt-022" order="22"/>
+        <!-- ibg-02 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-02" xlink:label="ibg-02" xlink:title="ibg-02"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-02" xlink:title="definition: ibg-00 to ibg-02" order="23"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-023" xlink:label="ibt-023" xlink:title="ibt-023"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-02" xlink:to="ibt-023" xlink:title="definition: ibg-02 to ibt-023" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-024" xlink:label="ibt-024" xlink:title="ibt-024"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-02" xlink:to="ibt-024" xlink:title="definition: ibg-02 to ibt-024" order="2"/>
+        <!-- ibg-03 targetRole http://www.xbrl.jp/peppol/invoice/preceedingInvoiceReference -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-03" xlink:label="ibg-03" xlink:title="ibg-03"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/preceedingInvoiceReference" xlink:from="ibg-00" xlink:to="ibg-03" xlink:title="definition: ibg-00 to ibg-03" order="24"/>
+        <!-- ibg-04 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-04" xlink:label="ibg-04" xlink:title="ibg-04"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-04" xlink:title="definition: ibg-00 to ibg-04" order="25"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-027" xlink:label="ibt-027" xlink:title="ibt-027"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibt-027" xlink:title="definition: ibg-04 to ibt-027" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-028" xlink:label="ibt-028" xlink:title="ibt-028"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibt-028" xlink:title="definition: ibg-04 to ibt-028" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-030" xlink:label="ibt-030" xlink:title="ibt-030"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibt-030" xlink:title="definition: ibg-04 to ibt-030" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-030-1" xlink:label="ibt-030-1" xlink:title="ibt-030-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-030" xlink:to="ibt-030-1" xlink:title="definition: ibt-030 to ibt-030-1" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-031" xlink:label="ibt-031" xlink:title="ibt-031"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibt-031" xlink:title="definition: ibg-04 to ibt-031" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-032" xlink:label="ibt-032" xlink:title="ibt-032"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibt-032" xlink:title="definition: ibg-04 to ibt-032" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-033" xlink:label="ibt-033" xlink:title="ibt-033"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibt-033" xlink:title="definition: ibg-04 to ibt-033" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-034" xlink:label="ibt-034" xlink:title="ibt-034"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibt-034" xlink:title="definition: ibg-04 to ibt-034" order="7"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-034-1" xlink:label="ibt-034-1" xlink:title="ibt-034-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-034" xlink:to="ibt-034-1" xlink:title="definition: ibt-034 to ibt-034-1" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-090" xlink:label="ibt-090" xlink:title="ibt-090"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-034" xlink:to="ibt-090" xlink:title="definition: ibt-034 to ibt-090" order="2"/>
+        <!-- ibg-05 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-05" xlink:label="ibg-05" xlink:title="ibg-05"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibg-05" xlink:title="definition: ibg-04 to ibg-05" order="8"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-035" xlink:label="ibt-035" xlink:title="ibt-035"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-05" xlink:to="ibt-035" xlink:title="definition: ibg-05 to ibt-035" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-036" xlink:label="ibt-036" xlink:title="ibt-036"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-05" xlink:to="ibt-036" xlink:title="definition: ibg-05 to ibt-036" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-162" xlink:label="ibt-162" xlink:title="ibt-162"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-05" xlink:to="ibt-162" xlink:title="definition: ibg-05 to ibt-162" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-037" xlink:label="ibt-037" xlink:title="ibt-037"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-05" xlink:to="ibt-037" xlink:title="definition: ibg-05 to ibt-037" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-038" xlink:label="ibt-038" xlink:title="ibt-038"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-05" xlink:to="ibt-038" xlink:title="definition: ibg-05 to ibt-038" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-039" xlink:label="ibt-039" xlink:title="ibt-039"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-05" xlink:to="ibt-039" xlink:title="definition: ibg-05 to ibt-039" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-040" xlink:label="ibt-040" xlink:title="ibt-040"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-05" xlink:to="ibt-040" xlink:title="definition: ibg-05 to ibt-040" order="7"/>
+        <!-- ibg-06 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-06" xlink:label="ibg-06" xlink:title="ibg-06"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-04" xlink:to="ibg-06" xlink:title="definition: ibg-04 to ibg-06" order="9"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-041" xlink:label="ibt-041" xlink:title="ibt-041"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-06" xlink:to="ibt-041" xlink:title="definition: ibg-06 to ibt-041" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-042" xlink:label="ibt-042" xlink:title="ibt-042"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-06" xlink:to="ibt-042" xlink:title="definition: ibg-06 to ibt-042" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-043" xlink:label="ibt-043" xlink:title="ibt-043"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-06" xlink:to="ibt-043" xlink:title="definition: ibg-06 to ibt-043" order="3"/>
+        <!-- ibg-07 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-07" xlink:label="ibg-07" xlink:title="ibg-07"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-07" xlink:title="definition: ibg-00 to ibg-07" order="26"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-044" xlink:label="ibt-044" xlink:title="ibt-044"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-07" xlink:to="ibt-044" xlink:title="definition: ibg-07 to ibt-044" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-045" xlink:label="ibt-045" xlink:title="ibt-045"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-07" xlink:to="ibt-045" xlink:title="definition: ibg-07 to ibt-045" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-046" xlink:label="ibt-046" xlink:title="ibt-046"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-07" xlink:to="ibt-046" xlink:title="definition: ibg-07 to ibt-046" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-046-1" xlink:label="ibt-046-1" xlink:title="ibt-046-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-046" xlink:to="ibt-046-1" xlink:title="definition: ibt-046 to ibt-046-1" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-047" xlink:label="ibt-047" xlink:title="ibt-047"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-07" xlink:to="ibt-047" xlink:title="definition: ibg-07 to ibt-047" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-047-1" xlink:label="ibt-047-1" xlink:title="ibt-047-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-047" xlink:to="ibt-047-1" xlink:title="definition: ibt-047 to ibt-047-1" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-048" xlink:label="ibt-048" xlink:title="ibt-048"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-07" xlink:to="ibt-048" xlink:title="definition: ibg-07 to ibt-048" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-049" xlink:label="ibt-049" xlink:title="ibt-049"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-07" xlink:to="ibt-049" xlink:title="definition: ibg-07 to ibt-049" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-049-1" xlink:label="ibt-049-1" xlink:title="ibt-049-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-049" xlink:to="ibt-049-1" xlink:title="definition: ibt-049 to ibt-049-1" order="1"/>
+        <!-- ibg-08 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-08" xlink:label="ibg-08" xlink:title="ibg-08"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-07" xlink:to="ibg-08" xlink:title="definition: ibg-07 to ibg-08" order="7"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-050" xlink:label="ibt-050" xlink:title="ibt-050"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-08" xlink:to="ibt-050" xlink:title="definition: ibg-08 to ibt-050" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-051" xlink:label="ibt-051" xlink:title="ibt-051"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-08" xlink:to="ibt-051" xlink:title="definition: ibg-08 to ibt-051" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-163" xlink:label="ibt-163" xlink:title="ibt-163"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-08" xlink:to="ibt-163" xlink:title="definition: ibg-08 to ibt-163" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-052" xlink:label="ibt-052" xlink:title="ibt-052"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-08" xlink:to="ibt-052" xlink:title="definition: ibg-08 to ibt-052" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-053" xlink:label="ibt-053" xlink:title="ibt-053"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-08" xlink:to="ibt-053" xlink:title="definition: ibg-08 to ibt-053" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-054" xlink:label="ibt-054" xlink:title="ibt-054"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-08" xlink:to="ibt-054" xlink:title="definition: ibg-08 to ibt-054" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-055" xlink:label="ibt-055" xlink:title="ibt-055"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-08" xlink:to="ibt-055" xlink:title="definition: ibg-08 to ibt-055" order="7"/>
+        <!-- ibg-09 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-09" xlink:label="ibg-09" xlink:title="ibg-09"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-07" xlink:to="ibg-09" xlink:title="definition: ibg-07 to ibg-09" order="8"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-056" xlink:label="ibt-056" xlink:title="ibt-056"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-09" xlink:to="ibt-056" xlink:title="definition: ibg-09 to ibt-056" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-057" xlink:label="ibt-057" xlink:title="ibt-057"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-09" xlink:to="ibt-057" xlink:title="definition: ibg-09 to ibt-057" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-058" xlink:label="ibt-058" xlink:title="ibt-058"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-09" xlink:to="ibt-058" xlink:title="definition: ibg-09 to ibt-058" order="3"/>
+        <!-- ibg-10 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-10" xlink:label="ibg-10" xlink:title="ibg-10"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-10" xlink:title="definition: ibg-00 to ibg-10" order="27"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-059" xlink:label="ibt-059" xlink:title="ibt-059"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-10" xlink:to="ibt-059" xlink:title="definition: ibg-10 to ibt-059" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-060" xlink:label="ibt-060" xlink:title="ibt-060"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-10" xlink:to="ibt-060" xlink:title="definition: ibg-10 to ibt-060" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-060-1" xlink:label="ibt-060-1" xlink:title="ibt-060-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-10" xlink:to="ibt-060-1" xlink:title="definition: ibg-10 to ibt-060-1" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-061" xlink:label="ibt-061" xlink:title="ibt-061"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-10" xlink:to="ibt-061" xlink:title="definition: ibg-10 to ibt-061" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-061-1" xlink:label="ibt-061-1" xlink:title="ibt-061-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-061" xlink:to="ibt-061-1" xlink:title="definition: ibt-061 to ibt-061-1" order="1"/>
+        <!-- ibg-11 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-11" xlink:label="ibg-11" xlink:title="ibg-11"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-11" xlink:title="definition: ibg-00 to ibg-11" order="28"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-062" xlink:label="ibt-062" xlink:title="ibt-062"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-11" xlink:to="ibt-062" xlink:title="definition: ibg-11 to ibt-062" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-063" xlink:label="ibt-063" xlink:title="ibt-063"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-11" xlink:to="ibt-063" xlink:title="definition: ibg-11 to ibt-063" order="2"/>
+        <!-- ibg-12 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-12" xlink:label="ibg-12" xlink:title="ibg-12"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-11" xlink:to="ibg-12" xlink:title="definition: ibg-11 to ibg-12" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-064" xlink:label="ibt-064" xlink:title="ibt-064"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-12" xlink:to="ibt-064" xlink:title="definition: ibg-12 to ibt-064" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-065" xlink:label="ibt-065" xlink:title="ibt-065"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-12" xlink:to="ibt-065" xlink:title="definition: ibg-12 to ibt-065" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-164" xlink:label="ibt-164" xlink:title="ibt-164"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-12" xlink:to="ibt-164" xlink:title="definition: ibg-12 to ibt-164" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-066" xlink:label="ibt-066" xlink:title="ibt-066"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-12" xlink:to="ibt-066" xlink:title="definition: ibg-12 to ibt-066" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-067" xlink:label="ibt-067" xlink:title="ibt-067"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-12" xlink:to="ibt-067" xlink:title="definition: ibg-12 to ibt-067" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-068" xlink:label="ibt-068" xlink:title="ibt-068"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-12" xlink:to="ibt-068" xlink:title="definition: ibg-12 to ibt-068" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-069" xlink:label="ibt-069" xlink:title="ibt-069"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-12" xlink:to="ibt-069" xlink:title="definition: ibg-12 to ibt-069" order="7"/>
+        <!-- ibg-13 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-13" xlink:label="ibg-13" xlink:title="ibg-13"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-13" xlink:title="definition: ibg-00 to ibg-13" order="29"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-070" xlink:label="ibt-070" xlink:title="ibt-070"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-13" xlink:to="ibt-070" xlink:title="definition: ibg-13 to ibt-070" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-071" xlink:label="ibt-071" xlink:title="ibt-071"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-13" xlink:to="ibt-071" xlink:title="definition: ibg-13 to ibt-071" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-071-1" xlink:label="ibt-071-1" xlink:title="ibt-071-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-13" xlink:to="ibt-071-1" xlink:title="definition: ibg-13 to ibt-071-1" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-072" xlink:label="ibt-072" xlink:title="ibt-072"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-13" xlink:to="ibt-072" xlink:title="definition: ibg-13 to ibt-072" order="4"/>
+        <!-- ibg-14 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-14" xlink:label="ibg-14" xlink:title="ibg-14"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-13" xlink:to="ibg-14" xlink:title="definition: ibg-13 to ibg-14" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-073" xlink:label="ibt-073" xlink:title="ibt-073"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-14" xlink:to="ibt-073" xlink:title="definition: ibg-14 to ibt-073" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-074" xlink:label="ibt-074" xlink:title="ibt-074"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-14" xlink:to="ibt-074" xlink:title="definition: ibg-14 to ibt-074" order="2"/>
+        <!-- ibg-15 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-15" xlink:label="ibg-15" xlink:title="ibg-15"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-13" xlink:to="ibg-15" xlink:title="definition: ibg-13 to ibg-15" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-075" xlink:label="ibt-075" xlink:title="ibt-075"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-15" xlink:to="ibt-075" xlink:title="definition: ibg-15 to ibt-075" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-076" xlink:label="ibt-076" xlink:title="ibt-076"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-15" xlink:to="ibt-076" xlink:title="definition: ibg-15 to ibt-076" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-165" xlink:label="ibt-165" xlink:title="ibt-165"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-15" xlink:to="ibt-165" xlink:title="definition: ibg-15 to ibt-165" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-077" xlink:label="ibt-077" xlink:title="ibt-077"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-15" xlink:to="ibt-077" xlink:title="definition: ibg-15 to ibt-077" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-078" xlink:label="ibt-078" xlink:title="ibt-078"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-15" xlink:to="ibt-078" xlink:title="definition: ibg-15 to ibt-078" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-079" xlink:label="ibt-079" xlink:title="ibt-079"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-15" xlink:to="ibt-079" xlink:title="definition: ibg-15 to ibt-079" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-080" xlink:label="ibt-080" xlink:title="ibt-080"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-15" xlink:to="ibt-080" xlink:title="definition: ibg-15 to ibt-080" order="7"/>
+        <!-- ibg-16 targetRole http://www.xbrl.jp/peppol/invoice/paymentInstruction -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-16" xlink:label="ibg-16" xlink:title="ibg-16"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/paymentInstruction" xlink:from="ibg-00" xlink:to="ibg-16" xlink:title="definition: ibg-00 to ibg-16" order="30"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-083" xlink:label="ibt-083" xlink:title="ibt-083"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-083" xlink:title="definition: ibg-00 to ibt-083" order="31"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-083-1" xlink:label="ibt-083-1" xlink:title="ibt-083-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-083" xlink:to="ibt-083-1" xlink:title="definition: ibt-083 to ibt-083-1" order="1"/>
+        <!-- ibg-17 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-17" xlink:label="ibg-17" xlink:title="ibg-17"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-17" xlink:title="definition: ibg-00 to ibg-17" order="32"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-084" xlink:label="ibt-084" xlink:title="ibt-084"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-17" xlink:to="ibt-084" xlink:title="definition: ibg-17 to ibt-084" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-084-1" xlink:label="ibt-084-1" xlink:title="ibt-084-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-17" xlink:to="ibt-084-1" xlink:title="definition: ibg-17 to ibt-084-1" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-085" xlink:label="ibt-085" xlink:title="ibt-085"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-17" xlink:to="ibt-085" xlink:title="definition: ibg-17 to ibt-085" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-086" xlink:label="ibt-086" xlink:title="ibt-086"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-17" xlink:to="ibt-086" xlink:title="definition: ibg-17 to ibt-086" order="4"/>
+        <!-- ibg-34 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-34" xlink:label="ibg-34" xlink:title="ibg-34"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-34" xlink:title="definition: ibg-00 to ibg-34" order="33"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-169" xlink:label="ibt-169" xlink:title="ibt-169"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-169" xlink:title="definition: ibg-34 to ibt-169" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-170" xlink:label="ibt-170" xlink:title="ibt-170"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-170" xlink:title="definition: ibg-34 to ibt-170" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-171" xlink:label="ibt-171" xlink:title="ibt-171"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-171" xlink:title="definition: ibg-34 to ibt-171" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-172" xlink:label="ibt-172" xlink:title="ibt-172"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-172" xlink:title="definition: ibg-34 to ibt-172" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-173" xlink:label="ibt-173" xlink:title="ibt-173"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-173" xlink:title="definition: ibg-34 to ibt-173" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-174" xlink:label="ibt-174" xlink:title="ibt-174"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-174" xlink:title="definition: ibg-34 to ibt-174" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-175" xlink:label="ibt-175" xlink:title="ibt-175"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-175" xlink:title="definition: ibg-34 to ibt-175" order="7"/>
+        <!-- ibg-18 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-18" xlink:label="ibg-18" xlink:title="ibg-18"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-18" xlink:title="definition: ibg-00 to ibg-18" order="34"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-087" xlink:label="ibt-087" xlink:title="ibt-087"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-18" xlink:to="ibt-087" xlink:title="definition: ibg-18 to ibt-087" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-088" xlink:label="ibt-088" xlink:title="ibt-088"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-18" xlink:to="ibt-088" xlink:title="definition: ibg-18 to ibt-088" order="2"/>
+        <!-- ibg-19 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-19" xlink:label="ibg-19" xlink:title="ibg-19"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-19" xlink:title="definition: ibg-00 to ibg-19" order="35"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-089" xlink:label="ibt-089" xlink:title="ibt-089"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-19" xlink:to="ibt-089" xlink:title="definition: ibg-19 to ibt-089" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-091" xlink:label="ibt-091" xlink:title="ibt-091"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-19" xlink:to="ibt-091" xlink:title="definition: ibg-19 to ibt-091" order="2"/>
+        <!-- ibg-35 targetRole http://www.xbrl.jp/peppol/invoice/paidAmounts -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-35" xlink:label="ibg-35" xlink:title="ibg-35"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/paidAmounts" xlink:from="ibg-00" xlink:to="ibg-35" xlink:title="definition: ibg-00 to ibg-35" order="36"/>
+        <!-- ibg-20 targetRole http://www.xbrl.jp/peppol/invoice/documentAllowance -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-20" xlink:label="ibg-20" xlink:title="ibg-20"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/documentAllowance" xlink:from="ibg-00" xlink:to="ibg-20" xlink:title="definition: ibg-00 to ibg-20" order="37"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-095" xlink:label="ibt-095" xlink:title="ibt-095"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-095" xlink:title="definition: ibg-00 to ibt-095" order="38"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-095-1" xlink:label="ibt-095-1" xlink:title="ibt-095-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-095" xlink:to="ibt-095-1" xlink:title="definition: ibt-095 to ibt-095-1" order="1"/>
+        <!-- ibg-21 targetRole http://www.xbrl.jp/peppol/invoice/documentCharge -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-21" xlink:label="ibg-21" xlink:title="ibg-21"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/documentCharge" xlink:from="ibg-00" xlink:to="ibg-21" xlink:title="definition: ibg-00 to ibg-21" order="39"/>
+        <!-- ibg-22 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-22" xlink:label="ibg-22" xlink:title="ibg-22"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-22" xlink:title="definition: ibg-00 to ibg-22" order="40"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-106" xlink:label="ibt-106" xlink:title="ibt-106"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-106" xlink:title="definition: ibg-22 to ibt-106" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-107" xlink:label="ibt-107" xlink:title="ibt-107"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-107" xlink:title="definition: ibg-22 to ibt-107" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-108" xlink:label="ibt-108" xlink:title="ibt-108"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-108" xlink:title="definition: ibg-22 to ibt-108" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-109" xlink:label="ibt-109" xlink:title="ibt-109"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-109" xlink:title="definition: ibg-22 to ibt-109" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-110" xlink:label="ibt-110" xlink:title="ibt-110"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-110" xlink:title="definition: ibg-22 to ibt-110" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-112" xlink:label="ibt-112" xlink:title="ibt-112"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-112" xlink:title="definition: ibg-22 to ibt-112" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-113" xlink:label="ibt-113" xlink:title="ibt-113"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-113" xlink:title="definition: ibg-22 to ibt-113" order="7"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-114" xlink:label="ibt-114" xlink:title="ibt-114"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-114" xlink:title="definition: ibg-22 to ibt-114" order="8"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-115" xlink:label="ibt-115" xlink:title="ibt-115"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-22" xlink:to="ibt-115" xlink:title="definition: ibg-22 to ibt-115" order="9"/>
+        <!-- ibg-37 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-37" xlink:label="ibg-37" xlink:title="ibg-37"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-37" xlink:title="definition: ibg-00 to ibg-37" order="41"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-111" xlink:label="ibt-111" xlink:title="ibt-111"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-37" xlink:to="ibt-111" xlink:title="definition: ibg-37 to ibt-111" order="1"/>
+        <!-- ibg-38 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-38" xlink:label="ibg-38" xlink:title="ibg-38"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-37" xlink:to="ibg-38" xlink:title="definition: ibg-37 to ibg-38" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-190" xlink:label="ibt-190" xlink:title="ibt-190"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-38" xlink:to="ibt-190" xlink:title="definition: ibg-38 to ibt-190" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-192" xlink:label="ibt-192" xlink:title="ibt-192"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-38" xlink:to="ibt-192" xlink:title="definition: ibg-38 to ibt-192" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-193" xlink:label="ibt-193" xlink:title="ibt-193"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-38" xlink:to="ibt-193" xlink:title="definition: ibg-38 to ibt-193" order="3"/>
+        <!-- ibg-23 targetRole http://www.xbrl.jp/peppol/invoice/taxCategory -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-23" xlink:label="ibg-23" xlink:title="ibg-23"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/taxCategory" xlink:from="ibg-00" xlink:to="ibg-23" xlink:title="definition: ibg-00 to ibg-23" order="42"/>
+        <!-- ibg-24 targetRole http://www.xbrl.jp/peppol/invoice/additionalSupportingDocuments -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-24" xlink:label="ibg-24" xlink:title="ibg-24"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/additionalSupportingDocuments" xlink:from="ibg-00" xlink:to="ibg-24" xlink:title="definition: ibg-00 to ibg-24" order="43"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-125" xlink:label="ibt-125" xlink:title="ibt-125"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-125" xlink:title="definition: ibg-00 to ibt-125" order="44"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-125-1" xlink:label="ibt-125-1" xlink:title="ibt-125-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-125" xlink:to="ibt-125-1" xlink:title="definition: ibt-125 to ibt-125-1" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-125-2" xlink:label="ibt-125-2" xlink:title="ibt-125-2"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-125" xlink:to="ibt-125-2" xlink:title="definition: ibt-125 to ibt-125-2" order="2"/>
+        <!-- ibg-25 targetRole http://www.xbrl.jp/peppol/invoice/Line -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-25" xlink:label="ibg-25" xlink:title="ibg-25"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/Line" xlink:from="ibg-00" xlink:to="ibg-25" xlink:title="definition: ibg-00 to ibg-25" order="45"/>
+        <!-- ibg-36 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-36" xlink:label="ibg-36" xlink:title="ibg-36"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-36" xlink:title="definition: ibg-00 to ibg-36" order="46"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-188" xlink:label="ibt-188" xlink:title="ibt-188"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-36" xlink:to="ibt-188" xlink:title="definition: ibg-36 to ibt-188" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-189" xlink:label="ibt-189" xlink:title="ibt-189"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-36" xlink:to="ibt-189" xlink:title="definition: ibg-36 to ibt-189" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-128" xlink:label="ibt-128" xlink:title="ibt-128"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibt-128" xlink:title="definition: ibg-00 to ibt-128" order="47"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-128-1" xlink:label="ibt-128-1" xlink:title="ibt-128-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-128" xlink:to="ibt-128-1" xlink:title="definition: ibt-128 to ibt-128-1" order="1"/>
+        <!-- ibg-26 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-26" xlink:label="ibg-26" xlink:title="ibg-26"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-26" xlink:title="definition: ibg-00 to ibg-26" order="48"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-134" xlink:label="ibt-134" xlink:title="ibt-134"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-26" xlink:to="ibt-134" xlink:title="definition: ibg-26 to ibt-134" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-135" xlink:label="ibt-135" xlink:title="ibt-135"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-26" xlink:to="ibt-135" xlink:title="definition: ibg-26 to ibt-135" order="2"/>
+        <!-- ibg-29 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-29" xlink:label="ibg-29" xlink:title="ibg-29"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-29" xlink:title="definition: ibg-00 to ibg-29" order="49"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-146" xlink:label="ibt-146" xlink:title="ibt-146"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-146" xlink:title="definition: ibg-29 to ibt-146" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-147" xlink:label="ibt-147" xlink:title="ibt-147"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-147" xlink:title="definition: ibg-29 to ibt-147" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-148" xlink:label="ibt-148" xlink:title="ibt-148"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-148" xlink:title="definition: ibg-29 to ibt-148" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-149" xlink:label="ibt-149" xlink:title="ibt-149"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-149" xlink:title="definition: ibg-29 to ibt-149" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-150" xlink:label="ibt-150" xlink:title="ibt-150"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-150" xlink:title="definition: ibg-29 to ibt-150" order="5"/>
+        <!-- ibg-31 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-31" xlink:label="ibg-31" xlink:title="ibg-31"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-31" xlink:title="definition: ibg-00 to ibg-31" order="50"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-153" xlink:label="ibt-153" xlink:title="ibt-153"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-153" xlink:title="definition: ibg-31 to ibt-153" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-154" xlink:label="ibt-154" xlink:title="ibt-154"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-154" xlink:title="definition: ibg-31 to ibt-154" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-155" xlink:label="ibt-155" xlink:title="ibt-155"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-155" xlink:title="definition: ibg-31 to ibt-155" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-156" xlink:label="ibt-156" xlink:title="ibt-156"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-156" xlink:title="definition: ibg-31 to ibt-156" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-157" xlink:label="ibt-157" xlink:title="ibt-157"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-157" xlink:title="definition: ibg-31 to ibt-157" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-158" xlink:label="ibt-158" xlink:title="ibt-158"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-158" xlink:title="definition: ibg-31 to ibt-158" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-158-1" xlink:label="ibt-158-1" xlink:title="ibt-158-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-158" xlink:to="ibt-158-1" xlink:title="definition: ibt-158 to ibt-158-1" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-158-2" xlink:label="ibt-158-2" xlink:title="ibt-158-2"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-158" xlink:to="ibt-158-2" xlink:title="definition: ibt-158 to ibt-158-2" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-159" xlink:label="ibt-159" xlink:title="ibt-159"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-159" xlink:title="definition: ibg-31 to ibt-159" order="7"/>
+        <!-- ibg-32 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-32" xlink:label="ibg-32" xlink:title="ibg-32"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibg-32" xlink:title="definition: ibg-31 to ibg-32" order="8"/>
+        <!-- ibg-00 all (has-hypercube) invoice -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_invoice" xlink:label="invoice" xlink:title="invoice"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-00" xlink:to="invoice" xlink:title="definition: ibg-00 to invoice" order="51" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoice" xlink:to="InvoiceID" xlink:title="definition: invoice to InvoiceID" order="1"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/invoiceTerm">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-33" xlink:title="definition: ibg-00 to ibg-33" order="52"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-33" xlink:label="ibg-33" xlink:title="ibg-33"/>
+        <!-- ibg-33 all (has-hypercube) invoiceTerms -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_invoiceTerms" xlink:label="invoiceTerms" xlink:title="invoiceTerms"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-33" xlink:to="invoiceTerms" xlink:title="definition: ibg-33 to invoiceTerms" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceTerms" xlink:to="InvoiceID" xlink:title="definition: invoiceTerms to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceTerms" xlink:label="InvoiceTerms" xlink:title="InvoiceTerms"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceTerms" xlink:to="InvoiceTerms" xlink:title="definition: invoiceTerms to InvoiceTerms" order="2"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/preceedingInvoiceReference">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-03" xlink:title="definition: ibg-00 to ibg-03" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-03" xlink:label="ibg-03" xlink:title="ibg-03"/>
+        <!-- ibg-03 all (has-hypercube) preceedingInvoiceReference -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_preceedingInvoiceReference" xlink:label="preceedingInvoiceReference" xlink:title="preceedingInvoiceReference"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-03" xlink:to="preceedingInvoiceReference" xlink:title="definition: ibg-03 to preceedingInvoiceReference" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="preceedingInvoiceReference" xlink:to="InvoiceID" xlink:title="definition: preceedingInvoiceReference to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_PreceedingInvoiceReference" xlink:label="PreceedingInvoiceReference" xlink:title="PreceedingInvoiceReference"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="preceedingInvoiceReference" xlink:to="PreceedingInvoiceReference" xlink:title="definition: preceedingInvoiceReference to PreceedingInvoiceReference" order="2"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/paymentInstruction">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-16" xlink:title="definition: ibg-00 to ibg-16" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-16" xlink:label="ibg-16" xlink:title="ibg-16"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-083" xlink:label="ibt-083" xlink:title="ibt-083"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-16" xlink:to="ibt-083" xlink:title="definition: ibg-16 to ibt-083" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-083-1" xlink:label="ibt-083-1" xlink:title="ibt-083-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-083" xlink:to="ibt-083-1" xlink:title="definition: ibt-083 to ibt-083-1" order="1"/>
+        <!-- ibg-17 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-17" xlink:label="ibg-17" xlink:title="ibg-17"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-16" xlink:to="ibg-17" xlink:title="definition: ibg-16 to ibg-17" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-084" xlink:label="ibt-084" xlink:title="ibt-084"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-17" xlink:to="ibt-084" xlink:title="definition: ibg-17 to ibt-084" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-084-1" xlink:label="ibt-084-1" xlink:title="ibt-084-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-17" xlink:to="ibt-084-1" xlink:title="definition: ibg-17 to ibt-084-1" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-085" xlink:label="ibt-085" xlink:title="ibt-085"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-17" xlink:to="ibt-085" xlink:title="definition: ibg-17 to ibt-085" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-086" xlink:label="ibt-086" xlink:title="ibt-086"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-17" xlink:to="ibt-086" xlink:title="definition: ibg-17 to ibt-086" order="4"/>
+        <!-- ibg-34 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-34" xlink:label="ibg-34" xlink:title="ibg-34"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-16" xlink:to="ibg-34" xlink:title="definition: ibg-16 to ibg-34" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-169" xlink:label="ibt-169" xlink:title="ibt-169"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-169" xlink:title="definition: ibg-34 to ibt-169" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-170" xlink:label="ibt-170" xlink:title="ibt-170"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-170" xlink:title="definition: ibg-34 to ibt-170" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-171" xlink:label="ibt-171" xlink:title="ibt-171"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-171" xlink:title="definition: ibg-34 to ibt-171" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-172" xlink:label="ibt-172" xlink:title="ibt-172"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-172" xlink:title="definition: ibg-34 to ibt-172" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-173" xlink:label="ibt-173" xlink:title="ibt-173"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-173" xlink:title="definition: ibg-34 to ibt-173" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-174" xlink:label="ibt-174" xlink:title="ibt-174"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-174" xlink:title="definition: ibg-34 to ibt-174" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-175" xlink:label="ibt-175" xlink:title="ibt-175"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-34" xlink:to="ibt-175" xlink:title="definition: ibg-34 to ibt-175" order="7"/>
+        <!-- ibg-18 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-18" xlink:label="ibg-18" xlink:title="ibg-18"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-16" xlink:to="ibg-18" xlink:title="definition: ibg-16 to ibg-18" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-087" xlink:label="ibt-087" xlink:title="ibt-087"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-18" xlink:to="ibt-087" xlink:title="definition: ibg-18 to ibt-087" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-088" xlink:label="ibt-088" xlink:title="ibt-088"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-18" xlink:to="ibt-088" xlink:title="definition: ibg-18 to ibt-088" order="2"/>
+        <!-- ibg-19 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-19" xlink:label="ibg-19" xlink:title="ibg-19"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-16" xlink:to="ibg-19" xlink:title="definition: ibg-16 to ibg-19" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-089" xlink:label="ibt-089" xlink:title="ibt-089"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-19" xlink:to="ibt-089" xlink:title="definition: ibg-19 to ibt-089" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-091" xlink:label="ibt-091" xlink:title="ibt-091"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-19" xlink:to="ibt-091" xlink:title="definition: ibg-19 to ibt-091" order="2"/>
+        <!-- ibg-16 all (has-hypercube) paymentInstruction -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_paymentInstruction" xlink:label="paymentInstruction" xlink:title="paymentInstruction"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-16" xlink:to="paymentInstruction" xlink:title="definition: ibg-16 to paymentInstruction" order="6" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="paymentInstruction" xlink:to="InvoiceID" xlink:title="definition: paymentInstruction to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_PaymentInstruction" xlink:label="PaymentInstruction" xlink:title="PaymentInstruction"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="paymentInstruction" xlink:to="PaymentInstruction" xlink:title="definition: paymentInstruction to PaymentInstruction" order="2"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/documentAllowance">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-20" xlink:title="definition: ibg-00 to ibg-20" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-20" xlink:label="ibg-20" xlink:title="ibg-20"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ConsumptionTax" xlink:label="TaxCategoryAbstract" xlink:title="TaxCategoryAbstract"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:from="TaxCategoryCode" xlink:to="TaxCategoryAbstract" xlink:title="definition: TaxCategoryCode to TaxCategoryAbstract" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_S10" xlink:label="TaxCategory_S10" xlink:title="TaxCategory_S10"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_S10" xlink:title="definition: TaxCategoryAbstract to TaxCategory_S10" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_AA8" xlink:label="TaxCategory_AA8" xlink:title="TaxCategory_AA8"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_AA8" xlink:title="definition: TaxCategoryAbstract to TaxCategory_AA8" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_E0" xlink:label="TaxCategory_E0" xlink:title="TaxCategory_E0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_E0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_E0" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_G0" xlink:label="TaxCategory_G0" xlink:title="TaxCategory_G0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_G0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_G0" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_O0" xlink:label="TaxCategory_O0" xlink:title="TaxCategory_O0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_O0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_O0" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-095" xlink:label="ibt-095" xlink:title="ibt-095"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-20" xlink:to="ibt-095" xlink:title="definition: ibg-20 to ibt-095" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-095-1" xlink:label="ibt-095-1" xlink:title="ibt-095-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-095" xlink:to="ibt-095-1" xlink:title="definition: ibt-095 to ibt-095-1" order="1"/>
+        <!-- ibg-20 all (has-hypercube) invoiceAllowance -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_invoiceAllowance" xlink:label="invoiceAllowance" xlink:title="invoiceAllowance"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-20" xlink:to="invoiceAllowance" xlink:title="definition: ibg-20 to invoiceAllowance" order="2" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceAllowance" xlink:to="InvoiceID" xlink:title="definition: invoiceAllowance to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_DocumentAllowance" xlink:label="DocumentAllowance" xlink:title="DocumentAllowance"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceAllowance" xlink:to="DocumentAllowance" xlink:title="definition: invoiceAllowance to DocumentAllowance" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceAllowance" xlink:to="TaxCategoryCode" xlink:title="definition: invoiceAllowance to TaxCategoryCode" order="3"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/documentCharge">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-21" xlink:title="definition: ibg-00 to ibg-21" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-21" xlink:label="ibg-21" xlink:title="ibg-21"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ConsumptionTax" xlink:label="TaxCategoryAbstract" xlink:title="TaxCategoryAbstract"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:from="TaxCategoryCode" xlink:to="TaxCategoryAbstract" xlink:title="definition: TaxCategoryCode to TaxCategoryAbstract" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_S10" xlink:label="TaxCategory_S10" xlink:title="TaxCategory_S10"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_S10" xlink:title="definition: TaxCategoryAbstract to TaxCategory_S10" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_AA8" xlink:label="TaxCategory_AA8" xlink:title="TaxCategory_AA8"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_AA8" xlink:title="definition: TaxCategoryAbstract to TaxCategory_AA8" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_E0" xlink:label="TaxCategory_E0" xlink:title="TaxCategory_E0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_E0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_E0" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_G0" xlink:label="TaxCategory_G0" xlink:title="TaxCategory_G0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_G0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_G0" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_O0" xlink:label="TaxCategory_O0" xlink:title="TaxCategory_O0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_O0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_O0" order="5"/>
+        <!-- ibg-21 all (has-hypercube) invoiceCharge -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_invoiceCharge" xlink:label="invoiceCharge" xlink:title="invoiceCharge"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-21" xlink:to="invoiceCharge" xlink:title="definition: ibg-21 to invoiceCharge" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceCharge" xlink:to="InvoiceID" xlink:title="definition: invoiceCharge to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_DocumentCharge" xlink:label="DocumentCharge" xlink:title="DocumentCharge"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceCharge" xlink:to="DocumentCharge" xlink:title="definition: invoiceCharge to DocumentCharge" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceCharge" xlink:to="TaxCategoryCode" xlink:title="definition: invoiceCharge to TaxCategoryCode" order="3"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/taxCategory">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-23" xlink:title="definition: ibg-00 to ibg-23" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-23" xlink:label="ibg-23" xlink:title="ibg-23"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ConsumptionTax" xlink:label="TaxCategoryAbstract" xlink:title="TaxCategoryAbstract"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:from="TaxCategoryCode" xlink:to="TaxCategoryAbstract" xlink:title="definition: TaxCategoryCode to TaxCategoryAbstract" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_S10" xlink:label="TaxCategory_S10" xlink:title="TaxCategory_S10"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_S10" xlink:title="definition: TaxCategoryAbstract to TaxCategory_S10" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_AA8" xlink:label="TaxCategory_AA8" xlink:title="TaxCategory_AA8"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_AA8" xlink:title="definition: TaxCategoryAbstract to TaxCategory_AA8" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_E0" xlink:label="TaxCategory_E0" xlink:title="TaxCategory_E0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_E0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_E0" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_G0" xlink:label="TaxCategory_G0" xlink:title="TaxCategory_G0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_G0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_G0" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_O0" xlink:label="TaxCategory_O0" xlink:title="TaxCategory_O0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_O0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_O0" order="5"/>
+        <!-- ibg-23 all (has-hypercube) taxBreakdown -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_taxBreakdown" xlink:label="taxBreakdown" xlink:title="taxBreakdown"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-23" xlink:to="taxBreakdown" xlink:title="definition: ibg-23 to taxBreakdown" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="taxBreakdown" xlink:to="InvoiceID" xlink:title="definition: taxBreakdown to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="taxBreakdown" xlink:to="TaxCategoryCode" xlink:title="definition: taxBreakdown to TaxCategoryCode" order="2"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/paidAmounts">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-35" xlink:title="definition: ibg-00 to ibg-35" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-35" xlink:label="ibg-35" xlink:title="ibg-35"/>
+        <!-- ibg-35 all (has-hypercube) paidAmounts -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_paidAmounts" xlink:label="paidAmounts" xlink:title="paidAmounts"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-35" xlink:to="paidAmounts" xlink:title="definition: ibg-35 to paidAmounts" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="paidAmounts" xlink:to="InvoiceID" xlink:title="definition: paidAmounts to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_PaidAmounts" xlink:label="PaidAmounts" xlink:title="PaidAmounts"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="paidAmounts" xlink:to="PaidAmounts" xlink:title="definition: paidAmounts to PaidAmounts" order="2"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/additionalSupportingDocuments">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-24" xlink:title="definition: ibg-00 to ibg-24" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-24" xlink:label="ibg-24" xlink:title="ibg-24"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-125" xlink:label="ibt-125" xlink:title="ibt-125"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-24" xlink:to="ibt-125" xlink:title="definition: ibg-24 to ibt-125" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-125-1" xlink:label="ibt-125-1" xlink:title="ibt-125-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-125" xlink:to="ibt-125-1" xlink:title="definition: ibt-125 to ibt-125-1" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-125-2" xlink:label="ibt-125-2" xlink:title="ibt-125-2"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-125" xlink:to="ibt-125-2" xlink:title="definition: ibt-125 to ibt-125-2" order="2"/>
+        <!-- ibg-24 all (has-hypercube) additionalSupportingDocuments -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_additionalSupportingDocuments" xlink:label="additionalSupportingDocuments" xlink:title="additionalSupportingDocuments"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-24" xlink:to="additionalSupportingDocuments" xlink:title="definition: ibg-24 to additionalSupportingDocuments" order="2" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="additionalSupportingDocuments" xlink:to="InvoiceID" xlink:title="definition: additionalSupportingDocuments to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_AdditionalSupportingDocuments" xlink:label="AdditionalSupportingDocuments" xlink:title="AdditionalSupportingDocuments"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="additionalSupportingDocuments" xlink:to="AdditionalSupportingDocuments" xlink:title="definition: additionalSupportingDocuments to AdditionalSupportingDocuments" order="2"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/Line">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-25" xlink:label="ibg-25" xlink:title="ibg-25"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ConsumptionTax" xlink:label="TaxCategoryAbstract" xlink:title="TaxCategoryAbstract"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:from="TaxCategoryCode" xlink:to="TaxCategoryAbstract" xlink:title="definition: TaxCategoryCode to TaxCategoryAbstract" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_S10" xlink:label="TaxCategory_S10" xlink:title="TaxCategory_S10"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_S10" xlink:title="definition: TaxCategoryAbstract to TaxCategory_S10" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_AA8" xlink:label="TaxCategory_AA8" xlink:title="TaxCategory_AA8"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_AA8" xlink:title="definition: TaxCategoryAbstract to TaxCategory_AA8" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_E0" xlink:label="TaxCategory_E0" xlink:title="TaxCategory_E0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_E0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_E0" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_G0" xlink:label="TaxCategory_G0" xlink:title="TaxCategory_G0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_G0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_G0" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_O0" xlink:label="TaxCategory_O0" xlink:title="TaxCategory_O0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_O0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_O0" order="5"/>
+        <!-- ibg-36 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-36" xlink:label="ibg-36" xlink:title="ibg-36"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-25" xlink:to="ibg-36" xlink:title="definition: ibg-25 to ibg-36" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-188" xlink:label="ibt-188" xlink:title="ibt-188"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-36" xlink:to="ibt-188" xlink:title="definition: ibg-36 to ibt-188" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-189" xlink:label="ibt-189" xlink:title="ibt-189"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-36" xlink:to="ibt-189" xlink:title="definition: ibg-36 to ibt-189" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-128" xlink:label="ibt-128" xlink:title="ibt-128"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-25" xlink:to="ibt-128" xlink:title="definition: ibg-25 to ibt-128" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-128-1" xlink:label="ibt-128-1" xlink:title="ibt-128-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-128" xlink:to="ibt-128-1" xlink:title="definition: ibt-128 to ibt-128-1" order="1"/>
+        <!-- ibg-26 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-26" xlink:label="ibg-26" xlink:title="ibg-26"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-25" xlink:to="ibg-26" xlink:title="definition: ibg-25 to ibg-26" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-134" xlink:label="ibt-134" xlink:title="ibt-134"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-26" xlink:to="ibt-134" xlink:title="definition: ibg-26 to ibt-134" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-135" xlink:label="ibt-135" xlink:title="ibt-135"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-26" xlink:to="ibt-135" xlink:title="definition: ibg-26 to ibt-135" order="2"/>
+        <!-- ibg-27 targetRole http://www.xbrl.jp/peppol/invoice/lineAllowance -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-27" xlink:label="ibg-27" xlink:title="ibg-27"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/lineAllowance" xlink:from="ibg-25" xlink:to="ibg-27" xlink:title="definition: ibg-25 to ibg-27" order="4"/>
+        <!-- ibg-28 targetRole http://www.xbrl.jp/peppol/invoice/lineCharge -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-28" xlink:label="ibg-28" xlink:title="ibg-28"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/lineCharge" xlink:from="ibg-25" xlink:to="ibg-28" xlink:title="definition: ibg-25 to ibg-28" order="5"/>
+        <!-- ibg-29 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-29" xlink:label="ibg-29" xlink:title="ibg-29"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-25" xlink:to="ibg-29" xlink:title="definition: ibg-25 to ibg-29" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-146" xlink:label="ibt-146" xlink:title="ibt-146"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-146" xlink:title="definition: ibg-29 to ibt-146" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-147" xlink:label="ibt-147" xlink:title="ibt-147"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-147" xlink:title="definition: ibg-29 to ibt-147" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-148" xlink:label="ibt-148" xlink:title="ibt-148"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-148" xlink:title="definition: ibg-29 to ibt-148" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-149" xlink:label="ibt-149" xlink:title="ibt-149"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-149" xlink:title="definition: ibg-29 to ibt-149" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-150" xlink:label="ibt-150" xlink:title="ibt-150"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-29" xlink:to="ibt-150" xlink:title="definition: ibg-29 to ibt-150" order="5"/>
+        <!-- ibg-30 targetRole http://www.xbrl.jp/peppol/invoice/lineTaxInformation -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-30" xlink:label="ibg-30" xlink:title="ibg-30"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xbrldt:targetRole="http://www.xbrl.jp/peppol/invoice/lineTaxInformation" xlink:from="ibg-25" xlink:to="ibg-30" xlink:title="definition: ibg-25 to ibg-30" order="7"/>
+        <!-- ibg-31 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-31" xlink:label="ibg-31" xlink:title="ibg-31"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-25" xlink:to="ibg-31" xlink:title="definition: ibg-25 to ibg-31" order="8"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-153" xlink:label="ibt-153" xlink:title="ibt-153"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-153" xlink:title="definition: ibg-31 to ibt-153" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-154" xlink:label="ibt-154" xlink:title="ibt-154"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-154" xlink:title="definition: ibg-31 to ibt-154" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-155" xlink:label="ibt-155" xlink:title="ibt-155"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-155" xlink:title="definition: ibg-31 to ibt-155" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-156" xlink:label="ibt-156" xlink:title="ibt-156"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-156" xlink:title="definition: ibg-31 to ibt-156" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-157" xlink:label="ibt-157" xlink:title="ibt-157"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-157" xlink:title="definition: ibg-31 to ibt-157" order="5"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-158" xlink:label="ibt-158" xlink:title="ibt-158"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-158" xlink:title="definition: ibg-31 to ibt-158" order="6"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-158-1" xlink:label="ibt-158-1" xlink:title="ibt-158-1"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-158" xlink:to="ibt-158-1" xlink:title="definition: ibt-158 to ibt-158-1" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-158-2" xlink:label="ibt-158-2" xlink:title="ibt-158-2"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibt-158" xlink:to="ibt-158-2" xlink:title="definition: ibt-158 to ibt-158-2" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibt-159" xlink:label="ibt-159" xlink:title="ibt-159"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibt-159" xlink:title="definition: ibg-31 to ibt-159" order="7"/>
+        <!-- ibg-32 -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-32" xlink:label="ibg-32" xlink:title="ibg-32"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-31" xlink:to="ibg-32" xlink:title="definition: ibg-31 to ibg-32" order="8"/>
+        <!-- ibg-25 all (has-hypercube) invoiceLine -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_invoiceLine" xlink:label="invoiceLine" xlink:title="invoiceLine"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-25" xlink:to="invoiceLine" xlink:title="definition: ibg-25 to invoiceLine" order="9" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceLine" xlink:to="InvoiceID" xlink:title="definition: invoiceLine to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceLineID" xlink:label="InvoiceLineID" xlink:title="InvoiceLineID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceLine" xlink:to="InvoiceLineID" xlink:title="definition: invoiceLine to InvoiceLineID" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="invoiceLine" xlink:to="TaxCategoryCode" xlink:title="definition: invoiceLine to TaxCategoryCode" order="3"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/lineAllowance">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-25" xlink:label="ibg-25" xlink:title="ibg-25"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-25" xlink:to="ibg-27" xlink:title="definition: ibg-25 to ibg-27" order="10"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-27" xlink:label="ibg-27" xlink:title="ibg-27"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ConsumptionTax" xlink:label="TaxCategoryAbstract" xlink:title="TaxCategoryAbstract"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:from="TaxCategoryCode" xlink:to="TaxCategoryAbstract" xlink:title="definition: TaxCategoryCode to TaxCategoryAbstract" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_S10" xlink:label="TaxCategory_S10" xlink:title="TaxCategory_S10"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_S10" xlink:title="definition: TaxCategoryAbstract to TaxCategory_S10" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_AA8" xlink:label="TaxCategory_AA8" xlink:title="TaxCategory_AA8"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_AA8" xlink:title="definition: TaxCategoryAbstract to TaxCategory_AA8" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_E0" xlink:label="TaxCategory_E0" xlink:title="TaxCategory_E0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_E0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_E0" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_G0" xlink:label="TaxCategory_G0" xlink:title="TaxCategory_G0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_G0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_G0" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_O0" xlink:label="TaxCategory_O0" xlink:title="TaxCategory_O0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_O0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_O0" order="5"/>
+        <!-- ibg-27 all (has-hypercube) lineAllowance -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_lineAllowance" xlink:label="lineAllowance" xlink:title="lineAllowance"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-27" xlink:to="lineAllowance" xlink:title="definition: ibg-27 to lineAllowance" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineAllowance" xlink:to="InvoiceID" xlink:title="definition: lineAllowance to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceLineID" xlink:label="InvoiceLineID" xlink:title="InvoiceLineID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineAllowance" xlink:to="InvoiceLineID" xlink:title="definition: lineAllowance to InvoiceLineID" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_LineAllowance" xlink:label="LineAllowance" xlink:title="LineAllowance"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineAllowance" xlink:to="LineAllowance" xlink:title="definition: lineAllowance to LineAllowance" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineAllowance" xlink:to="TaxCategoryCode" xlink:title="definition: lineAllowance to TaxCategoryCode" order="4"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/lineCharge">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-25" xlink:label="ibg-25" xlink:title="ibg-25"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-25" xlink:to="ibg-28" xlink:title="definition: ibg-25 to ibg-28" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-28" xlink:label="ibg-28" xlink:title="ibg-28"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ConsumptionTax" xlink:label="TaxCategoryAbstract" xlink:title="TaxCategoryAbstract"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:from="TaxCategoryCode" xlink:to="TaxCategoryAbstract" xlink:title="definition: TaxCategoryCode to TaxCategoryAbstract" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_S10" xlink:label="TaxCategory_S10" xlink:title="TaxCategory_S10"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_S10" xlink:title="definition: TaxCategoryAbstract to TaxCategory_S10" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_AA8" xlink:label="TaxCategory_AA8" xlink:title="TaxCategory_AA8"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_AA8" xlink:title="definition: TaxCategoryAbstract to TaxCategory_AA8" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_E0" xlink:label="TaxCategory_E0" xlink:title="TaxCategory_E0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_E0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_E0" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_G0" xlink:label="TaxCategory_G0" xlink:title="TaxCategory_G0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_G0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_G0" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_O0" xlink:label="TaxCategory_O0" xlink:title="TaxCategory_O0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_O0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_O0" order="5"/>
+        <!-- ibg-28 all (has-hypercube) lineCharge -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_lineCharge" xlink:label="lineCharge" xlink:title="lineCharge"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-28" xlink:to="lineCharge" xlink:title="definition: ibg-28 to lineCharge" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineCharge" xlink:to="InvoiceID" xlink:title="definition: lineCharge to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceLineID" xlink:label="InvoiceLineID" xlink:title="InvoiceLineID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineCharge" xlink:to="InvoiceLineID" xlink:title="definition: lineCharge to InvoiceLineID" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_LineCharge" xlink:label="LineCharge" xlink:title="LineCharge"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineCharge" xlink:to="LineCharge" xlink:title="definition: lineCharge to LineCharge" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineCharge" xlink:to="TaxCategoryCode" xlink:title="definition: lineCharge to TaxCategoryCode" order="4"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/lineTaxInformation">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-30" xlink:title="definition: ibg-00 to ibg-30" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-30" xlink:label="ibg-30" xlink:title="ibg-30"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ConsumptionTax" xlink:label="TaxCategoryAbstract" xlink:title="TaxCategoryAbstract"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/dimension-domain" xlink:from="TaxCategoryCode" xlink:to="TaxCategoryAbstract" xlink:title="definition: TaxCategoryCode to TaxCategoryAbstract" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_S10" xlink:label="TaxCategory_S10" xlink:title="TaxCategory_S10"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_S10" xlink:title="definition: TaxCategoryAbstract to TaxCategory_S10" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_AA8" xlink:label="TaxCategory_AA8" xlink:title="TaxCategory_AA8"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_AA8" xlink:title="definition: TaxCategoryAbstract to TaxCategory_AA8" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_E0" xlink:label="TaxCategory_E0" xlink:title="TaxCategory_E0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_E0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_E0" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_G0" xlink:label="TaxCategory_G0" xlink:title="TaxCategory_G0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_G0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_G0" order="4"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategory_O0" xlink:label="TaxCategory_O0" xlink:title="TaxCategory_O0"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="TaxCategoryAbstract" xlink:to="TaxCategory_O0" xlink:title="definition: TaxCategoryAbstract to TaxCategory_O0" order="5"/>
+        <!-- ibg-30 all (has-hypercube) lineTaxInformation -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_lineTaxInformation" xlink:label="lineTaxInformation" xlink:title="lineTaxInformation"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-30" xlink:to="lineTaxInformation" xlink:title="definition: ibg-30 to lineTaxInformation" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineTaxInformation" xlink:to="InvoiceID" xlink:title="definition: lineTaxInformation to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceLineID" xlink:label="InvoiceLineID" xlink:title="InvoiceLineID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineTaxInformation" xlink:to="InvoiceLineID" xlink:title="definition: lineTaxInformation to InvoiceLineID" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_LineTaxInformation" xlink:label="LineTaxInformation" xlink:title="LineTaxInformation"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineTaxInformation" xlink:to="LineTaxInformation" xlink:title="definition: lineTaxInformation to LineTaxInformation" order="3"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_TaxCategoryCode" xlink:label="TaxCategoryCode" xlink:title="TaxCategoryCode"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="lineTaxInformation" xlink:to="TaxCategoryCode" xlink:title="definition: lineTaxInformation to TaxCategoryCode" order="4"/>
+    </link:definitionLink>
+    <link:definitionLink xlink:type="extended" xlink:role="http://www.xbrl.jp/peppol/invoice/itemAttribute">
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-00" xlink:label="ibg-00" xlink:title="ibg-00"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/domain-member" xlink:from="ibg-00" xlink:to="ibg-32" xlink:title="definition: ibg-00 to ibg-32" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ibg-32" xlink:label="ibg-32" xlink:title="ibg-32"/>
+        <!-- ibg-32 all (has-hypercube) itemAttribute -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_H_itemAttribute" xlink:label="itemAttribute" xlink:title="itemAttribute"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/all" xlink:from="ibg-32" xlink:to="itemAttribute" xlink:title="definition: ibg-32 to itemAttribute" order="1" xbrldt:closed="true" xbrldt:contextElement="segment"/>
+        <!-- hypercube-dimension -->
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceID" xlink:label="InvoiceID" xlink:title="InvoiceID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="itemAttribute" xlink:to="InvoiceID" xlink:title="definition: itemAttribute to InvoiceID" order="1"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_InvoiceLineID" xlink:label="InvoiceLineID" xlink:title="InvoiceLineID"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="itemAttribute" xlink:to="InvoiceLineID" xlink:title="definition: itemAttribute to InvoiceLineID" order="2"/>
+        <link:loc xlink:type="locator" xlink:href="core.xsd#pint_ItemAttribute" xlink:label="ItemAttribute" xlink:title="ItemAttribute"/>
+        <link:definitionArc xlink:type="arc" xlink:arcrole="http://xbrl.org/int/dim/arcrole/hypercube-dimension" xlink:from="itemAttribute" xlink:to="ItemAttribute" xlink:title="definition: itemAttribute to ItemAttribute" order="3"/>
+    </link:definitionLink>
+</link:linkbase>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (c) 2022 XBRL Japan  inc. -->
+<xs:schema 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	targetNamespace="http://www.xbrl.jp/core-japan" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:cor="http://www.xbrl.jp/core-japan" 
+	xmlns:xl="http://www.xbrl.org/2003/XLink" 
+	xmlns:xbrli="http://www.xbrl.org/2003/instance" 
+	xmlns:link="http://www.xbrl.org/2003/linkbase" 
+	xmlns:nonnum="http://www.xbrl.org/dtr/type/non-numeric" 
+	xmlns:num="http://www.xbrl.org/dtr/type/numeric" 
+	xmlns:xbrldt="http://xbrl.org/2005/xbrldt" 
+	xmlns:gen="http://xbrl.org/2008/generic" 
+	xmlns:label="http://xbrl.org/2008/label" 
+	xmlns:reference="http://xbrl.org/2008/reference">
+	<xs:annotation>
+		<xs:appinfo>
+<!--			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/presentationLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-pre.xml"/>
+-->			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-def.xml"/>
+<!--			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/referenceLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-ref.xml"/>
+			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-ja.xml"/>
+			<link:linkbaseRef xlink:type="simple" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="core-lbl-en.xml"/>
+-->			<!-- 
+                 role type
+            -->
+			<link:roleType id="invoice" roleURI="http://www.xbrl.jp/core-japan/invoice">
+				<link:definition>Invoice</link:definition>
+				<link:usedOn>link:presentationLink</link:usedOn>
+				<link:usedOn>link:definitionLink</link:usedOn>
+				<link:usedOn>link:referenceLink</link:usedOn>
+			</link:roleType>
+			<link:roleType id="invoiceLine" roleURI="http://www.xbrl.jp/core-japan/invoiceLine">
+				<link:definition>Invoice Line</link:definition>
+				<link:usedOn>link:definitionLink</link:usedOn>
+			</link:roleType>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
+	<xs:import namespace="http://www.xbrl.org/2003/linkbase" schemaLocation="http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"/>
+	<xs:import namespace="http://xbrl.org/2005/xbrldt" schemaLocation="http://www.xbrl.org/2005/xbrldt-2005.xsd"/>
+	<xs:import namespace="http://www.xbrl.org/dtr/type/numeric" schemaLocation="http://www.xbrl.org/dtr/type/numeric-2009-12-16.xsd"/>
+	<xs:import namespace="http://www.xbrl.org/dtr/type/non-numeric" schemaLocation="http://www.xbrl.org/dtr/type/nonNumeric-2009-12-16.xsd"/>
+	<xs:import namespace="http://xbrl.org/2008/label" schemaLocation="http://www.xbrl.org/2008/generic-label.xsd"/>
+	<xs:import namespace="http://xbrl.org/2008/reference" schemaLocation="http://www.xbrl.org/2008/generic-reference.xsd"/>
+	<!-- TypedDimension -->
+	<xs:element name="_v" id="_v">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<!-- Hypercube -->
+	<xs:element name="n_NC00" id="h_NC00" type="xbrli:stringItemType" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<xs:element name="n_NC61" id="h_NC61" type="xbrli:stringItemType" substitutionGroup="xbrldt:hypercubeItem" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<!-- Dimension -->
+	<xs:element name="d_NC00" id="d_NC00" type="xbrli:stringItemType" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
+	<xs:element name="d_NC61" id="d_NC61" type="xbrli:stringItemType" substitutionGroup="xbrldt:dimensionItem" nillable="true" abstract="true" xbrli:periodType="instant" xbrldt:typedDomainRef="#_v"/>
+	<!-- item type -->
+	<xs:complexType name="amountItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:monetaryItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="percentageItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:pureItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="quantityItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:pureItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="textItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:stringItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="codeItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:tokenItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="unitPriceAmountItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:monetaryItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="dateItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:dateTimeItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="timeItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:dateTimeItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="identifierItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:tokenItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="documentReferenceItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:tokenItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="binaryObjectItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:stringItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="tradingNameItemType">
+		<xs:simpleContent>
+			<xs:restriction base="xbrli:stringItemType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="NC00" id="NC00" type="xbrli:stringItemType" substitutionGroup="xbrli:item" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<xs:element name="NC00-19" id="NC00-19" type="cor:textItemType" substitutionGroup="xbrli:item" nillable="false" xbrli:periodType="instant"/>
+	<xs:element name="NC00-21" id="NC00-21" type="cor:textItemType" substitutionGroup="xbrli:item" nillable="false" xbrli:periodType="instant"/>
+	<xs:element name="NC39" id="NC39" type="xbrli:stringItemType" substitutionGroup="xbrli:item" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<xs:element name="NC61" id="NC61" type="xbrli:stringItemType" substitutionGroup="xbrli:item" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<xs:element name="NC61-01" id="NC61-01" type="cor:textItemType" substitutionGroup="xbrli:item" nillable="false" xbrli:periodType="instant"/>
+	<xs:element name="NC61-03" id="NC61-03" type="cor:amountItemType" substitutionGroup="xbrli:item" nillable="false" xbrli:periodType="instant"/>
+	<xs:element name="NC63" id="NC63" type="xbrli:stringItemType" substitutionGroup="xbrli:item" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<xs:element name="NC63-04" id="NC63-04" type="cor:quantityItemType" substitutionGroup="xbrli:item" nillable="false" xbrli:periodType="instant"/>
+	<xs:element name="NC75" id="NC75" type="xbrli:stringItemType" substitutionGroup="xbrli:item" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<xs:element name="NC75-07" id="NC75-07" type="cor:textItemType" substitutionGroup="xbrli:item" nillable="false" xbrli:periodType="instant"/>
+	<xs:element name="NC76" id="NC76" type="xbrli:stringItemType" substitutionGroup="xbrli:item" nillable="true" abstract="true" xbrli:periodType="instant"/>
+	<xs:element name="NC76-02" id="NC76-02" type="cor:unitPriceAmountItemType" substitutionGroup="xbrli:item" nillable="false" xbrli:periodType="instant"/>
+</xs:schema>

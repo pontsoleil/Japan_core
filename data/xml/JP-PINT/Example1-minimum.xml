@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+	xmlns:myext="urn:mycompany:names:specification:ubl:extension:xsd:MyUBLExtensions-1"
 	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
 	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
 	xmlns:ccts="urn:un:unece:uncefact:documentation:2"
@@ -112,7 +113,8 @@
 			<cbc:PriceAmount currencyID="JPY">50000</cbc:PriceAmount> <!--IBT-146 - Item net price -->
 			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity> <!--IBT-149 - Item price base quantity, IBT-150 - Item price base quantity unit of measure code -->
 		</cac:Price>
-	</cac:InvoiceLine>
+<!--		<myext:TaxInclusiveLineExtensionAmount currencyID="USD">110.00</myext:TaxInclusiveLineExtensionAmount>
+-->	</cac:InvoiceLine>
 	<cac:InvoiceLine> <!--IBG-25 - INVOICE LINE -->
 		<cbc:ID>2</cbc:ID> <!--IBT-126 - Invoice line identifier -->
 		<cbc:InvoicedQuantity unitCode="H87">5</cbc:InvoicedQuantity> <!--IBT-130 - Invoiced quantity unit of measure code, IBT-129 - Invoiced quantity -->
@@ -157,6 +159,52 @@
 		<cac:Price> <!--IBG-29 - PRICE DETAILS -->
 			<cbc:PriceAmount currencyID="JPY">349</cbc:PriceAmount> <!--IBT-146 - Item net price -->
 			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity> <!--IBT-149 - Item price base quantity, IBT-150 - Item price base quantity unit of measure code -->
+		</cac:Price>
+	</cac:InvoiceLine>
+		<cac:InvoiceLine>
+		<cbc:ID>2</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="H87">5</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="JPY">2500</cbc:LineExtensionAmount>
+		<cac:InvoicePeriod>
+			<cbc:StartDate>2023-10-18</cbc:StartDate>
+			<cbc:EndDate>2023-10-18</cbc:EndDate>
+		</cac:InvoicePeriod>
+		<cac:Item>
+			<cbc:Name>コピー用紙（A4）</cbc:Name>
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>10</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="JPY">500</cbc:PriceAmount>
+			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
+		</cac:Price>
+	</cac:InvoiceLine>
+	<cac:InvoiceLine>
+		<cbc:ID>3</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="H87">10</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="JPY">3490</cbc:LineExtensionAmount>
+		<cac:InvoicePeriod>
+			<cbc:StartDate>2023-10-18</cbc:StartDate>
+			<cbc:EndDate>2023-10-18</cbc:EndDate>
+		</cac:InvoicePeriod>
+		<cac:Item>
+			<cbc:Name>検定済教科書(算数)</cbc:Name>
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>E</cbc:ID>
+				<cbc:Percent>0</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="JPY">349</cbc:PriceAmount>
+			<cbc:BaseQuantity unitCode="H87">1</cbc:BaseQuantity>
 		</cac:Price>
 	</cac:InvoiceLine>
 </Invoice>

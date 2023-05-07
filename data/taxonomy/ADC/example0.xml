@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	(c) 2022 XBRL Japan  inc. 
+	Edited by Nobuyuki SAMBUICHI
+-->
+<xbrl 
+    xmlns="http://www.xbrl.org/2003/instance" 
+    xmlns:adc="http://www.xbrl.jp/audit-data-collection" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:link="http://www.xbrl.org/2003/linkbase" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns:xbrldi="http://xbrl.org/2006/xbrldi" 
+    xmlns:xbrldt="http://xbrl.org/2005/xbrldt" 
+    xmlns:num="http://www.xbrl.org/dtr/type/numeric" 
+    xmlns:nonnum="http://www.xbrl.org/dtr/type/non-numeric" 
+    xmlns:iso4217="http://www.xbrl.org/2003/iso4217" 
+    xsi:schemaLocation="http://xbrl.org/2006/xbrldi http://www.xbrl.org/2006/xbrldi-2006.xsd http://www.xbrl.jp/audit-data-collection core.xsd">
+
+    <link:schemaRef xlink:type="simple" xlink:href="core.xsd" />
+
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="JPY">
+        <measure>iso4217:JPY</measure>
+    </unit>
+
+    <context id="A051_JKL">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period>
+            <instant>2022-11-24</instant>
+        </period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>JKL</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+
+    <!--<adc:A051-001 contextRef="A051_JKL">JKL</adc:A051-001>-->
+    <adc:A051-002 contextRef="A051_JKL">JKL</adc:A051-002>
+    <adc:A051-003 contextRef="A051_JKL">JKL</adc:A051-003>
+    <adc:A051-004 contextRef="A051_JKL">JKL</adc:A051-004>
+    <adc:A051-005 contextRef="A051_JKL">JKL</adc:A051-005>
+    <adc:A051-006 contextRef="A051_JKL">2022-11-24</adc:A051-006>
+    <adc:A051-007 contextRef="A051_JKL">JKL</adc:A051-007>
+    <adc:A051-008 contextRef="A051_JKL">JKL</adc:A051-008>
+    <adc:A051-009 contextRef="A051_JKL">JKL</adc:A051-009>
+    <adc:A051-010 contextRef="A051_JKL">JKL</adc:A051-010>
+    <adc:A051-011 contextRef="A051_JKL">JKL</adc:A051-011>
+    <adc:A051-012 contextRef="A051_JKL" decimals="0" unitRef="JPY">1100</adc:A051-012>
+    <adc:A051-024 contextRef="A051_JKL">JKL</adc:A051-024>
+
+
+    <context id="A053_EDC">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period>
+            <instant>2022-11-24</instant>
+        </period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A053"><adc:_v>EDC</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+
+    <adc:A053-001 contextRef="A053_EDC">EDC</adc:A053-001>
+    <adc:A053-002 contextRef="A053_EDC">EDC</adc:A053-002>
+    <adc:A053-003 contextRef="A053_EDC">EDC</adc:A053-003>
+    <adc:A053-003 contextRef="A053_EDC">EDC</adc:A053-003>
+    <adc:A053-004 contextRef="A053_EDC">EDC</adc:A053-004>
+    <adc:A053-006 contextRef="A053_EDC">EDC</adc:A053-006>
+    <adc:A053-007 contextRef="A053_EDC">2022-11-24</adc:A053-007>
+    <adc:A053-008 contextRef="A053_EDC">2022-12-31</adc:A053-008>
+    <adc:A053-009 contextRef="A053_EDC">EDC</adc:A053-009>
+    <adc:A053-011 contextRef="A053_EDC">EDC</adc:A053-011>
+    <adc:A053-012 contextRef="A053_EDC" decimals="0" unitRef="JPY">1100</adc:A053-012>
+    <adc:A053-014 contextRef="A053_EDC">EDC</adc:A053-014>
+
+</xbrl>

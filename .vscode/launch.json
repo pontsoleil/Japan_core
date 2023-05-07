@@ -11,7 +11,9 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "justMyCode": true,
-      "args": ["data/base/core_japan.csv", "-o data/xbrl/core.xsd", "-e utf-8", "-d", "-v"] // ADCS_H2xBRL-taxonomy.py
+      "args": ["hokkaidou_sangyou.csv", "-o tidy_hokkaidou_sangyou.csv", "-e utf-8", "-d", "-v"] // mapping.py
+
+      // "args": ["data/base/core_japan.csv", "-o data/xbrl/core.xsd", "-e utf-8", "-d", "-v"] // ADCS_H2xBRL-taxonomy.py
       // "args": ["JP-PINT/Example.csv", "-c TRANSPOSE/Example.csv", "-t TRANSPOSE/Example.csv", "-e utf-16", "-d", "-v"] // transpose-utf16.py
     }
   ]

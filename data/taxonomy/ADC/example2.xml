@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	(c) 2022 XBRL Japan  inc. 
+	Edited by Nobuyuki SAMBUICHI
+-->
+<xbrl 
+	xmlns="http://www.xbrl.org/2003/instance" 
+	xmlns:adc="http://xbrl.or.jp/audit-data-collection" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:link="http://www.xbrl.org/2003/linkbase" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns:xbrldi="http://xbrl.org/2006/xbrldi" 
+	xmlns:xbrldt="http://xbrl.org/2005/xbrldt"
+	xmlns:num="http://www.xbrl.org/dtr/type/numeric" 
+	xmlns:nonnum="http://www.xbrl.org/dtr/type/non-numeric" 
+	xmlns:iso4217="http://www.xbrl.org/2003/iso4217" 
+	xsi:schemaLocation="http://xbrl.org/2006/xbrldi http://www.xbrl.org/2006/xbrldi-2006.xsd http://xbrl.or.jp/audit-data-collection core.xsd">
+
+    <link:schemaRef xlink:type="simple" xlink:href="core.xsd" />
+
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="JPY">
+        <measure>iso4217:JPY</measure>
+    </unit>
+
+    <context id="A051_JKL">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>JKL</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+    <context id="A051_JKL_A052_001">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>JKL</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A052"><adc:_v>01</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+    <context id="A051_JKL_A052_001_A081_S10">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>JKL</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A052"><adc:_v>01</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A081"><adc:_v>S10</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+
+    <adc:A051-001 contextRef="A051_JKL">JKL</adc:A051-001>
+    <adc:A051-012 contextRef="A051_JKL" decimals="0" unitRef="JPY">1100</adc:A051-012>
+    
+    <!-- <adc:A081-001 contextRef="A051_JKL">S10</adc:A081-001> -->
+    <!-- <adc:A081-001 contextRef="A051_JKL">S8</adc:A081-001> shall REPORT AN ERROR -->
+    <!-- <adc:A081-002 contextRef="A051_JKL" decimals="0" unitRef="JPY">100</adc:A081-002>
+    <adc:A081-003 contextRef="A051_JKL">789-541-357</adc:A081-003>
+    <adc:A081-004 contextRef="A051_JKL">741-582-456</adc:A081-004> -->
+    
+    <adc:A051-A075-001 contextRef="A051_JKL">Entered</adc:A051-A075-001>
+    <adc:A051-A075-002 contextRef="A051_JKL">u0234</adc:A051-A075-002>
+    <adc:A051-A075-003 contextRef="A051_JKL">2022-11-18</adc:A051-A075-003>
+    
+    <adc:A051-A052-002 contextRef="A051_JKL_A052_001">01</adc:A051-A052-002>
+    <adc:A051-A052-018 contextRef="A051_JKL_A052_001" decimals="0" unitRef="JPY">1000</adc:A051-A052-018>
+    <adc:A051-A052-029 contextRef="A051_JKL_A052_001">調査資料</adc:A051-A052-029>
+    
+    <adc:A052-A081-001 contextRef="A051_JKL_A052_001">S10</adc:A052-A081-001>
+    <adc:A052-A081-002 contextRef="A051_JKL_A052_001" decimals="0" unitRef="JPY">100</adc:A052-A081-002>
+    <adc:A052-A081-003 contextRef="A051_JKL_A052_001">789-541-357</adc:A052-A081-003>
+    <adc:A052-A081-004 contextRef="A051_JKL_A052_001">741-582-456</adc:A052-A081-004>
+    
+    <adc:A052-A081-001 contextRef="A051_JKL_A052_001_A081_S10">S10</adc:A052-A081-001>
+    <adc:A052-A081-002 contextRef="A051_JKL_A052_001_A081_S10" decimals="0" unitRef="JPY">100</adc:A052-A081-002>
+    <adc:A052-A081-003 contextRef="A051_JKL_A052_001_A081_S10">789-541-357</adc:A052-A081-003>
+    <adc:A052-A081-004 contextRef="A051_JKL_A052_001_A081_S10">741-582-456</adc:A052-A081-004>
+
+
+    <context id="A051_AQZ">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>AQZ</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+    <context id="A051_AQZ_A081_S10">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>AQZ</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A081"><adc:_v>S10</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+    <context id="A051_AQZ_A081_AA8">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>AQZ</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A081"><adc:_v>AA8</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+    <context id="A051_AQZ_A075_Entered">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>AQZ</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A075"><adc:_v>Entered</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+    <context id="A051_AQZ_A075_Approved">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>AQZ</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A075"><adc:_v>Approved</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+
+    <context id="A051_AQZ_A052_001">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>AQZ</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A052"><adc:_v>01</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+    <context id="A051_AQZ_A052_002">
+        <entity>
+            <identifier scheme="http://example.com/ADC">12345678</identifier>
+        </entity>
+        <period><instant>2022-11-24</instant></period>
+        <scenario>
+            <xbrldi:typedMember dimension="adc:d_A051"><adc:_v>AQZ</adc:_v></xbrldi:typedMember>
+            <xbrldi:typedMember dimension="adc:d_A052"><adc:_v>02</adc:_v></xbrldi:typedMember>
+        </scenario>
+    </context>
+
+    <adc:A051-001 contextRef="A051_AQZ">AQZ</adc:A051-001>
+    <adc:A051-012 contextRef="A051_AQZ" decimals="0" unitRef="JPY">1640</adc:A051-012>
+    
+    <!--<adc:A081-001 contextRef="A051_AQZ_A081_S10">S10</adc:A081-001>
+    <adc:A081-001 contextRef="A051_AQZ_A081_S10">S8</adc:A081-001> --><!-- SHALL REPORT ERROR --><!--
+    <adc:A081-002 contextRef="A051_AQZ_A081_S10" decimals="0" unitRef="JPY">100</adc:A081-002>
+    <adc:A081-003 contextRef="A051_AQZ_A081_S10">789-541-357</adc:A081-003>
+    <adc:A081-004 contextRef="A051_AQZ_A081_S10">741-582-456</adc:A081-004>
+    
+    <adc:A081-001 contextRef="A051_AQZ_A081_AA8">AA8</adc:A081-001>
+    <adc:A081-002 contextRef="A051_AQZ_A081_AA8" decimals="0" unitRef="JPY">40</adc:A081-002>
+    <adc:A081-003 contextRef="A051_AQZ_A081_AA8">789-541-451</adc:A081-003>
+    <adc:A081-004 contextRef="A051_AQZ_A081_AA8">741-582-861</adc:A081-004>-->
+
+    <adc:A051-A075-001 contextRef="A051_AQZ_A075_Entered">Entered</adc:A051-A075-001>
+    <adc:A051-A075-002 contextRef="A051_AQZ_A075_Entered">u0234</adc:A051-A075-002>
+    <adc:A051-A075-003 contextRef="A051_AQZ_A075_Entered">2022-11-18</adc:A051-A075-003>
+    
+    <adc:A051-A075-001 contextRef="A051_AQZ_A075_Approved">Approved</adc:A051-A075-001>
+    <adc:A051-A075-002 contextRef="A051_AQZ_A075_Approved">u0045</adc:A051-A075-002>
+    <adc:A051-A075-003 contextRef="A051_AQZ_A075_Approved">2022-11-21</adc:A051-A075-003>
+
+    <adc:A051-A052-002 contextRef="A051_AQZ_A052_001">01</adc:A051-A052-002>
+    <adc:A051-A052-018 contextRef="A051_AQZ_A052_001" decimals="0" unitRef="JPY">1000</adc:A051-A052-018>
+    <adc:A051-A052-029 contextRef="A051_AQZ_A052_001">調査資料</adc:A051-A052-029>
+    <!-- <adc:A081-001 contextRef="A051_AQZ_A052_001">S10</adc:A081-001>
+    <adc:A081-002 contextRef="A051_AQZ_A052_001" decimals="0" unitRef="JPY">100</adc:A081-002>
+    <adc:A081-003 contextRef="A051_AQZ_A052_001">789-541-357</adc:A081-003>
+    <adc:A081-004 contextRef="A051_AQZ_A052_001">741-582-456</adc:A081-004> -->
+
+    <adc:A051-A052-002 contextRef="A051_AQZ_A052_002">02</adc:A051-A052-002>
+    <adc:A051-A052-018 contextRef="A051_AQZ_A052_002" decimals="0" unitRef="JPY">500</adc:A051-A052-018>
+    <adc:A051-A052-029 contextRef="A051_AQZ_A052_002">飲料水</adc:A051-A052-029>
+    <!-- <adc:A081-001 contextRef="A051_AQZ_A052_002">AA8</adc:A081-001>
+    <adc:A081-002 contextRef="A051_AQZ_A052_002" decimals="0" unitRef="JPY">40</adc:A081-002>
+    <adc:A081-003 contextRef="A051_AQZ_A052_002">789-541-451</adc:A081-003>
+    <adc:A081-004 contextRef="A051_AQZ_A052_002">741-582-861</adc:A081-004> -->
+
+
+</xbrl>
