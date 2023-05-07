@@ -9,21 +9,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-//import java.util.Collections;
-//import java.util.Comparator;
-//import java.util.HashMap;
-//import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-//import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Stream;
 
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-//import org.w3c.dom.NodeList;
 
-//import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -67,10 +61,10 @@ public class Adc2csv
 	static String INVOICE_NUMBER    = null;  /*インボイス番号*/
 	static int COUNT_TAX_BREAKDOWN  = 0;
 	
-	/**
-	 * 複数回繰り返され定義されているJBGグループ
-	 */
-	public static TreeMap<Integer/*semSort*/, String/*id*/> multipleMap = new TreeMap<>();
+//	/**
+//	 * 複数回繰り返され定義されているJBGグループ
+//	 */
+//	public static TreeMap<Integer/*semSort*/, String/*id*/> multipleMap = new TreeMap<>();
 
 	/**
 	 * Tidy dataテーブルの行を指定する索引データ
@@ -114,75 +108,92 @@ public class Adc2csv
 		if (args.length <= 1) 
 		{
 			TRACE = true;
-			DEBUG = false;
+			DEBUG = true;
 			if (0==PROCESSING.indexOf("XBRL-GL")) {
-				IN_DIR  = FileHandler.IN_DIR;
-//				IN_XML  = "data/xml/XBRL-GL/0001-20090401-18-1-1-463.xml";				
-				OUT_CSV = FileHandler.OUT_CSV;//"data/csv/XBRL-GL/0001-20090401-18-1-1-463.csv";
+//				IN_DIR  = FileHandler.IN_DIR;
+				IN_XML  = "XBRL_GLinstances/0001-20100331-70-2778-1-6017.xml";				
+				OUT_CSV = "data/csv/XBRL-GL/0001-20100331-70-2778-1-6017.csv"; //FileHandler.OUT_CSV;
 			} else {
 				return;
 			}
-		} else if (args.length >= 3) 
+		} else if (args.length >= 4) 
 		{
-			IN_XML     = args[1];	
-			OUT_CSV    = args[2];
-			if (4==args.length) {
-				if (args[3].indexOf("T")>=0)
+			String option = args[1];
+	        String value = args[2];
+	        switch (option) {
+	            case "-f":
+	                IN_XML = value;
+	                break;
+	            case "-d":
+	                IN_DIR = value;
+	                break;
+	            default:
+	                System.out.println("Unknown option: " + option);
+	                return;
+	        }	        
+			OUT_CSV    = args[3];
+			if (5==args.length) {
+				if (args[4].indexOf("T")>=0)
 					TRACE = true;
-				if (args[3].indexOf("D")>=0)
+				if (args[4].indexOf("D")>=0)
 					DEBUG = true;
 			}	
 		}
-		if (args.length>=5) 
+//		if (args.length>=5) 
+//		{
+//			SYNTAX_BINDING = args[3];
+//			XML_SKELTON    = args[4];
+//			FileHandler.SYNTAX_BINDING = SYNTAX_BINDING;
+//			FileHandler.XML_SKELTON    = XML_SKELTON;
+//			if (4==args.length) {
+//				if (args[5].indexOf("T")>=0)
+//					TRACE = true;
+//				if (args[5].indexOf("D")>=0)
+//					DEBUG = true;
+//			}	
+//		} else 
+//		{
+		if (0==PROCESSING.indexOf("XBRL-GL")) 
 		{
-			SYNTAX_BINDING = args[3];
-			XML_SKELTON    = args[4];
-			FileHandler.SYNTAX_BINDING = SYNTAX_BINDING;
-			FileHandler.XML_SKELTON    = XML_SKELTON;
-			if (4==args.length) {
-				if (args[5].indexOf("T")>=0)
-					TRACE = true;
-				if (args[5].indexOf("D")>=0)
-					DEBUG = true;
-			}	
+			FileHandler.SYNTAX_BINDING = FileHandler.XBRL_GL_CSV;
 		} else 
 		{
-			if (0==PROCESSING.indexOf("XBRL-GL")) 
-			{
-				FileHandler.SYNTAX_BINDING = FileHandler.XBRL_GL_CSV;
-			} else 
-			{
-				return;
-			}
+			return;
 		}
+//		}
 		FileHandler.PROCESSING = PROCESSING;
 		FileHandler.TRACE      = TRACE;	
 		FileHandler.DEBUG      = DEBUG;	
 	
 		Path dirPath;
         try {
-        	dirPath = Paths.get(IN_DIR);
-        	if (Files.notExists(dirPath) || !Files.isDirectory(dirPath)) {
-			    throw new FileNotFoundException("The specified directory does not exist or is not a directory.");
-			}
-        	@SuppressWarnings("resource")
-			Stream<Path> filePaths = Files.list(dirPath);
-        	boolean[] header = {true};
-        	// header を boolean 配列にしています。ラムダ式内で配列の要素にアクセスするためには、最終的な要素に対するアクセスであれば、effectively final とみなされるため、警告が発生しなくなります。
-            filePaths.filter(Files::isRegularFile)
-                    .forEach(file -> {
-                    	IN_XML = file.getFileName().toString();
-                    	String in_xml = IN_DIR + "/" + IN_XML;
-                    	processXBRL_GL(in_xml, OUT_CSV, header[0]);
-                    	header[0] = false;
-                    });
+	        boolean[] header = {true};
+        	if (null!=IN_XML && IN_XML.length() > 0)
+        	{
+            	processXBRL_GL(IN_XML, OUT_CSV, header[0]);
+        	} else if (null!=IN_DIR && IN_DIR.length() > 0)
+        	{
+	        	dirPath = Paths.get(IN_DIR);
+	        	if (Files.notExists(dirPath) || !Files.isDirectory(dirPath)) {
+				    throw new FileNotFoundException("The specified directory does not exist or is not a directory.");
+				}
+	        	@SuppressWarnings("resource")
+				Stream<Path> filePaths = Files.list(dirPath);
+	        	// header を boolean 配列にしています。ラムダ式内で配列の要素にアクセスするためには、最終的な要素に対するアクセスであれば、effectively final とみなされるため、警告が発生しなくなります。
+	            filePaths.filter(Files::isRegularFile)
+	                    .forEach(file -> {
+	                    	IN_XML = file.getFileName().toString();
+	                    	String in_xml = IN_DIR + "/" + IN_XML;
+	                    	processXBRL_GL(in_xml, OUT_CSV, header[0]);
+	                    	header[0] = false;
+	                    });
+        	}
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-			
-		System.out.println("** END ** Invoice2csv "+PROCESSING+" "+IN_XML+" "+OUT_CSV);
+		System.out.println("** END Adc2csv "+PROCESSING+" "+IN_XML+" "+OUT_CSV);
 	}
 	
 	/**
@@ -200,12 +211,13 @@ public class Adc2csv
 		rowMap       = new TreeMap<Integer, String>();
 		rowMapList   = new TreeMap<String, TreeMap<Integer, String>>();
 	
-		FileHandler.parseBinding();
+		if (header)
+			FileHandler.parseBinding();
 		
 		try 
 		{
 			FileHandler.parseInvoice(in_xml);
-		} catch (Exception e) 
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return;
@@ -214,20 +226,20 @@ public class Adc2csv
 		FileHandler.nodeMap = FileHandler.parseDoc();
 		
 		// 複数繰返しをチェック
-		multipleMap = new TreeMap<>();
-		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) 
-		{
-			Binding binding = entry.getValue();
-			Integer sort    = binding.getSemSort();
-			String id       = binding.getID();
-			String card     = binding.getCard();
-			if (id.toUpperCase().matches("^[A-Z]+[0-9]+-[A-Z]+[0-9]+$") &&
-					card.matches("^.*n$") && 
-					isMultiple(sort)) 
-			{
-				multipleMap.put(sort, id);
-			}
-		}
+//		multipleMap = new TreeMap<>();
+//		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) 
+//		{
+//			Binding binding = entry.getValue();
+//			Integer sort    = binding.getSemSort();
+//			String id       = binding.getID();
+//			String card     = binding.getCard();
+//			if (id.toUpperCase().matches("^[A-Z]+[0-9]+-[A-Z]+[0-9]+$") &&
+//					card.matches("^.*n$") && 
+//					isMultiple(sort)) 
+//			{
+//				multipleMap.put(sort, id);
+//			}
+//		}
 		
 		Binding binding = FileHandler.bindingDict.get(FileHandler.ROOT_GL_ID);
 		if (null==binding)
@@ -264,7 +276,7 @@ public class Adc2csv
 			e.printStackTrace();
 		}
 
-		if (TRACE) System.out.println("-- END -- IN_XML "+in_xml);
+		if (TRACE) System.out.println("** END IN_XML "+in_xml);
 	}
 
 	/**
@@ -320,6 +332,8 @@ public class Adc2csv
 	            id = id.substring(2);
 
 	        Binding binding = FileHandler.bindingDict.get(id);
+	        if (null==binding)
+	        	continue;
 	        String datatype = binding.getDatatype();
 
 	        ObjectNode columnObj = mapper.createObjectNode();
@@ -399,8 +413,9 @@ public class Adc2csv
 		FileHandler.tidyData = new ArrayList<ArrayList<String>>();		
 		FileHandler.header.add(FileHandler.ROOT_GL_ID);
 
-	    List<String> initialValues = Arrays.asList("GL02","GL02-GL57","GL02-GL64","GL02-GL55","GL55-GL56","GL55-GL60","GL55-GL61","GL55-GL63","GL02-01","GL57-01","GL57-02","GL64-01","GL64-02","GL64-03","GL64-04","GL55-01","GL55-03","GL55-04","GL55-05","GL56-01","GL56-02","GL60-01","GL60-02","GL60-03","GL61-01","GL61-02","GL61-03","GL63-01","GL63-02","GL63-03");
-		FileHandler.header = new ArrayList<>(initialValues);
+		List<String>  initialValues = Arrays.asList("GL02","GL02-GL55","GL55-GL60","GL55-GL61","GL02-01","GL64-01","GL64-02","GL64-03","GL64-04","GL57-01","GL57-02","GL55-03","GL55-04","GL55-05","GL63-01","GL63-02","GL63-03","GL56-01","GL56-02","GL69-02","GL60-01","GL60-02","GL60-03","GL61-01","GL61-02","GL61-03");
+	    FileHandler.header = new ArrayList<>(initialValues);
+	    
 		if (header)
 			FileHandler.tidyData.add(FileHandler.header);
 		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) 
@@ -456,7 +471,8 @@ public class Adc2csv
 		int row_size = FileHandler.tidyData.size();
 		int col_size = FileHandler.tidyData.get(0).size();
 		ArrayList<Boolean> usedList = new ArrayList<>();        
-        for (int i = 0; i < col_size; i++) {
+        for (int i = 0; i < col_size; i++)
+        {
             usedList.add(false);
         }
 		for (int y = 1; y < row_size; y++) 
@@ -469,11 +485,10 @@ public class Adc2csv
 			}
 		}
 		int countUsed = 0;
-        for (Boolean b : usedList) {
-            if (b) {
+        for (Boolean b : usedList)
+            if (b)
             	countUsed++;
-            }
-        }
+        
     	ArrayList<ArrayList<String>> revisedData = new ArrayList<>(row_size);
 		for (int y = 0; y < row_size; y++) 
 		{
@@ -497,7 +512,7 @@ public class Adc2csv
 			if (TRACE) System.out.println(row.toString());
 		}
 		
-		if (TRACE) System.out.println("-- End -- fillTable()");
+		if (DEBUG) System.out.println("-- End -- fillTable()");
 	}
 
 	/**
