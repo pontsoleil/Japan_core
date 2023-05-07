@@ -26,9 +26,9 @@
     <resources>
       <resource>
         <directory>src</directory>
-        <excludes>
+        <!--<excludes>
           <exclude>**/*.java</exclude>
-        </excludes>
+        </excludes>-->
       </resource>
     </resources>
     <plugins>
