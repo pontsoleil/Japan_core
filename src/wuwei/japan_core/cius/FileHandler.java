@@ -110,9 +110,9 @@ public class FileHandler
 	 */
 	public static ArrayList<ArrayList<String>> tidyData = new ArrayList<>();
 	
-	public static Map<String/*id*/,	Binding> bindingDict             = new HashMap<>();
+	public static Map<String/*id*/,	Binding>           bindingDict   = new HashMap<>();
 	public static TreeMap<Integer/*semSort*/, Binding> semBindingMap = new TreeMap<>();
-	static TreeMap<Integer/*synSort*/, Binding> synBindingMap        = new TreeMap<>();
+	public static TreeMap<Integer/*synSort*/, Binding> synBindingMap = new TreeMap<>();
 	
 	public static TreeMap<Integer/*parent semSort*/, ArrayList<Integer/*child semSort*/>> semChildMap = new TreeMap<>();
 	public static TreeMap<Integer/*parent synSort*/, ArrayList<Integer/*child synSort*/>> synChildMap = new TreeMap<>();
