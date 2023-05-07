@@ -896,7 +896,6 @@ public class XPathHandler {
 			IOException 
 	{
 		if (TRACE) System.out.println(" (FileHandler) csvFileWrite " + filename + " " + charset);
-		FileOutputStream fileOutputStream = new FileOutputStream(filename);
 		ArrayList<ArrayList<String>> data = new ArrayList<>();	
 		// header
 		data.add(header);
@@ -904,10 +903,7 @@ public class XPathHandler {
 		for (ArrayList<String> row : tidyData) {
 			data.add(row);
 		}
-		
-		CSV.writeFile(fileOutputStream, data, charset,",");
-
-		fileOutputStream.close();
+		CSV.csvFileWrite(data,filename,charset,",",false);
 	}
 
 	/**
