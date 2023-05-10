@@ -1,24 +1,695 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>CSVテーブル</title>
+    <title>Tidy data table</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        .table-responsive {
+            height: 900px;
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: scroll;
+        }
+
+        .table-responsive>.table {
+            width: max-content;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: #fefefe;
+        }
+
+    </style>
 </head>
+
 <body>
-	<h1>CSVテーブル</h1>
-	<table id="csv-table">
-		<thead>
-			<tr>
-				<th>列1</th>
-				<th>列2</th>
-				<th>列3</th>
-				<!-- ... -->
-			</tr>
-		</thead>
-		<tbody>
-			<!-- CSVの行が展開される -->
-		</tbody>
-	</table>
-	<script src="main.js"></script>
+    <h5>検索専用ブラウザ</h5>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a id="nav_tidy" class="nav-link active" href="#tab_tidy" data-toggle="tab">Tidy data</a>
+        </li>
+        <li class="nav-item">
+            <a id="nav_horizontal" class="nav-link" href="#tab_horizontal" data-toggle="tab">仕訳日記帳</a>
+        </li>
+        <li class="nav-item">
+            <a id="nav_GL" class="nav-link" href="#tab_GL" data-toggle="tab">総勘定元帳</a>
+        </li>
+        <li class="nav-item">
+            <a id="nav_TB" class="nav-link" href="#tab_TB" data-toggle="tab">残高試算表</a>
+        </li>
+        <li class="nav-item">
+            <a id="nav_XBRL=GL" class="nav-link" href="#tab_XBRK-GL" data-toggle="tab">XBRL-GL</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab_tidy">
+            <div style="max-width:100%!important">
+                <div class="table-responsive col-md-12" style="overflow-x:auto;">
+                    <table id="instances" class="table table-sm table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">伝票番号</th> <!-- 0 GL02 -->
+                                <th class="text-center">GL詳細</th> <!-- 1 GL02-GL55 -->
+                                <th class="text-center">ソース説明</th> <!-- 6 GL64-02 -->
+                                <th class="text-center">記帳日</th> <!-- 19 GL69-02 -->
+                                <th class="text-center">摘要</th> <!-- 12 GL55-04 -->
+                                <th class="text-center">借方/貸方</th> <!-- 13 GL55-05 -->
+                                <th class="text-center">勘定科目</th> <!-- 14 GL63-01 -->
+                                <th class="text-center">勘定科目名</th> <!-- 15 GL63-02 -->
+                                <th class="text-center">金額</th> <!-- 17 GL56-01 -->
+                                <th class="text-center">セグメント</th> <!-- 20 GL60-01 -->
+                                <th class="text-center">セグメント名</th> <!-- 22 GL60-03 -->
+                                <th class="text-center">事業セグメント</th> <!-- 23 GL61-01 -->
+                                <th class="text-center">名称</th> <!-- 25 GL61-03 -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- CSVの行が展開される -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab_horizontal">
+            <div style="max-width:100%!important">
+                <div>
+                    <input id="linesButton" class="btn btn-primary" type="button" value="明細行表示切り替え">
+                </div>
+                <div class="table-responsive col-md-12" style="overflow-x:auto;">
+                    <table id="horizontal" class="table table-sm table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">num</th> <!-- 0 -->
+                                <th class="text-center">伝票番号</th> <!-- 1 -->
+                                <th class="text-center">GL詳細</th> <!-- 2 -->
+                                <th class="text-center">借方セグメント</th> <!-- 3 -->
+                                <th class="text-center">貸方セグメント</th> <!-- 4 -->
+                                <th class="text-center">ソース説明</th> <!-- 8 -->
+                                <th class="text-center">記帳日</th> <!-- 15 -->
+                                <th class="text-center">摘要</th> <!-- 14 -->
+                                <th class="text-center">借方科目</th> <!-- 17 -->
+                                <th class="text-center">借方科目名</th> <!-- 18 -->
+                                <th class="text-center">借方金額</th> <!-- 20 -->
+                                <th class="text-center">借方セグメント</th> <!-- 21 -->
+                                <th class="text-center">借方セグメント名</th> <!-- 23 -->
+                                <th class="text-center">貸方科目</th> <!-- 24 -->
+                                <th class="text-center">貸方科目名</th> <!-- 25 -->
+                                <th class="text-center">貸方金額</th> <!-- 27 -->
+                                <th class="text-center">貸方セグメント</th> <!-- 28 -->
+                                <th class="text-center">貸方セグメント名</th> <!-- 30 -->
+                                <th class="text-center">事業セグメント</th> <!-- 31 -->
+                                <th class="text-center">名称</th> <!-- 33 -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- CSVの行が展開される -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab_GL">
+            <div style="max-width:100%!important">
+                <div class="d-flex justify-content-between">
+                    <select id="selectGL" style="height:2rem">
+                        <option value="111現金.csv" selected>111現金</option>
+                        <option value="121当座預金.csv">121当座預金</option>
+                        <option value="131普通預金.csv">131普通預金</option>
+                        <option value="143定期預金.csv">143定期預金</option>
+                        <option value="148定期積金.csv">148定期積金</option>
+                        <option value="150受取手形.csv">150受取手形</option>
+                        <option value="152売掛金.csv">152売掛金</option>
+                        <option value="171商品.csv">171商品</option>
+                        <option value="183短期貸付金.csv">183短期貸付金</option>
+                        <option value="191仮払消費税等.csv">191仮払消費税等</option>
+                        <option value="213構築物.csv">213構築物</option>
+                        <option value="216工具器具備品.csv">216工具器具備品</option>
+                        <option value="248保険積立金.csv">248保険積立金</option>
+                        <option value="301支払手形.csv">301支払手形</option>
+                        <option value="312買掛金.csv">312買掛金</option>
+                        <option value="321短期借入金.csv">321短期借入金</option>
+                        <option value="322未払金.csv">322未払金</option>
+                        <option value="326預り金.csv">326預り金</option>
+                        <option value="327未払事業税等.csv">327未払事業税等</option>
+                        <option value="328未払法人税等.csv">328未払法人税等</option>
+                        <option value="335仮受消費税等.csv">335仮受消費税等</option>
+                        <option value="336未払消費税等.csv">336未払消費税等</option>
+                        <option value="341長期借入金.csv">341長期借入金</option>
+                        <option value="511売上高.csv">511売上高</option>
+                        <option value="521売上値引戻り高.csv">521売上値引戻り高</option>
+                        <option value="523売上割戻し高.csv">523売上割戻し高</option>
+                        <option value="531期首商品棚卸高.csv">531期首商品棚卸高</option>
+                        <option value="541商品仕入高.csv">541商品仕入高</option>
+                        <option value="551仕入値引戻し高.csv">551仕入値引戻し高</option>
+                        <option value="561期末商品棚卸高.csv">561期末商品棚卸高</option>
+                        <option value="711役員報酬.csv">711役員報酬</option>
+                        <option value="712給与手当.csv">712給与手当</option>
+                        <option value="713賞与.csv">713賞与</option>
+                        <option value="721雑給.csv">721雑給</option>
+                        <option value="723法定福利費.csv">723法定福利費</option>
+                        <option value="724福利厚生費.csv">724福利厚生費</option>
+                        <option value="726旅費交通費.csv">726旅費交通費</option>
+                        <option value="727通信費.csv">727通信費</option>
+                        <option value="728業務委託費.csv">728業務委託費</option>
+                        <option value="731運賃.csv">731運賃</option>
+                        <option value="732広告宣伝費.csv">732広告宣伝費</option>
+                        <option value="733交際接待費.csv">733交際接待費</option>
+                        <option value="734会議費.csv">734会議費</option>
+                        <option value="736水道光熱費.csv">736水道光熱費</option>
+                        <option value="737消耗品費.csv">737消耗品費</option>
+                        <option value="738租税公課.csv">738租税公課</option>
+                        <option value="739新聞図書費.csv">739新聞図書費</option>
+                        <option value="740車両費.csv">740車両費</option>
+                        <option value="741支払手数料.csv">741支払手数料</option>
+                        <option value="742諸会費.csv">742諸会費</option>
+                        <option value="744リース料.csv">744リース料</option>
+                        <option value="746支払報酬.csv">746支払報酬</option>
+                        <option value="747地代家賃.csv">747地代家賃</option>
+                        <option value="752保険料.csv">752保険料</option>
+                        <option value="753修繕維持費.csv">753修繕維持費</option>
+                        <option value="754事務用消耗品費.csv">754事務用消耗品費</option>
+                        <option value="763減価償却費.csv">763減価償却費</option>
+                        <option value="791雑費.csv">791雑費</option>
+                        <option value="821支払利息.csv">821支払利息</option>                        
+                    </select>
+                    <div class="table-responsive col-md-12" style="overflow-x:auto;">
+                        <table id="GL" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">num</th> <!-- 0 -->
+                                    <th class="text-center">伝票番号</th> <!-- 1 -->
+                                    <th class="text-center">GL詳細</th> <!-- 2 -->
+                                    <th class="text-center">日付</th> <!-- 3 -->
+                                    <th class="text-center">相手科目</th> <!-- 4 -->
+                                    <th class="text-center">相手科目名</th> <!-- 5 -->
+                                    <th class="text-center">摘要</th> <!-- 6 -->
+                                    <th class="text-center">借方金額</th> <!-- 7 -->
+                                    <th class="text-center">貸方金額</th> <!-- 8 -->
+                                    <th class="text-center">差引金額</th> <!-- 9 -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- CSVの行が展開される -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab_TB">
+            <div style="max-width:100%!important">
+                <div class="d-flex justify-content-between">
+                    <select id="selectTB" style="height:2rem">
+                        <option value="2009-04" selected>2009-04</option>
+                        <option value="2009-05">2009-05</option>
+                        <option value="2009-06">2009-06</option>
+                        <option value="2009-07">2009-07</option>
+                        <option value="2009-08">2009-08</option>
+                        <option value="2009-09">2009-09</option>
+                        <option value="2009-10">2009-10</option>
+                        <option value="2009-11">2009-11</option>
+                        <option value="2009-12">2009-12</option>
+                        <option value="2010-01">2010-01</option>
+                        <option value="2010-02">2010-02</option>
+                    </select>
+                    <div class="table-responsive col-md-12" style="overflow-x:auto;">
+                        <table id="TB" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">月</th> <!-- ０ -->
+                                    <th class="text-center">勘定科目</th> <!-- 1 -->
+                                    <th class="text-center">勘定科目名</th> <!-- 2 -->
+                                    <th class="text-center">前月残高</th> <!-- 3 -->
+                                    <th class="text-center">借方</th> <!-- 4 -->
+                                    <th class="text-center">貸方</th> <!-- 5 -->
+                                    <th class="text-center">当月残高</th> <!-- 7 -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- CSVの行が展開される -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab_GL">
+            <div style="max-width:100%!important">
+                <div class="d-flex justify-content-between">
+                    <select id="selectGL" style="height:2rem">
+                        <option value="111現金.csv" selected>111現金</option>
+                    </select>
+                    <div class="table-responsive col-md-12" style="overflow-x:auto;">
+                        XBRL-GL
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getInstances() {
+            // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'instances.csv', true);
+            xhr.onload = function () {
+                // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+                var data = xhr.responseText.split('\n');
+                var items = [];
+                for (var i = 0; i < data.length; i++) {
+                    var item = data[i].split(',');
+                    items.push(item);
+                }
+                // 配列の内容を加工して、HTML要素に追加して表示する
+                var tableBody = document.querySelector('#instances tbody');
+                for (var i = 1; i < items.length; i++) {
+                    var item = items[i];
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    var td3 = document.createElement('td');
+                    var td4 = document.createElement('td');
+                    var td5 = document.createElement('td');
+                    var td6 = document.createElement('td');
+                    var td7 = document.createElement('td');
+                    var td8 = document.createElement('td');
+                    var td9 = document.createElement('td');
+                    var td10 = document.createElement('td');
+                    var td11 = document.createElement('td');
+                    var td12 = document.createElement('td');
+                    var td13 = document.createElement('td');
+                    td1.textContent = item[0]
+                    td1.classList.add('text-center')
+                    td2.textContent = item[1]
+                    td2.classList.add('text-center')
+                    td3.textContent = item[6]
+                    td4.textContent = item[19]
+                    td4.classList.add('text-center')
+                    td5.textContent = item[12]
+                    td6.textContent = item[13]
+                    td6.classList.add('text-center')
+                    td7.textContent = item[14]
+                    td7.classList.add('text-center')
+                    td8.textContent = item[15]
+                    td9.textContent = item[17]
+                    td9.classList.add('text-right')
+                    td10.textContent = item[20]
+                    td10.classList.add('text-center')
+                    td11.textContent = item[22]
+                    td12.textContent = item[23]
+                    td12.classList.add('text-center')
+                    td13.textContent = item[25]
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    tr.appendChild(td5);
+                    tr.appendChild(td6);
+                    tr.appendChild(td7);
+                    tr.appendChild(td8);
+                    tr.appendChild(td9);
+                    tr.appendChild(td10);
+                    tr.appendChild(td11);
+                    tr.appendChild(td12);
+                    tr.appendChild(td13);
+                    tableBody.appendChild(tr);
+                }
+            };
+            xhr.send();
+        }
+
+        function getHorizontal() {
+            // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'horizontal_ledger.csv', true);
+            xhr.onload = function () {
+                // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+                var data = xhr.responseText.split('\n');
+                var items = [];
+                for (var i = 0; i < data.length; i++) {
+                    var item = data[i].split(',');
+                    items.push(item);
+                }
+                // 配列の内容を加工して、HTML要素に追加して表示する
+                var tableBody = document.querySelector('#horizontal tbody');
+                for (var i = 1; i < items.length; i++) {
+                    var item = items[i];
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    var td3 = document.createElement('td');
+                    var td4 = document.createElement('td');
+                    var td5 = document.createElement('td');
+                    var td6 = document.createElement('td');
+                    var td7 = document.createElement('td');
+                    var td8 = document.createElement('td');
+                    var td9 = document.createElement('td');
+                    var td10 = document.createElement('td');
+                    var td11 = document.createElement('td');
+                    var td12 = document.createElement('td');
+                    var td13 = document.createElement('td');
+                    var td14 = document.createElement('td');
+                    var td15 = document.createElement('td');
+                    var td16 = document.createElement('td');
+                    var td17 = document.createElement('td');
+                    var td18 = document.createElement('td');
+                    var td19 = document.createElement('td');
+                    var td20 = document.createElement('td');
+
+                    td1.textContent = item[0]
+                    td1.classList.add('text-center')
+                    td2.textContent = item[1]
+                    td2.classList.add('text-center')
+                    td3.textContent = item[2]
+                    td3.classList.add('text-center')
+                    td4.textContent = item[3]
+                    td4.classList.add('text-center')
+                    td5.textContent = item[5]
+                    td5.classList.add('text-center')
+                    td6.textContent = item[8]
+                    td6.classList.add('text-center')
+
+                    td7.textContent = item[15]
+                    td7.classList.add('text-center')
+                    td8.textContent = item[14]
+
+                    td9.textContent = item[17]
+                    td9.classList.add('text-center')
+                    td10.textContent = item[18]
+                    td11.textContent = item[20]
+                    td11.classList.add('text-right')
+
+                    td12.textContent = item[21]
+                    td12.classList.add('text-center')
+                    td13.textContent = item[23]
+
+                    td14.textContent = item[24]
+                    td14.classList.add('text-center')
+                    td15.textContent = item[25]
+                    td16.textContent = item[27]
+                    td16.classList.add('text-right')
+
+                    td17.textContent = item[28]
+                    td17.classList.add('text-center')
+                    td18.textContent = item[30]
+
+                    td19.textContent = item[31]
+                    td19.classList.add('text-center')
+                    td20.textContent = item[33]
+
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    tr.appendChild(td5);
+                    tr.appendChild(td6);
+                    tr.appendChild(td7);
+                    tr.appendChild(td8);
+                    tr.appendChild(td9);
+                    tr.appendChild(td10);
+                    tr.appendChild(td11);
+                    tr.appendChild(td12);
+                    tr.appendChild(td13);
+                    tr.appendChild(td14);
+                    tr.appendChild(td15);
+                    tr.appendChild(td16);
+                    tr.appendChild(td17);
+                    tr.appendChild(td18);
+                    tr.appendChild(td19);
+                    tr.appendChild(td20);
+                    tableBody.appendChild(tr);
+                }
+            };
+            xhr.send();
+        }
+
+        function getGL(url) {
+            // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'GL/'+url, true);
+            xhr.onload = function () {
+                // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+                var data = xhr.responseText.split('\n');
+                var items = [];
+                for (var i = 0; i < data.length; i++) {
+                    var item = data[i].split(',');
+                    items.push(item);
+                }
+                // 配列の内容を加工して、HTML要素に追加して表示する
+                var tableBody = document.querySelector('#GL tbody');
+                for (var i = 1; i < items.length; i++) {
+                    var item = items[i];
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    var td3 = document.createElement('td');
+                    var td4 = document.createElement('td');
+                    var td5 = document.createElement('td');
+                    var td6 = document.createElement('td');
+                    var td7 = document.createElement('td');
+                    var td8 = document.createElement('td');
+                    var td9 = document.createElement('td');;
+                    var td10 = document.createElement('td');;
+                    /*
+                    num
+                    GL02
+                    GL02-GL55
+                    date
+                    contra_account
+                    contra_account_name
+                    note
+                    debit_amount
+                    credit_amount
+                    balance
+                    */
+                    td1.textContent = item[0]
+                    td1.classList.add('text-right')
+                    td2.textContent = item[1]
+                    td2.classList.add('text-center')
+                    td3.textContent = item[2]
+                    td3.classList.add('text-center')
+                    td4.textContent = item[3]
+                    td5.textContent = item[4]
+                    td5.classList.add('text-center')
+                    td6.textContent = item[5]
+                    td7.textContent = item[6]
+                    td8.textContent = item[7]
+                    td8.classList.add('text-right')
+                    td9.textContent = item[8]
+                    td9.classList.add('text-right')
+                    td10.textContent = item[9]
+                    td10.classList.add('text-right')
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    tr.appendChild(td5);
+                    tr.appendChild(td6);
+                    tr.appendChild(td7);
+                    tr.appendChild(td8);
+                    tr.appendChild(td9);
+                    tr.appendChild(td10);
+                    tableBody.appendChild(tr);
+                }
+            };
+            xhr.send();            
+        }
+
+        function getTB(month) {
+            // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'TB/'+month+'/trial_balance.csv', true);
+            xhr.onload = function () {
+                // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+                var data = xhr.responseText.split('\n');
+                var items = [];
+                for (var i = 0; i < data.length; i++) {
+                    var item = data[i].split(',');
+                    items.push(item);
+                }
+                // 配列の内容を加工して、HTML要素に追加して表示する
+                var tableBody = document.querySelector('#GL tbody');
+                for (var i = 1; i < items.length; i++) {
+                    var item = items[i];
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    var td3 = document.createElement('td');
+                    var td4 = document.createElement('td');
+                    var td5 = document.createElement('td');
+                    var td6 = document.createElement('td');
+                    var td7 = document.createElement('td');
+                    /*
+                    month
+                    account_code
+                    account_name
+                    beginning_balance
+                    debit_amount
+                    credit_amount
+                    ending_balance
+                    */
+                    td1.textContent = item[0]
+                    td2.classList.add('text-center')
+                    td2.textContent = item[1]
+                    td2.classList.add('text-center')
+                    td3.textContent = item[2]
+                    td4.textContent = item[3]
+                    td4.classList.add('text-right')
+                    td5.textContent = item[4]
+                    td5.classList.add('text-right')
+                    td6.textContent = item[5]
+                    td6.classList.add('text-right')
+                    td7.textContent = item[6]
+                    td7.classList.add('text-right')
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    tr.appendChild(td5);
+                    tr.appendChild(td6);
+                    tr.appendChild(td7);
+                    tableBody.appendChild(tr);
+                }
+            };
+            xhr.send();
+        }
+
+        function hideHolizontalLines() {
+            var thead = document.querySelector('#horizontal thead');
+            var row = thead.rows[0];
+            row.cells[19].style.display = 'none';
+            row.cells[18].style.display = 'none';
+            row.cells[17].style.display = 'none';
+            row.cells[16].style.display = 'none';
+            row.cells[12].style.display = 'none';
+            row.cells[11].style.display = 'none';
+            row.cells[5].style.display = 'none';
+            row.cells[4].style.display = 'none';
+            row.cells[3].style.display = 'none';
+            // tbody要素を取得する
+            var tbody = document.querySelector('#horizontal tbody');
+            // tbody要素内のtr要素を順番に取得する
+            for (var i = 0; i < tbody.rows.length; i++) {
+                // 各tr要素内のn番目のtd要素を取得する（ここでは3番目から）
+                var td2 = tbody.rows[i].cells[2];
+                var td3 = tbody.rows[i].cells[3];
+                var td4 = tbody.rows[i].cells[4];
+                var td6 = tbody.rows[i].cells[6];
+                var td11 = tbody.rows[i].cells[11];
+                var td16 = tbody.rows[i].cells[16];
+                // 取得したtd要素が空かどうかを判定し、空であればtr要素を非表示にする
+                if (''==td2.textContent.trim() || ''!=td3.textContent.trim() || ''!=td4.textContent.trim() ||
+                        (''==td6.textContent.trim() && (''!=td11.textContent.trim() || ''!=td16.textContent.trim()))) {
+                    tbody.rows[i].style.display = 'none';                    
+                }
+            }
+            for (i = 0; i < tbody.rows.length; i++) {
+                row = tbody.rows[i];
+                row.cells[19].style.display = 'none';
+                row.cells[18].style.display = 'none';
+                row.cells[17].style.display = 'none';
+                row.cells[16].style.display = 'none';
+                row.cells[12].style.display = 'none';
+                row.cells[11].style.display = 'none';
+                row.cells[5].style.display = 'none';
+                row.cells[4].style.display = 'none';
+                row.cells[3].style.display = 'none';
+            }
+        }
+
+        function showHolizontalLines() {
+            var thead = document.querySelector('#horizontal thead');
+            var row = thead.rows[0];
+            row.cells[3].style.display = '';
+            row.cells[4].style.display = '';
+            row.cells[5].style.display = '';
+            row.cells[11].style.display = '';
+            row.cells[12].style.display = '';
+            row.cells[16].style.display = '';
+            row.cells[17].style.display = '';
+            row.cells[18].style.display = '';
+            row.cells[19].style.display = '';
+            // tbody要素を取得する
+            var tbody = document.querySelector('#horizontal tbody');
+            // tbody要素内のtr要素を順番に取得する
+            for (var i = 0; i < tbody.rows.length; i++) {
+                // 取得したtd要素が空かどうかを判定し、空であればtr要素を非表示にする
+                row = tbody.rows[i];
+                row.style.display = '';
+                row.cells[3].style.display = '';
+                row.cells[4].style.display = '';
+                row.cells[5].style.display = '';
+                row.cells[11].style.display = '';
+                row.cells[12].style.display = '';
+                row.cells[16].style.display = '';
+                row.cells[17].style.display = '';
+                row.cells[18].style.display = '';
+                row.cells[19].style.display = '';
+            }  
+
+        }
+
+        var linesButton = $('#linesButton');
+        linesButton.value = '明細行のみ';
+        var isEnabled = false; // 初期状態では処理を無効にする
+
+        linesButton.on('click', function() {
+            isEnabled = !isEnabled; // 現在の状態を反転する
+
+            if (isEnabled) {
+            // 処理を有効にするためのコードを記述する
+                // linesButton.value = '全て表示';
+                linesButton.removeClass('btn-primary')
+                linesButton.addClass('btn-secondary')
+                hideHolizontalLines();
+            } else {
+            // 処理を無効にするためのコードを記述する
+                // linesButton.value = '明細行のみ';
+                linesButton.removeClass('btn-secondary')
+                linesButton.addClass('btn-primary')
+                showHolizontalLines();
+            }
+        });
+
+        const selectGL = document.getElementById("selectGL");
+        selectGL.addEventListener("change", (event) => {
+            const selectedGL = event.target.value;
+            // 選択されたオプションに応じた処理を実行する
+            getGL(selectedGL)
+        });
+        getGL('111現金.csv')
+
+        const selectTB= document.getElementById("selectTB");
+        selectTB.addEventListener("change", (event) => {
+            const selectedTMonth= event.target.value;
+            // 選択されたオプションに応じた処理を実行する
+            getTB(selectedmonth)
+        });
+        getTB('2009-04')
+
+        getInstances();
+
+        getHorizontal();
+
+        getGL('111現金.csv')
+
+    </script>
 </body>
+
 </html>
