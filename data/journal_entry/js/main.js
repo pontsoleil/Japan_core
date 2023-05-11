@@ -28,6 +28,8 @@
  */
 main = (function () {
 
+    const formatter = new Intl.NumberFormat('ja-JP');
+
     function getInstances() {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
@@ -65,27 +67,27 @@ main = (function () {
                 var td11 = document.createElement('td');
                 var td12 = document.createElement('td');
                 var td13 = document.createElement('td');
-                td1.textContent = item[0]
-                td1.classList.add('text-center')
-                td2.textContent = item[1]
-                td2.classList.add('text-center')
-                td3.textContent = item[6]
-                td4.textContent = item[19]
-                td4.classList.add('text-center')
-                td5.textContent = item[12]
-                td6.textContent = item[13]
-                td6.classList.add('text-center')
-                td7.textContent = item[14]
-                td7.classList.add('text-center')
-                td8.textContent = item[15]
-                td9.textContent = item[17]
-                td9.classList.add('text-right')
-                td10.textContent = item[20]
-                td10.classList.add('text-center')
-                td11.textContent = item[22]
-                td12.textContent = item[23]
-                td12.classList.add('text-center')
-                td13.textContent = item[25]
+                td1.textContent = item[0];
+                td1.classList.add('text-center');
+                td2.textContent = item[1];
+                td2.classList.add('text-center');
+                td3.textContent = item[6];
+                td4.textContent = item[19];
+                td4.classList.add('text-center');
+                td5.textContent = item[12];
+                td6.textContent = item[13];
+                td6.classList.add('text-center');
+                td7.textContent = item[14];
+                td7.classList.add('text-center');
+                td8.textContent = item[15];
+                td9.textContent = formatter.format(item[17]);
+                td9.classList.add('text-right');
+                td10.textContent = item[20];
+                td10.classList.add('text-center');
+                td11.textContent = item[22];
+                td12.textContent = item[23];
+                td12.classList.add('text-center');
+                td13.textContent = item[25];
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -150,46 +152,46 @@ main = (function () {
                 var td19 = document.createElement('td');
                 var td20 = document.createElement('td');
 
-                td1.textContent = item[0]
-                td1.classList.add('text-center')
-                td2.textContent = item[1]
-                td2.classList.add('text-center')
-                td3.textContent = item[2]
-                td3.classList.add('text-center')
-                td4.textContent = item[3]
-                td4.classList.add('text-center')
-                td5.textContent = item[5]
-                td5.classList.add('text-center')
-                td6.textContent = item[8]
-                td6.classList.add('text-center')
+                td1.textContent = item[0];
+                td1.classList.add('text-center');
+                td2.textContent = item[1];
+                td2.classList.add('text-center');
+                td3.textContent = item[2];
+                td3.classList.add('text-center');
+                td4.textContent = item[3];
+                td4.classList.add('text-center');
+                td5.textContent = item[5];
+                td5.classList.add('text-center');
+                td6.textContent = item[8];
+                td6.classList.add('text-center');
 
-                td7.textContent = item[15]
-                td7.classList.add('text-center')
-                td8.textContent = item[14]
+                td7.textContent = item[15];
+                td7.classList.add('text-center');
+                td8.textContent = item[14];
 
-                td9.textContent = item[17]
-                td9.classList.add('text-center')
-                td10.textContent = item[18]
-                td11.textContent = item[20]
-                td11.classList.add('text-right')
+                td9.textContent = item[17];
+                td9.classList.add('text-center');
+                td10.textContent = item[18];
+                td11.textContent = formatter.format(item[20]);
+                td11.classList.add('text-right');
 
-                td12.textContent = item[21]
-                td12.classList.add('text-center')
-                td13.textContent = item[23]
+                td12.textContent = item[21];
+                td12.classList.add('text-center');
+                td13.textContent = item[23];
 
-                td14.textContent = item[24]
-                td14.classList.add('text-center')
-                td15.textContent = item[25]
-                td16.textContent = item[27]
-                td16.classList.add('text-right')
+                td14.textContent = item[24];
+                td14.classList.add('text-center');
+                td15.textContent = item[25];
+                td16.textContent = formatter.format(item[27]);
+                td16.classList.add('text-right');
 
-                td17.textContent = item[28]
-                td17.classList.add('text-center')
-                td18.textContent = item[30]
+                td17.textContent = item[28];
+                td17.classList.add('text-center');
+                td18.textContent = item[30];
 
-                td19.textContent = item[31]
-                td19.classList.add('text-center')
-                td20.textContent = item[33]
+                td19.textContent = item[31];
+                td19.classList.add('text-center');
+                td20.textContent = item[33];
 
                 tr.appendChild(td1);
                 tr.appendChild(td2);
@@ -304,6 +306,10 @@ main = (function () {
             var items = [];
             for (var i = 0; i < data.length; i++) {
                 var item = data[i].split(',');
+                if (item.length < 10 || ''==item[0]) {
+                    continue
+                }
+                item = item.map((element) => element.trim());
                 items.push(item);
             }
             // 配列の内容を加工して、HTML要素に追加して表示する
@@ -334,23 +340,29 @@ main = (function () {
                 credit_amount
                 balance
                 */
-                td1.textContent = item[0]
-                td1.classList.add('text-right')
-                td2.textContent = item[1]
-                td2.classList.add('text-center')
-                td3.textContent = item[2]
-                td3.classList.add('text-center')
-                td4.textContent = item[3]
-                td5.textContent = item[4]
-                td5.classList.add('text-center')
-                td6.textContent = item[5]
-                td7.textContent = item[6]
-                td8.textContent = item[7]
-                td8.classList.add('text-right')
-                td9.textContent = item[8]
-                td9.classList.add('text-right')
-                td10.textContent = item[9]
-                td10.classList.add('text-right')
+                td1.textContent = item[0];
+                td1.classList.add('text-right');
+                td2.textContent = item[1];
+                td2.classList.add('text-center');
+                td3.textContent = item[2];
+                td3.classList.add('text-center');
+                td4.textContent = item[3];
+                td5.textContent = item[4];
+                td5.classList.add('text-center');
+                td6.textContent = item[5];
+                td7.textContent = item[6];
+                td8.textContent = item[1].length > 0
+                    ? formatter.format(item[7])
+                    : /^[0-9]+$/.test(item[7]) ? formatter.format(item[7]) : '';
+                td8.classList.add('text-right');
+                td9.textContent = item[1].length > 0
+                    ? formatter.format(item[8])
+                    : /^[0-9]+$/.test(item[8]) ? formatter.format(item[8]) : '';
+                td9.classList.add('text-right');
+                td10.textContent = item[1].length > 0
+                    ? formatter.format(item[9])
+                    : /^[0-9]+$/.test(item[9]) ? formatter.format(item[9]) : '';
+                td10.classList.add('text-right');
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -370,13 +382,17 @@ main = (function () {
     function getTB(month) {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'TB/' + month + '/trial_balance.csv', true);
+        xhr.open('GET', 'TB/' + month + 'trial_balance.csv', true);
         xhr.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
             var data = xhr.responseText.split('\n');
             var items = [];
             for (var i = 0; i < data.length; i++) {
                 var item = data[i].split(',');
+                if (item.length < 7 || ''==item[0]) {
+                    continue
+                }
+                item = item.map((element) => element.trim());
                 items.push(item);
             }
             // 配列の内容を加工して、HTML要素に追加して表示する
@@ -401,19 +417,27 @@ main = (function () {
                 credit_amount
                 ending_balance
                 */
-                td1.textContent = item[0]
-                td2.classList.add('text-center')
-                td2.textContent = item[1]
-                td2.classList.add('text-center')
-                td3.textContent = item[2]
-                td4.textContent = item[3]
-                td4.classList.add('text-right')
-                td5.textContent = item[4]
-                td5.classList.add('text-right')
-                td6.textContent = item[5]
-                td6.classList.add('text-right')
-                td7.textContent = item[6]
-                td7.classList.add('text-right')
+                td1.textContent = item[0];
+                td2.classList.add('text-center');
+                td2.textContent = item[1].length > 0 ? item[1] : '＊＊合計＊＊';
+                td2.classList.add('text-center');
+                td3.textContent = item[2];
+                td4.textContent = item[1].length > 0
+                    ? formatter.format(item[3])
+                    : /^[0-9]+$/.test(item[3]) ? formatter.format(item[3]) : '';
+                td4.classList.add('text-right');
+                td5.textContent = item[1].length > 0
+                    ? formatter.format(item[4])
+                    : /^[0-9]+$/.test(item[4]) ? formatter.format(item[4]) : '';
+                td5.classList.add('text-right');
+                td6.textContent = item[1].length > 0
+                    ? formatter.format(item[5])
+                    : /^[0-9]+$/.test(item[5]) ? formatter.format(item[5]) : '';
+                td6.classList.add('text-right');
+                td7.textContent = item[1].length > 0
+                    ? formatter.format(item[6])
+                    : /^[0-9]+$/.test(item[6]) ? formatter.format(item[6]) : '';
+                td7.classList.add('text-right');
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -495,14 +519,14 @@ main = (function () {
             if (isEnabled) {
                 // 処理を有効にするためのコードを記述する
                 // linesButton.value = '全て表示';
-                linesButton.removeClass('btn-secondary')
-                linesButton.addClass('btn-primary')
+                linesButton.removeClass('btn-secondary');
+                linesButton.addClass('btn-primary');
                 hideHolizontalLines();
             } else {
                 // 処理を無効にするためのコードを記述する
                 // linesButton.value = '明細行のみ';
-                linesButton.removeClass('btn-primary')
-                linesButton.addClass('btn-secondary')
+                linesButton.removeClass('btn-primary');
+                linesButton.addClass('btn-secondary');
                 showHolizontalLines();
             }
         });
@@ -511,7 +535,7 @@ main = (function () {
         selectGL.addEventListener("change", (event) => {
             const selectedGL = event.target.value;
             // 選択されたオプションに応じた処理を実行する
-            getGL(selectedGL)
+            getGL(selectedGL);
         });
 
         const selectTB = document.getElementById("selectTB");
@@ -522,46 +546,10 @@ main = (function () {
         });
 
         getHorizontal();
-        getGL('111現金.csv')
-        getTB('2009-04')
+        getGL('111現金.csv');
+        getTB('2009-04');
         getInstances();
         getFileList();
-        // fetch('./file_list.php')
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         var file_list = $('#file-list');
-        //         var select = $('<select id="file-select"></select>');
-        //         for (var i = 0; i < Object.keys(data).length; i++) {
-        //             var value = Object.values(data)[i];
-        //             var option = $('<option></option>').text(value).val(value);
-        //             select.append(option);
-        //         }
-        //         file_list.append(select);
-
-        //         select.on('change', function () {
-        //             var fileName = $(this).val();
-        //             // var fileName = fileSelect.options[fileSelect.selectedIndex].value;
-        //             var fileSelect = document.getElementById("file-list");
-        //             var xhr = new XMLHttpRequest();
-        //             xhr.open("GET", "./XBRL_GLinstances/" + fileName, true);
-        //             xhr.onreadystatechange = function () {
-        //                 if (xhr.readyState === 4 && xhr.status === 200) {
-        //                     let xmlData = xhr.responseXML;
-        //                     // XMLデータを文字列に変換する
-        //                     let wellFormedXml = new XMLSerializer().serializeToString(xmlData);
-        //                     // HTMLエスケープする
-        //                     const escapedXmlString = escapeHtml(wellFormedXml);
-        //                     var contentDiv = document.getElementById("file-content");
-        //                     contentDiv.innerHTML = escapedXmlString;// `<pre>${formattedXml}</pre>`;
-        //                 }
-        //             };
-        //             xhr.send();
-        //         });
-        //     })
-        //     .catch(error => {
-        //         console.error('Error: Could not retrieve file list.', error);
-        //         alert('Error: Could not retrieve file list.');
-        //     });
 
         // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
         //Get the button:
