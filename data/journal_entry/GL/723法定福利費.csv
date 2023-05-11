@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,723,法定福利費,,11283984,0,11283984
 1161,0001-20090430-230-213-1-887,2,2009-04-30,131,普通預金,保険料　事業主負担分,111192,0,111192
 1162,0001-20090430-230-213-1-887,3,2009-04-30,131,普通預金,保険料　事業主負担分,236635,0,347827

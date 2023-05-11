@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,521,売上値引戻り高,,0,1257444,-1257444
 1222,0001-20090430-277-219-1-899,22,2009-04-30,152,売掛金,09年4月1日～09年4月30日分売上,0,70720,-70720
 1228,0001-20090430-277-219-1-899,28,2009-04-30,152,売掛金,09年4月1日～09年4月30日分売上,0,38736,-109456

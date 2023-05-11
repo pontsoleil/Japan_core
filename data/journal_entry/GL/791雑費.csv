@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,791,雑費,,5585803,0,5585803
 28,0001-20090402-68-4-1-469,0,2009-04-02,111,現金,トイレットペーパー他,2829,0,2829
 165,0001-20090407-69-34-1-529,0,2009-04-07,111,現金,お茶代,1332,0,4161

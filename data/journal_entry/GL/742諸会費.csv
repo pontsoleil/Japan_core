@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,742,諸会費,,1392000,0,1392000
 394,0001-20090415-117-75-1-611,1,2009-04-15,111,現金,会費,20000,0,20000
 397,0001-20090415-130-76-1-613,1,2009-04-15,131,普通預金,会費,24000,0,44000

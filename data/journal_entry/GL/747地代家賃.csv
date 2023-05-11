@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,747,地代家賃,,39417144,0,39417144
 185,0001-20090410-129-41-1-543,0,2009-04-10,131,普通預金,家賃支払い,380000,0,380000
 205,0001-20090410-167-45-1-551,0,2009-04-10,131,普通預金,家賃支払い,600000,0,980000

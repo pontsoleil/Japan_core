@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,728,業務委託費,,25865965,0,25865965
 829,0001-20090425-146-161-1-783,0,2009-04-25,322,未払金,業務委託費,140000,0,140000
 843,0001-20090425-172-164-1-789,0,2009-04-25,322,未払金,業務委託費支払い,134286,0,274286

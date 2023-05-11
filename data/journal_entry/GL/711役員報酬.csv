@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,711,役員報酬,,20684172,0,20684172
 852,0001-20090425-253-166-1-793,1,2009-04-25,131,普通預金,4月給与その他 0001 役員,1131093,0,1131093
 855,0001-20090425-253-166-1-793,2,2009-04-25,326,預り金,4月給与その他 0001 役員,111192,0,1242285

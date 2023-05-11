@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,326,預り金,,19336669,25186259,-5849590
 222,0001-20090410-231-47-1-555,0,2009-04-10,131,普通預金,源泉税支払,224870,0,224870
 228,0001-20090410-231-47-1-555,2,2009-04-10,131,普通預金,住民税支払,467700,0,692570

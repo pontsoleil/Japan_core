@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,551,仕入値引戻し高,,739454,0,739454
 1344,0001-20090430-285-227-1-915,21,2009-04-30,312,買掛金,09年4月1日～09年4月30日分仕入,69720,0,69720
 1350,0001-20090430-285-227-1-915,27,2009-04-30,312,買掛金,09年4月1日～09年4月30日分仕入,20640,0,90360

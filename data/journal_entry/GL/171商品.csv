@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,171,商品,,63025546,63013226,12320
 18140,0001-20100331-138-2813-1-6087,1,2010-03-31,561,期末商品棚卸高,期末在庫(札幌),7889283,0,7889283
 18141,0001-20100331-138-2813-1-6087,2,2010-03-31,561,期末商品棚卸高,期末在庫(東京),32429735,0,40319018

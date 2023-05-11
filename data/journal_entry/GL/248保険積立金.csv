@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,248,保険積立金,,1500000,0,1500000
 1482,0001-20090430-313-244-1-949,2,2009-04-30,131,普通預金,保険積立金,125000,0,125000
 ,,,2009-04,,※※月計※※,,125000,0,

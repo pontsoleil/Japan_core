@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,738,租税公課,,267000,0,267000
 104,0001-20090406-124-22-1-505,1,2009-04-06,111,現金,収入印紙,6000,0,6000
 691,0001-20090421-126-128-1-717,1,2009-04-21,111,現金,収入印紙,40000,0,46000

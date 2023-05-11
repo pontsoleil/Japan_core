@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,712,給与手当,,62467417,0,62467417
 871,0001-20090425-253-166-1-793,8,2009-04-25,131,普通預金,4月給与その他 0020 営業部,1641623,0,1641623
 874,0001-20090425-253-166-1-793,9,2009-04-25,326,預り金,4月給与その他 0020 営業部,236635,0,1878258

@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,740,車両費,,7285803,0,7285803
 14,0001-20090402-142-6-1-473,0,2009-04-02,111,現金,高速代,2458,0,2458
 17,0001-20090402-142-6-1-473,3,2009-04-02,111,現金,駐車代,591,0,3049

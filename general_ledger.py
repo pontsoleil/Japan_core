@@ -195,142 +195,178 @@ def main():
 
     # 2. 総勘定元帳を初期化する
     general_ledger = {}
-    # journal_entry = []
     for i in range(len(records)):
         row = records[i]
         if len(row['GL02-GL55'])>0:
-            num = row['GL00']
-            GL02 = row['GL02']
-            GL02_GL55 = row['GL02-GL55']
-            debit_account = row['GL63-01d']
-            credit_account = row['GL63-01c']
-            debit_account_name = row['GL63-02d']
-            credit_account_name = row['GL63-02c']
-            debit_amount = row['GL56-01d'].isdigit() and int(row['GL56-01d']) or 0
-            credit_amount = row['GL56-01c'].isdigit() and int(row['GL56-01c']) or 0
-            date = row['GL69-02']
-            note = row['GL55-04']
+            num              = row['GL00']
+            GL02             = row['GL02']
+            GL02_GL55        = row['GL02-GL55']
+            dbt_account      = row['GL63-01d']
+            cdt_account      = row['GL63-01c']
+            dbt_account_name = row['GL63-02d']
+            cdt_account_name = row['GL63-02c']
+            dbt_amount       = row['GL56-01d'].isdigit() and int(row['GL56-01d']) or 0
+            cdt_amount       = row['GL56-01c'].isdigit() and int(row['GL56-01c']) or 0
+            date             = row['GL69-02']
+            note             = row['GL55-04']
             # 借方勘定ごとに総勘定元帳を更新する
-            if debit_account in general_ledger:
-                general_ledger[debit_account]['debit'] += debit_amount
-                general_ledger[debit_account]['balance'] += debit_amount
+            if dbt_account in general_ledger:
+                general_ledger[dbt_account]['dbt']     += dbt_amount
+                general_ledger[dbt_account]['balance'] += dbt_amount
             else:
-                general_ledger[debit_account] = {'account_name': debit_account_name, 'debit': debit_amount, 'credit': 0, 'balance': debit_amount}
+                general_ledger[dbt_account] = {'account_name': dbt_account_name, 'dbt': dbt_amount, 'cdt': 0, 'balance': dbt_amount}
             # 貸方勘定ごとに総勘定元帳を更新する
-            if credit_account in general_ledger:
-                general_ledger[credit_account]['credit'] += credit_amount
-                general_ledger[credit_account]['balance'] -= credit_amount
+            if cdt_account in general_ledger:
+                general_ledger[cdt_account]['cdt']     += cdt_amount
+                general_ledger[cdt_account]['balance'] -= cdt_amount
             else:
-                general_ledger[credit_account] = {'account_name': credit_account_name, 'debit': 0, 'credit': credit_amount, 'balance': -credit_amount}
+                general_ledger[cdt_account] = {'account_name': cdt_account_name, 'dbt': 0, 'cdt': cdt_amount, 'balance': -cdt_amount}
             # 取引データを総勘定元帳に追加する
-            if 'transactions' not in general_ledger[debit_account]:
-                general_ledger[debit_account]['transactions'] = []
+            if 'transactions' not in general_ledger[dbt_account]:
+                general_ledger[dbt_account]['transactions'] = []
             debit_transaction_data = {'num': num, 'GL02':GL02, 'GL02-GL55':GL02_GL55,
-                                'date': date, 'contra_account': credit_account, 'contra_account_name': credit_account_name,
-                                'debit_amount': debit_amount, 'credit_amount': 0, 'balance': general_ledger[debit_account]["balance"], 'note': note}
-            general_ledger[debit_account]['transactions'].append(debit_transaction_data)
-            if 'transactions' not in general_ledger[credit_account]:
-                general_ledger[credit_account]['transactions'] = []
+                                'date': date, 'contra_acct': cdt_account, 'contra_acct_name': cdt_account_name,
+                                'dbt_amount': dbt_amount, 'cdt_amount': 0, 'balance': general_ledger[dbt_account]["balance"],
+                                'note': note}
+            general_ledger[dbt_account]['transactions'].append(debit_transaction_data)
+            if 'transactions' not in general_ledger[cdt_account]:
+                general_ledger[cdt_account]['transactions'] = []
             credit_transaction_data = {'num': num, 'GL02':GL02, 'GL02-GL55':GL02_GL55,
-                                'date': date, 'contra_account': debit_account, 'contra_account_name': debit_account_name,
-                                'debit_amount': 0, 'credit_amount': credit_amount, 'balance': general_ledger[credit_account]["balance"], 'note': note}
-            general_ledger[credit_account]['transactions'].append(credit_transaction_data)
+                                'date': date, 'contra_acct': dbt_account, 'contra_acct_name': dbt_account_name,
+                                'dbt_amount': 0, 'cdt_amount': cdt_amount, 'balance': general_ledger[cdt_account]["balance"],
+                                'note': note}
+            general_ledger[cdt_account]['transactions'].append(credit_transaction_data)
 
     # 4. 総勘定元帳を勘定コード順にソートする
     sorted_general_ledger = sorted(general_ledger.items(), key=lambda x: x[0])
 
-    # 5. 総勘定元帳を出力する
+    # 検算
+    account_totals  = {}
+    dbt_total = cdt_total = 0
+    current_month = None
+    for account_code, account_data in sorted_general_ledger:
+        transactions = account_data['transactions']
+        last = {'num': 'END', 'GL02':'', 'GL02-GL55':'','date': '', 'contra_acct': '', 'contra_acct_name': '','dbt_amount': '', 'cdt_amount': '', 'balance': '','note': ''}
+        transactions.append(last)
+        for transaction_data in transactions:
+            date = transaction_data['date']
+            if ''!=date:
+                month = date[:7]
+            if (current_month and current_month!=month) or (''==date):
+                if current_month not in account_totals:
+                    account_totals[current_month] = {}
+                if account_code not in account_totals[current_month]:
+                    account_totals[current_month][account_code] = {}
+                account_totals[current_month][account_code]['dbt'] = dbt_total
+                account_totals[current_month][account_code]['cdt'] = cdt_total
+                dbt_total = cdt_total = 0
+            if ''!=date:
+                dbt_total += transaction_data['dbt_amount']
+                cdt_total += transaction_data['cdt_amount']
+                current_month = month
+
+    monthly_totals = {}
+    for month,total_data in account_totals.items():
+        if month not in monthly_totals:
+            monthly_totals[month] = {}
+            monthly_totals[month]['dbt'] = 0
+            monthly_totals[month]['cdt'] = 0
+        for account_code,total in total_data.items():
+            monthly_totals[month]['dbt'] += total['dbt']
+            monthly_totals[month]['cdt'] += total['cdt']
+    # 検算
+    for month in monthly_totals:
+        _dbt_total = monthly_totals[month]['dbt']
+        _cdt_total = monthly_totals[month]['cdt']
+        print(f'{month} 借方 {_dbt_total} 貸方 {_cdt_total} {_dbt_total - _cdt_total}')
+
+
+    # 5. 総勘定元帳を出力する    
     for account_code, account_data in sorted_general_ledger:
         account_name = account_data['account_name']
-        debit_amount = account_data['debit']
-        credit_amount = account_data['credit']
-        balance = account_data['balance']
-        if DEBUG: print(f'Account Code: {account_code} ({account_name})')
+        dbt_amount   = account_data['dbt']
+        cdt_amount   = account_data['cdt']
+        balance      = account_data['balance']
+        if DEBUG: print(f'Account Code: {account_code}:{account_name} Dr {"{:,}".format(dbt_amount)} Cr {"{:,}".format(cdt_amount)}')
         record = {
-            'num': '',
-            'GL02': '',
-            'GL02-GL55': '',
-            'date': '',
-            'contra_account': account_code,
-            'contra_account_name': account_name,
-            'debit_amount': debit_amount,
-            'credit_amount': credit_amount,
-            'balance':balance,
-            'note': ''
+            'num':              '',
+            'GL02':             '',
+            'GL02-GL55':        '',
+            'date':             '',
+            'contra_acct':      account_code,
+            'contra_acct_name': account_name,
+            'dbt_amount':       dbt_amount,
+            'cdt_amount':       cdt_amount,
+            'balance':          balance,
+            'note':             ''
         }
         if 'record' not in general_ledger[account_code]:
             general_ledger[account_code]['record'] = []
         general_ledger[account_code]['record'].append(record)
         # transaction data
-        debit_total = credit_total = 0
+        dbt_total = cdt_total = 0
         month = None
-        for transaction_data in account_data.get('transactions', []):
+        transactions = account_data['transactions']
+        for transaction_data in transactions:
+            if 'END'==transaction_data['num']:
+                continue
             if month and month!=transaction_data['date'][:7]:
                 record = {
-                    'num': '',
-                    'GL02': '',
-                    'GL02-GL55': '',
-                    'date': month,
-                    'contra_account': '',
-                    'contra_account_name': '※※月計※※',
-                    'debit_amount': debit_total,
-                    'credit_amount': credit_total,
-                    'balance':'',
-                    'note': ''
+                    'num':              '',
+                    'GL02':             '',
+                    'GL02-GL55':        '',
+                    'date':             month,
+                    'contra_acct':      '',
+                    'contra_acct_name': '※※月計※※',
+                    'dbt_amount':       dbt_total,
+                    'cdt_amount':       cdt_total,
+                    'balance':          '',
+                    'note':             ''
                 }
                 general_ledger[account_code]['record'].append(record)
-                if 'TB' not in general_ledger:
-                    general_ledger['TB'] = {}
-                if month not in general_ledger['TB']:
-                    general_ledger['TB'][month] = {}
-                general_ledger['TB'][month][account_code] = {
-                    'month': month,
-                    'account_code': account_code,
-                    'debit_amount': debit_total,
-                    'credit_amount': credit_total,
-                    'balance':balance
-                }
-                debit_total = credit_total = 0
-            num = transaction_data['num']
-            GL02 = transaction_data['GL02']
-            GL02_GL55 = transaction_data['GL02-GL55']
-            date = transaction_data['date']
-            month = date[:7]
-            contra_account = transaction_data['contra_account']
-            contra_account_name = transaction_data['contra_account_name']
-            debit_amount = transaction_data['debit_amount']
-            debit_total += debit_amount
-            credit_amount = transaction_data['credit_amount']
-            credit_total += credit_amount
-            balance = transaction_data['balance']
-            note = transaction_data['note']
-            if DEBUG: print(f'{num} {GL02} {GL02_GL55} {date} {contra_account} {contra_account_name} {debit_amount} {credit_amount} {balance} {note}')
+                if DEBUG: print(f'{month} {account_code}:{account_name} Dr {"{:,}".format(dbt_amount)} Cr {"{:,}".format(cdt_amount)}')
+                dbt_total = cdt_total = 0
+            num              = transaction_data['num']
+            GL02             = transaction_data['GL02']
+            GL02_GL55        = transaction_data['GL02-GL55']
+            date             = transaction_data['date']
+            contra_acct      = transaction_data['contra_acct']
+            contra_acct_name = transaction_data['contra_acct_name']
+            dbt_amount       = transaction_data['dbt_amount']
+            cdt_amount       = transaction_data['cdt_amount']
+            balance          = transaction_data['balance']
+            note             = transaction_data['note']
+            month            = date[:7]
+            dbt_total       += dbt_amount
+            cdt_total       += cdt_amount
+            if DEBUG: print(f'{num} {GL02} {GL02_GL55} {date} {contra_acct} {contra_acct_name} {dbt_amount} {cdt_amount} {balance} {note}')
             record = {
-                'num': num,
-                'GL02': GL02,
-                'GL02-GL55': GL02_GL55,
-                'date': date,
-                'contra_account': contra_account,
-                'contra_account_name': contra_account_name,
-                'note': note,
-                'debit_amount': debit_amount,
-                'credit_amount': credit_amount,
-                'balance':balance
+                'num':              num,
+                'GL02':             GL02,
+                'GL02-GL55':        GL02_GL55,
+                'date':             date,
+                'contra_acct':      contra_acct,
+                'contra_acct_name': contra_acct_name,
+                'note':             note,
+                'dbt_amount':       dbt_amount,
+                'cdt_amount':       cdt_amount,
+                'balance':          balance
             }
             if 'record' not in general_ledger[account_code]:
                 general_ledger[account_code]['record'] = []
             general_ledger[account_code]['record'].append(record)
+        # 最終レコードの処理
         record = {
-            'num': '',
-            'GL02': '',
-            'GL02-GL55': '',
-            'date': month,
-            'contra_account': '',
-            'contra_account_name': '※※月計※※',
-            'note': note,
-            'debit_amount': debit_total,
-            'credit_amount': credit_total,
-            'balance':balance
+            'num':              '',
+            'GL02':             '',
+            'GL02-GL55':        '',
+            'date':             month,
+            'contra_acct':      '',
+            'contra_acct_name': '※※月計※※',
+            'note':             note,
+            'dbt_amount':       dbt_total,
+            'cdt_amount':       cdt_total,
+            'balance':          balance
         }
         general_ledger[account_code]['record'].append(record)
 
@@ -344,68 +380,59 @@ def main():
             for row in general_ledger[account_code]['record']:
                 writer.writerow(row)
 
-    dir_path = 'data/journal_entry'
-    if not os.path.exists(dir_path):
-        os.makedirs(dir_path)
-    with open(f'{dir_path}/general_ledger.csv', 'w', newline='', encoding='utf-8-sig') as file:
-        header = list(record.keys())
-        writer = csv.DictWriter(file, fieldnames=header)
-        writer.writeheader()
-        for row in general_ledger[account_code]['record']:
-            writer.writerow(row)
-
     # 試算表
     beginning_balance = {}
     for account_code in accounts.keys():
         beginning_balance[account_code] = [0]*13
-
     monthly_balance = {}
-    debit_month_total = {}
-    credit_month_total = {}
-    m = 0
-    for month in general_ledger['TB']:
+    m= 0
+    for month,total_data in account_totals.items():
         m += 1
-        for account_code in general_ledger['TB'][month]:
-            record = general_ledger['TB'][month][account_code]
-            if account_code not in debit_month_total:
-                debit_month_total[account_code] = 0
-            debit_month_total[account_code]  += record['debit_amount']
-            if account_code not in credit_month_total:
-                credit_month_total[account_code] = 0
-            credit_month_total[account_code] += record['credit_amount']
-            beginning_balance[account_code][m] = beginning_balance[account_code][m-1] + record['balance']
-            if m not in monthly_balance:
-                monthly_balance[m] = {}
-            monthly_balance[m][account_code] = {
-                'month':month,
-                'account_code':account_code,
-                'account_name':accounts[account_code],
-                'beginning_balance':beginning_balance[account_code][m-1],
-                'debit_amount':debit_month_total[account_code],
-                'credit_amount':credit_month_total[account_code],
-                'ending_balance':beginning_balance[account_code][m]
+        if month not in monthly_balance:
+            monthly_balance[month] = {}
+        dbt_total = 0
+        cdt_total = 0
+        for account_code,account_total in total_data.items():
+            beginning_balance[account_code][m] = beginning_balance[account_code][m-1] + account_total['dbt'] - account_total['cdt']
+            monthly_balance[month][account_code] = {
+                'month':             month,
+                'account_code':      account_code,
+                'account_name':      accounts[account_code],
+                'beginning_balance': beginning_balance[account_code][m-1],
+                'dbt_amount':        account_total['dbt'],
+                'cdt_amount':        account_total['cdt'],
+                'ending_balance':    beginning_balance[account_code][m]
             }
-            print(f"{monthly_balance[m][account_code]['month']} | {monthly_balance[m][account_code]['account_code']}:{ monthly_balance[m][account_code]['account_name']} | {monthly_balance[m][account_code]['beginning_balance']} | {monthly_balance[m][account_code]['debit_amount']} | {monthly_balance[m][account_code]['credit_amount']} | {monthly_balance[m][account_code]['ending_balance']}")
-        monthly_balance[m][''] = {
-            'month':'',
-            'account_code':'',
-            'account_name':'',
-            'beginning_balance':'',
-            'debit_amount':sum(debit_month_total.values()),
-            'credit_amount':sum(credit_month_total.values()),
-            'ending_balance':''
-        }
-        # records.append(monthly_balance[m][''])
-        print(f"{monthly_balance[m]['']['month']} | {monthly_balance[m]['']['account_code']}:{ monthly_balance[m]['']['account_name']} | {monthly_balance[m]['']['beginning_balance']} | {monthly_balance[m]['']['debit_amount']} | {monthly_balance[m]['']['credit_amount']} | {monthly_balance[m]['']['ending_balance']}")
+            dbt_total += account_total['dbt']
+            cdt_total += account_total['cdt']
+        if dbt_total!= monthly_totals[month]['dbt'] or cdt_total!=monthly_totals[month]['cdt']:
+            print (f"計算エラー {dbt_total}:{monthly_totals[month]['dbt']}  {cdt_total}:{monthly_totals[month]['cdt']}")
+        monthly_balance[month][''] = {
+                'month':             month,
+                'account_code':      '',
+                'account_name':      '',
+                'beginning_balance': '',
+                'dbt_amount':        dbt_total,
+                'cdt_amount':        cdt_total,
+                'ending_balance':    ''
+            }        
 
-        dir_path = f'data/journal_entry/TB/{month}'
+    # 検算
+    for month in monthly_totals:
+        _dbt_total = monthly_totals[month]['dbt']
+        _cdt_total = monthly_totals[month]['cdt']
+        print(f'{month} 借方 {_dbt_total} 貸方 {_cdt_total} {_dbt_total - _cdt_total}')
+
+    for month in monthly_totals:
+        dir_path = f'data/journal_entry/TB'
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
-        with open(f'{dir_path}/trial_balance.csv', 'w', newline='', encoding='utf-8-sig') as file:
-            header = list(monthly_balance[m][''].keys())
+        with open(f'{dir_path}/{month}trial_balance.csv', 'w', newline='', encoding='utf-8-sig') as file:
+            header = ['month','account_code','account_name','beginning_balance','dbt_amount','cdt_amount','ending_balance']
             writer = csv.DictWriter(file, fieldnames=header)
-            writer.writeheader()
-            for row in list(monthly_balance[m].values()):
+            # writer.writeheader()
+            writer.writerow({'month':'月','account_code':'コード','account_name':'科目','beginning_balance':'前月残高','dbt_amount':'借方','cdt_amount':'貸方','ending_balance':'当月残高'})
+            for row in list(monthly_balance[month].values()):
                 writer.writerow(row)
 
     print('END')

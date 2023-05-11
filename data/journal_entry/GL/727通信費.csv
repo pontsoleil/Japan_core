@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,727,通信費,,12636815,0,12636815
 10,0001-20090402-122-5-1-471,0,2009-04-02,111,現金,証明書発行手数料,1000,0,1000
 99,0001-20090406-123-21-1-503,0,2009-04-06,111,現金,切手代,38096,0,39096

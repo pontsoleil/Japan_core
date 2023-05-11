@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,739,新聞図書費,,293808,0,293808
 814,0001-20090425-114-158-1-777,0,2009-04-25,111,現金,新聞代,2540,0,2540
 817,0001-20090425-114-158-1-777,3,2009-04-25,111,現金,新聞代,2864,0,5404

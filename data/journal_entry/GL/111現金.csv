@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,111,現金,,29608790,28847774,761016
 2,0001-20090401-18-1-1-463,0,2009-04-01,726,旅費交通費,旅費,0,18572,-18572
 3,0001-20090401-18-1-1-463,1,2009-04-01,191,仮払消費税等,旅費,0,928,-19500

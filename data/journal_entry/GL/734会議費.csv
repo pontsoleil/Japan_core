@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,734,会議費,,314689,0,314689
 201,0001-20090410-162-44-1-549,0,2009-04-10,111,現金,会議　食事代,23805,0,23805
 ,,,2009-04,,※※月計※※,,23805,0,

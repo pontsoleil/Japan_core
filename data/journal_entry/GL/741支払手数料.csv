@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,741,支払手数料,,137950,0,137950
 61,0001-20090405-254-13-1-487,2,2009-04-05,152,売掛金,09年4月5日伝票No190株式会社　渡辺産業,600,0,600
 69,0001-20090405-255-14-1-489,2,2009-04-05,152,売掛金,09年4月5日伝票No191佐々木販売株式会社,450,0,1050

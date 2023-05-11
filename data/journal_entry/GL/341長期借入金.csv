@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,341,長期借入金,,7000000,0,7000000
 18200,0001-20100331-152-2821-1-6103,0,2010-03-31,121,当座預金,長期借入金返済,7000000,0,7000000
 ,,,2010-03,,※※月計※※,長期借入金返済,7000000,0,7000000

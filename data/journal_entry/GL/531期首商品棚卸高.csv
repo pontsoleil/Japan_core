@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,531,期首商品棚卸高,,63013226,0,63013226
 18211,0001-20100331-301-2823-1-6107,0,2010-03-31,171,商品,在庫振替(札幌),7858401,0,7858401
 18213,0001-20100331-301-2823-1-6107,2,2010-03-31,171,商品,在庫振替(東京),31348594,0,39206995

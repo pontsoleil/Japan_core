@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,713,賞与,,11082000,0,11082000
 4597,0001-20090630-92-674-1-1809,1,2009-06-30,131,普通預金,6月賞与その他 0020 営業部,1246323,0,1246323
 4600,0001-20090630-92-674-1-1809,2,2009-06-30,326,預り金,6月賞与その他 0020 営業部,185182,0,1431505

@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,328,未払法人税等,,2864378,0,2864378
 3030,0001-20090531-151-480-1-1421,2,2009-05-31,131,普通預金,法人税支払,2864378,0,2864378
 ,,,2009-05,,※※月計※※,法人税支払,2864378,0,2864378

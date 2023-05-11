@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,183,短期貸付金,,600000,680000,-80000
 1476,0001-20090430-308-243-1-947,1,2009-04-30,131,普通預金,貸付金返済,0,40000,-40000
 ,,,2009-04,,※※月計※※,,0,40000,

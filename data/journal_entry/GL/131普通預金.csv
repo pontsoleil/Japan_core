@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,131,普通預金,,836161561,833222136,2939425
 47,0001-20090405-133-11-1-483,0,2009-04-05,746,支払報酬,税理士報酬,0,133058,-133058
 48,0001-20090405-133-11-1-483,1,2009-04-05,191,仮払消費税等,税理士報酬,0,6652,-139710

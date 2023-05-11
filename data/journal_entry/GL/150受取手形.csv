@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,150,受取手形,,426025539,392166316,33859223
 263,0001-20090410-258-53-1-567,1,2009-04-10,152,売掛金,09年4月10日伝票No194かめだデパート,7862107,0,7862107
 539,0001-20090420-141-113-1-687,0,2009-04-20,121,当座預金,手形割引　もみじデパート,0,7736137,125970

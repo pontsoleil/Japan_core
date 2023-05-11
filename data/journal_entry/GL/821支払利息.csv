@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,821,支払利息,,1691768,0,1691768
 543,0001-20090420-141-113-1-687,2,2009-04-20,150,受取手形,手形割引料,58382,0,58382
 1488,0001-20090430-314-245-1-951,2,2009-04-30,121,当座預金,利息,32675,0,91057

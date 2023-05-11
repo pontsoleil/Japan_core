@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,511,売上高,,0,814595737,-814595737
 1191,0001-20090430-276-218-1-897,1,2009-04-30,152,売掛金,09年4月1日～09年4月30日分売上,0,1536384,-1536384
 1194,0001-20090430-276-218-1-897,4,2009-04-30,152,売掛金,09年4月1日～09年4月30日分売上,0,3664410,-5200794

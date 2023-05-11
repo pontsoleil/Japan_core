@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,732,広告宣伝費,,2074965,0,2074965
 462,0001-20090415-4-73-1-607,0,2009-04-15,322,未払金,広告費,30000,0,30000
 519,0001-20090420-101-109-1-679,0,2009-04-20,322,未払金,広告料,50000,0,80000

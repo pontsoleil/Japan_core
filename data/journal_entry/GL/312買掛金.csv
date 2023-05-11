@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,312,買掛金,,521197759,514160620,7037139
 266,0001-20090410-259-54-1-569,1,2009-04-10,152,売掛金,09年4月10日伝票No472株式会社　チェック,1961954,0,1961954
 277,0001-20090410-261-56-1-573,1,2009-04-10,301,支払手形,09年4月10日伝票No271株式会社　チェック,7368349,0,9330303

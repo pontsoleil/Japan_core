@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,737,消耗品費,,6735986,3367993,3367993
 568,0001-20090420-241-118-1-697,0,2009-04-20,322,未払金,ファイル等,33981,0,33981
 571,0001-20090420-241-118-1-697,3,2009-04-20,322,未払金,飲料水,239048,0,273029

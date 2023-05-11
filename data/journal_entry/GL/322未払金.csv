@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,322,未払金,,97455856,98918891,-1463035
 53,0001-20090405-139-12-1-485,0,2009-04-05,724,福利厚生費,制服代,0,52981,-52981
 54,0001-20090405-139-12-1-485,1,2009-04-05,191,仮払消費税等,制服代,0,2649,-55630

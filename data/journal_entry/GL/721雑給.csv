@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,721,雑給,,4582962,0,4582962
 412,0001-20090415-252-79-1-619,1,2009-04-15,111,現金,4月給与その他 0060 パート･アルバイト,378068,0,378068
 413,0001-20090415-252-79-1-619,2,2009-04-15,326,預り金,4月給与その他 0060 パート･アルバイト,2970,0,381038

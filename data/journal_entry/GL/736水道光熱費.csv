@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,736,水道光熱費,,7138144,0,7138144
 527,0001-20090420-132-111-1-683,0,2009-04-20,131,普通預金,電気代,113565,0,113565
 532,0001-20090420-132-111-1-683,3,2009-04-20,131,普通預金,水道代,6229,0,119794

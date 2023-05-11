@@ -1,4 +1,4 @@
-﻿num,GL02,GL02-GL55,date,contra_account,contra_account_name,note,debit_amount,credit_amount,balance
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,cdt_amount,balance
 ,,,,763,減価償却費,,1175960,0,1175960
 18177,0001-20100331-149-2818-1-6097,1,2010-03-31,213,構築物,減価償却費,164000,0,164000
 18178,0001-20100331-149-2818-1-6097,2,2010-03-31,335,仮受消費税等,減価償却費,8200,0,172200
