@@ -224,22 +224,22 @@ convert = (function () {
 	function _fillTable(contents, table_id, column) {
 		const json = _convertCSVtoJSON(contents, column);
 		// Create a new table element
-		const table = ducument.querySelector(table_id);		
+		const table = ducument.querySelector(table_id);
 		// Create a new tbody element
-		const tbody = table.selectElementByTagname('tbody');		
+		const tbody = table.selectElementByTagname('tbody');
 		// Loop through the rows in the matrix
 		for (let i = 0; i < json.length; i++) {
 			// Create a new tr element for the row
-			const row = document.createElement('tr');		
+			const row = document.createElement('tr');
 			// Loop through the cells in the row
 			for (let j = 0; j < json[i].length; j++) {
 				// Create a new td element for the cell
-				const cell = document.createElement('td');			
+				const cell = document.createElement('td');
 				// Set the text content of the cell
-				cell.textContent = json[i][j];			
+				cell.textContent = json[i][j];
 				// Append the cell to the row
 				row.appendChild(cell);
-			}		
+			}
 			// Append the row to the tbody
 			tbody.appendChild(row);
 		}
@@ -271,7 +271,7 @@ convert = (function () {
 			td_term.textContent = '項目名';
 			tr.appendChild(td_term);
 		} else {
-			let core_id =header[0];
+			let core_id = header[0];
 			if ('d_' == core_id.substring(0, 2)) {
 				core_id = core_id.substring(2);
 			}
@@ -280,8 +280,8 @@ convert = (function () {
 		}
 		let start = 0;
 		let tid = table_id.split(' ').pop().substring(1);
-		if (''!=column || 
-				['core_japan_table','jp-pint_binding_table','sme_binding_table'].indexOf(tid) >= 0) {
+		if ('' != column ||
+			['core_japan_table', 'jp-pint_binding_table', 'sme_binding_table'].indexOf(tid) >= 0) {
 			start = 1;
 		}
 		for (var i = start; i < header.length; i++) {
@@ -313,22 +313,22 @@ convert = (function () {
 			for (let i = 0; i < header.length; i++) {
 				// Create a new td element for the cell
 				const cell = document.createElement('td');
-				if (0==i) {
+				if (0 == i) {
 					let core_id = data[header[0]];
-					 if ('d_' == core_id.substring(0, 2)) {
+					if ('d_' == core_id.substring(0, 2)) {
 						core_id = core_id.substring(2);
 					}
-					cell.textContent = core_id;					
+					cell.textContent = core_id;
 				} else {
 					// Set the text content of the cell
-					cell.textContent = data[header[i]];					
+					cell.textContent = data[header[i]];
 				}
 				if (column && i > 2) {
 					cell.style = 'text-align: center;';
 				}
 				// Append the cell to the row
 				row.appendChild(cell);
-				if (0==i && column) {
+				if (0 == i && column) {
 					// td for term name
 					if (column) {
 						const cell_term = document.createElement('td');
@@ -474,7 +474,7 @@ convert = (function () {
 			if (selected && 'initial' != selected) {
 				let file_name = selected.substring(1 + selected.indexOf(':'));
 				formData.append('selected', file_name);
-				let syntax = selected.substring(0,selected.indexOf(':'));
+				let syntax = selected.substring(0, selected.indexOf(':'));
 				formData.append("syntax", syntax);
 			} else {
 				snackbar.open({ 'message': 'ファイルを指定してください', 'type': 'danger' });
