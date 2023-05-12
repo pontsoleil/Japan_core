@@ -33,7 +33,7 @@
     border-radius: 2px;
     padding: 16px;
     position: fixed;
-    z-index: 1;
+    z-index: 300;
     left: 50%;
     bottom: 0px;
     font-size: 17px;
@@ -60,4 +60,17 @@ thead {
     position: sticky;
     top: 0;
     background-color: #fefefe;
+}
+
+.nav-item .nav-link.active {
+    color: #ffffff;
+    background-color: #538ff6;
+}
+
+.wuwei-container {
+    text-align: center;
+}
+
+.wuwei-container table {
+    margin: 0 auto;
 }

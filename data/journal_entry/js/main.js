@@ -36,22 +36,22 @@ main = (function () {
         xhr.open('GET', 'instances.csv', true);
         xhr.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
-
             var data = xhr.responseText.split('\n');
             var items = [];
             for (var i = 0; i < data.length; i++) {
                 var item = data[i].split(',');
                 items.push(item);
             }
-            // var items_count = items.length;
-            // snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            var items_count = items.length;
+            snackbar.close()
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#instances tbody');
             for (var i = 1; i < items.length; i++) {
-                // if (0 == i % 5000) {
-                //     snackbar.close();
-                //     snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
-                // }
+                if (0 == i % 500) {
+                    snackbar.close();
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                }
                 var item = items[i];
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
@@ -103,7 +103,7 @@ main = (function () {
                 tr.appendChild(td13);
                 tableBody.appendChild(tr);
             }
-            // snackbar.close();
+            snackbar.close();
         };
         xhr.send();
     }
@@ -121,11 +121,12 @@ main = (function () {
                 items.push(item);
             }
             var items_count = items.length;
+            snackbar.close();
             snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#horizontal tbody');
             for (var i = 1; i < items.length; i++) {
-                if (0 == i % 5000) {
+                if (0 == i % 500) {
                     snackbar.close();
                     snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
                 }
@@ -215,7 +216,9 @@ main = (function () {
                 tr.appendChild(td20);
                 tableBody.appendChild(tr);
             }
-            snackbar.close();
+            setTimeout(function () {
+                snackbar.close();
+            }, 3000);
 
             hideHolizontalLines();
         };
@@ -306,17 +309,24 @@ main = (function () {
             var items = [];
             for (var i = 0; i < data.length; i++) {
                 var item = data[i].split(',');
-                if (item.length < 10 || ''==item[0]) {
+                if (item.length < 10) {
                     continue
                 }
                 item = item.map((element) => element.trim());
                 items.push(item);
             }
+            var items_count = items.length;
+            snackbar.close();
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#GL tbody');
             tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 var item = items[i];
+                if (0 == i % 500) {
+                    snackbar.close();
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                }                
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
                 var td2 = document.createElement('td');
@@ -375,6 +385,7 @@ main = (function () {
                 tr.appendChild(td10);
                 tableBody.appendChild(tr);
             }
+            snackbar.close();
         };
         xhr.send();
     }
@@ -389,17 +400,24 @@ main = (function () {
             var items = [];
             for (var i = 0; i < data.length; i++) {
                 var item = data[i].split(',');
-                if (item.length < 7 || ''==item[0]) {
+                if (item.length < 7) {
                     continue
                 }
                 item = item.map((element) => element.trim());
                 items.push(item);
             }
+            var items_count = items.length;
+            snackbar.close();
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#TB tbody');
             tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 var item = items[i];
+                if (0 == i % 500) {
+                    snackbar.close();
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                }                
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
                 var td2 = document.createElement('td');
@@ -447,10 +465,10 @@ main = (function () {
                 tr.appendChild(td7);
                 tableBody.appendChild(tr);
             }
+            snackbar.close();
         };
         xhr.send();
     }
-
 
     function getFileList() {
         fetch('./file_list.php')
@@ -465,24 +483,12 @@ main = (function () {
                 }
                 file_list.append(select);
 
+                var fileName = document.getElementById("file-select").value;
+                getXMLFile(fileName);
+
                 select.on('change', function () {
                     var fileName = $(this).val();
-                    // var fileName = fileSelect.options[fileSelect.selectedIndex].value;
-                    var fileSelect = document.getElementById("file-list");
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", "./XBRL_GLinstances/" + fileName, true);
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            let xmlData = xhr.responseXML;
-                            // XMLデータを文字列に変換する
-                            let wellFormedXml = new XMLSerializer().serializeToString(xmlData);
-                            // HTMLエスケープする
-                            const escapedXmlString = escapeHtml(wellFormedXml);
-                            var contentDiv = document.getElementById("file-content");
-                            contentDiv.innerHTML = escapedXmlString;// `<pre>${formattedXml}</pre>`;
-                        }
-                    };
-                    xhr.send();
+                    getXMLFile(fileName);
                 });
             })
             .catch(error => {
@@ -491,6 +497,30 @@ main = (function () {
             });
     }
 
+    // xmlファイルの内容を表示
+    function getXMLFile(fileName) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "./XBRL_GLinstances/" + fileName, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let xmlText = xhr.responseText;
+                xmlText = xmlText.replace(/\n[ ]+\n[ ]+/g,'');
+                const escapedXmlString = escapeHtml(xmlText);
+                var contentDiv = document.getElementById("file-content");
+                contentDiv.innerHTML = escapedXmlString;// `<pre>${formattedXml}</pre>`;
+                // let xmlData = xhr.responseXML;
+                // // XMLデータを文字列に変換する
+                // let wellFormedXml = new XMLSerializer().serializeToString(xmlData);
+                // // HTMLエスケープする
+                // const escapedXmlString = escapeHtml(wellFormedXml);
+                // var contentDiv = document.getElementById("file-content");
+                // contentDiv.innerHTML = escapedXmlString;// `<pre>${formattedXml}</pre>`;
+            }
+        };
+        xhr.send();
+    }
+
+    
     // HTMLエスケープする関数
     function escapeHtml(unsafe) {
         return unsafe.replace(/[&<"']/g, function (match) {
@@ -508,6 +538,7 @@ main = (function () {
     }
 
     function initModule() {
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
 
         var linesButton = $('#linesButton');
         linesButton.value = '明細行のみ';
@@ -578,6 +609,33 @@ main = (function () {
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
 
+        window.onload = function() {
+            // URLからタブ指定パラメータを取得
+            var tabParam = new URLSearchParams(window.location.search).get('tab');
+            if (tabParam) {
+                var activeTabLink = document.querySelector('.nav-link.active');
+                if (activeTabLink) {
+                  activeTabLink.classList.remove('active');
+                  activeTabLink.setAttribute('aria-selected', 'false');
+                  var activeTabContentId = activeTabLink.getAttribute('href').substring(1);
+                  var activeTabContent = document.getElementById(activeTabContentId);
+                  if (activeTabContent) {
+                    activeTabContent.classList.remove('active', 'show');
+                  }
+                }
+                // タブ指定パラメータがある場合、対応するタブをアクティブにする
+                var tabLink = document.querySelector('a[href="#' + tabParam + '"]');
+                if (tabLink) {
+                    tabLink.classList.add('active');
+                    tabLink.setAttribute('aria-selected', 'true');
+                    var tabContentId = tabLink.getAttribute('href').substring(1);
+                    var tabContent = document.getElementById(tabContentId);
+                    if (tabContent) {
+                        tabContent.classList.add('active', 'show');
+                    }
+                }
+            }
+        }
     }
     return {
         initModule: initModule
