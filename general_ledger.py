@@ -278,7 +278,7 @@ def main():
     for month in monthly_totals:
         _dbt_total = monthly_totals[month]['dbt']
         _cdt_total = monthly_totals[month]['cdt']
-        print(f'{month} 借方 {_dbt_total} 貸方 {_cdt_total} {_dbt_total - _cdt_total}')
+        if DEBUG: print(f'{month} 借方 {_dbt_total} 貸方 {_cdt_total} {_dbt_total - _cdt_total}')
 
 
     # 5. 総勘定元帳を出力する    
@@ -363,7 +363,7 @@ def main():
             'date':             month,
             'contra_acct':      '',
             'contra_acct_name': '※※月計※※',
-            'note':             note,
+            'note':             '',
             'dbt_amount':       dbt_total,
             'cdt_amount':       cdt_total,
             'balance':          balance
@@ -421,7 +421,7 @@ def main():
     for month in monthly_totals:
         _dbt_total = monthly_totals[month]['dbt']
         _cdt_total = monthly_totals[month]['cdt']
-        print(f'{month} 借方 {_dbt_total} 貸方 {_cdt_total} {_dbt_total - _cdt_total}')
+        if DEBUG: print(f'{month} 借方 {_dbt_total} 貸方 {_cdt_total} {_dbt_total - _cdt_total}')
 
     for month in monthly_totals:
         dir_path = f'data/journal_entry/TB'
