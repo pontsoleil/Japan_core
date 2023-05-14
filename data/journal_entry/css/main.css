@@ -74,3 +74,7 @@ thead {
 .wuwei-container table {
     margin: 0 auto;
 }
+
+.d-flex.justify-content-between {
+    align-items: center;
+}

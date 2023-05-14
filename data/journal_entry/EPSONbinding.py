@@ -56,7 +56,10 @@ def main():
     binding_file     = 'data/journal_entry/EPSONbinding.csv'
     binding_header   = ['column', 'name', 'card', 'semSort', 'semPath']
 
-    data_file = 'data/journal_entry/北海道産業(株).csv'
+    data_file = 'data/journal_entry/北海道産業(株)0.csv'
+    # data_file = 'data/journal_entry/北海道産業(株).csv'
+    out_file = 'data/journal_entry/北海道産業(株)0_tidy.csv'
+
     tidyData = []
 
     semanticsDict = {}
@@ -87,6 +90,7 @@ def main():
 
     n = 1
     dimensions = {}
+    elements = {}
     edges = set()
     for record in dataList:
         if DEBUG: print(record)
@@ -123,9 +127,10 @@ def main():
                     match = re.search(pattern, parent)
                     if match:
                         dimension = match.group(1)
-                        dimensions[dimension] = semanticsDict[dimension]
                         element   = match.group(2)
                         condition = match.group(3)                        
+                        dimensions[dimension] = semanticsDict[dimension]
+                        elements[element]     = semanticsDict[element]
                         if parent in tidyRecord and element in tidyRecord[parent]:
                             if tidyRecord[parent][element] == condition:
                                 if DEBUG: print(f"tidyRecord[{parent}] {condition}")
@@ -140,9 +145,10 @@ def main():
                     match = re.search(pattern, child)
                     if match:
                         dimension = match.group(1)
-                        dimensions[dimension] = semanticsDict[dimension]
                         element   = match.group(2)
-                        condition = match.group(3)                        
+                        condition = match.group(3)
+                        dimensions[dimension] = semanticsDict[dimension]
+                        elements[element]     = semanticsDict[element]
                         if parent in tidyRecord and element in tidyRecord[parent]:
                             if tidyRecord[parent][element] == condition:
                                 if DEBUG: print(f"tidyRecord[{parent}][{element}] {condition}")
@@ -165,20 +171,26 @@ def main():
             unique_data[key] = value
     sorted_data = sorted(unique_data.items(), key=lambda x: x[0])
     data_header = [item[1] for item in sorted_data]
+    for element in data_header:
+        elements[element] = semanticsDict[element]
 
     sorted_dimensions = sorted(dimensions.items(), key=lambda x: int(x[1]['semSort']))
     dimension_header = [item[1]['id'] for item in sorted_dimensions]
-    header = ['GL02'] + dimension_header + data_header
+
+    sorted_elements = sorted(elements.items(), key=lambda x: int(x[1]['semSort']))
+    element_header = [item[1]['id'] for item in sorted_elements]    
+
+    header = ['GL02'] + dimension_header + element_header
     if DEBUG: print(header)
 
+    records = []
     pattern = r"^([^\[\]]+)\[([^\[\]-]+-\d+)=([^\[\]]+)\]"
-    n = 0
-    
+    i = 0
     for d in tidyData:
         record = ['']*len(header)
-        record[0] = n
-        n += 1
-        m = 0
+        record[0] = i
+        i += 1
+        j = 0
         if not isinstance(d, dict):
             continue
         else: # d is dict
@@ -187,19 +199,36 @@ def main():
                     idx = header.index(k)
                     record[idx] = v
                 else: # v is dict
+                    records.append(record)
+                    record = ['']*len(header)
                     match = re.search(pattern, k)
                     dimension = match.group(1)
-                    element   = match.group(2)
-                    condition = match.group(3)
-                    idx = header.index(dimension)
-                    record[idx] = m
-                    m += 1
+                    idx_j = header.index(dimension)
+                    record[0] = i
+                    record[idx_j] = j
+                    j += 1
+                    k = 0
                     for k2,v2 in v.items():
                         if not isinstance(v2, dict):
                             idx = header.index(k2)
                             record[idx] = v2
                         else: # v2 is dict
-                            continue
+                            records.append(record)
+                            record = ['']*len(header)
+                            match = re.search(pattern, k2)
+                            dimension = match.group(1)
+                            idx_k = header.index(dimension)
+                            record[0] = i
+                            record[idx_j] = j
+                            record[idx_k] = k
+                            k += 1
+                            for k3,v3 in v2.items():
+                                if not isinstance(v3, dict):
+                                    idx_l = header.index(k3)
+                                    record[idx_l] = v3
+                                else:
+                                    continue
+    records.append(record)
 
 
 
