@@ -102,7 +102,6 @@ termDictSorted = {
     'GL61-03':   '組織タイプ名'
 }
 
-
 outDict = {
     'GL00':      'num',
     'GL02':      'GL',
