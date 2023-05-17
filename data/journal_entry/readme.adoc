@@ -1,6 +1,6 @@
 = 処理フロー
 
-== 日本版コアインボイス ゲートウェイ
+== 1. 日本版コアインボイス ゲートウェイ
 
 .Invoice2csv.java & CSV2invoice.java
 // [mermaid]
@@ -26,7 +26,7 @@
 .Invoice2csv.java & CSV2invoice.java
 image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAwrPpS5_NWfO8s-Nx0-bHTYseNy153Lz5cfMcEKNpZ3VIZkqlS2JJonNwWHyFU5CPLpBRy4Wk3zOvLD8zOdUoubisOiuxLPFx8_THzWsfN2143LzycfOCWiSlzsVlRpkQ5diVIqkNdfKBKlWo9grQDfD0C0ExytMTLv1kx9qnG_qf7Gl8tnTt09aNLxtmubp4Qg1DMkZXt8YO2bVgeSRzMOTBCpAEICrwhxdYD34lEGOQwgJiEZIARAXC6djlEU4HALveyG4=[Invoice2csv.java &amp; CSV2invoice.java]
 
-== 検索専用ブラウザ
+== 2. 検索専用ブラウザ
 
 XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検索専用ブラウザ用のCSVに変換し、ブラウザで表示する。
 
@@ -58,7 +58,7 @@ XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検�
 // ----
 image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7TzWIqkUS9swry89MTjVKLi6rzkosS3zcPP1x89rHTRseN6983LyglgtJbWZecUliXnJqcXVIZkqlS2JJonNwWHwF0ERdIANFaUZ-UWZVfl5JYk58TmpKempRdUFlSUZ-HobxCC3pqXmpRQTV47MD6AgcLkNoCinKTMxxSswB-UOh-mnrxpcNs9CUuEMc4gM2E0UNWBEkIBV0dWvskEMPLIfEhyiABxlEL5wLkcXwAVgRhigOxUAncWHXAJSB6EENU7BiVCGIMuRAwakIJVgAhhnh-w==[horizontal_ledger.py &amp; general_ledger.py]
 
-== 会計パッケージのCSVとTidyData形式CSVの相互変換
+== 3. 会計パッケージのCSVとTidyData形式CSVの相互変換
 
 EPSONから提供されるCSVファイルを対象に相互変換する。
 
@@ -79,3 +79,7 @@ EPSONから提供されるCSVファイルを対象に相互変換する。
 //     tidy2csv --|> 北海道産業
 // ----
 image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQnJxmVFJZkqlQnVBZUlGft7j5umPm9c-btrwuHnl4-YFtUhKQcqMgOpxKkVS-7Rn-rOt2182Tn4-ZfGzpWvjIVaEAEmXxJJE5-Cw-AqnIB9dIKMWty6FateAYH-_p3sXPd3TD1YKVouuSle3xg7uD4hpME-BpbC5BatJ8Qg9ML-ClcE9js04AAJWnNg=[csv2tidy.py &amp; tidy2csv.py]
+
+== 残作業
+
+ 2 と 3 では、使用したバインディング定義ファイルの前提としている論理階層モデルが異なる。　2 の定義を更新して再確認する。(2023-05-17)
