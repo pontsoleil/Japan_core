@@ -38,8 +38,9 @@ XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使�
 // [mermaid]
 // ----
 // classDiagram
-//     class XBRLGL{XBRL}
-//     class XBRL_GL2csv{javaプログラム}
+//     class XBRLGL {XBRL}
+//     class XBRL_GL2csv {javaプログラム}
+//     class xBRL_GL_binding {構文バインディング}
 
 //     class instances{TidyDataCSV_xBRL-CSV}
 
@@ -51,6 +52,7 @@ XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使�
 //     class GeneralLedger {共通CSV}
 
 //     XBRLGL --|> XBRL_GL2csv
+//     xBRL_GL_binding --|> XBRL_GL2csv
 //     XBRL_GL2csv --|> instances
 
 //     instances --|> horizontal_ledger
@@ -60,7 +62,7 @@ XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使�
 //     general_ledger --|> TrialBalance
 //     general_ledger --|> GeneralLedger
 // ----
-image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7TzWIqkUTjnf3MUouLqvOSixLfNw8_XHz2sdNGx43r3zcvKCWC0ltZl5xSWJecmpxdUhmSqVLYkmic3BYfAXQBF0gA0VpRn5RZlV-XkliTnxOakp6alF1QWVJRn4ehvEILempealFBNXjswPoCBwuQ2gKKcpMzHFKzAH5Q6H6aevGlw2z0JS4QxziAzYTRQ1YESQgFXR1a-yQQw8uB-VDFMCDDKIXzoXIYvgArAhDFIdioJO4sGsAykD0oIYpWDGqEEQZcqDgVIQSLADwduAS[horizontal_ledger.py &amp; general_ledger.py]
+image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7j0I1iK5FE4939zFKLi5TqM5KLEt83Dz9cfPax00bHjevfNy8AFltBURtfFJmXkpmXrpC9bPl3c-mtT9unvC4acnj5s2Pm9sfNy0GMZo21HIhaczMKy5JzEtOLa4OyUypdEksSXQODosHGacLZKAozcgvyqzKzytJzInPSU1JTy2qLqgsycjPw-Os9NS81CKC6vHZAXQEDpchNIUUZSbmOCXmgPyhUP20dePLhlloStwhDvEBm4miBqwIGgW6ujV2yMEOlkMPWqyKkOMKrAAerhAL4FyILIY3wYowRHEoBrqbC7sGoAxED2rAgxWjCkGUIYccTkUoYQcAvNwHHQ==[horizontal_ledger.py &amp; general_ledger.py]
 
 https://www.wuwei.space/core-japan/journal_entry/[検索専用ブラウザ]
 
@@ -68,10 +70,14 @@ https://www.wuwei.space/core-japan/journal_entry/[検索専用ブラウザ]
 
 EPSONから提供されるCSVファイルを対象に相互変換する。
 
+論理モデルバインディング EPSON_binding.csv
+
 .csv2tidy.py & tidy2csv.py
 // [mermaid]
 // ----
 // classDiagram
+//     class EPSON_binding {論理モデルバインディングCSV}
+
 //     class csv2tidy {pythonプログラム}
 //     class tidy2csv {pythonプログラム}
 
@@ -79,13 +85,14 @@ EPSONから提供されるCSVファイルを対象に相互変換する。
 //     class 北海道産業 {EPSON形式CSV}
 
 //     北海道産業 --|> csv2tidy
+//     EPSON_binding --|> csv2tidy
 //     csv2tidy --|> 北海道産業_tidy
 
 //     北海道産業_tidy --|> tidy2csv
+//     EPSON_binding --|> tidy2csv
 //     tidy2csv --|> 北海道産業
 // ----
-image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQnJxmVFJZkqlQnVBZUlGft7j5umPm9c-btrwuHnl4-YFtUhKQcqMgOpxKkVS-7Rn-rOt2182Tn4-ZfGzpWvjIVaEAEmXxJJE5-Cw-AqnIB9dIKMWty6FateAYH-_p3sXPd3TD1YKVouuSle3xg7uD4hpME-BpbC5BatJ8Qg9ML-ClcE9js04AAJWnNg=[csv2tidy.py &amp; tidy2csv.py]
-
+image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAgmtAsL9ffFJmXkpmXrpC9YvV055PaHvcvOhxc_vj5tWPmyc8blryuHkziNu0GMRo2uAcHFbLhWREcnGZUUlmSqVCdUFlSUZ-3uPm6Y-b1wIVPm5e-bh5QS2SUpAyI6B6nEqR1D7tmf5s6_aXjZOfT1n8bOnaeIgVIUDSJbEkEeiI-AqnIB9dsGtw6lKoBnvw6d5FT_f0IxyOrkpXt8YO7g-wCtRwwZSHexoshc2tWG2KR-iBhQUu61Dk4QGHzToAieHSdg==[csv2tidy.py &amp; tidy2csv.py]
 
 == Marmaid
 
