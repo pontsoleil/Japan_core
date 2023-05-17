@@ -26,6 +26,8 @@
 .Invoice2csv.java & CSV2invoice.java
 image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAwrPpS5_NWfO8s-Nx0-bHTYseNy153Lz5cfMcEKNpZ3VIZkqlS2JJonNwWHyFU5CPLpBRy4Wk3zOvLD8zOdUoubisOiuxLPFx8_THzWsfN2143LzycfOCWiSlzsVlRpkQ5diVIqkNdfKBKlWo9grQDfD0C0ExytMTLv1kx9qnG_qf7Gl8tnTt09aNLxtmubp4Qg1DMkZXt8YO2bVgeSRzMOTBCpAEICrwhxdYD34lEGOQwgJiEZIARAXC6djlEU4HALveyG4=[Invoice2csv.java &amp; CSV2invoice.java]
 
+https://www.wuwei.space/core-japan/[日本版コアインボイス変換サービス]
+
 == 2. 検索専用ブラウザ
 
 XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検索専用ブラウザ用のCSVに変換し、ブラウザで表示する。
@@ -57,6 +59,8 @@ XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検�
 //     general_ledger --|> GeneralLedger
 // ----
 image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7TzWIqkUS9swry89MTjVKLi6rzkosS3zcPP1x89rHTRseN6983LyglgtJbWZecUliXnJqcXVIZkqlS2JJonNwWHwF0ERdIANFaUZ-UWZVfl5JYk58TmpKempRdUFlSUZ-HobxCC3pqXmpRQTV47MD6AgcLkNoCinKTMxxSswB-UOh-mnrxpcNs9CUuEMc4gM2E0UNWBEkIBV0dWvskEMPLIfEhyiABxlEL5wLkcXwAVgRhigOxUAncWHXAJSB6EENU7BiVCGIMuRAwakIJVgAhhnh-w==[horizontal_ledger.py &amp; general_ledger.py]
+
+https://www.wuwei.space/core-japan/journal_entry/[検索専用ブラウザ]
 
 == 3. 会計パッケージのCSVとTidyData形式CSVの相互変換
 
