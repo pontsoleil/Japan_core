@@ -7,7 +7,6 @@
 // ----
 // classDiagram
 //     class 日本版コアインボイス{TidyDataCSV_xBRL-CSV}
-//     class XBRLGL{XBRL}
 
 //     class Invoice2csv{javaプログラム}
 //     class Csv2invoice{javaプログラム}
@@ -17,7 +16,6 @@
 
 //     UBLinvoice --|> Invoice2csv
 //     CIIinvoice --|> Invoice2csv
-//     XBRLGL --|> Invoice2csv
 
 //     Invoice2csv --|> 日本版コアインボイス
 //     日本版コアインボイス --|> Csv2invoice
@@ -26,7 +24,7 @@
 //     Csv2invoice --|> CIIinvoice
 // ----
 .Invoice2csv.java & CSV2invoice.java
-image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAwrPpS5_NWfO8s-Nx0-bHTYseNy153Lz5cfMcEKNpZ3VIZkqlS2JJonNwWHyFU5CPLpBRi6Q9Aijm7lMNomq5kMQ988ryM5NTjZKLy6qzEssSHzdPf9y89nHThsfNKx83L0A2wrm4zCgTohy7UiS1oU4-UKUK1V4BugGefiEoRnl6wqWf7Fj7dEP_kz2Nz5aufdq68WXDLFcXT6hhSMbo6tbYIbsWLI9kDlZ5iK8x5cCSSAIQFfiDGKwHvxKIMUjhBLEISQCiAuEt7PIIbwEA_13XHQ==[Invoice2csv.java &amp; CSV2invoice.java]
+image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAwrPpS5_NWfO8s-Nx0-bHTYseNy153Lz5cfMcEKNpZ3VIZkqlS2JJonNwWHyFU5CPLpBRy4Wk3zOvLD8zOdUoubisOiuxLPFx8_THzWsfN2143LzycfOCWiSlzsVlRpkQ5diVIqkNdfKBKlWo9grQDfD0C0ExytMTLv1kx9qnG_qf7Gl8tnTt09aNLxtmubp4Qg1DMkZXt8YO2bVgeSRzMOTBCpAEICrwhxdYD34lEGOQwgJiEZIARAXC6djlEU4HALveyG4=[Invoice2csv.java &amp; CSV2invoice.java]
 
 == 検索専用ブラウザ
 
