@@ -84,6 +84,14 @@ EPSONから提供されるCSVファイルを対象に相互変換する。
 // ----
 image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQnJxmVFJZkqlQnVBZUlGft7j5umPm9c-btrwuHnl4-YFtUhKQcqMgOpxKkVS-7Rn-rOt2182Tn4-ZfGzpWvjIVaEAEmXxJJE5-Cw-AqnIB9dIKMWty6FateAYH-_p3sXPd3TD1YKVouuSle3xg7uD4hpME-BpbC5BatJ8Qg9ML-ClcE9js04AAJWnNg=[csv2tidy.py &amp; tidy2csv.py]
 
+
+== Marmaid
+
+VS CodeのAscii DocでMermaid Markdown Syntax Highlighting機能拡張を使用。
+
+Mermaidについては、 +
+https://mermaid.js.org/syntax/classDiagram.html
+
 == 残作業(2023-05-17)
 
 . 2 と 3 では、使用したバインディング定義ファイルの前提としている論理階層モデルが異なる。　2 の定義を更新して再確認する。
