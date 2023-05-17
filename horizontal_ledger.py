@@ -70,9 +70,9 @@ termDictSorted = {
     'GL00':      'num',
     'GL02':      'GL',
     'GL02-GL55': 'GL詳細',
-
     'GL55-GL60': '勘定科目セグメント',
     'GL55-GL61': '事業セグメント',
+    
     'GL02-01':   '仕訳ID',
     'GL64-01':   'ソースコード',
     'GL64-02':   'ソース説明',
@@ -169,13 +169,13 @@ def main():
         for row in reader:
             records.append(row)
 
-    srtd_records = sorted(records, key=lambda x:  (x['GL02'], int(x['GL02-GL55']) if x['GL02-GL55'].isdigit(
+    sorted_records = sorted(records, key=lambda x:  (x['GL02'], int(x['GL02-GL55']) if x['GL02-GL55'].isdigit(
     ) else -1, int(x['GL55-GL60']) if x['GL55-GL60'].isdigit() else -1, int(x['GL55-GL61']) if x['GL55-GL61'].isdigit() else -1))
 
     last = {'GL02': 'END'}
     for i in range(1, len(header)):
         last[header[i]] = ''
-    srtd_records.append(last)
+    sorted_records.append(last)
 
     sorted_records = []
     with open(f'{in_file[:-4]}_sorted.csv', 'w', newline='', encoding='utf-8-sig') as file:
@@ -183,7 +183,7 @@ def main():
         writer = csv.DictWriter(file, fieldnames=header)
         writer.writerow(termDictSorted)
         num = 1
-        for row in srtd_records:
+        for row in sorted_records:
             row['GL00'] = str(num)
             writer.writerow(row)
             sorted_records.append(row)
