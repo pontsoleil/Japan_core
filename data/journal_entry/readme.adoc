@@ -32,12 +32,14 @@ https://www.wuwei.space/core-japan/[日本版コアインボイス変換サー�
 
 XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検索専用ブラウザ用のCSVに変換し、ブラウザで表示する。
 
+XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使用)
+
 .horizontal_ledger.py & general_ledger.py
 // [mermaid]
 // ----
 // classDiagram
 //     class XBRLGL{XBRL}
-//     class Invoice2csv{javaプログラム}
+//     class XBRL_GL2csv{javaプログラム}
 
 //     class instances{TidyDataCSV_xBRL-CSV}
 
@@ -48,8 +50,8 @@ XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検�
 //     class TrialBalance {共通CSV}
 //     class GeneralLedger {共通CSV}
 
-//     XBRLGL --|> Invoice2csv
-//     Invoice2csv --|> instances
+//     XBRLGL --|> XBRL_GL2csv
+//     XBRL_GL2csv --|> instances
 
 //     instances --|> horizontal_ledger
 //     horizontal_ledger --|> horizontal_ledgerCSV
@@ -58,7 +60,7 @@ XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検�
 //     general_ledger --|> TrialBalance
 //     general_ledger --|> GeneralLedger
 // ----
-image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7TzWIqkUS9swry89MTjVKLi6rzkosS3zcPP1x89rHTRseN6983LyglgtJbWZecUliXnJqcXVIZkqlS2JJonNwWHwF0ERdIANFaUZ-UWZVfl5JYk58TmpKempRdUFlSUZ-HobxCC3pqXmpRQTV47MD6AgcLkNoCinKTMxxSswB-UOh-mnrxpcNs9CUuEMc4gM2E0UNWBEkIBV0dWvskEMPLIfEhyiABxlEL5wLkcXwAVgRhigOxUAncWHXAJSB6EENU7BiVCGIMuRAwakIJVgAhhnh-w==[horizontal_ledger.py &amp; general_ledger.py]
+image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7TzWIqkUTjnf3MUouLqvOSixLfNw8_XHz2sdNGx43r3zcvKCWC0ltZl5xSWJecmpxdUhmSqVLYkmic3BYfAXQBF0gA0VpRn5RZlV-XkliTnxOakp6alF1QWVJRn4ehvEILempealFBNXjswPoCBwuQ2gKKcpMzHFKzAH5Q6H6aevGlw2z0JS4QxziAzYTRQ1YESQgFXR1a-yQQw8uB-VDFMCDDKIXzoXIYvgArAhDFIdioJO4sGsAykD0oIYpWDGqEEQZcqDgVIQSLADwduAS[horizontal_ledger.py &amp; general_ledger.py]
 
 https://www.wuwei.space/core-japan/journal_entry/[検索専用ブラウザ]
 
