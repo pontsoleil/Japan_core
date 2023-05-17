@@ -32,8 +32,6 @@ https://www.wuwei.space/core-japan/[日本版コアインボイス変換サー�
 
 XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検索専用ブラウザ用のCSVに変換し、ブラウザで表示する。
 
-XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使用)
-
 .horizontal_ledger.py & general_ledger.py
 // [mermaid]
 // ----
@@ -64,13 +62,18 @@ XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使�
 // ----
 image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7j0I1iK5FE4939zFKLi5TqM5KLEt83Dz9cfPax00bHjevfNy8AFltBURtfFJmXkpmXrpC9bPl3c-mtT9unvC4acnj5s2Pm9sfNy0GMZo21HIhaczMKy5JzEtOLa4OyUypdEksSXQODosHGacLZKAozcgvyqzKzytJzInPSU1JTy2qLqgsycjPw-Os9NS81CKC6vHZAXQEDpchNIUUZSbmOCXmgPyhUP20dePLhlloStwhDvEBm4miBqwIGgW6ujV2yMEOlkMPWqyKkOMKrAAerhAL4FyILIY3wYowRHEoBrqbC7sGoAxED2rAgxWjCkGUIYccTkUoYQcAvNwHHQ==[horizontal_ledger.py &amp; general_ledger.py]
 
+XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使用)
+
+[%header,format=csv]
+|===
+include::../base/xBRL_GL_binding.csv[]
+|===
+
 https://www.wuwei.space/core-japan/journal_entry/[検索専用ブラウザ]
 
 == 3. 会計パッケージのCSVとTidyData形式CSVの相互変換
 
 EPSONから提供されるCSVファイルを対象に相互変換する。
-
-論理モデルバインディング EPSON_binding.csv
 
 .csv2tidy.py & tidy2csv.py
 // [mermaid]
@@ -93,6 +96,13 @@ EPSONから提供されるCSVファイルを対象に相互変換する。
 //     tidy2csv --|> 北海道産業
 // ----
 image::https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAgmtAsL9ffFJmXkpmXrpC9YvV055PaHvcvOhxc_vj5tWPmyc8blryuHkziNu0GMRo2uAcHFbLhWREcnGZUUlmSqVCdUFlSUZ-3uPm6Y-b1wIVPm5e-bh5QS2SUpAyI6B6nEqR1D7tmf5s6_aXjZOfT1n8bOnaeIgVIUDSJbEkEeiI-AqnIB9dsGtw6lKoBnvw6d5FT_f0IxyOrkpXt8YO7g-wCtRwwZSHexoshc2tWG2KR-iBhQUu61Dk4QGHzToAieHSdg==[csv2tidy.py &amp; tidy2csv.py]
+
+論理モデルバインディング EPSON_binding.csv
+
+[cols="^1,4,^1,^3,^1,12,^1",%header,format=csv]
+|===
+include::EPSONbinding.csv[]
+|===
 
 == Marmaid
 
