@@ -1,0 +1,79 @@
+= 処理フロー
+
+== 日本版コアインボイス ゲートウェイ
+
+.Invoice2csv.java & CSV2invoice.java
+[mermaid]
+----
+classDiagram
+    class 日本版コアインボイス{TidyDataCSV_xBRL-CSV}
+    class XBRLGL{XBRL}
+
+    class Invoice2csv{javaプログラム}
+    class Csv2invoice{javaプログラム}
+
+    class UBLinvoice {JP-PINT}
+    class CIIinvoice {中小企業共通EDI}
+
+    UBLinvoice --|> Invoice2csv
+    CIIinvoice --|> Invoice2csv
+    XBRLGL --|> Invoice2csv
+
+    Invoice2csv --|> 日本版コアインボイス
+    日本版コアインボイス --|> Csv2invoice
+
+    Csv2invoice --|> UBLinvoice
+    Csv2invoice --|> CIIinvoice
+----
+
+== 検索専用ブラウザ
+
+XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検索専用ブラウザ用のCSVに変換し、ブラウザで表示する。
+
+.horizontal_ledger.py & general_ledger.py
+[mermaid]
+----
+classDiagram
+    class XBRLGL{XBRL}
+    class Invoice2csv{javaプログラム}
+
+    class instances{TidyDataCSV_xBRL-CSV}
+
+    class horizontal_ledger{pythonプログラム}
+    class general_ledger{pythonプログラム}
+
+    class horizontal_ledgerCSV{TidyDataCSV_xBRL-CSV}
+    class TrialBalance {共通CSV}
+    class GeneralLedger {共通CSV}
+
+    XBRLGL --|> Invoice2csv
+    Invoice2csv --|> instances
+
+    instances --|> horizontal_ledger
+    horizontal_ledger --|> horizontal_ledgerCSV
+
+    horizontal_ledgerCSV --|> general_ledger
+    general_ledger --|> TrialBalance
+    general_ledger --|> GeneralLedger
+----
+
+== 会計パッケージのCSVとTidyData形式CSVの相互変換
+
+EPSONから提供されるCSVファイルを対象に相互変換する。
+
+.csv2tidy.py & tidy2csv.py
+[mermaid]
+----
+classDiagram
+    class csv2tidy {pythonプログラム}
+    class tidy2csv {pythonプログラム}
+
+    class 北海道産業_tidy {TidyDataCSV_xBRL-CSV}
+    class 北海道産業 {EPSON形式CSV}
+
+    北海道産業 --|> csv2tidy
+    csv2tidy --|> 北海道産業_tidy
+
+    北海道産業_tidy --|> tidy2csv
+    tidy2csv --|> 北海道産業
+----
