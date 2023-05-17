@@ -461,24 +461,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph data-line-33">
 <p>XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検索専用ブラウザ用のCSVに変換し、ブラウザで表示する。</p>
 </div>
-<div class="imageblock data-line-61">
+<div class="paragraph data-line-35">
+<p>XBRL-GL 構文バインディング xBRL_GL_binding.csv Invoice2csv.java</p>
+</div>
+<div class="imageblock kroki data-line-40">
 <div class="content">
-<img src="https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7TzWIqkUS9swry89MTjVKLi6rzkosS3zcPP1x89rHTRseN6983LyglgtJbWZecUliXnJqcXVIZkqlS2JJonNwWHwF0ERdIANFaUZ-UWZVfl5JYk58TmpKempRdUFlSUZ-HobxCC3pqXmpRQTV47MD6AgcLkNoCinKTMxxSswB-UOh-mnrxpcNs9CUuEMc4gM2E0UNWBEkIBV0dWvskEMPLIfEhyiABxlEL5wLkcXwAVgRhigOxUAncWHXAJSB6EENU7BiVCGIMuRAwakIJVgAhhnh-w==" alt="horizontal_ledger.py &amp; general_ledger.py">
+<img src="https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7TzWIqkUTjnf3MUouLqvOSixLfNw8_XHz2sdNGx43r3zcvKCWC0ltZl5xSWJecmpxdUhmSqVLYkmic3BYfAXQBF0gA0VpRn5RZlV-XkliTnxOakp6alF1QWVJRn4ehvEILempealFBNXjswPoCBwuQ2gKKcpMzHFKzAH5Q6H6aevGlw2z0JS4QxziAzYTRQ1YESQgFXR1a-yQQw8uB-VDFMCDDKIXzoXIYvgArAhDFIdioJO4sGsAykD0oIYpWDGqEEQZcqDgVIQSLADwduAS" alt="horizontal_ledger.py &amp; general_ledger.py">
 </div>
 <div class="title">Figure 2. horizontal_ledger.py &amp; general_ledger.py</div>
 </div>
-<div class="paragraph data-line-63">
+<div class="paragraph data-line-66">
 <p><a href="https://www.wuwei.space/core-japan/journal_entry/" data-href="https://www.wuwei.space/core-japan/journal_entry/">検索専用ブラウザ</a></p>
 </div>
 </div>
 </div>
-<div class="sect1 data-line-65">
+<div class="sect1 data-line-68">
 <h2 id="_3_会計パッケージのcsvとtidydata形式csvの相互変換">3. 会計パッケージのCSVとTidyData形式CSVの相互変換</h2>
 <div class="sectionbody">
-<div class="paragraph data-line-67">
+<div class="paragraph data-line-70">
 <p>EPSONから提供されるCSVファイルを対象に相互変換する。</p>
 </div>
-<div class="imageblock data-line-85">
+<div class="imageblock data-line-88">
 <div class="content">
 <img src="https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQnJxmVFJZkqlQnVBZUlGft7j5umPm9c-btrwuHnl4-YFtUhKQcqMgOpxKkVS-7Rn-rOt2182Tn4-ZfGzpWvjIVaEAEmXxJJE5-Cw-AqnIB9dIKMWty6FateAYH-_p3sXPd3TD1YKVouuSle3xg7uD4hpME-BpbC5BatJ8Qg9ML-ClcE9js04AAJWnNg=" alt="csv2tidy.py &amp; tidy2csv.py">
 </div>
@@ -486,18 +489,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="sect1 data-line-87">
+<div class="sect1 data-line-91">
+<h2 id="_marmaid">Marmaid</h2>
+<div class="sectionbody">
+<div class="paragraph data-line-93">
+<p>VS CodeのAscii DocでMermaid Markdown Syntax Highlighting機能拡張を使用。</p>
+</div>
+<div class="paragraph data-line-95">
+<p>Mermaidについては、<br>
+<a href="https://mermaid.js.org/syntax/classDiagram.html" class="undefined" data-href="https://mermaid.js.org/syntax/classDiagram.html">https://mermaid.js.org/syntax/classDiagram.html</a></p>
+</div>
+</div>
+</div>
+<div class="sect1 data-line-98">
 <h2 id="_残作業2023_05_17">残作業(2023-05-17)</h2>
 <div class="sectionbody">
-<div class="olist arabic data-line-89">
+<div class="olist arabic data-line-100">
 <ol class="arabic">
-<li class="data-line-89">
+<li class="data-line-100">
 <p>2 と 3 では、使用したバインディング定義ファイルの前提としている論理階層モデルが異なる。　2 の定義を更新して再確認する。</p>
 </li>
-<li class="data-line-91">
+<li class="data-line-102">
 <p>検索専用ブラウザに消費税項目を追加する。</p>
 </li>
-<li class="data-line-93">
+<li class="data-line-104">
 <p>EPSONからのCSVを検索専用ブラウザで表示可能とする。</p>
 </li>
 </ol>
@@ -507,7 +522,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-05-17 10:48:04 +0900
+Last updated 2023-05-17 15:52:52 +0900
 </div>
 </div>
 </body>
