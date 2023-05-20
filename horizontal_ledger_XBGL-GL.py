@@ -32,18 +32,23 @@ import csv
 
 DEBUG = False
 
+# XBRL GL
 termDict = {
     'GL02': 'GL',
     'GL02-GL55': 'GL詳細',
     'GL55-GL60': '勘定科目セグメント',
     'GL55-GL61': '事業セグメント',
+
     'GL02-01': '仕訳ID',
+
     'GL64-01': 'ソースコード',
     'GL64-02': 'ソース説明',
     'GL64-03': 'ERPサブレジャーモジュール',
     'GL64-04': 'システムマニュアル識別子',
+
     'GL57-01': '作成者ユーザーID',
     'GL57-02': '作成日',
+
     'GL55-03': '仕訳エントリタイプコード',
     'GL55-04': '仕訳エントリ行説明',
 
@@ -52,6 +57,7 @@ termDict = {
     'GL63-01': '勘定科目番号',
     'GL63-02': '勘定科目名',
     'GL63-03': '財務諸表キャプション',
+
     'GL56-01': '金額',
 
     'GL56-02': '通貨コード',
@@ -152,7 +158,7 @@ def print_entry(journal_entry):
 
 def main():
     in_file = 'data/journal_entry/instances.csv' # 'data/journal_entry/test/793.csv'
-    out_file = 'data/journal_entry/horizontal_ledger.csv'# 'data/journal_entry/test/horizontal_ledger.csv'
+    out_file = 'data/journal_entry/test/horizontal_ledger.csv'
     out_header = list(outDict.keys())
     entryDict = {}
     journal_entries = []

@@ -225,22 +225,7 @@ public class XBRL_GL2csv
 		
 		FileHandler.nodeMap = FileHandler.parseDoc();
 		
-		// 複数繰返しをチェック
-//		multipleMap = new TreeMap<>();
-//		for (Map.Entry<String, Binding> entry : FileHandler.bindingDict.entrySet()) 
-//		{
-//			Binding binding = entry.getValue();
-//			Integer sort    = binding.getSemSort();
-//			String id       = binding.getID();
-//			String card     = binding.getCard();
-//			if (id.toUpperCase().matches("^[A-Z]+[0-9]+-[A-Z]+[0-9]+$") &&
-//					card.matches("^.*n$") && 
-//					isMultiple(sort)) 
-//			{
-//				multipleMap.put(sort, id);
-//			}
-//		}
-		
+	
 		Binding binding = FileHandler.bindingDict.get(FileHandler.ROOT_GL_ID);
 		if (null==binding)
 			System.out.println("FileHandler.ROOT_GL_ID "+FileHandler.ROOT_GL_ID+" is null.");

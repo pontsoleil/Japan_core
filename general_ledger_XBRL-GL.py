@@ -41,7 +41,7 @@ totalDebit  = 0
 totalCredit = 0
 netAmount   = 0
 
-horizontalDict2 = {
+horizontalDict = {
     'GL00': 'num',
     'GL02': 'GL',
     'GL02-GL55': 'GL詳細',
@@ -78,72 +78,6 @@ horizontalDict2 = {
 
     'GL56-01c': '貸方金額',
 
-    'GL60-01c': '貸方勘定科目セグメント番号',
-    'GL60-02c': '貸方勘定科目セグメントコード',
-    'GL60-03c': '貸方勘定科目セグメント名',
-
-    'GL61-01': '事業セグメント順序番号',
-    'GL61-02': '事業セグメントコード',
-    'GL61-03': '組織タイプ名'
-}
-
-horizontalDict = {
-    'GL00':      'num',
-    'GL02':      'GL',
-    'GL02-GL55': 'GL詳細',
-    'GL55-GL68d': '借方税情報',
-    'GL55-GL68c': '貸方税情報',
-    'GL55-GL60d': '借方勘定科目セグメント',
-    'GL55-GL60c': '貸方勘定科目セグメント',
-    'GL55-GL61': '事業セグメント',
-
-    'GL02-01': '仕訳ID',
-    'GL02-02': '仕訳ID', #
-    'GL02-03': '文書コメント', #
-
-    'GL64-01': 'ソースコード',
-    'GL64-02': 'ソース説明',
-    'GL64-03': 'ERPサブレジャーモジュール',
-    'GL64-04': 'システムマニュアル識別子',
-
-    'GL57-01': '作成者ユーザーID',
-    'GL57-02': '作成日',
-
-    'GL55-01': '明細行番号', #
-    'GL55-02': '転記日付', #
-    'GL55-03': '仕訳エントリタイプコード',
-    'GL55-04':  '仕訳エントリ行説明',
-    'GL55-06': '元文書番号', #
-    'GL55-08': '元文書日付', #
-
-    'GL69-02':  '記帳日',
-
-    'GL56-02':  '通貨コード',
-
-    'GL63-01d': '借方勘定科目番号',
-    'GL63-02d': '借方勘定科目名',
-    'GL63-03d': '借方財務諸表キャプション',
-    'GL56-01d': '借方金額',
-    'GL56-02d': '借方金額コード',
-
-    'GL68-01d': '借方税コード', #
-    'GL68-02d': '借方税パーセント', #
-    'GL68-04d': '借方税コード説明', #
-    
-    'GL60-01d': '借方勘定科目セグメント番号',
-    'GL60-02d': '借方勘定科目セグメントコード',
-    'GL60-03d': '借方勘定科目セグメント名',
-
-    'GL63-01c': '貸方勘定科目番号',
-    'GL63-02c': '貸方勘定科目名',
-    'GL63-03c': '貸方財務諸表キャプション',
-    'GL56-01c': '貸方金額',
-    'GL56-02c': '貸方金額コード',
-
-    'GL68-01c': '貸方税コード', #
-    'GL68-02c': '貸方税パーセント', #
-    'GL68-04c': '貸方税コード説明', #
-    
     'GL60-01c': '貸方勘定科目セグメント番号',
     'GL60-02c': '貸方勘定科目セグメントコード',
     'GL60-03c': '貸方勘定科目セグメント名',
@@ -227,8 +161,7 @@ def record_entry(accountNumber,entry):
     return line
 
 def main():
-    party = '北海道産業(株)'
-    in_file = f'data/journal_entry/{party}/horizontal_ledger.csv'
+    in_file = 'data/journal_entry/horizontal_ledger.csv'
 
     global lines
     global postedMonth
@@ -274,12 +207,6 @@ def main():
             cdt_account_name = row['GL63-02c']
             dbt_amount       = row['GL56-01d'].isdigit() and int(row['GL56-01d']) or 0
             cdt_amount       = row['GL56-01c'].isdigit() and int(row['GL56-01c']) or 0
-            dbt_tax_code     = row['GL68-01d']
-            cdt_tax_code     = row['GL68-01c']
-            dbt_tax_rate     = row['GL68-02d']
-            cdt_tax_rate     = row['GL68-02c']
-            dbt_tax_desc     = row['GL68-04d']
-            cdt_tax_desc     = row['GL68-04c']
             date             = row['GL69-02']
             note             = row['GL55-04']
             # 借方勘定ごとに総勘定元帳を更新する
@@ -300,8 +227,6 @@ def main():
             debit_transaction_data = {'num': num, 'GL02':GL02, 'GL02-GL55':GL02_GL55,
                                 'date': date, 'contra_acct': cdt_account, 'contra_acct_name': cdt_account_name,
                                 'dbt_amount': dbt_amount, 'cdt_amount': 0, 'balance': general_ledger[dbt_account]["balance"],
-                                'dbt_tax_code': dbt_tax_code, 'dbt_tax_rate': dbt_tax_rate, 'dbt_tax_desc': dbt_tax_desc,
-                                'cdt_tax_code': '', 'cdt_tax_rate': '', 'cdt_tax_desc': '',
                                 'note': note}
             general_ledger[dbt_account]['transactions'].append(debit_transaction_data)
             if 'transactions' not in general_ledger[cdt_account]:
@@ -309,8 +234,6 @@ def main():
             credit_transaction_data = {'num': num, 'GL02':GL02, 'GL02-GL55':GL02_GL55,
                                 'date': date, 'contra_acct': dbt_account, 'contra_acct_name': dbt_account_name,
                                 'dbt_amount': 0, 'cdt_amount': cdt_amount, 'balance': general_ledger[cdt_account]["balance"],
-                                'dbt_tax_code': '', 'dbt_tax_rate': '', 'dbt_tax_desc': '',
-                                'cdt_tax_code': cdt_tax_code, 'cdt_tax_rate': cdt_tax_rate, 'cdt_tax_desc': cdt_tax_desc,
                                 'note': note}
             general_ledger[cdt_account]['transactions'].append(credit_transaction_data)
 
@@ -323,11 +246,7 @@ def main():
     current_month = None
     for account_code, account_data in sorted_general_ledger:
         transactions = account_data['transactions']
-        last = {'num': 'END', 'GL02':'', 'GL02-GL55':'','date': '', 'contra_acct': '', 'contra_acct_name': '',
-                'dbt_amount': '', 'cdt_amount': '', 'balance': '',
-                'dbt_tax_code': '', 'dbt_tax_rate': '', 'dbt_tax_desc': '',
-                'cdt_tax_code': '', 'cdt_tax_rate': '', 'cdt_tax_desc':'',
-                'note': ''}
+        last = {'num': 'END', 'GL02':'', 'GL02-GL55':'','date': '', 'contra_acct': '', 'contra_acct_name': '','dbt_amount': '', 'cdt_amount': '', 'balance': '','note': ''}
         transactions.append(last)
         for transaction_data in transactions:
             date = transaction_data['date']
@@ -361,18 +280,13 @@ def main():
         _cdt_total = monthly_totals[month]['cdt']
         if DEBUG: print(f'{month} 借方 {_dbt_total} 貸方 {_cdt_total} {_dbt_total - _cdt_total}')
 
+
     # 5. 総勘定元帳を出力する    
     for account_code, account_data in sorted_general_ledger:
         account_name = account_data['account_name']
         dbt_amount   = account_data['dbt']
         cdt_amount   = account_data['cdt']
         balance      = account_data['balance']
-        # dbt_tax_code = account_data['dbt_tax_code']
-        # dbt_tax_rate = account_data['dbt_tax_rate']
-        # dbt_tax_desc = account_data['dbt_tax_desc']
-        # cdt_tax_code = account_data['cdt_tax_code']
-        # cdt_tax_rate = account_data['cdt_tax_rate']
-        # cdt_tax_desc = account_data['cdt_tax_desc']
         if DEBUG: print(f'Account Code: {account_code}:{account_name} Dr {"{:,}".format(dbt_amount)} Cr {"{:,}".format(cdt_amount)}')
         record = {
             'num':              '',
@@ -384,12 +298,6 @@ def main():
             'dbt_amount':       dbt_amount,
             'cdt_amount':       cdt_amount,
             'balance':          balance,
-            # 'dbt_tax_code':     dbt_tax_code,
-            # 'dbt_tax_rate':     dbt_tax_rate,
-            # 'dbt_tax_desc':     dbt_tax_desc,
-            # 'cdt_tax_code':     cdt_tax_code,
-            # 'cdt_tax_rate':     cdt_tax_rate,
-            # 'cdt_tax_desc':     cdt_tax_desc,
             'note':             ''
         }
         if 'record' not in general_ledger[account_code]:
@@ -413,11 +321,6 @@ def main():
                     'dbt_amount':       dbt_total,
                     'cdt_amount':       cdt_total,
                     'balance':          '',
-                    # 'dbt_tax_code':     '',
-                    # 'dbt_tax_rate':     '',
-                    # 'dbt_tax_desc':     '',
-                    # 'cdt_tax_code':     '',
-                    # 'cdt_tax_rate':     '',                    
                     'note':             ''
                 }
                 general_ledger[account_code]['record'].append(record)
@@ -432,12 +335,6 @@ def main():
             dbt_amount       = transaction_data['dbt_amount']
             cdt_amount       = transaction_data['cdt_amount']
             balance          = transaction_data['balance']
-            # dbt_tax_code     = transaction_data['dbt_tax_code']
-            # dbt_tax_rate     = transaction_data['dbt_tax_rate']
-            # dbt_tax_desc     = transaction_data['dbt_tax_desc']
-            # cdt_tax_code     = transaction_data['cdt_tax_code']
-            # cdt_tax_rate     = transaction_data['cdt_tax_rate']
-            # cdt_tax_desc     = transaction_data['cdt_tax_desc']
             note             = transaction_data['note']
             month            = date[:7]
             dbt_total       += dbt_amount
@@ -454,12 +351,6 @@ def main():
                 'dbt_amount':       dbt_amount,
                 'cdt_amount':       cdt_amount,
                 'balance':          balance
-                # 'dbt_tax_code':     dbt_tax_code,
-                # 'dbt_tax_rate':     dbt_tax_rate,
-                # 'dbt_tax_desc':     dbt_tax_desc,
-                # 'cdt_tax_code':     cdt_tax_code,
-                # 'cdt_tax_rate':     cdt_tax_rate,
-                # 'cdt_tax_desc':     cdt_tax_desc
             }
             if 'record' not in general_ledger[account_code]:
                 general_ledger[account_code]['record'] = []
@@ -475,17 +366,11 @@ def main():
             'note':             '',
             'dbt_amount':       dbt_total,
             'cdt_amount':       cdt_total,
-            'balance':          balance,
-            'dbt_tax_code':     '',
-            'dbt_tax_rate':     '',
-            'dbt_tax_desc':     '',
-            'cdt_tax_code':     '',
-            'cdt_tax_rate':     '',
-            'cdt_tax_desc':     ''
+            'balance':          balance
         }
         general_ledger[account_code]['record'].append(record)
 
-        dir_path = f'data/journal_entry/{party}/GL'
+        dir_path = 'data/journal_entry/GL'
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
         with open(f'{dir_path}/{account_code}{account_name}.csv', 'w', newline='', encoding='utf-8-sig') as file:
@@ -539,7 +424,7 @@ def main():
         if DEBUG: print(f'{month} 借方 {_dbt_total} 貸方 {_cdt_total} {_dbt_total - _cdt_total}')
 
     for month in monthly_totals:
-        dir_path = f'data/journal_entry/{party}/TB'
+        dir_path = f'data/journal_entry/TB'
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
         with open(f'{dir_path}/{month}trial_balance.csv', 'w', newline='', encoding='utf-8-sig') as file:

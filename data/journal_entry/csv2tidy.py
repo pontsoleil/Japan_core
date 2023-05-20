@@ -1,7 +1,7 @@
 import csv
 import re
 
-DEBUG = False
+DEBUG = True
 
 EPSONcolumns = {
     'A':'月種別',
@@ -53,6 +53,7 @@ def main():
 
     semantics_file   = 'data/base/adcs_semantics.csv'
     semantics_header = ['semSort','id','kind','card','level','ObjectClass','Property','Property_ja','Representation','AssociatedClass','ReferencedClass']
+
     binding_file     = 'data/journal_entry/EPSONbinding.csv'
     binding_header   = ['column', 'name', 'card', 'datatype', 'semSort', 'semPath', 'fixedValue']
 
@@ -76,6 +77,7 @@ def main():
         for row in csv_reader:
             if row['semSort'] != '':
                 bindingDict[row[binding_header[0]]] = row
+    sorted_binding = sorted(bindingDict.values(), key=lambda x: int(x['semSort']))
 
     data_header = list(EPSONcolumns.keys())
     dataList = []
@@ -85,8 +87,6 @@ def main():
         for row in csv_reader:
             if row['G'] != '':
                 dataList.append(row)
-
-    sorted_binding = sorted(bindingDict.values(), key=lambda x: int(x['semSort']))
 
     n = 1
     dimensions = {}

@@ -604,6 +604,9 @@ public class FileHandler
 				String defaultValue         = child_binding.getDefaultValue();
 				Set<String> additionalXPath = child_binding.getAdditionalXPath();
 				List<Node> nodes            = null;
+				if (null==parentXPath) {
+					System.out.println("null parentXPath");
+				}
 				if (child_xpath.substring(1).indexOf("/") > 0 && 0==child_xpath.indexOf(parentXPath)) 
 				{
 					child_xpath = child_xpath.replace(parentXPath, ".");				
