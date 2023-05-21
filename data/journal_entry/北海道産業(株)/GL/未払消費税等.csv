@@ -1,0 +1,6 @@
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,dbt_tax_code,dbt_tax_rate,dbt_tax_desc,cdt_amount,cdt_tax_code,cdt_tax_rate,cdt_tax_desc,balance
+,,,,未払消費税等,,,0,,,,0,,,,0
+312,104,2,2022-08-19,城北信当座預金,,麹町税務署､前期確定消費税納付,0,,,資金区分,0,,,,0
+,,,2022-08,,※※月計※※,,0,,,,0,,,,
+591,197,2,2022-10-31,諸口,,麹町税務署､当期確定消費税等,0,,,,0,,,資金区分,0
+,,,2022-10,,※※月計※※,,0,,,,0,,,,0

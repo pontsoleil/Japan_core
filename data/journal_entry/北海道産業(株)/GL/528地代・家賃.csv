@@ -1,0 +1,5 @@
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,dbt_tax_code,dbt_tax_rate,dbt_tax_desc,cdt_amount,cdt_tax_code,cdt_tax_rate,cdt_tax_desc,balance
+,,,期間合計,,,,14300,,,,1300,,,,13000
+48,16,2,2022-07-25,110,城北信当座預金,"八重洲商事駐車場､13,000X税1,300､8月分",14300,32,10,消費税,0,,,,14300
+465,155,2,2022-07-31,999,諸口,[  7月-  7月 一括税抜],0,,,,1300,31,10,消費税,13000
+,,,2022-07,,※※月計※※,,14300,,,,1300,,,,13000

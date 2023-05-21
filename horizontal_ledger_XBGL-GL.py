@@ -157,7 +157,7 @@ def print_entry(journal_entry):
     print(f"{journal_entry['GL00']} | {journal_entry['GL02-GL55']} | {journal_entry['GL55-04']} | {journal_entry['GL63-02d'] or '-'} JPY {journal_entry['GL56-01d'] or '-'} | {journal_entry['GL60-01d'] or '-'}:{journal_entry['GL60-03d'] or '-'} | {journal_entry['GL63-02c'] or '-'} JPY {journal_entry['GL56-01c'] or '-'} | {journal_entry['GL60-01c'] or '-'}:{journal_entry['GL60-03c'] or '-'}")
 
 def main():
-    in_file = 'data/journal_entry/instances.csv' # 'data/journal_entry/test/793.csv'
+    in_file = 'data/journal_entry/GL_Details.csv' # 'data/journal_entry/test/793.csv'
     out_file = 'data/journal_entry/test/horizontal_ledger.csv'
     out_header = list(outDict.keys())
     entryDict = {}

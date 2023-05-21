@@ -1,0 +1,4 @@
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,dbt_tax_code,dbt_tax_rate,dbt_tax_desc,cdt_amount,cdt_tax_code,cdt_tax_rate,cdt_tax_desc,balance
+,,,期間合計,,,,0,,,,50000,,,,-50000
+309,103,2,2022-08-12,110,城北信当座預金,城北信金､出資金解約戻り,0,,,,50000,,,,-50000
+,,,2022-08,,※※月計※※,,0,,,,50000,,,,-50000

@@ -1,0 +1,5 @@
+﻿num,GL02,GL02-GL55,date,contra_acct,contra_acct_name,note,dbt_amount,dbt_tax_code,dbt_tax_rate,dbt_tax_desc,cdt_amount,cdt_tax_code,cdt_tax_rate,cdt_tax_desc,balance
+,,,期間合計,,,,22143,,,,2013,,,,20130
+264,88,2,2022-07-04,201,買掛金,東京商事㈱､いろは機工売却分,22143,32,10,消費税,0,,,,22143
+453,151,2,2022-07-31,999,諸口,[  7月-  7月 一括税抜],0,,,,2013,31,10,消費税,20130
+,,,2022-07,,※※月計※※,,22143,,,,2013,,,,20130

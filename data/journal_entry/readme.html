@@ -459,16 +459,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_2_検索専用ブラウザ">2. 検索専用ブラウザ</h2>
 <div class="sectionbody">
 <div class="paragraph data-line-33">
-<p>XBRL-GLから変換したinstances.csv（TidyData形式CSV　xBRL-CSV）を検索専用ブラウザ用のCSVに変換し、ブラウザで表示する。</p>
+<p>XBRL-GLから変換したGL_Details.csv（TidyData形式CSV　xBRL-CSV）を検索専用ブラウザ用のCSVに変換し、ブラウザで表示する。</p>
 </div>
-<div class="paragraph data-line-35">
-<p>XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使用)</p>
-</div>
-<div class="imageblock data-line-65">
+<div class="imageblock kroki data-line-37">
 <div class="content">
-<img src="https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7j0I1iK5FE4939zFKLi5TqM5KLEt83Dz9cfPax00bHjevfNy8AFltBURtfFJmXkpmXrpC9bPl3c-mtT9unvC4acnj5s2Pm9sfNy0GMZo21HIhaczMKy5JzEtOLa4OyUypdEksSXQODosHGacLZKAozcgvyqzKzytJzInPSU1JTy2qLqgsycjPw-Os9NS81CKC6vHZAXQEDpchNIUUZSbmOCXmgPyhUP20dePLhlloStwhDvEBm4miBqwIGgW6ujV2yMEOlkMPWqyKkOMKrAAerhAL4FyILIY3wYowRHEoBrqbC7sGoAxED2rAgxWjCkGUIYccTkUoYQcAvNwHHQ==" alt="horizontal_ledger.py &amp; general_ledger.py">
+<img src="https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAQoRTkI-7j0I1iK5FE4939zFKLi5TqM5KLEt83Dz9cfPax00bHjevfNy8AFltBURtfFJmXkpmXrpC9bPl3c-mtT9unvC4acnj5s2Pm9sfNy0GMZo21HIhaQTqcUktSczMKa4OyUypdEksSXQODosHmacLZKCozcgvyqzKzytJzInPSU1JTy2qLqgsycjPw-Ou9NS81CKC6vHZAXQEDpchNIUUZSbmOCXmJOYlpypUP23d-LJhFpoSd4hDfMBmoqgBK4LGga5ujR1yuIPl0MMWqyLkyAIrQAQsxAYEHyKP4VGwKgxRHIqBLufCrgEoA9GDGvRgxahCEGXIYYdTEUroAQA9Kgbt" alt="horizontal_ledger.py &amp; general_ledger.py">
 </div>
 <div class="title">Figure 2. horizontal_ledger.py &amp; general_ledger.py</div>
+</div>
+<div class="paragraph data-line-65">
+<p>XBRL-GL 構文バインディング xBRL_GL_binding.csv (XBRL_GL2csv.javaで使用)</p>
 </div>
 <div class="paragraph data-line-67">
 <p><a href="https://www.wuwei.space/core-japan/journal_entry/" data-href="https://www.wuwei.space/core-japan/journal_entry/">検索専用ブラウザ</a></p>
@@ -481,44 +481,465 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph data-line-71">
 <p>EPSONから提供されるCSVファイルを対象に相互変換する。</p>
 </div>
-<div class="paragraph data-line-73">
-<p>論理モデルバインディング EPSON_binding.csv</p>
-</div>
-<div class="imageblock data-line-95">
+<div class="imageblock kroki data-line-75">
 <div class="content">
-<img src="https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAgmtAsL9ffFJmXkpmXrpC9YvV055PaHvcvOhxc_vj5tWPmyc8blryuHkziNu0GMRo2uAcHFbLhWREcnGZUUlmSqVCdUFlSUZ-3uPm6Y-b1wIVPm5e-bh5QS2SUpAyI6B6nEqR1D7tmf5s6_aXjZOfT1n8bOnaeIgVIUDSJbEkEeiI-AqnIB9dsGtw6lKoBnvw6d5FT_f0IxyOrkpXt8YO7g-wCtRwwZSHexoshc2tWG2KR-iBhQUu61Dk4QGHzToAieHSdg==" alt="csv2tidy.py &amp; tidy2csv.py">
+<img src="https://kroki.io/mermaid/svg/eNpLzkksLnbJTEwvSszlUgCCZJCAgmtAsL9ffFJmXkpmXrpC9YvV055PaHvcvOhxc_vj5tWPmyc8blryuHkziNu0GMRo2uAcHFbLhWREcnGZUUlmSqVCdUFlSUZ-3uPm6Y-b1wIVPm5e-bh5QS2SUpAyI6B6nEqR1Lr7xLukliRm5hQrVIcA9bkkliQCrY6vcAry0QW7AaH2ac_0Z1u3v2yc_HzK4mdL1ypUg731dO-ip3v6Ec5FV6WrW2MHdz1YBWpoYMrDvQqWQrgQYj6Si8HyMN_iMhpFHh40YCk0pwIA8pi3TA==" alt="csv2tidy.py &amp; tidy2csv.py">
 </div>
 <div class="title">Figure 3. csv2tidy.py &amp; tidy2csv.py</div>
 </div>
+<div class="paragraph data-line-95">
+<p>論理モデルバインディング EPSON_binding.csv</p>
+</div>
+<table class="tableblock frame-all grid-all stretch data-line-98">
+<colgroup>
+<col style="width: 4.3478%;">
+<col style="width: 17.3913%;">
+<col style="width: 4.3478%;">
+<col style="width: 13.0434%;">
+<col style="width: 4.3478%;">
+<col style="width: 52.1739%;">
+<col style="width: 4.348%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">column</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">card</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Representation</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">semSort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">semPath</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">fixedValue</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">seq</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">月種別</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">種類</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">形式</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Document Reference</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1240</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL55-03</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作成方法</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">付箋</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">伝票日付</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1230</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL55-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">G</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">伝票番号</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">伝票摘要</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1030</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-03</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">I</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">枝番</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1220</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL55-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">J</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方部門</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Document Reference</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1490</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL61[GL61-01=部門]/GL60-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">K</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方部門名</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL61[GL61-01=部門]/GL60-03</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">L</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方科目</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1320</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL63/GL63-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方科目名</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1330</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL63/GL63-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方補助</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1390</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL60[GL60-01=補助科目]/GL60-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">O</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方補助科目名</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL60[GL60-01=補助科目]/GL60-03</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">P</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方金額</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Monetary Amount</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1350</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL56/GL56-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Q</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方消費税コード</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1520</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL68[GL68-04=消費税]/GL68-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">R</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方消費税業種</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1430</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL60[GL60-01=業種]/GL60-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">S</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方消費税税率</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Percentage</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1530</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL68[GL68-04=消費税]/GL68-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方資金区分</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1460</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=借方]/GL55-GL60[GL60-01=資金区分]/GL60-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">U</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方任意項目１</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">V</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">借方任意項目２</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">W</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方部門</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1730</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL61[GL61-01=部門]/GL60-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方部門名</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1740</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL61[GL61-01=部門]/GL60-03</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方科目</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1560</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL63/GL63-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Z</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方科目名</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1570</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL63/GL63-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方補助</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1630</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL60[GL60-01=補助科目]/GL60-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方補助科目名</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1640</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL60[GL60-01=補助科目]/GL60-03</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方金額</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Monetary Amount</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1590</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL56/GL56-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方消費税コード</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1760</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL68[GL68-04=消費税]/GL68-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方消費税業種</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1670</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL60[GL60-01=業種]/GL60-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方消費税税率</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Percentage</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1770</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL68[GL68-04=消費税]/GL68-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方資金区分</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1700</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL02-GL55[GL55-05=貸方]/GL55-GL60[GL60-01=資金区分]/GL60-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方任意項目１</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">貸方任意項目２</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AJ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">摘要</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1250</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL55-04</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">期日</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1290</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL55-08</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">証番号</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1270</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL55-06</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力ユーザ</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1150</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL57-01</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力マシン</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Document Reference</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1130</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL64-04</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力アプリ</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1120</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL64-03</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力会社</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL64-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">AQ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入力日付</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1160</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GL57-02</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph data-line-146">
+<p>XMLの場合のXPathと同様にTidy data CSVの論理モデル上の位置を指定するためにsemPathを独自に定義した。semPathを使用すると論理階層モデル上の位置を条件づけて指定できる。</p>
 </div>
 </div>
-<div class="sect1 data-line-97">
+</div>
+<div class="sect1 data-line-148">
 <h2 id="_marmaid">Marmaid</h2>
 <div class="sectionbody">
-<div class="paragraph data-line-99">
+<div class="paragraph data-line-150">
 <p>VS CodeのAscii DocでMermaid Markdown Syntax Highlighting機能拡張を使用。</p>
 </div>
-<div class="paragraph data-line-101">
+<div class="paragraph data-line-152">
 <p>Mermaidについては、<br>
 <a href="https://mermaid.js.org/syntax/classDiagram.html" class="undefined" data-href="https://mermaid.js.org/syntax/classDiagram.html">https://mermaid.js.org/syntax/classDiagram.html</a></p>
 </div>
 </div>
 </div>
-<div class="sect1 data-line-104">
+<div class="sect1 data-line-155">
 <h2 id="_残作業2023_05_17">残作業(2023-05-17)</h2>
 <div class="sectionbody">
-<div class="olist arabic data-line-106">
+<div class="olist arabic data-line-157">
 <ol class="arabic">
-<li class="data-line-106">
+<li class="data-line-157">
 <p>検索専用ブラウザに消費税項目を追加する。</p>
 </li>
-<li class="data-line-108">
+<li class="data-line-159">
 <p>EPSONからのCSVを検索専用ブラウザで表示可能とする。</p>
 </li>
-<li class="data-line-110">
+<li class="data-line-161">
 <p>XBRL-GLから変換したxBRL-CSVに消費税項目を固定値として定義し、検索専用ブラウザに表示する。</p>
 </li>
-<li class="data-line-112">
+<li class="data-line-163">
 <p>XBRL-GLから変換したxBRL-CSVをEPSONのCSVに変換する。</p>
 </li>
 </ol>
@@ -528,7 +949,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-05-17 16:39:03 +0900
+Last updated 2023-05-21 07:58:30 +0900
 </div>
 </div>
 </body>

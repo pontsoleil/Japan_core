@@ -50,10 +50,12 @@ termDict ={
     'GL57-02': '作成日',
 
     'GL55-01': '明細行番号', #
-    'GL69-02': '転記日付', #
+    'GL55-02': '転記日付', #
     'GL55-03': '仕訳エントリタイプコード',
     'GL55-04': '仕訳エントリ行説明',
+
     'GL55-05': '借方/貸方インディケータ',
+
     'GL55-06': '元文書番号', #
     'GL55-08': '元文書日付', #
 
@@ -61,9 +63,6 @@ termDict ={
     'GL63-02': '勘定科目名',
 
     'GL56-01': '金額',
-    # 'GL56-02': '通貨コード',
-
-    # 'GL69-02': '記帳日',
 
     'GL60-01': '勘定科目セグメント番号',
     'GL60-02': '勘定科目セグメントコード',
@@ -83,7 +82,7 @@ termDictSorted = {
     'GL55-GL61': '事業セグメント',
     
     'GL02-01': 'seq', #
-    # 'GL02-02': '仕訳ID', #
+    'GL02-02': '仕訳ID', #
     'GL02-03': '文書コメント', #
 
     'GL64-01':   'ソースコード',
@@ -95,7 +94,7 @@ termDictSorted = {
     'GL57-02':   '作成日',
 
     'GL55-01': '明細行番号', #
-    'GL69-02': '転記日付', #
+    'GL55-02': '転記日付', #
     'GL55-03':   '仕訳エントリタイプコード',
     'GL55-04':   '仕訳エントリ行説明',
     'GL55-05':   '借方/貸方インディケータ',
@@ -131,7 +130,7 @@ outDict = {
     'GL55-GL60c': '貸方勘定科目セグメント',
     'GL55-GL61': '事業セグメント',
 
-    'GL02-01': '仕訳ID',
+    'GL02-01': '仕訳番号',
     'GL02-02': '仕訳ID', #
     'GL02-03': '文書コメント', #
 
@@ -144,19 +143,16 @@ outDict = {
     'GL57-02': '作成日',
 
     'GL55-01': '明細行番号', #
-    # 'GL55-02': '転記日付', #
+    'GL55-02': '転記日付', #
     'GL55-03': '仕訳エントリタイプコード',
-    'GL55-04':  '仕訳エントリ行説明',
+    'GL55-04': '摘要',
     'GL55-06': '元文書番号', #
     'GL55-08': '元文書日付', #
-
-    'GL69-02':  '記帳日',
-
-    # 'GL56-02':  '通貨コード',
 
     'GL63-01d': '借方勘定科目番号',
     'GL63-02d': '借方勘定科目名',
     'GL63-03d': '借方財務諸表キャプション',
+
     'GL56-01d': '借方金額',
     'GL56-02d': '借方金額コード',
 
@@ -171,6 +167,7 @@ outDict = {
     'GL63-01c': '貸方勘定科目番号',
     'GL63-02c': '貸方勘定科目名',
     'GL63-03c': '貸方財務諸表キャプション',
+
     'GL56-01c': '貸方金額',
     'GL56-02c': '貸方金額コード',
 
@@ -187,12 +184,15 @@ outDict = {
     'GL61-03': '組織タイプ名'
 }
 
+def print_row(row):
+    print(f"row {row['GL00']} | {row['GL02-GL55']} | {row['GL55-02']} | {row['GL55-04']} | {row['GL55-05']} | {row['GL63-02'] or '-'} JPY {row['GL56-01'] or '-'} | {row['GL60-01'] or '-'}:{row['GL60-03'] or '-'}")
+
 def print_entry(journal_entry):
-    print(f"{journal_entry['GL00']} | {journal_entry['GL02-GL55']} | {journal_entry['GL55-04']} | {journal_entry['GL63-02d'] or '-'} JPY {journal_entry['GL56-01d'] or '-'} | {journal_entry['GL60-01d'] or '-'}:{journal_entry['GL60-03d'] or '-'} | {journal_entry['GL63-02c'] or '-'} JPY {journal_entry['GL56-01c'] or '-'} | {journal_entry['GL60-01c'] or '-'}:{journal_entry['GL60-03c'] or '-'}")
+    print(f"{journal_entry['GL00']} | {journal_entry['GL02-GL55']} | {journal_entry['GL55-02']} | {journal_entry['GL55-04']} | {journal_entry['GL63-02d'] or '-'} JPY {journal_entry['GL56-01d'] or '-'} | {journal_entry['GL60-01d'] or '-'}:{journal_entry['GL60-03d'] or '-'} | {journal_entry['GL63-02c'] or '-'} JPY {journal_entry['GL56-01c'] or '-'} | {journal_entry['GL60-01c'] or '-'}:{journal_entry['GL60-03c'] or '-'}")
 
 def main():
-    in_file = "data/journal_entry/北海道産業(株)/instances.csv" # 'data/journal_entry/instances.csv' # 'data/journal_entry/test/793.csv'
-    out_file = 'data/journal_entry/北海道産業(株)/horizontal_ledger.csv'# 'data/journal_entry/test/horizontal_ledger.csv'
+    in_file = "data/journal_entry/北海道産業(株)/GL_Details.csv"
+    out_file = 'data/journal_entry/北海道産業(株)/horizontal_ledger.csv'
     out_header = list(outDict.keys())
     entryDict = {}
     journal_entries = []
@@ -210,7 +210,7 @@ def main():
             records.append(row)
 
     sorted_records = sorted(records, key=lambda x: (
-        int(x['GL02']) if x.get('GL02') and x['GL02'].isdigit() else -1, 
+        int(x['GL02']) if x.get('GL02') and 'END'!=x['GL02'] and x['GL02'].isdigit() else -1, 
         int(x['GL02-GL55']) if x.get('GL02-GL55') and x['GL02-GL55'].isdigit() else -1,  
         int(x['GL55-GL68']) if x.get('GL55-GL68') and x['GL55-GL68'].isdigit() else -1,  
         int(x['GL55-GL60']) if x.get('GL55-GL60') and x['GL55-GL60'].isdigit() else -1,  
@@ -266,7 +266,6 @@ def main():
             if not GL02 in entryDict:
                 entryDict[GL02] = []
                 previous_GL55_02 = previous_GL55_03 = previous_GL55_04 = ''
-                previous_GL69_02 = ''
                 previous_GL61_01 = previous_GL61_02 = previous_GL61_03 = ''
             journal_entry = {}
             journal_entry['GL00'] = row['GL00']
@@ -282,6 +281,21 @@ def main():
             journal_entry['GL64-04'] = 'GL64-04' in row and row['GL64-04'] or ''
             journal_entry['GL57-01'] = 'GL57-01' in row and row['GL57-01'] or ''
             journal_entry['GL57-02'] = 'GL57-02' in row and row['GL57-02'] or ''
+            if 'GL55-02' in row and row['GL55-02']: # 列に値が存在する場合はその値を使用
+                value = row['GL55-02']
+            else: # 列に値が存在しない場合は以前の行で定義されていた値を使用
+                value = previous_GL55_02
+            previous_GL55_02 = value # 現在の値を次の行の前回値として保持
+            if 'GL55-03' in row and row['GL55-03']: # 列に値が存在する場合はその値を使用
+                value = row['GL55-03']
+            else: # 列に値が存在しない場合は以前の行で定義されていた値を使用
+                value = previous_GL55_03
+            previous_GL55_03 = value  # 現在の値を次の行の前回値として保持
+            if 'GL55-04' in row and row['GL55-04']: # 列に値が存在する場合はその値を使用
+                value = row['GL55-04']
+            else: # 列に値が存在しない場合は以前の行で定義されていた値を使用
+                value = previous_GL55_04
+            previous_GL55_04 = value   # 現在の値を次の行の前回値として保持  
             out_record = {}
             for k in out_header:
                 out_record[k] = k in journal_entry and journal_entry[k] or ''
@@ -290,6 +304,8 @@ def main():
                 print(f"** GL Header  GL00:{out_record['GL00']} GL02:{out_record['GL02']} GL02-GL55:{out_record['GL02-GL55']}")
         elif ''==row['GL02-01'] and ''!=row['GL02-GL55']:
             # GL Detail
+            if DEBUG:
+                print_row(row)
             if ''!=row['GL55-05']:
                 debit_credit = row['GL55-05']            
             journal_entry = {}
@@ -319,13 +335,7 @@ def main():
             else: # 列に値が存在しない場合は以前の行で定義されていた値を使用
                 value = previous_GL55_04
             journal_entry['GL55-04'] = ('GL55-GL60' not in row or ''==row['GL55-GL60']) and value
-            previous_GL55_04 = journal_entry['GL55-04']   # 現在の値を次の行の前回値として保持
-            if 'GL69-02' in row and row['GL69-02']: # 列に値が存在する場合はその値を使用
-                value = row['GL69-02']
-            else: # 列に値が存在しない場合は以前の行で定義されていた値を使用
-                value = previous_GL69_02
-            journal_entry['GL69-02'] = ('GL55-GL60' not in row or ''==row['GL55-GL60']) and value
-            previous_GL69_02 = journal_entry['GL69-02']   # 現在の値を次の行の前回値として保持         
+            previous_GL55_04 = journal_entry['GL55-04']   # 現在の値を次の行の前回値として保持      
             # debit
             journal_entry['GL55-GL60d'] = '借方'==debit_credit and 'GL55-GL60' in row and row['GL55-GL60'] or ''
             journal_entry['GL63-01d'] = '借方'==debit_credit and 'GL63-01' in row and row['GL63-01'] or ''
@@ -386,7 +396,7 @@ def main():
                     continue
                 if 1==debit_count:
                     for record in detail_records:
-                        if record['GL00']==debit_records[0]['GL00']:# or ''==record['GL69-02']:
+                        if record['GL00']==debit_records[0]['GL00']:# or ''==record['GL55-02']:
                             continue
                         record['GL63-01d'] = debit_records[0]['GL63-01d'] or ''
                         record['GL63-02d'] = debit_records[0]['GL63-02d'] or ''
@@ -406,7 +416,7 @@ def main():
                         i += 1    
                 elif 1==credit_count:
                     for record in detail_records:
-                        if record['GL00']==credit_records[0]['GL00']:# or ''==record['GL69-02']:
+                        if record['GL00']==credit_records[0]['GL00']:# or ''==record['GL55-02']:
                             continue
                         record['GL63-01c'] = credit_records[0]['GL63-01c'] or ''
                         record['GL63-02c'] = credit_records[0]['GL63-02c'] or ''
@@ -444,12 +454,12 @@ def main():
             horizontal_records.append(out_record)
 
     horizontal_ledger = sorted(horizontal_records, key=lambda x: (
-        x['GL02'], 
-        int(x['GL02-GL55']) if x['GL02-GL55'].isdigit() else -1, 
-        int(x['GL55-GL68d']) if x['GL55-GL68d'].isdigit() else -1, 
-        int(x['GL55-GL68c']) if x['GL55-GL68c'].isdigit() else -1,
-        int(x['GL55-GL60d']) if x['GL55-GL60d'].isdigit() else -1, 
-        int(x['GL55-GL60c']) if x['GL55-GL60c'].isdigit() else -1
+        int(x['GL02']) if x.get('GL02') and 'END'!=x['GL02'] and x['GL02'].isdigit() else -1, 
+        int(x['GL02-GL55']) if x.get('GL02-GL55') and x['GL02-GL55'].isdigit() else -1, 
+        int(x['GL55-GL68d']) if x.get('GL55-GL68d') and x['GL55-GL68d'].isdigit() else -1, 
+        int(x['GL55-GL68c']) if x.get('GL55-GL68c') and x['GL55-GL68c'].isdigit() else -1,
+        int(x['GL55-GL60d']) if x.get('GL55-GL60d') and x['GL55-GL60d'].isdigit() else -1, 
+        int(x['GL55-GL60c']) if x.get('GL55-GL60c') and x['GL55-GL60c'].isdigit() else -1
     ))
 
     with open(out_file, 'w', newline='', encoding='utf-8-sig') as file:

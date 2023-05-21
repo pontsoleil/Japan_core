@@ -57,9 +57,8 @@ def main():
     binding_file     = 'data/journal_entry/EPSONbinding.csv'
     binding_header   = ['column', 'name', 'card', 'datatype', 'semSort', 'semPath', 'fixedValue']
 
-    data_file = 'data/journal_entry/北海道産業(株).csv'
-    # data_file = 'data/journal_entry/北海道産業(株).csv'
-    out_file = 'data/journal_entry/北海道産業(株)_tidy.csv'
+    data_file = 'data/journal_entry/北海道産業(株)/北海道産業(株).csv'
+    out_file  = 'data/journal_entry/北海道産業(株)/GL_Details.csv'
 
     tidyData = []
 
