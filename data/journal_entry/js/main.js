@@ -30,10 +30,22 @@ main = (function () {
 
     const formatter = new Intl.NumberFormat('ja-JP');
 
+    function getBase() {
+        var source = document.querySelector('#source').value;
+        var base;    
+        if ('xbrl-gl'==source) {
+            base = '';
+        } else if ('hokkaidou-sangyou'==source) {
+            base = 'data/hokkaidou-sangyou/';
+        }
+        return base;
+    }
+
     function getInstances() {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'instances.csv', true);
+        var url = getBase() + 'instances.csv'
+        xhr.open('GET', url, true);
         xhr.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
             var data = xhr.responseText.split('\n');
@@ -47,6 +59,7 @@ main = (function () {
             snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#instances tbody');
+            tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 if (0 == i % 500) {
                     snackbar.close();
@@ -111,7 +124,8 @@ main = (function () {
     function getHorizontal() {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'horizontal_ledger.csv', true);
+        var url = getBase() + 'horizontal_ledger.csv';
+        xhr.open('GET', url, true);
         xhr.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
             var data = xhr.responseText.split('\n');
@@ -125,6 +139,7 @@ main = (function () {
             snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#horizontal tbody');
+            tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 if (0 == i % 500) {
                     snackbar.close();
@@ -302,7 +317,8 @@ main = (function () {
     function getGL(url) {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'GL/' + url, true);
+        url = getBase() + 'GL/' + url;
+        xhr.open('GET', url, true);
         xhr.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
             var data = xhr.responseText.split('\n');
@@ -393,7 +409,8 @@ main = (function () {
     function getTB(month) {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'TB/' + month + 'trial_balance.csv', true);
+        url = getBase() + 'TB/' + month + 'trial_balance.csv';
+        xhr.open('GET', url, true);
         xhr.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
             var data = xhr.responseText.split('\n');
@@ -540,13 +557,39 @@ main = (function () {
     function initModule() {
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
 
+        $('#nav_horizontal').on('click', function() {
+            getHorizontal();
+        });
+        $('#nav_GL').on('click', function() {
+            let sourceSelect = document.querySelector('#source');
+            var source = sourceSelect.value;
+            getHorizontal();
+            if ('xbrl-gl'==source) {
+                getGL('111現金.csv');
+            } else if ('hokkaidou-sangyou'==source) {
+                getGL('100現金.csv')
+            }
+        });
+        $('#nav_TB').on('click', function() {
+            let sourceSelect = document.querySelector('#source');
+            var source = sourceSelect.value;
+            getHorizontal();
+            if ('xbrl-gl'==source) {
+                getTB('2009-04');
+            } else if ('hokkaidou-sangyou'==source) {
+                getTB('2022-07');
+            }
+        });
+        $('#nav_tidy').on('click', function() {
+            console.log('TidyDataタブがクリックされました。');
+        });
+
         var linesButton = $('#linesButton');
         linesButton.value = '明細行のみ';
         var isEnabled = false; // 初期状態では処理を無効にする
 
         linesButton.on('click', function () {
             isEnabled = !isEnabled; // 現在の状態を反転する
-
             if (isEnabled) {
                 // 処理を有効にするためのコードを記述する
                 // linesButton.value = '全て表示';
@@ -565,22 +608,36 @@ main = (function () {
         const selectGL = document.getElementById("selectGL");
         selectGL.addEventListener("change", (event) => {
             const selectedGL = event.target.value;
-            // 選択されたオプションに応じた処理を実行する
             getGL(selectedGL);
         });
 
         const selectTB = document.getElementById("selectTB");
         selectTB.addEventListener("change", (event) => {
             const selectedMonth = event.target.value;
-            // 選択されたオプションに応じた処理を実行する
             getTB(selectedMonth)
         });
 
+        // 初期設定
+        let sourceSelect = document.querySelector('#source');
+        var source = sourceSelect.value;
         getHorizontal();
-        getGL('111現金.csv');
-        getTB('2009-04');
+        if ('xbrl-gl'==source) {
+            getGL('111現金.csv');
+            getTB('2009-04');
+        } else if ('hokkaidou-sangyou'==source) {
+            getGL('100現金.csv')
+            getTB('2022-07');
+        }
         getInstances();
         getFileList();
+
+        sourceSelect.addEventListener("change", (event) => {
+            $('.nav-item').removeClass('active');
+            $('.tab-pane').removeClass('active');
+            $('.nav-item #nav_horizontal').addClass('active');
+            $('.tab-pane #tab_horizontal').addClass('show active');
+            getHorizontal();           
+        });
 
         // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
         //Get the button:
