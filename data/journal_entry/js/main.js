@@ -41,6 +41,16 @@ main = (function () {
         return base;
     }
 
+    function parseCSV(data) {
+        var regex = /(?:^|,)(?=[^"]|(")?([^"]*)\1(?:,|$))/g;
+        var items = [];
+        data.replace(regex, function(match, _, field) {
+          items.push(field);
+          return "";
+        });
+        return items;
+    }
+
     function getInstances() {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
@@ -51,7 +61,7 @@ main = (function () {
             var data = xhr.responseText.split('\n');
             var items = [];
             for (var i = 0; i < data.length; i++) {
-                var item = data[i].split(',');
+                var item = parseCSV(data[i]);
                 items.push(item);
             }
             var items_count = items.length;
@@ -133,7 +143,7 @@ main = (function () {
             var data = xhr.responseText.split('\n');
             var items = [];
             for (var i = 0; i < data.length; i++) {
-                var item = data[i].split(',');
+                var item = parseCSV(data[i]);
                 items.push(item);
             }
             var items_count = items.length;
@@ -489,7 +499,7 @@ main = (function () {
             var data = xhr.responseText.split('\n');
             var items = [];
             for (var i = 0; i < data.length; i++) {
-                var item = data[i].split(',');
+                var item = parseCSV(data[i]);
                 if (item.length < 10) {
                     continue
                 }
@@ -634,7 +644,7 @@ main = (function () {
             var data = xhr.responseText.split('\n');
             var items = [];
             for (var i = 0; i < data.length; i++) {
-                var item = data[i].split(',');
+                var item = parseCSV(data[i]);
                 if (item.length < 7) {
                     continue
                 }
