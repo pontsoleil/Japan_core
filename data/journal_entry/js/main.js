@@ -45,8 +45,8 @@ main = (function () {
         var regex = /(?!\s*$)\s*(?:(?!\s*"[^"]*(?:""[^"]*)*$)\s*(?:"(?:[^"\r\n]|""[^"])*"|[^,\r\n]*))/g;
         var items = [];
         data.replace(regex, function(match) {
-          var field = match.trim();
-          if (field.startsWith('"') && field.endsWith('"')) {
+            var field = match.trim().replace(/^"(.*)"$/, '$1');
+            if (field.startsWith('"') && field.endsWith('"')) {
             field = field.slice(1, -1).replace(/""/g, '"');
           }
           items.push(field);
