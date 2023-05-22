@@ -418,19 +418,21 @@ def main():
     totals = dict(sorted(account_totals.items()))
     months = sorted(totals.keys())  # 月の一覧をソート
     beginning_balance = {month: {account: 0 for account in totals[months[0]]} for month in months}
+
     for i in range(len(months)):
         month = months[i]
         next_month = months[i+1] if i < len(months)-1 else None
+
         monthly_balance[month] = {}
         ending_balance[month] = {}
-        for account in totals[month]:
+
+        for account in sorted(totals[month].keys()):
             dbt = totals[month][account]['dbt']
             cdt = totals[month][account]['cdt']
-            balance = (
-                beginning_balance[month][account] +
-                dbt - cdt
-            )
+
+            balance = beginning_balance[month][account] + dbt - cdt
             ending_balance[month][account] = balance
+
             monthly_balance[month][account] = {
                 'month': month,
                 'account_code': account,
@@ -440,6 +442,7 @@ def main():
                 'cdt_amount': cdt,
                 'ending_balance': balance
             }
+
         if next_month:
             beginning_balance[next_month] = ending_balance[month].copy()
 
