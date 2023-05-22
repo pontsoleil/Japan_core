@@ -338,7 +338,7 @@ main = (function () {
                 th.textContent = head[i]; th.classList.add('text-center');
                 thead.appendChild(th);
             }
-            tableHead.appendChild(th);
+            tableHead.appendChild(ttheadh);
 
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#horizontal tbody');
