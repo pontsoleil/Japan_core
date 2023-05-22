@@ -121,7 +121,9 @@ main = (function () {
         xhr.send();
     }
 
-    function getHorizontal() {
+    function getHorizontal() {        
+        snackbar.close();
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
         // document.querySelector('#horizontal').style.display = '';
         // document.querySelector('#horizontal2').style.display = 'none';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
@@ -307,6 +309,8 @@ main = (function () {
     }
 
     function getHorizontal2() {
+        snackbar.close();
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
         // document.querySelector('#horizontal').style.display = 'none';
         // document.querySelector('#horizontal2').style.display = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
@@ -487,6 +491,7 @@ main = (function () {
 
                 tableBody.appendChild(tr);
             }
+
             setTimeout(function () {
                 snackbar.close();
             }, 3000);
