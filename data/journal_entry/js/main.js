@@ -45,7 +45,7 @@ main = (function () {
         var regex = /(?:^|,)(?=[^"]|(")?([^"]*)\1(?:,|$))/g;
         var items = [];
         data.replace(regex, function(match, _, field) {
-          items.push(field);
+          items.push(field.trim());
           return "";
         });
         return items;
