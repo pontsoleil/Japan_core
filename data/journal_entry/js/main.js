@@ -473,10 +473,10 @@ main = (function () {
         }
     }
 
-    function getGL(url) {
+    function getGL(file) {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
-        url = getBase() + 'GL/' + url;
+        url = getBase() + 'GL/' + file;
         xhr.open('GET', url, true);
         xhr.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
@@ -643,57 +643,60 @@ main = (function () {
         xhr.send();
     }
 
-    function getGLList() {
-        fetch('./listGL.php')
+    function getGLlist() {
+        var source = document.querySelector('#source').value;
+        var url;    
+        if ('xbrl-gl'==source) {
+            url = './file_GL_list.php';
+        } else if ('hokkaidou-sangyou'==source) {
+            url = './file_GL_hokkaidou-sangyou_list.php';
+        } else {
+            return
+        }
+        fetch(url)
             .then(response => response.json())
             .then(data => {
-                var file_list = $('#GLlist');
+                var GLlist = $('#GLlist');
                 var select = $('<select id="selectGL" style="height:2rem"></select>');
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
                     var option = $('<option></option>').text(value).val(value);
                     select.append(option);
                 }
-                file_list.append(select);
-
-                var fileName = document.getElementById("file-select").value;
-                getXMLFile(fileName);
-
-                select.on('change', function () {
-                    var fileName = $(this).val();
-                    getXMLFile(fileName);
-                });
+                GLlist.append(select);
             })
             .catch(error => {
-                console.error('エラー: GL一覧が取得できません', error);
-                alert('エラー: GL一覧が取得できません');
+                console.error('エラー: 総勘定元帳一覧が取得できません', error);
+                alert('エラー: 総勘定元帳一覧が取得できません');
             });
     }
 
-    function getTBList() {
-        fetch('./listTB.php')
+    function getTBlist() {
+        var source = document.querySelector('#source').value;
+        var url;    
+        if ('xbrl-gl'==source) {
+            url = './file_TB_list.php';
+        } else if ('hokkaidou-sangyou'==source) {
+            url = './file_TB_hokkaidou-sangyou_list.php';
+        } else {
+            return
+        }
+        fetch(url)
             .then(response => response.json())
             .then(data => {
-                var file_list = $('#TBlist');
+                var TBlist = $('#TBlist');
                 var select = $('<select id="selectTB" style="height:2rem"></select>');
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
-                    var option = $('<option></option>').text(value).val(value);
+                    var month = value.substring(0,7);
+                    var option = $('<option></option>').text(month).val(month);
                     select.append(option);
                 }
-                file_list.append(select);
-
-                var fileName = document.getElementById("file-select").value;
-                getXMLFile(fileName);
-
-                select.on('change', function () {
-                    var fileName = $(this).val();
-                    getXMLFile(fileName);
-                });
+                TBlist.append(select);
             })
             .catch(error => {
-                console.error('エラー: GL一覧が取得できません', error);
-                alert('エラー: GL一覧が取得できません');
+                console.error('エラー: 残高試算表一覧が取得できません', error);
+                alert('エラー: 残高試算表一覧が取得できません');
             });
     }
 
@@ -774,7 +777,7 @@ main = (function () {
         $('#nav_GL').on('click', function() {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
-            // getHorizontal();
+            getGLlist();
             if ('xbrl-gl'==source) {
                 getGL('111現金.csv');
             } else if ('hokkaidou-sangyou'==source) {
@@ -785,7 +788,7 @@ main = (function () {
         $('#nav_TB').on('click', function() {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
-            // getHorizontal();
+            getTBlist();
             if ('xbrl-gl'==source) {
                 getTB('2009-04');
             } else if ('hokkaidou-sangyou'==source) {
@@ -843,6 +846,8 @@ main = (function () {
             getTB('2022-07');
         }
         getFileList();
+        getGLlist();
+        getTBlist();
 
         sourceSelect.addEventListener("change", (event) => {
             $('.nav-link').removeClass('active');
