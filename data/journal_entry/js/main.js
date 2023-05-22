@@ -643,6 +643,60 @@ main = (function () {
         xhr.send();
     }
 
+    function getGLList() {
+        fetch('./listGL.php')
+            .then(response => response.json())
+            .then(data => {
+                var file_list = $('#GLlist');
+                var select = $('<select id="selectGL" style="height:2rem"></select>');
+                for (var i = 0; i < Object.keys(data).length; i++) {
+                    var value = Object.values(data)[i];
+                    var option = $('<option></option>').text(value).val(value);
+                    select.append(option);
+                }
+                file_list.append(select);
+
+                var fileName = document.getElementById("file-select").value;
+                getXMLFile(fileName);
+
+                select.on('change', function () {
+                    var fileName = $(this).val();
+                    getXMLFile(fileName);
+                });
+            })
+            .catch(error => {
+                console.error('エラー: GL一覧が取得できません', error);
+                alert('エラー: GL一覧が取得できません');
+            });
+    }
+
+    function getTBList() {
+        fetch('./listTB.php')
+            .then(response => response.json())
+            .then(data => {
+                var file_list = $('#TBlist');
+                var select = $('<select id="selectTB" style="height:2rem"></select>');
+                for (var i = 0; i < Object.keys(data).length; i++) {
+                    var value = Object.values(data)[i];
+                    var option = $('<option></option>').text(value).val(value);
+                    select.append(option);
+                }
+                file_list.append(select);
+
+                var fileName = document.getElementById("file-select").value;
+                getXMLFile(fileName);
+
+                select.on('change', function () {
+                    var fileName = $(this).val();
+                    getXMLFile(fileName);
+                });
+            })
+            .catch(error => {
+                console.error('エラー: GL一覧が取得できません', error);
+                alert('エラー: GL一覧が取得できません');
+            });
+    }
+
     function getFileList() {
         fetch('./file_list.php')
             .then(response => response.json())
