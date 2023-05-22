@@ -844,12 +844,8 @@ main = (function () {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
             if ('xbrl-gl'==source) {
-                document.querySelector('table#horizontal').classList.remove('d-none');
-                document.querySelector('table#horizontal2').classList.add('d-none');
                 getHorizontal();
             } else if ('hokkaidou-sangyou'==source) {
-                document.querySelector('table#horizontal').classList.add('d-none');
-                document.querySelector('table#horizontal2').classList.remove('d-none');
                 getHorizontal2();
             }
         });
