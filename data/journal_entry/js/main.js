@@ -45,14 +45,17 @@ main = (function () {
         var regex = /(?!\s*$)\s*(?:(?!\s*"[^"]*(?:""[^"]*)*$)\s*(?:"(?:[^"\r\n]|""[^"])*"|[^,\r\n]*))/g;
         var items = [];
         data.replace(regex, function(match) {
-            var field = match.trim();//.replace(/^"(.*)"$/, '$1');
+            var field = match.trim();
+            if (field === ',,') {
+              field = '","",""';
+            }
             if (field.startsWith('"') && field.endsWith('"')) {
-            field = field.slice(1, -1).replace(/""/g, '"');
-          }
-          if (field.length>0) {
-            items.push(field);
-          }
-          return "";
+                field = field.slice(1, -1).replace(/""/g, '"');
+            }
+            if (field.length>0) {
+                items.push(field);
+            }
+            return "";
         });
         return items;
     }
