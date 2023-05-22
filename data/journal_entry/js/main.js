@@ -657,6 +657,7 @@ main = (function () {
             .then(response => response.json())
             .then(data => {
                 var GLlist = $('#GLlist');
+                GLlist.innerHTML = '';
                 var select = $('<select id="selectGL" style="height:2rem"></select>');
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
@@ -686,6 +687,7 @@ main = (function () {
             .then(response => response.json())
             .then(data => {
                 var TBlist = $('#TBlist');
+                TBlist.innerHTML = '';
                 var select = $('<select id="selectTB" style="height:2rem"></select>');
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
