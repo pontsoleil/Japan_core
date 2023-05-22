@@ -796,7 +796,7 @@ main = (function () {
             $('.nav-item').removeClass('active');
             $('.tab-pane').removeClass('active');
             $('.nav-item #nav_horizontal').addClass('active');
-            $('.tab-pane #tab_horizontal').addClass('show active');
+            $('.tab-pane #tab_horizontal').addClass('active').addClass('show');
             getHorizontal();
         });
 
