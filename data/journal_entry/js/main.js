@@ -491,7 +491,7 @@ main = (function () {
                 snackbar.close();
             }, 3000);
 
-            hideHolizontalLines();
+            hideHolizontalLines2();
         };
         xhr.send();
     }
