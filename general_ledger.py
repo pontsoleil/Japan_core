@@ -269,7 +269,6 @@ def main():
                                 'note': note}
             general_ledger[cdt_account]['transactions'].append(credit_transaction_data)
 
-    # 検算
     account_totals  = {}
     dbt_total = cdt_total = 0
     target_months = list(set([x['date'][:7] for key in general_ledger for x in general_ledger[key]['transactions']]))
@@ -280,7 +279,8 @@ def main():
             if account_code not in account_totals[month]:
                 account_totals[month][account_code] = {}
             account_totals[month][account_code]['dbt'] = sum([x['dbt_amount'] for x in general_ledger[account_code]['transactions'] if month == x['date'][:7]])
-            account_totals[month][account_code]['cdt'] = sum([x['cdt_amount'] for x in general_ledger[account_code]['transactions'] if month == x['date'][:7]])            
+            account_totals[month][account_code]['cdt'] = sum([x['cdt_amount'] for x in general_ledger[account_code]['transactions'] if month == x['date'][:7]])
+            
     monthly_totals = {}
     for month in target_months:
         if month not in monthly_totals:
@@ -412,42 +412,36 @@ def main():
             for row in general_ledger[account_code]['record']:
                 writer.writerow(row)
 
-    # 試算表
-    beginning_balance = {}
-    for account_code in accounts.keys():
-        beginning_balance[account_code] = [0]*13
+    # 試算表  
     monthly_balance = {}
-    m= 0
-    for month,total_data in account_totals.items():
-        m += 1
-        if month not in monthly_balance:
-            monthly_balance[month] = {}
-        dbt_total = 0
-        cdt_total = 0
-        for account_code,account_total in total_data.items():
-            beginning_balance[account_code][m] = beginning_balance[account_code][m-1] + account_total['dbt'] - account_total['cdt']
-            monthly_balance[month][account_code] = {
-                'month':             month,
-                'account_code':      account_code,
-                'account_name':      accounts[account_code],
-                'beginning_balance': beginning_balance[account_code][m-1],
-                'dbt_amount':        account_total['dbt'],
-                'cdt_amount':        account_total['cdt'],
-                'ending_balance':    beginning_balance[account_code][m]
+    ending_balance = {}
+    totals = dict(sorted(account_totals.items()))
+    months = sorted(totals.keys())  # 月の一覧をソート
+    beginning_balance = {month: {account: 0 for account in totals[months[0]]} for month in months}
+    for i in range(len(months)):
+        month = months[i]
+        next_month = months[i+1] if i < len(months)-1 else None
+        monthly_balance[month] = {}
+        ending_balance[month] = {}
+        for account in totals[month]:
+            dbt = totals[month][account]['dbt']
+            cdt = totals[month][account]['cdt']
+            balance = (
+                beginning_balance[month][account] +
+                dbt - cdt
+            )
+            ending_balance[month][account] = balance
+            monthly_balance[month][account] = {
+                'month': month,
+                'account_code': account,
+                'account_name': accounts[account],
+                'beginning_balance': beginning_balance[month][account],
+                'dbt_amount': dbt,
+                'cdt_amount': cdt,
+                'ending_balance': balance
             }
-            dbt_total += account_total['dbt']
-            cdt_total += account_total['cdt']
-        if dbt_total!= monthly_totals[month]['dbt'] or cdt_total!=monthly_totals[month]['cdt']:
-            print (f"計算エラー {dbt_total}:{monthly_totals[month]['dbt']}  {cdt_total}:{monthly_totals[month]['cdt']}")
-        monthly_balance[month][''] = {
-                'month':             month,
-                'account_code':      '',
-                'account_name':      '',
-                'beginning_balance': '',
-                'dbt_amount':        dbt_total,
-                'cdt_amount':        cdt_total,
-                'ending_balance':    ''
-            }        
+        if next_month:
+            beginning_balance[next_month] = ending_balance[month].copy()
 
     for month in monthly_totals:
         dir_path = f'data/journal_entry/{party}/TB'
@@ -456,12 +450,11 @@ def main():
         with open(f'{dir_path}/{month}trial_balance.csv', 'w', newline='', encoding='utf-8-sig') as file:
             header = ['month','account_code','account_name','beginning_balance','dbt_amount','cdt_amount','ending_balance']
             writer = csv.DictWriter(file, fieldnames=header)
-            # writer.writeheader()
             writer.writerow({'month':'月','account_code':'コード','account_name':'科目','beginning_balance':'前月残高','dbt_amount':'借方','cdt_amount':'貸方','ending_balance':'当月残高'})
             for row in list(monthly_balance[month].values()):
                 writer.writerow(row)
 
-    print('END')
+    print(f'** END data/journal_entry/{party}')
 
 if __name__ == '__main__':
     main()
