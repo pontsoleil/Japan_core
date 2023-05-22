@@ -716,6 +716,7 @@ main = (function () {
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
 
         $('#nav_horizontal').on('click', function() {
+
             getHorizontal();            
         });
 
@@ -796,7 +797,7 @@ main = (function () {
             $('.nav-link').removeClass('active');
             $('.tab-pane').removeClass('active');
             $('.nav-link#nav_horizontal').addClass('active');
-            $('.tab-pane#tab_horizontal').addClass('active').addClass('show');
+            $('.tab-pane#tab_horizontal').addClass('active show');
             getHorizontal();
         });
 
