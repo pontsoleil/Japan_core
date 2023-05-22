@@ -511,20 +511,46 @@ main = (function () {
                 var td6 = document.createElement('td');
                 var td7 = document.createElement('td');
                 var td8 = document.createElement('td');
-                var td9 = document.createElement('td');;
-                var td10 = document.createElement('td');;
+                var td9 = document.createElement('td');
+                var td10 = document.createElement('td');
+                var td11 = document.createElement('td');
+                var td12 = document.createElement('td');
+                var td13 = document.createElement('td');
+                var td14 = document.createElement('td');
+                var td15 = document.createElement('td');
+                var td16 = document.createElement('td');
                 /*
-                num
-                GL02
-                GL02-GL55
-                date
-                contra_account
-                contra_account_name
-                note
-                debit_amount
-                credit_amount
-                balance
+                1 num
+                2 GL02
+                3 GL02-GL55
+                4 date
+                5 contra_acct
+                6 contra_acct_name
+                7 note
+                8 dbt_amount
+                9 dbt_tax_code
+                10 dbt_tax_rate
+                11 dbt_tax_desc
+                12 cdt_amount
+                13 cdt_tax_code
+                14 cdt_tax_rate
+                15 cdt_tax_desc
+                16 balance
                 */
+                /*
+                1 num
+                2 GL02
+                3 GL02-GL55
+                4 date
+                5 contra_account
+                6 contra_account_name
+                7 note
+                8 debit_amount
+                9 credit_amount
+                10 balance
+                */
+                var source = document.querySelector('#source').value;
+
                 td1.textContent = item[0]; td1.classList.add('text-right');
                 td2.textContent = item[1]; td2.classList.add('text-center');
                 td3.textContent = item[2]; td3.classList.add('text-center');
@@ -535,16 +561,39 @@ main = (function () {
                 td8.textContent = item[1].length > 0
                     ? formatter.format(item[7])
                     : /^[0-9]+$/.test(item[7]) ? formatter.format(item[7]) : '';
-                td8.classList.add('text-right');
-                td9.textContent = item[1].length > 0
-                    ? formatter.format(item[8])
-                    : /^[0-9]+$/.test(item[8]) ? formatter.format(item[8]) : '';
-                td9.classList.add('text-right');
-                td10.textContent = item[1].length > 0
-                    ? formatter.format(item[9])
-                    : /^[0-9]+$/.test(item[9]) ? formatter.format(item[9]) : '';
-                td10.classList.add('text-right');
-
+                td8.classList.add('text-right');                
+                if ('xbrl-gl'==source) {
+                    td9.textContent = '';
+                    td10.textContent = '';
+                    td11.textContent = '';
+                    td12.textContent = item[1].length > 0
+                        ? formatter.format(item[8])
+                        : /^[0-9]+$/.test(item[8]) ? formatter.format(item[8]) : '';
+                    td12.classList.add('text-right');
+                    td13.textContent = '';
+                    td14.textContent = '';
+                    td15.textContent = '';
+                    td16.textContent = item[1].length > 0
+                        ? formatter.format(item[9])
+                        : /^[0-9]+$/.test(item[9]) ? formatter.format(item[9]) : '';
+                    td16.classList.add('text-right');
+                } else if ('hokkaidou-sangyou'==source) {
+                    td9.textContent = item[8]; td3.classList.add('text-center');
+                    td10.textContent = item[9]; td3.classList.add('text-center');
+                    td11.textContent = item[10]; td3.classList.add('text-center');
+                    td12.textContent = item[1].length > 0
+                        ? formatter.format(item[11])
+                        : /^[0-9]+$/.test(item[11]) ? formatter.format(item[11]) : '';
+                    td12.classList.add('text-right');
+                    td13.textContent = item[12]; td3.classList.add('text-center');
+                    td14.textContent = item[13]; td3.classList.add('text-center');
+                    td15.textContent = item[14]; td3.classList.add('text-center');
+                    td16.textContent = item[1].length > 0
+                        ? formatter.format(item[15])
+                        : /^[0-9]+$/.test(item[15]) ? formatter.format(item[15]) : '';
+                    td16.classList.add('text-right');
+                }
+                
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -555,6 +604,12 @@ main = (function () {
                 tr.appendChild(td8);
                 tr.appendChild(td9);
                 tr.appendChild(td10);
+                tr.appendChild(td11);
+                tr.appendChild(td12);
+                tr.appendChild(td13);
+                tr.appendChild(td14);
+                tr.appendChild(td15);
+                tr.appendChild(td16);
 
                 tableBody.appendChild(tr);
             }
