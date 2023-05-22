@@ -716,13 +716,7 @@ main = (function () {
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
 
         $('#nav_horizontal').on('click', function() {
-            let sourceSelect = document.querySelector('#source');
-            var source = sourceSelect.value;
-            if ('xbrl-gl'==source) {
-                getHorizontal();
-            } else if ('hokkaidou-sangyou'==source) {
-                getHorizontal2();
-            }
+            getHorizontal();            
         });
 
         $('#nav_GL').on('click', function() {
@@ -785,18 +779,17 @@ main = (function () {
         });
 
         // 初期設定
+        getHorizontal();
+        getInstances();
         let sourceSelect = document.querySelector('#source');
         var source = sourceSelect.value;
         if ('xbrl-gl'==source) {
-            getHorizontal();
             getGL('111現金.csv');
             getTB('2009-04');
         } else if ('hokkaidou-sangyou'==source) {
-            getHorizontal2();
             getGL('100現金.csv')
             getTB('2022-07');
         }
-        getInstances();
         getFileList();
 
         sourceSelect.addEventListener("change", (event) => {
