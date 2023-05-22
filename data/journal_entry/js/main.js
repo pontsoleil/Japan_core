@@ -42,10 +42,14 @@ main = (function () {
     }
 
     function parseCSV(data) {
-        var regex = /(?:^|,)(?=[^"]|(")?([^"]*)\1(?:,|$))/g;
+        var regex = /(?!\s*$)\s*(?:(?!\s*"[^"]*(?:""[^"]*)*$)\s*(?:"(?:[^"\r\n]|""[^"])*"|[^,\r\n]*))/g;
         var items = [];
-        data.replace(regex, function(match, _, field) {
-          items.push(field.trim());
+        data.replace(regex, function(match) {
+          var field = match.trim();
+          if (field.startsWith('"') && field.endsWith('"')) {
+            field = field.slice(1, -1).replace(/""/g, '"');
+          }
+          items.push(field);
           return "";
         });
         return items;
