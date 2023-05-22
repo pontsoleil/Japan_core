@@ -593,7 +593,7 @@ main = (function () {
                         : /^[0-9]+$/.test(item[15]) ? formatter.format(item[15]) : '';
                     td16.classList.add('text-right');
                 }
-                
+
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -711,17 +711,18 @@ main = (function () {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                // var GLlist = $('#GLlist');
-                // GLlist.innerHTML = '';
                 var select = $('#selectGL');
-                select.innerHTML = '';
+                select.empty();
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
                     var name = value.substring(0,value.length-4)
                     var option = $('<option></option>').text(name).val(value);
                     select.append(option);
                 }
-                // GLlist.append(select);
+                select.on('change', function() {
+                    const selected = event.target.value;
+                    getGL(selected);
+                });
             })
             .catch(error => {
                 console.error('エラー: 総勘定元帳一覧が取得できません', error);
@@ -742,17 +743,18 @@ main = (function () {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                // var TBlist = $('#TBlist');
-                // TBlist.innerHTML = '';
                 var select = $('#selectTB');
-                select.innerHTML = '';
+                select.empty();
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
                     var month = value.substring(0,7);
                     var option = $('<option></option>').text(month).val(month);
                     select.append(option);
                 }
-                TBlist.append(select);
+                select.on('change', function() {
+                    const selected = event.target.value;
+                    getTB(selected);
+                });
             })
             .catch(error => {
                 console.error('エラー: 残高試算表一覧が取得できません', error);
@@ -883,8 +885,8 @@ main = (function () {
 
         const selectGL = document.getElementById("selectGL");
         selectGL.addEventListener("change", (event) => {
-            const selectedGL = event.target.value;
-            getGL(selectedGL);
+            const selected = event.target.value;
+            getGL(selected);
         });
 
         const selectTB = document.getElementById("selectTB");
