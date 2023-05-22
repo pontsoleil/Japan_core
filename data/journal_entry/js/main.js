@@ -882,7 +882,7 @@ main = (function () {
         $('#nav_GL').on('click', function() {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
-            getHorizontal();
+            // getHorizontal();
             if ('xbrl-gl'==source) {
                 getGL('111現金.csv');
             } else if ('hokkaidou-sangyou'==source) {
@@ -893,7 +893,7 @@ main = (function () {
         $('#nav_TB').on('click', function() {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
-            getHorizontal();
+            // getHorizontal();
             if ('xbrl-gl'==source) {
                 getTB('2009-04');
             } else if ('hokkaidou-sangyou'==source) {
@@ -952,16 +952,16 @@ main = (function () {
         let sourceSelect = document.querySelector('#source');
         var source = sourceSelect.value;
         if ('xbrl-gl'==source) {
-            getInstances();
+            getHorizontal();
             getGL('111現金.csv');
             getTB('2009-04');
         } else if ('hokkaidou-sangyou'==source) {
-            getInstances2();
+            getHorizontal2();
             getGL('100現金.csv')
             getTB('2022-07');
         }
+        getInstances();
         getFileList();
-        getHorizontal();
 
         sourceSelect.addEventListener("change", (event) => {
             $('.nav-item').removeClass('active');
