@@ -168,45 +168,25 @@ main = (function () {
                 var td19 = document.createElement('td');
                 var td20 = document.createElement('td');
 
-                td1.textContent = item[0];
-                td1.classList.add('text-center');
-                td2.textContent = item[1];
-                td2.classList.add('text-center');
-                td3.textContent = item[2];
-                td3.classList.add('text-center');
-                td4.textContent = item[3];
-                td4.classList.add('text-center');
-                td5.textContent = item[5];
-                td5.classList.add('text-center');
-                td6.textContent = item[8];
-                td6.classList.add('text-center');
-
-                td7.textContent = item[15];
-                td7.classList.add('text-center');
+                td1.textContent = item[0]; td1.classList.add('text-center');
+                td2.textContent = item[1]; td2.classList.add('text-center');
+                td3.textContent = item[2]; td3.classList.add('text-center');
+                td4.textContent = item[3]; td4.classList.add('text-center');
+                td5.textContent = item[5]; td5.classList.add('text-center');
+                td6.textContent = item[8]; td6.classList.add('text-center');
+                td7.textContent = item[15]; td7.classList.add('text-center');
                 td8.textContent = item[14];
-
-                td9.textContent = item[17];
-                td9.classList.add('text-center');
-                td10.textContent = item[18];
-                td11.textContent = formatter.format(item[20]);
-                td11.classList.add('text-right');
-
-                td12.textContent = item[21];
-                td12.classList.add('text-center');
+                td9.textContent = item[17]; td9.classList.add('text-center');
+                td10.textContent = item[18]; 
+                td11.textContent = formatter.format(item[20]); td11.classList.add('text-right');
+                td12.textContent = item[21]; td12.classList.add('text-center');
                 td13.textContent = item[23];
-
-                td14.textContent = item[24];
-                td14.classList.add('text-center');
+                td14.textContent = item[24]; td14.classList.add('text-center');
                 td15.textContent = item[25];
-                td16.textContent = formatter.format(item[27]);
-                td16.classList.add('text-right');
-
-                td17.textContent = item[28];
-                td17.classList.add('text-center');
+                td16.textContent = formatter.format(item[27]); td16.classList.add('text-right');
+                td17.textContent = item[28]; td17.classList.add('text-center');
                 td18.textContent = item[30];
-
-                td19.textContent = item[31];
-                td19.classList.add('text-center');
+                td19.textContent = item[31]; td19.classList.add('text-center');
                 td20.textContent = item[33];
 
                 tr.appendChild(td1);
@@ -229,6 +209,7 @@ main = (function () {
                 tr.appendChild(td18);
                 tr.appendChild(td19);
                 tr.appendChild(td20);
+
                 tableBody.appendChild(tr);
             }
             setTimeout(function () {
@@ -243,15 +224,17 @@ main = (function () {
     function hideHolizontalLines() {
         var thead = document.querySelector('#horizontal thead');
         var row = thead.rows[0];
-        row.cells[19].style.display = 'none';
-        row.cells[18].style.display = 'none';
-        row.cells[17].style.display = 'none';
-        row.cells[16].style.display = 'none';
-        row.cells[12].style.display = 'none';
-        row.cells[11].style.display = 'none';
-        row.cells[5].style.display = 'none';
-        row.cells[4].style.display = 'none';
         row.cells[3].style.display = 'none';
+        row.cells[4].style.display = 'none';
+        row.cells[5].style.display = 'none';
+        row.cells[6].style.display = 'none';
+        row.cells[12].style.display = 'none';
+        row.cells[13].style.display = 'none';
+        row.cells[17].style.display = 'none';
+        row.cells[18].style.display = 'none';
+        row.cells[19].style.display = 'none';
+        row.cells[20].style.display = 'none';
+
         // tbody要素を取得する
         var tbody = document.querySelector('#horizontal tbody');
         // tbody要素内のtr要素を順番に取得する
@@ -259,27 +242,23 @@ main = (function () {
             // 各tr要素内のn番目のtd要素を取得する（ここでは3番目から）
             var td2 = tbody.rows[i].cells[2];
             var td3 = tbody.rows[i].cells[3];
-            var td4 = tbody.rows[i].cells[4];
-            var td6 = tbody.rows[i].cells[6];
-            var td11 = tbody.rows[i].cells[11];
-            var td16 = tbody.rows[i].cells[16];
             // 取得したtd要素が空かどうかを判定し、空であればtr要素を非表示にする
-            if ('' == td2.textContent.trim() || '' != td3.textContent.trim() || '' != td4.textContent.trim() ||
-                ('' == td6.textContent.trim() && ('' != td11.textContent.trim() || '' != td16.textContent.trim()))) {
+            if ('' == td2.textContent.trim() || '' != td3.textContent.trim()) {
                 tbody.rows[i].style.display = 'none';
             }
         }
         for (i = 0; i < tbody.rows.length; i++) {
             row = tbody.rows[i];
-            row.cells[19].style.display = 'none';
-            row.cells[18].style.display = 'none';
-            row.cells[17].style.display = 'none';
-            row.cells[16].style.display = 'none';
-            row.cells[12].style.display = 'none';
-            row.cells[11].style.display = 'none';
-            row.cells[5].style.display = 'none';
-            row.cells[4].style.display = 'none';
             row.cells[3].style.display = 'none';
+            row.cells[4].style.display = 'none';
+            row.cells[5].style.display = 'none';
+            row.cells[6].style.display = 'none';
+            row.cells[12].style.display = 'none';
+            row.cells[13].style.display = 'none';
+            row.cells[17].style.display = 'none';
+            row.cells[18].style.display = 'none';
+            row.cells[19].style.display = 'none';
+            row.cells[20].style.display = 'none';
         }
     }
 
@@ -289,12 +268,13 @@ main = (function () {
         row.cells[3].style.display = '';
         row.cells[4].style.display = '';
         row.cells[5].style.display = '';
-        row.cells[11].style.display = '';
+        row.cells[6].style.display = '';
         row.cells[12].style.display = '';
-        row.cells[16].style.display = '';
+        row.cells[13].style.display = '';
         row.cells[17].style.display = '';
         row.cells[18].style.display = '';
         row.cells[19].style.display = '';
+        row.cells[20].style.display = '';
         // tbody要素を取得する
         var tbody = document.querySelector('#horizontal tbody');
         // tbody要素内のtr要素を順番に取得する
@@ -305,12 +285,319 @@ main = (function () {
             row.cells[3].style.display = '';
             row.cells[4].style.display = '';
             row.cells[5].style.display = '';
-            row.cells[11].style.display = '';
+            row.cells[6].style.display = '';
             row.cells[12].style.display = '';
-            row.cells[16].style.display = '';
+            row.cells[13].style.display = '';
             row.cells[17].style.display = '';
             row.cells[18].style.display = '';
             row.cells[19].style.display = '';
+            row.cells[20].style.display = '';
+        }
+    }
+
+    function getHorizontal2() {
+        // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+        var xhr = new XMLHttpRequest();
+        var url = getBase() + 'horizontal_ledger.csv';
+        xhr.open('GET', url, true);
+        xhr.onload = function () {
+            // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+            var data = xhr.responseText.split('\n');
+            var items = [];
+            for (var i = 0; i < data.length; i++) {
+                var item = data[i].split(',');
+                items.push(item);
+            }
+            var items_count = items.length;
+            snackbar.close();
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            // 配列の内容を加工して、HTML要素に追加して表示する
+            var tableBody = document.querySelector('#horizontal tbody');
+            tableBody.innerHTML = '';
+            for (var i = 1; i < items.length; i++) {
+                if (0 == i % 500) {
+                    snackbar.close();
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                }
+                var item = items[i];
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var td5 = document.createElement('td');
+                var td6 = document.createElement('td');
+                var td7 = document.createElement('td');
+                var td8 = document.createElement('td');
+                var td9 = document.createElement('td');
+                var td10 = document.createElement('td');
+                var td11 = document.createElement('td');
+                var td12 = document.createElement('td');
+                var td13 = document.createElement('td');
+                var td14 = document.createElement('td');
+                var td15 = document.createElement('td');
+                var td16 = document.createElement('td');
+                var td17 = document.createElement('td');
+                var td18 = document.createElement('td');
+                var td19 = document.createElement('td');
+                var td20 = document.createElement('td');
+                var td21 = document.createElement('td');
+                var td22 = document.createElement('td');
+                var td23 = document.createElement('td');
+                var td24 = document.createElement('td');
+                var td25 = document.createElement('td');
+                var td26 = document.createElement('td');
+                var td27 = document.createElement('td');
+                var td28 = document.createElement('td');
+                var td29 = document.createElement('td');
+                var td30 = document.createElement('td');
+                var td31 = document.createElement('td');
+                var td32 = document.createElement('td');
+                var td33 = document.createElement('td');
+                var td34 = document.createElement('td');
+                var td35 = document.createElement('td');
+                var td36 = document.createElement('td');
+                var td37 = document.createElement('td');
+                var td38 = document.createElement('td');
+                var td39 = document.createElement('td');
+                var td40 = document.createElement('td');
+                var td41 = document.createElement('td');
+                var td42 = document.createElement('td');
+
+                td1.textContent = item[0]; td1.classList.add('text-center');
+                td2.textContent = item[1]; td2.classList.add('text-center');
+                td3.textContent = item[2]; td3.classList.add('text-center');
+                td4.textContent = item[3]; td4.classList.add('text-center');
+                td5.textContent = item[4]; td5.classList.add('text-center');
+                td6.textContent = item[5]; td6.classList.add('text-center');
+                td7.textContent = item[6]; td7.classList.add('text-center');
+                td8.textContent = item[7]; td8.classList.add('text-center');
+                td9.textContent = item[8]; td9.classList.add('text-center');
+                td10.textContent = item[9]; td10.classList.add('text-center');
+                td11.textContent = item[10];
+                td12.textContent = item[12];
+                td13.textContent = item[13];
+                td14.textContent = item[15]; td14.classList.add('text-center');
+                td15.textContent = item[16]; td15.classList.add('text-center');
+                td16.textContent = item[17]; td16.classList.add('text-center');
+                td17.textContent = item[18]; td17.classList.add('text-center');
+                td18.textContent = item[19]; td18.classList.add('text-center');
+                td19.textContent = item[20];
+                td20.textContent = item[21]; td20.classList.add('text-center');
+                td21.textContent = item[22]; td21.classList.add('text-center');
+                td22.textContent = item[23]; td22.classList.add('text-center');
+                td23.textContent = item[24];
+                td24.textContent = item[26]; td24.textContent = formatter.format(item[26]); td24.classList.add('text-right');
+                td25.textContent = item[28]; td25.classList.add('text-center');
+                td26.textContent = item[29]; td26.classList.add('text-center');
+                td27.textContent = item[30];
+                td28.textContent = item[31];
+                td29.textContent = item[32]; td29.classList.add('text-center');
+                td30.textContent = item[33];
+                td31.textContent = item[34]; td31.classList.add('text-center');
+                td32.textContent = item[35];
+                td33.textContent = item[37]; td33.textContent = formatter.format(item[37]); td33.classList.add('text-right');
+                td34.textContent = item[39]; td34.classList.add('text-center');
+                td35.textContent = item[40]; td35.classList.add('text-center');
+                td36.textContent = item[41];
+                td37.textContent = item[42];
+                td38.textContent = item[43]; td38.classList.add('text-center');
+                td39.textContent = item[44];
+                td40.textContent = item[45];
+                td41.textContent = item[46]; td41.classList.add('text-center');
+                td42.textContent = item[47];
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+                tr.appendChild(td7);
+                tr.appendChild(td8);
+                tr.appendChild(td9);
+                tr.appendChild(td10);
+                tr.appendChild(td11);
+                tr.appendChild(td12);
+                tr.appendChild(td13);
+                tr.appendChild(td14);
+                tr.appendChild(td15);
+                tr.appendChild(td16);
+                tr.appendChild(td17);
+                tr.appendChild(td18);
+                tr.appendChild(td19);
+                tr.appendChild(td20);
+                tr.appendChild(td11);
+                tr.appendChild(td12);
+                tr.appendChild(td13);
+                tr.appendChild(td14);
+                tr.appendChild(td15);
+                tr.appendChild(td16);
+                tr.appendChild(td17);
+                tr.appendChild(td18);
+                tr.appendChild(td19);
+                tr.appendChild(td20);
+                tr.appendChild(td21);
+                tr.appendChild(td22);
+                tr.appendChild(td23);
+                tr.appendChild(td24);
+                tr.appendChild(td25);
+                tr.appendChild(td26);
+                tr.appendChild(td27);
+                tr.appendChild(td28);
+                tr.appendChild(td29);
+                tr.appendChild(td30);
+                tr.appendChild(td31);
+                tr.appendChild(td32);
+                tr.appendChild(td33);
+                tr.appendChild(td34);
+                tr.appendChild(td35);
+                tr.appendChild(td36);
+                tr.appendChild(td37);
+                tr.appendChild(td38);
+                tr.appendChild(td39);
+                tr.appendChild(td40);
+                tr.appendChild(td41);
+                tr.appendChild(td42);
+
+                tableBody.appendChild(tr);
+            }
+            setTimeout(function () {
+                snackbar.close();
+            }, 3000);
+
+            hideHolizontalLines();
+        };
+        xhr.send();
+    }
+
+    function hideHolizontalLines2() {
+        var thead = document.querySelector('#horizontal thead');
+        var row = thead.rows[0];
+        row.cells[3].style.display = 'none';
+        row.cells[4].style.display = 'none';
+        row.cells[5].style.display = 'none';
+        row.cells[6].style.display = 'none';
+        row.cells[7].style.display = 'none';
+        row.cells[8].style.display = 'none';
+        row.cells[9].style.display = 'none';
+        row.cells[10].style.display = 'none';
+        row.cells[11].style.display = 'none';
+        row.cells[12].style.display = 'none';
+        row.cells[14].style.display = 'none';
+        row.cells[17].style.display = 'none';
+        row.cells[18].style.display = 'none';
+        row.cells[20].style.display = 'none';
+        row.cells[21].style.display = 'none';
+        row.cells[28].style.display = 'none';
+        row.cells[29].style.display = 'none';
+        row.cells[30].style.display = 'none';
+        row.cells[37].style.display = 'none';
+        row.cells[38].style.display = 'none';
+        row.cells[39].style.display = 'none';
+        row.cells[40].style.display = 'none';
+        row.cells[41].style.display = 'none';
+        row.cells[42].style.display = 'none';
+
+        // tbody要素を取得する
+        var tbody = document.querySelector('#horizontal tbody');
+        // tbody要素内のtr要素を順番に取得する
+        for (var i = 0; i < tbody.rows.length; i++) {
+            // 各tr要素内のn番目のtd要素を取得する（ここでは3番目から）
+            var td2 = tbody.rows[i].cells[2];
+            var td3 = tbody.rows[i].cells[3];
+            // 取得したtd要素が空かどうかを判定し、空であればtr要素を非表示にする
+            if ('' == td2.textContent.trim() || '' != td3.textContent.trim()) {
+                tbody.rows[i].style.display = 'none';
+            }
+        }
+        for (i = 0; i < tbody.rows.length; i++) {
+            row = tbody.rows[i];
+            row.cells[3].style.display = 'none';
+            row.cells[4].style.display = 'none';
+            row.cells[5].style.display = 'none';
+            row.cells[6].style.display = 'none';
+            row.cells[7].style.display = 'none';
+            row.cells[8].style.display = 'none';
+            row.cells[9].style.display = 'none';
+            row.cells[10].style.display = 'none';
+            row.cells[11].style.display = 'none';
+            row.cells[12].style.display = 'none';
+            row.cells[14].style.display = 'none';
+            row.cells[17].style.display = 'none';
+            row.cells[18].style.display = 'none';
+            row.cells[20].style.display = 'none';
+            row.cells[21].style.display = 'none';
+            row.cells[28].style.display = 'none';
+            row.cells[29].style.display = 'none';
+            row.cells[30].style.display = 'none';
+            row.cells[37].style.display = 'none';
+            row.cells[38].style.display = 'none';
+            row.cells[39].style.display = 'none';
+            row.cells[40].style.display = 'none';
+            row.cells[41].style.display = 'none';
+            row.cells[42].style.display = 'none';
+        }
+    }
+
+    function showHolizontalLines2() {
+        var thead = document.querySelector('#horizontal thead');
+        var row = thead.rows[0];
+        row.cells[3].style.display = '';
+        row.cells[4].style.display = '';
+        row.cells[5].style.display = '';
+        row.cells[6].style.display = '';
+        row.cells[7].style.display = '';
+        row.cells[8].style.display = '';
+        row.cells[9].style.display = '';
+        row.cells[10].style.display = '';
+        row.cells[11].style.display = '';
+        row.cells[12].style.display = '';
+        row.cells[14].style.display = '';
+        row.cells[17].style.display = '';
+        row.cells[18].style.display = '';
+        row.cells[20].style.display = '';
+        row.cells[21].style.display = '';
+        row.cells[28].style.display = '';
+        row.cells[29].style.display = '';
+        row.cells[30].style.display = '';
+        row.cells[37].style.display = '';
+        row.cells[38].style.display = '';
+        row.cells[39].style.display = '';
+        row.cells[40].style.display = '';
+        row.cells[41].style.display = '';
+        row.cells[42].style.display = '';
+        // tbody要素を取得する
+        var tbody = document.querySelector('#horizontal tbody');
+        // tbody要素内のtr要素を順番に取得する
+        for (var i = 0; i < tbody.rows.length; i++) {
+            // 取得したtd要素が空かどうかを判定し、空であればtr要素を非表示にする
+            row = tbody.rows[i];
+            row.style.display = '';
+            row.cells[3].style.display = '';
+            row.cells[4].style.display = '';
+            row.cells[5].style.display = '';
+            row.cells[6].style.display = '';
+            row.cells[7].style.display = '';
+            row.cells[8].style.display = '';
+            row.cells[9].style.display = '';
+            row.cells[10].style.display = '';
+            row.cells[11].style.display = '';
+            row.cells[12].style.display = '';
+            row.cells[14].style.display = '';
+            row.cells[17].style.display = '';
+            row.cells[18].style.display = '';
+            row.cells[20].style.display = '';
+            row.cells[21].style.display = '';
+            row.cells[28].style.display = '';
+            row.cells[29].style.display = '';
+            row.cells[30].style.display = '';
+            row.cells[37].style.display = '';
+            row.cells[38].style.display = '';
+            row.cells[39].style.display = '';
+            row.cells[40].style.display = '';
+            row.cells[41].style.display = '';
+            row.cells[42].style.display = '';
         }
     }
 
@@ -558,8 +845,15 @@ main = (function () {
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
 
         $('#nav_horizontal').on('click', function() {
-            getHorizontal();
+            let sourceSelect = document.querySelector('#source');
+            var source = sourceSelect.value;
+            if ('xbrl-gl'==source) {
+                getHorizontal();
+            } else if ('hokkaidou-sangyou'==source) {
+                getHorizontal2();
+            }
         });
+
         $('#nav_GL').on('click', function() {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
@@ -570,6 +864,7 @@ main = (function () {
                 getGL('100現金.csv')
             }
         });
+
         $('#nav_TB').on('click', function() {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
@@ -580,6 +875,7 @@ main = (function () {
                 getTB('2022-07');
             }
         });
+
         $('#nav_tidy').on('click', function() {
             console.log('TidyDataタブがクリックされました。');
         });
@@ -590,18 +886,28 @@ main = (function () {
 
         linesButton.on('click', function () {
             isEnabled = !isEnabled; // 現在の状態を反転する
+            let sourceSelect = document.querySelector('#source');
+            var source = sourceSelect.value;
             if (isEnabled) {
                 // 処理を有効にするためのコードを記述する
                 // linesButton.value = '全て表示';
                 linesButton.removeClass('btn-secondary');
                 linesButton.addClass('btn-primary');
-                hideHolizontalLines();
+                if ('xbrl-gl'==source) {
+                    hideHolizontalLines();
+                } else if ('hokkaidou-sangyou'==source) {
+                    hideHolizontalLines2();
+                }                
             } else {
                 // 処理を無効にするためのコードを記述する
                 // linesButton.value = '明細行のみ';
                 linesButton.removeClass('btn-primary');
                 linesButton.addClass('btn-secondary');
-                showHolizontalLines();
+                if ('xbrl-gl'==source) {
+                    showHolizontalLines();
+                } else if ('hokkaidou-sangyou'==source) {
+                    showHolizontalLines2();
+                }                
             }
         });
 
