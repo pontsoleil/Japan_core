@@ -195,40 +195,6 @@ main = (function () {
 
                 var source = document.querySelector('#source').value;
                 if ('xbrl-gl'==source) {
-// num
-// GL
-// GL詳細
-// 借方勘定科目セグメント
-// 貸方勘定科目セグメント
-// 事業セグメント
-// 仕訳ID
-// ソースコード
-// ソース説明
-// ERPサブレジャーモジュール
-// システムマニュアル識別子
-// 作成者ユーザーID
-// 作成日
-// 仕訳エントリタイプコード
-// 仕訳エントリ行説明
-// 記帳日
-// 通貨コード
-// 借方勘定科目番号
-// 借方勘定科目名
-// 借方財務諸表キャプション
-// 借方金額
-// 借方勘定科目セグメント番号
-// 借方勘定科目セグメントコード
-// 借方勘定科目セグメント名
-// 貸方勘定科目番号
-// 貸方勘定科目名
-// 貸方財務諸表キャプション
-// 貸方金額
-// 貸方勘定科目セグメント番号
-// 貸方勘定科目セグメントコード
-// 貸方勘定科目セグメント名
-// 事業セグメント順序番号
-// 事業セグメントコード
-// 組織タイプ名
                     td1.textContent = item[0]; td1.classList.add('text-center');
                     td2.textContent = item[1]; td2.classList.add('text-center');
                     td3.textContent = item[2]; td3.classList.add('text-center');
