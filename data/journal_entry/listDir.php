@@ -1,20 +1,24 @@
 <?php
-  // dirの引数を取得
-  $dir = isset($_GET['dir']) ? $_GET['dir'] : ''; // パラメータが存在しない場合は空文字列をデフォルト値とする
+if (isset($_GET['dir'])) {
+    $dir = $_GET['dir'];
+    $absolutePath = __DIR__ . '/' . $dir;
 
-  if (preg_match('/^[a-zA-Z0-9\/-]+$/', $dir)) {
-    // 正規表現にマッチする場合の処理
-    $dirPath = __DIR__ . '/' . $dir; // 絶対パスを作成
+    if (preg_match('/^[a-zA-Z0-9\.\/_-]+$/', $dir)) {
 
-    if (is_dir($dirPath)) {
-      $files = array_diff(scandir($dirPath), array('.', '..')); // ディレクトリ内のファイル一覧を取得
-      header('Content-Type: application/json'); // レスポンスのContent-TypeをJSONに設定
-      echo json_encode($files); // ファイル名の配列をJSON形式で出力
+      if (is_dir($absolutePath)) {
+          $files = scandir($absolutePath);
+          $fileList = array_diff($files, array('.', '..'));
+
+          header('Content-Type: application/json');
+          echo json_encode($fileList);
+      } else {
+          echo '指定されたディレクトリが存在しません。';
+      }
     } else {
-      echo '指定されたディレクトリが存在しません。';
+      // 正規表現にマッチしない場合の処理
+      echo '無効なパラメータです。指定できるディレクトリ名は英数字及び . _ - / のみです。';
     }
-  } else {
-    // 正規表現にマッチしない場合の処理
-    echo '無効なパラメータです。指定できるディレクトリ名は英数字及び_-のみです。';
-  }
+} else {
+    echo 'ディレクトリが指定されていません。';
+}
 ?>
