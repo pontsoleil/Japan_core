@@ -793,10 +793,10 @@ main = (function () {
         getFileList();
 
         sourceSelect.addEventListener("change", (event) => {
-            $('.nav-item').removeClass('active');
+            $('.nav-link').removeClass('active');
             $('.tab-pane').removeClass('active');
-            $('.nav-item #nav_horizontal').addClass('active');
-            $('.tab-pane #tab_horizontal').addClass('active').addClass('show');
+            $('.nav-link#nav_horizontal').addClass('active');
+            $('.tab-pane#tab_horizontal').addClass('active').addClass('show');
             getHorizontal();
         });
 
