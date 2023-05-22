@@ -525,17 +525,13 @@ main = (function () {
                 credit_amount
                 balance
                 */
-                td1.textContent = item[0];
-                td1.classList.add('text-right');
-                td2.textContent = item[1];
-                td2.classList.add('text-center');
-                td3.textContent = item[2];
-                td3.classList.add('text-center');
-                td4.textContent = item[3];
-                td5.textContent = item[4];
-                td5.classList.add('text-center');
-                td6.textContent = item[5];
-                td7.textContent = item[6];
+                td1.textContent = item[0]; td1.classList.add('text-right');
+                td2.textContent = item[1]; td2.classList.add('text-center');
+                td3.textContent = item[2]; td3.classList.add('text-center');
+                td4.textContent = item[3]; td4.classList.add('text-left');
+                td5.textContent = item[4]; td5.classList.add('text-center');
+                td6.textContent = item[5]; td6.classList.add('text-left');
+                td7.textContent = item[6]; td7.classList.add('text-left');
                 td8.textContent = item[1].length > 0
                     ? formatter.format(item[7])
                     : /^[0-9]+$/.test(item[7]) ? formatter.format(item[7]) : '';
@@ -548,6 +544,7 @@ main = (function () {
                     ? formatter.format(item[9])
                     : /^[0-9]+$/.test(item[9]) ? formatter.format(item[9]) : '';
                 td10.classList.add('text-right');
+
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -558,6 +555,7 @@ main = (function () {
                 tr.appendChild(td8);
                 tr.appendChild(td9);
                 tr.appendChild(td10);
+
                 tableBody.appendChild(tr);
             }
             snackbar.close();
@@ -611,11 +609,10 @@ main = (function () {
                 credit_amount
                 ending_balance
                 */
-                td1.textContent = item[0];
-                td2.classList.add('text-center');
+                td1.textContent = item[0]; td2.classList.add('text-center');
                 td2.textContent = item[1].length > 0 ? item[1] : '＊＊合計＊＊';
                 td2.classList.add('text-center');
-                td3.textContent = item[2];
+                td3.textContent = item[2]; td3.classList.add('text-left');
                 td4.textContent = item[1].length > 0
                     ? formatter.format(item[3])
                     : /^[0-9]+$/.test(item[3]) ? formatter.format(item[3]) : '';
