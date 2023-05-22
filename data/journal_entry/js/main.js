@@ -660,7 +660,8 @@ main = (function () {
                 var select = $('<select id="selectGL" style="height:2rem"></select>');
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
-                    var option = $('<option></option>').text(value).val(value);
+                    var name = value.substring(0,value.length-4)
+                    var option = $('<option></option>').text(name).val(value);
                     select.append(option);
                 }
                 GLlist.append(select);
