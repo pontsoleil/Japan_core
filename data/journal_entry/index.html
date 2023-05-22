@@ -47,8 +47,8 @@
 <body>
     <h5>検索専用ブラウザ</h5>
     <select id="source">
-        <option value="xbrl-gl">株式会社PCA商事</option>
-        <option value="hokkaidou-sangyou" selected>北海道産業(株)</option>
+        <option value="xbrl-gl">株式会社PCA商事 PCA会計９V.2</option>
+        <option value="hokkaidou-sangyou" selected>北海道産業(株) エプソン会計R4</option>
     </select>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -117,7 +117,7 @@
                                 <th class="text-center">貸方セグメント</th> <!-- 42 -->
                                 <th class="text-center">貸方セグメントコード</th> <!-- 43 -->
                                 <th class="text-center">貸方セグメント名</th> <!-- 44 -->
-                                <th class="text-center">事業セグメント順序</th> <!-- 45 -->
+                                <th class="text-center">事業セグメント</th> <!-- 45 -->
                                 <th class="text-center">事業セグメントコード</th> <!-- 46 -->
                                 <th class="text-center">組織タイプ名</th> <!-- 47 -->
                             </tr>
@@ -130,65 +130,59 @@
             </div>
         </div>
         <div class="tab-pane" id="tab_GL">
-            <!-- <div style="max-width:100%!important"> -->
-                <!-- <div class="d-flex"> -->
-                    <div id="GLlist">
-                        <select id="selectGL" style="height:2rem"></select>
-                    </div>
-                    <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
-                        <table id="GL" class="table table-sm table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">num</th> <!-- 0 -->
-                                    <th class="text-center">伝票番号</th> <!-- 1 -->
-                                    <th class="text-center">GL詳細</th> <!-- 2 -->
-                                    <th class="text-center">日付</th> <!-- 3 -->
-                                    <th class="text-center">相手科目</th> <!-- 4 -->
-                                    <th class="text-center">相手科目名</th> <!-- 5 -->
-                                    <th class="text-center">摘要</th> <!-- 6 -->
-                                    <th class="text-center">借方金額</th> <!-- 7 -->
-                                    <th class="text-center">借方税コード</th> <!-- 8 -->
-                                    <th class="text-center">借方税率</th> <!-- 9 -->
-                                    <th class="text-center">借方税</th> <!-- 10 -->
-                                    <th class="text-center">貸方金額</th> <!-- 11 -->
-                                    <th class="text-center">貸方税コード</th> <!-- 12 -->
-                                    <th class="text-center">貸方税率</th> <!-- 13 -->
-                                    <th class="text-center">貸方税</th> <!-- 14 -->
-                                    <th class="text-center">差引金額</th> <!-- 15 -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- CSVの行が展開される -->
-                            </tbody>
-                        </table>
-                    </div>
-                <!-- </div> -->
-            <!-- </div> -->
+            <div id="GLlist">
+                <select id="selectGL" style="height:2rem"></select>
+            </div>
+            <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
+                <table id="GL" class="table table-sm table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">num</th> <!-- 0 -->
+                            <th class="text-center">伝票番号</th> <!-- 1 -->
+                            <th class="text-center">GL詳細</th> <!-- 2 -->
+                            <th class="text-center">日付</th> <!-- 3 -->
+                            <th class="text-center">相手科目</th> <!-- 4 -->
+                            <th class="text-center">相手科目名</th> <!-- 5 -->
+                            <th class="text-center">摘要</th> <!-- 6 -->
+                            <th class="text-center">借方金額</th> <!-- 7 -->
+                            <th class="text-center">借方税コード</th> <!-- 8 -->
+                            <th class="text-center">借方税率</th> <!-- 9 -->
+                            <th class="text-center">借方税</th> <!-- 10 -->
+                            <th class="text-center">貸方金額</th> <!-- 11 -->
+                            <th class="text-center">貸方税コード</th> <!-- 12 -->
+                            <th class="text-center">貸方税率</th> <!-- 13 -->
+                            <th class="text-center">貸方税</th> <!-- 14 -->
+                            <th class="text-center">差引金額</th> <!-- 15 -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- CSVの行が展開される -->
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="tab-pane" id="tab_TB">
-            <!-- <div class="d-flex"> -->
-                <div id="TBlist">
-                    <select id="selectTB" style="height:2rem"></select>
-                </div>
-                <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
-                    <table id="TB" class="table table-sm table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th class="text-center">月</th> <!-- ０ -->
-                                <th class="text-center">科目</th> <!-- 1 -->
-                                <th class="text-center">科目名</th> <!-- 2 -->
-                                <th class="text-center">前月残高</th> <!-- 3 -->
-                                <th class="text-center">借方</th> <!-- 4 -->
-                                <th class="text-center">貸方</th> <!-- 5 -->
-                                <th class="text-center">当月残高</th> <!-- 7 -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- CSVの行が展開される -->
-                        </tbody>
-                    </table>
-                </div>
-            <!-- </div> -->
+            <div id="TBlist">
+                <select id="selectTB" style="height:2rem"></select>
+            </div>
+            <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
+                <table id="TB" class="table table-sm table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">月</th> <!-- ０ -->
+                            <th class="text-center">勘定科目</th> <!-- 1 -->
+                            <th class="text-center">科目名</th> <!-- 2 -->
+                            <th class="text-center">前月残高</th> <!-- 3 -->
+                            <th class="text-center">借方金額</th> <!-- 4 -->
+                            <th class="text-center">貸方金額</th> <!-- 5 -->
+                            <th class="text-center">当月残高</th> <!-- 7 -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- CSVの行が展開される -->
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="tab-pane" id="tab_tidyData">
             <div style="max-width:100%!important">
@@ -223,8 +217,7 @@
                 <div class="d-flex justify-content-between">
                     <div class="table-responsive col-md-12" style="overflow-x:auto;">
                         <div id="file-list"></div>
-                        <textarea id="file-content" class="mb-3" style="width:100%; height:900px;"
-                            disabled="true"></textarea>
+                        <textarea id="file-content" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
                     </div>
                 </div>
             </div>
@@ -236,7 +229,7 @@
             <div class="card copylight bg-light" style="border:none 0px;">
                 <div class="bg-light">
                     <p class="text-muted bg-light p-3" style="text-align:center">
-                        検証を目的として三分一技術士事務所<a href="https://www.sambuichi.jp/?p=8933"><i class="fa fa-external-link"
+                        検証を目的として三分一技術士事務所<a href="https://www.sambuichi.jp"><i class="fa fa-external-link"
                                 aria-hidden="true"></i></a>が提供しています。このサービスは保証なしで提供されています。
                         <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.ja" rel="license">
                             <img alt="Creative Commons License" style="border-width:0"
