@@ -122,6 +122,8 @@ main = (function () {
     }
 
     function getHorizontal() {
+        document.querySelector('#horizontal').style.display = '';
+        document.querySelector('#horizontal2').style.display = 'none';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = getBase() + 'horizontal_ledger.csv';
@@ -173,20 +175,20 @@ main = (function () {
                 td3.textContent = item[2]; td3.classList.add('text-center');
                 td4.textContent = item[3]; td4.classList.add('text-center');
                 td5.textContent = item[5]; td5.classList.add('text-center');
-                td6.textContent = item[8]; td6.classList.add('text-center');
+                td6.textContent = item[8];
                 td7.textContent = item[15]; td7.classList.add('text-center');
                 td8.textContent = item[14];
                 td9.textContent = item[17]; td9.classList.add('text-center');
                 td10.textContent = item[18]; 
                 td11.textContent = formatter.format(item[20]); td11.classList.add('text-right');
-                td12.textContent = item[21]; td12.classList.add('text-center');
+                td12.textContent = item[21];
                 td13.textContent = item[23];
                 td14.textContent = item[24]; td14.classList.add('text-center');
                 td15.textContent = item[25];
                 td16.textContent = formatter.format(item[27]); td16.classList.add('text-right');
-                td17.textContent = item[28]; td17.classList.add('text-center');
+                td17.textContent = item[28];
                 td18.textContent = item[30];
-                td19.textContent = item[31]; td19.classList.add('text-center');
+                td19.textContent = item[31];
                 td20.textContent = item[33];
 
                 tr.appendChild(td1);
@@ -293,6 +295,8 @@ main = (function () {
     }
 
     function getHorizontal2() {
+        document.querySelector('#horizontal').style.display = 'none';
+        document.querySelector('#horizontal2').style.display = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = getBase() + 'horizontal_ledger.csv';
