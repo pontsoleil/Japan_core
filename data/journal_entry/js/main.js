@@ -218,7 +218,7 @@ main = (function () {
                     td21.textContent = ''; td21.classList.add('text-center');
                     td22.textContent = item[17]; td22.classList.add('text-center');
                     td23.textContent = item[18]; td23.classList.add('text-left');
-                    td24.textContent = item[20]; td24.textContent = formatter.format(item[26]); td24.classList.add('text-right');
+                    td24.textContent = item[20]; td24.textContent = formatter.format(item[20]); td24.classList.add('text-right');
                     td25.textContent = ''; td25.classList.add('text-center');
                     td26.textContent = ''; td26.classList.add('text-center');
                     td27.textContent = ''; td27.classList.add('text-left');
@@ -227,7 +227,7 @@ main = (function () {
                     td30.textContent = item[23]; td30.classList.add('text-left');
                     td31.textContent = item[24]; td31.classList.add('text-center');
                     td32.textContent = item[25]; td32.classList.add('text-left');
-                    td33.textContent = item[27]; td33.textContent = formatter.format(item[37]); td33.classList.add('text-right');
+                    td33.textContent = item[27]; td33.textContent = formatter.format(item[27]); td33.classList.add('text-right');
                     td34.textContent = ''; td34.classList.add('text-center');
                     td35.textContent = ''; td35.classList.add('text-center');
                     td36.textContent = ''; td36.classList.add('text-left');
