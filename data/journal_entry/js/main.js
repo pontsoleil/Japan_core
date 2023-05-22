@@ -195,7 +195,40 @@ main = (function () {
 
                 var source = document.querySelector('#source').value;
                 if ('xbrl-gl'==source) {
-                    // num,GL,GL詳細,借方勘定科目セグメント,貸方勘定科目セグメント,事業セグメント,仕訳ID,ソースコード,ソース説明,ERPサブレジャーモジュール,システムマニュアル識別子,作成者ユーザーID,作成日,仕訳エントリタイプコード,仕訳エントリ行説明,記帳日,通貨コード,借方勘定科目番号,借方勘定科目名,借方財務諸表キャプション,借方金額,借方勘定科目セグメント番号,借方勘定科目セグメントコード,借方勘定科目セグメント名,貸方勘定科目番号,貸方勘定科目名,貸方財務諸表キャプション,貸方金額,貸方勘定科目セグメント番号,貸方勘定科目セグメントコード,貸方勘定科目セグメント名,事業セグメント順序番号,事業セグメントコード,組織タイプ名
+// num
+// GL
+// GL詳細
+// 借方勘定科目セグメント
+// 貸方勘定科目セグメント
+// 事業セグメント
+// 仕訳ID
+// ソースコード
+// ソース説明
+// ERPサブレジャーモジュール
+// システムマニュアル識別子
+// 作成者ユーザーID
+// 作成日
+// 仕訳エントリタイプコード
+// 仕訳エントリ行説明
+// 記帳日
+// 通貨コード
+// 借方勘定科目番号
+// 借方勘定科目名
+// 借方財務諸表キャプション
+// 借方金額
+// 借方勘定科目セグメント番号
+// 借方勘定科目セグメントコード
+// 借方勘定科目セグメント名
+// 貸方勘定科目番号
+// 貸方勘定科目名
+// 貸方財務諸表キャプション
+// 貸方金額
+// 貸方勘定科目セグメント番号
+// 貸方勘定科目セグメントコード
+// 貸方勘定科目セグメント名
+// 事業セグメント順序番号
+// 事業セグメントコード
+// 組織タイプ名
                     td1.textContent = item[0]; td1.classList.add('text-center');
                     td2.textContent = item[1]; td2.classList.add('text-center');
                     td3.textContent = item[2]; td3.classList.add('text-center');
@@ -207,37 +240,37 @@ main = (function () {
                     td9.textContent = ''; td9.classList.add('text-center');
                     td10.textContent = ''; td10.classList.add('text-center');
                     td11.textContent = ''; td11.classList.add('text-left');
-                    td12.textContent = item[5]; td12.classList.add('text-left');
+                    td12.textContent = item[8]; td12.classList.add('text-left');
                     td13.textContent = ''; td13.classList.add('text-left');
                     td14.textContent = ''; td14.classList.add('text-center');
-                    td15.textContent = item[6]; td15.classList.add('text-center');
+                    td15.textContent = item[15]; td15.classList.add('text-center');
                     td16.textContent = ''; td16.classList.add('text-center');
                     td17.textContent = ''; td17.classList.add('text-center');
                     td18.textContent = ''; td18.classList.add('text-center');
-                    td19.textContent = item[7]; td19.classList.add('text-left');
+                    td19.textContent = item[14]; td19.classList.add('text-left');
                     td20.textContent = ''; td20.classList.add('text-center');
                     td21.textContent = ''; td21.classList.add('text-center');
-                    td22.textContent = item[8]; td22.classList.add('text-center');
-                    td23.textContent = item[9]; td23.classList.add('text-left');
-                    td24.textContent = item[10]; td24.textContent = formatter.format(item[26]); td24.classList.add('text-right');
+                    td22.textContent = item[17]; td22.classList.add('text-center');
+                    td23.textContent = item[18]; td23.classList.add('text-left');
+                    td24.textContent = item[20]; td24.textContent = formatter.format(item[26]); td24.classList.add('text-right');
                     td25.textContent = ''; td25.classList.add('text-center');
                     td26.textContent = ''; td26.classList.add('text-center');
                     td27.textContent = ''; td27.classList.add('text-left');
-                    td28.textContent = item[11]; td28.classList.add('text-left');
+                    td28.textContent = item[21]; td28.classList.add('text-left');
                     td29.textContent = ''; td29.classList.add('text-center');
-                    td30.textContent = item[12]; td30.classList.add('text-left');
-                    td31.textContent = item[13]; td31.classList.add('text-center');
-                    td32.textContent = item[14]; td32.classList.add('text-left');
-                    td33.textContent = item[15]; td33.textContent = formatter.format(item[37]); td33.classList.add('text-right');
+                    td30.textContent = item[23]; td30.classList.add('text-left');
+                    td31.textContent = item[24]; td31.classList.add('text-center');
+                    td32.textContent = item[25]; td32.classList.add('text-left');
+                    td33.textContent = item[27]; td33.textContent = formatter.format(item[37]); td33.classList.add('text-right');
                     td34.textContent = ''; td34.classList.add('text-center');
                     td35.textContent = ''; td35.classList.add('text-center');
                     td36.textContent = ''; td36.classList.add('text-left');
-                    td37.textContent = item[16]; td37.classList.add('text-left');
+                    td37.textContent = item[28]; td37.classList.add('text-left');
                     td38.textContent = ''; td38.classList.add('text-center');
-                    td39.textContent = item[17]; td39.classList.add('text-left');
-                    td40.textContent = item[18]; td40.classList.add('text-left');
+                    td39.textContent = item[30]; td39.classList.add('text-left');
+                    td40.textContent = item[31]; td40.classList.add('text-left');
                     td41.textContent = ''; td41.classList.add('text-center');
-                    td42.textContent = item[19]; td42.classList.add('text-left');
+                    td42.textContent = item[33]; td42.classList.add('text-left');
                 } else if ('hokkaidou-sangyou'==source) {
                     td1.textContent = item[0]; td1.classList.add('text-center');
                     td2.textContent = item[1]; td2.classList.add('text-center');
