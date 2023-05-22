@@ -711,16 +711,17 @@ main = (function () {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                var GLlist = $('#GLlist');
-                GLlist.innerHTML = '';
-                var select = $('<select id="selectGL" style="height:2rem"></select>');
+                // var GLlist = $('#GLlist');
+                // GLlist.innerHTML = '';
+                var select = $('#selectGL');
+                select.innerHTML = '';
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
                     var name = value.substring(0,value.length-4)
                     var option = $('<option></option>').text(name).val(value);
                     select.append(option);
                 }
-                GLlist.append(select);
+                // GLlist.append(select);
             })
             .catch(error => {
                 console.error('エラー: 総勘定元帳一覧が取得できません', error);
@@ -741,9 +742,10 @@ main = (function () {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                var TBlist = $('#TBlist');
-                TBlist.innerHTML = '';
-                var select = $('<select id="selectTB" style="height:2rem"></select>');
+                // var TBlist = $('#TBlist');
+                // TBlist.innerHTML = '';
+                var select = $('#selectTB');
+                select.innerHTML = '';
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
                     var month = value.substring(0,7);
