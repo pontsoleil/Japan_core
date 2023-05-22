@@ -122,8 +122,8 @@ main = (function () {
     }
 
     function getHorizontal() {
-        document.querySelector('#horizontal').style.display = '';
-        document.querySelector('#horizontal2').style.display = 'none';
+        // document.querySelector('#horizontal').style.display = '';
+        // document.querySelector('#horizontal2').style.display = 'none';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = getBase() + 'horizontal_ledger.csv';
@@ -307,8 +307,8 @@ main = (function () {
     }
 
     function getHorizontal2() {
-        document.querySelector('#horizontal').style.display = 'none';
-        document.querySelector('#horizontal2').style.display = '';
+        // document.querySelector('#horizontal').style.display = 'none';
+        // document.querySelector('#horizontal2').style.display = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = getBase() + 'horizontal_ledger.csv';
@@ -497,7 +497,7 @@ main = (function () {
     }
 
     function hideHolizontalLines2() {
-        var thead = document.querySelector('#horizontal2 thead');
+        var thead = document.querySelector('#horizontal thead');
         var row = thead.rows[0];
         row.cells[3].style.display = 'none';
         row.cells[4].style.display = 'none';
@@ -524,7 +524,7 @@ main = (function () {
         row.cells[41].style.display = 'none';
 
         // tbody要素を取得する
-        var tbody = document.querySelector('#horizontal2 tbody');
+        var tbody = document.querySelector('#horizontal tbody');
         // tbody要素内のtr要素を順番に取得する
         for (var i = 0; i < tbody.rows.length; i++) {
             // 各tr要素内のn番目のtd要素を取得する（ここでは3番目から）
@@ -564,7 +564,7 @@ main = (function () {
     }
 
     function showHolizontalLines2() {
-        var thead = document.querySelector('#horizontal2 thead');
+        var thead = document.querySelector('#horizontal thead');
         var row = thead.rows[0];
         row.cells[3].style.display = '';
         row.cells[4].style.display = '';
@@ -590,7 +590,7 @@ main = (function () {
         row.cells[40].style.display = '';
         row.cells[41].style.display = '';
         // tbody要素を取得する
-        var tbody = document.querySelector('#horizontal2 tbody');
+        var tbody = document.querySelector('#horizontal tbody');
         // tbody要素内のtr要素を順番に取得する
         for (var i = 0; i < tbody.rows.length; i++) {
             // 取得したtd要素が空かどうかを判定し、空であればtr要素を非表示にする
