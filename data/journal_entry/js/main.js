@@ -311,8 +311,6 @@ main = (function () {
     function getHorizontal2() {
         snackbar.close();
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
-        // document.querySelector('#horizontal').style.display = 'none';
-        // document.querySelector('#horizontal2').style.display = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = getBase() + 'horizontal_ledger.csv';
@@ -328,18 +326,16 @@ main = (function () {
             var items_count = items.length;
             snackbar.close();
             snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
-
-            var tableHead = document.querySelector('#horizontal thead');
-            tableHead.innerHTML = '';
-            var thead = document.createElement('tr');
-            var head = items[0];
-            for (i=0;i < head.length; i++) {
-                var th = document.createElement('th');
-                th.textContent = head[i]; th.classList.add('text-center');
-                thead.appendChild(th);
-            }
-            tableHead.appendChild(thead);
-
+            // var tableHead = document.querySelector('#horizontal thead');
+            // tableHead.innerHTML = '';
+            // var thead = document.createElement('tr');
+            // var head = items[0];
+            // for (i=0;i < head.length; i++) {
+            //     var th = document.createElement('th');
+            //     th.textContent = head[i]; th.classList.add('text-center');
+            //     thead.appendChild(th);
+            // }
+            // tableHead.appendChild(thead);
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#horizontal tbody');
             tableBody.innerHTML = '';
