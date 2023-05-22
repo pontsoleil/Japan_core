@@ -32,33 +32,51 @@ main = (function () {
 
     function getBase() {
         var source = document.querySelector('#source').value;
-        var base;    
-        if ('xbrl-gl'==source) {
+        var base;
+        if ('xbrl-gl' == source) {
             base = '';
-        } else if ('hokkaidou-sangyou'==source) {
+        } else if ('hokkaidou-sangyou' == source) {
             base = 'data/hokkaidou-sangyou/';
         }
         return base;
     }
 
     function parseCSV(data) {
-        var regex = /(?!\s*$)\s*(?:(?!\s*"[^"]*(?:""[^"]*)*$)\s*(?:"(?:[^"\r\n]|""[^"])*"|[^,\r\n]*))/g;
         var items = [];
-        data.replace(regex, function(match) {
-            var field = match.trim();
-            if (field === ',,') {
-              field = '","",""';
+        var field = "";
+        var isInQuotes = false;
+
+        for (var i = 0; i < data.length; i++) {
+            var char = data[i];
+
+            if (char === ',') {
+                if (isInQuotes) {
+                    field += char;
+                } else {
+                    items.push(field);
+                    field = "";
+                }
+            } else if (char === '"') {
+                if (isInQuotes && data[i + 1] === '"') {
+                    field += char;
+                    i++; // Skip the next double quote
+                } else {
+                    isInQuotes = !isInQuotes;
+                }
+            } else {
+                field += char;
             }
-            if (field.startsWith('"') && field.endsWith('"')) {
-                field = field.slice(1, -1).replace(/""/g, '"');
-            }
-            if (field.length>0) {
-                items.push(field);
-            }
-            return "";
-        });
+        }
+
+        items.push(field); // Add the last field
         return items;
     }
+
+    var data = '2,2022-07-25,4,"八重洲商事駐車場､13,000X税1,300､8月分",,,528,地代・家賃,,14300';
+    var parsedItems = parseCSV(data);
+
+    console.log(parsedItems[3]); // "八重洲商事駐車場､13,000X税1,300､8月分"
+
 
     function getInstances() {
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
@@ -213,7 +231,7 @@ main = (function () {
                 var td42 = document.createElement('td');
 
                 var source = document.querySelector('#source').value;
-                if ('xbrl-gl'==source) {
+                if ('xbrl-gl' == source) {
                     td1.textContent = item[0]; td1.classList.add('text-center');
                     td2.textContent = item[1]; td2.classList.add('text-center');
                     td3.textContent = item[2]; td3.classList.add('text-center');
@@ -256,7 +274,7 @@ main = (function () {
                     td40.textContent = item[31]; td40.classList.add('text-left');
                     td41.textContent = ''; td41.classList.add('text-center');
                     td42.textContent = item[33]; td42.classList.add('text-left');
-                } else if ('hokkaidou-sangyou'==source) {
+                } else if ('hokkaidou-sangyou' == source) {
                     td1.textContent = item[0]; td1.classList.add('text-center');
                     td2.textContent = item[1]; td2.classList.add('text-center');
                     td3.textContent = item[2]; td3.classList.add('text-center');
@@ -526,7 +544,7 @@ main = (function () {
                 if (0 == i % 500) {
                     snackbar.close();
                     snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
-                }                
+                }
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
                 var td2 = document.createElement('td');
@@ -586,8 +604,8 @@ main = (function () {
                 td8.textContent = item[1].length > 0
                     ? formatter.format(item[7])
                     : /^[0-9]+$/.test(item[7]) ? formatter.format(item[7]) : '';
-                td8.classList.add('text-right');                
-                if ('xbrl-gl'==source) {
+                td8.classList.add('text-right');
+                if ('xbrl-gl' == source) {
                     td9.textContent = '';
                     td10.textContent = '';
                     td11.textContent = '';
@@ -602,7 +620,7 @@ main = (function () {
                         ? formatter.format(item[9])
                         : /^[0-9]+$/.test(item[9]) ? formatter.format(item[9]) : '';
                     td16.classList.add('text-right');
-                } else if ('hokkaidou-sangyou'==source) {
+                } else if ('hokkaidou-sangyou' == source) {
                     td9.textContent = item[8]; td3.classList.add('text-center');
                     td10.textContent = item[9]; td3.classList.add('text-center');
                     td11.textContent = item[10]; td3.classList.add('text-center');
@@ -671,7 +689,7 @@ main = (function () {
                 if (0 == i % 500) {
                     snackbar.close();
                     snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
-                }                
+                }
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
                 var td2 = document.createElement('td');
@@ -725,10 +743,10 @@ main = (function () {
 
     function getGLlist() {
         var source = document.querySelector('#source').value;
-        var url;    
-        if ('xbrl-gl'==source) {
+        var url;
+        if ('xbrl-gl' == source) {
             url = './file_GL_list.php';
-        } else if ('hokkaidou-sangyou'==source) {
+        } else if ('hokkaidou-sangyou' == source) {
             url = './file_GL_hokkaidou-sangyou_list.php';
         } else {
             return
@@ -740,11 +758,11 @@ main = (function () {
                 select.empty();
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
-                    var name = value.substring(0,value.length-4)
+                    var name = value.substring(0, value.length - 4)
                     var option = $('<option></option>').text(name).val(value);
                     select.append(option);
                 }
-                select.on('change', function() {
+                select.on('change', function () {
                     const selected = event.target.value;
                     getGL(selected);
                 });
@@ -757,10 +775,10 @@ main = (function () {
 
     function getTBlist() {
         var source = document.querySelector('#source').value;
-        var url;    
-        if ('xbrl-gl'==source) {
+        var url;
+        if ('xbrl-gl' == source) {
             url = './file_TB_list.php';
-        } else if ('hokkaidou-sangyou'==source) {
+        } else if ('hokkaidou-sangyou' == source) {
             url = './file_TB_hokkaidou-sangyou_list.php';
         } else {
             return
@@ -772,11 +790,11 @@ main = (function () {
                 select.empty();
                 for (var i = 0; i < Object.keys(data).length; i++) {
                     var value = Object.values(data)[i];
-                    var month = value.substring(0,7);
+                    var month = value.substring(0, 7);
                     var option = $('<option></option>').text(month).val(month);
                     select.append(option);
                 }
-                select.on('change', function() {
+                select.on('change', function () {
                     const selected = event.target.value;
                     getTB(selected);
                 });
@@ -821,7 +839,7 @@ main = (function () {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 let xmlText = xhr.responseText;
-                xmlText = xmlText.replace(/\n[ ]+\n[ ]+/g,'');
+                xmlText = xmlText.replace(/\n[ ]+\n[ ]+/g, '');
                 const escapedXmlString = escapeHtml(xmlText);
                 var contentDiv = document.getElementById("file-content");
                 contentDiv.innerHTML = escapedXmlString;// `<pre>${formattedXml}</pre>`;
@@ -836,7 +854,7 @@ main = (function () {
         };
         xhr.send();
     }
-    
+
     // HTMLエスケープする関数
     function escapeHtml(unsafe) {
         return unsafe.replace(/[&<"']/g, function (match) {
@@ -856,34 +874,34 @@ main = (function () {
     function initModule() {
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
 
-        $('#nav_horizontal').on('click', function() {
+        $('#nav_horizontal').on('click', function () {
 
-            getHorizontal();            
+            getHorizontal();
         });
 
-        $('#nav_GL').on('click', function() {
+        $('#nav_GL').on('click', function () {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
             getGLlist();
-            if ('xbrl-gl'==source) {
+            if ('xbrl-gl' == source) {
                 getGL('111現金.csv');
-            } else if ('hokkaidou-sangyou'==source) {
+            } else if ('hokkaidou-sangyou' == source) {
                 getGL('100現金.csv')
             }
         });
 
-        $('#nav_TB').on('click', function() {
+        $('#nav_TB').on('click', function () {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
             getTBlist();
-            if ('xbrl-gl'==source) {
+            if ('xbrl-gl' == source) {
                 getTB('2009-04');
-            } else if ('hokkaidou-sangyou'==source) {
+            } else if ('hokkaidou-sangyou' == source) {
                 getTB('2022-07');
             }
         });
 
-        $('#nav_tidy').on('click', function() {
+        $('#nav_tidy').on('click', function () {
             console.log('TidyDataタブがクリックされました。');
         });
 
@@ -925,10 +943,10 @@ main = (function () {
         getInstances();
         let sourceSelect = document.querySelector('#source');
         var source = sourceSelect.value;
-        if ('xbrl-gl'==source) {
+        if ('xbrl-gl' == source) {
             getGL('111現金.csv');
             getTB('2009-04');
-        } else if ('hokkaidou-sangyou'==source) {
+        } else if ('hokkaidou-sangyou' == source) {
             getGL('100現金.csv')
             getTB('2022-07');
         }
@@ -971,19 +989,19 @@ main = (function () {
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
 
-        window.onload = function() {
+        window.onload = function () {
             // URLからタブ指定パラメータを取得
             var tabParam = new URLSearchParams(window.location.search).get('tab');
             if (tabParam) {
                 var activeTabLink = document.querySelector('.nav-link.active');
                 if (activeTabLink) {
-                  activeTabLink.classList.remove('active');
-                  activeTabLink.setAttribute('aria-selected', 'false');
-                  var activeTabContentId = activeTabLink.getAttribute('href').substring(1);
-                  var activeTabContent = document.getElementById(activeTabContentId);
-                  if (activeTabContent) {
-                    activeTabContent.classList.remove('active', 'show');
-                  }
+                    activeTabLink.classList.remove('active');
+                    activeTabLink.setAttribute('aria-selected', 'false');
+                    var activeTabContentId = activeTabLink.getAttribute('href').substring(1);
+                    var activeTabContent = document.getElementById(activeTabContentId);
+                    if (activeTabContent) {
+                        activeTabContent.classList.remove('active', 'show');
+                    }
                 }
                 // タブ指定パラメータがある場合、対応するタブをアクティブにする
                 var tabLink = document.querySelector('a[href="#' + tabParam + '"]');
