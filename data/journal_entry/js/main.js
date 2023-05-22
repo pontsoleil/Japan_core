@@ -227,13 +227,12 @@ main = (function () {
         row.cells[3].style.display = 'none';
         row.cells[4].style.display = 'none';
         row.cells[5].style.display = 'none';
-        row.cells[6].style.display = 'none';
+        row.cells[11].style.display = 'none';
         row.cells[12].style.display = 'none';
-        row.cells[13].style.display = 'none';
+        row.cells[16].style.display = 'none';
         row.cells[17].style.display = 'none';
         row.cells[18].style.display = 'none';
         row.cells[19].style.display = 'none';
-        row.cells[20].style.display = 'none';
 
         // tbody要素を取得する
         var tbody = document.querySelector('#horizontal tbody');
@@ -252,29 +251,28 @@ main = (function () {
             row.cells[3].style.display = 'none';
             row.cells[4].style.display = 'none';
             row.cells[5].style.display = 'none';
-            row.cells[6].style.display = 'none';
+            row.cells[11].style.display = 'none';
             row.cells[12].style.display = 'none';
-            row.cells[13].style.display = 'none';
+            row.cells[16].style.display = 'none';
             row.cells[17].style.display = 'none';
             row.cells[18].style.display = 'none';
             row.cells[19].style.display = 'none';
-            row.cells[20].style.display = 'none';
         }
     }
 
     function showHolizontalLines() {
         var thead = document.querySelector('#horizontal thead');
         var row = thead.rows[0];
+        row.style.display = '';
         row.cells[3].style.display = '';
         row.cells[4].style.display = '';
         row.cells[5].style.display = '';
-        row.cells[6].style.display = '';
+        row.cells[11].style.display = '';
         row.cells[12].style.display = '';
-        row.cells[13].style.display = '';
+        row.cells[16].style.display = '';
         row.cells[17].style.display = '';
         row.cells[18].style.display = '';
         row.cells[19].style.display = '';
-        row.cells[20].style.display = '';
         // tbody要素を取得する
         var tbody = document.querySelector('#horizontal tbody');
         // tbody要素内のtr要素を順番に取得する
@@ -285,13 +283,12 @@ main = (function () {
             row.cells[3].style.display = '';
             row.cells[4].style.display = '';
             row.cells[5].style.display = '';
-            row.cells[6].style.display = '';
+            row.cells[11].style.display = '';
             row.cells[12].style.display = '';
-            row.cells[13].style.display = '';
+            row.cells[16].style.display = '';
             row.cells[17].style.display = '';
             row.cells[18].style.display = '';
             row.cells[19].style.display = '';
-            row.cells[20].style.display = '';
         }
     }
 
@@ -312,7 +309,7 @@ main = (function () {
             snackbar.close();
             snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
-            var tableBody = document.querySelector('#horizontal tbody');
+            var tableBody = document.querySelector('#horizontal2 tbody');
             tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 if (0 == i % 500) {
@@ -472,7 +469,7 @@ main = (function () {
     }
 
     function hideHolizontalLines2() {
-        var thead = document.querySelector('#horizontal thead');
+        var thead = document.querySelector('#horizontal2 thead');
         var row = thead.rows[0];
         row.cells[3].style.display = 'none';
         row.cells[4].style.display = 'none';
@@ -483,24 +480,23 @@ main = (function () {
         row.cells[9].style.display = 'none';
         row.cells[10].style.display = 'none';
         row.cells[11].style.display = 'none';
-        row.cells[12].style.display = 'none';
-        row.cells[14].style.display = 'none';
+        row.cells[13].style.display = 'none';
+        row.cells[16].style.display = 'none';
         row.cells[17].style.display = 'none';
-        row.cells[18].style.display = 'none';
+        row.cells[19].style.display = 'none';
         row.cells[20].style.display = 'none';
-        row.cells[21].style.display = 'none';
+        row.cells[27].style.display = 'none';
         row.cells[28].style.display = 'none';
         row.cells[29].style.display = 'none';
-        row.cells[30].style.display = 'none';
+        row.cells[36].style.display = 'none';
         row.cells[37].style.display = 'none';
         row.cells[38].style.display = 'none';
         row.cells[39].style.display = 'none';
         row.cells[40].style.display = 'none';
         row.cells[41].style.display = 'none';
-        row.cells[42].style.display = 'none';
 
         // tbody要素を取得する
-        var tbody = document.querySelector('#horizontal tbody');
+        var tbody = document.querySelector('#horizontal2 tbody');
         // tbody要素内のtr要素を順番に取得する
         for (var i = 0; i < tbody.rows.length; i++) {
             // 各tr要素内のn番目のtd要素を取得する（ここでは3番目から）
@@ -522,26 +518,25 @@ main = (function () {
             row.cells[9].style.display = 'none';
             row.cells[10].style.display = 'none';
             row.cells[11].style.display = 'none';
-            row.cells[12].style.display = 'none';
-            row.cells[14].style.display = 'none';
+            row.cells[13].style.display = 'none';
+            row.cells[16].style.display = 'none';
             row.cells[17].style.display = 'none';
-            row.cells[18].style.display = 'none';
+            row.cells[19].style.display = 'none';
             row.cells[20].style.display = 'none';
-            row.cells[21].style.display = 'none';
+            row.cells[27].style.display = 'none';
             row.cells[28].style.display = 'none';
             row.cells[29].style.display = 'none';
-            row.cells[30].style.display = 'none';
+            row.cells[36].style.display = 'none';
             row.cells[37].style.display = 'none';
             row.cells[38].style.display = 'none';
             row.cells[39].style.display = 'none';
             row.cells[40].style.display = 'none';
             row.cells[41].style.display = 'none';
-            row.cells[42].style.display = 'none';
         }
     }
 
     function showHolizontalLines2() {
-        var thead = document.querySelector('#horizontal thead');
+        var thead = document.querySelector('#horizontal2 thead');
         var row = thead.rows[0];
         row.cells[3].style.display = '';
         row.cells[4].style.display = '';
@@ -552,23 +547,22 @@ main = (function () {
         row.cells[9].style.display = '';
         row.cells[10].style.display = '';
         row.cells[11].style.display = '';
-        row.cells[12].style.display = '';
-        row.cells[14].style.display = '';
+        row.cells[13].style.display = '';
+        row.cells[16].style.display = '';
         row.cells[17].style.display = '';
-        row.cells[18].style.display = '';
+        row.cells[19].style.display = '';
         row.cells[20].style.display = '';
-        row.cells[21].style.display = '';
+        row.cells[27].style.display = '';
         row.cells[28].style.display = '';
         row.cells[29].style.display = '';
-        row.cells[30].style.display = '';
+        row.cells[36].style.display = '';
         row.cells[37].style.display = '';
         row.cells[38].style.display = '';
         row.cells[39].style.display = '';
         row.cells[40].style.display = '';
         row.cells[41].style.display = '';
-        row.cells[42].style.display = '';
         // tbody要素を取得する
-        var tbody = document.querySelector('#horizontal tbody');
+        var tbody = document.querySelector('#horizontal2 tbody');
         // tbody要素内のtr要素を順番に取得する
         for (var i = 0; i < tbody.rows.length; i++) {
             // 取得したtd要素が空かどうかを判定し、空であればtr要素を非表示にする
@@ -583,21 +577,20 @@ main = (function () {
             row.cells[9].style.display = '';
             row.cells[10].style.display = '';
             row.cells[11].style.display = '';
-            row.cells[12].style.display = '';
-            row.cells[14].style.display = '';
+            row.cells[13].style.display = '';
+            row.cells[16].style.display = '';
             row.cells[17].style.display = '';
-            row.cells[18].style.display = '';
+            row.cells[19].style.display = '';
             row.cells[20].style.display = '';
-            row.cells[21].style.display = '';
+            row.cells[27].style.display = '';
             row.cells[28].style.display = '';
             row.cells[29].style.display = '';
-            row.cells[30].style.display = '';
+            row.cells[36].style.display = '';
             row.cells[37].style.display = '';
             row.cells[38].style.display = '';
             row.cells[39].style.display = '';
             row.cells[40].style.display = '';
             row.cells[41].style.display = '';
-            row.cells[42].style.display = '';
         }
     }
 
@@ -823,7 +816,6 @@ main = (function () {
         };
         xhr.send();
     }
-
     
     // HTMLエスケープする関数
     function escapeHtml(unsafe) {
@@ -848,8 +840,12 @@ main = (function () {
             let sourceSelect = document.querySelector('#source');
             var source = sourceSelect.value;
             if ('xbrl-gl'==source) {
+                document.querySelector('table#horizontal').addClass('d-none')
+                document.querySelector('table#horizontal2').removeClass('d-none')
                 getHorizontal();
             } else if ('hokkaidou-sangyou'==source) {
+                document.querySelector('table#horizontal').removeClass('d-none')
+                document.querySelector('table#horizontal2').addClass('d-none')
                 getHorizontal2();
             }
         });
