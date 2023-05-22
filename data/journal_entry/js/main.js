@@ -797,13 +797,7 @@ main = (function () {
             $('.tab-pane').removeClass('active');
             $('.nav-item #nav_horizontal').addClass('active');
             $('.tab-pane #tab_horizontal').addClass('show active');
-            let sourceSelect = document.querySelector('#source');
-            var source = sourceSelect.value;
-            if ('xbrl-gl'==source) {
-                getInstances();
-            } else if ('hokkaidou-sangyou'==source) {
-                getInstances2();
-            }
+            getHorizontal();
         });
 
         // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
