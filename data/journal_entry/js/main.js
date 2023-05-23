@@ -995,10 +995,9 @@ main = (function () {
         getGL(selectGLvalue)
         getTB(selectTBvalue)
 
+        let sourceSelect = document.querySelector('#source');
         sourceSelect.addEventListener("change", (event) => {
             event.stopPropagation();
-            let sourceSelect = document.querySelector('#source');
-            var source = sourceSelect.value;
             var href = document.querySelector('.nav-link.active').getAttribute('href');
             switch (href) {
                 case '#tab_horizontal':
