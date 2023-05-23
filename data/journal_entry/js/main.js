@@ -69,141 +69,7 @@ main = (function () {
         return items;
     }
 
-    function getInstances() {
-        snackbar.close()
-        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> Tidy Data (xBRL-CSV) 読み込み中', 'type': 'info' });
-        // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
-        var xhr = new XMLHttpRequest();
-        var url = getBase() + 'instances.csv'
-        xhr.open('GET', url, true);
-        xhr.onload = function () {
-            // 取得したCSVデータをパースして、JavaScriptの配列に変換する
-            var data = xhr.responseText.split('\n');
-            var items = [];
-            for (var i = 0; i < data.length; i++) {
-                var item = parseCSV(data[i]);
-                items.push(item);
-            }
-            var items_count = items.length;
-            snackbar.close()
-            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
-            // 配列の内容を加工して、HTML要素に追加して表示する
-            var tableBody = document.querySelector('#instances tbody');
-            tableBody.innerHTML = '';
-            for (var i = 1; i < items.length; i++) {
-                if (0 == i % 500) {
-                    snackbar.close();
-                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
-                }
-                var item = items[i];
-                var tr = document.createElement('tr');
-                var td1 = document.createElement('td');
-                var td2 = document.createElement('td');
-                var td3 = document.createElement('td');
-                var td4 = document.createElement('td');
-                var td5 = document.createElement('td');
-                var td6 = document.createElement('td');
-                var td7 = document.createElement('td');
-                var td8 = document.createElement('td');
-                var td9 = document.createElement('td');
-                var td10 = document.createElement('td');
-                var td11 = document.createElement('td');
-                var td12 = document.createElement('td');
-                var td13 = document.createElement('td');
-                var td14 = document.createElement('td');
-                var td15 = document.createElement('td');
-                var td16 = document.createElement('td');
-                var td17 = document.createElement('td');
-                var td18 = document.createElement('td');
-                var td19 = document.createElement('td');
-                // 1	c GL
-                // 2	c GL詳細
-                // 3	l ソース説明
-                // 4	c 作成日
-                // 5	c 明細行番号
-                // 6	c 記帳日
-                // 7	c 伝票日付
-                // 8	l 摘要
-                // 9	c 借方/貸方
-                // 10	c 勘定科目番号
-                // 11	l 勘定科目名
-                // 12	r f 金額
-                // 13	c セグメント
-                // 14	l セグメント名
-                // 15	c 税コード
-                // 16	c 税率
-                // 17	l 税コード説明
-                // 18	c 事業セグメント
-                // 19	l 名称
-                var source = document.querySelector('#source').value;
-                if ('hokkaidou-sangyou' == source) {
-                    td1.textContent = item[0]; td1.classList.add('text-center');
-                    td2.textContent = item[1]; td2.classList.add('text-center');
-                    td3.textContent = item[7]; td3.classList.add('text-left');
-                    td4.textContent = item[11]; td4.classList.add('text-center');
-                    td5.textContent = item[12]; td5.classList.add('text-center');
-                    td6.textContent = '';
-                    td7.textContent = item[13]; td7.classList.add('text-center');
-                    td8.textContent = item[15]; td8.classList.add('text-left');
-                    td9.textContent = item[16]; td9.classList.add('text-center');
-                    td10.textContent = item[19]; td10.classList.add('text-center');
-                    td11.textContent = item[20]; td11.classList.add('text-left');
-                    td12.textContent = formatter.format(item[21]); td12.classList.add('text-right');
-                    td13.textContent = item[22]; td13.classList.add('text-center');
-                    td14.textContent = item[24]; td14.classList.add('text-left');
-                    td15.textContent = item[25]; td15.classList.add('text-center');
-                    td16.textContent = item[26]; td16.classList.add('text-center');
-                    td17.textContent = item[27]; td17.classList.add('text-left');
-                    td18.textContent = '';
-                    td19.textContent = '';
-                } else if ('xbrl-gl' == source) {
-                    td1.textContent = item[0]; td1.classList.add('text-center');
-                    td2.textContent = item[1]; td2.classList.add('text-center');
-                    td3.textContent = item[6]; td3.classList.add('text-left');
-                    td4.textContent = '';
-                    td5.textContent = '';
-                    td6.textContent = item[19]; td6.classList.add('text-center');
-                    td7.textContent = '';
-                    td8.textContent = item[12]; td8.classList.add('text-left');
-                    td9.textContent = item[13]; td9.classList.add('text-center');
-                    td10.textContent = item[14]; td10.classList.add('text-center');
-                    td11.textContent = item[15]; td11.classList.add('text-left');
-                    td12.textContent = formatter.format(item[17]); td12.classList.add('text-right');
-                    td13.textContent = item[20]; td13.classList.add('text-center');
-                    td14.textContent = item[22]; td14.classList.add('text-left');
-                    td15.textContent = '';
-                    td16.textContent = '';
-                    td17.textContent = '';
-                    td18.textContent = item[23]; td18.classList.add('text-center');
-                    td19.textContent = item[25]; td19.classList.add('text-left');
-                }
 
-                tr.appendChild(td1);
-                tr.appendChild(td2);
-                tr.appendChild(td3);
-                tr.appendChild(td4);
-                tr.appendChild(td5);
-                tr.appendChild(td6);
-                tr.appendChild(td7);
-                tr.appendChild(td8);
-                tr.appendChild(td9);
-                tr.appendChild(td10);
-                tr.appendChild(td11);
-                tr.appendChild(td12);
-                tr.appendChild(td13);
-                tr.appendChild(td14);
-                tr.appendChild(td15);
-                tr.appendChild(td16);
-                tr.appendChild(td17);
-                tr.appendChild(td18);
-                tr.appendChild(td19);
-
-                tableBody.appendChild(tr);
-            }
-            snackbar.close();
-        };
-        xhr.send();
-    }
 
     function getHorizontal() {
         snackbar.close();
@@ -852,6 +718,182 @@ main = (function () {
             });
     }
 
+    function getInstances() {
+        snackbar.close()
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> Tidy Data (xBRL-CSV) 読み込み中', 'type': 'info' });
+        // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+        var xhr = new XMLHttpRequest();
+        var url = getBase() + 'instances.csv'
+        xhr.open('GET', url, true);
+        xhr.onload = function () {
+            // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+            var data = xhr.responseText.split('\n');
+            var items = [];
+            for (var i = 0; i < data.length; i++) {
+                var item = parseCSV(data[i]);
+                items.push(item);
+            }
+            var items_count = items.length;
+            snackbar.close()
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            // 配列の内容を加工して、HTML要素に追加して表示する
+            var tableBody = document.querySelector('#instances tbody');
+            tableBody.innerHTML = '';
+            for (var i = 1; i < items.length; i++) {
+                if (0 == i % 500) {
+                    snackbar.close();
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                }
+                var item = items[i];
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var td5 = document.createElement('td');
+                var td6 = document.createElement('td');
+                var td7 = document.createElement('td');
+                var td8 = document.createElement('td');
+                var td9 = document.createElement('td');
+                var td10 = document.createElement('td');
+                var td11 = document.createElement('td');
+                var td12 = document.createElement('td');
+                var td13 = document.createElement('td');
+                var td14 = document.createElement('td');
+                var td15 = document.createElement('td');
+                var td16 = document.createElement('td');
+                var td17 = document.createElement('td');
+                var td18 = document.createElement('td');
+                var td19 = document.createElement('td');
+                // 1	c GL
+                // 2	c GL詳細
+                // 3	l ソース説明
+                // 4	c 作成日
+                // 5	c 明細行番号
+                // 6	c 記帳日
+                // 7	c 伝票日付
+                // 8	l 摘要
+                // 9	c 借方/貸方
+                // 10	c 勘定科目番号
+                // 11	l 勘定科目名
+                // 12	r f 金額
+                // 13	c セグメント
+                // 14	l セグメント名
+                // 15	c 税コード
+                // 16	c 税率
+                // 17	l 税コード説明
+                // 18	c 事業セグメント
+                // 19	l 名称
+                var source = document.querySelector('#source').value;
+                if ('hokkaidou-sangyou' == source) {
+                    td1.textContent = item[0]; td1.classList.add('text-center');
+                    td2.textContent = item[1]; td2.classList.add('text-center');
+                    td3.textContent = item[7]; td3.classList.add('text-left');
+                    td4.textContent = item[11]; td4.classList.add('text-center');
+                    td5.textContent = item[12]; td5.classList.add('text-center');
+                    td6.textContent = '';
+                    td7.textContent = item[13]; td7.classList.add('text-center');
+                    td8.textContent = item[15]; td8.classList.add('text-left');
+                    td9.textContent = item[16]; td9.classList.add('text-center');
+                    td10.textContent = item[19]; td10.classList.add('text-center');
+                    td11.textContent = item[20]; td11.classList.add('text-left');
+                    td12.textContent = formatter.format(item[21]); td12.classList.add('text-right');
+                    td13.textContent = item[22]; td13.classList.add('text-center');
+                    td14.textContent = item[24]; td14.classList.add('text-left');
+                    td15.textContent = item[25]; td15.classList.add('text-center');
+                    td16.textContent = item[26]; td16.classList.add('text-center');
+                    td17.textContent = item[27]; td17.classList.add('text-left');
+                    td18.textContent = '';
+                    td19.textContent = '';
+                } else if ('xbrl-gl' == source) {
+                    td1.textContent = item[0]; td1.classList.add('text-center');
+                    td2.textContent = item[1]; td2.classList.add('text-center');
+                    td3.textContent = item[6]; td3.classList.add('text-left');
+                    td4.textContent = '';
+                    td5.textContent = '';
+                    td6.textContent = item[19]; td6.classList.add('text-center');
+                    td7.textContent = '';
+                    td8.textContent = item[12]; td8.classList.add('text-left');
+                    td9.textContent = item[13]; td9.classList.add('text-center');
+                    td10.textContent = item[14]; td10.classList.add('text-center');
+                    td11.textContent = item[15]; td11.classList.add('text-left');
+                    td12.textContent = formatter.format(item[17]); td12.classList.add('text-right');
+                    td13.textContent = item[20]; td13.classList.add('text-center');
+                    td14.textContent = item[22]; td14.classList.add('text-left');
+                    td15.textContent = '';
+                    td16.textContent = '';
+                    td17.textContent = '';
+                    td18.textContent = item[23]; td18.classList.add('text-center');
+                    td19.textContent = item[25]; td19.classList.add('text-left');
+                }
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+                tr.appendChild(td7);
+                tr.appendChild(td8);
+                tr.appendChild(td9);
+                tr.appendChild(td10);
+                tr.appendChild(td11);
+                tr.appendChild(td12);
+                tr.appendChild(td13);
+                tr.appendChild(td14);
+                tr.appendChild(td15);
+                tr.appendChild(td16);
+                tr.appendChild(td17);
+                tr.appendChild(td18);
+                tr.appendChild(td19);
+
+                tableBody.appendChild(tr);
+            }
+            snackbar.close();
+        };
+        xhr.send();
+    }
+
+    function getEPSON() {
+        snackbar.close()
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> EPSON R4 読み込み中', 'type': 'info' });
+        // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+        var xhr = new XMLHttpRequest();
+        var url = 'data/hokkaidou-sangyou/hokkaidou-sangyou.csv'
+        xhr.open('GET', url, true);
+        xhr.onload = function () {
+            // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+            var data = xhr.responseText.split('\n');
+            var items = [];
+            for (var i = 0; i < data.length; i++) {
+                var item = parseCSV(data[i]);
+                items.push(item);
+            }
+            var items_count = items.length;
+            snackbar.close()
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            // 配列の内容を加工して、HTML要素に追加して表示する
+            var tableBody = document.querySelector('#instances tbody');
+            tableBody.innerHTML = '';
+            for (var i = 1; i < items.length; i++) {
+                if (0 == i % 500) {
+                    snackbar.close();
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                }
+                var item = items[i];
+                var tr = document.createElement('tr');
+                for (var i=0;i<=48;i++) {
+                    var td = document.createElement('td');
+                    td.textContent = item[i];
+                    tr.appendChild(td);
+                }
+                tableBody.appendChild(tr);
+            }
+            snackbar.close();
+        };
+        xhr.send();
+    }
+
     function getFileList() {
         fetch('./file_list.php')
             .then(response => response.json())
@@ -985,6 +1027,7 @@ main = (function () {
         });
 
         // 初期設定
+        getEPSON();
         getFileList();
         getHorizontal();
         getInstances();
