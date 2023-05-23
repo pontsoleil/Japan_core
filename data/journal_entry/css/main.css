@@ -4,57 +4,8 @@ html {
 
 body {
     min-height: 100vh;
-    max-width: 400px;
     margin: 0 auto;
     font-size: 80%;
-}
-
-@-webkit-keyframes fadein {
-    from {
-        bottom: -20px;
-        opacity: 0;
-    }
-
-    to {
-        bottom: 0px;
-        opacity: 1;
-    }
-}
-
-@keyframes fadein {
-    from {
-        bottom: -20px;
-        opacity: 0;
-    }
-
-    to {
-        bottom: 0px;
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes fadeout {
-    from {
-        bottom: 0px;
-        opacity: 1;
-    }
-
-    to {
-        bottom: -20px;
-        opacity: 0;
-    }
-}
-
-@keyframes fadeout {
-    from {
-        bottom: 0px;
-        opacity: 1;
-    }
-
-    to {
-        bottom: -20px;
-        opacity: 0;
-    }
 }
 
 td {
@@ -70,15 +21,15 @@ td {
     background-color: #f5f5f5;
 }
 
-body>.container {
+body>.wuwei-container {
     padding: 60px 15px 0;
 }
 
-.container .text-muted {
+.wuwei-container .text-muted {
     margin: 20px 0;
 }
 
-.footer>.container {
+.footer>.wuwei-container {
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -152,11 +103,11 @@ thead {
     background-color: #538ff6;
 }
 
-.wuwei-container {
+.wuwei-wuwei-container {
     text-align: center;
 }
 
-.wuwei-container table {
+.wuwei-wuwei-container table {
     margin: 0 auto;
 }
 
