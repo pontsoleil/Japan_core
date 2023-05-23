@@ -873,7 +873,7 @@ main = (function () {
             snackbar.close()
             snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
-            var tableBody = document.querySelector('#instances tbody');
+            var tableBody = document.querySelector('#EPSON-R4 tbody');
             tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 if (0 == i % 500) {
