@@ -72,6 +72,7 @@ main = (function () {
     function getHorizontal() {
         snackbar.close();
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
+        document.querySelector('#horizontal tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = getBase() + 'horizontal_ledger.csv';
@@ -87,7 +88,6 @@ main = (function () {
             var items_count = items.length;
             snackbar.close();
             snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
-
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#horizontal tbody');
             tableBody.innerHTML = '';
@@ -719,6 +719,7 @@ main = (function () {
     function getInstances() {
         snackbar.close()
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 標準CSV (xBRL-CSV) 読み込み中', 'type': 'info' });
+        document.querySelector('#instances tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = getBase() + 'instances.csv'
@@ -855,6 +856,7 @@ main = (function () {
     function getEPSON() {
         snackbar.close()
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> EPSON R4 読み込み中', 'type': 'info' });
+        document.querySelector('#EPSON-R4 tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = 'data/hokkaidou-sangyou/hokkaidou-sangyou.csv'
