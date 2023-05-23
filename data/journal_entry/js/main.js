@@ -1006,11 +1006,13 @@ main = (function () {
                     break;
                 case '#tab_GL':
                     getGLlist();
-                    getGL(document.querySelector('#selectGL').value)
+                    var selectGLvalue = document.querySelector('#selectGL').value;
+                    getGL(selectGLvalue);
                     break;
                 case '#tab_TB':
                     getTBlist();
-                    getTB(document.querySelector('#selectTB').value)
+                    var selectTBvalue = document.querySelector('#selectTB').value;
+                    getTB(selectTBvalue);
                     break;
                 case '#tab_tidyData':
                     getInstances();
