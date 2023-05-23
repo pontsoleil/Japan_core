@@ -882,7 +882,7 @@ main = (function () {
                 }
                 var item = items[i];
                 var tr = document.createElement('tr');
-                for (var j = 0; i <= 48; i++) {
+                for (var j = 0; i <= item.length; j++) {
                     var td = document.createElement('td');
                     td.textContent = item[j];
                     tr.appendChild(td);
