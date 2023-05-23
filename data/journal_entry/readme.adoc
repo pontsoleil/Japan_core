@@ -152,11 +152,11 @@ VS CodeのAscii DocでMermaid Markdown Syntax Highlighting機能拡張を使用�
 Mermaidについては、 +
 https://mermaid.js.org/syntax/classDiagram.html
 
-== 残作業(2023-05-17)
+== 残作業(2023-05-23)
 
-. 検索専用ブラウザに消費税項目を追加する。
+. pass:[検索専用ブラウザに消費税項目を追加する。] 2023-05-23 済
 
-. EPSONからのCSVを検索専用ブラウザで表示可能とする。
+. pass:[EPSONからのCSVを検索専用ブラウザで表示可能とする。] 2023-05-23 済
 
 . XBRL-GLから変換したxBRL-CSVに消費税項目を固定値として定義し、検索専用ブラウザに表示する。
 
