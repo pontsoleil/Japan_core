@@ -69,8 +69,6 @@ main = (function () {
         return items;
     }
 
-
-
     function getHorizontal() {
         snackbar.close();
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
@@ -799,7 +797,7 @@ main = (function () {
                     td11.textContent = item[20]; td11.classList.add('text-left');
                     td12.textContent = formatter.format(item[21]); td12.classList.add('text-right');
                     td13.textContent = item[22]; td13.classList.add('text-center');
-                    td14.textContent = item[24]; td14.classList.add('text-left');
+                    td14.textContent = item[23]; td14.classList.add('text-left');
                     td15.textContent = item[25]; td15.classList.add('text-center');
                     td16.textContent = item[26]; td16.classList.add('text-center');
                     td17.textContent = item[27]; td17.classList.add('text-left');
