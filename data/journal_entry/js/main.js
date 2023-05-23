@@ -137,9 +137,9 @@ main = (function () {
                 // 19	l 名称
                 var source = document.querySelector('#source').value;
                 if ('hokkaidou-sangyou' == source) {
-                    td1.textContent = item[0];　td1.classList.add('text-center');
-                    td2.textContent = item[1];　td2.classList.add('text-center');
-                    td3.textContent = item[7];　td3.classList.add('text-left');
+                    td1.textContent = item[0]; td1.classList.add('text-center');
+                    td2.textContent = item[1]; td2.classList.add('text-center');
+                    td3.textContent = item[7]; td3.classList.add('text-left');
                     td4.textContent = item[11]; td4.classList.add('text-center');
                     td5.textContent = item[12]; td5.classList.add('text-center');
                     td6.textContent = '';
@@ -148,7 +148,7 @@ main = (function () {
                     td9.textContent = item[16]; td9.classList.add('text-center');
                     td10.textContent = item[19]; td10.classList.add('text-center');
                     td11.textContent = item[20]; td11.classList.add('text-left');
-                    td12.textContent = formatter.format(item[21]);　td12.classList.add('text-right');
+                    td12.textContent = formatter.format(item[21]); td12.classList.add('text-right');
                     td13.textContent = item[22]; td13.classList.add('text-center');
                     td14.textContent = item[24]; td14.classList.add('text-left');
                     td15.textContent = item[25]; td15.classList.add('text-center');
@@ -157,9 +157,9 @@ main = (function () {
                     td18.textContent = '';
                     td19.textContent = '';
                 } else if ('xbrl-gl' == source) {
-                    td1.textContent = item[0];　td1.classList.add('text-center');
-                    td2.textContent = item[1];　td2.classList.add('text-center');
-                    td3.textContent = item[6];　td3.classList.add('text-left');
+                    td1.textContent = item[0]; td1.classList.add('text-center');
+                    td2.textContent = item[1]; td2.classList.add('text-center');
+                    td3.textContent = item[6]; td3.classList.add('text-left');
                     td4.textContent = '';
                     td5.textContent = '';
                     td6.textContent = item[19]; td6.classList.add('text-center');
@@ -168,7 +168,7 @@ main = (function () {
                     td9.textContent = item[13]; td9.classList.add('text-center');
                     td10.textContent = item[14]; td10.classList.add('text-center');
                     td11.textContent = item[15]; td11.classList.add('text-left');
-                    td12.textContent = formatter.format(item[17]);　td12.classList.add('text-right');
+                    td12.textContent = formatter.format(item[17]); td12.classList.add('text-right');
                     td13.textContent = item[20]; td13.classList.add('text-center');
                     td14.textContent = item[22]; td14.classList.add('text-left');
                     td15.textContent = '';
@@ -176,7 +176,7 @@ main = (function () {
                     td17.textContent = '';
                     td18.textContent = item[23]; td18.classList.add('text-center');
                     td19.textContent = item[25]; td19.classList.add('text-left');
-                }                
+                }
 
                 tr.appendChild(td1);
                 tr.appendChild(td2);
@@ -985,27 +985,40 @@ main = (function () {
         });
 
         // 初期設定
+        getFileList();
         getHorizontal();
         getInstances();
-        let sourceSelect = document.querySelector('#source');
-        var source = sourceSelect.value;
-        if ('xbrl-gl' == source) {
-            getGL('111現金.csv');
-            getTB('2009-04');
-        } else if ('hokkaidou-sangyou' == source) {
-            getGL('100現金.csv')
-            getTB('2022-07');
-        }
-        getFileList();
         getGLlist();
         getTBlist();
+        var selectGLvalue = document.querySelector('#selectGL').value;
+        var selectTBvalue = document.querySelector('#selectTB').value;
+        getGL(selectGLvalue)
+        getTB(selectTBvalue)
 
         sourceSelect.addEventListener("change", (event) => {
-            $('.nav-link').removeClass('active');
-            $('.tab-pane').removeClass('active');
-            $('.nav-link#nav_horizontal').addClass('active');
-            $('.tab-pane#tab_horizontal').addClass('active show');
-            getHorizontal();
+            event.stopPropagation();
+            let sourceSelect = document.querySelector('#source');
+            var source = sourceSelect.value;
+            var href = document.querySelector('.nav-link.active').getAttribute('href');
+            switch (href) {
+                case '#tab_horizontal':
+                    getHorizontal();
+                    break;
+                case '#tab_GL':
+                    getGLlist();
+                    getGL(document.querySelector('#selectGL').value)
+                    break;
+                case '#tab_TB':
+                    getTBlist();
+                    getTB(document.querySelector('#selectTB').value)
+                    break;
+                case '#tab_tidyData':
+                    getInstances();
+                    break;
+                default:
+                    // 上記のいずれのcaseにも一致しない場合の処理
+                    break;
+            }            
         });
 
         // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
