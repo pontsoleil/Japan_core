@@ -45,84 +45,118 @@
 </head>
 
 <body>
-    <h5>検索専用ブラウザ</h5>
-    <select id="source">
-        <option value="xbrl-gl">株式会社PCA商事 PCA会計９V.2</option>
-        <option value="hokkaidou-sangyou" selected>北海道産業(株) エプソン会計R4</option>
-    </select>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a id="nav_horizontal" class="nav-link active" href="#tab_horizontal" data-toggle="tab">仕訳日記帳</a>
-        </li>
-        <li class="nav-item">
-            <a id="nav_GL" class="nav-link" href="#tab_GL" data-toggle="tab">総勘定元帳</a>
-        </li>
-        <li class="nav-item">
-            <a id="nav_TB" class="nav-link" href="#tab_TB" data-toggle="tab">残高試算表</a>
-        </li>
-        <li class="nav-item">
-            <a id="nav_tidy" class="nav-link" href="#tab_tidyData" data-toggle="tab">Tidy data (xBRL-CSV)</a>
-        </li>
-        <li class="nav-item">
-            <a id="nav_EPSON-R4" class="nav-link" href="#tab_EPSON-R4" data-toggle="tab">EPSON R4</a>
-        </li>
-        <li class="nav-item">
-            <a id="nav_XBRL-GL" class="nav-link" href="#tab_XBRL-GL" data-toggle="tab">XBRL-GL</a>
-        </li>
-    </ul>
+    <div class="container">
+        <h5>検索専用ブラウザ</h5>
+        <select id="source">
+            <option value="xbrl-gl">株式会社PCA商事 PCA会計９V.2</option>
+            <option value="hokkaidou-sangyou" selected>北海道産業(株) エプソン会計R4</option>
+        </select>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a id="nav_horizontal" class="nav-link active" href="#tab_horizontal" data-toggle="tab">仕訳日記帳</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_GL" class="nav-link" href="#tab_GL" data-toggle="tab">総勘定元帳</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_TB" class="nav-link" href="#tab_TB" data-toggle="tab">残高試算表</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_tidy" class="nav-link" href="#tab_tidyData" data-toggle="tab">Tidy data (xBRL-CSV)</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_EPSON-R4" class="nav-link" href="#tab_EPSON-R4" data-toggle="tab">EPSON R4</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_XBRL-GL" class="nav-link" href="#tab_XBRL-GL" data-toggle="tab">XBRL-GL</a>
+            </li>
+        </ul>
 
-    <div class="tab-content">
-        <div class="tab-pane active" id="tab_horizontal">
-            <div style="max-width:100%!important">
-                <div>
-                    <input id="linesButton" class="btn btn-primary" type="button" value="明細行表示切り替え">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_horizontal">
+                <div style="max-width:100%!important">
+                    <div>
+                        <input id="linesButton" class="btn btn-primary" type="button" value="明細行表示切り替え">
+                    </div>
+                    <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
+                        <table id="horizontal" class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">num</th> <!-- 0 -->
+                                    <th class="text-center">GL</th> <!-- 1 -->
+                                    <th class="text-center">GL詳細</th> <!-- 2 -->
+                                    <th class="text-center">借方税情報</th> <!-- 3 -->
+                                    <th class="text-center">貸方税情報</th> <!-- 4 -->
+                                    <th class="text-center">借方セグメント</th> <!-- 5 -->
+                                    <th class="text-center">貸方セグメント</th> <!-- 6 -->
+                                    <th class="text-center">事業セグメント</th> <!-- 7 -->
+                                    <th class="text-center">仕訳番号</th> <!-- 8 -->
+                                    <th class="text-center">仕訳ID</th> <!-- 9 -->
+                                    <th class="text-center">文書コメント</th> <!-- 10 -->
+                                    <th class="text-center">ソース説明</th> <!-- 12 -->
+                                    <th class="text-center">ERPモジュール</th> <!-- 13 -->
+                                    <th class="text-center">作成者ユーザーID</th> <!-- 15 -->
+                                    <th class="text-center">作成日</th> <!-- 16 -->
+                                    <th class="text-center">明細行番号</th> <!-- 17 -->
+                                    <th class="text-center">伝票日付</th> <!-- 18 -->
+                                    <th class="text-center">タイプコード</th> <!-- 19 -->
+                                    <th class="text-center">摘要</th> <!-- 20 -->
+                                    <th class="text-center">元文書番号</th> <!-- 21 -->
+                                    <th class="text-center">元文書日付</th> <!-- 22 -->
+                                    <th class="text-center">借方科目番号</th> <!-- 23 -->
+                                    <th class="text-center">借方科目名</th> <!-- 24 -->
+                                    <th class="text-center">借方金額</th> <!-- 26 -->
+                                    <th class="text-center">借方税コード</th> <!-- 28 -->
+                                    <th class="text-center">借方税率</th> <!-- 29 -->
+                                    <th class="text-center">借方税コード説明</th> <!-- 30 -->
+                                    <th class="text-center">借方セグメント</th> <!-- 31 -->
+                                    <th class="text-center">借方セグメントコード</th> <!-- 32 -->
+                                    <th class="text-center">借方セグメント名</th> <!-- 33 -->
+                                    <th class="text-center">貸方科目番号</th> <!-- 34 -->
+                                    <th class="text-center">貸方科目名</th> <!-- 35 -->
+                                    <th class="text-center">貸方金額</th> <!-- 37 -->
+                                    <th class="text-center">貸方税コード</th> <!-- 39 -->
+                                    <th class="text-center">貸方税率</th> <!-- 40 -->
+                                    <th class="text-center">貸方税コード説明</th> <!-- 41 -->
+                                    <th class="text-center">貸方セグメント</th> <!-- 42 -->
+                                    <th class="text-center">貸方セグメントコード</th> <!-- 43 -->
+                                    <th class="text-center">貸方セグメント名</th> <!-- 44 -->
+                                    <th class="text-center">事業セグメント</th> <!-- 45 -->
+                                    <th class="text-center">事業セグメントコード</th> <!-- 46 -->
+                                    <th class="text-center">組織タイプ名</th> <!-- 47 -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- CSVの行が展開される -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab_GL">
+                <div id="GLlist">
+                    <select id="selectGL" style="height:2rem"></select>
                 </div>
                 <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
-                    <table id="horizontal" class="table table-sm table-hover">
+                    <table id="GL" class="table table-sm table-striped table-hover">
                         <thead>
                             <tr>
                                 <th class="text-center">num</th> <!-- 0 -->
-                                <th class="text-center">GL</th> <!-- 1 -->
+                                <th class="text-center">伝票番号</th> <!-- 1 -->
                                 <th class="text-center">GL詳細</th> <!-- 2 -->
-                                <th class="text-center">借方税情報</th> <!-- 3 -->
-                                <th class="text-center">貸方税情報</th> <!-- 4 -->
-                                <th class="text-center">借方セグメント</th> <!-- 5 -->
-                                <th class="text-center">貸方セグメント</th> <!-- 6 -->
-                                <th class="text-center">事業セグメント</th> <!-- 7 -->
-                                <th class="text-center">仕訳番号</th> <!-- 8 -->
-                                <th class="text-center">仕訳ID</th> <!-- 9 -->
-                                <th class="text-center">文書コメント</th> <!-- 10 -->
-                                <th class="text-center">ソース説明</th> <!-- 12 -->
-                                <th class="text-center">ERPモジュール</th> <!-- 13 -->
-                                <th class="text-center">作成者ユーザーID</th> <!-- 15 -->
-                                <th class="text-center">作成日</th> <!-- 16 -->
-                                <th class="text-center">明細行番号</th> <!-- 17 -->
-                                <th class="text-center">伝票日付</th> <!-- 18 -->
-                                <th class="text-center">タイプコード</th> <!-- 19 -->
-                                <th class="text-center">摘要</th> <!-- 20 -->
-                                <th class="text-center">元文書番号</th> <!-- 21 -->
-                                <th class="text-center">元文書日付</th> <!-- 22 -->
-                                <th class="text-center">借方科目番号</th> <!-- 23 -->
-                                <th class="text-center">借方科目名</th> <!-- 24 -->
-                                <th class="text-center">借方金額</th> <!-- 26 -->
-                                <th class="text-center">借方税コード</th> <!-- 28 -->
-                                <th class="text-center">借方税率</th> <!-- 29 -->
-                                <th class="text-center">借方税コード説明</th> <!-- 30 -->
-                                <th class="text-center">借方セグメント</th> <!-- 31 -->
-                                <th class="text-center">借方セグメントコード</th> <!-- 32 -->
-                                <th class="text-center">借方セグメント名</th> <!-- 33 -->
-                                <th class="text-center">貸方科目番号</th> <!-- 34 -->
-                                <th class="text-center">貸方科目名</th> <!-- 35 -->
-                                <th class="text-center">貸方金額</th> <!-- 37 -->
-                                <th class="text-center">貸方税コード</th> <!-- 39 -->
-                                <th class="text-center">貸方税率</th> <!-- 40 -->
-                                <th class="text-center">貸方税コード説明</th> <!-- 41 -->
-                                <th class="text-center">貸方セグメント</th> <!-- 42 -->
-                                <th class="text-center">貸方セグメントコード</th> <!-- 43 -->
-                                <th class="text-center">貸方セグメント名</th> <!-- 44 -->
-                                <th class="text-center">事業セグメント</th> <!-- 45 -->
-                                <th class="text-center">事業セグメントコード</th> <!-- 46 -->
-                                <th class="text-center">組織タイプ名</th> <!-- 47 -->
+                                <th class="text-center">日付</th> <!-- 3 -->
+                                <th class="text-center">相手科目</th> <!-- 4 -->
+                                <th class="text-center">相手科目名</th> <!-- 5 -->
+                                <th class="text-center">摘要</th> <!-- 6 -->
+                                <th class="text-center">借方金額</th> <!-- 7 -->
+                                <th class="text-center">借方税コード</th> <!-- 8 -->
+                                <th class="text-center">借方税率</th> <!-- 9 -->
+                                <th class="text-center">借方税</th> <!-- 10 -->
+                                <th class="text-center">貸方金額</th> <!-- 11 -->
+                                <th class="text-center">貸方税コード</th> <!-- 12 -->
+                                <th class="text-center">貸方税率</th> <!-- 13 -->
+                                <th class="text-center">貸方税</th> <!-- 14 -->
+                                <th class="text-center">差引金額</th> <!-- 15 -->
                             </tr>
                         </thead>
                         <tbody>
@@ -131,87 +165,21 @@
                     </table>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane" id="tab_GL">
-            <div id="GLlist">
-                <select id="selectGL" style="height:2rem"></select>
-            </div>
-            <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
-                <table id="GL" class="table table-sm table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th class="text-center">num</th> <!-- 0 -->
-                            <th class="text-center">伝票番号</th> <!-- 1 -->
-                            <th class="text-center">GL詳細</th> <!-- 2 -->
-                            <th class="text-center">日付</th> <!-- 3 -->
-                            <th class="text-center">相手科目</th> <!-- 4 -->
-                            <th class="text-center">相手科目名</th> <!-- 5 -->
-                            <th class="text-center">摘要</th> <!-- 6 -->
-                            <th class="text-center">借方金額</th> <!-- 7 -->
-                            <th class="text-center">借方税コード</th> <!-- 8 -->
-                            <th class="text-center">借方税率</th> <!-- 9 -->
-                            <th class="text-center">借方税</th> <!-- 10 -->
-                            <th class="text-center">貸方金額</th> <!-- 11 -->
-                            <th class="text-center">貸方税コード</th> <!-- 12 -->
-                            <th class="text-center">貸方税率</th> <!-- 13 -->
-                            <th class="text-center">貸方税</th> <!-- 14 -->
-                            <th class="text-center">差引金額</th> <!-- 15 -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- CSVの行が展開される -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="tab-pane" id="tab_TB">
-            <div id="TBlist">
-                <select id="selectTB" style="height:2rem"></select>
-            </div>
-            <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
-                <table id="TB" class="table table-sm table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th class="text-center">月</th> <!-- ０ -->
-                            <th class="text-center">勘定科目</th> <!-- 1 -->
-                            <th class="text-center">科目名</th> <!-- 2 -->
-                            <th class="text-center">前月残高</th> <!-- 3 -->
-                            <th class="text-center">借方金額</th> <!-- 4 -->
-                            <th class="text-center">貸方金額</th> <!-- 5 -->
-                            <th class="text-center">当月残高</th> <!-- 7 -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- CSVの行が展開される -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="tab-pane" id="tab_tidyData">
-            <div style="max-width:100%!important">
+            <div class="tab-pane" id="tab_TB">
+                <div id="TBlist">
+                    <select id="selectTB" style="height:2rem"></select>
+                </div>
                 <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
-                    <table id="instances" class="table table-sm table-striped table-hover">
+                    <table id="TB" class="table table-sm table-striped table-hover">
                         <thead>
                             <tr>
-                                <th class="text-center">GL</th> <!-- 1 GL02 0 0 -->
-                                <th class="text-center">GL詳細</th> <!-- 2 GL02-GL55 1 1 -->
-                                <th class="text-center">ソース説明</th> <!-- 3 GL64-02 7 6 -->
-                                <th class="text-center">作成日</th> <!-- 4 GL57-02 11 _ -->
-                                <th class="text-center">明細行番号</th> <!-- 5 GL55-01 12 _ -->
-                                <th class="text-center">記帳日</th> <!-- 6 GL69-02 _ 19 -->
-                                <th class="text-center">伝票日付</th> <!-- 7 GL55-02 13 _ -->
-                                <th class="text-center">摘要</th> <!-- 8 GL55-04 15 12 -->
-                                <th class="text-center">借方/貸方</th> <!-- 9 GL55-05 16 13 -->
-                                <th class="text-center">勘定科目番号</th> <!-- 10 GL63-01 19 14 -->
-                                <th class="text-center">勘定科目名</th> <!-- 11 GL63-02 20 15 -->
-                                <th class="text-center">金額</th> <!-- 12 GL56-01 21 17 -->
-                                <th class="text-center">セグメント</th> <!-- 13 GL60-01 22 20 -->
-                                <th class="text-center">セグメント名</th> <!-- 14 GL60-03 24 22 -->
-                                <th class="text-center">税コード</th> <!-- 15 GL68-01 25 _ -->
-                                <th class="text-center">税率</th> <!-- 16 GL68-02 26 _ -->
-                                <th class="text-center">税コード説明</th> <!-- 17 GL68-04 27 _ -->
-                                <th class="text-center">事業セグメント</th> <!-- 18 GL61-01 _ 23 -->
-                                <th class="text-center">名称</th> <!-- 19 GL61-03 _ 25 -->
+                                <th class="text-center">月</th> <!-- ０ -->
+                                <th class="text-center">勘定科目</th> <!-- 1 -->
+                                <th class="text-center">科目名</th> <!-- 2 -->
+                                <th class="text-center">前月残高</th> <!-- 3 -->
+                                <th class="text-center">借方金額</th> <!-- 4 -->
+                                <th class="text-center">貸方金額</th> <!-- 5 -->
+                                <th class="text-center">当月残高</th> <!-- 7 -->
                             </tr>
                         </thead>
                         <tbody>
@@ -220,71 +188,106 @@
                     </table>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane" id="tab_EPSON-R4">
-            <div style="max-width:100%!important">
-                <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
-                    <table id="EPSON-R4" class="table table-sm table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th class="text-center">月種別</th>
-                                <th class="text-center">種類</th>
-                                <th class="text-center">形式</th>
-                                <th class="text-center">作成方法</th>
-                                <th class="text-center">付箋</th>
-                                <th class="text-center">伝票日付</th>
-                                <th class="text-center">伝票番号</th>
-                                <th class="text-center">伝票摘要</th>
-                                <th class="text-center">枝番</th>
-                                <th class="text-center">借方部門</th>
-                                <th class="text-center">借方部門名</th>
-                                <th class="text-center">借方科目</th>
-                                <th class="text-center">借方科目名</th>
-                                <th class="text-center">借方補助</th>
-                                <th class="text-center">借方補助科目名</th>
-                                <th class="text-center">借方金額</th>
-                                <th class="text-center">借方消費税コード</th>
-                                <th class="text-center">借方消費税業種</th>
-                                <th class="text-center">借方消費税税率</th>
-                                <th class="text-center">借方資金区分</th>
-                                <th class="text-center">借方任意項目１</th>
-                                <th class="text-center">借方任意項目２</th>
-                                <th class="text-center">貸方部門</th>
-                                <th class="text-center">貸方部門名</th>
-                                <th class="text-center">貸方科目</th>
-                                <th class="text-center">貸方科目名</th>
-                                <th class="text-center">貸方補助</th>
-                                <th class="text-center">貸方補助科目名</th>
-                                <th class="text-center">貸方金額</th>
-                                <th class="text-center">貸方消費税コード</th>
-                                <th class="text-center">貸方消費税業種</th>
-                                <th class="text-center">貸方消費税税率</th>
-                                <th class="text-center">貸方資金区分</th>
-                                <th class="text-center">貸方任意項目１</th>
-                                <th class="text-center">貸方任意項目２</th>
-                                <th class="text-center">摘要</th>
-                                <th class="text-center">期日</th>
-                                <th class="text-center">証番号</th>
-                                <th class="text-center">入力マシン</th>
-                                <th class="text-center">入力ユーザ</th>
-                                <th class="text-center">入力アプリ</th>
-                                <th class="text-center">入力会社</th>
-                                <th class="text-center">入力日付</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- CSVの行が展開される -->
-                        </tbody>
-                    </table>
+            <div class="tab-pane" id="tab_tidyData">
+                <div style="max-width:100%!important">
+                    <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
+                        <table id="instances" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">GL</th> <!-- 1 GL02 0 0 -->
+                                    <th class="text-center">GL詳細</th> <!-- 2 GL02-GL55 1 1 -->
+                                    <th class="text-center">ソース説明</th> <!-- 3 GL64-02 7 6 -->
+                                    <th class="text-center">作成日</th> <!-- 4 GL57-02 11 _ -->
+                                    <th class="text-center">明細行番号</th> <!-- 5 GL55-01 12 _ -->
+                                    <th class="text-center">記帳日</th> <!-- 6 GL69-02 _ 19 -->
+                                    <th class="text-center">伝票日付</th> <!-- 7 GL55-02 13 _ -->
+                                    <th class="text-center">摘要</th> <!-- 8 GL55-04 15 12 -->
+                                    <th class="text-center">借方/貸方</th> <!-- 9 GL55-05 16 13 -->
+                                    <th class="text-center">勘定科目番号</th> <!-- 10 GL63-01 19 14 -->
+                                    <th class="text-center">勘定科目名</th> <!-- 11 GL63-02 20 15 -->
+                                    <th class="text-center">金額</th> <!-- 12 GL56-01 21 17 -->
+                                    <th class="text-center">セグメント</th> <!-- 13 GL60-01 22 20 -->
+                                    <th class="text-center">セグメント名</th> <!-- 14 GL60-03 24 22 -->
+                                    <th class="text-center">税コード</th> <!-- 15 GL68-01 25 _ -->
+                                    <th class="text-center">税率</th> <!-- 16 GL68-02 26 _ -->
+                                    <th class="text-center">税コード説明</th> <!-- 17 GL68-04 27 _ -->
+                                    <th class="text-center">事業セグメント</th> <!-- 18 GL61-01 _ 23 -->
+                                    <th class="text-center">名称</th> <!-- 19 GL61-03 _ 25 -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- CSVの行が展開される -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane" id="tab_XBRL-GL">
-            <div style="max-width:100%!important">
-                <div class="d-flex justify-content-between">
-                    <div class="table-responsive col-md-12" style="overflow-x:auto;">
-                        <div id="file-list"></div>
-                        <textarea id="file-content" class="mb-3" style="width:100%; height:900px;" disabled="true"></textarea>
+            <div class="tab-pane" id="tab_EPSON-R4">
+                <div style="max-width:100%!important">
+                    <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
+                        <table id="EPSON-R4" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">月種別</th>
+                                    <th class="text-center">種類</th>
+                                    <th class="text-center">形式</th>
+                                    <th class="text-center">作成方法</th>
+                                    <th class="text-center">付箋</th>
+                                    <th class="text-center">伝票日付</th>
+                                    <th class="text-center">伝票番号</th>
+                                    <th class="text-center">伝票摘要</th>
+                                    <th class="text-center">枝番</th>
+                                    <th class="text-center">借方部門</th>
+                                    <th class="text-center">借方部門名</th>
+                                    <th class="text-center">借方科目</th>
+                                    <th class="text-center">借方科目名</th>
+                                    <th class="text-center">借方補助</th>
+                                    <th class="text-center">借方補助科目名</th>
+                                    <th class="text-center">借方金額</th>
+                                    <th class="text-center">借方消費税コード</th>
+                                    <th class="text-center">借方消費税業種</th>
+                                    <th class="text-center">借方消費税税率</th>
+                                    <th class="text-center">借方資金区分</th>
+                                    <th class="text-center">借方任意項目１</th>
+                                    <th class="text-center">借方任意項目２</th>
+                                    <th class="text-center">貸方部門</th>
+                                    <th class="text-center">貸方部門名</th>
+                                    <th class="text-center">貸方科目</th>
+                                    <th class="text-center">貸方科目名</th>
+                                    <th class="text-center">貸方補助</th>
+                                    <th class="text-center">貸方補助科目名</th>
+                                    <th class="text-center">貸方金額</th>
+                                    <th class="text-center">貸方消費税コード</th>
+                                    <th class="text-center">貸方消費税業種</th>
+                                    <th class="text-center">貸方消費税税率</th>
+                                    <th class="text-center">貸方資金区分</th>
+                                    <th class="text-center">貸方任意項目１</th>
+                                    <th class="text-center">貸方任意項目２</th>
+                                    <th class="text-center">摘要</th>
+                                    <th class="text-center">期日</th>
+                                    <th class="text-center">証番号</th>
+                                    <th class="text-center">入力マシン</th>
+                                    <th class="text-center">入力ユーザ</th>
+                                    <th class="text-center">入力アプリ</th>
+                                    <th class="text-center">入力会社</th>
+                                    <th class="text-center">入力日付</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- CSVの行が展開される -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab_XBRL-GL">
+                <div style="max-width:100%!important">
+                    <div class="d-flex justify-content-between">
+                        <div class="table-responsive col-md-12" style="overflow-x:auto;">
+                            <div id="file-list"></div>
+                            <textarea id="file-content" class="mb-3" style="width:100%; height:900px;"
+                                disabled="true"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
