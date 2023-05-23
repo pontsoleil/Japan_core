@@ -71,7 +71,7 @@ main = (function () {
 
     function getHorizontal() {
         snackbar.close();
-        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>仕訳日記帳 読み込み中', 'type': 'info' });
         document.querySelector('#horizontal tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
@@ -87,14 +87,14 @@ main = (function () {
             }
             var items_count = items.length;
             snackbar.close();
-            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>仕訳日記帳 ' + items_count + ' 件 読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#horizontal tbody');
             tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 if (0 == i % 500) {
                     snackbar.close();
-                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>仕訳日記帳 ' + i + ' / ' + items_count + ' 件 読み込み中', 'type': 'info' });
                 }
                 var item = items[i];
                 var tr = document.createElement('tr');
@@ -428,6 +428,8 @@ main = (function () {
     }
 
     function getGL(file) {
+        snackbar.close();
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>総勘定元帳 読み込み中', 'type': 'info' });
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         url = getBase() + 'GL/' + file;
@@ -446,7 +448,7 @@ main = (function () {
             }
             var items_count = items.length;
             snackbar.close();
-            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>総勘定元帳 ' + items_count + ' 件 読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#GL tbody');
             tableBody.innerHTML = '';
@@ -454,7 +456,7 @@ main = (function () {
                 var item = items[i];
                 if (0 == i % 500) {
                     snackbar.close();
-                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>総勘定元帳 ' + i + ' / ' + items_count + ' 件 読み込み中', 'type': 'info' });
                 }
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
@@ -573,6 +575,8 @@ main = (function () {
     }
 
     function getTB(month) {
+        snackbar.close();
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>残高試算表 読み込み中', 'type': 'info' });
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         url = getBase() + 'TB/' + month + 'trial_balance.csv';
@@ -591,7 +595,7 @@ main = (function () {
             }
             var items_count = items.length;
             snackbar.close();
-            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>残高試算表 ' + items_count + ' 件 読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#TB tbody');
             tableBody.innerHTML = '';
@@ -599,7 +603,7 @@ main = (function () {
                 var item = items[i];
                 if (0 == i % 500) {
                     snackbar.close();
-                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件 読み込み中', 'type': 'info' });
                 }
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
@@ -718,7 +722,7 @@ main = (function () {
 
     function getTidyData() {
         snackbar.close()
-        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 標準CSV (xBRL-CSV) 読み込み中', 'type': 'info' });
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>標準CSV(xBRL-CSV) 読み込み中', 'type': 'info' });
         document.querySelector('#instances tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
@@ -734,14 +738,14 @@ main = (function () {
             }
             var items_count = items.length;
             snackbar.close()
-            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 標準CSV (xBRL-CSV) ' + items_count + ' 件読み込み中', 'type': 'info' });
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>標準CSV(xBRL-CSV) ' + items_count + ' 件 読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#instances tbody');
             tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 if (0 == i % 500) {
                     snackbar.close();
-                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 標準CSV (xBRL-CSV) ' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>標準CSV(xBRL-CSV) ' + i + ' / ' + items_count + ' 件 読み込み中', 'type': 'info' });
                 }
                 var item = items[i];
                 var tr = document.createElement('tr');
@@ -855,7 +859,7 @@ main = (function () {
 
     function getEPSON() {
         snackbar.close()
-        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> EPSON R4 読み込み中', 'type': 'info' });
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>EPSON R4 読み込み中', 'type': 'info' });
         document.querySelector('#EPSON-R4 tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
@@ -871,14 +875,14 @@ main = (function () {
             }
             var items_count = items.length;
             snackbar.close()
-            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>EPSON R4 ' + items_count + ' 件 読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#EPSON-R4 tbody');
             tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 if (0 == i % 500) {
                     snackbar.close();
-                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>EPSON R4 ' + i + ' / ' + items_count + ' 件 読み込み中', 'type': 'info' });
                 }
                 var item = items[i];
                 var tr = document.createElement('tr');
