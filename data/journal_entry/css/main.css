@@ -22,7 +22,7 @@ td {
 }
 
 body>.wuwei-container {
-    padding: 60px 15px 0;
+    padding: 8px 15px 0;
 }
 
 .wuwei-container .text-muted {
@@ -82,7 +82,7 @@ body>.wuwei-container {
 }
 
 .table-responsive {
-    height: 900px;
+    height: 740px;
     width: 100%;
     overflow-x: auto;
     overflow-y: scroll;
