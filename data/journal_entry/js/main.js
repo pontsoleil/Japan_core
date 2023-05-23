@@ -110,6 +110,12 @@ main = (function () {
                 var td11 = document.createElement('td');
                 var td12 = document.createElement('td');
                 var td13 = document.createElement('td');
+                var td14 = document.createElement('td');
+                var td15 = document.createElement('td');
+                var td16 = document.createElement('td');
+                var td17 = document.createElement('td');
+                var td18 = document.createElement('td');
+                var td19 = document.createElement('td');
                 // 1	c GL
                 // 2	c GL詳細
                 // 3	l ソース説明
