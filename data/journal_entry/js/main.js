@@ -716,13 +716,13 @@ main = (function () {
             });
     }
 
-    function getInstances() {
+    function getTidyData() {
         snackbar.close()
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 標準CSV (xBRL-CSV) 読み込み中', 'type': 'info' });
         document.querySelector('#instances tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
-        var url = getBase() + 'instances.csv'
+        var url = getBase() + 'GL_Details.csv'
         xhr.open('GET', url, true);
         xhr.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
@@ -990,7 +990,7 @@ main = (function () {
         });
 
         $('#nav_tidy').on('click', function () {
-            getInstances();
+            getTidyData();
         });
 
         var linesButton = $('#linesButton');
@@ -1000,13 +1000,11 @@ main = (function () {
         linesButton.on('click', function () {
             isEnabled = !isEnabled; // 現在の状態を反転する
             if (isEnabled) {
-                // 処理を有効にするためのコードを記述する
                 // linesButton.value = '全て表示';
                 linesButton.removeClass('btn-secondary');
                 linesButton.addClass('btn-primary');
                 hideHolizontalLines();
             } else {
-                // 処理を無効にするためのコードを記述する
                 // linesButton.value = '明細行のみ';
                 linesButton.removeClass('btn-primary');
                 linesButton.addClass('btn-secondary');
@@ -1030,7 +1028,7 @@ main = (function () {
         getEPSON();
         getFileList();
         getHorizontal();
-        getInstances();
+        getTidyData();
         getGLlist();
         getTBlist();
         var selectGLvalue = document.querySelector('#selectGL').value;
@@ -1067,7 +1065,7 @@ main = (function () {
                     getTB(selectTBvalue);
                     break;
                 case '#tab_tidyData':
-                    getInstances();
+                    getTidyData();
                     break;
                 default:
                     // 上記のいずれのcaseにも一致しない場合の処理
