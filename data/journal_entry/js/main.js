@@ -1038,8 +1038,8 @@ main = (function () {
         getGL(selectGLvalue)
         getTB(selectTBvalue)
 
-        var elementEPSON = document.getElementById("tab_EPSON-R4");
-        var elementXBRL = document.getElementById("tab_XBRL-GL");
+        var elementEPSON = document.getElementById("nav_EPSON-R4");
+        var elementXBRL = document.getElementById("nav_XBRL-GL");
         let sourceSelect = document.querySelector('#source');
         if ('hokkaidou-sangyou'==sourceSelect.value) {
             elementEPSON.style.display = 'block';
@@ -1073,8 +1073,8 @@ main = (function () {
                     // 上記のいずれのcaseにも一致しない場合の処理
                     break;
             }
-            var elementEPSON = document.getElementById("tab_EPSON-R4");
-            var elementXBRL = document.getElementById("tab_XBRL-GL");
+            var elementEPSON = document.getElementById("nav_EPSON-R4");
+            var elementXBRL = document.getElementById("nav_XBRL-GL");
             let sourceSelect = document.querySelector('#source');
             if ('hokkaidou-sangyou'==sourceSelect.value) {
                 elementEPSON.style.display = 'block';
