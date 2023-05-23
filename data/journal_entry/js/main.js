@@ -1038,7 +1038,17 @@ main = (function () {
         getGL(selectGLvalue)
         getTB(selectTBvalue)
 
+        var elementEPSON = document.getElementById("tab_EPSON-R4");
+        var elementXBRL = document.getElementById("tab_XBRL-GL");
         let sourceSelect = document.querySelector('#source');
+        if ('hokkaidou-sangyou'==sourceSelect.value) {
+            elementEPSON.style.display = 'block';
+            elementXBRL.style.display = 'none';
+        } else if ('xbrl-gl'==sourceSelect.value) {
+            elementEPSON.style.display = 'none';
+            elementXBRL.style.display = 'block';
+        }
+
         sourceSelect.addEventListener("change", (event) => {
             event.stopPropagation();
             var href = document.querySelector('.nav-link.active').getAttribute('href');
@@ -1062,7 +1072,17 @@ main = (function () {
                 default:
                     // 上記のいずれのcaseにも一致しない場合の処理
                     break;
-            }            
+            }
+            var elementEPSON = document.getElementById("tab_EPSON-R4");
+            var elementXBRL = document.getElementById("tab_XBRL-GL");
+            let sourceSelect = document.querySelector('#source');
+            if ('hokkaidou-sangyou'==sourceSelect.value) {
+                elementEPSON.style.display = 'block';
+                elementXBRL.style.display = 'none';
+            } else if ('xbrl-gl'==sourceSelect.value) {
+                elementEPSON.style.display = 'none';
+                elementXBRL.style.display = 'block';
+            }
         });
 
         // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
