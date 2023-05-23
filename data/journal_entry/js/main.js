@@ -718,7 +718,7 @@ main = (function () {
 
     function getInstances() {
         snackbar.close()
-        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> Tidy Data (xBRL-CSV) 読み込み中', 'type': 'info' });
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 標準CSV (xBRL-CSV) 読み込み中', 'type': 'info' });
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr = new XMLHttpRequest();
         var url = getBase() + 'instances.csv'
@@ -733,14 +733,14 @@ main = (function () {
             }
             var items_count = items.length;
             snackbar.close()
-            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> ' + items_count + ' 件読み込み中', 'type': 'info' });
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 標準CSV (xBRL-CSV) ' + items_count + ' 件読み込み中', 'type': 'info' });
             // 配列の内容を加工して、HTML要素に追加して表示する
             var tableBody = document.querySelector('#instances tbody');
             tableBody.innerHTML = '';
             for (var i = 1; i < items.length; i++) {
                 if (0 == i % 500) {
                     snackbar.close();
-                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 1' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 標準CSV (xBRL-CSV) ' + i + ' / ' + items_count + ' 件読み込み中', 'type': 'info' });
                 }
                 var item = items[i];
                 var tr = document.createElement('tr');
@@ -959,7 +959,7 @@ main = (function () {
     }
 
     function initModule() {
-        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> 読み込み中', 'type': 'info' });
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i> データ読み込み中', 'type': 'info' });
 
         $('#nav_horizontal').on('click', function () {
             getHorizontal();
