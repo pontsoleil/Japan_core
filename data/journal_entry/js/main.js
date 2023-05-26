@@ -1123,22 +1123,19 @@ main = (function () {
         var tableCSV_binding = document.getElementById('CSV-binding');
         var tableXBRL_binding = document.getElementById('XBRL-GL-binding');
         
-        elementXBRL.style.display = 'none';
-        tableXBRL_binding.style.display = 'none';
-
-        var sourceSelect = document.querySelector('#source');
         if ('hokkaidou-sangyou'==sourceSelect.value) {
             elementEPSON.style.display = 'block';
+            elementXBRL.style.display  = 'none';
             tableCSV_binding.style.display  = 'block';
-            elementXBRL.style.display = 'none';
             tableXBRL_binding.style.display = 'none';
         } else if ('xbrl-gl'==sourceSelect.value) {
             elementEPSON.style.display = 'none';
-            tableCSV_binding.style.display = 'none';
-            elementXBRL.style.display = 'block';
+            elementXBRL.style.display  = 'block';
+            tableCSV_binding.style.display  = 'none';
             tableXBRL_binding.style.display = 'block'
         }
 
+        var sourceSelect = document.querySelector('#source');
         sourceSelect.addEventListener("change", (event) => {
             event.stopPropagation();
             var href = document.querySelector('.nav-link.active').getAttribute('href');
@@ -1155,6 +1152,15 @@ main = (function () {
                     getTBlist();
                     var selectTBvalue = document.querySelector('#selectTB').value;
                     getTB(selectTBvalue);
+                    break;
+                case '#tab_syntaxBinding':
+                    if ('hokkaidou-sangyou'==sourceSelect.value) {
+                        tableCSV_binding.style.display  = 'block';
+                        tableXBRL_binding.style.display = 'none';
+                    } else if ('xbrl-gl'==sourceSelect.value) {
+                        tableCSV_binding.style.display = 'none';
+                        tableXBRL_binding.style.display = 'block'
+                    }
                     break;
                 case '#tab_tidyData':
                     getTidyData();
