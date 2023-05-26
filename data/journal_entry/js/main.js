@@ -864,7 +864,7 @@ main = (function () {
         document.querySelector('#XBRL-GL-binding tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr1 = new XMLHttpRequest();
-        var url1 = 'data/hokkaidou-sangyou/EPSON-binding.csv'
+        var url1 = 'data/PSONbinding.csv'
         xhr1.open('GET', url1, true);
         xhr1.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
@@ -899,7 +899,7 @@ main = (function () {
         xhr1.send();
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr2 = new XMLHttpRequest();
-        var url2 = 'data/base/XBRL-GL-binding.csv'
+        var url2 = 'data/xBRL_GL_binding.csv'
         xhr2.open('GET', url2, true);
         xhr2.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
