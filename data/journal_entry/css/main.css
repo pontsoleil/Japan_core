@@ -118,3 +118,7 @@ thead {
 select#source {
     border: none;
 }
+
+caption {
+    caption-side: top;
+}
