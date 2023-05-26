@@ -868,7 +868,7 @@ main = (function () {
         xhr1.open('GET', url1, true);
         xhr1.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
-            var data = xhr.responseText.split('\n');
+            var data = xhr1.responseText.split('\n');
             var items = [];
             for (var i = 0; i < data.length; i++) {
                 var item = parseCSV(data[i]);
@@ -903,7 +903,7 @@ main = (function () {
         xhr2.open('GET', url2, true);
         xhr2.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
-            var data = xhr.responseText.split('\n');
+            var data = xhr2.responseText.split('\n');
             var items = [];
             for (var i = 0; i < data.length; i++) {
                 var item = parseCSV(data[i]);
