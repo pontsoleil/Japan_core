@@ -864,7 +864,7 @@ main = (function () {
         document.querySelector('#XBRL-GL-binding tbody').innerHTML = '';
         // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
         var xhr1 = new XMLHttpRequest();
-        var url1 = 'data/PSONbinding.csv'
+        var url1 = 'data/EPSONbinding.csv'
         xhr1.open('GET', url1, true);
         xhr1.onload = function () {
             // 取得したCSVデータをパースして、JavaScriptの配列に変換する
