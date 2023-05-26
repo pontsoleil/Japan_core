@@ -1120,13 +1120,23 @@ main = (function () {
 
         var elementEPSON = document.getElementById("nav_EPSON-R4");
         var elementXBRL = document.getElementById("nav_XBRL-GL");
-        let sourceSelect = document.querySelector('#source');
+        var tableCSV_binding = document.getElementById('CSV-binding');
+        var tableXBRL_binding = document.getElementById('XBRL-GL-binding');
+        
+        elementXBRL.style.display = 'none';
+        tableXBRL_binding.style.display = 'none';
+
+        var sourceSelect = document.querySelector('#source');
         if ('hokkaidou-sangyou'==sourceSelect.value) {
             elementEPSON.style.display = 'block';
+            tableCSV_binding.style.display  = 'block';
             elementXBRL.style.display = 'none';
+            tableXBRL_binding.style.display = 'none';
         } else if ('xbrl-gl'==sourceSelect.value) {
             elementEPSON.style.display = 'none';
+            tableCSV_binding.style.display = 'none';
             elementXBRL.style.display = 'block';
+            tableXBRL_binding.style.display = 'block'
         }
 
         sourceSelect.addEventListener("change", (event) => {
@@ -1153,22 +1163,7 @@ main = (function () {
                     // 上記のいずれのcaseにも一致しない場合の処理
                     break;
             }
-            var elementEPSON = document.getElementById("nav_EPSON-R4");
-            var elementXBRL = document.getElementById("nav_XBRL-GL");
-            var tableCSV_binding = document.getElementById('CSV-binding');
-            var tableXBRL_binding = document.getElementById('XBRL-GL-binding');    
-            let sourceSelect = document.querySelector('#source');
-            if ('hokkaidou-sangyou'==sourceSelect.value) {
-                elementEPSON.style.display = 'block';
-                tableCSV_binding.style.display  = 'block';
-                elementXBRL.style.display = 'none';
-                tableXBRL_binding.style.display = 'none';
-            } else if ('xbrl-gl'==sourceSelect.value) {
-                elementEPSON.style.display = 'none';
-                tableCSV_binding.style.display = 'none';
-                elementXBRL.style.display = 'block';
-                tableXBRL_binding.style.display = 'block'
-            }
+
         });
 
         // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
