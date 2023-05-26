@@ -46,7 +46,7 @@
 
 <body>
     <div class="wuwei-container">
-        <h5>検索専用ブラウザ</h5>
+        <h5>仕訳情報検索専用ブラウザ</h5>
         <select id="source">
             <option value="xbrl-gl">株式会社PCA商事 PCA会計９V.2</option>
             <option value="hokkaidou-sangyou" selected>北海道産業(株) エプソン財務会計R4</option>
@@ -63,6 +63,9 @@
             </li>
             <li class="nav-item">
                 <a id="nav_tidy" class="nav-link" href="#tab_tidyData" data-toggle="tab">標準CSV(xBRL-CSV)</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_CSVBinding" class="nav-link" href="#tab_CSVBinding" data-toggle="tab">標準CSVバインディング</a>
             </li>
             <li class="nav-item">
                 <a id="nav_syntaxBinding" class="nav-link" href="#tab_syntaxBinding" data-toggle="tab">標準CSVバインディング</a>
@@ -225,7 +228,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="tab_syntaxBinding">
+            <div class="tab-pane" id="tab_CSVBinding">
                 <div style="max-width:100%!important">
                     <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
                         <table id="CSV-binding" class="table table-sm table-striped table-hover">
@@ -245,6 +248,12 @@
                                 <!-- CSVの行が展開される -->
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab_syntaxBinding">
+                <div style="max-width:100%!important">
+                    <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
                         <table id="XBRL-GL-binding" class="table table-sm table-striped table-hover">
                             <caption>XBRL構文バインディング</caption>
                             <thead>
@@ -261,7 +270,7 @@
                                     <th class="text-center">businessTerm_ja</th>
                                     <th class="text-center">desc_ja</th>
                                     <th class="text-center">synSort</th>
-                                    <th class="text-center">xPath</th>
+                                    <th class="text-center nowrap">xPath</th>
                                     <th class="text-center">occur</th>
                                 </tr>
                             </thead>
@@ -349,13 +358,20 @@
             <div class="card copylight bg-light" style="border:none 0px;">
                 <div class="bg-light">
                     <p class="text-muted bg-light p-3" style="text-align:center">
-                        検証を目的として三分一技術士事務所<a href="https://www.sambuichi.jp"><i class="fa fa-external-link"
-                                aria-hidden="true"></i></a>が提供しています。このサービスは保証なしで提供されています。
+                        検証を目的として
+                        <a href="https://www.sambuichi.jp">
+                            三分一技術士事務所 <i class="fa fa-external-link" aria-hidden="true"></i>
+                        </a>が提供しています。このサービスは保証なしで提供されています。
+                        <br>
+                        <a href="https://www.wuwei.space/core-japan/">
+                            &bullet; 日本版コアインボイス変換サービス <i class="fa fa-external-link" aria-hidden="true"></i>
+                        </a>
                         <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.ja" rel="license">
                             <img alt="Creative Commons License" style="border-width:0"
                                 src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" data-toggle="tooltip"
                                 data-placement="top" title="表示 - 継承 4.0 国際 (CC BY-SA 4.0)" />
                         </a>
+
                         <a href="https://github.com/pontsoleil/Japan_core/tree/main/data/journal_entry">
                             <img alt="GitHub" style="border-width:0" src="../GitHub_Logo.png" width="80px"
                                 data-toggle="tooltip" data-placement="top" title="MIT License WuWei/core-japan" />

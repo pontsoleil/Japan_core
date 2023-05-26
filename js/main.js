@@ -148,6 +148,7 @@ convert = (function () {
 					let tr = transposed_table.insertRow();
 					for (let col of row) {
 						let td = tr.insertCell();
+						td.classList.add('nowrap');
 						td.innerHTML = col;
 					}
 				}

@@ -46,7 +46,17 @@
 	}
 }
 
+body {
+	min-height: 100vh;
+	margin: 0 auto;
+	font-size: 80%;
+}
+
 td {
+	max-width: 480px;
+	overflow: auto;
+}
+td.nowrap {
 	white-space: nowrap;
 }
 

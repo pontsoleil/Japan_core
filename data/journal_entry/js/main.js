@@ -926,7 +926,7 @@ main = (function () {
                     var td = document.createElement('td');
                     var str =item[j];
                     if (str) {
-                        str = str.replace(/\n/g, "<br>");
+                        str = str.replace(/\\n/g, "<br>");
                         str = str.replace(/EXAMPLE/g, "<br>EXAMPLE");
                         td.innerHTML = str;
                     }                    
@@ -1125,20 +1125,20 @@ main = (function () {
 
         var elementEPSON = document.getElementById("nav_EPSON-R4");
         var elementXBRL = document.getElementById("nav_XBRL-GL");
-        var tableCSV_binding = document.getElementById('CSV-binding');
-        var tableXBRL_binding = document.getElementById('XBRL-GL-binding');
+        var elementCSVBinding = document.getElementById('nav_CSVBinding');
+        var elementSyntaxBinding = document.getElementById('nav_syntaxBinding');
         var sourceSelect = document.querySelector('#source');
         
         if ('hokkaidou-sangyou'==sourceSelect.value) {
             elementEPSON.style.display = 'block';
             elementXBRL.style.display  = 'none';
-            tableCSV_binding.style.display  = 'block';
-            tableXBRL_binding.style.display = 'none';
+            elementCSVBinding.style.display    = 'block';
+            elementSyntaxBinding.style.display = 'none';
         } else if ('xbrl-gl'==sourceSelect.value) {
             elementEPSON.style.display = 'none';
             elementXBRL.style.display  = 'block';
-            tableCSV_binding.style.display  = 'none';
-            tableXBRL_binding.style.display = 'block'
+            elementCSVBinding.style.display    = 'none';
+            elementSyntaxBinding.style.display = 'block'
         }
 
         sourceSelect.addEventListener("change", (event) => {
@@ -1158,15 +1158,6 @@ main = (function () {
                     var selectTBvalue = document.querySelector('#selectTB').value;
                     getTB(selectTBvalue);
                     break;
-                case '#tab_syntaxBinding':
-                    if ('hokkaidou-sangyou'==sourceSelect.value) {
-                        tableCSV_binding.style.display  = 'block';
-                        tableXBRL_binding.style.display = 'none';
-                    } else if ('xbrl-gl'==sourceSelect.value) {
-                        tableCSV_binding.style.display = 'none';
-                        tableXBRL_binding.style.display = 'block'
-                    }
-                    break;
                 case '#tab_tidyData':
                     getTidyData();
                     break;
@@ -1174,7 +1165,17 @@ main = (function () {
                     // 上記のいずれのcaseにも一致しない場合の処理
                     break;
             }
-
+            if ('hokkaidou-sangyou'==sourceSelect.value) {
+                elementEPSON.style.display         = 'block';
+                elementCSVBinding.style.display    = 'block';
+                elementXBRL.style.display          = 'none';
+                elementSyntaxBinding.style.display = 'none';
+            } else if ('xbrl-gl'==sourceSelect.value) {
+                elementEPSON.style.display         = 'none';
+                elementCSVBinding.style.display    = 'none';
+                elementXBRL.style.display          = 'block';
+                elementSyntaxBinding.style.display = 'block'
+            }
         });
 
         // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp

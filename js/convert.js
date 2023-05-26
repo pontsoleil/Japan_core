@@ -285,6 +285,9 @@ convert = (function () {
 			start = 1;
 		}
 		for (var i = start; i < header.length; i++) {
+			if ('csv_table'==tid && 0==i) {
+				continue;
+			}
 			let td = document.createElement('td');
 			td.setAttribute('scope', 'col');
 			td.style = 'text-align: center;';
@@ -321,7 +324,12 @@ convert = (function () {
 					cell.textContent = core_id;
 				} else {
 					// Set the text content of the cell
-					cell.textContent = data[header[i]];
+					var h = header[i];
+					cell.textContent = data[h];
+					h = h.toLowerCase();
+					if (h.indexOf('desc')<0 && h.indexOf('path')<0) {
+						cell.classList.add('nowrap');
+					}
 				}
 				if (column && i > 2) {
 					cell.style = 'text-align: center;';
@@ -917,4 +925,4 @@ convert = (function () {
 		csv2invoice: csv2invoice
 	};
 })();
-// convert.js 2023-04-20
+// convert.js 2023-05-27
