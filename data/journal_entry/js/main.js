@@ -1122,6 +1122,7 @@ main = (function () {
         var elementXBRL = document.getElementById("nav_XBRL-GL");
         var tableCSV_binding = document.getElementById('CSV-binding');
         var tableXBRL_binding = document.getElementById('XBRL-GL-binding');
+        var sourceSelect = document.querySelector('#source');
         
         if ('hokkaidou-sangyou'==sourceSelect.value) {
             elementEPSON.style.display = 'block';
@@ -1135,7 +1136,6 @@ main = (function () {
             tableXBRL_binding.style.display = 'block'
         }
 
-        var sourceSelect = document.querySelector('#source');
         sourceSelect.addEventListener("change", (event) => {
             event.stopPropagation();
             var href = document.querySelector('.nav-link.active').getAttribute('href');
