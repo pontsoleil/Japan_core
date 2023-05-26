@@ -924,9 +924,11 @@ main = (function () {
                 var tr = document.createElement('tr');
                 for (var j = 0; j <= item.length; j++) {
                     var td = document.createElement('td');
-                    td.textContent = item[j]
-                                        .replace(/\n/g, "<br>")
-                                        .replace(/EXAMPLE/g, "<br>EXAMPLE");
+                    var str =item[j];
+                    if (str) {
+                        td.textContent = str.replace(/\n/g, "<br>")
+                                            .replace(/EXAMPLE/g, "<br>EXAMPLE");
+                    }                    
                     tr.appendChild(td);
                 }
                 tableBody.appendChild(tr);
