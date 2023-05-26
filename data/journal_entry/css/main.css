@@ -9,9 +9,9 @@ body {
 }
 
 td {
-    max-width: 100px;
+    max-width: 400px;
     overflow: auto;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 .footer {
