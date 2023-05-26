@@ -926,8 +926,9 @@ main = (function () {
                     var td = document.createElement('td');
                     var str =item[j];
                     if (str) {
-                        td.innerHTML = str.replace(/\n/g, "<br>")
-                                        .replace(/EXAMPLE/g, "<br>EXAMPLE");
+                        str = str.replace(/\n/g, "<br>");
+                        str = str.replace(/EXAMPLE/g, "<br>EXAMPLE");
+                        td.innerHTML = str;
                     }                    
                     tr.appendChild(td);
                 }
