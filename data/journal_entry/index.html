@@ -65,6 +65,9 @@
                 <a id="nav_tidy" class="nav-link" href="#tab_tidyData" data-toggle="tab">標準CSV(xBRL-CSV)</a>
             </li>
             <li class="nav-item">
+                <a id="nav_syntaxBinding" class="nav-link" href="#tab_syntaxBinding" data-toggle="tab">標準CSVバインディング</a>
+            </li>
+            <li class="nav-item">
                 <a id="nav_EPSON-R4" class="nav-link" href="#tab_EPSON-R4" data-toggle="tab">EPSON R4</a>
             </li>
             <li class="nav-item">
@@ -213,6 +216,51 @@
                                     <th class="text-center">税コード説明</th> <!-- 17 GL68-04 27 _ -->
                                     <th class="text-center">事業セグメント</th> <!-- 18 GL61-01 _ 23 -->
                                     <th class="text-center">名称</th> <!-- 19 GL61-03 _ 25 -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- CSVの行が展開される -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab_syntaxBinding">
+                <div style="max-width:100%!important">
+                    <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
+                        <table id="CSV-binding" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">column</th>
+                                    <th class="text-center">name</th>
+                                    <th class="text-center">card</th>
+                                    <th class="text-center">representation</th>
+                                    <th class="text-center">semSort</th>
+                                    <th class="text-center">semPath</th>
+                                    <th class="text-center">fixedValue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- CSVの行が展開される -->
+                            </tbody>
+                        </table>
+                        <table id="XBRL-GL-binding" class="table table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">semSort</th>
+                                    <th class="text-center">id</th>
+                                    <th class="text-center">card</th>
+                                    <th class="text-center">level</th>
+                                    <th class="text-center">businessTerm</th>
+                                    <th class="text-center">desc</th>
+                                    <th class="text-center">defaultValue</th>
+                                    <th class="text-center">dataType</th>
+                                    <th class="text-center">syntaxId</th>
+                                    <th class="text-center">businessTerm_ja</th>
+                                    <th class="text-center">desc_ja</th>
+                                    <th class="text-center">synSort</th>
+                                    <th class="text-center">xPath</th>
+                                    <th class="text-center">occur</th>
                                 </tr>
                             </thead>
                             <tbody>

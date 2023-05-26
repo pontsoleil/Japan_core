@@ -857,6 +857,83 @@ main = (function () {
         xhr.send();
     }
 
+    function getBinding() {
+        snackbar.close()
+        snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>標準CSVバインディング 読み込み中', 'type': 'info' });
+        document.querySelector('#CSV-binding tbody').innerHTML = '';
+        document.querySelector('#XBRL-GL-binding tbody').innerHTML = '';
+        // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+        var xhr1 = new XMLHttpRequest();
+        var url1 = 'data/hokkaidou-sangyou/EPSON-binding.csv'
+        xhr1.open('GET', url1, true);
+        xhr1.onload = function () {
+            // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+            var data = xhr.responseText.split('\n');
+            var items = [];
+            for (var i = 0; i < data.length; i++) {
+                var item = parseCSV(data[i]);
+                items.push(item);
+            }
+            var items_count = items.length;
+            snackbar.close()
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>EPSON R4 欄対応表 ' + items_count + ' 件 読み込み中', 'type': 'info' });
+            // 配列の内容を加工して、HTML要素に追加して表示する
+            var tableBody = document.querySelector('#CSV-binding tbody');
+            tableBody.innerHTML = '';
+            for (var i = 1; i < items.length; i++) {
+                if (0 == i % 500) {
+                    snackbar.close();
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>EPSON R4 欄対応表 ' + i + ' / ' + items_count + ' 件 読み込み中', 'type': 'info' });
+                }
+                var item = items[i];
+                var tr = document.createElement('tr');
+                for (var j = 0; j <= item.length; j++) {
+                    var td = document.createElement('td');
+                    td.textContent = item[j];
+                    tr.appendChild(td);
+                }
+                tableBody.appendChild(tr);
+            }
+            snackbar.close();
+        };
+        xhr1.send();
+        // XMLHttpRequestオブジェクトを使用して、CSVファイルを取得する
+        var xhr2 = new XMLHttpRequest();
+        var url2 = 'data/base/XBRL-GL-binding.csv'
+        xhr2.open('GET', url2, true);
+        xhr2.onload = function () {
+            // 取得したCSVデータをパースして、JavaScriptの配列に変換する
+            var data = xhr.responseText.split('\n');
+            var items = [];
+            for (var i = 0; i < data.length; i++) {
+                var item = parseCSV(data[i]);
+                items.push(item);
+            }
+            var items_count = items.length;
+            snackbar.close()
+            snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>XBRL GL 構文バインディング ' + items_count + ' 件 読み込み中', 'type': 'info' });
+            // 配列の内容を加工して、HTML要素に追加して表示する
+            var tableBody = document.querySelector('#XBRL-GL-binding tbody');
+            tableBody.innerHTML = '';
+            for (var i = 1; i < items.length; i++) {
+                if (0 == i % 500) {
+                    snackbar.close();
+                    snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>XBRL GL 構文バインディング ' + i + ' / ' + items_count + ' 件 読み込み中', 'type': 'info' });
+                }
+                var item = items[i];
+                var tr = document.createElement('tr');
+                for (var j = 0; j <= item.length; j++) {
+                    var td = document.createElement('td');
+                    td.textContent = item[j];
+                    tr.appendChild(td);
+                }
+                tableBody.appendChild(tr);
+            }
+            snackbar.close();
+        };
+        xhr2.send();
+    }
+
     function getEPSON() {
         snackbar.close()
         snackbar.open({ 'message': '<i class="fa fa-cog fa-spin"></i>EPSON R4 読み込み中', 'type': 'info' });
@@ -1035,6 +1112,7 @@ main = (function () {
         getTidyData();
         getGLlist();
         getTBlist();
+        getBinding()
         var selectGLvalue = document.querySelector('#selectGL').value;
         var selectTBvalue = document.querySelector('#selectTB').value;
         getGL(selectGLvalue)
