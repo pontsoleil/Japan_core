@@ -59,6 +59,9 @@ td {
 td.nowrap {
 	white-space: nowrap;
 }
+td.long-text {
+	min-width: 360px;
+}
 
 .footer {
 	position: fixed;

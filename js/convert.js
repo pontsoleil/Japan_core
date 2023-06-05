@@ -291,6 +291,7 @@ convert = (function () {
 			let td = document.createElement('td');
 			td.setAttribute('scope', 'col');
 			td.style = 'text-align: center;';
+			td.classList.add('nowrap');
 			td.textContent = header[i];
 			tr.appendChild(td);
 		}
@@ -325,10 +326,27 @@ convert = (function () {
 				} else {
 					// Set the text content of the cell
 					var h = header[i];
-					cell.textContent = data[h];
 					h = h.toLowerCase();
+					var str = data[h];
+					if (str) {
+							str = str.replace(/\\n/g, "<br>");
+							str = str.replace(/EXAMPLE/g, "<br>EXAMPLE");
+							cell.innerHTML = str;
+					}  
 					if (h.indexOf('desc')<0 && h.indexOf('path')<0) {
+						cell.textContent = str;
 						cell.classList.add('nowrap');
+					} else {
+						if (str) {
+							if (h.indexOf('desc')>=0) {
+								str = str.replace(/\\n/g, "<br>");
+								str = str.replace(/EXAMPLE/g, "<br>EXAMPLE");
+								cell.innerHTML = str;								
+							} else {
+								cell.textContent = str;
+							}
+						}
+						cell.classList.add('long-text');
 					}
 				}
 				if (column && i > 2) {

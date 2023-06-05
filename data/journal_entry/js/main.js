@@ -1228,6 +1228,26 @@ main = (function () {
                     var tabContent = document.getElementById(tabContentId);
                     if (tabContent) {
                         tabContent.classList.add('active', 'show');
+                        if ('tab_GL'==tabParam) {
+                            let sourceSelect = document.querySelector('#source');
+                            var source = sourceSelect.value;
+                            getGLlist();
+                            if ('xbrl-gl' == source) {
+                                getGL('111現金.csv');
+                            } else if ('hokkaidou-sangyou' == source) {
+                                getGL('100現金.csv')
+                            }
+                        }
+                        else if ('tab_TB'==tabParam) {
+                            let sourceSelect = document.querySelector('#source');
+                            var source = sourceSelect.value;
+                            getTBlist();
+                            if ('xbrl-gl' == source) {
+                                getTB('2009-04');
+                            } else if ('hokkaidou-sangyou' == source) {
+                                getTB('2022-07');
+                            }
+                        }
                     }
                 }
             }

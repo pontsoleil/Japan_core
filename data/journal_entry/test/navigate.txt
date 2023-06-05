@@ -1,0 +1,14 @@
+会計ソフトから出力された次のCSVデータが読めますか
+https://www.wuwei.space/core-japan/journal_entry/index.html?tab=tab_EPSON-R4
+
+https://www.wuwei.space/core-japan/journal_entry/index.html?tab=tab_CSVBinding
+
+https://www.wuwei.space/core-japan/journal_entry/index.html?tab=tab_tidyData
+
+https://www.wuwei.space/core-japan/journal_entry/index.html?tab=tab_horizontal
+https://www.wuwei.space/core-japan/journal_entry/index.html?tab=tab_GL
+https://www.wuwei.space/core-japan/journal_entry/index.html?tab=tab_TB
+
+
+https://www.wuwei.space/core-japan/journal_entry/index.html?tab=tab_syntaxBinding
+https://www.wuwei.space/core-japan/journal_entry/index.html?tab=tab_XBRL-GL
