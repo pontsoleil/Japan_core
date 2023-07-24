@@ -1,0 +1,15 @@
+metadata:
+  title:
+    en: Tax exemption reason code list
+  identifier: TaxEx
+  agency: CEF
+  language: en
+  version:
+    identifier: 2022
+    status: published
+content:
+- id: NA
+  name:
+    en: None
+  description:
+    en: None

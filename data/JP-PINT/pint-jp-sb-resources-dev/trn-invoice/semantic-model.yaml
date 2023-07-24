@@ -1,0 +1,1738 @@
+content:
+- id: IBT-001
+  name: Invoice number
+  definition: A unique identification of the Invoice.
+  section: Shared
+  cardinality: 1..1
+  value:
+    datatype: Identifier
+- id: IBT-002
+  name: Invoice issue date
+  definition: The date when the Invoice was issued.
+  section: Shared
+  cardinality: 1..1
+  value:
+    datatype: Date
+- id: IBT-168
+  name: Invoice issue time
+  definition: The time of day when an invoice was issued
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Time
+- id: IBT-003
+  name: Invoice type code
+  definition: A code specifying the functional type of the Invoice.
+  section: Shared
+  cardinality: 1..1
+  value:
+    datatype: Code
+- id: IBT-005
+  name: Invoice currency code
+  definition: The currency in which all Invoice amounts are given, except for the Total TAX amount in accounting currency.
+  section: Shared
+  cardinality: 1..1
+  value:
+    datatype: Code
+- id: IBT-006
+  name: Tax accounting currency
+  definition: The currency used for TAX accounting and reporting purposes as accepted or required in the country of the Seller.
+  section: Aligned
+  cardinality: 0..1
+  value:
+    datatype: Code
+- id: IBT-007
+  name: TAX point date
+  definition: The date when the TAX becomes accountable for the Seller and for the Buyer in so far as that date can be determined and differs from the date of issue of the invoice, according to the TAX directive.
+  section: Aligned
+  cardinality: 0..1
+  value:
+    datatype: Date
+- codelist:
+  example:
+  id: IBT-008
+  name: TAX point date code
+  definition: The code of the date when the VAT becomes accountable for the Seller and for the Buyer.
+  section: Aligned
+  cardinality: 0..1
+  value:
+    datatype: Code
+- id: IBT-009
+  name: Payment due date
+  definition: The date when the payment is due.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Date
+- id: IBT-010
+  name: Buyer reference
+  definition: An identifier assigned by the Buyer used for internal routing purposes.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Text
+- id: IBT-011
+  name: Project reference
+  definition: The identification of the project the invoice refers to
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Document Reference
+- id: IBT-012
+  name: Contract reference
+  definition: The identification of a contract.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Document Reference
+- id: IBT-013
+  name: Purchase order reference
+  definition: An identifier of a referenced purchase order, issued by the Buyer.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Document Reference
+- id: IBT-014
+  name: Sales order reference
+  definition: An identifier of a referenced sales order issued by the Seller.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Document Reference
+- id: IBT-015
+  name: Receiving advice reference
+  definition: An identifier of a referenced receiving advice.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Document Reference
+- codelist:
+  example:
+  id: IBT-016
+  name: Despatch advice reference
+  definition: An identifier of a referenced despatch advice.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Document Reference
+- id: IBT-017
+  name: Tender or lot reference
+  definition: The identification of the call for tender or lot the invoice relates to.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Document Reference
+- id: IBT-018
+  name: Invoiced object identifier
+  definition: An identifier for an object on which the invoice is based, given by the Seller.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Identifier
+- id: IBT-018-1
+  name: The identification scheme identifier of the Invoiced object identifier.
+  definition: If it may be not clear for the receiver what scheme is used for the identifier, a conditional scheme identifier should be used that shall be chosen from the UNTDID 1153 code list [6] entries.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Code
+- id: IBT-019
+  name: Buyer accounting reference
+  definition: A textual value that specifies where to book the relevant data into the Buyer's financial accounts.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Text
+- id: IBG-33
+  name: INVOICE TERMS
+  definition: Information about the terms that apply to the settlement of the invoice amount.
+  section: Aligned
+  cardinality: 0..n
+  children:
+  - id: IBT-187
+    name: Terms payment instructions ID
+    definition: The payment instructions that apply to these payment terms.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+  - id: IBT-020
+    name: Payment terms
+    definition: A textual description of the payment terms that apply to the amount due for payment (Including description of possible penalties).
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-176
+    name: Terms amount
+    definition: The payment amount that these terms apply to. When relevant, the amount includes tax.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Amount
+  - id: IBT-177
+    name: Terms installment due date
+    definition: The date before end of which the terms amount shall be settled.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Date
+- id: IBT-022
+  name: Invoice note
+  definition: A textual note that gives unstructured information that is relevant to the Invoice as a whole.
+  section: Shared
+  cardinality: 0..1
+  value:
+    datatype: Text
+- id: IBG-02
+  name: PROCESS CONTROL
+  definition: A group of business terms providing information on the business process and rules applicable to the Invoice document.
+  section: Shared
+  cardinality: 1..1
+  children:
+  - id: IBT-023
+    name: Business process type
+    definition: Identifies the business process context in which the transaction appears, to enable the Buyer to process the Invoice in an appropriate way.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Text
+  - id: IBT-024
+    name: Specification identifier
+    definition: An identification of the specification containing the total set of rules regarding semantic content, cardinalities and business rules to which the data contained in the instance document conforms.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Identifier
+- id: IBG-03
+  name: PRECEDING INVOICE REFERENCE
+  definition: A group of business terms providing information on one or more preceding Invoices.
+  section: Shared
+  cardinality: 0..n
+  children:
+  - id: IBT-025
+    name: Preceding Invoice reference
+    definition: The identification of an Invoice that was previously sent by the Seller.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Document Reference
+  - id: IBT-026
+    name: Preceding Invoice issue date
+    definition: The date when the Preceding Invoice was issued.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Date
+- id: IBG-04
+  name: SELLER
+  definition: A group of business terms providing information about the Seller.
+  section: Shared
+  cardinality: 1..1
+  children:
+  - id: IBT-027
+    name: Seller name
+    definition: The full formal name by which the Seller is registered in the national registry of legal entities or as a Taxable person or otherwise trades as a person or persons.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Text
+  - id: IBT-028
+    name: Seller trading name
+    definition: A name by which the Seller is known, other than Seller name (also known as Business name).
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-029
+    name: Seller identifier
+    definition: An identification of the Seller.
+    section: Shared
+    cardinality: 0..n
+    value:
+      datatype: Identifier
+    children:
+    - id: IBT-029-1
+      name: Scheme identifier
+      definition: If used, the identification scheme identifier shall be chosen from the entries of the list published by the ISO/IEC 6523 maintenance agency.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBT-030
+    name: Seller legal registration identifier
+    definition: An identifier issued by an official registrar that identifies the Seller as a legal entity or person.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+    children:
+    - id: IBT-030-1
+      name: Scheme identifier
+      definition: If used, the identification scheme shall be chosen from the entries of the list published by the ISO/IEC 6523 maintenance agency.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBT-031
+    name: Seller TAX identifier
+    definition: The Seller's TAX identifier (also known as Seller TAX identification number).
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+  - id: IBT-032
+    name: Seller TAX registration identifier
+    definition: The local identification (defined by the Seller’s address) of the Seller for tax purposes or a reference that enables the Seller to state his registered tax status.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+  - id: IBT-033
+    name: Seller additional legal information
+    definition: Additional legal information relevant for the Seller.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-034
+    name: Seller electronic address
+    definition: Identifies the Seller's electronic address to which the application level response to the invoice may be delivered.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Identifier
+    children:
+    - id: IBT-034-1
+      name: Scheme identifier
+      definition: The scheme identifier shall be chosen from a list to be maintained by the Connecting Europe Facility.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Code
+  - id: IBG-05
+    name: SELLER POSTAL ADDRESS
+    definition: A group of business terms providing information about the address of the Seller.
+    section: Shared
+    cardinality: 1..1
+    children:
+    - id: IBT-035
+      name: Seller address line 1
+      definition: The main address line in an address.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-036
+      name: Seller address line 2
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-162
+      name: Seller address line 3
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-037
+      name: Seller city
+      definition: The common name of the city, town or village, where the Seller address is located.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-038
+      name: Seller post code
+      definition: The identifier for an addressable group of properties according to the relevant postal service.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-039
+      name: Seller country subdivision
+      definition: The subdivision of a country. Such as a region, a county, a state, a province etc..
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-040
+      name: Seller country code
+      definition: A code that identifies the country.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Code
+  - id: IBG-06
+    name: SELLER CONTACT
+    definition: A group of business terms providing contact information about the Seller.
+    section: Shared
+    cardinality: 0..1
+    children:
+    - id: IBT-041
+      name: Seller contact point
+      definition: A contact point for a legal entity or person.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-042
+      name: Seller contact telephone number
+      definition: A phone number for the contact point.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-043
+      name: Seller contact email address
+      definition: An e-mail address for the contact point.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+- id: IBG-07
+  name: BUYER
+  definition: A group of business terms providing information about the Buyer.
+  section: Shared
+  cardinality: 1..1
+  children:
+  - id: IBT-044
+    name: Buyer name
+    definition: The full name of the Buyer.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Text
+  - id: IBT-045
+    name: Buyer trading name
+    definition: A name by which the Buyer is known, other than Buyer name (also known as Business name).
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-046
+    name: Buyer identifier
+    definition: An identifier of the Buyer.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+    children:
+    - id: IBT-046-1
+      name: Scheme identifier
+      definition: If used, the identification scheme shall be chosen from the entries of the list published by the ISO/IEC 6523 maintenance agency.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBT-047
+    name: Buyer legal registration identifier
+    definition: An identifier issued by an official registrar that identifies the Buyer as a legal entity or person.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+    children:
+    - id: IBT-047-1
+      name: Scheme identifier
+      definition: If used, the identification scheme shall be chosen from the entries of the list published by the ISO/IEC 6523 maintenance agency.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBT-048
+    name: Buyer TAX identifier
+    definition: The Buyer's TAX identifier (also known as Buyer TAX identification number).
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+  - id: IBT-049
+    name: Buyer electronic address
+    definition: Identifies the Buyer's electronic address to which the invoice is delivered.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Identifier
+    children:
+    - id: IBT-049-1
+      name: Scheme identifier
+      definition: The scheme identifier shall be chosen from a list to be maintained by the Connecting Europe Facility.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Code
+  - id: IBG-08
+    name: BUYER POSTAL ADDRESS
+    definition: A group of business terms providing information about the postal address for the Buyer.
+    section: Shared
+    cardinality: 1..1
+    children:
+    - id: IBT-050
+      name: Buyer address line 1
+      definition: The main address line in an address.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-051
+      name: Buyer address line 2
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-163
+      name: Buyer address line 3
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-052
+      name: Buyer city
+      definition: The common name of the city, town or village, where the Buyer's address is located.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-053
+      name: Buyer post code
+      definition: The identifier for an addressable group of properties according to the relevant postal service.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-054
+      name: Buyer country subdivision
+      definition: The subdivision of a country. Such as a region, a county, a state, a province etc..
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-055
+      name: Buyer country code
+      definition: A code that identifies the country.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Code
+  - id: IBG-09
+    name: BUYER CONTACT
+    definition: A group of business terms providing contact information relevant for the Buyer.
+    section: Shared
+    cardinality: 0..1
+    children:
+    - id: IBT-056
+      name: Buyer contact point
+      definition: A contact point for a legal entity or person.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-057
+      name: Buyer contact telephone number
+      definition: A phone number for the contact point.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-058
+      name: Buyer contact email address
+      definition: An e-mail address for the contact point.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+- id: IBG-10
+  name: PAYEE
+  definition: A group of business terms providing information about the Payee, i.e. the role that receives the payment.
+  section: Shared
+  cardinality: 0..1
+  children:
+  - id: IBT-059
+    name: Payee name
+    definition: The name of the Payee.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Text
+  - id: IBT-060
+    name: Payee identifier
+    definition: An identifier for the Payee.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+  - id: IBT-060-1
+    name: Scheme identifier
+    definition: If used, the identification scheme shall be chosen from the entries of the list published by the ISO/IEC 6523 maintenance agency.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Code
+  - id: IBT-061
+    name: Payee legal registration identifier
+    definition: An identifier issued by an official registrar that identifies the Payee as a legal entity or person.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+    children:
+    - id: IBT-061-1
+      name: Scheme identifier
+      definition: If used, the identification scheme shall be chosen from the entries of the list published by the ISO/IEC 6523 maintenance agency.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+- id: IBG-11
+  name: SELLER TAX REPRESENTATIVE PARTY
+  definition: A group of business terms providing information about the Seller's tax representative.
+  section: Aligned
+  cardinality: 0..1
+  children:
+  - id: IBT-062
+    name: Seller tax representative name
+    definition: The full name of the Seller's tax representative party.
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Text
+  - id: IBT-063
+    name: Seller tax representative TAX identifier
+    definition: The TAX identifier of the Seller's tax representative party.
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Identifier
+  - id: IBG-12
+    name: SELLER TAX REPRESENTATIVE POSTAL ADDRESS
+    definition: A group of business terms providing information about the postal address for the tax representative party.
+    section: Aligned
+    cardinality: 1..1
+    children:
+    - id: IBT-064
+      name: Tax representative address line 1
+      definition: The main address line in an address.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-065
+      name: Tax representative address line 2
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-164
+      name: Tax representative address line 3
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-066
+      name: Tax representative city
+      definition: The common name of the city, town or village, where the tax representative address is located.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-067
+      name: Tax representative post code
+      definition: The identifier for an addressable group of properties according to the relevant postal service.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-068
+      name: Tax representative country subdivision
+      definition: The subdivision of a country.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-069
+      name: Tax representative country code
+      definition: A code that identifies the country.
+      section: Aligned
+      cardinality: 1..1
+      value:
+        datatype: Code
+- id: IBG-13
+  name: DELIVERY INFORMATION
+  definition: A group of business terms providing information about where and when the goods and services invoiced are delivered.
+  section: Shared
+  cardinality: 0..1
+  children:
+  - id: IBT-070
+    name: Deliver to party name
+    definition: The name of the party to which the goods and services are delivered.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-071
+    name: Deliver to location identifier
+    definition: An identifier for the location at which the goods and services are delivered.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+  - id: IBT-071-1
+    name: Scheme identifier
+    definition: The identification scheme identifier of the Deliver to location identifier. If used, the identification scheme shall be chosen from the entries of the list published by the ISO/IEC 6523 maintenance agency.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Code
+  - id: IBT-072
+    name: Actual delivery date
+    definition: the date on which the supply of goods or services was made or completed.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Date
+  - id: IBG-14
+    name: INVOICING PERIOD
+    definition: A group of business terms providing information on the invoice period.
+    section: Shared
+    cardinality: 0..1
+    children:
+    - id: IBT-073
+      name: Invoicing period start date
+      definition: The date when the Invoice period starts.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Date
+    - id: IBT-074
+      name: Invoicing period end date
+      definition: The date when the Invoice period ends.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Date
+  - id: IBG-15
+    name: DELIVER TO ADDRESS
+    definition: A group of business terms providing information about the address to which goods and services invoiced were or are delivered.
+    section: Shared
+    cardinality: 0..1
+    children:
+    - id: IBT-075
+      name: Deliver to address line 1
+      definition: The main address line in an address.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-076
+      name: Deliver to address line 2
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-165
+      name: Deliver to address line 3
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-077
+      name: Deliver to city
+      definition: The common name of the city, town or village, where the deliver to address is located.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-078
+      name: Deliver to post code
+      definition: The identifier for an addressable group of properties according to the relevant postal service.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-079
+      name: Deliver to country subdivision
+      definition: The subdivision of a country. Such as a region, a county, a state, a province etc..
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-080
+      name: Deliver to country code
+      definition: A code that identifies the country.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Code
+- id: IBG-16
+  name: PAYMENT INSTRUCTIONS
+  definition: A group of business terms providing information about the payment.
+  section: Aligned
+  cardinality: 0..n
+  children:
+  - id: IBT-178
+    name: Payment Instructions ID
+    definition: An identifier for the payment instructions.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+  - id: IBT-081
+    name: Payment means type code
+    definition: The means, expressed as code, for how a payment is expected to be or has been settled.
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Code
+  - id: IBT-082
+    name: Payment means text
+    definition: A textual description of the means/methods by which the payment is expected to be or has been settled.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-083
+    name: Remittance information
+    definition: A textual value used for payment routing or to establish a link between the payment and the Invoice.
+    section: Aligned
+    cardinality: 0..n
+    value:
+      datatype: Text
+    children:
+    - id: IBT-083-1
+      name: Scheme identifier
+      definition: The identification of the identification scheme. As example ABA
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBG-17
+    name: CREDIT TRANSFER
+    definition: A group of business terms to specify credit transfer payments.
+    section: Aligned
+    cardinality: 0..1
+    children:
+    - id: IBT-084
+      name: Payment account identifier
+      definition: A unique identifier of the financial payment account, at a payment service provider, to which payment should be made.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Identifier
+    - id: IBT-084-1
+      name: Scheme identifier
+      definition: The identification of the identification scheme. As example IBAN
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Code
+    - id: IBT-085
+      name: Payment account name
+      definition: The name of the payment account, at a payment service provider, to which payment should be made.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-086
+      name: Payment service provider identifier
+      definition: An identifier for the payment service provider where a payment account is located.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Identifier
+  - id: IBG-34
+    name: FINANCIAL INSTITUTION ADDRESS
+    definition: The address of the financial institution or its branch that holds the payment account.
+    cardinality: 0..1
+    children:
+    - id: IBT-169
+      name: Account address line 1
+      definition: The main address line in an address.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-170
+      name: Account address line 2
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-171
+      name: Account city
+      definition: The common name of the city, town or village, where the account address is located.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-172
+      name: Account post code
+      definition: The identifier for an addressable group of properties according to the relevant postal service.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-173
+      name: Account country subdivision
+      definition: The subdivision of a country. Such as a region, a county, a state, a province etc..
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-174
+      name: Account address line 3
+      definition: An additional address line in an address that can be used to give further details supplementing the main line.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-175
+      name: Account country code
+      definition: A code that identifies the country.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBG-18
+    name: PAYMENT CARD INFORMATION
+    definition: A group of business terms providing information about card used for payment contemporaneous with invoice issuance.
+    section: Shared
+    cardinality: 0..1
+    children:
+    - id: IBT-087
+      name: Payment card primary account number
+      definition: The Primary Account Number (PAN) of the card used for payment.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Text
+    - id: IBT-088
+      name: Payment card holder name
+      definition: The name of the payment card holder.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+  - id: IBG-19
+    name: DIRECT DEBIT
+    definition: A group of business terms to specify a direct debit.
+    section: Aligned
+    cardinality: 0..1
+    children:
+    - id: IBT-089
+      name: Mandate reference identifier
+      definition: Unique identifier assigned by the Payee for referencing the direct debit mandate.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Identifier
+    - id: IBT-090
+      name: Bank assigned creditor identifier
+      definition: Unique banking reference identifier of the Payee or Seller assigned by the Payee or Seller bank.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Identifier
+    - id: IBT-091
+      name: Debited account identifier
+      definition: The account to be debited by the direct debit.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Identifier
+- id: IBG-35
+  name: Paid amounts
+  definition: Breakdown of the paid amount deducted from the amount due.
+  section: Aligned
+  cardinality: 0..n
+  children:
+  - id: IBT-179
+    name: Payment identifier
+    definition: An identifier that references the payment, such as bank transfer identifier.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+  - id: IBT-180
+    name: Paid amount
+    definition: The amount of the payment in the invoice currency.
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-181
+    name: The date when the paid amount is debited to the invoice.
+    definition: The date when the prepaid amount was received by the seller.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Date
+  - id: IBT-182
+    name: Payment type
+    definition: The type of the the payment.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Code
+- id: IBG-20
+  name: DOCUMENT LEVEL ALLOWANCES
+  definition: A group of business terms providing information about allowances applicable to the Invoice as a whole.
+  section: Shared
+  cardinality: 0..n
+  children:
+  - id: IBT-092
+    name: Document level allowance amount
+    definition: The amount of an allowance, without TAX.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-093
+    name: Document level allowance base amount
+    definition: The base amount that may be used, in conjunction with the document level allowance percentage, to calculate the document level allowance amount.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Amount
+  - id: IBT-094
+    name: Document level allowance percentage
+    definition: The percentage that may be used, in conjunction with the document level allowance base amount, to calculate the document level allowance amount.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Percentage
+  - id: IBT-097
+    name: Document level allowance reason
+    definition: The reason for the document level allowance, expressed as text.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-098
+    name: Document level allowance reason code
+    definition: The reason for the document level allowance, expressed as a code.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Code
+  - id: IBT-095
+    name: Document level allowance TAX category code
+    definition: A coded identification of what TAX category applies to the document level allowance.
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Code
+    children:
+    - id: IBT-095-1
+      name: Tax Scheme
+      definition: A code indicating the type of tax
+      section: Aligned
+      cardinality: 1..1
+      value:
+        datatype: Code
+  - id: IBT-096
+    name: Document level allowance TAX rate
+    definition: The TAX rate, represented as percentage that applies to the document level allowance.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Percentage
+  - id: IBT-196
+    name: Document level allowance TAX exemption reason code
+    definition: A coded statement of the reason for why the document level allowance amount is exempted from TAX.
+    section: Aligned
+    cardinality: 0..0
+    value:
+      datatype: Text
+  - id: IBT-197
+    name: Document level allowance TAX exemption reason text
+    definition: A textual statement of the reason why the document level allowance amount is exempted from TAX or why no TAX is being charged.
+    section: Aligned
+    cardinality: 0..0
+    value:
+      datatype: Code
+- id: IBG-21
+  name: DOCUMENT LEVEL CHARGES
+  definition: A group of business terms providing information about charges and taxes other than TAX, applicable to the Invoice as a whole.
+  section: Shared
+  cardinality: 0..n
+  children:
+  - id: IBT-099
+    name: Document level charge amount
+    definition: The amount of a charge, without TAX.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-100
+    name: Document level charge base amount
+    definition: The base amount that may be used, in conjunction with the document level charge percentage, to calculate the document level charge amount.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Amount
+  - id: IBT-101
+    name: Document level charge percentage
+    definition: The percentage that may be used, in conjunction with the document level charge base amount, to calculate the document level charge amount.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Percentage
+  - id: IBT-104
+    name: Document level charge reason
+    definition: The reason for the document level charge, expressed as text.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-105
+    name: Document level charge reason code
+    definition: The reason for the document level charge, expressed as a code.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Code
+  - id: IBT-102
+    name: Document level charge TAX category code
+    definition: A coded identification of what TAX category applies to the document level charge.
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Code
+    children:
+    - id: IBT-102-1
+      name: Tax Scheme
+      definition: A code indicating the type of tax
+      section: Aligned
+      cardinality: 1..1
+      value:
+        datatype: Code
+  - id: IBT-103
+    name: Document level charge TAX rate
+    definition: The TAX rate, represented as percentage that applies to the document level charge.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Percentage
+  - id: IBT-198
+    name: Document level charge TAX exemption reason code
+    definition: A coded statement of the reason for why the document level charge amount is exempted from TAX.
+    section: Aligned
+    cardinality: 0..0
+    value:
+      datatype: Text
+  - id: IBT-199
+    name: Document level charge TAX exemption reason text
+    definition: A textual statement of the reason why the document level charge amount is exempted from TAX or why no TAX is being charged
+    section: Aligned
+    cardinality: 0..0
+    value:
+      datatype: Code
+- id: IBG-22
+  name: DOCUMENT TOTALS
+  definition: A group of business terms providing the monetary totals for the Invoice.
+  section: Shared
+  cardinality: 1..1
+  children:
+  - id: IBT-106
+    name: Sum of Invoice line net amount
+    definition: Sum of all Invoice line net amounts in the Invoice.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-107
+    name: Sum of allowances on document level
+    definition: Sum of all allowances on document level in the Invoice.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Amount
+  - id: IBT-108
+    name: Sum of charges on document level
+    definition: Sum of all charges on document level in the Invoice.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Amount
+  - id: IBT-109
+    name: Invoice total amount without TAX
+    definition: The total amount of the Invoice without TAX.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-110
+    name: Invoice total TAX amount
+    definition: The total TAX amount for the Invoice.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-112
+    name: Invoice total amount with TAX
+    definition: The total amount of the Invoice with tax.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-113
+    name: Paid amount
+    definition: The sum of amounts which have been paid in advance.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Amount
+  - id: IBT-114
+    name: Rounding amount
+    definition: The amount to be added to the invoice total to round the amount to be paid.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Amount
+  - id: IBT-115
+    name: Amount due for payment
+    definition: The outstanding amount that is requested to be paid.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Amount
+- id: IBG-37
+  name: DOCUMENT TOTALS IN TAX ACCOUNTING CURRENCY
+  definition: A group of business terms providing the monetary totals for the Invoice in the tax accounting currency.
+  section: Aligned
+  cardinality: 0..1
+  children:
+  - id: IBT-111
+    name: Invoice total TAX amount in tax accounting currency
+    definition: The TAX total amount expressed in the accounting currency accepted or required in the country of the Seller.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Amount
+  - id: IBG-38
+    name: TAX BREAKDOWN IN ACCOUNTING CURRENCY
+    definition: A group of business terms providing information about TAX breakdown by different categories, rates and exemption reasons in the invoice accounting currency.
+    section: Aligned
+    cardinality: 1..n
+    children:
+    - id: IBT-190
+      name: TAX category tax amount in accounting currency
+      definition: The total TAX amount for a given TAX category in the invoice accounting currency.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Amount
+    - Cardinality: 1..1
+      id: IBT-192
+      name: TAX category code for tax category tax amount in accounting currency
+      definition: Coded identification of a TAX category in the invoice accounting currency.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Code
+    - id: IBT-193
+      name: TAX category rate for tax category tax amount in accounting currency
+      definition: The TAX rate, represented as percentage that applies for the relevant TAX category in the invoice accounting currency.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Percentage
+- id: IBG-23
+  name: TAX BREAKDOWN
+  definition: A group of business terms providing information about TAX breakdown by different categories, rates and exemption reasons
+  section: Aligned
+  cardinality: 1..n
+  children:
+  - id: IBT-116
+    name: TAX category taxable amount
+    definition: Sum of all taxable amounts subject to a specific TAX category code and TAX category rate (if the TAX category rate is applicable).
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-117
+    name: TAX category tax amount
+    definition: The total TAX amount for a given TAX category.
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-118
+    name: TAX category code
+    definition: Coded identification of a TAX category.
+    section: Aligned
+    cardinality: 1..1
+    value:
+      datatype: Code
+  - id: IBT-119
+    name: TAX category rate
+    definition: The TAX rate, represented as percentage that applies for the relevant TAX category.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Percentage
+  - id: IBT-120
+    name: TAX exemption reason text
+    definition: A textual statement of the reason why the amount is exempted from TAX or why no TAX is being charged
+    section: Aligned
+    cardinality: 0..0
+    value:
+      datatype: Text
+  - id: IBT-121
+    name: TAX exemption reason code
+    definition: A coded statement of the reason for why the amount is exempted from TAX.
+    section: Aligned
+    cardinality: 0..0
+    value:
+      datatype: Code
+- id: IBG-24
+  name: ADDITIONAL SUPPORTING DOCUMENTS
+  definition: A group of business terms providing information about additional supporting documents substantiating the claims made in the Invoice.
+  section: Shared
+  cardinality: 0..n
+  children:
+  - id: IBT-122
+    name: Supporting document reference
+    definition: An identifier of the supporting document.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Document Reference
+  - id: IBT-123
+    name: Supporting document description
+    definition: A description of the supporting document.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-124
+    name: External document location
+    definition: The URL (Uniform Resource Locator) that identifies where the external document is located.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBT-125
+    name: Attached document
+    definition: An attached document embedded as binary object or sent together with the invoice.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Binary object
+    children:
+    - id: IBT-125-1
+      name: Attached document Mime code
+      definition: A code indentifying the file type.
+      section: Aligned
+      cardinality: 1..1
+      value:
+        datatype: Code
+    - id: IBT-125-2
+      name: Attached document Filename
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Text
+- id: IBG-25
+  name: INVOICE LINE
+  definition: A group of business terms providing information on individual Invoice lines.
+  section: Shared
+  cardinality: 1..n
+  children:
+  - id: IBT-126
+    name: Invoice line identifier
+    definition: A unique identifier for the individual line within the Invoice.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Identifier
+  - id: IBT-127
+    name: Invoice line note
+    definition: A textual note that gives unstructured information that is relevant to the Invoice line.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBG-36
+    name: LINE DOCUMENT REFERENCE
+    definition: An identifier for an object on which the invoice line is based, given by the Seller.
+    section: Aligned
+    cardinality: 0..1
+    children:
+    - id: IBT-188
+      name: Invoice line document identifier
+      definition: An identifiers for a document that the invoice line referes to.
+      section: Aligned
+      cardinality: 1..1
+      value:
+        datatype: Identifier
+    - id: IBT-189
+      name: Document type code
+      definition: A code that qualifies the type of the document that is referenced.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBT-128
+    name: Invoice line object identifier
+    definition: An identifier for an object on which the invoice line is based, given by the Seller.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Identifier
+    children:
+    - id: IBT-128-1
+      name: Scheme identifier
+      definition: If it may be not clear for the receiver what scheme is used for the identifier.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBT-129
+    name: Invoiced quantity
+    definition: The quantity of items (goods or services) that is charged in the Invoice line.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Quantity
+  - id: IBT-130
+    name: Invoiced quantity unit of measure code
+    definition: The unit of measure that applies to the invoiced quantity.
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Code
+  - id: IBT-131
+    name: Invoice line net amount
+    definition: The total amount of the Invoice line (before tax).
+    section: Shared
+    cardinality: 1..1
+    value:
+      datatype: Amount
+  - id: IBT-183
+    name: Purchase order reference
+    definition: An identifier for a referenced purchase order, issued by the Buyer.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Document Reference
+  - id: IBT-132
+    name: Referenced purchase order line reference
+    definition: An identifier for a referenced line within a purchase order, issued by the Buyer.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Document Reference
+  - id: IBT-184
+    name: Despatch advice reference
+    definition: An identifier for a referenced despatch advice.
+    section: Aligned
+    cardinality: 0..1
+    value:
+      datatype: Document Reference
+  - id: IBT-133
+    name: Invoice line Buyer accounting reference
+    definition: A textual value that specifies where to book the relevant data into the Buyer's financial accounts.
+    section: Shared
+    cardinality: 0..1
+    value:
+      datatype: Text
+  - id: IBG-26
+    name: INVOICE LINE PERIOD
+    definition: A group of business terms providing information about the period relevant for the Invoice line.
+    section: Shared
+    cardinality: 0..1
+    children:
+    - id: IBT-134
+      name: Invoice line period start date
+      definition: The date when the Invoice period for this Invoice line starts.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Date
+    - id: IBT-135
+      name: Invoice line period end date
+      definition: The date when the Invoice period for this Invoice line ends.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Date
+  - id: IBG-27
+    name: INVOICE LINE ALLOWANCES
+    definition: A group of business terms providing information about allowances applicable to the individual Invoice line.
+    section: Shared
+    cardinality: 0..n
+    children:
+    - id: IBT-136
+      name: Invoice line allowance amount
+      definition: The amount of an allowance, without TAX.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Amount
+    - id: IBT-137
+      name: Invoice line allowance base amount
+      definition: The base amount that may be used, in conjunction with the Invoice line allowance percentage, to calculate the Invoice line allowance amount.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Amount
+    - id: IBT-138
+      name: Invoice line allowance percentage
+      definition: The percentage that may be used, in conjunction with the Invoice line allowance base amount, to calculate the Invoice line allowance amount.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Percentage
+    - id: IBT-139
+      name: Invoice line allowance reason
+      definition: The reason for the Invoice line allowance, expressed as text.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-140
+      name: Invoice line allowance reason code
+      definition: The reason for the Invoice line allowance, expressed as a code.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBG-28
+    name: INVOICE LINE CHARGES
+    definition: A group of business terms providing information about charges and taxes other than TAX applicable to the individual Invoice line.
+    section: Shared
+    cardinality: 0..n
+    children:
+    - id: IBT-141
+      name: Invoice line charge amount
+      definition: The amount of a charge, without TAX.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Amount
+    - id: IBT-142
+      name: Invoice line charge base amount
+      definition: The base amount that may be used, in conjunction with the Invoice line charge percentage, to calculate the Invoice line charge amount.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Amount
+    - id: IBT-143
+      name: Invoice line charge percentage
+      definition: The percentage that may be used, in conjunction with the Invoice line charge base amount, to calculate the Invoice line charge amount.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Percentage
+    - id: IBT-144
+      name: Invoice line charge reason
+      definition: The reason for the Invoice line charge, expressed as text.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-145
+      name: Invoice line charge reason code
+      definition: The reason for the Invoice line charge, expressed as a code.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBG-29
+    name: PRICE DETAILS
+    definition: A group of business terms providing information about the price applied for the goods and services invoiced on the Invoice line.
+    section: Shared
+    cardinality: 1..1
+    children:
+    - id: IBT-146
+      name: Item net price
+      definition: The price of an item, exclusive of TAX, after subtracting item price discount.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Unit Price Amount
+    - id: IBT-147
+      name: Item price discount
+      definition: The total discount subtracted from the Item gross price to calculate the Item net price.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Unit Price Amount
+    - id: IBT-148
+      name: Item gross price
+      definition: The unit price, exclusive of TAX, before subtracting Item price discount.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Unit Price Amount
+    - id: IBT-149
+      name: Item price base quantity
+      definition: The number of item units to which the price applies.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Quantity
+    - id: IBT-150
+      name: Item price base quantity unit of measure code
+      definition: The unit of measure that applies to the Item price base quantity.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBG-30
+    name: LINE TAX INFORMATION
+    definition: A group of business terms providing information about the TAX applicable for the goods and services invoiced on the Invoice line.
+    section: Aligned
+    cardinality: 1..n
+    children:
+    - id: IBT-151
+      name: Invoiced item TAX category code
+      definition: The TAX category code for the invoiced item.
+      section: Aligned
+      cardinality: 1..1
+      value:
+        datatype: Code
+    - id: IBT-152
+      name: Invoiced item TAX rate
+      definition: The TAX rate, represented as percentage that applies to the invoiced item.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Percentage
+    - id: IBT-185
+      name: TAX exemption reason text
+      definition: A textual statement of the reason why the line amount is exempted from TAX or why no TAX is being charged
+      section: Aligned
+      cardinality: 0..0
+      value:
+        datatype: Code
+    - id: IBT-186
+      name: TAX exemption reason code
+      definition: A coded statement of the reason for why the line amount is exempted from TAX.
+      section: Aligned
+      cardinality: 0..0
+      value:
+        datatype: Text
+    - id: IBT-166
+      name: Unit TAX
+      definition: A TAX amount that applied to each item unit.
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Amount
+    - id: IBT-167
+      name: Tax Scheme
+      definition: A code indicating the type of tax
+      section: Aligned
+      cardinality: 0..1
+      value:
+        datatype: Code
+  - id: IBG-31
+    name: ITEM INFORMATION
+    definition: A group of business terms providing information about the goods and services invoiced.
+    section: Shared
+    cardinality: 1..1
+    children:
+    - id: IBT-153
+      name: Item name
+      definition: A name for an item.
+      section: Shared
+      cardinality: 1..1
+      value:
+        datatype: Text
+    - id: IBT-154
+      name: Item description
+      definition: A description for an item.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Text
+    - id: IBT-155
+      name: Item Seller's identifier
+      definition: An identifier, assigned by the Seller, for the item.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Identifier
+    - id: IBT-156
+      name: Item Buyer's identifier
+      definition: An identifier, assigned by the Buyer, for the item.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Identifier
+    - id: IBT-157
+      name: Item standard identifier
+      definition: An item identifier based on a registered scheme.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Identifier
+      children:
+      - id: IBT-157-1
+        name: Scheme identifier
+        definition: The identification scheme shall be identified from the entries of the list published by the ISO/IEC 6523 maintenance agency.
+        section: Shared
+        cardinality: 1..1
+        value:
+          datatype: Code
+    - id: IBT-158
+      name: Item classification identifier
+      definition: A code for classifying the item by its type or nature.
+      section: Shared
+      cardinality: 0..n
+      value:
+        datatype: Identifier
+      children:
+      - id: IBT-158-1
+        name: Scheme identifier
+        definition: The identification scheme shall be chosen from the entries in UNTDID 7143 [6].
+        section: Shared
+        cardinality: 1..1
+        value:
+          datatype: Code
+      - id: IBT-158-2
+        name: Scheme version identifier
+        definition: The version of the identification scheme.
+        section: Shared
+        cardinality: 0..1
+        value:
+          datatype: Text
+    - id: IBT-159
+      name: Item country of origin
+      definition: The code identifying the country from which the item originates.
+      section: Shared
+      cardinality: 0..1
+      value:
+        datatype: Code
+    - id: IBG-32
+      name: ITEM ATTRIBUTES
+      definition: A group of business terms providing information about properties of the goods and services invoiced.
+      section: Shared
+      cardinality: 0..n
+      children:
+      - id: IBT-160
+        name: Item attribute name
+        definition: The name of the attribute or property of the item.
+        section: Shared
+        cardinality: 1..1
+        value:
+          datatype: Text
+      - id: IBT-161
+        name: Item attribute value
+        definition: The value of the attribute or property of the item.
+        section: Shared
+        cardinality: 1..1
+        value:
+          datatype: Text

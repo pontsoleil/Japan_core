@@ -6,8 +6,8 @@ Japan common commercial invoice, example1-minimum
 -->
 
 	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
-	<cbc:CustomizationID>urn:fdc:peppol:jp:billing:3.0</cbc:CustomizationID> 	<!-- IBT-024 - Specification identifier -->
-	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID> <!-- IBT-023 - Business process type -->
+	<cbc:CustomizationID>urn:peppol:pint:billing-1@jp-1</cbc:CustomizationID> 	<!-- IBT-024 - Specification identifier -->
+	<cbc:ProfileID>urn:peppol:bis:billing</cbc:ProfileID> <!-- IBT-023 - Business process type -->
 	<cbc:ID>156</cbc:ID> <!-- IBT-001 - Invoice number -->
 	<cbc:IssueDate>2023-10-24</cbc:IssueDate> <!-- IBT-002 - Invoice issue date -->
 	<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode> <!-- IBT-003 - Invoice type code -->

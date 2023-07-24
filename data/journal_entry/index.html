@@ -81,8 +81,14 @@
         <div class="tab-content">
             <div class="tab-pane active" id="tab_horizontal">
                 <div style="max-width:100%!important">
-                    <div>
-                        <input id="linesButton" class="btn btn-primary" type="button" value="明細行表示切り替え">
+                    <div style="display: flex; align-items: center;">
+                        <nav>
+                            <ul class="pagination nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link active" href="#" data-page="1">1</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#" data-page="2">2</a></li>
+                            </ul>
+                        </nav>
+                        <input id="linesButton" class="btn btn-primary" type="button" value="明細行表示切り替え" style="margin-left:auto;">
                     </div>
                     <div class="wuwei-container table-responsive col-md-12" style="overflow-x:auto;">
                         <table id="horizontal" class="table table-sm table-hover">

@@ -1,0 +1,32 @@
+﻿id,card,level,businessTerm,syntax sort,xPath
+GL02,--,0,XBRL GL,1,/xbrli:group
+GL02-01,1..1,1,Journal ID,4,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:documentInfo/ gl-cor:uniqueID
+GL02-GL64,0..1,1,Specified GL Source,26,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader
+GL64-01,1..1,2,Source Code,28,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:sourceJournalID
+GL64-02,0..1,2,Source Description,5,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:documentInfo/ gl-bus:sourceApplication
+GL64-03,0..1,2,ERP Subledger Module,29,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-bus:sourceJournalDescription
+GL64-04,0..1,2,System Manual Identifier,27,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-bus:entryOrigin
+GL02-GL57,0..1,2,Specified Created,24,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader
+GL57-01,0..1,3,Created User ID,8,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:documentInfo/ gl-bus:creator
+GL57-02,0..1,3,Created Date,25,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:enteredDate
+GL02-GL55,1..n,1,Specified GL Details,32,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail
+GL55-03,0..1,2,Journal Entry Type Code,36,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:account/ gl-cor:accountType
+GL55-04,0..1,2,Journal Entry Line Description,55,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:detailComment
+GL55-05,0..1,2,Credit Debit Indicator,41,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:debitCreditCode
+GL55-GL63,0..1,2,Specified Chart Of Accounts,33,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:account
+GL63-01,1..1,3,GL Account Number,34,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:account/ gl-cor:accountMainID
+GL63-02,0..1,3,GL Account Name,35,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:account/ gl-cor:accountMainDescription
+GL63-03,0..1,3,Financial Statement Caption,54,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:xbrlInfo/ gl-cor:xbrlElement
+GL55-GL56,0..1,2,Specified Amount,42,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail
+GL56-01,0..1,3,Functional Amount,43,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:amount
+GL56-02,0..1,3,Functional Currency Code,44,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-muc:amountCurrency
+GL55-GL69,0..1,2,Specified Posted,45,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail
+GL69-02,0..1,3,Posted Date,46,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:postingDate
+GL55-GL60,0..n,2,Specified Account Segment,37,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:account/ gl-cor:accountSub
+GL60-01,0..1,3,Account Segment Number,40,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:account/ gl-cor:accountSub/ gl-cor:accountSubType
+GL60-02,0..1,3,Account Segment Code,39,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:account/ gl-cor:accountSub/ gl-cor:accountSubID
+GL60-03,0..1,3,Account Segment Name,38,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:account/ gl-cor:accountSub/ gl-cor:accountSubDescription
+GL55-GL61,0..n,2,Specified Business Segment,47,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:identifierReference
+GL61-01,0..1,3,Business Segment Sequence Number,50,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:identifierReference/ gl-cor:identifierType
+GL61-02,0..1,3,Business Segment Code,48,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:identifierReference/ gl-cor:identifierCode
+GL61-03,0..1,3,Organization Type Name,49,/xbrli:group/ gl-cor:accountingEntries/ gl-cor:entryHeader/ gl-cor:entryDetail/ gl-cor:identifierReference/ gl-cor:identifierDescription

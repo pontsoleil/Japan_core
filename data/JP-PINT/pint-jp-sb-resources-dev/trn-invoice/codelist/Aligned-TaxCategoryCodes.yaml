@@ -1,0 +1,37 @@
+metadata:
+  title:
+    en: Tax category codes
+  description:
+    en: Codes specifying tax categories in jurisdictions.
+  identifier: TaxCat
+  agency: UN/CEFACT
+  language: en
+  version:
+    identifier: D.16B
+    status: published
+content:
+- id: AA
+  name:
+    en: Lower rate
+  description:
+    en: Tax rate is lower than standard rate.
+- id: E
+  name:
+    en: Exempt from tax
+  description:
+    en: Code specifying that taxes are not applicable.
+- id: G
+  name:
+    en: Free export item, tax not charged
+  description:
+    en: Code specifying that the item is free export and taxes are not charged.
+- id: O
+  name:
+    en: Outside scope of tax
+  description:
+    en: Code specifying not subject to tax.
+- id: S
+  name:
+    en: Standard rate
+  description:
+    en: Code specifying the standard rate.

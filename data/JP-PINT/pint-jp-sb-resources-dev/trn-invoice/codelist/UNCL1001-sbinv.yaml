@@ -1,0 +1,22 @@
+metadata:
+  title:
+    en: Document name code
+    nb: Dokumentnavnkode
+  identifier: UNCL1001
+  agency: UN/CEFACT
+  language: en
+  translations:
+  - nb
+  subset:
+    name: Invoice type code
+    agency: OpenPeppol AISBL
+  version:
+    identifier: D.17A
+    date: 2017-06-22
+    status: published
+content:
+- id: '389'
+  name:
+    en: Self-billed invoice
+  description:
+    en: An invoice the invoicee is producing instead of the seller.
