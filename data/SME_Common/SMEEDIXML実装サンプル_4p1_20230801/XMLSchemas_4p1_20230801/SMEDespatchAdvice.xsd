@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== -->
+<!-- ===== SMEDespatchAdvice Schema Module ===== -->
+<!-- ====================================================================== -->
+<!--
+Schema agency:  
+Schema version: 
+Schema date:    
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:rsm="urn:un:unece:uncefact:3055:413:data:standard:SMEDespatchAdvice:4p1" 
+xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:32" 
+targetNamespace="urn:un:unece:uncefact:3055:413:data:standard:SMEDespatchAdvice:4p1" 
+elementFormDefault="qualified" 
+attributeFormDefault="unqualified" 
+version="20230720134454">
+<!-- ======================================================================= -->
+<!-- ===== Imports                                                     ===== -->
+<!-- ======================================================================= -->
+<!-- ===== Import of Unqualified Data Type Schema Module               ===== -->
+<!-- ======================================================================= -->
+  <xsd:import namespace="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:32" schemaLocation="UnqualifiedDataType_32p0.xsd"/>
+<!-- ================================================================== -->
+<!-- ===== Element Declarations                                   ===== -->
+<!-- ================================================================== -->
+<!-- ===== Root Element Declarations                              ===== -->
+<!-- ================================================================== -->
+<!-- Global型宣言 -->
+  <xsd:element name="SMEDespatchAdvice" type="rsm:SMEDespatchAdviceType" />
+<!-- ================================================================== -->
+<!-- ===== Type Definitions                                       ===== -->
+<!-- ================================================================== -->
+<!-- ===== Type Definition: SMEDespatchAdviceType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="SMEDespatchAdviceType">
+    <xsd:sequence>
+      <xsd:element name="CIExchangedDocumentContext" type="rsm:CIExchangedDocumentContextType"  minOccurs="1"  >
+        <!--UN01005479-->
+      </xsd:element>
+      <xsd:element name="CIDDHExchangedDocument" type="rsm:CIDDHExchangedDocumentType"  minOccurs="0"  >
+        <!--UN01006800-->
+      </xsd:element>
+      <xsd:element name="CIDDHSupplyChainTradeTransaction" type="rsm:CIDDHSupplyChainTradeTransactionType"  minOccurs="1"  >
+        <!--UN01006864-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIExchangedDocumentContextType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIExchangedDocumentContextType">
+    <!--UN01005479-->
+    <xsd:sequence>
+      <xsd:element name="SpecifiedTransactionID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005480-->
+      </xsd:element>
+      <xsd:element name="ProcessingTransactionDateTime" type="udt:DateTimeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01012746-->
+      </xsd:element>
+      <xsd:element name="BusinessProcessSpecifiedCIDocumentContextParameter" type="rsm:CIDocumentContextParameterType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01005481-->
+      </xsd:element>
+      <xsd:element name="ScenarioSpecifiedCIDocumentContextParameter" type="rsm:CIDocumentContextParameterType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005483-->
+      </xsd:element>
+      <xsd:element name="ApplicationSpecifiedCIDocumentContextParameter" type="rsm:CIDocumentContextParameterType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005484-->
+      </xsd:element>
+      <xsd:element name="SubsetSpecifiedCIDocumentContextParameter" type="rsm:CIDocumentContextParameterType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01005486-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDHExchangedDocumentType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDHExchangedDocumentType">
+    <!--UN01006800-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006801-->
+      </xsd:element>
+      <xsd:element name="Name" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006802-->
+      </xsd:element>
+      <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006803-->
+      </xsd:element>
+      <xsd:element name="IssueDateTime" type="udt:DateTimeType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006805-->
+      </xsd:element>
+      <xsd:element name="PurposeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006809-->
+      </xsd:element>
+      <xsd:element name="VersionID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01011499-->
+      </xsd:element>
+      <xsd:element name="CategoryCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013313-->
+      </xsd:element>
+      <xsd:element name="SubtypeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01015489-->
+      </xsd:element>
+      <xsd:element name="IncludedCINote" type="rsm:CINoteType"  minOccurs="0" maxOccurs="unbounded"  >
+        <!--UN01006811-->
+      </xsd:element>
+      <xsd:element name="AttachedSpecifiedBinaryFile" type="rsm:SpecifiedBinaryFileType"  minOccurs="0" maxOccurs="unbounded"  >
+        <!--UN01013404-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDHSupplyChainTradeTransactionType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDHSupplyChainTradeTransactionType">
+    <!--UN01006864-->
+    <xsd:sequence>
+      <xsd:element name="ApplicableCIDDHSupplyChainTradeAgreement" type="rsm:CIDDHSupplyChainTradeAgreementType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006866-->
+      </xsd:element>
+      <xsd:element name="ApplicableCIDDHSupplyChainTradeDelivery" type="rsm:CIDDHSupplyChainTradeDeliveryType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006867-->
+      </xsd:element>
+      <xsd:element name="ApplicableCIDDHSupplyChainTradeSettlement" type="rsm:CIDDHSupplyChainTradeSettlementType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006868-->
+      </xsd:element>
+      <xsd:element name="IncludedCIDDLSupplyChainTradeLineItem" type="rsm:CIDDLSupplyChainTradeLineItemType"  minOccurs="1" maxOccurs="unbounded"  >
+        <!--UN01006869-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDocumentContextParameterType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDocumentContextParameterType">
+    <!--UN01005471-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01005472-->
+      </xsd:element>
+      <xsd:element name="Value" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005473-->
+      </xsd:element>
+      <xsd:element name="SpecifiedCIDocumentVersion" type="rsm:CIDocumentVersionType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01005474-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDocumentVersionType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDocumentVersionType">
+    <!--UN01005475-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01005476-->
+      </xsd:element>
+      <xsd:element name="IssueDateTime" type="udt:DateTimeType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01005478-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CINoteType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CINoteType">
+    <!--UN01005557-->
+    <xsd:sequence>
+      <xsd:element name="Subject" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005558-->
+      </xsd:element>
+      <xsd:element name="Content" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005560-->
+      </xsd:element>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005562-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: SpecifiedBinaryFileType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="SpecifiedBinaryFileType">
+    <!--UN01006014-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006015-->
+      </xsd:element>
+      <xsd:element name="VersionID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006018-->
+      </xsd:element>
+      <xsd:element name="FileName" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006019-->
+      </xsd:element>
+      <xsd:element name="URIID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006020-->
+      </xsd:element>
+      <xsd:element name="MIMECode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006021-->
+      </xsd:element>
+      <xsd:element name="EncodingCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006022-->
+      </xsd:element>
+      <xsd:element name="IncludedBinaryObject" type="udt:BinaryObjectType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006024-->
+      </xsd:element>
+      <xsd:element name="Description" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006026-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDHSupplyChainTradeAgreementType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDHSupplyChainTradeAgreementType">
+    <!--UN01006837-->
+    <xsd:sequence>
+      <xsd:element name="SellerCITradeParty" type="rsm:CITradePartyType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006838-->
+      </xsd:element>
+      <xsd:element name="BuyerCITradeParty" type="rsm:CITradePartyType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006839-->
+      </xsd:element>
+      <xsd:element name="BuyerOrderReferencedCIReferencedDocument" type="rsm:CIReferencedDocumentType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006841-->
+      </xsd:element>
+      <xsd:element name="SpecifiedProcuringProject" type="rsm:ProcuringProjectType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01011500-->
+      </xsd:element>
+      <xsd:element name="SellerOrderReferencedCIReferencedDocument" type="rsm:CIReferencedDocumentType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01012679-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CITradePartyType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CITradePartyType">
+    <!--UN01005756-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005757-->
+      </xsd:element>
+      <xsd:element name="GlobalID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005758-->
+      </xsd:element>
+      <xsd:element name="Name" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005759-->
+      </xsd:element>
+      <xsd:element name="RegisteredID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013039-->
+      </xsd:element>
+      <xsd:element name="DefinedCITradeContact" type="rsm:CITradeContactType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005761-->
+      </xsd:element>
+      <xsd:element name="PostalCITradeAddress" type="rsm:CITradeAddressType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005762-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CITradeContactType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CITradeContactType">
+    <!--UN01005718-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005719-->
+      </xsd:element>
+      <xsd:element name="PersonName" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005720-->
+      </xsd:element>
+      <xsd:element name="DepartmentName" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005721-->
+      </xsd:element>
+      <xsd:element name="PersonID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005725-->
+      </xsd:element>
+      <xsd:element name="TelephoneCIUniversalCommunication" type="rsm:CIUniversalCommunicationType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005726-->
+      </xsd:element>
+      <xsd:element name="FaxCIUniversalCommunication" type="rsm:CIUniversalCommunicationType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005729-->
+      </xsd:element>
+      <xsd:element name="EmailURICIUniversalCommunication" type="rsm:CIUniversalCommunicationType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005730-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIUniversalCommunicationType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIUniversalCommunicationType">
+    <!--UN01005857-->
+    <xsd:sequence>
+      <xsd:element name="URIID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005858-->
+      </xsd:element>
+      <xsd:element name="CompleteNumber" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005860-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CITradeAddressType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CITradeAddressType">
+    <!--UN01005687-->
+    <xsd:sequence>
+      <xsd:element name="PostcodeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005689-->
+      </xsd:element>
+      <xsd:element name="LineOne" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005692-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIReferencedDocumentType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIReferencedDocumentType">
+    <!--UN01005579-->
+    <xsd:sequence>
+      <xsd:element name="IssuerAssignedID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005580-->
+      </xsd:element>
+      <xsd:element name="URIID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005581-->
+      </xsd:element>
+      <xsd:element name="IssueDateTime" type="udt:DateTimeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005582-->
+      </xsd:element>
+      <xsd:element name="LineID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005585-->
+      </xsd:element>
+      <xsd:element name="RevisionID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005588-->
+      </xsd:element>
+      <xsd:element name="Name" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005589-->
+      </xsd:element>
+      <xsd:element name="Information" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006415-->
+      </xsd:element>
+      <xsd:element name="AttachmentBinaryObject" type="udt:BinaryObjectType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01011455-->
+      </xsd:element>
+      <xsd:element name="PurposeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013317-->
+      </xsd:element>
+      <xsd:element name="SubtypeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01014899-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: ProcuringProjectType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="ProcuringProjectType">
+    <!--UN01000371-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01000372-->
+      </xsd:element>
+      <xsd:element name="Name" type="udt:TextType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01000374-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDHSupplyChainTradeDeliveryType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDHSupplyChainTradeDeliveryType">
+    <!--UN01006844-->
+    <xsd:sequence>
+      <xsd:element name="ShipToCITradeParty" type="rsm:CITradePartyType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006847-->
+      </xsd:element>
+      <xsd:element name="ShipFromCITradeParty" type="rsm:CITradePartyType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006849-->
+      </xsd:element>
+      <xsd:element name="RelatedCISupplyChainConsignment" type="rsm:CISupplyChainConsignmentType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006852-->
+      </xsd:element>
+      <xsd:element name="ActualDespatchCISupplyChainEvent" type="rsm:CISupplyChainEventType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006854-->
+      </xsd:element>
+      <xsd:element name="HandlingCIHandlingInstructions" type="rsm:CIHandlingInstructionsType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01015527-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CISupplyChainConsignmentType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CISupplyChainConsignmentType">
+    <!--UN01005621-->
+    <xsd:sequence>
+      <xsd:element name="CarrierCITradeParty" type="rsm:CITradePartyType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01007152-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CISupplyChainEventType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CISupplyChainEventType">
+    <!--UN01005626-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005627-->
+      </xsd:element>
+      <xsd:element name="OccurrenceDateTime" type="udt:DateTimeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005628-->
+      </xsd:element>
+      <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005629-->
+      </xsd:element>
+      <xsd:element name="Description" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005630-->
+      </xsd:element>
+      <xsd:element name="OccurrenceCILogisticsLocation" type="rsm:CILogisticsLocationType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005634-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIHandlingInstructionsType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIHandlingInstructionsType">
+    <!--UN01005498-->
+    <xsd:sequence>
+      <xsd:element name="DeliveryApplicableCIInstructedTemperature" type="rsm:CIInstructedTemperatureType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01008418-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIInstructedTemperatureType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIInstructedTemperatureType">
+    <!--UN01008549-->
+    <xsd:sequence>
+      <xsd:element name="ControlCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01014898-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDHSupplyChainTradeSettlementType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDHSupplyChainTradeSettlementType">
+    <!--UN01006861-->
+    <xsd:sequence>
+      <xsd:element name="ApplicableCITradeTax" type="rsm:CITradeTaxType"  minOccurs="0" maxOccurs="unbounded"  >
+        <!--UN01011502-->
+      </xsd:element>
+      <xsd:element name="SpecifiedCIDDHTradeSettlementMonetarySummation" type="rsm:CIDDHTradeSettlementMonetarySummationType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01011504-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CITradeTaxType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CITradeTaxType">
+    <!--UN01005832-->
+    <xsd:sequence>
+      <xsd:element name="CalculatedAmount" type="udt:AmountType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005833-->
+      </xsd:element>
+      <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005834-->
+      </xsd:element>
+      <xsd:element name="BasisAmount" type="udt:AmountType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005839-->
+      </xsd:element>
+      <xsd:element name="CategoryCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005841-->
+      </xsd:element>
+      <xsd:element name="CategoryName" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005850-->
+      </xsd:element>
+      <xsd:element name="RateApplicablePercent" type="udt:PercentType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01007174-->
+      </xsd:element>
+      <xsd:element name="GrandTotalAmount" type="udt:AmountType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013040-->
+      </xsd:element>
+      <xsd:element name="CalculationMethodCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013096-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDHTradeSettlementMonetarySummationType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDHTradeSettlementMonetarySummationType">
+    <!--UN01011505-->
+    <xsd:sequence>
+      <xsd:element name="GrandTotalAmount" type="udt:AmountType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01011508-->
+      </xsd:element>
+      <xsd:element name="NetLineTotalAmount" type="udt:AmountType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013087-->
+      </xsd:element>
+      <xsd:element name="IncludingTaxesLineTotalAmount" type="udt:AmountType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013088-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDLSupplyChainTradeLineItemType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDLSupplyChainTradeLineItemType">
+    <!--UN01006903-->
+    <xsd:sequence>
+      <xsd:element name="AssociatedCIDDLDocumentLineDocument" type="rsm:CIDDLDocumentLineDocumentType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006904-->
+      </xsd:element>
+      <xsd:element name="SpecifiedCIDDLSupplyChainTradeAgreement" type="rsm:CIDDLSupplyChainTradeAgreementType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006905-->
+      </xsd:element>
+      <xsd:element name="SpecifiedCIDDLSupplyChainTradeDelivery" type="rsm:CIDDLSupplyChainTradeDeliveryType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006906-->
+      </xsd:element>
+      <xsd:element name="SpecifiedCIDDLSupplyChainTradeSettlement" type="rsm:CIDDLSupplyChainTradeSettlementType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006907-->
+      </xsd:element>
+      <xsd:element name="SpecifiedCITradeProduct" type="rsm:CITradeProductType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006908-->
+      </xsd:element>
+      <xsd:element name="PhysicalReferencedLogisticsPackage" type="rsm:ReferencedLogisticsPackageType"  minOccurs="0" maxOccurs="unbounded"  >
+        <!--UN01006909-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDLDocumentLineDocumentType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDLDocumentLineDocumentType">
+    <!--UN01006871-->
+    <xsd:sequence>
+      <xsd:element name="LineID" type="udt:IDType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01006872-->
+      </xsd:element>
+      <xsd:element name="LineStatusCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006873-->
+      </xsd:element>
+      <xsd:element name="LineStatusReasonCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006874-->
+      </xsd:element>
+      <xsd:element name="IncludedCINote" type="rsm:CINoteType"  minOccurs="0" maxOccurs="unbounded"  >
+        <!--UN01006875-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDLSupplyChainTradeAgreementType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDLSupplyChainTradeAgreementType">
+    <!--UN01006876-->
+    <xsd:sequence>
+      <xsd:element name="SellerOrderReferencedCIReferencedDocument" type="rsm:CIReferencedDocumentType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006877-->
+      </xsd:element>
+      <xsd:element name="BuyerOrderReferencedCIReferencedDocument" type="rsm:CIReferencedDocumentType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006878-->
+      </xsd:element>
+      <xsd:element name="NetPriceProductCITradePrice" type="rsm:CITradePriceType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01012680-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CITradePriceType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CITradePriceType">
+    <!--UN01005790-->
+    <xsd:sequence>
+      <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005791-->
+      </xsd:element>
+      <xsd:element name="ChargeAmount" type="udt:AmountType"  minOccurs="1" maxOccurs="1"  >
+        <!--UN01005792-->
+      </xsd:element>
+      <xsd:element name="BasisQuantity" type="udt:QuantityType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005793-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDLSupplyChainTradeDeliveryType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDLSupplyChainTradeDeliveryType">
+    <!--UN01006882-->
+    <xsd:sequence>
+      <xsd:element name="PackageQuantity" type="udt:QuantityType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006885-->
+      </xsd:element>
+      <xsd:element name="ProductUnitQuantity" type="udt:QuantityType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006886-->
+      </xsd:element>
+      <xsd:element name="PerPackageUnitQuantity" type="udt:QuantityType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006887-->
+      </xsd:element>
+      <xsd:element name="DespatchedQuantity" type="udt:QuantityType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01011509-->
+      </xsd:element>
+      <xsd:element name="RequestedQuantity" type="udt:QuantityType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01011510-->
+      </xsd:element>
+      <xsd:element name="RemainingRequestedQuantity" type="udt:QuantityType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01012682-->
+      </xsd:element>
+      <xsd:element name="ShipToCITradeParty" type="rsm:CITradePartyType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006893-->
+      </xsd:element>
+      <xsd:element name="ActualDespatchCISupplyChainEvent" type="rsm:CISupplyChainEventType"  minOccurs="0" maxOccurs="unbounded"  >
+        <!--UN01006897-->
+      </xsd:element>
+      <xsd:element name="RequestedDeliveryCISupplyChainEvent" type="rsm:CISupplyChainEventType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006899-->
+      </xsd:element>
+      <xsd:element name="ProjectedCISupplyChainSupplyPlan" type="rsm:CISupplyChainSupplyPlanType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006902-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CILogisticsLocationType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CILogisticsLocationType">
+    <!--UN01005512-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005513-->
+      </xsd:element>
+      <xsd:element name="Name" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005514-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CISupplyChainSupplyPlanType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CISupplyChainSupplyPlanType">
+    <!--UN01005657-->
+    <xsd:sequence>
+      <xsd:element name="DeliveryCISupplyChainEvent" type="rsm:CISupplyChainEventType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005663-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDLSupplyChainTradeSettlementType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDLSupplyChainTradeSettlementType">
+    <!--UN01006910-->
+    <xsd:sequence>
+      <xsd:element name="ApplicableCITradeTax" type="rsm:CITradeTaxType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01011511-->
+      </xsd:element>
+      <xsd:element name="SpecifiedCIDDLTradeSettlementMonetarySummation" type="rsm:CIDDLTradeSettlementMonetarySummationType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01011512-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CIDDLTradeSettlementMonetarySummationType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CIDDLTradeSettlementMonetarySummationType">
+    <!--UN01011513-->
+    <xsd:sequence>
+      <xsd:element name="NetLineTotalAmount" type="udt:AmountType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013089-->
+      </xsd:element>
+      <xsd:element name="IncludingTaxesLineTotalAmount" type="udt:AmountType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01013090-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: CITradeProductType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="CITradeProductType">
+    <!--UN01005809-->
+    <xsd:sequence>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005810-->
+      </xsd:element>
+      <xsd:element name="GlobalID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005811-->
+      </xsd:element>
+      <xsd:element name="SellerAssignedID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005812-->
+      </xsd:element>
+      <xsd:element name="BuyerAssignedID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005813-->
+      </xsd:element>
+      <xsd:element name="ManufacturerAssignedID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005814-->
+      </xsd:element>
+      <xsd:element name="Name" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005815-->
+      </xsd:element>
+      <xsd:element name="Description" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005817-->
+      </xsd:element>
+      <xsd:element name="EndItemTypeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01008532-->
+      </xsd:element>
+      <xsd:element name="VariableMeasureIndicator" type="udt:IndicatorType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01008533-->
+      </xsd:element>
+      <xsd:element name="SizeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01014900-->
+      </xsd:element>
+      <xsd:element name="SizeDescription" type="udt:TextType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01014901-->
+      </xsd:element>
+      <xsd:element name="InspectionReferenceCIReferencedDocument" type="rsm:CIReferencedDocumentType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005826-->
+      </xsd:element>
+      <xsd:element name="ManufacturerCITradeParty" type="rsm:CITradePartyType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005831-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+<!-- ================================================================== -->
+<!-- ===== Type Definition: ReferencedLogisticsPackageType ===== -->
+<!-- ================================================================== -->
+  <xsd:complexType name="ReferencedLogisticsPackageType">
+    <!--UN01006790-->
+    <xsd:sequence>
+      <xsd:element name="ItemQuantity" type="udt:QuantityType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006791-->
+      </xsd:element>
+      <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006793-->
+      </xsd:element>
+      <xsd:element name="SequenceNumeric" type="udt:NumericType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006794-->
+      </xsd:element>
+      <xsd:element name="ID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006795-->
+      </xsd:element>
+      <xsd:element name="GlobalID" type="udt:IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006796-->
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
