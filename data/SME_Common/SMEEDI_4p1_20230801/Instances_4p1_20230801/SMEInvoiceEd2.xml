@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SMEInvoice xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1"
+    xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:32"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="urn:un:unece:uncefact:data:standard:SMEinvoice ../XMLSchemas_4p1_20230801/SMEinvoice.xsd">
+    <CIExchangedDocumentContext>
+        <SpecifiedTransactionID>C0B0578C-8EAD-4520-B6D0-CA1F11C7953A</SpecifiedTransactionID>
+        <ProcessingTransactionDateTime>
+            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+        </ProcessingTransactionDateTime>
+        <BusinessProcessSpecifiedCIDocumentContextParameter>
+            <ID>SMEInvoice</ID>
+            <SpecifiedCIDocumentVersion>
+                <ID>Ver.4.1.1</ID>
+                <IssueDateTime>
+                    <udt:DateTimeString>19700101</udt:DateTimeString>
+                </IssueDateTime>
+            </SpecifiedCIDocumentVersion>
+        </BusinessProcessSpecifiedCIDocumentContextParameter>
+        <ScenarioSpecifiedCIDocumentContextParameter>
+            <ID>NA</ID>
+            <SpecifiedCIDocumentVersion>
+                <ID>NA</ID>
+                <IssueDateTime>
+                    <udt:DateTime>1970-01-01T00:00:00</udt:DateTime>
+                </IssueDateTime>
+            </SpecifiedCIDocumentVersion>
+        </ScenarioSpecifiedCIDocumentContextParameter>
+        <ApplicationSpecifiedCIDocumentContextParameter>
+            <ID>SMED0100</ID>
+            <SpecifiedCIDocumentVersion>
+                <ID>NA</ID>
+                <IssueDateTime>
+                    <udt:DateTime>1970-01-01T00:00:00</udt:DateTime>
+                </IssueDateTime>
+            </SpecifiedCIDocumentVersion>
+        </ApplicationSpecifiedCIDocumentContextParameter>
+        <SubsetSpecifiedCIDocumentContextParameter>
+            <ID>JPSSMED</ID>
+            <SpecifiedCIDocumentVersion>
+                <ID>NA</ID>
+                <IssueDateTime>
+                    <udt:DateTime>1970-01-01T00:00:00</udt:DateTime>
+                </IssueDateTime>
+            </SpecifiedCIDocumentVersion>
+        </SubsetSpecifiedCIDocumentContextParameter>
+    </CIExchangedDocumentContext>
+    <CIIHExchangedDocument>
+        <ID>I100</ID>
+        <TypeCode>380</TypeCode>
+        <IssueDateTime>
+            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+        </IssueDateTime>
+        <PurposeCode>9</PurposeCode>
+        <CategoryCode>NA</CategoryCode>
+        <SubtypeCode>38001</SubtypeCode>
+    </CIIHExchangedDocument>
+    <CIIHSupplyChainTradeTransaction>
+        <ApplicableCIIHSupplyChainTradeAgreement>
+            <SellerCITradeParty>
+                <ID>7180001044022</ID>
+                <Name>（株）インフォウェア</Name>
+                <TypeCode>NA</TypeCode>                <!--必須項目 こちらが前-->
+                <RegisteredID>T7180001044022</RegisteredID>
+                <EndPointURICIUniversalCommunication>
+                    <ChannelCode>NA</ChannelCode>
+                    <CompleteNumber>NA</CompleteNumber>
+                </EndPointURICIUniversalCommunication>
+            </SellerCITradeParty>
+            <BuyerCITradeParty>
+                <ID>9180001105466</ID>
+                <Name>（株）グローバルワイズ</Name>
+                <TypeCode>NA</TypeCode>                <!--必須項目 こちらが前-->
+                <RegisteredID>T9180001105466</RegisteredID>
+                <EndPointURICIUniversalCommunication>
+                    <ChannelCode>NA</ChannelCode>
+                    <CompleteNumber>NA</CompleteNumber>
+                </EndPointURICIUniversalCommunication>
+            </BuyerCITradeParty>
+        </ApplicableCIIHSupplyChainTradeAgreement>
+        <ApplicableCIIHSupplyChainTradeSettlement>       
+            <InvoiceCurrencyCode>JPY</InvoiceCurrencyCode>
+            <SpecifiedCIIHTradeSettlementMonetarySummation>
+                <TaxBasisTotalAmount>0</TaxBasisTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <TaxTotalAmount>0</TaxTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <GrandTotalAmount>0</GrandTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <TotalPrepaidAmount>0</TotalPrepaidAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <DuePayableAmount>110</DuePayableAmount>
+                <NetLineTotalAmount>0</NetLineTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <IncludingTaxesLineTotalAmount>0</IncludingTaxesLineTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+            </SpecifiedCIIHTradeSettlementMonetarySummation>
+        </ApplicableCIIHSupplyChainTradeSettlement>
+        <IncludedCIILSupplyChainTradeLineItem>
+            <AssociatedCIILDocumentLineDocument>
+                <LineID>1</LineID>
+                <CategoryCode>NA</CategoryCode>
+            </AssociatedCIILDocumentLineDocument>
+            <SpecifiedCIILSupplyChainTradeSettlement>
+                <DirectionCode>NA</DirectionCode>
+                <ApplicableCITradeTax>
+                    <CalculatedAmount>10</CalculatedAmount>
+                    <CalculatedRate>10</CalculatedRate>                    <!-- 必須項目 -->
+                    <BasisAmount>100</BasisAmount>                    <!-- 必須項目 -->
+                    <CategoryCode>S</CategoryCode>                    <!-- 必須項目 -->
+                    <CurrencyCode>JPY</CurrencyCode>                    <!-- 必須項目 -->                    
+                    <RateApplicablePercent>10</RateApplicablePercent>                    <!-- 必須項目 -->
+                    <GrandTotalAmount>110</GrandTotalAmount>
+                    <CalculationMethodCode>NA</CalculationMethodCode>                    <!-- 必須項目 -->
+                    <LocalTaxSystemID>NA</LocalTaxSystemID>
+                </ApplicableCITradeTax>
+                <ApplicableCITradeTax>
+                    <CalculatedAmount>0</CalculatedAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <CalculatedRate>0</CalculatedRate>
+                    <BasisAmount>0</BasisAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <CategoryCode>E</CategoryCode>
+                    <CurrencyCode>JPY</CurrencyCode>
+                    <RateApplicablePercent>0</RateApplicablePercent>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <CalculationMethodCode>NA</CalculationMethodCode>                    <!-- 必須項目 -->
+                    <LocalTaxSystemID>NA</LocalTaxSystemID>
+                </ApplicableCITradeTax>
+                <SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ChargeTotalAmount>0</ChargeTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <AllowanceTotalAmount>0</AllowanceTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <TaxTotalAmount>10</TaxTotalAmount>
+                    <GrossLineTotalAmount>100</GrossLineTotalAmount>
+                    <NetLineTotalAmount>100</NetLineTotalAmount>
+                    <NetIncludingTaxesLineTotalAmount>0</NetIncludingTaxesLineTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <GrandTotalAmount>110</GrandTotalAmount>
+                </SpecifiedCIILTradeSettlementMonetarySummation>
+            </SpecifiedCIILSupplyChainTradeSettlement>
+            <SubordinateCIILBSubordinateTradeLineItem>
+                <ID>1</ID>
+                <SpecifiedCIILBSupplyChainTradeAgreement>                    <!-- 必須項目 -->
+                    <NetPriceProductCITradePrice>
+                        <ChargeAmount>0</ChargeAmount>
+                    </NetPriceProductCITradePrice>
+                </SpecifiedCIILBSupplyChainTradeAgreement>
+                <SpecifiedCIILBSupplyChainTradeDelivery>                    <!-- 必須項目 -->
+                    <BilledQuantity>0</BilledQuantity>
+                </SpecifiedCIILBSupplyChainTradeDelivery>
+                <SpecifiedCIILBSupplyChainTradeSettlement>                    <!-- 必須項目 -->
+                    <DirectionCode>NA</DirectionCode>
+                    <ApplicableCITradeTax>
+                        <CalculatedAmount>0</CalculatedAmount>
+                        <CalculatedRate>0</CalculatedRate>
+                        <BasisAmount>0</BasisAmount>
+                        <CategoryCode>NA</CategoryCode>
+                        <CurrencyCode>NA</CurrencyCode>
+                        <RateApplicablePercent>0</RateApplicablePercent>
+                        <CalculationMethodCode>NA</CalculationMethodCode>
+                    </ApplicableCITradeTax>
+                    <BillingCISpecifiedPeriod>
+                        <StartDateTime>
+                            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+                        </StartDateTime>
+                        <EndDateTime>
+                            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+                        </EndDateTime>
+                    </BillingCISpecifiedPeriod>
+                </SpecifiedCIILBSupplyChainTradeSettlement>
+                <ApplicableCITradeProduct>                    <!-- 必須項目 -->
+                    <Description>NA</Description>
+                </ApplicableCITradeProduct>
+            </SubordinateCIILBSubordinateTradeLineItem>
+            <SubordinateCIILBSubordinateTradeLineItem>                <!--2件めの開始定義もれ-->
+                <ID>2</ID>
+                <SpecifiedCIILBSupplyChainTradeAgreement>
+                    <NetPriceProductCITradePrice>
+                        <TypeCode>NA</TypeCode>
+                        <ChargeAmount>10</ChargeAmount>
+                        <BasisQuantity>1</BasisQuantity>                        <!-- '' is not a valid value for 'decimal'. -->
+                    </NetPriceProductCITradePrice>
+                </SpecifiedCIILBSupplyChainTradeAgreement>
+                <SpecifiedCIILBSupplyChainTradeDelivery>
+                    <PackageQuantity>0</PackageQuantity>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ProductUnitQuantity>0</ProductUnitQuantity>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <PerPackageUnitQuantity>0</PerPackageUnitQuantity>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <BilledQuantity>1</BilledQuantity>
+                </SpecifiedCIILBSupplyChainTradeDelivery>                <!-- 漏れ -->
+                <SpecifiedCIILBSupplyChainTradeSettlement>
+                    <DirectionCode>NA</DirectionCode>
+                    <ApplicableCITradeTax>
+                        <CalculatedAmount>10</CalculatedAmount> <!--明細行では税額計算をしない-->
+                        <CalculatedRate>10</CalculatedRate>                        <!-- 必須項目 -->
+                        <BasisAmount>100</BasisAmount>
+                        <CategoryCode>S</CategoryCode>
+                        <CurrencyCode>JPY</CurrencyCode>                        <!-- 必須項目 -->                        
+                        <RateApplicablePercent>10</RateApplicablePercent>
+                        <GrandTotalAmount>110</GrandTotalAmount>                        <!-- '' is not a valid value for 'decimal'. -->
+                        <CalculationMethodCode>NA</CalculationMethodCode>                        <!-- 必須項目 -->
+                        <LocalTaxSystemID>NA</LocalTaxSystemID>
+                    </ApplicableCITradeTax>
+                    <BillingCISpecifiedPeriod>
+                        <StartDateTime>
+                            <udt:DateTime>2023-07-25T15:21:00</udt:DateTime>
+                        </StartDateTime>
+                        <EndDateTime>
+                            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+                        </EndDateTime>
+                    </BillingCISpecifiedPeriod>
+                </SpecifiedCIILBSupplyChainTradeSettlement>
+                <ApplicableCITradeProduct>
+                    <Name>EcoChangeSIPS3.1年間ライセンス</Name>
+                    <Description>EcoChangeSIPS3.1年間ライセンス</Description>                    
+                </ApplicableCITradeProduct>
+            </SubordinateCIILBSubordinateTradeLineItem>
+        </IncludedCIILSupplyChainTradeLineItem>
+    </CIIHSupplyChainTradeTransaction>
+</SMEInvoice>

@@ -187,12 +187,12 @@ version="20230720134820">
       <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="1" maxOccurs="1"  >
         <!--UN01009672-->
       </xsd:element>
-      <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="1" maxOccurs="1"  >
+      <!-- DUPLICATE <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="1" maxOccurs="1"  >-->
         <!--UN01009672-->
-      </xsd:element>
-      <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="1" maxOccurs="1"  >
+      <!--</xsd:element>-->
+      <!-- duplicate <xsd:element name="TypeCode" type="udt:CodeType"  minOccurs="1" maxOccurs="1"  > -->
         <!--UN01009672-->
-      </xsd:element>
+      <!-- </xsd:element> -->
       <xsd:element name="AttachmentBinaryObject" type="udt:BinaryObjectType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01011455-->
       </xsd:element>

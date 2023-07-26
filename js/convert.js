@@ -138,7 +138,7 @@ convert = (function () {
 					if (0 == target.indexOf("Invoice")) {
 						syntax = "JP-PINT";
 					}
-					else if (0 == target.indexOf("rsm:SME")) {
+					else if (0 == target.indexOf("rsm:SME")|| 0==target.indexOf("SMEInvoice")) {
 						syntax = "SME-COMMON";
 					}
 					updateSyntax(syntax, f);

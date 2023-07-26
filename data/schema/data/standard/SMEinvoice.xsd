@@ -9,7 +9,7 @@ Schema version: 0.1
 Schema date:    01MAR23
 -->
 <xsd:schema
- 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:rsm="urn:un:unece:uncefact:data:standard:SMEinvoice"
 	xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2"
 	xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31"
