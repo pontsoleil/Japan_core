@@ -1,4 +1,4 @@
-﻿<SMEInvoice xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1">
+﻿<?xml version="1.0" encoding="UTF-8"?><SMEInvoice xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1">
     <CIExchangedDocumentContext>
         <SpecifiedTransactionID>C0B0578C-8EAD-4520-B6D0-CA1F11C7953A</SpecifiedTransactionID>
         <ProcessingTransactionDateTime>
