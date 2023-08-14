@@ -38,28 +38,28 @@ public class XBRL_GL2csv
 	static String XML_SKELTON    = null;
 	static String OUT_CSV        = null;
 	static String IN_DIR         = null;
-	static String IN_XML         = null;
+	static String INSTANCE       = null;
 	static String CHARSET        = "UTF-8";
 
 	static String ROOT_GL_ID;
 	static Integer ROOT_SEMSORT;	
-	static String DOCUMENT_CURRENCY_ID;      /*文書通貨コードのID*/
-	static String TAX_CURRENCY_ID;           /*税通貨コードのID*/
-	static String INVOICE_ID;                /*インボイス番号のID*/
-	static int MIN_DOCUMENT_TOTAL;           /*semSort 文書ヘッダ合計金額*/
-	static int MAX_DOCUMENT_TOTAL;           /*semSort*/
-	static String TOTAL_TAX_ID;              /*文書ヘッダ合計税額のID*/
-	static int TOTAL_TAX;                    /*semSort*/
-	static String TOTAL_TAX_CURRENCY_TAX_ID; /*外貨建て請求書文書ヘッダ合計税額のID*/
-	static int TOTAL_TAX_CURRENCY_TAX;       /*semSort*/
-	static int MIN_TAX_BREAKDOWN;            /*semSort 文書ヘッダ課税分類*/
-	static int MAX_TAX_BREAKDOWN;            /*semSort*/
-	static int MIN_TAX_CURRENCY_BREAKDOWN;   /*semSort 文書ヘッダ外貨建て課税分類*/
-	static int MAX_TAX_CURRENCY_BREAKDOWN;   /*semSort*/	
-	static String DOCUMENT_CURRENCY = null;  /*文書通貨コード*/
-	static String TAX_CURRENCY      = null;  /*税通貨コード*/
-	static String INVOICE_NUMBER    = null;  /*インボイス番号*/
-	static int COUNT_TAX_BREAKDOWN  = 0;
+//	static String DOCUMENT_CURRENCY_ID;      /*文書通貨コードのID*/
+//	static String TAX_CURRENCY_ID;           /*税通貨コードのID*/
+//	static String INVOICE_ID;                /*インボイス番号のID*/
+//	static int MIN_DOCUMENT_TOTAL;           /*semSort 文書ヘッダ合計金額*/
+//	static int MAX_DOCUMENT_TOTAL;           /*semSort*/
+//	static String TOTAL_TAX_ID;              /*文書ヘッダ合計税額のID*/
+//	static int TOTAL_TAX;                    /*semSort*/
+//	static String TOTAL_TAX_CURRENCY_TAX_ID; /*外貨建て請求書文書ヘッダ合計税額のID*/
+//	static int TOTAL_TAX_CURRENCY_TAX;       /*semSort*/
+//	static int MIN_TAX_BREAKDOWN;            /*semSort 文書ヘッダ課税分類*/
+//	static int MAX_TAX_BREAKDOWN;            /*semSort*/
+//	static int MIN_TAX_CURRENCY_BREAKDOWN;   /*semSort 文書ヘッダ外貨建て課税分類*/
+//	static int MAX_TAX_CURRENCY_BREAKDOWN;   /*semSort*/	
+//	static String DOCUMENT_CURRENCY = null;  /*文書通貨コード*/
+//	static String TAX_CURRENCY      = null;  /*税通貨コード*/
+//	static String INVOICE_NUMBER    = null;  /*インボイス番号*/
+//	static int COUNT_TAX_BREAKDOWN  = 0;
 	
 //	/**
 //	 * 複数回繰り返され定義されているJBGグループ
@@ -98,20 +98,20 @@ public class XBRL_GL2csv
 		ROOT_SEMSORT               = FileHandler.ROOT_SEMSORT;	
 		TRACE = false;
 		DEBUG = false;
-		if (0 == args.length) 
-		{
-			PROCESSING = "JP-PINT SEMANTICS";
-		} else 
-		{
-			PROCESSING = args[0]+" SEMANTICS";
-		}
+//		if (0 == args.length) 
+//		{
+//			PROCESSING = "JP-PINT SEMANTICS";
+//		} else 
+//		{
+//			PROCESSING = args[0]+" SEMANTICS";
+//		}
 		if (args.length <= 1) 
 		{
 			TRACE = true;
 			DEBUG = true;
 			if (0==PROCESSING.indexOf("XBRL-GL")) {
 //				IN_DIR  = FileHandler.IN_DIR;
-				IN_XML  = "XBRL_GLinstances/0001-20100331-70-2778-1-6017.xml";				
+				INSTANCE  = "XBRL_GLinstances/0001-20100331-70-2778-1-6017.xml";				
 				OUT_CSV = "data/csv/XBRL-GL/0001-20100331-70-2778-1-6017.csv"; //FileHandler.OUT_CSV;
 			} else {
 				return;
@@ -122,7 +122,7 @@ public class XBRL_GL2csv
 	        String value = args[2];
 	        switch (option) {
 	            case "-f":
-	                IN_XML = value;
+	                INSTANCE = value;
 	                break;
 	            case "-d":
 	                IN_DIR = value;
@@ -168,9 +168,9 @@ public class XBRL_GL2csv
 		Path dirPath;
         try {
 	        boolean[] header = {true};
-        	if (null!=IN_XML && IN_XML.length() > 0)
+        	if (null!=INSTANCE && INSTANCE.length() > 0)
         	{
-            	processXBRL_GL(IN_XML, OUT_CSV, header[0]);
+            	processXBRL_GL(INSTANCE, OUT_CSV, header[0]);
         	} else if (null!=IN_DIR && IN_DIR.length() > 0)
         	{
 	        	dirPath = Paths.get(IN_DIR);
@@ -182,8 +182,8 @@ public class XBRL_GL2csv
 	        	// header を boolean 配列にしています。ラムダ式内で配列の要素にアクセスするためには、最終的な要素に対するアクセスであれば、effectively final とみなされるため、警告が発生しなくなります。
 	            filePaths.filter(Files::isRegularFile)
 	                    .forEach(file -> {
-	                    	IN_XML = file.getFileName().toString();
-	                    	String in_xml = IN_DIR + "/" + IN_XML;
+	                    	INSTANCE = file.getFileName().toString();
+	                    	String in_xml = IN_DIR + "/" + INSTANCE;
 	                    	processXBRL_GL(in_xml, OUT_CSV, header[0]);
 	                    	header[0] = false;
 	                    });
@@ -193,7 +193,7 @@ public class XBRL_GL2csv
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		System.out.println("** END Adc2csv "+PROCESSING+" "+IN_XML+" "+OUT_CSV);
+		System.out.println("** END Adc2csv "+PROCESSING+" "+INSTANCE+" "+OUT_CSV);
 	}
 	
 	/**
@@ -261,7 +261,7 @@ public class XBRL_GL2csv
 			e.printStackTrace();
 		}
 
-		if (TRACE) System.out.println("** END IN_XML "+in_xml);
+		if (TRACE) System.out.println("** END INSTANCE "+in_xml);
 	}
 
 	/**
@@ -449,7 +449,7 @@ public class XBRL_GL2csv
 					if (DEBUG) System.out.println(id+" NOT FOUND in the header");
 				}
 			}
-			record.set(0, IN_XML.substring(0,IN_XML.lastIndexOf('.')));
+			record.set(0, INSTANCE.substring(0,INSTANCE.lastIndexOf('.')));
 			FileHandler.tidyData.add(record);
 		}
 		

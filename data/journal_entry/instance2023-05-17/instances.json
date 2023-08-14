@@ -16,6 +16,7 @@
   "tableTemplates" : {
     "core_japan_template" : {
       "columns" : {
+
         "GL02" : {
           "dimensions" : {
             "concept" : "core:GL02"

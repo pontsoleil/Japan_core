@@ -1,0 +1,534 @@
+<SMEInvoice 
+	xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1 ../XMLSchemas_4p1_20230801/SMEinvoice.xsd"
+	>
+    <CIExchangedDocumentContext>
+        <SpecifiedTransactionID>C0B0578C-8EAD-4520-B6D0-CA1F11C7953A</SpecifiedTransactionID>
+        <ProcessingTransactionDateTime>
+            <DateTime>2023-08-04T15:26:00</DateTime>
+        </ProcessingTransactionDateTime>
+        <BusinessProcessSpecifiedCIDocumentContextParameter>
+            <ID>SMEInvoice</ID>
+            <Value />
+            <SpecifiedCIDocumentVersion>
+                <ID>Ver.4.1.1</ID>
+                <IssueDateTime>
+                    <DateTime>2023-08-01T00:00:00</DateTime>
+                </IssueDateTime>
+            </SpecifiedCIDocumentVersion>
+        </BusinessProcessSpecifiedCIDocumentContextParameter>
+        <ScenarioSpecifiedCIDocumentContextParameter>
+            <ID />
+            <Value />
+        </ScenarioSpecifiedCIDocumentContextParameter>
+        <ApplicationSpecifiedCIDocumentContextParameter>
+            <ID>SMED0100</ID>
+            <Value />
+        </ApplicationSpecifiedCIDocumentContextParameter>
+        <SubsetSpecifiedCIDocumentContextParameter>
+            <ID>JPSSMED</ID>
+            <Value />
+            <SpecifiedCIDocumentVersion>
+                <ID />
+                <IssueDateTime>
+                    <DateTime />
+                </IssueDateTime>
+            </SpecifiedCIDocumentVersion>
+        </SubsetSpecifiedCIDocumentContextParameter>
+    </CIExchangedDocumentContext>
+    <CIIHExchangedDocument>
+        <ID>I100</ID>
+        <Name />
+        <TypeCode>380</TypeCode>
+        <IssueDateTime>
+            <DateTime>2023-08-04T15:26:00</DateTime>
+        </IssueDateTime>
+        <PurposeCode>9</PurposeCode>
+        <PreviousRevisionID />
+        <CategoryCode />
+        <SubtypeCode>38001</SubtypeCode>
+        <ReferenceCIReferencedDocument>
+            <IssuerAssignedID />
+            <URIID />
+            <IssueDateTime>
+                <DateTime />
+            </IssueDateTime>
+            <ReferenceTypeCode />
+            <RevisionID />
+            <Information />
+            <TypeCode />
+            <AttachmentBinaryObject />
+            <SubtypeCode />
+        </ReferenceCIReferencedDocument>
+        <AttachedSpecifiedBinaryFile>
+            <ID />
+            <FileName />
+            <URIID />
+            <MIMECode />
+            <Description />
+        </AttachedSpecifiedBinaryFile>
+    </CIIHExchangedDocument>
+    <CIIHSupplyChainTradeTransaction>
+        <ApplicableCIIHSupplyChainTradeAgreement>
+            <SellerCITradeParty>
+                <ID>7180001044022</ID>
+                <GlobalID />
+                <Name>（株）インフォウェア</Name>
+                <RegisteredID>T7180001044022</RegisteredID>
+                <TypeCode />
+                <DefinedCITradeContact>
+                    <ID />
+                    <PersonName />
+                    <DepartmentName />
+                    <PersonID />
+                    <TelephoneCIUniversalCommunication>
+                        <CompleteNumber />
+                    </TelephoneCIUniversalCommunication>
+                    <FaxCIUniversalCommunication>
+                        <CompleteNumber />
+                    </FaxCIUniversalCommunication>
+                    <EmailURICIUniversalCommunication>
+                        <URIID />
+                    </EmailURICIUniversalCommunication>
+                </DefinedCITradeContact>
+                <PostalCITradeAddress>
+                    <PostcodeCode />
+                    <LineOne />
+                    <LineTwo />
+                    <LineThree />
+                    <CountryID />
+                </PostalCITradeAddress>
+                <EndPointURICIUniversalCommunication>
+                    <ChannelCode />
+                    <CompleteNumber />
+                </EndPointURICIUniversalCommunication>
+            </SellerCITradeParty>
+            <BuyerCITradeParty>
+                <ID>9180001105466</ID>
+                <GlobalID />
+                <Name>（株）グローバルワイズ</Name>
+                <RegisteredID>T9180001105466</RegisteredID>
+                <TypeCode />
+                <DefinedCITradeContact>
+                    <ID />
+                    <PersonName />
+                    <DepartmentName />
+                    <PersonID />
+                    <TelephoneCIUniversalCommunication>
+                        <CompleteNumber />
+                    </TelephoneCIUniversalCommunication>
+                    <FaxCIUniversalCommunication>
+                        <CompleteNumber />
+                    </FaxCIUniversalCommunication>
+                    <EmailURICIUniversalCommunication>
+                        <URIID />
+                    </EmailURICIUniversalCommunication>
+                </DefinedCITradeContact>
+                <PostalCITradeAddress>
+                    <PostcodeCode />
+                    <LineOne />
+                    <LineTwo />
+                    <LineThree />
+                    <CountryID />
+                </PostalCITradeAddress>
+                <EndPointURICIUniversalCommunication>
+                    <ChannelCode />
+                    <CompleteNumber />
+                </EndPointURICIUniversalCommunication>
+            </BuyerCITradeParty>
+            <SpecifiedProcuringProject>
+                <ID />
+                <Name />
+            </SpecifiedProcuringProject>
+        </ApplicableCIIHSupplyChainTradeAgreement>
+        <ApplicableCIIHSupplyChainTradeSettlement>
+            <TaxCurrencyCode />
+            <InvoiceCurrencyCode />
+            <PaymentCurrencyCode />
+            <PayeeCITradeParty>
+                <ID />
+                <GlobalID />
+                <Name />
+            </PayeeCITradeParty>
+            <InvoiceApplicableCITradeCurrencyExchange>
+                <SourceCurrencyCode />
+                <TargetCurrencyCode />
+                <ConversionRate />
+                <ConversionRateDateTime>
+                    <DateTime />
+                </ConversionRateDateTime>
+            </InvoiceApplicableCITradeCurrencyExchange>
+            <SpecifiedCITradeSettlementPaymentMeans>
+                <TypeCode />
+                <Information />
+                <PaidAmount />
+                <PayeePartyCICreditorFinancialAccount>
+                    <AccountName />
+                    <ProprietaryID />
+                    <TypeCode />
+                </PayeePartyCICreditorFinancialAccount>
+                <PayeeSpecifiedCICreditorFinancialInstitution>
+                    <Name />
+                    <JapanFinancialInstitutionCommonID />
+                    <SubDivisionBranchFinancialInstitution>
+                        <ID />
+                        <Name />
+                    </SubDivisionBranchFinancialInstitution>
+                </PayeeSpecifiedCICreditorFinancialInstitution>
+                <ApplicableTradeSettlementFinancialCard>
+                    <ID />
+                    <TypeCode />
+                    <CardholderName />
+                    <IssuingCompanyName />
+                </ApplicableTradeSettlementFinancialCard>
+            </SpecifiedCITradeSettlementPaymentMeans>
+            <SpecifiedCITradePaymentTerms>
+                <ID />
+                <Description />
+                <DueDateDateTime>
+                    <DateTime />
+                </DueDateDateTime>
+                <TypeCode />
+                <InstructedAmount />
+            </SpecifiedCITradePaymentTerms>
+            <SpecifiedCIIHTradeSettlementMonetarySummation>
+                <TaxBasisTotalAmount />
+                <TaxTotalAmount />
+                <GrandTotalAmount />
+                <TotalPrepaidAmount />
+                <DuePayableAmount>110</DuePayableAmount>
+                <NetLineTotalAmount />
+                <IncludingTaxesLineTotalAmount />
+            </SpecifiedCIIHTradeSettlementMonetarySummation>
+            <SpecifiedCIAdvancePayment>
+                <PaidAmount />
+                <FormattedReceivedDateTime>
+                    <DateTime />
+                </FormattedReceivedDateTime>
+                <ID />
+                <IdentifiedCITradePaymentTerms>
+                    <TypeCode />
+                </IdentifiedCITradePaymentTerms>
+            </SpecifiedCIAdvancePayment>
+            <OutstandingSpecifiedCIIHTradeSettlementMonetarySummation>
+                <ChargeTotalAmount />
+                <AllowanceTotalAmount />
+                <GrandTotalAmount />
+                <TotalPrepaidAmount />
+                <DuePayableAmount />
+                <SpecifiedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <IssueDateTime>
+                        <DateTime />
+                    </IssueDateTime>
+                    <ReferenceTypeCode />
+                    <RevisionID />
+                    <Information />
+                    <TypeCode />
+                    <AttachmentBinaryObject />
+                    <SubtypeCode />
+                </SpecifiedCIReferencedDocument>
+            </OutstandingSpecifiedCIIHTradeSettlementMonetarySummation>
+        </ApplicableCIIHSupplyChainTradeSettlement>
+        <IncludedCIILSupplyChainTradeLineItem>
+            <AssociatedCIILDocumentLineDocument>
+                <LineID>1</LineID>
+                <CategoryCode />
+                <IncludedCINote>
+                    <Subject />
+                    <Content />
+                    <ID />
+                </IncludedCINote>
+            </AssociatedCIILDocumentLineDocument>
+            <SpecifiedCIILSupplyChainTradeAgreement>
+                <SellerOrderReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <RevisionID />
+                </SellerOrderReferencedCIReferencedDocument>
+                <BuyerOrderReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <RevisionID />
+                </BuyerOrderReferencedCIReferencedDocument>
+                <ContractReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <RevisionID />
+                </ContractReferencedCIReferencedDocument>
+            </SpecifiedCIILSupplyChainTradeAgreement>
+            <SpecifiedCIILSupplyChainTradeDelivery>
+                <ShipToCITradeParty>
+                    <ID />
+                    <GlobalID />
+                    <Name />
+                    <PostalCITradeAddress>
+                        <PostcodeCode />
+                        <LineOne />
+                        <LineTwo />
+                        <LineThree />
+                        <CountryID />
+                    </PostalCITradeAddress>
+                </ShipToCITradeParty>
+                <ActualDeliveryCISupplyChainEvent>
+                    <OccurrenceDateTime>
+                        <DateTime />
+                    </OccurrenceDateTime>
+                </ActualDeliveryCISupplyChainEvent>
+                <DespatchAdviceReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <RevisionID />
+                    <TypeCode />
+                    <CategoryCode />
+                    <SubtypeCode />
+                </DespatchAdviceReferencedCIReferencedDocument>
+                <ReceivingAdviceReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <RevisionID />
+                    <TypeCode />
+                    <SubtypeCode />
+                </ReceivingAdviceReferencedCIReferencedDocument>
+            </SpecifiedCIILSupplyChainTradeDelivery>
+            <SpecifiedCIILSupplyChainTradeSettlement>
+                <DirectionCode />
+                <SpecifiedCITradeAllowanceCharge>
+                    <ChargeIndicator />
+                    <CalculationPercent />
+                    <ActualAmount />
+                    <ReasonCode />
+                    <Reason />
+                    <BasisAmount />
+                    <CategoryCITradeTax>
+                        <CalculatedRate />
+                        <CategoryCode />
+                    </CategoryCITradeTax>
+                </SpecifiedCITradeAllowanceCharge>
+                <SpecifiedCITradeAllowanceCharge>
+                    <ChargeIndicator />
+                    <CalculationPercent />
+                    <ActualAmount />
+                    <ReasonCode />
+                    <Reason />
+                    <BasisAmount />
+                    <CategoryCITradeTax>
+                        <CalculatedRate />
+                        <CategoryCode />
+                    </CategoryCITradeTax>
+                </SpecifiedCITradeAllowanceCharge>
+                <ApplicableCITradeTax>
+                    <CalculatedAmount>10</CalculatedAmount>
+                    <TypeCode />
+                    <BasisAmount>100</BasisAmount>
+                    <CategoryCode />
+                    <CurrencyCode />
+                    <CategoryName />
+                    <RateApplicablePercent>10</RateApplicablePercent>
+                    <GrandTotalAmount>110</GrandTotalAmount>
+                    <CalculationMethodCode />
+                    <LocalTaxSystemID />
+                </ApplicableCITradeTax>
+                <ApplicableCITradeTax>
+                    <CalculatedAmount />
+                    <BasisAmount />
+                    <CategoryCode />
+                    <CurrencyCode />
+                    <RateApplicablePercent />
+                    <LocalTaxSystemID />
+                </ApplicableCITradeTax>
+                <BillingCISpecifiedPeriod>
+                    <StartDateTime>
+                        <DateTime>2023-08-04T15:26:00</DateTime>
+                    </StartDateTime>
+                    <EndDateTime>
+                        <DateTime />
+                    </EndDateTime>
+                </BillingCISpecifiedPeriod>
+                <SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ChargeTotalAmount />
+                    <AllowanceTotalAmount />
+                    <TaxTotalAmount>10</TaxTotalAmount>
+                    <GrossLineTotalAmount>100</GrossLineTotalAmount>
+                    <NetLineTotalAmount>100</NetLineTotalAmount>
+                    <NetIncludingTaxesLineTotalAmount />
+                    <GrandTotalAmount>110</GrandTotalAmount>
+                </SpecifiedCIILTradeSettlementMonetarySummation>
+                <SpecifiedCIILTradeSettlementMonetarySummation>
+                    <TaxTotalAmount />
+                </SpecifiedCIILTradeSettlementMonetarySummation>
+                <SpecifiedCIFinancialAdjustment>
+                    <ReasonCode />
+                    <Reason />
+                    <ActualAmount />
+                    <DirectionCode />
+                    <RelatedCITradeTax>
+                        <CalculatedAmount />
+                        <CalculatedRate />
+                        <CategoryCode />
+                    </RelatedCITradeTax>
+                </SpecifiedCIFinancialAdjustment>
+                <InvoiceReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <IssueDateTime>
+                        <DateTime />
+                    </IssueDateTime>
+                    <ReferenceTypeCode />
+                    <RevisionID />
+                    <TypeCode />
+                    <SubtypeCode />
+                </InvoiceReferencedCIReferencedDocument>
+                <AdditionalReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <IssueDateTime>
+                        <DateTime />
+                    </IssueDateTime>
+                    <ReferenceTypeCode />
+                    <RevisionID />
+                    <Information />
+                    <TypeCode />
+                    <AttachmentBinaryObject />
+                    <SubtypeCode />
+                </AdditionalReferencedCIReferencedDocument>
+                <AdditionalReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <IssueDateTime>
+                        <DateTime />
+                    </IssueDateTime>
+                    <ReferenceTypeCode />
+                    <RevisionID />
+                    <Information />
+                    <TypeCode />
+                    <AttachmentBinaryObject />
+                    <SubtypeCode />
+                </AdditionalReferencedCIReferencedDocument>
+                <PurchaseSpecifiedCITradeAccountingAccount>
+                    <TypeCode />
+                    <Name />
+                </PurchaseSpecifiedCITradeAccountingAccount>
+            </SpecifiedCIILSupplyChainTradeSettlement>
+            <SubordinateCIILBSubordinateTradeLineItem>
+                <ID>1</ID>
+                <CategoryCode />
+                <IncludedCINote>
+                    <Subject />
+                    <Content />
+                    <ID />
+                </IncludedCINote>
+                <SpecifiedCIILBSupplyChainTradeAgreement>
+                    <SellerOrderReferencedCIReferencedDocument>
+                        <IssuerAssignedID />
+                        <LineID />
+                        <RevisionID />
+                    </SellerOrderReferencedCIReferencedDocument>
+                    <BuyerOrderReferencedCIReferencedDocument>
+                        <IssuerAssignedID>P100</IssuerAssignedID>
+                        <LineID />
+                        <RevisionID />
+                    </BuyerOrderReferencedCIReferencedDocument>
+                    <AdditionalReferencedCIReferencedDocument>
+                        <IssuerAssignedID>A100</IssuerAssignedID>
+                        <LineID />
+                        <ReferenceTypeCode />
+                        <RevisionID />
+                        <TypeCode />
+                        <AttachmentBinaryObject />
+                        <SubtypeCode />
+                    </AdditionalReferencedCIReferencedDocument>
+                    <AdditionalReferencedCIReferencedDocument>
+                        <IssuerAssignedID />
+                        <LineID />
+                        <ReferenceTypeCode />
+                        <RevisionID />
+                        <TypeCode />
+                        <AttachmentBinaryObject />
+                        <SubtypeCode />
+                    </AdditionalReferencedCIReferencedDocument>
+                    <NetPriceProductCITradePrice>
+                        <TypeCode />
+                        <ChargeAmount>10</ChargeAmount>
+                        <BasisQuantity />
+                    </NetPriceProductCITradePrice>
+                </SpecifiedCIILBSupplyChainTradeAgreement>
+                <SpecifiedCIILBSupplyChainTradeDelivery>
+                    <PackageQuantity />
+                    <ProductUnitQuantity />
+                    <PerPackageUnitQuantity />
+                    <BilledQuantity>10</BilledQuantity>
+                </SpecifiedCIILBSupplyChainTradeDelivery>
+                <SpecifiedCIILBSupplyChainTradeSettlement>
+                    <DirectionCode />
+                    <ApplicableCITradeTax>
+                        <TypeCode />
+                        <BasisAmount>100</BasisAmount>
+                        <CategoryCode />
+                        <CategoryName />
+                        <RateApplicablePercent>10</RateApplicablePercent>
+                        <GrandTotalAmount />
+                        <LocalTaxSystemID />
+                    </ApplicableCITradeTax>
+                    <InvoiceReferencedCIReferencedDocument>
+                        <IssuerAssignedID />
+                        <IssueDateTime>
+                            <DateTime />
+                        </IssueDateTime>
+                        <LineID />
+                        <ReferenceTypeCode />
+                        <RevisionID />
+                        <TypeCode />
+                        <SubtypeCode />
+                    </InvoiceReferencedCIReferencedDocument>
+                    <SpecifiedCITradeAllowanceCharge>
+                        <ChargeIndicator />
+                        <CalculationPercent />
+                        <ActualAmount />
+                        <ReasonCode />
+                        <Reason />
+                        <BasisAmount />
+                    </SpecifiedCITradeAllowanceCharge>
+                    <SpecifiedCITradeAllowanceCharge>
+                        <ChargeIndicator />
+                        <CalculationPercent />
+                        <ActualAmount />
+                        <ReasonCode />
+                        <Reason />
+                        <BasisAmount />
+                    </SpecifiedCITradeAllowanceCharge>
+                    <SpecifiedCIFinancialAdjustment>
+                        <ReasonCode />
+                        <Reason />
+                        <ActualAmount />
+                    </SpecifiedCIFinancialAdjustment>
+                    <BillingCISpecifiedPeriod>
+                        <StartDateTime>
+                            <DateTime>2023-07-25T15:21:00</DateTime>
+                        </StartDateTime>
+                        <EndDateTime>
+                            <DateTime />
+                        </EndDateTime>
+                    </BillingCISpecifiedPeriod>
+                    <PurchaseSpecifiedCITradeAccountingAccount>
+                        <TypeCode />
+                        <Name />
+                    </PurchaseSpecifiedCITradeAccountingAccount>
+                </SpecifiedCIILBSupplyChainTradeSettlement>
+                <ApplicableCITradeProduct>
+                    <ID />
+                    <GlobalID />
+                    <SellerAssignedID />
+                    <BuyerAssignedID />
+                    <ManufacturerAssignedID />
+                    <Name>EcoChangeSIPS3.1年間ライセンス</Name>
+                    <Description>EcoChangeSIPS3.1年間ライセンス</Description>
+                    <VariableMeasureIndicator />
+                    <DesignatedCIProductClassification>
+                        <SystemID />
+                    </DesignatedCIProductClassification>
+                    <ApplicableCIProductCharacteristic>
+                        <Description />
+                        <Value />
+                    </ApplicableCIProductCharacteristic>
+                    <OriginCITradeCountry>
+                        <ID />
+                    </OriginCITradeCountry>
+                </ApplicableCITradeProduct>
+            </SubordinateCIILBSubordinateTradeLineItem>
+        </IncludedCIILSupplyChainTradeLineItem>
+    </CIIHSupplyChainTradeTransaction>
+</SMEInvoice>

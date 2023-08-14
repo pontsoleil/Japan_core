@@ -1,0 +1,403 @@
+﻿<SMEOrderResponse xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEOrderResponse:4p1">
+    <CIExchangedDocumentContext>
+        <SpecifiedTransactionID>C44A4C09-FADF-4BA3-8572-565F11F942C4</SpecifiedTransactionID>
+        <ProcessingTransactionDateTime>
+            <DateTime>2023-07-21T14:43:00</DateTime>
+        </ProcessingTransactionDateTime>
+        <BusinessProcessSpecifiedCIDocumentContextParameter>
+            <ID>SMEOrderResponse</ID>
+            <Value />
+            <SpecifiedCIDocumentVersion>
+                <ID>Ver.4.1.1</ID>
+                <IssueDateTime>
+                    <DateTime>2023-08-01T00:00:00</DateTime>
+                </IssueDateTime>
+            </SpecifiedCIDocumentVersion>
+        </BusinessProcessSpecifiedCIDocumentContextParameter>
+        <ScenarioSpecifiedCIDocumentContextParameter>
+            <ID />
+            <Value />
+        </ScenarioSpecifiedCIDocumentContextParameter>
+        <ApplicationSpecifiedCIDocumentContextParameter>
+            <ID>SMED0100</ID>
+            <Value />
+        </ApplicationSpecifiedCIDocumentContextParameter>
+        <SubsetSpecifiedCIDocumentContextParameter>
+            <ID>JPSSMED</ID>
+            <Value />
+            <SpecifiedCIDocumentVersion>
+                <ID />
+                <IssueDateTime>
+                    <DateTime />
+                </IssueDateTime>
+            </SpecifiedCIDocumentVersion>
+        </SubsetSpecifiedCIDocumentContextParameter>
+    </CIExchangedDocumentContext>
+    <CIORHExchangedDocument>
+        <ID>P100</ID>
+        <Name>A01</Name>
+        <TypeCode>231</TypeCode>
+        <IssueDateTime>
+            <DateTime>2023-07-21T14:43:00</DateTime>
+        </IssueDateTime>
+        <PurposeCode>9</PurposeCode>
+        <RevisionID />
+        <RequestedResponseTypeCode />
+        <SubtypeCode>23101</SubtypeCode>
+        <IncludedCINote>
+            <Subject />
+            <Content />
+            <ID />
+        </IncludedCINote>
+        <AttachedSpecifiedBinaryFile>
+            <ID />
+            <VersionID />
+            <FileName />
+            <URIID />
+            <MIMECode />
+            <EncodingCode />
+            <IncludedBinaryObject />
+            <Description />
+        </AttachedSpecifiedBinaryFile>
+    </CIORHExchangedDocument>
+    <CIOHSupplyChainTradeTransaction>
+        <ApplicableCIOHSupplyChainTradeAgreement>
+            <SellerCITradeParty>
+                <ID>7180001044022</ID>
+                <GlobalID />
+                <Name>（株）インフォウェア</Name>
+                <RegisteredID />
+                <DefinedCITradeContact>
+                    <ID />
+                    <PersonName />
+                    <DepartmentName />
+                    <TelephoneCIUniversalCommunication>
+                        <CompleteNumber />
+                    </TelephoneCIUniversalCommunication>
+                    <FaxCIUniversalCommunication>
+                        <CompleteNumber />
+                    </FaxCIUniversalCommunication>
+                    <EmailURICIUniversalCommunication>
+                        <URIID />
+                    </EmailURICIUniversalCommunication>
+                </DefinedCITradeContact>
+                <PostalCITradeAddress>
+                    <PostcodeCode />
+                    <LineOne />
+                </PostalCITradeAddress>
+            </SellerCITradeParty>
+            <BuyerCITradeParty>
+                <ID>9180001105466</ID>
+                <GlobalID />
+                <Name>（株）グローバルワイズ</Name>
+                <DefinedCITradeContact>
+                    <ID />
+                    <PersonName />
+                    <DepartmentName />
+                    <TelephoneCIUniversalCommunication>
+                        <CompleteNumber />
+                    </TelephoneCIUniversalCommunication>
+                    <FaxCIUniversalCommunication>
+                        <CompleteNumber />
+                    </FaxCIUniversalCommunication>
+                    <EmailURICIUniversalCommunication>
+                        <URIID />
+                    </EmailURICIUniversalCommunication>
+                </DefinedCITradeContact>
+                <PostalCITradeAddress>
+                    <PostcodeCode />
+                    <LineOne />
+                </PostalCITradeAddress>
+            </BuyerCITradeParty>
+            <PreviousOrderResponseReferencedCIReferencedDocument>
+                <IssuerAssignedID />
+                <IssueDateTime>
+                    <DateTime />
+                </IssueDateTime>
+                <RevisionID />
+                <Information />
+                <PurposeCode />
+                <SubtypeCode />
+            </PreviousOrderResponseReferencedCIReferencedDocument>
+            <RelevantCITradeParty>
+                <ID />
+                <GlobalID />
+                <Name />
+                <RoleCode />
+                <DefinedCITradeContact>
+                    <ID />
+                    <PersonName />
+                    <DepartmentName />
+                </DefinedCITradeContact>
+            </RelevantCITradeParty>
+            <SpecifiedProcuringProject>
+                <ID />
+                <Name />
+                <SpecifiedInspectionEvent>
+                    <TypeCode />
+                    <Description />
+                </SpecifiedInspectionEvent>
+                <PlanProjectPeriod>
+                    <StartDateTime>
+                        <DateTime />
+                    </StartDateTime>
+                    <EndDateTime>
+                        <DateTime />
+                    </EndDateTime>
+                </PlanProjectPeriod>
+            </SpecifiedProcuringProject>
+        </ApplicableCIOHSupplyChainTradeAgreement>
+        <ApplicableCIOHSupplyChainTradeDelivery>
+            <ShipToCITradeParty>
+                <ID />
+                <GlobalID />
+                <Name />
+                <DefinedCITradeContact>
+                    <ID />
+                    <PersonName />
+                    <DepartmentName />
+                    <PersonID />
+                    <TelephoneCIUniversalCommunication>
+                        <CompleteNumber />
+                    </TelephoneCIUniversalCommunication>
+                    <FaxCIUniversalCommunication>
+                        <CompleteNumber />
+                    </FaxCIUniversalCommunication>
+                    <EmailURICIUniversalCommunication>
+                        <CompleteNumber />
+                    </EmailURICIUniversalCommunication>
+                </DefinedCITradeContact>
+                <PostalCITradeAddress>
+                    <PostcodeCode />
+                    <LineOne />
+                </PostalCITradeAddress>
+            </ShipToCITradeParty>
+            <ShipFromCITradeParty>
+                <ID />
+                <Name />
+            </ShipFromCITradeParty>
+            <PlannedDeliveryCISupplyChainEvent>
+                <ID />
+                <OccurrenceDateTime>
+                    <DateTime />
+                </OccurrenceDateTime>
+                <TypeCode />
+                <Description />
+            </PlannedDeliveryCISupplyChainEvent>
+            <HandlingCIHandlingInstructions>
+                <DeliveryApplicableCIInstructedTemperature>
+                    <ControlCode />
+                </DeliveryApplicableCIInstructedTemperature>
+            </HandlingCIHandlingInstructions>
+        </ApplicableCIOHSupplyChainTradeDelivery>
+        <ApplicableCIOHSupplyChainTradeSettlement>
+            <PriceCurrencyCode />
+            <ApplicableCITradeTax>
+                <CalculatedAmount>10</CalculatedAmount>
+                <TypeCode />
+                <BasisAmount>100</BasisAmount>
+                <CategoryCode />
+                <CategoryName />
+                <RateApplicablePercent>10</RateApplicablePercent>
+                <GrandTotalAmount>110</GrandTotalAmount>
+                <CalculationMethodCode />
+            </ApplicableCITradeTax>
+            <SpecifiedCITradePaymentTerms>
+                <Description />
+                <TypeCode />
+            </SpecifiedCITradePaymentTerms>
+            <SpecifiedCIOHTradeSettlementMonetarySummation>
+                <TaxTotalAmount />
+                <GrandTotalAmount />
+                <NetLineTotalAmount />
+                <IncludingTaxesLineTotalAmount />
+            </SpecifiedCIOHTradeSettlementMonetarySummation>
+        </ApplicableCIOHSupplyChainTradeSettlement>
+        <IncludedCIOLSupplyChainTradeLineItem>
+            <AssociatedCIOLDocumentLineDocument>
+                <LineID />
+                <LineStatusCode />
+                <LineStatusReasonCode />
+                <ID />
+                <BuyerAssignedCategoryCode />
+                <IncludedCINote>
+                    <Subject />
+                    <Content />
+                    <ID />
+                </IncludedCINote>
+                <ReferenceCIAcknowledgementDocument>
+                    <ID />
+                    <TypeCode />
+                    <AcknowledgementStatusCode />
+                    <ReasonInformation />
+                </ReferenceCIAcknowledgementDocument>
+            </AssociatedCIOLDocumentLineDocument>
+            <SpecifiedCIOLSupplyChainTradeAgreement>
+                <QuotationReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <LineID />
+                    <RevisionID />
+                    <Information />
+                </QuotationReferencedCIReferencedDocument>
+                <RequisitionReferencedCIReferencedDocument>
+                    <IssuerAssignedID />
+                </RequisitionReferencedCIReferencedDocument>
+                <NetPriceProductCITradePrice>
+                    <TypeCode />
+                    <ChargeAmount>10</ChargeAmount>
+                    <BasisQuantity />
+                    <TradeComparisonReferencePrice>
+                        <ChargeAmount>10</ChargeAmount>
+                    </TradeComparisonReferencePrice>
+                </NetPriceProductCITradePrice>
+                <ApplicableCITradeDeliveryTerms>
+                    <Description />
+                </ApplicableCITradeDeliveryTerms>
+            </SpecifiedCIOLSupplyChainTradeAgreement>
+            <SpecifiedCIOLSupplyChainTradeDelivery>
+                <RequestedQuantity>10</RequestedQuantity>
+                <AgreedQuantity>10</AgreedQuantity>
+                <PerPackageUnitQuantity />
+                <PackageQuantity />
+                <ProductUnitQuantity />
+                <ShipToCITradeParty>
+                    <ID />
+                    <GlobalID />
+                    <Name />
+                    <DefinedCITradeContact>
+                        <PersonName />
+                        <DepartmentName />
+                        <TelephoneCIUniversalCommunication>
+                            <CompleteNumber />
+                        </TelephoneCIUniversalCommunication>
+                        <FaxCIUniversalCommunication>
+                            <CompleteNumber />
+                        </FaxCIUniversalCommunication>
+                        <EmailURICIUniversalCommunication>
+                            <CompleteNumber />
+                        </EmailURICIUniversalCommunication>
+                    </DefinedCITradeContact>
+                    <PostalCITradeAddress>
+                        <PostcodeCode />
+                        <LineOne />
+                    </PostalCITradeAddress>
+                </ShipToCITradeParty>
+                <ShipFromCITradeParty>
+                    <ID />
+                    <Name />
+                </ShipFromCITradeParty>
+                <PlannedCISupplyChainConsignment>
+                    <CarrierCITradeParty>
+                        <Name />
+                        <DefinedCITradeContact>
+                            <TelephoneCIUniversalCommunication>
+                                <CompleteNumber />
+                            </TelephoneCIUniversalCommunication>
+                        </DefinedCITradeContact>
+                    </CarrierCITradeParty>
+                    <TransportContractCIReferencedDocument>
+                        <IssuerAssignedID />
+                        <Information />
+                    </TransportContractCIReferencedDocument>
+                </PlannedCISupplyChainConsignment>
+                <DeliveryCIDeliveryInstructions>
+                    <HandlingCode />
+                </DeliveryCIDeliveryInstructions>
+                <RequestedDeliveryCISupplyChainEvent>
+                    <OccurrenceDateTime>
+                        <DateTime>2023-07-24T00:00:00</DateTime>
+                    </OccurrenceDateTime>
+                    <TypeCode />
+                    <TimeOccurrenceDateTime>
+                        <DateTime />
+                    </TimeOccurrenceDateTime>
+                    <OccurrenceCILogisticsLocation>
+                        <ID />
+                        <Name />
+                    </OccurrenceCILogisticsLocation>
+                </RequestedDeliveryCISupplyChainEvent>
+                <ConfirmedDeliveryCISupplyChainEvent>
+                    <ID />
+                    <OccurrenceDateTime>
+                        <DateTime>2023-07-25T00:00:00</DateTime>
+                    </OccurrenceDateTime>
+                    <TypeCode />
+                    <UnitQuantity />
+                    <TimeOccurrenceDateTime>
+                        <DateTime />
+                    </TimeOccurrenceDateTime>
+                </ConfirmedDeliveryCISupplyChainEvent>
+            </SpecifiedCIOLSupplyChainTradeDelivery>
+            <SpecifiedCIOLSupplyChainTradeSettlement>
+                <ApplicableCITradeTax>
+                    <TypeCode />
+                    <BasisAmount />
+                    <CategoryCode />
+                    <CategoryName />
+                    <RateApplicablePercent>10</RateApplicablePercent>
+                    <GrandTotalAmount />
+                </ApplicableCITradeTax>
+                <SpecifiedCIOLTradeSettlementMonetarySummation>
+                    <NetLineTotalAmount />
+                    <IncludingTaxesLineTotalAmount />
+                </SpecifiedCIOLTradeSettlementMonetarySummation>
+            </SpecifiedCIOLSupplyChainTradeSettlement>
+            <SpecifiedCITradeProduct>
+                <ID />
+                <GlobalID />
+                <SellerAssignedID />
+                <BuyerAssignedID />
+                <ManufacturerAssignedID />
+                <Name>EcoChangeSIPS3.1年間ライセンス</Name>
+                <Description>EcoChangeSIPS3.1年間ライセンス</Description>
+                <EndItemTypeCode />
+                <VariableMeasureIndicator />
+                <SizeCode />
+                <SizeDescription />
+                <ApplicableCIProductCharacteristic>
+                    <ID />
+                    <TypeCode />
+                    <Description />
+                    <ContentTypeCode />
+                </ApplicableCIProductCharacteristic>
+                <IndividualCITradeProductInstance>
+                    <GlobalSerialID />
+                    <BatchID />
+                </IndividualCITradeProductInstance>
+                <InspectionReferenceCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <URIID />
+                    <Name />
+                    <Information />
+                    <SubtypeCode />
+                </InspectionReferenceCIReferencedDocument>
+                <ManufacturerCITradeParty>
+                    <ID />
+                    <Name />
+                </ManufacturerCITradeParty>
+                <AdditionalReferenceCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <URIID />
+                    <RevisionID />
+                    <Name />
+                    <Information />
+                    <AttachmentBinaryObject />
+                    <SubtypeCode />
+                </AdditionalReferenceCIReferencedDocument>
+                <BuyerSuppliedPartsReferenceCIReferencedDocument>
+                    <IssuerAssignedID />
+                    <Information />
+                    <AttachmentBinaryObject />
+                </BuyerSuppliedPartsReferenceCIReferencedDocument>
+            </SpecifiedCITradeProduct>
+            <PhysicalReferencedLogisticsPackage>
+                <ItemQuantity />
+                <TypeCode />
+            </PhysicalReferencedLogisticsPackage>
+            <SpecifiedGoodsProduction>
+                <ID />
+                <ManufacturingProcessDescription />
+            </SpecifiedGoodsProduction>
+        </IncludedCIOLSupplyChainTradeLineItem>
+    </CIOHSupplyChainTradeTransaction>
+</SMEOrderResponse>

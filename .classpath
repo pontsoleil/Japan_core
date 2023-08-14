@@ -16,7 +16,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/nobuy/GitHub/jackson-core-2.12.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/nobuy/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar" sourcepath="C:/Users/nobuy/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1-sources.jar">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
