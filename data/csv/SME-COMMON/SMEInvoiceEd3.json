@@ -1,0 +1,319 @@
+{
+  "documentInfo" : {
+    "documentType" : "https://xbrl.org/2021/xbrl-csv",
+    "namespaces" : {
+      "core" : "http://www.xbrl.jp/core-japan",
+      "ns0" : "http://www.example.com",
+      "link" : "http://www.xbrl.org/2003/linkbase",
+      "iso4217" : "http://www.xbrl.org/2003/iso4217",
+      "xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+      "xbrli" : "http://www.xbrl.org/2003/instance",
+      "xbrldi" : "http://xbrl.org/2006/xbrldi",
+      "xlink" : "http://www.w3.org/1999/xlink"
+    },
+    "taxonomy" : [ "../../xbrl/core.xsd" ]
+  },
+  "tableTemplates" : {
+    "core_japan_template" : {
+      "columns" : {
+        "d_NC00" : { },
+        "NC00-01" : {
+          "dimensions" : {
+            "concept" : "core:NC00-01"
+          }
+        },
+        "NC00-05" : {
+          "dimensions" : {
+            "concept" : "core:NC00-05"
+          }
+        },
+        "NC00-06" : {
+          "dimensions" : {
+            "concept" : "core:NC00-06"
+          }
+        },
+        "NC00-07" : {
+          "dimensions" : {
+            "concept" : "core:NC00-07"
+          }
+        },
+        "NC00-09" : {
+          "dimensions" : {
+            "concept" : "core:NC00-09"
+          }
+        },
+        "NC00-11" : {
+          "dimensions" : {
+            "concept" : "core:NC00-11"
+          }
+        },
+        "NC00-13" : {
+          "dimensions" : {
+            "concept" : "core:NC00-13"
+          }
+        },
+        "NC00-15" : {
+          "dimensions" : {
+            "concept" : "core:NC00-15"
+          }
+        },
+        "NC00-17" : {
+          "dimensions" : {
+            "concept" : "core:NC00-17"
+          }
+        },
+        "NC00-18" : {
+          "dimensions" : {
+            "concept" : "core:NC00-18"
+          }
+        },
+        "NC00-19" : {
+          "dimensions" : {
+            "concept" : "core:NC00-19"
+          }
+        },
+        "NC00-21" : {
+          "dimensions" : {
+            "concept" : "core:NC00-21"
+          }
+        },
+        "NC00-22" : {
+          "dimensions" : {
+            "concept" : "core:NC00-22"
+          }
+        },
+        "NC00-23" : {
+          "dimensions" : {
+            "concept" : "core:NC00-23"
+          }
+        },
+        "NC00-25" : {
+          "dimensions" : {
+            "concept" : "core:NC00-25"
+          }
+        },
+        "NC00-26" : {
+          "dimensions" : {
+            "concept" : "core:NC00-26"
+          }
+        },
+        "NC09-01" : {
+          "dimensions" : {
+            "concept" : "core:NC09-01"
+          }
+        },
+        "NC09-05" : {
+          "dimensions" : {
+            "concept" : "core:NC09-05"
+          }
+        },
+        "NC09-07" : {
+          "dimensions" : {
+            "concept" : "core:NC09-07"
+          }
+        },
+        "NC09-08" : {
+          "dimensions" : {
+            "concept" : "core:NC09-08"
+          }
+        },
+        "NC09-11" : {
+          "dimensions" : {
+            "concept" : "core:NC09-11"
+          }
+        },
+        "NC09-12" : {
+          "dimensions" : {
+            "concept" : "core:NC09-12"
+          }
+        },
+        "NC12-01" : {
+          "dimensions" : {
+            "concept" : "core:NC12-01"
+          }
+        },
+        "NC12-05" : {
+          "dimensions" : {
+            "concept" : "core:NC12-05"
+          }
+        },
+        "NC12-07" : {
+          "dimensions" : {
+            "concept" : "core:NC12-07"
+          }
+        },
+        "NC12-08" : {
+          "dimensions" : {
+            "concept" : "core:NC12-08"
+          }
+        },
+        "NC12-09" : {
+          "dimensions" : {
+            "concept" : "core:NC12-09"
+          }
+        },
+        "NC12-10" : {
+          "dimensions" : {
+            "concept" : "core:NC12-10"
+          }
+        },
+        "NC36-01" : {
+          "dimensions" : {
+            "concept" : "core:NC36-01",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC36-02" : {
+          "dimensions" : {
+            "concept" : "core:NC36-02",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC36-03" : {
+          "dimensions" : {
+            "concept" : "core:NC36-03",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC36-04" : {
+          "dimensions" : {
+            "concept" : "core:NC36-04",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC36-05" : {
+          "dimensions" : {
+            "concept" : "core:NC36-05",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC36-06" : {
+          "dimensions" : {
+            "concept" : "core:NC36-06",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC36-07" : {
+          "dimensions" : {
+            "concept" : "core:NC36-07",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC39-01" : {
+          "dimensions" : {
+            "concept" : "core:NC39-01"
+          }
+        },
+        "NC39-02" : {
+          "dimensions" : {
+            "concept" : "core:NC39-02"
+          }
+        },
+        "NC61-01" : {
+          "dimensions" : {
+            "concept" : "core:NC61-01"
+          }
+        },
+        "NC61-03" : {
+          "dimensions" : {
+            "concept" : "core:NC61-03",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC61-04" : {
+          "dimensions" : {
+            "concept" : "core:NC61-04",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC61-05" : {
+          "dimensions" : {
+            "concept" : "core:NC61-05"
+          }
+        },
+        "NC62-01" : {
+          "dimensions" : {
+            "concept" : "core:NC62-01"
+          }
+        },
+        "NC62-02" : {
+          "dimensions" : {
+            "concept" : "core:NC62-02"
+          }
+        },
+        "NC63-01" : {
+          "dimensions" : {
+            "concept" : "core:NC63-01"
+          }
+        },
+        "NC63-02" : {
+          "dimensions" : {
+            "concept" : "core:NC63-02"
+          }
+        },
+        "NC63-03" : {
+          "dimensions" : {
+            "concept" : "core:NC63-03"
+          }
+        },
+        "NC63-04" : {
+          "dimensions" : {
+            "concept" : "core:NC63-04"
+          }
+        },
+        "NC71-02" : {
+          "dimensions" : {
+            "concept" : "core:NC71-02"
+          }
+        },
+        "NC71-04" : {
+          "dimensions" : {
+            "concept" : "core:NC71-04"
+          }
+        },
+        "NC71-05" : {
+          "dimensions" : {
+            "concept" : "core:NC71-05"
+          }
+        },
+        "NC75-07" : {
+          "dimensions" : {
+            "concept" : "core:NC75-07"
+          }
+        },
+        "NC75-08" : {
+          "dimensions" : {
+            "concept" : "core:NC75-08"
+          }
+        },
+        "NC76-01" : {
+          "dimensions" : {
+            "concept" : "core:NC76-01"
+          }
+        },
+        "NC76-02" : {
+          "dimensions" : {
+            "concept" : "core:NC76-02",
+            "unit" : "iso4217:JPY"
+          }
+        },
+        "NC76-07" : {
+          "dimensions" : {
+            "concept" : "core:NC76-07"
+          }
+        }
+      },
+      "dimensions" : {
+        "core:d_NC00" : "$d_NC00",
+        "period" : "2023-11-01T00:00:00",
+        "entity" : "ns0:Example co."
+      }
+    }
+  },
+  "tables" : {
+    "core_japan_table" : {
+      "template" : "core_japan_template",
+      "url" : "SMEInvoiceEd3.csv"
+    }
+  }
+}

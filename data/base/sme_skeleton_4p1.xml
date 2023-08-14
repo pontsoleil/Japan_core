@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SMEinvoice 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31"
+		xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1"
+		xsi:schemaLocation="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1 https://www.wuwei.space/core-japan/server/data/SME_Common/SMEEDI_4p1_20230801/Schemas_4p1_20230801/SMEInvoice.xsd">
+</SMEinvoice>

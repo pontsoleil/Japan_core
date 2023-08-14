@@ -58,8 +58,8 @@ public class FileHandler
 	static String SME_XML_SKELTON            = "data/base/sme_skeleton.xml";
 	
 	static String XBRL_GL_CSV                = "data/base/xBRL_GL_binding.csv";
-	static String IN_DIR                     = "XBRL_GLinstances"; //"data/xml/XBRL-GL";
-	static String OUT_CSV                    = "data/csv/XBRL-GL/instances.csv";
+	static String XML_DIR                     = "XBRL_GLinstances"; //"data/xml/XBRL-GL";
+	static String XBRL_CSV                    = "data/csv/XBRL-GL/instances.csv";
 	
 	public static Document doc               = null;
 	public static XPath xpath                = null;
@@ -670,20 +670,17 @@ public class FileHandler
 			if (0==PROCESSING.indexOf("JP-PINT")) 
 			{
 				xPath = xPath.replace("/Invoice", "/*");
-			} else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("ram:TaxCurrencyCode]")>0) 
+			} else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("TaxCurrencyCode]")>0) 
+//		    } else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("ram:TaxCurrencyCode]")>0) 
 			{
 				if (DEBUG) System.out.println(" (FileHandler) getXPathNodes "+xPath);
 			}
 			// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
 			if (xPath.indexOf("true")>0 || xPath.indexOf("false")>0) 
-//			{
-//				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=true\\(\\)\\]","[normalize-space($1/text())='true']");
-//			} else if (xPath.indexOf("false")>0) 
 			{
 				xPath = xPath.replace("[", "[normalize-space(");
 				xPath = xPath.replace("=", "/text())='");
 				xPath = xPath.replace("()]", "']");				
-//				xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=false\\(\\)\\]","[normalize-space($1/text())='false']");
 			// XMLパーサーが[cbc:TaxAmount/@currencyID=./cbc:DocumentCurrencyCode]を正しく判定できないので、固定値との比較に書き換える。
 			} else if (0==PROCESSING.indexOf("JP-PINT")) 
 			{
@@ -696,6 +693,18 @@ public class FileHandler
 				}
 			} else if (0==PROCESSING.indexOf("SME-COMMON")) 
 			{
+				if (xPath.indexOf("InvoiceCurrencyCode]")>0) 
+				/*				{
+					xPath = xPath.replaceAll(
+							"//rsm:CIIHSupplyChainTradeTransaction/rsm:ApplicableCIIHSupplyChainTradeSettlement/rsm:InvoiceCurrencyCode",
+							"'"+DOCUMENT_CURRENCY+"'");
+				} else if (null!=TAX_CURRENCY && xPath.indexOf("TaxCurrencyCode]")>0) 
+				{
+					xPath = xPath.replaceAll(
+							"//rsm:CIIHSupplyChainTradeTransaction/rsm:ApplicableCIIHSupplyChainTradeSettlement/rsm:TaxCurrencyCode",
+							"'"+TAX_CURRENCY+"'");
+				}
+				*/
 				if (xPath.indexOf("ram:InvoiceCurrencyCode]")>0) 
 				{
 					xPath = xPath.replaceAll(

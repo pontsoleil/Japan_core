@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rsm:SMEInvoice xmlns:rsm="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1"
+	xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:4p1"
+    xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:32"
+    xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:32"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1 ../Schemas_NDR_4p1_20230801/SMEInvoice.xsd">
+    <rsm:CIExchangedDocumentContext>
+        <ram:SpecifiedTransactionID>C0B0578C-8EAD-4520-B6D0-CA1F11C7953A</ram:SpecifiedTransactionID>
+        <ram:ProcessingTransactionDateTime>
+            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+        </ram:ProcessingTransactionDateTime>
+        <ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+            <ram:ID>SMEInvoice</ram:ID>
+            <ram:SpecifiedCIDocumentVersion>
+                <ram:ID>Ver.4.1.1</ram:ID>
+                <ram:IssueDateTime>
+                    <udt:DateTimeString>1970-01-01</udt:DateTimeString>
+                </ram:IssueDateTime>
+            </ram:SpecifiedCIDocumentVersion>
+        </ram:BusinessProcessSpecifiedCIDocumentContextParameter>
+        <ram:ScenarioSpecifiedCIDocumentContextParameter>
+            <ram:ID>NA</ram:ID>
+            <ram:SpecifiedCIDocumentVersion>
+                <ram:ID>NA</ram:ID>
+                <ram:IssueDateTime>
+                    <udt:DateTime>1970-01-01T00:00:00</udt:DateTime>
+                </ram:IssueDateTime>
+            </ram:SpecifiedCIDocumentVersion>
+        </ram:ScenarioSpecifiedCIDocumentContextParameter>
+        <ram:ApplicationSpecifiedCIDocumentContextParameter>
+            <ram:ID>SMED0100</ram:ID>
+            <ram:SpecifiedCIDocumentVersion>
+                <ram:ID>NA</ram:ID>
+                <ram:IssueDateTime>
+                    <udt:DateTime>1970-01-01T00:00:00</udt:DateTime>
+                </ram:IssueDateTime>
+            </ram:SpecifiedCIDocumentVersion>
+        </ram:ApplicationSpecifiedCIDocumentContextParameter>
+        <ram:SubsetSpecifiedCIDocumentContextParameter>
+            <ram:ID>JPSSMED</ram:ID>
+            <ram:SpecifiedCIDocumentVersion>
+                <ram:ID>NA</ram:ID>
+                <ram:IssueDateTime>
+                    <udt:DateTime>1970-01-01T00:00:00</udt:DateTime>
+                </ram:IssueDateTime>
+            </ram:SpecifiedCIDocumentVersion>
+        </ram:SubsetSpecifiedCIDocumentContextParameter>
+    </rsm:CIExchangedDocumentContext>
+    <rsm:CIIHExchangedDocument>
+        <ram:ID>I100</ram:ID>
+        <ram:TypeCode>380</ram:TypeCode>
+        <ram:IssueDateTime>
+            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+        </ram:IssueDateTime>
+        <ram:PurposeCode>9</ram:PurposeCode>
+        <ram:CategoryCode>NA</ram:CategoryCode>
+        <ram:SubtypeCode>38001</ram:SubtypeCode>
+    </rsm:CIIHExchangedDocument>
+    <rsm:CIIHSupplyChainTradeTransaction>
+        <ram:ApplicableCIIHSupplyChainTradeAgreement>
+            <ram:SellerCITradeParty>
+                <ram:ID>7180001044022</ram:ID>
+                <ram:Name>（株）インフォウェア</ram:Name>
+                <ram:TypeCode>NA</ram:TypeCode>                <!--必須項目 こちらが前-->
+                <ram:RegisteredID>T7180001044022</ram:RegisteredID>
+                <ram:EndPointURICIUniversalCommunication>
+                    <ram:ChannelCode>NA</ram:ChannelCode>
+                    <ram:CompleteNumber>NA</ram:CompleteNumber>
+                </ram:EndPointURICIUniversalCommunication>
+            </ram:SellerCITradeParty>
+            <ram:BuyerCITradeParty>
+                <ram:ID>9180001105466</ram:ID>
+                <ram:Name>（株）グローバルワイズ</ram:Name>
+                <ram:TypeCode>NA</ram:TypeCode>                <!--必須項目 こちらが前-->
+                <ram:RegisteredID>T9180001105466</ram:RegisteredID>
+                <ram:EndPointURICIUniversalCommunication>
+                    <ram:ChannelCode>NA</ram:ChannelCode>
+                    <ram:CompleteNumber>NA</ram:CompleteNumber>
+                </ram:EndPointURICIUniversalCommunication>
+            </ram:BuyerCITradeParty>
+        </ram:ApplicableCIIHSupplyChainTradeAgreement>
+        <ram:ApplicableCIIHSupplyChainTradeSettlement>       
+            <ram:InvoiceCurrencyCode>JPY</ram:InvoiceCurrencyCode>
+            <ram:SpecifiedCIIHTradeSettlementMonetarySummation>
+                <ram:TaxBasisTotalAmount>0</ram:TaxBasisTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <ram:TaxTotalAmount>0</ram:TaxTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <ram:GrandTotalAmount>0</ram:GrandTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <ram:TotalPrepaidAmount>0</ram:TotalPrepaidAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <ram:DuePayableAmount>110</ram:DuePayableAmount>
+                <ram:NetLineTotalAmount>0</ram:NetLineTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+                <ram:IncludingTaxesLineTotalAmount>0</ram:IncludingTaxesLineTotalAmount>                <!-- '' is not a valid value for 'decimal'. -->
+            </ram:SpecifiedCIIHTradeSettlementMonetarySummation>
+        </ram:ApplicableCIIHSupplyChainTradeSettlement>
+        <ram:IncludedCIILSupplyChainTradeLineItem>
+            <ram:AssociatedCIILDocumentLineDocument>
+                <ram:LineID>1</ram:LineID>
+                <ram:CategoryCode>NA</ram:CategoryCode>
+            </ram:AssociatedCIILDocumentLineDocument>
+            <ram:SpecifiedCIILSupplyChainTradeSettlement>
+                <ram:DirectionCode>NA</ram:DirectionCode>
+                <ram:ApplicableCITradeTax>
+                    <ram:CalculatedAmount>10</ram:CalculatedAmount>
+                    <ram:BasisAmount>100</ram:BasisAmount>                    <!-- 必須項目 -->
+                    <ram:CategoryCode>S</ram:CategoryCode>                    <!-- 必須項目 -->
+                    <ram:CurrencyCode>JPY</ram:CurrencyCode>                    <!-- 必須項目 -->                    
+                    <ram:RateApplicablePercent>10</ram:RateApplicablePercent>                    <!-- 必須項目 -->
+                    <ram:GrandTotalAmount>110</ram:GrandTotalAmount>
+                    <ram:CalculationMethodCode>NA</ram:CalculationMethodCode>                    <!-- 必須項目 -->
+                    <ram:LocalTaxSystemID>NA</ram:LocalTaxSystemID>
+                </ram:ApplicableCITradeTax>
+                <ram:ApplicableCITradeTax>
+                    <ram:CalculatedAmount>0</ram:CalculatedAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:BasisAmount>0</ram:BasisAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:CategoryCode>E</ram:CategoryCode>
+                    <ram:CurrencyCode>JPY</ram:CurrencyCode>
+                    <ram:RateApplicablePercent>0</ram:RateApplicablePercent>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:CalculationMethodCode>NA</ram:CalculationMethodCode>                    <!-- 必須項目 -->
+                    <ram:LocalTaxSystemID>NA</ram:LocalTaxSystemID>
+                </ram:ApplicableCITradeTax>
+                <ram:SpecifiedCIILTradeSettlementMonetarySummation>
+                    <ram:ChargeTotalAmount>0</ram:ChargeTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:AllowanceTotalAmount>0</ram:AllowanceTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:TaxTotalAmount>10</ram:TaxTotalAmount>
+                    <ram:GrossLineTotalAmount>100</ram:GrossLineTotalAmount>
+                    <ram:NetLineTotalAmount>100</ram:NetLineTotalAmount>
+                    <ram:NetIncludingTaxesLineTotalAmount>0</ram:NetIncludingTaxesLineTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:GrandTotalAmount>110</ram:GrandTotalAmount>
+                </ram:SpecifiedCIILTradeSettlementMonetarySummation>
+            </ram:SpecifiedCIILSupplyChainTradeSettlement>
+            <ram:SubordinateCIILBSubordinateTradeLineItem>
+                <ram:ID>1</ram:ID>
+                <ram:SpecifiedCIILBSupplyChainTradeAgreement>                    <!-- 必須項目 -->
+                    <ram:NetPriceProductCITradePrice>
+                        <ram:ChargeAmount>0</ram:ChargeAmount>
+                    </ram:NetPriceProductCITradePrice>
+                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>                    <!-- 必須項目 -->
+                    <ram:BilledQuantity>0</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                <ram:SpecifiedCIILBSupplyChainTradeSettlement>                    <!-- 必須項目 -->
+                    <ram:DirectionCode>NA</ram:DirectionCode>
+                    <ram:ApplicableCITradeTax>
+                        <ram:CalculatedAmount>0</ram:CalculatedAmount>
+                        <ram:BasisAmount>0</ram:BasisAmount>
+                        <ram:CategoryCode>NA</ram:CategoryCode>
+                        <ram:CurrencyCode>NA</ram:CurrencyCode>
+                        <ram:RateApplicablePercent>0</ram:RateApplicablePercent>
+                        <ram:CalculationMethodCode>NA</ram:CalculationMethodCode>
+                    </ram:ApplicableCITradeTax>
+                    <ram:BillingCISpecifiedPeriod>
+                        <ram:StartDateTime>
+                            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+                        </ram:StartDateTime>
+                        <ram:EndDateTime>
+                            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+                        </ram:EndDateTime>
+                    </ram:BillingCISpecifiedPeriod>
+                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeProduct>                    <!-- 必須項目 -->
+                    <ram:Name>NA</ram:Name>
+                </ram:ApplicableCITradeProduct>
+            </ram:SubordinateCIILBSubordinateTradeLineItem>
+            <ram:SubordinateCIILBSubordinateTradeLineItem>                <!--2件めの開始定義もれ-->
+                <ram:ID>2</ram:ID>
+                <ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                    <ram:NetPriceProductCITradePrice>
+                        <ram:TypeCode>NA</ram:TypeCode>
+                        <ram:ChargeAmount>10</ram:ChargeAmount>
+                        <ram:BasisQuantity>1</ram:BasisQuantity>                        <!-- '' is not a valid value for 'decimal'. -->
+                    </ram:NetPriceProductCITradePrice>
+                </ram:SpecifiedCIILBSupplyChainTradeAgreement>
+                <ram:SpecifiedCIILBSupplyChainTradeDelivery>
+                    <ram:PackageQuantity>0</ram:PackageQuantity>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:ProductUnitQuantity>0</ram:ProductUnitQuantity>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:PerPackageUnitQuantity>0</ram:PerPackageUnitQuantity>                    <!-- '' is not a valid value for 'decimal'. -->
+                    <ram:BilledQuantity>1</ram:BilledQuantity>
+                </ram:SpecifiedCIILBSupplyChainTradeDelivery>                <!-- 漏れ -->
+                <ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                    <ram:DirectionCode>NA</ram:DirectionCode>
+                    <ram:ApplicableCITradeTax>
+                        <ram:CalculatedAmount>10</ram:CalculatedAmount> <!--明細行では税額計算をしない-->
+                        <ram:BasisAmount>100</ram:BasisAmount>
+                        <ram:CategoryCode>S</ram:CategoryCode>
+                        <ram:CurrencyCode>JPY</ram:CurrencyCode>                        <!-- 必須項目 -->                        
+                        <ram:RateApplicablePercent>10</ram:RateApplicablePercent>
+                        <ram:GrandTotalAmount>110</ram:GrandTotalAmount>                        <!-- '' is not a valid value for 'decimal'. -->
+                        <ram:CalculationMethodCode>NA</ram:CalculationMethodCode>                        <!-- 必須項目 -->
+                        <ram:LocalTaxSystemID>NA</ram:LocalTaxSystemID>
+                    </ram:ApplicableCITradeTax>
+                    <ram:BillingCISpecifiedPeriod>
+                        <ram:StartDateTime>
+                            <udt:DateTime>2023-07-25T15:21:00</udt:DateTime>
+                        </ram:StartDateTime>
+                        <ram:EndDateTime>
+                            <udt:DateTime>2023-08-04T15:26:00</udt:DateTime>
+                        </ram:EndDateTime>
+                    </ram:BillingCISpecifiedPeriod>
+                </ram:SpecifiedCIILBSupplyChainTradeSettlement>
+                <ram:ApplicableCITradeProduct>
+                    <ram:Name>EcoChangeSIPS3.1年間ライセンス</ram:Name>
+                    <ram:Description>EcoChangeSIPS3.1年間ライセンス</ram:Description>                    
+                </ram:ApplicableCITradeProduct>
+            </ram:SubordinateCIILBSubordinateTradeLineItem>
+        </ram:IncludedCIILSupplyChainTradeLineItem>
+    </rsm:CIIHSupplyChainTradeTransaction>
+</rsm:SMEInvoice>
