@@ -21,37 +21,17 @@ import wuwei.japan_core.utils.WriteXmlDom;
 /**
  * Tidy dataを格納しているCSVファイルを読み取りセマンティックモデル定義と構文バインディング定義からXMLインスタンス文書を出力する.
  */
-public class Csv2XBRL_GL 
+public class Tidy2xml 
 {
 	static boolean TRACE         = false;	
 	static boolean DEBUG         = false;	
 	static String PROCESSING     = null;
 	static String SYNTAX_BINDING = null;
 	static String XML_SKELTON    = null;
-	static String CSV_FILE         = null;
-	static String XBRL_INSTANCE        = null;
+	static String TIDY_CSV       = null;
+	static String XML_INSTANCE   = null;
 	static String CHARSET        = "UTF-8";
-	
-//	static String ROOT_ID;
-//	static Integer ROOT_SEMSORT;
-//	static String DOCUMENT_CURRENCY_ID;      /*文書通貨コードのID*/
-//	static String TAX_CURRENCY_ID;           /*税通貨コードのID*/
-//	static String INVOICE_ID;                /*インボイス番号のID*/
-//	static int MIN_DOCUMENT_TOTAL;           /*semSort 文書ヘッダ合計金額*/
-//	static int MAX_DOCUMENT_TOTAL;           /*semSort*/
-//	static String TOTAL_TAX_ID;              /*文書ヘッダ合計税額のID*/
-//	static int TOTAL_TAX;                    /*semSort*/
-//	static String TOTAL_TAX_CURRENCY_TAX_ID; /*外貨建て請求書文書ヘッダ合計税額のID*/
-//	static int TOTAL_TAX_CURRENCY_TAX;       /*semSort*/
-//	static int MIN_TAX_BREAKDOWN;            /*semSort 文書ヘッダ課税分類*/
-//	static int MAX_TAX_BREAKDOWN;            /*semSort*/
-//	static int MIN_TAX_CURRENCY_BREAKDOWN;   /*semSort 文書ヘッダ外貨建て課税分類*/
-//	static int MAX_TAX_CURRENCY_BREAKDOWN;   /*semSort*/	
-//	static String DOCUMENT_CURRENCY = null;  /*文書通貨コード*/
-//	static String TAX_CURRENCY      = null;  /*税通貨コード*/
-//	static String INVOICE_NUMBER    = null;  /*インボイス番号*/
-//	static int COUNT_TAX_BREAKDOWN  = 0;
-	
+
 	/**
 	 * 終端XML要素
 	 */
@@ -132,48 +112,33 @@ public class Csv2XBRL_GL
  	static PathValue taxCurrencyCode = new PathValue(null, null);
    
  	/**
- 	 * CSVをデジタルインボイス(XML)に変換する。
+ 	 * CSVをXMLに変換する。
  	 * The application's entry point
 	 * @param args an array of command-line arguments for the application
 	 * last updated 2023-03-11
 	 */
 	public static void main(String[] args) 
 	{
-//		ROOT_ID                    = FileHandler.ROOT_ID;
-//		ROOT_SEMSORT               = FileHandler.ROOT_SEMSORT;	
-//		DOCUMENT_CURRENCY_ID       = FileHandler.DOCUMENT_CURRENCY_ID;       /*文書通貨コードのID*/
-//		TAX_CURRENCY_ID            = FileHandler.TAX_CURRENCY_ID;            /*税通貨コードのID*/
-//		INVOICE_ID                 = FileHandler.INVOICE_ID;                 /*インボイス番号のID*/	
-//		MIN_DOCUMENT_TOTAL         = FileHandler.MIN_DOCUMENT_TOTAL;         /*semSort 文書ヘッダ合計金額*/
-//		MAX_DOCUMENT_TOTAL         = FileHandler.MAX_DOCUMENT_TOTAL;         /*semSort*/
-//		TOTAL_TAX_ID               = FileHandler.TOTAL_TAX_ID;               /*文書ヘッダ合計税額のID*/
-//		TOTAL_TAX                  = FileHandler.TOTAL_TAX;                  /*semSort*/
-//		TOTAL_TAX_CURRENCY_TAX_ID  = FileHandler.TOTAL_TAX_CURRENCY_TAX_ID;  /*外貨建て請求書文書ヘッダ合計税額のID*/
-//		TOTAL_TAX_CURRENCY_TAX     = FileHandler.TOTAL_TAX_CURRENCY_TAX;     /*semSort*/
-//		MIN_TAX_BREAKDOWN          = FileHandler.MIN_TAX_BREAKDOWN;          /*semSort 文書ヘッダ課税分類*/
-//		MAX_TAX_BREAKDOWN          = FileHandler.MAX_TAX_BREAKDOWN;          /*semSort*/
-//		MIN_TAX_CURRENCY_BREAKDOWN = FileHandler.MIN_TAX_CURRENCY_BREAKDOWN; /*semSort 文書ヘッダ外貨建て課税分類*/
-//		MAX_TAX_CURRENCY_BREAKDOWN = FileHandler.MAX_TAX_CURRENCY_BREAKDOWN; /*semSort*/
 		TRACE = false;
 		DEBUG = false;
 		if (args.length <= 1) 
 		{
 			TRACE      = true;
-//			if (1 == args.length) 
-//			{
-//				PROCESSING = args[0]+" SYNTAX";
-//			} else 
-//			{
-//				PROCESSING = "JP-PINT SYNTAX";
-//			}
-//			if (0==PROCESSING.indexOf("JP-PINT")) 
-			{	
-				CSV_FILE  = "data/csv/Example1_PINT.csv";
-				XBRL_INSTANCE = "data/xml/Example1_PINT.xml";
-			} else if (0==PROCESSING.indexOf("SME-COMMON")) 
+			if (1 == args.length) 
 			{
-				CSV_FILE  = "data/csv/Example1_SME.csv";
-				XBRL_INSTANCE = "data/xml/Example1_SME.xml";				
+				PROCESSING = args[0]+" SYNTAX";
+			} else 
+			{
+				PROCESSING = "ADC SYNTAX";
+			}
+			if (0==PROCESSING.indexOf("ADC")) 
+			{	
+				TIDY_CSV     = "data/csv/ADC/pca.csv";
+				XML_INSTANCE = "data/xml/ADC/pca.xml";
+			} else if (0==PROCESSING.indexOf("XBRL-GL")) 
+			{
+				TIDY_CSV     = "data/csv/XBRL-GL/pca.csv";
+				XML_INSTANCE = "data/xml/XBRL-GL/pca.xml";				
 			} else 
 			{
 				return;
@@ -181,8 +146,8 @@ public class Csv2XBRL_GL
 		} else if (args.length >= 3) 
 		{
 			PROCESSING = args[0]+" SYNTAX";
-			CSV_FILE     = args[1];
-			XBRL_INSTANCE = args[2];	
+			TIDY_CSV     = args[1];
+			XML_INSTANCE = args[2];	
 			if (4==args.length) 
 			{
 				if (args[3].indexOf("T")>=0)
@@ -206,14 +171,14 @@ public class Csv2XBRL_GL
 			}
 		} else 
 		{
-			if (0==PROCESSING.indexOf("JP-PINT")) 
+			if (0==PROCESSING.indexOf("ADC")) 
 			{		
-				FileHandler.SYNTAX_BINDING = FileHandler.JP_PINT_CSV;
-				FileHandler.XML_SKELTON    = FileHandler.JP_PINT_XML_SKELTON;			
-			} else if (0==PROCESSING.indexOf("SME-COMMON")) 
+				FileHandler.SYNTAX_BINDING = FileHandler.ADC_CSV;
+				FileHandler.XML_SKELTON    = FileHandler.ADC_XML_SKELTON;			
+			} else if (0==PROCESSING.indexOf("XBRL-GL")) 
 			{
-				FileHandler.SYNTAX_BINDING = FileHandler.SME_CSV;
-				FileHandler.XML_SKELTON    = FileHandler.SME_XML_SKELTON;
+				FileHandler.SYNTAX_BINDING = FileHandler.XBRL_GL_CSV;
+				FileHandler.XML_SKELTON    = FileHandler.XBRL_GL_SKELTON;
 			} else 
 			{
 				return;
@@ -223,9 +188,9 @@ public class Csv2XBRL_GL
 		FileHandler.TRACE      = TRACE;
 		FileHandler.DEBUG      = DEBUG;	
 		
-		processCSV(CSV_FILE, XBRL_INSTANCE);
+		processCSV(TIDY_CSV, XML_INSTANCE);
 		
-		System.out.println("** END ** Csv2XBRL_GL "+PROCESSING+" "+CSV_FILE+" "+XBRL_INSTANCE);
+		System.out.println("** END ** Tidy2xml "+PROCESSING+" "+TIDY_CSV+" "+XML_INSTANCE);
 	}
 	
 	/**
@@ -241,8 +206,6 @@ public class Csv2XBRL_GL
 			
 		try 
 		{
-			if (0==PROCESSING.indexOf("SME-COMMON"))
-				terminalElements = new ArrayList<String>(Arrays.asList("@unitCode","udt:DateTimeString","udt:Indicator","ram:IssueDateTime","ram:AccountName","ram:ActualAmount","ram:AdditionalReferencedCIReferencedDocument","ram:AllowanceTotalAmount","ram:AttachmentBinaryObject","ram:BasisAmount","ram:BasisQuantity","ram:BilledQuantity","ram:BuyerAssignedID","ram:BuyerOrderReferencedCIReferencedDocument","ram:CalculatedAmount","ram:CalculatedRate","ram:CalculationMethodCode","ram:CalculationPercent","ram:CardholderName","ram:CategoryCode","ram:CategoryName","ram:ChannelCode","ram:ChargeAmount","ram:ChargeIndicator","ram:ChargeTotalAmount","ram:CompleteNumber","ram:Content","ram:ConversionRate","ram:CountryID","ram:CurrencyCode","ram:DepartmentName","ram:Description","ram:DirectionCode","ram:DuePayableAmount","ram:FileName","ram:GlobalID","ram:GrandTotalAmount","ram:GrossLineTotalAmount","ram:ID","ram:IncludingTaxesLineTotalAmount","ram:Information","ram:InstructedAmount","ram:InvoiceCurrencyCode","ram:InvoiceCurrencyCode","ram:IssuerAssignedID","ram:IssuingCompanyName","ram:JapanFinancialInstitutionCommonID","ram:LineID","ram:LineOne","ram:LineThree","ram:LineTwo","ram:LocalTaxSystemID","ram:ManufacturerAssignedID","ram:MIMECode","ram:Name","ram:NetIncludingTaxesLineTotalAmount","ram:NetLineTotalAmount","ram:PackageQuantity","ram:PaidAmount","ram:PaymentCurrencyCode","ram:PerPackageUnitQuantity","ram:PersonID","ram:PersonName","ram:PostcodeCode","ram:PreviousRevisionID","ram:ProductGroupID","ram:ProductUnitQuantity","ram:ProprietaryID","ram:PurposeCode","ram:RateApplicablePercent","ram:Reason","ram:ReasonCode","ram:ReferenceTypeCode","ram:RegisteredID","ram:RevisionID","ram:SellerAssignedID","ram:SourceCurrencyCode","ram:SpecifiedTransactionID","ram:Subject","ram:SubordinateLineID","ram:SubtypeCode","ram:TargetCurrencyCode","ram:TaxBasisTotalAmount","ram:TaxCurrencyCode","ram:TaxCurrencyCode","ram:TaxTotalAmount","ram:TotalPrepaidAmount","ram:TypeCode","ram:URIID","ram:Value"));
 			FileHandler.csvFileRead(in_csv, CHARSET);
 		} catch (FileNotFoundException e) 
 		{
@@ -252,17 +215,7 @@ public class Csv2XBRL_GL
 		{
 			e.printStackTrace();
 		}
-		
-		// 通貨コード取得
-		for (int i=0; i<FileHandler.header.size(); i++) 
-		{
-			String id = FileHandler.header.get(i);
-			if (id.equals(DOCUMENT_CURRENCY_ID))
-				DOCUMENT_CURRENCY = FileHandler.tidyData.get(0).get(i);
-			else if (id.equals(TAX_CURRENCY_ID))
-				TAX_CURRENCY = FileHandler.tidyData.get(0).get(i);
-		}
-		
+			
 		if (TRACE) System.out.println("- processCSV FileHandler.tidyData record");
 		rowMapList = new TreeMap<>();
 		for (ArrayList<String> record: FileHandler.tidyData) 
@@ -276,6 +229,7 @@ public class Csv2XBRL_GL
 				if (field != null && field.length() > 0) 
 				{
 					String id       = FileHandler.header.get(i);
+					id = FileHandler.removeUTF8BOM(id);
 					Binding binding = FileHandler.bindingDict.get(id);
 					if (null==binding && 0==id.indexOf("d_"))
 							binding = FileHandler.bindingDict.get(id.substring(2));
@@ -291,31 +245,16 @@ public class Csv2XBRL_GL
 					}
 					if (null==binding)
 						continue;
-					Integer semSort = binding.getSemSort();
 					Integer synSort = binding.getSynSort();
-					if (id.toUpperCase().matches("^NC00$") || id.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$")) 
+					if (id.toUpperCase().matches("^[A-Z]{2}[0-9]+(-[A-Z]{2}[0-9]+)*$")) 
 					{
 						key += synSort+"="+field+" ";
-						if (0 == PROCESSING.indexOf("SME-COMMON") && 0 == semSort - MIN_TAX_BREAKDOWN)
-							COUNT_TAX_BREAKDOWN = 1 + Integer.parseInt(field);
 					} else 
 					{
 						rowMap.put(synSort, field);
 					}
-					String xPath = binding.getXPath();
-					if (DOCUMENT_CURRENCY_ID.equals(id)) 
-					{
-						documentCurrencyCode.xPath = xPath;
-						documentCurrencyCode.value = field;
-					} else if (TAX_CURRENCY_ID.equals(id)) 
-					{
-						taxCurrencyCode.xPath = xPath;
-						taxCurrencyCode.value = field;
-					}
 				}
 			}
-//			if (DEBUG && "".equals(key))
-//				System.out.println(key);
 			key = key.trim();
 			rowMapList.put(key, rowMap);
 		}
@@ -391,52 +330,11 @@ public class Csv2XBRL_GL
 				} else if (xPath.indexOf("false")>0) 
 				{
 					xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=false\\(\\)\\]","[normalize-space($1/text())='false']");
-				// XMLパーサーが[cbc:TaxAmount/@currencyID=./cbc:DocumentCurrencyCode]を正しく判定できないので、固定値との比較に書き換える。
-				} else if  (0==PROCESSING.indexOf("JP-PINT")) 
-				{
-					if (xPath.indexOf("cbc:DocumentCurrencyCode]")>0) 
-					{
-						xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:DocumentCurrencyCode","'"+DOCUMENT_CURRENCY+"'");
-					} else if (xPath.indexOf("cbc:TaxCurrencyCode]")>0) 
-					{
-						xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:TaxCurrencyCode","'"+TAX_CURRENCY+"'");
-					}
-				} else if  (0==PROCESSING.indexOf("SME-COMMON")) 
-				{
-					if (xPath.indexOf("ram:InvoiceCurrencyCode]")>0) 
-					{
-						xPath = xPath.replaceAll(
-								"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode",
-								"'"+DOCUMENT_CURRENCY+"'");
-					} else if (xPath.indexOf("ram:TaxCurrencyCode]")>0) 
-					{
-						xPath = xPath.replaceAll(
-								"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode",
-								"'"+TAX_CURRENCY+"'");
-					}
 				}
-				String datatype = binding.getDatatype();
-				attributes      = new HashMap<>();
-				if (0==PROCESSING.indexOf("JP-PINT")) 
-				{
-					if ("Amount".equals(datatype) || "Unit Price Amount".equals(datatype)) 
-					{
-						if (xPath.length() > 0) 
-						{
-							if (null!=taxCurrencyCode.xPath && xPath.indexOf(taxCurrencyCode.xPath)>=0) 
-							{
-								attributes.put("currencyID", taxCurrencyCode.value);
-							} else 
-							{
-								attributes.put("currencyID", documentCurrencyCode.value);
-							}
-						}
-					}
-				}
-				// Get key set of the TreeMap using keySet method
-				Set<Integer> keySet = idMap.keySet();
-				// Converting entrySet to ArrayList
-				List<Integer> entryList = new ArrayList<>(keySet);
+				String datatype         = binding.getDatatype();
+				attributes              = new HashMap<>();				
+				Set<Integer> keySet     = idMap.keySet(); // Get key set of the TreeMap using keySet method				
+				List<Integer> entryList = new ArrayList<>(keySet); // Converting entrySet to ArrayList
 				int j = entryList.indexOf(synSort);
 				if (TRACE) System.out.println("dataRedords["+i+"]["+j+"] = DataValue("+boughSort+" "+boughSeq+"  "+id+" "+FileHandler.getShortPath(xPath)+" "+value+" "+attributes);
 				dataRedords[i][j] = new DataValue(boughSeq, boughSort, id, xPath, value, attributes);
@@ -458,66 +356,7 @@ public class Csv2XBRL_GL
 					value      = dataValue.value;
 					attributes = dataValue.attributes;
 					if (null!=xPath && xPath.length() > 0) 
-					{					
-						if (0==PROCESSING.indexOf("JP-PINT") && id.equals("NC70-07")) 
-						{ 
-							// NC70-07(IBT-184 Despatch advice reference cac:DespatchLineReference/cac:DocumentReference/cbc:ID )
-							// では、UBL構文が必須としている cac:DespatchLineReference/cbc:LineID　に　NA を定義する。
-							// Syntax required item. Value shall be NA. 構文必須要素。値として 'NA'を使用する。							
-							if (TRACE)
-								System.out.println("call appendElementNS /Invoice/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID = NA");
-							appendElementNS(boughSort, boughSeq, "", "/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID", "NA", attributes);
-						} else if (0==PROCESSING.indexOf("SME-COMMON")) 
-						{
-							// 外貨でての税額があるときには、文書合計金額の税額に外貨建ての金額もあるのでSelkectorを修正する。
-							Binding binding = FileHandler.bindingDict.get(id);
-							Integer semSort = binding.getSemSort();
-							Integer synSort = binding.getSynSort();
-							if (MIN_DOCUMENT_TOTAL <= semSort && semSort <= MAX_DOCUMENT_TOTAL)
-								xPath = FileHandler.stripSelector(xPath);
-							if (id.equals(TOTAL_TAX_ID)) 
-							{
-								attributes.put("currencyID", DOCUMENT_CURRENCY);
-								xPath += "[position()=1]";
-							} else if (id.equals(TOTAL_TAX_CURRENCY_TAX_ID)) 
-							{
-								attributes.put("currencyID", TAX_CURRENCY);
-								xPath += "[position()=2]";
-							}
-							/**
-							 * SME-COMMONのときの外貨建ての税区分ごとの税額の判定が不正。暫定的に外貨建てを対象外とする。
-							 * TODO: 外貨建ての税区分ごとの税額サポート
-							 */
-							if (xPath.indexOf("[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode]") > 0) 
-							{
-								xPath = FileHandler.stripSelector(xPath);
-							}
-							else if (xPath.indexOf("[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode]") > 0) 
-							{
-								if (TRACE) System.out.println("TODO: support "+xPath);
-							}
-//							/**
-//							 * SME-COMMONのときのSelector条件では、子要素のほとんどで新しくram:ApplicableCITradeTaxを定義してしまう。
-//							 * ram:ApplicableCITradeTaxをまとめて定義しなくても済ませるために、ram:ApplicableCITradeTaxの定義順をpositionで指定する。
-//							 * ram:ApplicableCITradeTax[ram:CurrencyCode='JPY']
-//							 * ram:ApplicableCITradeTax[ram:CurrencyCode=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode]
-//							 */
-//							if (MIN_TAX_BREAKDOWN <= semSort && semSort <= MAX_TAX_BREAKDOWN) {
-//								if (COUNT_TAX_BREAKDOWN > 0) {
-//									xPath = xPath.replace("[ram:CurrencyCode='"+DOCUMENT_CURRENCY+"']","[position()="+(1+boughSeq)+"]");;
-//								} else {
-//									xPath = FileHandler.stripSelector(xPath);
-//								}
-//							} else if (MIN_TAX_CURRENCY_BREAKDOWN <= semSort && semSort <= MAX_TAX_CURRENCY_BREAKDOWN) {
-//								if (COUNT_TAX_BREAKDOWN > 0) {
-//									xPath = xPath.replace("[ram:CurrencyCode='"+TAX_CURRENCY+"']","[position()="+(1+boughSeq+COUNT_TAX_BREAKDOWN)+"]");;
-//								} else {
-//									xPath = xPath.replace("[ram:CurrencyCode='"+TAX_CURRENCY+"']","[position()=2]");
-//								}
-//							}
-						}
-//						if (DEBUG && (id.matches("^.*NC53.*$") || id.matches("^.*NC54.*$") || id.matches("^.*NC72.*$") || id.matches("^.*NC73.*$")))
-//							System.out.println(id);
+					{
 						if (TRACE) 
 							System.out.println("call appendElementNS "+id+" "+FileHandler.getShortPath(xPath)+" = "+value);
 						appendElementNS(boughSort, boughSeq, id, xPath, value, attributes);
@@ -568,7 +407,6 @@ public class Csv2XBRL_GL
 	{
 		value = value.trim();
 		Binding binding = FileHandler.bindingDict.get(id);
-//		Integer semSort = binding.getSemSort();
 		Integer synSort = binding.getSynSort();
 		String defaultValue = binding.getDefaultValue();
 		if (defaultValue.length() > 0 && ! value.equals(defaultValue))
@@ -718,9 +556,7 @@ public class Csv2XBRL_GL
 		{
 			if (TRACE) System.out.println("- fillLevelElement setting @currencyID return Amount element");
 			return parent;
-		}			
-//		if ("cbc:TaxAmount".equals(parent.getNodeName()))
-//			System.out.println(parent.getNodeName());
+		}
 		String strippedPath  = FileHandler.stripSelector(path);
 		Binding boughBinding = FileHandler.synBindingMap.get(boughSort);
 		String boughXPath    = boughBinding.getXPath();
@@ -739,8 +575,8 @@ public class Csv2XBRL_GL
 			{
 				System.out.print("- fillLevelElement getXPath returns "+elements.size()+" elements boughSeq = "+boughSeq+" "+path);
 				if (elements.size()==0 && n+1==depth &&
-					((0==PROCESSING.indexOf("JP-PINT") && ! path.matches("^cac:[a-zA-Z]+$")) || 
-						(0==PROCESSING.indexOf("SME-COMMON") && terminalElements.indexOf(strippedPath) >= 0))) 
+					((0==PROCESSING.indexOf("ADC") && ! path.matches("^cac:[a-zA-Z]+$")) || 
+						(0==PROCESSING.indexOf("XBRL-GL") && terminalElements.indexOf(strippedPath) >= 0))) 
 				{
 					System.out.println(" = "+value);
 				} else 
@@ -878,13 +714,19 @@ public class Csv2XBRL_GL
 			qname = path1;
 		} else 
 		{
-			String[] ename = path1.split(":");
-			ns = ename[0];
-			nsURI = FileHandler.nsURIMap.get(ns);
-			qname = ename[1];
+			if (path1.indexOf(":")>0)
+			{
+				String[] ename = path1.split(":");
+				ns = ename[0];
+				nsURI = FileHandler.nsURIMap.get(ns);
+				qname = ename[1];
+			} else {
+				ns = nsURI = "";
+				qname = path1;
+			}
 		}
 		
-		if (0==PROCESSING.indexOf("JP-PINT") && "cac".equals(ns)) 
+		if (0==PROCESSING.indexOf("ADC") && "cac".equals(ns)) 
 		{
 			value = cacValue;
 			attributes = cacAttributes;

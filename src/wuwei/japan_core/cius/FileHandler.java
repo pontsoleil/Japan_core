@@ -52,21 +52,27 @@ public class FileHandler
 {
 	static String SYNTAX_BINDING             = null;
 	static String XML_SKELTON                = null;
+	
 	static String JP_PINT_CSV                = "data/base/jp_pint_binding.csv";
 	static String JP_PINT_XML_SKELTON        = "data/base/jp_pint_skeleton.xml";
 	static String SME_CSV                    = "data/base/sme_binding.csv";
 	static String SME_XML_SKELTON            = "data/base/sme_skeleton.xml";
 	
-	static String XBRL_GL_CSV                = "data/base/xBRL_GL_binding.csv";
-	static String XML_DIR                     = "XBRL_GLinstances"; //"data/xml/XBRL-GL";
+//	static String XBRL_GL_CSV                = "data/base/xBRL_GL_binding.csv";
+	static String XBRL_GL_CSV                = "data/base/XBRL-GL/xbrl-gl-binding.csv";
+	static String XML_DIR                    = "XBRL_GLinstances"; //"data/xml/XBRL-GL";
+	static String XBRL_GL_SKELTON            = "data/base/XBRL-GL/xbrl-gl_skeleton.xml";
 	static String XBRL_CSV                    = "data/csv/XBRL-GL/instances.csv";
+	
+	static String ADC_CSV                    = "data/base/ADC/iso21377-binding.csv";
+	static String ADC_XML_SKELTON            = "data/base/ADC/AdcGlDetails-skeleton.xml";
 	
 	public static Document doc               = null;
 	public static XPath xpath                = null;
 	public static Element root               = null;
 
 	public static String ROOT_ID                   = "NC00";
-	public static String ROOT_GL_ID                = "GL02"; // "NC00";
+	public static String ROOT_GL_ID                = "GL03"; //"GL02"; // "NC00";
 	
 	public static Integer ROOT_SEMSORT             = 1000;	
 	public static String DOCUMENT_CURRENCY_ID      = "NC00-01"; /*文書通貨コードのID*/
@@ -124,6 +130,19 @@ public class FileHandler
 	public static TreeMap<Integer/*semSort*/, ParsedNode> nodeMap                           = new TreeMap<>();
 
 	/**
+	 * UTF-8のBOMを文字列から削除する
+	 * @param s
+	 * @return
+	 */
+	public static String removeUTF8BOM(String s) {
+	    if (s.startsWith("\uFEFF")) {
+	        return s.substring(1);
+	    } else {
+	        return s;
+	    }
+	}
+	
+	/**
  	 * The application's entry point
 	 * @param args an array of command-line arguments for the application
 	 * last updated 2023-02-24
@@ -157,16 +176,14 @@ public class FileHandler
 			for (int n=1; n < binding_data.size(); n++) 
 			{
 				ArrayList<String> cells = binding_data.get(n);
-				// semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,businessTerm_en,businessTerm_ja,desc_ja,synSort,xPath,occur			
-				// 0       1  2    3     4            5    6            7        8        9               10              11      12      13    14
+				// semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,synSort,xPath,occur			"
+				// 0       1  2    3     4            5    6            7        8        9       10    11
 				binding = new Binding(0, "", 0, "", "", "", "", 0, "", "");
 				for (int i = 0; i < cells.size(); i++) 
 				{
 					String key = headers.get(i);
 					if (0==i) 
-					{
-						key	= key.replace("\uFEFF", "");
-					}
+						key	= removeUTF8BOM(key);
 					String value = cells.get(i);
 					semSort = synSort = -1;
 					level = 0;
@@ -195,6 +212,10 @@ public class FileHandler
 							if (value.matches("^[0-9]+$"))
 							{
 								level = Integer.parseInt(value);
+								if (0==PROCESSING.indexOf("ADC"))
+								{
+									level -= 1;
+								}
 								binding.setLevel(level);
 							}
 							break;
@@ -217,6 +238,10 @@ public class FileHandler
 							{
 								xPath = stripSelector(value);
 								level = countChar('/', xPath) - 1;
+								if (0==PROCESSING.indexOf("ADC"))
+								{
+									level -= 1;
+								}
 								binding.setLevel(level);
 							}
 							break;
@@ -225,14 +250,15 @@ public class FileHandler
 					}
 				}
 				id      = binding.getID();
+				level   = binding.getLevel();
 				semSort = binding.getSemSort();
 				synSort = binding.getSynSort();
-				bindingDict.put(id, binding);
+				bindingDict.put(id, binding);			
 				if (semSort > 0)
 					semBindingMap.put(semSort, binding);
 				if (synSort > 0)
 					synBindingMap.put(synSort, binding);
-				if (DEBUG) System.out.println(" (FileHandler) parseBinding "+id+" semSort:"+semSort+" synSort:"+synSort+" "+binding.getXPath());
+				if (DEBUG) System.out.println(" (FileHandler) parseBinding "+id+" level:"+level+" semSort:"+semSort+" synSort:"+synSort+" "+binding.getXPath());
 			}
 			
 			if (PROCESSING.indexOf("SEMANTICS")>0) 
@@ -472,6 +498,7 @@ public class FileHandler
 		String skeleton = XML_SKELTON;
 		try 
 		{
+		 	nsURIMap = new HashMap<String,String>();
 			//Build DOM
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			factory.setNamespaceAware(true); // never forget this!
@@ -484,22 +511,39 @@ public class FileHandler
 			xpath = xpathfactory.newXPath();
 			xpath.setNamespaceContext(new NamespaceResolver(doc));
 			// root
-		 	root                    = (Element) doc.getChildNodes().item(0);
-		 	nsURIMap                = new HashMap<String,String>();
-		 	NamedNodeMap attributes = root.getAttributes();
-		 	for (int i = 0; i < attributes.getLength(); i++) 
-		 	{
-		 		Node attribute = attributes.item(i);
-				String name    = attribute.getNodeName();
-				if ("xmlns".equals(name)) 
-				{
-					name = "";
-				} else 
-				{
-					name = name.replace("xmlns:","");
+			if (0==PROCESSING.indexOf("ADC"))
+			{
+	            root = doc.getDocumentElement();
+//	            // Use XPath to get the <AdcGlDetails> element
+//	            String expression = "//AdcGlDetails"; // XPath expression
+//	            Element root = (Element) xpath.evaluate(expression, root, XPathConstants.NODE);
+	            if (root != null) {
+	                // Print information about the <AdcGlDetails> element
+	                System.out.println("Found <AdcGlDetails> Element:");
+	                System.out.println("Name: " + root.getNodeName());
+	                String namespaceURI = root.getNamespaceURI();
+	                System.out.println("Namespace URI: " + namespaceURI);
+	                nsURIMap.put("-",namespaceURI);
+	            } else {
+	                System.out.println("<AdcGlDetails> Element not found.");
+	            }
+			} else {
+				root                    = (Element) doc.getChildNodes().item(0);
+			 	NamedNodeMap attributes = root.getAttributes();
+			 	for (int i = 0; i < attributes.getLength(); i++) 
+			 	{
+			 		Node attribute = attributes.item(i);
+					String name    = attribute.getNodeName();
+					if ("xmlns".equals(name)) 
+					{
+						name = "";
+					} else 
+					{
+						name = name.replace("xmlns:","");
+					}
+					String value = attribute.getNodeValue();
+					nsURIMap.put(name, value);
 				}
-				String value = attribute.getNodeValue();
-				nsURIMap.put(name, value);
 			}
 		} catch (Exception e) 
 		{
@@ -564,7 +608,8 @@ public class FileHandler
 	 */
 	public static List<Node> getXPath(Element parent, String xpath) 
 	{
-		xpath = xpath.replaceAll("/(Invoice|ubl:Invoice)/", "/*/");
+		if (0==PROCESSING.indexOf("JP-PINT"))
+			xpath = xpath.replaceAll("/(Invoice|ubl:Invoice)/", "/*/");
 		if (null==parent) 
 		{
 			if (DEBUG) System.out.println("- FileHaldler.getXPath parent null");
@@ -874,9 +919,15 @@ public class FileHandler
 				return parent;
 			} else 
 			{				
-				Element element = doc.createElementNS(nsURI, qname);
+				Element element;
+				if (qname.indexOf(":")>0)
+				{
+					element = doc.createElementNS(nsURI, qname);
+					element.setPrefix(prefix); // Set the desired namespace and prefix
+				}
+				else
+					element = doc.createElement(qname);
 				
-				element.setPrefix(prefix); // Set the desired namespace and prefix
 				if (value!="") 
 				{
 					element.setTextContent(value);					
@@ -984,12 +1035,13 @@ public class FileHandler
 		for (int i = 0; i < headerCount; i++) 
 		{
 			String id = fields.get(i);
+			id = removeUTF8BOM(id);
 			if (0==id.indexOf("d_"))
 				id = id.substring(2);
-			if (id.toUpperCase().matches("^NC00$") || id.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$"))
+			if (id.toUpperCase().matches("^[A-Z]{2}[0-9]{2}(-[A-Z]{2}[0-9]{2})*$"))
 				offset += 1;
 			else
-				break;				
+				break;
 		}
 		String id = "";
 		Integer synSort = 0;
@@ -997,7 +1049,8 @@ public class FileHandler
 		{
 			if (i < offset)
 				continue;
-			id = fields.get(i);			
+			id = fields.get(i);
+			id = removeUTF8BOM(id);
 			Binding binding = bindingDict.get(id);
 			if (null==binding)
 				System.out.println(id + " is not defined in bindingMap.");
@@ -1014,6 +1067,7 @@ public class FileHandler
 		for (int i = 0; i < offset; i++) 
 		{
 			String field = fields.get(i);
+			field = removeUTF8BOM(field);
 			if (0==field.indexOf("d_"))
 				field = field.substring(2);
 			header.add(field);

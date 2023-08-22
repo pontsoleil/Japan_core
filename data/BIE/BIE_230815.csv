@@ -1,0 +1,876 @@
+﻿UNID,kind,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,card
+,MA,SME_ Consolidated Invoice,,,,,,,,,,,,－
+UN01005479,ASMA,CI_ Exchanged Document_ Context. Details,,,,,,,,,,,,1..1
+UN01005480,BBIE,,CI_ Exchanged Document_ Context. Specified_ Transaction. Identifier,,,,,,,,,,,0..1
+UN01012746,BBIE,,CI_ Exchanged Document_ Context. Processing_ Transaction. Date Time,,,,,,,,,,,0..1
+UN01005481,ASBIE,,CI_ Exchanged Document_ Context. Business Process_ Specified. CI_ Document Context_ Parameter,,,,,,,,,,,1..1
+UN01005471,ABIE,,,CI_ Document Context_ Parameter. Details,,,,,,,,,, -
+UN01005472,BBIE,,,,CI_ Document Context_ Parameter. Identification. Identifier,,,,,,,,,1..1
+UN01005473,BBIE,,,,CI_ Document Context_ Parameter. Value. Text,,,,,,,,,0..1
+UN01005474,ASBIE,,,,CI_ Document Context_ Parameter. Specified. CI_ Document_ Version,,,,,,,,,1..1
+UN01005475,ABIE,,,,,CI_ Document_ Version. Details,,,,,,,, - 
+UN01005476,BBIE,,,,,,CI_ Document_ Version. Identification. Identifier,,,,,,,1..1
+UN01005478,BBIE,,,,,,CI_ Document_ Version. Issue. Date Time,,,,,,,1..1
+UN01005483,ASBIE,,CI_ Exchanged Document_ Context. Scenario_ Specified. CI_ Document Context_ Parameter,,,,,,,,,,,0..1
+UN01005471,ABIE,,,CI_ Document Context_ Parameter. Details,,,,,,,,,, -
+UN01005472,BBIE,,,,CI_ Document Context_ Parameter. Identification. Identifier,,,,,,,,,0..1
+UN01005473,BBIE,,,,CI_ Document Context_ Parameter. Value. Text,,,,,,,,,0..1
+UN01005484,ASBIE,,CI_ Exchanged Document_ Context. Application_ Specified. CI_ Document Context_ Parameter,,,,,,,,,,,0..1
+UN01005471,ABIE,,,CI_ Document Context_ Parameter. Details,,,,,,,,,, -
+UN01005472,BBIE,,,,CI_ Document Context_ Parameter. Identification. Identifier,,,,,,,,,0..1
+UN01005473,BBIE,,,,CI_ Document Context_ Parameter. Value. Text,,,,,,,,,0..1
+UN01005486,ASBIE,,CI_ Exchanged Document_ Context. Subset_ Specified. CI_ Document Context_ Parameter,,,,,,,,,,,1..1
+UN01005471,ABIE,,,CI_ Document Context_ Parameter. Details,,,,,,,,,, -
+UN01005472,BBIE,,,,CI_ Document Context_ Parameter. Identification. Identifier,,,,,,,,,1..1
+UN01005473,BBIE,,,,CI_ Document Context_ Parameter. Value. Text,,,,,,,,,0..1
+UN01005474,ASBIE,,,,CI_ Document Context_ Parameter. Specified. CI_ Document_ Version,,,,,,,,,1..1
+UN01005475,ABIE,,,,,CI_ Document_ Version. Details,,,,,,,, - 
+UN01005476,BBIE,,,,,,CI_ Document_ Version. Identification. Identifier,,,,,,,1..1
+UN01005478,BBIE,,,,,,CI_ Document_ Version. Issue. Date Time,,,,,,,1..1
+UN01005861,ASMA,CIIH_ Exchanged_ Document. Details,,,,,,,,,,,,1..1
+UN01005862,BBIE,,CIIH_ Exchanged_ Document. Identification. Identifier,,,,,,,,,,,1..1
+UN01005863,BBIE,,CIIH_ Exchanged_ Document. Name. Text,,,,,,,,,,,0..1
+UN01005864,BBIE,,CIIH_ Exchanged_ Document. Type. Code,,,,,,,,,,,0..1
+UN01005865,BBIE,,CIIH_ Exchanged_ Document. Issue. Date Time,,,,,,,,,,,1..1
+UN01005869,BBIE,,CIIH_ Exchanged_ Document. Purpose. Code,,,,,,,,,,,0..1
+UN01005874,BBIE,,CIIH_ Exchanged_ Document. Previous Revision_ Identification. Identifier,,,,,,,,,,,0..1
+UN01005875,BBIE,,CIIH_ Exchanged_ Document. Category. Code,,,,,,,,,,,0..1
+UN01014636,BBIE,,CIIH_ Exchanged_ Document. Subtype. Code,,,,,,,,,,,0..1
+UN01005876,ASBIE,,CIIH_ Exchanged_ Document. Included. CI_ Note,,,,,,,,,,,0..n
+UN01005557,ABIE,,,CI_ Note. Details,,,,,,,,,, -
+UN01005558,BBIE,,,,CI_ Note. Subject. Text,,,,,,,,,0..1
+UN01005560,BBIE,,,,CI_ Note. Content. Text,,,,,,,,,0..1
+UN01005562,BBIE,,,,CI_ Note. Identification. Identifier,,,,,,,,,0..1
+UN01012702,ASBIE,,CIIH_ Exchanged_ Document. Reference. CI_ Referenced_ Document,,,,,,,,,,,0..n
+UN01005579,ABIE,,,CI_ Referenced_ Document. Details,,,,,,,,,,－
+UN01005580,BBIE,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,,,,,1..1
+UN01005581,BBIE,,,,CI_ Referenced_ Document. URI_ Identification. Identifier,,,,,,,,,0..1
+UN01005582,BBIE,,,,CI_ Referenced_ Document. Issue. Date Time,,,,,,,,,0..1
+UN01005586,BBIE,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,,,,,,,0..1
+UN01005588,BBIE,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,,,,,0..1
+UN01006415,BBIE,,,,CI_ Referenced_ Document. Information. Text,,,,,,,,,0..1
+UN01009672,BBIE,,,,CI_ Referenced_ Document. Type. Code,,,,,,,,,0..1
+UN01011455,BBIE,,,,CI_ Referenced_ Document. Attachment. Binary Object,,,,,,,,,0..1
+UN01014899,BBIE,,,,CI_ Referenced_ Document. Subtype. Code,,,,,,,,,0..1
+UN01015490,ASBIE,,CIIH_ Exchanged_ Document. Attached. Specified_ Binary File,,,,,,,,,,,0..n
+UN01006014,ABIE,,,Specified_ Binary File. Details,,,,,,,,,,－
+UN01006015,BBIE,,,,Specified_ Binary File. Identification. Identifier,,,,,,,,,1..1
+UN01006019,BBIE,,,,Specified_ Binary File. File Name. Text,,,,,,,,,0..1
+UN01006020,BBIE,,,,Specified_ Binary File. URI. Identifier,,,,,,,,,0..1
+UN01006021,BBIE,,,,Specified_ Binary File. MIME. Code,,,,,,,,,1..1
+UN01006026,BBIE,,,,Specified_ Binary File. Description. Text,,,,,,,,,0..1
+UN01005936,ASMA,CIIH_ Supply Chain_ Trade Transaction. Details,,,,,,,,,,,,1..1
+UN01005937,ASBIE,,CIIH_ Supply Chain_ Trade Transaction. Applicable. CIIH_ Supply Chain_ Trade Agreement,,,,,,,,,,,1..1
+UN01005878,ABIE,,,CIIH_ Supply Chain_ Trade Agreement. Details,,,,,,,,,,－
+UN01005879,ASBIE,,,,CIIH_ Supply Chain_ Trade Agreement. Seller. CI_ Trade_ Party,,,,,,,,,1..1
+UN01005756,ABIE,,,,,CI_ Trade_ Party. Details,,,,,,,,－
+UN01005757,BBIE,,,,,,CI_ Trade_ Party. Identification. Identifier,,,,,,,0..1
+UN01005758,BBIE,,,,,,CI_ Trade_ Party. Global_ Identification. Identifier,,,,,,,0..1
+UN01005759,BBIE,,,,,,CI_ Trade_ Party. Name. Text,,,,,,,0..1
+UN01013039,BBIE,,,,,,CI_ Trade_ Party. Registered_ Identification. Identifier,,,,,,,0..1
+UN01012925,BBIE,,,,,,CI_ Trade_ Party. Type. Code,,,,,,,0..1
+UN01005761,ASBIE,,,,,,CI_ Trade_ Party. Defined. CI_ Trade_ Contact,,,,,,,0..1
+UN01005718,ABIE,,,,,,,CI_ Trade_ Contact. Details,,,,,,－
+UN01005719,BBIE,,,,,,,,CI_ Trade_ Contact. Identification. Identifier,,,,,0..1
+UN01005720,BBIE,,,,,,,,CI_ Trade_ Contact. Person Name. Text,,,,,0..1
+UN01005721,BBIE,,,,,,,,CI_ Trade_ Contact. Department Name. Text,,,,,0..1
+UN01005725,BBIE,,,,,,,,CI_ Trade_ Contact. Person_ Identification. Identifier,,,,,0..1
+UN01005726,ASBIE,,,,,,,,CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005729,ASBIE,,,,,,,,CI_ Trade_ Contact. Fax. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005730,ASBIE,,,,,,,,CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005858,BBIE,,,,,,,,,,CI_ Universal_ Communication. URI. Identifier,,,0..1
+UN01005762,ASBIE,,,,,,CI_ Trade_ Party. Postal. CI_ Trade_ Address,,,,,,,0..1
+UN01005687,ABIE,,,,,,,CI_ Trade_ Address. Details,,,,,,－
+UN01005689,BBIE,,,,,,,,CI_ Trade_ Address. Postcode. Code,,,,,0..1
+UN01005692,BBIE,,,,,,,,CI_ Trade_ Address. Line One. Text,,,,,0..1
+UN01005693,BBIE,,,,,,,,CI_ Trade_ Address. Line Two. Text,,,,,0..1
+UN01005694,BBIE,,,,,,,,CI_ Trade_ Address. Line Three. Text,,,,,0..1
+UN01005700,BBIE,,,,,,,,CI_ Trade_ Address. Country. Identifier,,,,,1..1
+UN01005765,ASBIE,,,,,,CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication,,,,,,,0..1
+UN01005857,ABIE,,,,,,,CI_ Universal_ Communication. Details,,,,,,－
+UN01005859,BBIE,,,,,,,,CI_ Universal_ Communication. Channel. Code,,,,,0..1
+UN01005860,BBIE,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,,,0..1
+UN01005880,ASBIE,,,,CIIH_ Supply Chain_ Trade Agreement. Buyer. CI_ Trade_ Party,,,,,,,,,1..1
+UN01005756,ABIE,,,,,CI_ Trade_ Party. Details,,,,,,,,－
+UN01005757,BBIE,,,,,,CI_ Trade_ Party. Identification. Identifier,,,,,,,0..1
+UN01005758,BBIE,,,,,,CI_ Trade_ Party. Global_ Identification. Identifier,,,,,,,0..1
+UN01005759,BBIE,,,,,,CI_ Trade_ Party. Name. Text,,,,,,,0..1
+UN01013039,BBIE,,,,,,CI_ Trade_ Party. Registered_ Identification. Identifier,,,,,,,0..1
+UN01012925,BBIE,,,,,,CI_ Trade_ Party. Type. Code,,,,,,,0..1
+UN01005761,ASBIE,,,,,,CI_ Trade_ Party. Defined. CI_ Trade_ Contact,,,,,,,0..1
+UN01005718,ABIE,,,,,,,CI_ Trade_ Contact. Details,,,,,, -
+UN01005719,BBIE,,,,,,,,CI_ Trade_ Contact. Identification. Identifier,,,,,0..1
+UN01005720,BBIE,,,,,,,,CI_ Trade_ Contact. Person Name. Text,,,,,0..1
+UN01005721,BBIE,,,,,,,,CI_ Trade_ Contact. Department Name. Text,,,,,0..1
+UN01005725,BBIE,,,,,,,,CI_ Trade_ Contact. Person_ Identification. Identifier,,,,,0..1
+UN01005726,ASBIE,,,,,,,,CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005729,ASBIE,,,,,,,,CI_ Trade_ Contact. Fax. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005730,ASBIE,,,,,,,,CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005858,BBIE,,,,,,,,,,CI_ Universal_ Communication. URI. Identifier,,,0..1
+UN01005762,ASBIE,,,,,,CI_ Trade_ Party. Postal. CI_ Trade_ Address,,,,,,,0..1
+UN01005687,ABIE,,,,,,,CI_ Trade_ Address. Details,,,,,,－
+UN01005689,BBIE,,,,,,,,CI_ Trade_ Address. Postcode. Code,,,,,0..1
+UN01005692,BBIE,,,,,,,,CI_ Trade_ Address. Line One. Text,,,,,0..1
+UN01005693,BBIE,,,,,,,,CI_ Trade_ Address. Line Two. Text,,,,,0..1
+UN01005694,BBIE,,,,,,,,CI_ Trade_ Address. Line Three. Text,,,,,0..1
+UN01005700,BBIE,,,,,,,,CI_ Trade_ Address. Country. Identifier,,,,,1..1
+UN01005765,ASBIE,,,,,,CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication,,,,,,,0..1
+UN01005857,ABIE,,,,,,,CI_ Universal_ Communication. Details,,,,,,－
+UN01005859,BBIE,,,,,,,,CI_ Universal_ Communication. Channel. Code,,,,,0..1
+UN01005860,BBIE,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,,,0..1
+UN01011516,ASBIE,,,,CIIH_ Supply Chain_ Trade Agreement. Specified. Procuring_ Project,,,,,,,,,0..1
+UN01000371,ABIE,,,,,Procuring_ Project. Details,,,,,,,,－
+UN01000372,BBIE,,,,,,Procuring_ Project. Identification. Identifier,,,,,,,0..1
+UN01000374,BBIE,,,,,,Procuring_ Project. Name. Text,,,,,,,0..1
+UN01005939,ASBIE,,CIIH_ Supply Chain_ Trade Transaction. Applicable. CIIH_ Supply Chain_ Trade Settlement,,,,,,,,,,,1..1
+UN01005909,ABIE,,,CIIH_ Supply Chain_ Trade Settlement. Details,,,,,,,,,,－
+UN01005913,BBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Tax_ Currency. Code,,,,,,,,,0..1
+UN01005914,BBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Invoice_ Currency. Code,,,,,,,,,1..1
+UN01005915,BBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Payment_ Currency. Code,,,,,,,,,0..1
+UN01005916,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Invoicer. CI_ Trade_ Party,,,,,,,,,0..1
+UN01005756,ABIE,,,,,CI_ Trade_ Party. Details,,,,,,,,－
+UN01005757,BBIE,,,,,,CI_ Trade_ Party. Identification. Identifier,,,,,,,0..1
+UN01005758,BBIE,,,,,,CI_ Trade_ Party. Global_ Identification. Identifier,,,,,,,0..1
+UN01005759,BBIE,,,,,,CI_ Trade_ Party. Name. Text,,,,,,,0..1
+UN01013039,BBIE,,,,,,CI_ Trade_ Party. Registered_ Identification. Identifier,,,,,,,0..1
+UN01012925,BBIE,,,,,,CI_ Trade_ Party. Type. Code,,,,,,,1..1
+UN01005761,ASBIE,,,,,,CI_ Trade_ Party. Defined. CI_ Trade_ Contact,,,,,,,0..1
+UN01005718,ABIE,,,,,,,CI_ Trade_ Contact. Details,,,,,,－
+UN01005719,BBIE,,,,,,,,CI_ Trade_ Contact. Identification. Identifier,,,,,0..1
+UN01005720,BBIE,,,,,,,,CI_ Trade_ Contact. Person Name. Text,,,,,0..1
+UN01005721,BBIE,,,,,,,,CI_ Trade_ Contact. Department Name. Text,,,,,0..1
+UN01005725,BBIE,,,,,,,,CI_ Trade_ Contact. Person_ Identification. Identifier,,,,,0..1
+UN01005726,ASBIE,,,,,,,,CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005729,ASBIE,,,,,,,,CI_ Trade_ Contact. Fax. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005730,ASBIE,,,,,,,,CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005858,BBIE,,,,,,,,,,CI_ Universal_ Communication. URI. Identifier,,,0..1
+UN01005762,ASBIE,,,,,,CI_ Trade_ Party. Postal. CI_ Trade_ Address,,,,,,,0..1
+UN01005687,ABIE,,,,,,,CI_ Trade_ Address. Details,,,,,,－
+UN01005689,BBIE,,,,,,,,CI_ Trade_ Address. Postcode. Code,,,,,0..1
+UN01005692,BBIE,,,,,,,,CI_ Trade_ Address. Line One. Text,,,,,0..1
+UN01005693,BBIE,,,,,,,,CI_ Trade_ Address. Line Two. Text,,,,,0..1
+UN01005694,BBIE,,,,,,,,CI_ Trade_ Address. Line Three. Text,,,,,0..1
+UN01005700,BBIE,,,,,,,,CI_ Trade_ Address. Country. Identifier,,,,,1..1
+UN01005765,ASBIE,,,,,,CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication,,,,,,,1..1
+UN01005857,ABIE,,,,,,,CI_ Universal_ Communication. Details,,,,,,－
+UN01005859,BBIE,,,,,,,,CI_ Universal_ Communication. Channel. Code,,,,,1..1
+UN01005860,BBIE,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,,,1..1
+UN01005917,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Invoicee. CI_ Trade_ Party,,,,,,,,,0..1
+UN01005756,ABIE,,,,,CI_ Trade_ Party. Details,,,,,,,,－
+UN01005757,BBIE,,,,,,CI_ Trade_ Party. Identification. Identifier,,,,,,,0..1
+UN01005758,BBIE,,,,,,CI_ Trade_ Party. Global_ Identification. Identifier,,,,,,,0..1
+UN01005759,BBIE,,,,,,CI_ Trade_ Party. Name. Text,,,,,,,0..1
+UN01005761,ASBIE,,,,,,CI_ Trade_ Party. Defined. CI_ Trade_ Contact,,,,,,,0..1
+UN01005718,ABIE,,,,,,,CI_ Trade_ Contact. Details,,,,,,－
+UN01005719,BBIE,,,,,,,,CI_ Trade_ Contact. Identification. Identifier,,,,,0..1
+UN01005720,BBIE,,,,,,,,CI_ Trade_ Contact. Person Name. Text,,,,,0..1
+UN01005721,BBIE,,,,,,,,CI_ Trade_ Contact. Department Name. Text,,,,,0..1
+UN01005725,BBIE,,,,,,,,CI_ Trade_ Contact. Person_ Identification. Identifier,,,,,0..1
+UN01005726,ASBIE,,,,,,,,CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005729,ASBIE,,,,,,,,CI_ Trade_ Contact. Fax. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005730,ASBIE,,,,,,,,CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005858,BBIE,,,,,,,,,,CI_ Universal_ Communication. URI. Identifier,,,0..1
+UN01005762,ASBIE,,,,,,CI_ Trade_ Party. Postal. CI_ Trade_ Address,,,,,,,0..1
+UN01005687,ABIE,,,,,,,CI_ Trade_ Address. Details,,,,,,－
+UN01005689,BBIE,,,,,,,,CI_ Trade_ Address. Postcode. Code,,,,,0..1
+UN01005692,BBIE,,,,,,,,CI_ Trade_ Address. Line One. Text,,,,,0..1
+UN01005693,BBIE,,,,,,,,CI_ Trade_ Address. Line Two. Text,,,,,0..1
+UN01005694,BBIE,,,,,,,,CI_ Trade_ Address. Line Three. Text,,,,,0..1
+UN01005700,BBIE,,,,,,,,CI_ Trade_ Address. Country. Identifier,,,,,1..1
+UN01005765,ASBIE,,,,,,CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication,,,,,,,0..1
+UN01005857,ABIE,,,,,,,CI_ Universal_ Communication. Details,,,,,,－
+UN01005859,BBIE,,,,,,,,CI_ Universal_ Communication. Channel. Code,,,,,0..1
+UN01005860,BBIE,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,,,0..1
+UN01005918,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Payee. CI_ Trade_ Party,,,,,,,,,0..1
+UN01005756,ABIE,,,,,CI_ Trade_ Party. Details,,,,,,,,－
+UN01005757,BBIE,,,,,,CI_ Trade_ Party. Identification. Identifier,,,,,,,0..1
+UN01005758,BBIE,,,,,,CI_ Trade_ Party. Global_ Identification. Identifier,,,,,,,0..1
+UN01005759,BBIE,,,,,,CI_ Trade_ Party. Name. Text,,,,,,,0..1
+UN01005761,ASBIE,,,,,,CI_ Trade_ Party. Defined. CI_ Trade_ Contact,,,,,,,0..1
+UN01005718,ABIE,,,,,,,CI_ Trade_ Contact. Details,,,,,,－
+UN01005719,BBIE,,,,,,,,CI_ Trade_ Contact. Identification. Identifier,,,,,0..1
+UN01005720,BBIE,,,,,,,,CI_ Trade_ Contact. Person Name. Text,,,,,0..1
+UN01005721,BBIE,,,,,,,,CI_ Trade_ Contact. Department Name. Text,,,,,0..1
+UN01005725,BBIE,,,,,,,,CI_ Trade_ Contact. Person_ Identification. Identifier,,,,,0..1
+UN01005726,ASBIE,,,,,,,,CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005729,ASBIE,,,,,,,,CI_ Trade_ Contact. Fax. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005730,ASBIE,,,,,,,,CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005858,BBIE,,,,,,,,,,CI_ Universal_ Communication. URI. Identifier,,,0..1
+UN01005762,ASBIE,,,,,,CI_ Trade_ Party. Postal. CI_ Trade_ Address,,,,,,,0..1
+UN01005687,ABIE,,,,,,,CI_ Trade_ Address. Details,,,,,,－
+UN01005689,BBIE,,,,,,,,CI_ Trade_ Address. Postcode. Code,,,,,0..1
+UN01005692,BBIE,,,,,,,,CI_ Trade_ Address. Line One. Text,,,,,0..1
+UN01005693,BBIE,,,,,,,,CI_ Trade_ Address. Line Two. Text,,,,,0..1
+UN01005694,BBIE,,,,,,,,CI_ Trade_ Address. Line Three. Text,,,,,0..1
+UN01005700,BBIE,,,,,,,,CI_ Trade_ Address. Country. Identifier,,,,,1..1
+UN01005919,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Payer. CI_ Trade_ Party,,,,,,,,,0..1
+UN01005756,ABIE,,,,,CI_ Trade_ Party. Details,,,,,,,,－
+UN01005757,BBIE,,,,,,CI_ Trade_ Party. Identification. Identifier,,,,,,,0..1
+UN01005758,BBIE,,,,,,CI_ Trade_ Party. Global_ Identification. Identifier,,,,,,,0..1
+UN01005759,BBIE,,,,,,CI_ Trade_ Party. Name. Text,,,,,,,0..1
+UN01005761,ASBIE,,,,,,CI_ Trade_ Party. Defined. CI_ Trade_ Contact,,,,,,,0..1
+UN01005718,ABIE,,,,,,,CI_ Trade_ Contact. Details,,,,,,－
+UN01005719,BBIE,,,,,,,,CI_ Trade_ Contact. Identification. Identifier,,,,,0..1
+UN01005720,BBIE,,,,,,,,CI_ Trade_ Contact. Person Name. Text,,,,,0..1
+UN01005721,BBIE,,,,,,,,CI_ Trade_ Contact. Department Name. Text,,,,,0..1
+UN01005725,BBIE,,,,,,,,CI_ Trade_ Contact. Person_ Identification. Identifier,,,,,0..1
+UN01005726,ASBIE,,,,,,,,CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005729,ASBIE,,,,,,,,CI_ Trade_ Contact. Fax. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005860,BBIE,,,,,,,,,,CI_ Universal_ Communication. Complete Number. Text,,,0..1
+UN01005730,ASBIE,,,,,,,,CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication,,,,,0..1
+UN01005857,ABIE,,,,,,,,,CI_ Universal_ Communication. Details,,,,－
+UN01005858,BBIE,,,,,,,,,,CI_ Universal_ Communication. URI. Identifier,,,0..1
+UN01005762,ASBIE,,,,,,CI_ Trade_ Party. Postal. CI_ Trade_ Address,,,,,,,0..1
+UN01005687,ABIE,,,,,,,CI_ Trade_ Address. Details,,,,,,－
+UN01005689,BBIE,,,,,,,,CI_ Trade_ Address. Postcode. Code,,,,,0..1
+UN01005692,BBIE,,,,,,,,CI_ Trade_ Address. Line One. Text,,,,,0..1
+UN01005693,BBIE,,,,,,,,CI_ Trade_ Address. Line Two. Text,,,,,0..1
+UN01005694,BBIE,,,,,,,,CI_ Trade_ Address. Line Three. Text,,,,,0..1
+UN01005700,BBIE,,,,,,,,CI_ Trade_ Address. Country. Identifier,,,,,1..1
+UN01005921,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Invoice_ Applicable. CI_ Trade_ Currency Exchange,,,,,,,,,0..1
+UN01005738,ABIE,,,,,CI_ Trade_ Currency Exchange. Details,,,,,,,,－
+UN01005739,BBIE,,,,,,CI_ Trade_ Currency Exchange. Source Currency. Code,,,,,,,0..1
+UN01005741,BBIE,,,,,,CI_ Trade_ Currency Exchange. Target Currency. Code,,,,,,,0..1
+UN01005744,BBIE,,,,,,CI_ Trade_ Currency Exchange. Conversion. Rate,,,,,,,0..1
+UN01005745,BBIE,,,,,,CI_ Trade_ Currency Exchange. Conversion Rate. Date Time,,,,,,,0..1
+UN01005922,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Payment_ Applicable. CI_ Trade_ Currency Exchange,,,,,,,,,0..1
+UN01005738,ABIE,,,,,CI_ Trade_ Currency Exchange. Details,,,,,,,,－
+UN01005739,BBIE,,,,,,CI_ Trade_ Currency Exchange. Source Currency. Code,,,,,,,0..1
+UN01005741,BBIE,,,,,,CI_ Trade_ Currency Exchange. Target Currency. Code,,,,,,,0..1
+UN01005744,BBIE,,,,,,CI_ Trade_ Currency Exchange. Conversion. Rate,,,,,,,0..1
+UN01005745,BBIE,,,,,,CI_ Trade_ Currency Exchange. Conversion Rate. Date Time,,,,,,,0..1
+UN01005923,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Trade Settlement_ Payment Means,,,,,,,,,0..n
+UN01005670,ABIE,,,,,CI_ Trade Settlement_ Payment Means. Details,,,,,,,,－
+UN01005672,BBIE,,,,,,CI_ Trade Settlement_ Payment Means. Type. Code,,,,,,,0..1
+UN01011456,BBIE,,,,,,CI_ Trade Settlement_ Payment Means. Information. Text,,,,,,,0..1
+UN01015504,BBIE,,,,,,CI_ Trade Settlement_ Payment Means. Paid. Amount,,,,,,,0..1
+UN01005677,ASBIE,,,,,,CI_ Trade Settlement_ Payment Means. Payee_ Party. CI_ Creditor_ Financial Account,,,,,,,0..1
+UN01005398,ABIE,,,,,,,CI_ Creditor_ Financial Account. Details,,,,,,－
+UN01005400,BBIE,,,,,,,,CI_ Creditor_ Financial Account. Account Name. Text,,,,,0..1
+UN01005401,BBIE,,,,,,,,CI_ Creditor_ Financial Account. Proprietary_ Identification. Identifier,,,,,0..1
+UN01012127,BBIE,,,,,,,,CI_ Creditor_ Financial Account. Type. Code,,,,,0..1
+UN01005679,ASBIE,,,,,,CI_ Trade Settlement_ Payment Means. Payee_ Specified. CI_ Creditor_ Financial Institution,,,,,,,0..1
+UN01005402,ABIE,,,,,,,CI_ Creditor_ Financial Institution. Details,,,,,,－
+UN01005426,BBIE,,,,,,,,CI_ Creditor_ Financial Institution. Name. Text,,,,,0..1
+UN01011521,BBIE,,,,,,,,CI_ Creditor_ Financial Institution. Japan Financial Institution Common_ Identification. Identifier,,,,,0..1
+UN01005428,ASBIE,,,,,,,,CI_ Creditor_ Financial Institution. Sub-Division. Branch_ Financial Institution,,,,,0..1
+UN01003138,ABIE,,,,,,,,,Branch_ Financial Institution. Details,,,,－
+UN01003139,BBIE,,,,,,,,,,Branch_ Financial Institution. Identification. Identifier,,,0..1
+UN01003140,BBIE,,,,,,,,,,Branch_ Financial Institution. Name. Text,,,0..1
+UN01006057,ASBIE,,,,,,CI_ Trade Settlement_ Payment Means. Applicable. Trade Settlement_ Financial Card,,,,,,,0..1
+UN01004493,ABIE,,,,,,,Trade Settlement_ Financial Card. Details,,,,,,－
+UN01004495,BBIE,,,,,,,,Trade Settlement_ Financial Card. Identification. Identifier,,,,,1..1
+UN01004496,BBIE,,,,,,,,Trade Settlement_ Financial Card. Type. Code,,,,,0..1
+UN01004497,BBIE,,,,,,,,Trade Settlement_ Financial Card. Cardholder Name. Text,,,,,1..1
+UN01009966,BBIE,,,,,,,,Trade Settlement_ Financial Card. Issuing Company Name. Text,,,,,0..1
+UN01005924,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax,,,,,,,,,0..n
+UN01005832,ABIE,,,,,CI_ Trade_ Tax. Details,,,,,,,,－
+UN01005833,BBIE,,,,,,CI_ Trade_ Tax. Calculated. Amount,,,,,,,0..1
+UN01005841,BBIE,,,,,,CI_ Trade_ Tax. Category. Code,,,,,,,0..1
+UN01005850,BBIE,,,,,,CI_ Trade_ Tax. Category Name. Text,,,,,,,0..1
+UN01007174,BBIE,,,,,,CI_ Trade_ Tax. Rate_ Applicable. Percent,,,,,,,0..1
+UN01013096,BBIE,,,,,,CI_ Trade_ Tax. Calculation Method. Code,,,,,,,0..1
+UN01014650,BBIE,,,,,,CI_ Trade_ Tax. Local Tax System. Identifier,,,,,,,0..1
+UN01005925,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period,,,,,,,,,0..1
+UN01005608,ABIE,,,,,CI_ Specified_ Period. Details,,,,,,,,－
+UN01005612,BBIE,,,,,,CI_ Specified_ Period. Start. Date Time,,,,,,,0..1
+UN01005613,BBIE,,,,,,CI_ Specified_ Period. End. Date Time,,,,,,,1..1
+UN01005929,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Payment Terms,,,,,,,,,0..n
+UN01005779,ABIE,,,,,CI_ Trade_ Payment Terms. Details,,,,,,,,－
+UN01005780,BBIE,,,,,,CI_ Trade_ Payment Terms. Identification. Identifier,,,,,,,0..1
+UN01005783,BBIE,,,,,,CI_ Trade_ Payment Terms. Description. Text,,,,,,,0..1
+UN01005784,BBIE,,,,,,CI_ Trade_ Payment Terms. Due Date. Date Time,,,,,,,0..1
+UN01008502,BBIE,,,,,,CI_ Trade_ Payment Terms. Type. Code,,,,,,,0..1
+UN01015539,BBIE,,,,,,CI_ Trade_ Payment Terms. Instructed. Amount,,,,,,,0..1
+UN01005930,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Specified. CIIH_ Trade Settlement_ Monetary Summation,,,,,,,,,0..1
+UN01005941,ABIE,,,,,CIIH_ Trade Settlement_ Monetary Summation. Details,,,,,,,,－
+UN01005945,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Tax Basis Total. Amount,,,,,,,0..1
+UN01005946,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Tax Total. Amount,,,,,,,0..1
+UN01005948,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Grand Total. Amount,,,,,,,0..1
+UN01005950,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Total Prepaid. Amount,,,,,,,0..1
+UN01008445,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Due Payable. Amount,,,,,,,0..1
+UN01008451,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Net_ Line Total. Amount,,,,,,,0..1
+UN01013091,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Including Taxes_ Line Total. Amount,,,,,,,0..1
+UN01005931,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment,,,,,,,,,0..n
+UN01005487,ABIE,,,,,CI_ Financial_ Adjustment. Details,,,,,,,,－
+UN01005488,BBIE,,,,,,CI_ Financial_ Adjustment. Reason. Code,,,,,,,0..1
+UN01005489,BBIE,,,,,,CI_ Financial_ Adjustment. Reason. Text,,,,,,,0..1
+UN01005490,BBIE,,,,,,CI_ Financial_ Adjustment. Actual. Amount,,,,,,,0..1
+UN01014649,BBIE,,,,,,CI_ Financial_ Adjustment. Direction. Code,,,,,,,0..1
+UN01009671,ASBIE,,,,,,CI_ Financial_ Adjustment. Invoice_ Reference. CI_ Referenced_ Document,,,,,,,0..1
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005582,BBIE,,,,,,,,CI_ Referenced_ Document. Issue. Date Time,,,,,0..1
+UN01005586,BBIE,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,,,0..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01009672,BBIE,,,,,,,,CI_ Referenced_ Document. Type. Code,,,,,0..1
+UN01014899,BBIE,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,,,0..1
+UN01014897,ASBIE,,,,,,CI_ Financial_ Adjustment. Related. CI_ Trade_ Tax,,,,,,,0..n
+UN01005832,ABIE,,,,,,,CI_ Trade_ Tax. Details,,,,,,－
+UN01005833,BBIE,,,,,,,,CI_ Trade_ Tax. Calculated. Amount,,,,,0..1
+UN01005836,BBIE,,,,,,,,CI_ Trade_ Tax. Calculated. Rate,,,,,0..1
+UN01005841,BBIE,,,,,,,,CI_ Trade_ Tax. Category. Code,,,,,0..1
+JPS2300021,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Advance_ Payment,,,,,,,,,0..n
+UN01015590,ABIE,,,,,CI_ Advance_ Payment. Details,,,,,,,,－
+UN01015591,BBIE,,,,,,CI_ Advance_ Payment. Paid. Amount,,,,,,,0..1
+UN01015592,BBIE,,,,,,CI_ Advance_ Payment. Formatted_ Received. Date Time,,,,,,,0..1
+UN01015593,BBIE,,,,,,CI_ Advance_ Payment. Identification. Identifier,,,,,,,0..1
+UN01015596,ASBIE,,,,,,CI_ Advance_ Payment. Identified. CI_ Trade_ Payment Terms,,,,,,,0..1
+UN01005779,ABIE,,,,,,,CI_ Trade_ Payment Terms. Details,,,,,,－
+UN01008502,BBIE,,,,,,,,CI_ Trade_ Payment Terms. Type. Code,,,,,0..1
+UN01015492,ASBIE,,,,CIIH_ Supply Chain_ Trade Settlement. Outstanding_ Specified. CIIH_ Trade Settlement_ Monetary Summation,,,,,,,,,0..1
+UN01005941,ABIE,,,,,CIIH_ Trade Settlement_ Monetary Summation. Details,,,,,,,,－
+UN01005943,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Charge Total. Amount,,,,,,,0..1
+UN01005944,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Allowance Total. Amount,,,,,,,0..1
+UN01005948,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Grand Total. Amount,,,,,,,0..1
+UN01005950,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Total Prepaid. Amount,,,,,,,0..1
+UN01008445,BBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Due Payable. Amount,,,,,,,0..1
+UN01015493,ASBIE,,,,,,CIIH_ Trade Settlement_ Monetary Summation. Specified. CI_ Referenced_ Document,,,,,,,0..n
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005582,BBIE,,,,,,,,CI_ Referenced_ Document. Issue. Date Time,,,,,0..1
+UN01005586,BBIE,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,,,0..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01006415,BBIE,,,,,,,,CI_ Referenced_ Document. Information. Text,,,,,0..1
+UN01009672,BBIE,,,,,,,,CI_ Referenced_ Document. Type. Code,,,,,1..1
+UN01011455,BBIE,,,,,,,,CI_ Referenced_ Document. Attachment. Binary Object,,,,,0..1
+UN01014899,BBIE,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,,,0..1
+UN01005940,ASBIE,,CIIH_ Supply Chain_ Trade Transaction. Included. CIIL_ Supply Chain_ Trade Line Item,,,,,,,,,,,1..n
+UN01005988,ABIE,,,CIIL_ Supply Chain_ Trade Line Item. Details,,,,,,,,,,－
+UN01005989,ASBIE,,,,CIIL_ Supply Chain_ Trade Line Item. Associated. CIIL_ Document Line_ Document,,,,,,,,,1..1
+UN01005953,ABIE,,,,,CIIL_ Document Line_ Document. Details,,,,,,,,－
+UN01005954,BBIE,,,,,,CIIL_ Document Line_ Document. Line. Identifier,,,,,,,1..1
+UN01014645,BBIE,,,,,,CIIL_ Document Line_ Document. Category. Code,,,,,,,0..1
+UN01005957,ASBIE,,,,,,CIIL_ Document Line_ Document. Included. CI_ Note,,,,,,,0..n
+UN01005557,ABIE,,,,,,,CI_ Note. Details,,,,,, -
+UN01005558,BBIE,,,,,,,,CI_ Note. Subject. Text,,,,,0..1
+UN01005560,BBIE,,,,,,,,CI_ Note. Content. Text,,,,,0..1
+UN01005562,BBIE,,,,,,,,CI_ Note. Identification. Identifier,,,,,0..1
+UN01014895,ASBIE,,,,,,CIIL_ Document Line_ Document. Reference. CI_ Referenced_ Document,,,,,,,0..1
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,, -
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005582,BBIE,,,,,,,,CI_ Referenced_ Document. Issue. Date Time,,,,,0..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01009672,BBIE,,,,,,,,CI_ Referenced_ Document. Type. Code,,,,,0..1
+UN01014899,BBIE,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,,,0..1
+UN01005990,ASBIE,,,,CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Agreement,,,,,,,,,0..1
+UN01005958,ABIE,,,,,CIIL_ Supply Chain_ Trade Agreement. Details,,,,,,,,－
+UN01005960,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Agreement. Seller Order_ Referenced. CI_ Referenced_ Document,,,,,,,0..1
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01005961,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Agreement. Buyer Order_ Referenced. CI_ Referenced_ Document,,,,,,,0..1
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01005963,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Agreement. Contract_ Referenced. CI_ Referenced_ Document,,,,,,,0..1
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01005991,ASBIE,,,,CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Delivery,,,,,,,,,0..1
+UN01005968,ABIE,,,,,CIIL_ Supply Chain_ Trade Delivery. Details,,,,,,,,－
+UN01005980,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Delivery. Ship To. CI_ Trade_ Party,,,,,,,0..1
+UN01005756,ABIE,,,,,,,CI_ Trade_ Party. Details,,,,,,－
+UN01005757,BBIE,,,,,,,,CI_ Trade_ Party. Identification. Identifier,,,,,0..1
+UN01005758,BBIE,,,,,,,,CI_ Trade_ Party. Global_ Identification. Identifier,,,,,0..1
+UN01005759,BBIE,,,,,,,,CI_ Trade_ Party. Name. Text,,,,,0..1
+UN01005762,ASBIE,,,,,,,,CI_ Trade_ Party. Postal. CI_ Trade_ Address,,,,,0..1
+UN01005687,ABIE,,,,,,,,,CI_ Trade_ Address. Details,,,,－
+UN01005689,BBIE,,,,,,,,,,CI_ Trade_ Address. Postcode. Code,,,0..1
+UN01005692,BBIE,,,,,,,,,,CI_ Trade_ Address. Line One. Text,,,0..1
+UN01005693,BBIE,,,,,,,,,,CI_ Trade_ Address. Line Two. Text,,,0..1
+UN01005694,BBIE,,,,,,,,,,CI_ Trade_ Address. Line Three. Text,,,0..1
+UN01005700,BBIE,,,,,,,,,,CI_ Trade_ Address. Country. Identifier,,,0..1
+UN01005986,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Delivery. Actual_ Delivery. CI_ Supply Chain_ Event,,,,,,,0..1
+UN01005626,ABIE,,,,,,,CI_ Supply Chain_ Event. Details,,,,,,－
+UN01005628,BBIE,,,,,,,,CI_ Supply Chain_ Event. Occurrence. Date Time,,,,,0..1
+UN01006039,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Delivery. Despatch Advice_ Referenced. CI_ Referenced_ Document,,,,,,,0..n
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01009672,BBIE,,,,,,,,"CI_ Referenced_ Document. Type. Code
+　",,,,,0..1
+UN01013318,BBIE,,,,,,,,CI_ Referenced_ Document. Category. Code,,,,,0..1
+UN01014899,BBIE,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,,,0..1
+UN01006040,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Delivery. Receiving Advice_ Referenced. CI_ Referenced_ Document,,,,,,,0..n
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01009672,BBIE,,,,,,,,"CI_ Referenced_ Document. Type. Code
+",,,,,0..1
+UN01014899,BBIE,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,,,0..1
+UN01005992,ASBIE,,,,CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Settlement,,,,,,,,,0..1
+UN01005994,ABIE,,,,,CIIL_ Supply Chain_ Trade Settlement. Details,,,,,,,,－
+UN01014647,BBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Direction. Code,,,,,,,0..1
+UN01005998,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge,,,,,,,0..n
+UN01005706,ABIE,,,,,,,CI_ Trade_ Allowance Charge. Details,,,,,, -
+UN01005707,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Charge. Indicator,,,,,1..1
+UN01005710,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Calculation. Percent,,,,,0..1
+UN01005713,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Actual. Amount,,,,,0..1
+UN01005714,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Reason. Code,,,,,0..1
+UN01005715,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Reason. Text,,,,,0..1
+UN01008286,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Basis. Amount,,,,,0..1
+UN01005716,ASBIE,,,,,,,,CI_ Trade_ Allowance Charge. Category. CI_ Trade_ Tax,,,,,0..n
+UN01005832,ABIE,,,,,,,,,CI_ Trade_ Tax. Details,,,,－
+UN01005841,BBIE,,,,,,,,,,CI_ Trade_ Tax. Category. Code,,,1..1
+UN01007174,BBIE,,,,,,,,,,CI_ Trade_ Tax. Rate_ Applicable. Percent,,,0..1
+UN01005998,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge,,,,,,,0..n
+UN01005706,ABIE,,,,,,,CI_ Trade_ Allowance Charge. Details,,,,,, -
+UN01005707,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Charge. Indicator,,,,,1..1
+UN01005710,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Calculation. Percent,,,,,0..1
+UN01005713,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Actual. Amount,,,,,0..1
+UN01005714,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Reason. Code,,,,,0..1
+UN01005715,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Reason. Text,,,,,0..1
+UN01008286,BBIE,,,,,,,,CI_ Trade_ Allowance Charge. Basis. Amount,,,,,0..1
+UN01005716,ASBIE,,,,,,,,CI_ Trade_ Allowance Charge. Category. CI_ Trade_ Tax,,,,,0..n
+UN01005832,ABIE,,,,,,,,,CI_ Trade_ Tax. Details,,,,－
+UN01005841,BBIE,,,,,,,,,,CI_ Trade_ Tax. Category. Code,,,1..1
+UN01007174,BBIE,,,,,,,,,,CI_ Trade_ Tax. Rate_ Applicable. Percent,,,0..1
+UN01005996,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax,,,,,,,1..n
+UN01005832,ABIE,,,,,,,CI_ Trade_ Tax. Details,,,,,, -
+UN01005833,BBIE,,,,,,,,CI_ Trade_ Tax. Calculated. Amount,,,,,0..1
+UN01005834,BBIE,,,,,,,,CI_ Trade_ Tax. Type. Code,,,,,0..1
+UN01005839,BBIE,,,,,,,,CI_ Trade_ Tax. Basis. Amount,,,,,0..1
+UN01005841,BBIE,,,,,,,,CI_ Trade_ Tax. Category. Code,,,,,1..1
+UN01005842,BBIE,,,,,,,,CI_ Trade_ Tax. Currency. Code,,,,,0..1
+UN01005850,BBIE,,,,,,,,CI_ Trade_ Tax. Category Name. Text,,,,,0..1
+UN01007174,BBIE,,,,,,,,CI_ Trade_ Tax. Rate_ Applicable. Percent,,,,,0..1
+UN01013040,BBIE,,,,,,,,CI_ Trade_ Tax. Grand Total. Amount,,,,,0..1
+UN01013096,BBIE,,,,,,,,CI_ Trade_ Tax. Calculation Method. Code,,,,,0..1
+UN01014650,BBIE,,,,,,,,CI_ Trade_ Tax. Local Tax System. Identifier,,,,,0..1
+UN01005996,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax,,,,,,,0..n
+UN01005832,ABIE,,,,,,,CI_ Trade_ Tax. Details,,,,,, -
+UN01005833,BBIE,,,,,,,,CI_ Trade_ Tax. Calculated. Amount,,,,,0..1
+UN01005839,BBIE,,,,,,,,CI_ Trade_ Tax. Basis. Amount,,,,,0..1
+UN01005841,BBIE,,,,,,,,CI_ Trade_ Tax. Category. Code,,,,,1..1
+UN01005842,BBIE,,,,,,,,CI_ Trade_ Tax. Currency. Code,,,,,0..1
+UN01007174,BBIE,,,,,,,,CI_ Trade_ Tax. Rate_ Applicable. Percent,,,,,0..1
+UN01014650,BBIE,,,,,,,,CI_ Trade_ Tax. Local Tax System. Identifier,,,,,0..1
+UN01005997,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period,,,,,,,0..1
+UN01005608,ABIE,,,,,,,CI_ Specified_ Period. Details,,,,,,－
+UN01005612,BBIE,,,,,,,,CI_ Specified_ Period. Start. Date Time,,,,,0..1
+UN01005613,BBIE,,,,,,,,CI_ Specified_ Period. End. Date Time,,,,,1..1
+UN01006002,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Specified. CIIL_ Trade Settlement_ Monetary Summation,,,,,,,0..1
+UN01006006,ABIE,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Details,,,,,,－
+UN01006008,BBIE,,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Charge Total. Amount,,,,,0..1
+UN01006009,BBIE,,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Allowance Total. Amount,,,,,0..1
+UN01006011,BBIE,,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Tax Total. Amount,,,,,0..1
+UN01008455,BBIE,,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Gross_ Line Total. Amount,,,,,0..1
+UN01008456,BBIE,,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Net_ Line Total. Amount,,,,,0..1
+UN01008457,BBIE,,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Net Including Taxes_ Line Total. Amount,,,,,0..1
+UN01011519,BBIE,,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Grand Total. Amount,,,,,0..1
+UN01006002,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Specified. CIIL_ Trade Settlement_ Monetary Summation,,,,,,,0..1
+UN01006006,ABIE,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Details,,,,,,－
+UN01006011,BBIE,,,,,,,,CIIL_ Trade Settlement_ Monetary Summation. Tax Total. Amount,,,,,0..1
+UN01006003,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment,,,,,,,0..n
+UN01005487,ABIE,,,,,,,CI_ Financial_ Adjustment. Details,,,,,,－
+UN01005488,BBIE,,,,,,,,CI_ Financial_ Adjustment. Reason. Code,,,,,0..1
+UN01005489,BBIE,,,,,,,,CI_ Financial_ Adjustment. Reason. Text,,,,,0..1
+UN01005490,BBIE,,,,,,,,CI_ Financial_ Adjustment. Actual. Amount,,,,,0..1
+UN01014649,BBIE,,,,,,,,CI_ Financial_ Adjustment. Direction. Code,,,,,0..1
+UN01014897,ASBIE,,,,,,,,CI_ Financial_ Adjustment. Related. CI_ Trade_ Tax,,,,,0..n
+UN01005832,ABIE,,,,,,,,,CI_ Trade_ Tax. Details,,,,－
+UN01005833,BBIE,,,,,,,,,,CI_ Trade_ Tax. Calculated. Amount,,,0..1
+UN01005841,BBIE,,,,,,,,,,CI_ Trade_ Tax. Category. Code,,,0..1
+UN01007174,BBIE,,,,,,,,,,CI_ Trade_ Tax. Rate_ Applicable. Percent,,,1..1
+UN01006004,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document,,,,,,,0..n
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005582,BBIE,,,,,,,,CI_ Referenced_ Document. Issue. Date Time,,,,,0..1
+UN01005586,BBIE,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,,,0..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01009672,BBIE,,,,,,,,CI_ Referenced_ Document. Type. Code,,,,,0..1
+UN01014899,BBIE,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,,,0..1
+UN01006005,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Additional_ Referenced. CI_ Referenced_ Document,,,,,,,0..1
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005582,BBIE,,,,,,,,CI_ Referenced_ Document. Issue. Date Time,,,,,0..1
+UN01005586,BBIE,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,,,0..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01006415,BBIE,,,,,,,,CI_ Referenced_ Document. Information. Text,,,,,0..1
+UN01009672,BBIE,,,,,,,,CI_ Referenced_ Document. Type. Code,,,,,0..1
+UN01011455,BBIE,,,,,,,,CI_ Referenced_ Document. Attachment. Binary Object,,,,,0..1
+UN01014899,BBIE,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,,,0..1
+UN01006005,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Additional_ Referenced. CI_ Referenced_ Document,,,,,,,0..n
+UN01005579,ABIE,,,,,,,CI_ Referenced_ Document. Details,,,,,,－
+UN01005580,BBIE,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,,,1..1
+UN01005582,BBIE,,,,,,,,CI_ Referenced_ Document. Issue. Date Time,,,,,0..1
+UN01005586,BBIE,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,,,0..1
+UN01005588,BBIE,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,,,0..1
+UN01006415,BBIE,,,,,,,,CI_ Referenced_ Document. Information. Text,,,,,0..1
+UN01009672,BBIE,,,,,,,,CI_ Referenced_ Document. Type. Code,,,,,0..1
+UN01011455,BBIE,,,,,,,,CI_ Referenced_ Document. Attachment. Binary Object,,,,,0..1
+UN01014899,BBIE,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,,,0..1
+UN01006080,ASBIE,,,,,,CIIL_ Supply Chain_ Trade Settlement. Purchase_ Specified. CI_ Trade_ Accounting Account,,,,,,,0..1
+UN01005680,ABIE,,,,,,,CI_ Trade_ Accounting Account. Details,,,,,,－
+UN01005683,BBIE,,,,,,,,CI_ Trade_ Accounting Account. Type. Code,,,,,1..1
+UN01005685,BBIE,,,,,,,,CI_ Trade_ Accounting Account. Name. Text,,,,,0..1
+UN01009669,ASBIE,,,,CIIL_ Supply Chain_ Trade Line Item. Subordinate. CIILB_ Subordinate_ Trade Line Item,,,,,,,,,1..n
+UN01009647,ABIE,,,,,CIILB_ Subordinate_ Trade Line Item. Details,,,,,,,, -
+UN01009648,BBIE,,,,,,CIILB_ Subordinate_ Trade Line Item. Identification. Identifier,,,,,,,1..1
+UN01014637,BBIE,,,,,,CIILB_ Subordinate_ Trade Line Item. Category. Code,,,,,,,0..1
+UN01015533,ASBIE,,,,,,CIILB_ Subordinate_ Trade Line Item. Included. CI_ Note,,,,,,,0..n
+UN01005557,ABIE,,,,,,,CI_ Note. Details,,,,,, -
+UN01005558,BBIE,,,,,,,,CI_ Note. Subject. Text,,,,,0..1
+UN01005560,BBIE,,,,,,,,CI_ Note. Content. Text,,,,,0..1
+UN01005562,BBIE,,,,,,,,CI_ Note. Identification. Identifier,,,,,0..1
+UN01009649,ASBIE,,,,,,CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Agreement,,,,,,,1..1
+UN01009653,ABIE,,,,,,,CIILB_ Supply Chain_ Trade Agreement. Details,,,,,,－
+UN01009654,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Agreement. Seller Order_ Referenced. CI_ Referenced_ Document,,,,,0..1
+UN01005579,ABIE,,,,,,,,,CI_ Referenced_ Document. Details,,,,－
+UN01005580,BBIE,,,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,1..1
+UN01005585,BBIE,,,,,,,,,,CI_ Referenced_ Document. Line. Identifier,,,0..1
+UN01005588,BBIE,,,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,0..1
+UN01009655,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Agreement. Buyer Order_ Referenced. CI_ Referenced_ Document,,,,,0..1
+UN01005579,ABIE,,,,,,,,,CI_ Referenced_ Document. Details,,,,－
+UN01005580,BBIE,,,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,1..1
+UN01005585,BBIE,,,,,,,,,,CI_ Referenced_ Document. Line. Identifier,,,0..1
+UN01005588,BBIE,,,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,0..1
+UN01009656,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document,,,,,0..n
+UN01005579,ABIE,,,,,,,,,CI_ Referenced_ Document. Details,,,,－
+UN01005580,BBIE,,,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,1..1
+UN01005585,BBIE,,,,,,,,,,CI_ Referenced_ Document. Line. Identifier,,,0..1
+UN01005586,BBIE,,,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,0..1
+UN01005588,BBIE,,,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,0..1
+UN01009672,BBIE,,,,,,,,,,CI_ Referenced_ Document. Type. Code,,,0..1
+UN01011455,BBIE,,,,,,,,,,CI_ Referenced_ Document. Attachment. Binary Object,,,0..1
+UN01014899,BBIE,,,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,0..1
+UN01009656,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document,,,,,0..1
+UN01005579,ABIE,,,,,,,,,CI_ Referenced_ Document. Details,,,,－
+UN01005580,BBIE,,,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,1..1
+UN01005585,BBIE,,,,,,,,,,CI_ Referenced_ Document. Line. Identifier,,,0..1
+UN01005586,BBIE,,,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,0..1
+UN01005588,BBIE,,,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,0..1
+UN01009672,BBIE,,,,,,,,,,"CI_ Referenced_ Document. Type. Code
+",,,0..1
+UN01011455,BBIE,,,,,,,,,,CI_ Referenced_ Document. Attachment. Binary Object,,,0..1
+UN01014899,BBIE,,,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,0..1
+UN01009656,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document,,,,,0..1
+UN01005579,ABIE,,,,,,,,,CI_ Referenced_ Document. Details,,,,－
+UN01005580,BBIE,,,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,1..1
+UN01005585,BBIE,,,,,,,,,,CI_ Referenced_ Document. Line. Identifier,,,0..1
+UN01005586,BBIE,,,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,0..1
+UN01005588,BBIE,,,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,0..1
+UN01009672,BBIE,,,,,,,,,,CI_ Referenced_ Document. Type. Code,,,0..1
+UN01011455,BBIE,,,,,,,,,,CI_ Referenced_ Document. Attachment. Binary Object,,,0..1
+UN01014899,BBIE,,,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,0..1
+UN01009658,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Agreement. Net Price_ Product. CI_ Trade_ Price,,,,,1..1
+UN01005790,ABIE,,,,,,,,,CI_ Trade_ Price. Details,,,,－
+UN01005791,BBIE,,,,,,,,,,CI_ Trade_ Price. Type. Code,,,0..1
+UN01005792,BBIE,,,,,,,,,,CI_ Trade_ Price. Charge. Amount,,,1..1
+UN01005793,BBIE,,,,,,,,,,CI_ Trade_ Price. Basis. Quantity,,,0..1
+UN01009650,ASBIE,,,,,,CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Delivery,,,,,,,1..1
+UN01009659,ABIE,,,,,,,CIILB_ Supply Chain_ Trade Delivery. Details,,,,,,-
+UN01009660,BBIE,,,,,,,,CIILB_ Supply Chain_ Trade Delivery. Package. Quantity,,,,,0..1
+UN01009661,BBIE,,,,,,,,CIILB_ Supply Chain_ Trade Delivery. Product_ Unit. Quantity,,,,,0..1
+UN01009662,BBIE,,,,,,,,CIILB_ Supply Chain_ Trade Delivery. Per Package_ Unit. Quantity,,,,,0..1
+UN01014639,BBIE,,,,,,,,CIILB_ Supply Chain_ Trade Delivery. Billed. Quantity,,,,,1..1
+UN01009651,ASBIE,,,,,,CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Settlement,,,,,,,1..1
+UN01009664,ABIE,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Details,,,,,,-
+UN01014641,BBIE,,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Direction. Code,,,,,0..1
+UN01009665,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax,,,,,1..1
+UN01005832,ABIE,,,,,,,,,CI_ Trade_ Tax. Details,,,,-
+UN01005834,BBIE,,,,,,,,,,CI_ Trade_ Tax. Type. Code,,,0..1
+UN01005839,BBIE,,,,,,,,,,CI_ Trade_ Tax. Basis. Amount,,,0..1
+UN01005841,BBIE,,,,,,,,,,CI_ Trade_ Tax. Category. Code,,,1..1
+UN01005850,BBIE,,,,,,,,,,CI_ Trade_ Tax. Category Name. Text,,,0..1
+UN01007174,BBIE,,,,,,,,,,CI_ Trade_ Tax. Rate_ Applicable. Percent,,,0..1
+UN01013040,BBIE,,,,,,,,,,CI_ Trade_ Tax. Grand Total. Amount,,,0..1
+UN01014650,BBIE,,,,,,,,,,CI_ Trade_ Tax. Local Tax System. Identifier,,,0..1
+UN01014642,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document,,,,,0..n
+UN01005579,ABIE,,,,,,,,,CI_ Referenced_ Document. Details,,,,－
+UN01005580,BBIE,,,,,,,,,,CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier,,,1..1
+UN01005582,BBIE,,,,,,,,,,CI_ Referenced_ Document. Issue. Date Time,,,0..1
+UN01005585,BBIE,,,,,,,,,,CI_ Referenced_ Document. Line. Identifier,,,0..1
+UN01005586,BBIE,,,,,,,,,,CI_ Referenced_ Document. Reference_ Type. Code,,,0..1
+UN01005588,BBIE,,,,,,,,,,CI_ Referenced_ Document. Revision_ Identification. Identifier,,,0..1
+UN01009672,BBIE,,,,,,,,,,CI_ Referenced_ Document. Type. Code,,,0..1
+UN01014899,BBIE,,,,,,,,,,CI_ Referenced_ Document. Subtype. Code,,,0..1
+UN01014644,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge,,,,,0..n
+UN01005706,ABIE,,,,,,,,,CI_ Trade_ Allowance Charge. Details,,,,－
+UN01005707,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Charge. Indicator,,,1..1
+UN01005710,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Calculation. Percent,,,0..1
+UN01005713,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Actual. Amount,,,0..1
+UN01005714,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Reason. Code,,,0..1
+UN01005715,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Reason. Text,,,0..1
+UN01008286,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Basis. Amount,,,0..1
+UN01014644,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge,,,,,0..n
+UN01005706,ABIE,,,,,,,,,CI_ Trade_ Allowance Charge. Details,,,,－
+UN01005707,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Charge. Indicator,,,1..1
+UN01005710,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Calculation. Percent,,,0..1
+UN01005713,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Actual. Amount,,,0..1
+UN01005714,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Reason. Code,,,0..1
+UN01005715,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Reason. Text,,,0..1
+UN01008286,BBIE,,,,,,,,,,CI_ Trade_ Allowance Charge. Basis. Amount,,,0..1
+UN01014643,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment,,,,,0..n
+UN01005487,ABIE,,,,,,,,,CI_ Financial_ Adjustment. Details,,,,－
+UN01005488,BBIE,,,,,,,,,,CI_ Financial_ Adjustment. Reason. Code,,,0..1
+UN01005489,BBIE,,,,,,,,,,CI_ Financial_ Adjustment. Reason. Text,,,0..1
+UN01005490,BBIE,,,,,,,,,,CI_ Financial_ Adjustment. Actual. Amount,,,0..1
+UN01014894,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period,,,,,1..1
+UN01005608,ABIE,,,,,,,,,CI_ Specified_ Period. Details,,,,－
+UN01005612,BBIE,,,,,,,,,,CI_ Specified_ Period. Start. Date Time,,,0..1
+UN01005613,BBIE,,,,,,,,,,CI_ Specified_ Period. End. Date Time,,,1..1
+UN01015534,ASBIE,,,,,,,,CIILB_ Supply Chain_ Trade Settlement. Purchase_ Specified. CI_ Trade_ Accounting Account,,,,,0..1
+UN01005680,ABIE,,,,,,,,,CI_ Trade_ Accounting Account. Details,,,,－
+UN01005683,BBIE,,,,,,,,,,CI_ Trade_ Accounting Account. Type. Code,,,0..1
+UN01005685,BBIE,,,,,,,,,,CI_ Trade_ Accounting Account. Name. Text,,,0..1
+UN01010016,ASBIE,,,,,,CIILB_ Subordinate_ Trade Line Item. Applicable. CI_ Trade_ Product,,,,,,,1..1
+UN01005809,ABIE,,,,,,,CI_ Trade_ Product. Details,,,,,, -
+UN01005810,BBIE,,,,,,,,CI_ Trade_ Product. Identification. Identifier,,,,,0..1
+UN01005811,BBIE,,,,,,,,CI_ Trade_ Product. Global_ Identification. Identifier,,,,,0..1
+UN01005812,BBIE,,,,,,,,CI_ Trade_ Product. Seller Assigned_ Identification. Identifier,,,,,0..1
+UN01005813,BBIE,,,,,,,,CI_ Trade_ Product. Buyer Assigned_ Identification. Identifier,,,,,0..1
+UN01005814,BBIE,,,,,,,,CI_ Trade_ Product. Manufacturer Assigned_ Identification. Identifier,,,,,0..1
+UN01005815,BBIE,,,,,,,,CI_ Trade_ Product. Name. Text,,,,,1..1
+UN01005817,BBIE,,,,,,,,CI_ Trade_ Product. Description. Text,,,,,0..1
+UN01008533,BBIE,,,,,,,,CI_ Trade_ Product. Variable Measure. Indicator,,,,,0..1
+UN01005823,ASBIE,,,,,,,,CI_ Trade_ Product. Designated. CI_ Product_ Classification,,,,,0..1
+UN01005573,ABIE,,,,,,,,,CI_ Product_ Classification. Details,,,, -
+UN01005574,BBIE,,,,,,,,,,CI_ Product_ Classification. System. Identifier,,,0..1
+UN01005821,ASBIE,,,,,,,,CI_ Trade_ Product. Applicable. CI_ Product_ Characteristic,,,,,0..n
+UN01005567,ABIE,,,,,,,,,CI_ Product_ Characteristic. Details,,,,－
+UN01005570,BBIE,,,,,,,,,,CI_ Product_ Characteristic. Description. Text,,,0..1
+UN01011457,BBIE,,,,,,,,,,CI_ Product_ Characteristic. Value. Text,,,0..1
+UN01005827,ASBIE,,,,,,,,CI_ Trade_ Product. Origin. CI_ Trade_ Country,,,,,0..n
+UN01005735,ABIE,,,,,,,,,CI_ Trade_ Country. Details,,,,－
+UN01005736,BBIE,,,,,,,,,,CI_ Trade_ Country. Identification. Identifier,,,0..1
+,END,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+◎,適格請求書に記載が必要な「法的必須」情報項目,,,,,,,,,,,,,
+（◎）,同じクラス内のいずれかの情報項目の記載が「法的必須」,,,,,,,,,,,,,
+〇,中小企業共通EDI対応業務アプリの「共通必須」情報情報項目,,,,,,,,,,,,,
+（〇）,同じクラス内のいずれかの情報項目の記載が「共通必須」,,,,,,,,,,,,,
+●,「選択必須」情報項目。業務アプリが実装しない場合は共通EDIプロバイダがデータセット（デフォルト、または補完データ）,,,,,,,,,,,,,
+△,"ユーザー非公開。共通EDIプロバイダがデータセット（デフォルト、または
+データなし）",,,,,,,,,,,,,
+＊,すべての業種に共通して利用する「共通任意」情報項目,,,,,,,,,,,,,
+◇,「中小業界必須」情報項目,,,,,,,,,,,,,
+＋,「中小業界任意」情報項目,,,,,,,,,,,,,
+,利用しない情報項目,,,,,,,,,,,,,
+☆,JP-PINT対応業務アプリの「必須」実装情報項目,,,,,,,,,,,,,
+★,JP-PINT対応業務アプリの「任意」実装情報項目。（★）は同じクラス内のいずれかの情報項目を利用する,,,,,,,,,,,,,
+空欄,JP-PINTには該当する情報項目はない,,,,,,,,,,,,,
+,中小企業共通EDIプロバイダは選択実装した中小業界を公開し、選択した中小業界の全情報項目の実装必須,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+制定/改定欄の黄色セル：標準ver.4.1_r1で新設、又は改定された情報項目。v4.1.1と記載。,,,,,,,,,,,,,,
+国連CEFACT共通辞書ID欄の茶色セル：標準ver.4.1_r1で国連CEFACT共通辞書CCL23Bへ登録申請した情報項目,,,,,,,,,,,,,,
+JP-PINT?v1.0マッピング欄の緑色セル ：中小企業共通EDI標準ver.4.1とのマッピングで利用する参照キー,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
