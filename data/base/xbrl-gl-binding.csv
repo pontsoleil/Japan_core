@@ -1,0 +1,56 @@
+﻿ID,Level,Card,Class,Properties,XBRL-GL
+GL03,1,__,GL Header,,
+GL03-01,2,1..1,GL Header,Journal ID,//gl-cor:entryNumber
+GL03-02,2,0..1,GL Header,Journal Number,
+GL03-04,2,0..1,GL Header,Fiscal Year,//gl-bus:fiscalYearEnd
+GL03-05,2,0..1,GL Header,Accounting Period,//gl-bus:postingCode
+GL03-11,2,0..1,GL Header,Source Code,//gl-cor:SourceJournalID
+GL03-06,2,0..1,GL Header,Effective Date,//gl-cor:postingDate
+GL03-09,2,0..1,GL Header,Journal Entry Header Description,//gl-cor:entryComment
+GL03-GL04,2,1..*,GL Details,,
+GL03-GL04-07,3,0..1,GL Details,Journal Line Number,//gl-cor:lineNumber
+GL03-GL04-08,3,0..1,GL Details,Journal Entry Type Code,//gl-cor:entryType
+GL03-GL04-10,3,0..1,GL Details,Journal Entry Line Description,//gl-cor:detailComment
+GL03-GL04-03,3,0..1,GL Details,GL Account Number,//gl-cor:accountMainID
+GL03-GL04-12,3,0..1,GL Details,Bill Number,//gl-cor:documentNumber
+GL03-GL04-13,3,0..1,GL Details,Bill Type Code,//gl-cor:documentType
+GL03-GL04-14,3,0..1,GL Details,Bill Date,//gl-cor:documentDate
+GL03-GL04-15,3,0..1,GL Details,Quantity,//gl-bus:measurableQuantity
+GL03-GL04-16,3,0..1,GL Details,Unit of Measurement Code,//gl-bus:measurableUnitOfMeasure
+GL03-GL04-17,3,0..1,GL Details,Unit Price,//gl-bus:measurableCostPerUnit
+GL03-GL04-18,3,0..1,GL Details,Settlement Method Code,//gl-bus:paymentMethod
+GL03-GL04-19,3,0..1,GL Details,Credit Debit Indicator,//gl-cor:debitCreditCode
+GL03-GL04-20,3,0..1,GL Details,Reversal Indicator,//gl-usk:reverse
+GL03-GL04-21,3,0..1,GL Details,Reversal Journal ID,//gl-usk:reversingStdId
+GL03-GL04-22,3,0..1,GL Details,Cancellation Sign,//gl-adc:cancellationSign
+GL03-GL04-CC05_CC24,3,0..1,Amount_ Monetary Amounts,,
+GL03-GL04-CC05_CC24-01,4,0..1,Amount_ Monetary Amounts,Functional Amount,//gl-cor:amount
+GL03-GL04-CC05_CC24-02,4,0..1,Amount_ Monetary Amounts,Functional Currency Code,//gl-muc:amountCurrency
+GL03-GL04-CC05_CC24-03,4,0..1,Amount_ Monetary Amounts,Transaction Amount,//gl-adc:amountTransactionAmount
+GL03-GL04-CC05_CC24-04,4,0..1,Amount_ Monetary Amounts,Transaction Currency Code,//gl-adc:amountTransactionCurrency
+GL03-GL04-CC05_CC24-05,4,0..1,Amount_ Monetary Amounts,Reporting Amount, //gl-cor:amountTriangulationAmount
+GL03-GL04-CC05_CC24-06,4,0..1,Amount_ Monetary Amounts,Reporting Currency Code,//gl-muc:amountTriangulationCurrency
+GL03-GL04-CC05_CC24-07,4,0..1,Amount_ Monetary Amounts,Local Amount,//gl-muc:amountOriginalAmount
+GL03-GL04-CC05_CC24-08,4,0..1,Amount_ Monetary Amounts,Local Currency Code,//gl-muc:amountOriginalCurrency
+GL03-GL04-CC06_CC02,3,0..1,Approved_ Activity,,
+GL03-GL04-CC06_CC02-01,4,0..1,Approved_ Activity,User ID,//gl-cor:entryResponsiblePerson
+GL03-GL04-CC06_CC02-02,4,0..1,Approved_ Activity,Date,//gl-usk:nextDateRepeat 
+GL03-GL04-CC06_CC02-03,4,0..1,Approved_ Activity,Time,
+GL03-GL04-CC15_CC02,3,0..1,Created_ Activity,,
+GL03-GL04-CC15_CC02-01,4,0..1,Created_ Activity,User ID,//gl-cor:enteredBy  
+GL03-GL04-CC15_CC02-02,4,0..1,Created_ Activity,Date,//gl-cor:enteredDate 
+GL03-GL04-CC15_CC02-03,4,0..1,Created_ Activity,Time,
+GL03-GL04-CC28_CC02,3,0..1,Posted_ Activity,,
+GL03-GL04-CC28_CC02-01,4,0..1,Posted_ Activity,User ID,//gl-adc:postedBy
+GL03-GL04-GL02,3,0..*,Account Segment,,
+GL03-GL04-GL02-01,4,1..1,Account Segment,,
+GL03-GL04-GL02-02,4,0..1,Account Segment,GL Account Number,//gl-cor:accountSubID
+GL03-GL04-GL02-03,4,1..1,Account Segment,Account Segment Number,//gl-cor:accountSubType
+GL03-GL04-GL02-04,4,0..1,Account Segment,Account Segment Name,
+GL03-GL04-GL02-05,4,0..1,Account Segment,Corresponding File,//gl-cor:accountSubDescription
+GL03-GL04-GL02-06,4,0..1,Account Segment,Account Segment Description,
+GL03-GL04-BS04,3,__,Business Segment,,
+GL03-GL04-BS04-01,4,1..1,Business Segment,Business Segment Code,//gl-cor:accountSubID
+GL03-GL04-BS04-02,4,0..1,Business Segment,Business Segment Name,//gl-cor:accountSubDescription
+GL03-GL04-BS04-03,4,0..1,Business Segment,Segment Reference Level,
+GL03-GL04-BS04-04,4,0..1,Business Segment,Organization Type Name,//gl-cor:accountSubType

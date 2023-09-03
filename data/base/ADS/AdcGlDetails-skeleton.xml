@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdcGlDetails
+        xsi:schemaLocation="http://schemas.iso.org/AdcsML/Messages/AdcGlDetails-v1 AdcGlDetails.xsd"
+		xmlns="http://schemas.iso.org/AdcsML/Messages/AdcGlDetails-v1"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+</AdcGlDetails>

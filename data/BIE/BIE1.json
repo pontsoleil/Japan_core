@@ -1,0 +1,671 @@
+{
+    "UN01005479 CI_ Exchanged Document_ Context. Details": [
+        [
+            "UN01005480 BBIE 0..1 CI_ Exchanged Document_ Context. Specified_ Transaction. Identifier",
+            "UN01012746 BBIE 0..1 CI_ Exchanged Document_ Context. Processing_ Transaction. Date Time",
+            "UN01005481 ASBIE 1..1 CI_ Exchanged Document_ Context. Business Process_ Specified. CI_ Document Context_ Parameter",
+            "UN01005483 ASBIE 0..1 CI_ Exchanged Document_ Context. Scenario_ Specified. CI_ Document Context_ Parameter",
+            "UN01005484 ASBIE 0..1 CI_ Exchanged Document_ Context. Application_ Specified. CI_ Document Context_ Parameter",
+            "UN01005486 ASBIE 1..1 CI_ Exchanged Document_ Context. Subset_ Specified. CI_ Document Context_ Parameter"
+        ]
+    ],
+    "UN01005861 CIIH_ Exchanged_ Document. Details": [
+        [
+            "UN01005862 BBIE 1..1 CIIH_ Exchanged_ Document. Identification. Identifier",
+            "UN01005863 BBIE 0..1 CIIH_ Exchanged_ Document. Name. Text",
+            "UN01005864 BBIE 1..1 CIIH_ Exchanged_ Document. Type. Code",
+            "UN01005865 BBIE 1..1 CIIH_ Exchanged_ Document. Issue. Date Time",
+            "UN01005869 BBIE 0..1 CIIH_ Exchanged_ Document. Purpose. Code",
+            "UN01005874 BBIE 0..1 CIIH_ Exchanged_ Document. Previous Revision_ Identification. Identifier",
+            "UN01005875 BBIE 1..1 CIIH_ Exchanged_ Document. Category. Code",
+            "UN01014636 BBIE 1..1 CIIH_ Exchanged_ Document. Subtype. Code",
+            "UN01012702 ASBIE 0..n CIIH_ Exchanged_ Document. Reference. CI_ Referenced_ Document",
+            "UN01015490 ASBIE 0..n CIIH_ Exchanged_ Document. Attached. Specified_ Binary File"
+        ]
+    ],
+    "UN01005936 CIIH_ Supply Chain_ Trade Transaction. Details": [
+        [
+            "UN01005937 ASBIE 1..1 CIIH_ Supply Chain_ Trade Transaction. Applicable. CIIH_ Supply Chain_ Trade Agreement",
+            "UN01005939 ASBIE 1..1 CIIH_ Supply Chain_ Trade Transaction. Applicable. CIIH_ Supply Chain_ Trade Settlement",
+            "UN01005940 ASBIE 1..n CIIH_ Supply Chain_ Trade Transaction. Included. CIIL_ Supply Chain_ Trade Line Item"
+        ]
+    ],
+    "UN01005471 CI_ Document Context_ Parameter. Details": [
+        [
+            "UN01005472 BBIE 1..1 CI_ Document Context_ Parameter. Identification. Identifier",
+            "UN01005473 BBIE 0..1 CI_ Document Context_ Parameter. Value. Text",
+            "UN01005474 ASBIE 1..1 CI_ Document Context_ Parameter. Specified. CI_ Document_ Version"
+        ],
+        [
+            "UN01005472 BBIE 0..1 CI_ Document Context_ Parameter. Identification. Identifier",
+            "UN01005473 BBIE 0..1 CI_ Document Context_ Parameter. Value. Text"
+        ],
+        [
+            "UN01005472 BBIE 0..1 CI_ Document Context_ Parameter. Identification. Identifier",
+            "UN01005473 BBIE 0..1 CI_ Document Context_ Parameter. Value. Text"
+        ],
+        [
+            "UN01005472 BBIE 1..1 CI_ Document Context_ Parameter. Identification. Identifier",
+            "UN01005473 BBIE 0..1 CI_ Document Context_ Parameter. Value. Text",
+            "UN01005474 ASBIE 1..1 CI_ Document Context_ Parameter. Specified. CI_ Document_ Version"
+        ]
+    ],
+    "UN01005579 CI_ Referenced_ Document. Details": [
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005581 BBIE 0..1 CI_ Referenced_ Document. URI_ Identification. Identifier",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01006415 BBIE 0..1 CI_ Referenced_ Document. Information. Text",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01006415 BBIE 0..1 CI_ Referenced_ Document. Information. Text",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier"
+        ],
+        [
+            "UN01005580 BBIE 0..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier"
+        ],
+        [
+            "UN01005580 BBIE 0..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01013318 BBIE 0..1 CI_ Referenced_ Document. Category. Code",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01006415 BBIE 0..1 CI_ Referenced_ Document. Information. Text",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01006415 BBIE 0..1 CI_ Referenced_ Document. Information. Text",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005585 BBIE 1..1 CI_ Referenced_ Document. Line. Identifier",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005585 BBIE 0..1 CI_ Referenced_ Document. Line. Identifier",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005585 BBIE 0..1 CI_ Referenced_ Document. Line. Identifier",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005585 BBIE 0..1 CI_ Referenced_ Document. Line. Identifier",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time",
+            "UN01005585 BBIE 0..1 CI_ Referenced_ Document. Line. Identifier",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code"
+        ]
+    ],
+    "UN01006014 Specified_ Binary File. Details": [
+        [
+            "UN01006015 BBIE 1..1 Specified_ Binary File. Identification. Identifier",
+            "UN01006019 BBIE 0..1 Specified_ Binary File. File Name. Text",
+            "UN01006020 BBIE 0..1 Specified_ Binary File. URI. Identifier",
+            "UN01006021 BBIE 1..1 Specified_ Binary File. MIME. Code",
+            "UN01006026 BBIE 0..1 Specified_ Binary File. Description. Text"
+        ]
+    ],
+    "UN01005878 CIIH_ Supply Chain_ Trade Agreement. Details": [
+        [
+            "UN01005879 ASBIE 1..1 CIIH_ Supply Chain_ Trade Agreement. Seller. CI_ Trade_ Party",
+            "UN01005880 ASBIE 1..1 CIIH_ Supply Chain_ Trade Agreement. Buyer. CI_ Trade_ Party",
+            "UN01011516 ASBIE 0..1 CIIH_ Supply Chain_ Trade Agreement. Specified. Procuring_ Project"
+        ]
+    ],
+    "UN01005909 CIIH_ Supply Chain_ Trade Settlement. Details": [
+        [
+            "UN01005913 BBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Tax_ Currency. Code",
+            "UN01005914 BBIE 1..1 CIIH_ Supply Chain_ Trade Settlement. Invoice_ Currency. Code",
+            "UN01005915 BBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Payment_ Currency. Code",
+            "UN01005918 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Payee. CI_ Trade_ Party",
+            "UN01005921 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Invoice_ Applicable. CI_ Trade_ Currency Exchange",
+            "UN01005923 ASBIE 0..n CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Trade Settlement_ Payment Means",
+            "UN01005929 ASBIE 0..n CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Payment Terms",
+            "UN01005930 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Specified. CIIH_ Trade Settlement_ Monetary Summation",
+            "JPS2300021 ASBIE 0..n CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Advance_ Payment",
+            "UN01015492 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Outstanding_ Specified. CIIH_ Trade Settlement_ Monetary Summation"
+        ]
+    ],
+    "UN01005988 CIIL_ Supply Chain_ Trade Line Item. Details": [
+        [
+            "UN01005989 ASBIE 1..1 CIIL_ Supply Chain_ Trade Line Item. Associated. CIIL_ Document Line_ Document",
+            "UN01005990 ASBIE 0..1 CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Agreement",
+            "UN01005991 ASBIE 0..1 CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Delivery",
+            "UN01005992 ASBIE 0..1 CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Settlement",
+            "UN01009669 ASBIE 1..n CIIL_ Supply Chain_ Trade Line Item. Subordinate. CIILB_ Subordinate_ Trade Line Item"
+        ]
+    ],
+    "UN01005475 CI_ Document_ Version. Details": [
+        [
+            "UN01005476 BBIE 1..1 CI_ Document_ Version. Identification. Identifier",
+            "UN01005478 BBIE 1..1 CI_ Document_ Version. Issue. Date Time"
+        ],
+        [
+            "UN01005476 BBIE 1..1 CI_ Document_ Version. Identification. Identifier",
+            "UN01005478 BBIE 1..1 CI_ Document_ Version. Issue. Date Time"
+        ]
+    ],
+    "UN01005756 CI_ Trade_ Party. Details": [
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text",
+            "UN01013039 BBIE 0..1 CI_ Trade_ Party. Registered_ Identification. Identifier",
+            "UN01012925 BBIE 0..1 CI_ Trade_ Party. Type. Code",
+            "UN01005761 ASBIE 0..1 CI_ Trade_ Party. Defined. CI_ Trade_ Contact",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address",
+            "UN01005765 ASBIE 0..1 CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication"
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text",
+            "UN01013039 BBIE 0..1 CI_ Trade_ Party. Registered_ Identification. Identifier",
+            "UN01012925 BBIE 0..1 CI_ Trade_ Party. Type. Code",
+            "UN01005761 ASBIE 0..1 CI_ Trade_ Party. Defined. CI_ Trade_ Contact",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address",
+            "UN01005765 ASBIE 0..1 CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication"
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text"
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address"
+        ]
+    ],
+    "UN01000371 Procuring_ Project. Details": [
+        [
+            "UN01000372 BBIE 0..1 Procuring_ Project. Identification. Identifier",
+            "UN01000374 BBIE 0..1 Procuring_ Project. Name. Text"
+        ]
+    ],
+    "UN01005738 CI_ Trade_ Currency Exchange. Details": [
+        [
+            "UN01005739 BBIE 0..1 CI_ Trade_ Currency Exchange. Source Currency. Code",
+            "UN01005741 BBIE 0..1 CI_ Trade_ Currency Exchange. Target Currency. Code",
+            "UN01005744 BBIE 0..1 CI_ Trade_ Currency Exchange. Conversion. Rate",
+            "UN01005745 BBIE 0..1 CI_ Trade_ Currency Exchange. Conversion Rate. Date Time"
+        ]
+    ],
+    "UN01005670 CI_ Trade Settlement_ Payment Means. Details": [
+        [
+            "UN01005672 BBIE 0..1 CI_ Trade Settlement_ Payment Means. Type. Code",
+            "UN01011456 BBIE 0..1 CI_ Trade Settlement_ Payment Means. Information. Text",
+            "UN01015504 BBIE 0..1 CI_ Trade Settlement_ Payment Means. Paid. Amount",
+            "UN01005677 ASBIE 0..1 CI_ Trade Settlement_ Payment Means. Payee_ Party. CI_ Creditor_ Financial Account",
+            "UN01005679 ASBIE 0..1 CI_ Trade Settlement_ Payment Means. Payee_ Specified. CI_ Creditor_ Financial Institution",
+            "UN01006057 ASBIE 0..1 CI_ Trade Settlement_ Payment Means. Applicable. Trade Settlement_ Financial Card"
+        ]
+    ],
+    "UN01005779 CI_ Trade_ Payment Terms. Details": [
+        [
+            "UN01005780 BBIE 0..1 CI_ Trade_ Payment Terms. Identification. Identifier",
+            "UN01005783 BBIE 0..1 CI_ Trade_ Payment Terms. Description. Text",
+            "UN01005784 BBIE 0..1 CI_ Trade_ Payment Terms. Due Date. Date Time",
+            "UN01008502 BBIE 0..1 CI_ Trade_ Payment Terms. Type. Code",
+            "UN01015539 BBIE 0..1 CI_ Trade_ Payment Terms. Instructed. Amount"
+        ],
+        [
+            "UN01008502 BBIE 0..1 CI_ Trade_ Payment Terms. Type. Code"
+        ]
+    ],
+    "UN01005941 CIIH_ Trade Settlement_ Monetary Summation. Details": [
+        [
+            "UN01005945 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Tax Basis Total. Amount",
+            "UN01005946 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Tax Total. Amount",
+            "UN01005948 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Grand Total. Amount",
+            "UN01005950 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Total Prepaid. Amount",
+            "UN01008445 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Due Payable. Amount",
+            "UN01008451 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Net_ Line Total. Amount",
+            "UN01013091 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Including Taxes_ Line Total. Amount"
+        ],
+        [
+            "UN01005943 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Charge Total. Amount",
+            "UN01005944 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Allowance Total. Amount",
+            "UN01005948 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Grand Total. Amount",
+            "UN01005950 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Total Prepaid. Amount",
+            "UN01008445 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Due Payable. Amount",
+            "UN01015493 ASBIE 0..n CIIH_ Trade Settlement_ Monetary Summation. Specified. CI_ Referenced_ Document"
+        ]
+    ],
+    "UN01015590 CI_ Advance_ Payment. Details": [
+        [
+            "UN01015591 BBIE 0..1 CI_ Advance_ Payment. Paid. Amount",
+            "UN01015592 BBIE 0..1 CI_ Advance_ Payment. Formatted_ Received. Date Time",
+            "UN01015593 BBIE 0..1 CI_ Advance_ Payment. Identification. Identifier",
+            "UN01015596 ASBIE 0..1 CI_ Advance_ Payment. Identified. CI_ Trade_ Payment Terms"
+        ]
+    ],
+    "UN01005953 CIIL_ Document Line_ Document. Details": [
+        [
+            "UN01005954 BBIE 1..1 CIIL_ Document Line_ Document. Line. Identifier",
+            "UN01014645 BBIE 0..1 CIIL_ Document Line_ Document. Category. Code",
+            "UN01005957 ASBIE 0..n CIIL_ Document Line_ Document. Included. CI_ Note"
+        ]
+    ],
+    "UN01005958 CIIL_ Supply Chain_ Trade Agreement. Details": [
+        [
+            "UN01005960 ASBIE 0..1 CIIL_ Supply Chain_ Trade Agreement. Seller Order_ Referenced. CI_ Referenced_ Document",
+            "UN01005961 ASBIE 0..1 CIIL_ Supply Chain_ Trade Agreement. Buyer Order_ Referenced. CI_ Referenced_ Document",
+            "UN01005963 ASBIE 0..1 CIIL_ Supply Chain_ Trade Agreement. Contract_ Referenced. CI_ Referenced_ Document"
+        ]
+    ],
+    "UN01005968 CIIL_ Supply Chain_ Trade Delivery. Details": [
+        [
+            "UN01005980 ASBIE 0..1 CIIL_ Supply Chain_ Trade Delivery. Ship To. CI_ Trade_ Party",
+            "UN01005986 ASBIE 0..1 CIIL_ Supply Chain_ Trade Delivery. Actual_ Delivery. CI_ Supply Chain_ Event",
+            "UN01006039 ASBIE 0..n CIIL_ Supply Chain_ Trade Delivery. Despatch Advice_ Referenced. CI_ Referenced_ Document",
+            "UN01006040 ASBIE 0..n CIIL_ Supply Chain_ Trade Delivery. Receiving Advice_ Referenced. CI_ Referenced_ Document"
+        ]
+    ],
+    "UN01005994 CIIL_ Supply Chain_ Trade Settlement. Details": [
+        [
+            "UN01014647 BBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Direction. Code",
+            "UN01005998 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge",
+            "UN01005998 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge",
+            "UN01005996 ASBIE 1..n CIIL_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax",
+            "UN01005996 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax",
+            "UN01005997 ASBIE 1..1 CIIL_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period",
+            "UN01006002 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Specified. CIIL_ Trade Settlement_ Monetary Summation",
+            "UN01006002 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Specified. CIIL_ Trade Settlement_ Monetary Summation",
+            "UN01006003 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment",
+            "UN01006004 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document",
+            "UN01006005 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Additional_ Referenced. CI_ Referenced_ Document",
+            "UN01006005 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Additional_ Referenced. CI_ Referenced_ Document",
+            "UN01006080 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Purchase_ Specified. CI_ Trade_ Accounting Account"
+        ]
+    ],
+    "UN01009647 CIILB_ Subordinate_ Trade Line Item. Details": [
+        [
+            "UN01009648 BBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Identification. Identifier",
+            "UN01014637 BBIE 0..1 CIILB_ Subordinate_ Trade Line Item. Category. Code",
+            "UN01015533 ASBIE 0..n CIILB_ Subordinate_ Trade Line Item. Included. CI_ Note",
+            "UN01009649 ASBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Agreement",
+            "UN01009650 ASBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Delivery",
+            "UN01009651 ASBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Settlement",
+            "UN01010016 ASBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Applicable. CI_ Trade_ Product"
+        ]
+    ],
+    "UN01005718 CI_ Trade_ Contact. Details": [
+        [
+            "UN01005719 BBIE 0..1 CI_ Trade_ Contact. Identification. Identifier",
+            "UN01005720 BBIE 0..1 CI_ Trade_ Contact. Person Name. Text",
+            "UN01005721 BBIE 0..1 CI_ Trade_ Contact. Department Name. Text",
+            "UN01005725 BBIE 0..1 CI_ Trade_ Contact. Person_ Identification. Identifier",
+            "UN01005726 ASBIE 0..1 CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication",
+            "UN01005729 ASBIE 0..1 CI_ Trade_ Contact. Fax. CI_ Universal_ Communication",
+            "UN01005730 ASBIE 0..1 CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication"
+        ],
+        [
+            "UN01005719 BBIE 0..1 CI_ Trade_ Contact. Identification. Identifier",
+            "UN01005720 BBIE 0..1 CI_ Trade_ Contact. Person Name. Text",
+            "UN01005721 BBIE 0..1 CI_ Trade_ Contact. Department Name. Text",
+            "UN01005725 BBIE 0..1 CI_ Trade_ Contact. Person_ Identification. Identifier",
+            "UN01005726 ASBIE 0..1 CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication",
+            "UN01005729 ASBIE 0..1 CI_ Trade_ Contact. Fax. CI_ Universal_ Communication",
+            "UN01005730 ASBIE 0..1 CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication"
+        ]
+    ],
+    "UN01005687 CI_ Trade_ Address. Details": [
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text",
+            "UN01005700 BBIE 1..1 CI_ Trade_ Address. Country. Identifier"
+        ],
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text",
+            "UN01005700 BBIE 1..1 CI_ Trade_ Address. Country. Identifier"
+        ],
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text",
+            "UN01005700 BBIE 0..1 CI_ Trade_ Address. Country. Identifier"
+        ]
+    ],
+    "UN01005857 CI_ Universal_ Communication. Details": [
+        [
+            "UN01005859 BBIE 0..1 CI_ Universal_ Communication. Channel. Code",
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text"
+        ],
+        [
+            "UN01005859 BBIE 0..1 CI_ Universal_ Communication. Channel. Code",
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text"
+        ],
+        [
+            "UN01005858 BBIE 0..1 CI_ Universal_ Communication. URI. Identifier"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text"
+        ],
+        [
+            "UN01005858 BBIE 0..1 CI_ Universal_ Communication. URI. Identifier"
+        ]
+    ],
+    "UN01005398 CI_ Creditor_ Financial Account. Details": [
+        [
+            "UN01005400 BBIE 0..1 CI_ Creditor_ Financial Account. Account Name. Text",
+            "UN01005401 BBIE 0..1 CI_ Creditor_ Financial Account. Proprietary_ Identification. Identifier",
+            "UN01012127 BBIE 0..1 CI_ Creditor_ Financial Account. Type. Code"
+        ]
+    ],
+    "UN01005402 CI_ Creditor_ Financial Institution. Details": [
+        [
+            "UN01005426 BBIE 0..1 CI_ Creditor_ Financial Institution. Name. Text",
+            "UN01011521 BBIE 0..1 CI_ Creditor_ Financial Institution. Japan Financial Institution Common_ Identification. Identifier",
+            "UN01005428 ASBIE 0..1 CI_ Creditor_ Financial Institution. Sub-Division. Branch_ Financial Institution"
+        ]
+    ],
+    "UN01004493 Trade Settlement_ Financial Card. Details": [
+        [
+            "UN01004495 BBIE 1..1 Trade Settlement_ Financial Card. Identification. Identifier",
+            "UN01004496 BBIE 0..1 Trade Settlement_ Financial Card. Type. Code",
+            "UN01004497 BBIE 1..1 Trade Settlement_ Financial Card. Cardholder Name. Text",
+            "UN01009966 BBIE 0..1 Trade Settlement_ Financial Card. Issuing Company Name. Text"
+        ]
+    ],
+    "UN01005557 CI_ Note. Details": [
+        [
+            "UN01005558 BBIE 0..1 CI_ Note. Subject. Text",
+            "UN01005560 BBIE 0..1 CI_ Note. Content. Text",
+            "UN01005562 BBIE 0..1 CI_ Note. Identification. Identifier"
+        ],
+        [
+            "UN01005558 BBIE 0..1 CI_ Note. Subject. Text",
+            "UN01005560 BBIE 0..1 CI_ Note. Content. Text",
+            "UN01005562 BBIE 0..1 CI_ Note. Identification. Identifier"
+        ]
+    ],
+    "UN01005626 CI_ Supply Chain_ Event. Details": [
+        [
+            "UN01005628 BBIE 0..1 CI_ Supply Chain_ Event. Occurrence. Date Time"
+        ]
+    ],
+    "UN01005706 CI_ Trade_ Allowance Charge. Details": [
+        [
+            "UN01005707 BBIE 1..1 CI_ Trade_ Allowance Charge. Charge. Indicator",
+            "UN01005710 BBIE 0..1 CI_ Trade_ Allowance Charge. Calculation. Percent",
+            "UN01005713 BBIE 0..1 CI_ Trade_ Allowance Charge. Actual. Amount",
+            "UN01005714 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Code",
+            "UN01005715 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Text",
+            "UN01008286 BBIE 0..1 CI_ Trade_ Allowance Charge. Basis. Amount",
+            "UN01005716 ASBIE 0..n CI_ Trade_ Allowance Charge. Category. CI_ Trade_ Tax"
+        ],
+        [
+            "UN01005707 BBIE 1..1 CI_ Trade_ Allowance Charge. Charge. Indicator",
+            "UN01005710 BBIE 0..1 CI_ Trade_ Allowance Charge. Calculation. Percent",
+            "UN01005713 BBIE 0..1 CI_ Trade_ Allowance Charge. Actual. Amount",
+            "UN01005714 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Code",
+            "UN01005715 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Text",
+            "UN01008286 BBIE 0..1 CI_ Trade_ Allowance Charge. Basis. Amount",
+            "UN01005716 ASBIE 0..n CI_ Trade_ Allowance Charge. Category. CI_ Trade_ Tax"
+        ],
+        [
+            "UN01005707 BBIE 1..1 CI_ Trade_ Allowance Charge. Charge. Indicator",
+            "UN01005710 BBIE 0..1 CI_ Trade_ Allowance Charge. Calculation. Percent",
+            "UN01005713 BBIE 0..1 CI_ Trade_ Allowance Charge. Actual. Amount",
+            "UN01005714 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Code",
+            "UN01005715 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Text",
+            "UN01008286 BBIE 0..1 CI_ Trade_ Allowance Charge. Basis. Amount"
+        ],
+        [
+            "UN01005707 BBIE 1..1 CI_ Trade_ Allowance Charge. Charge. Indicator",
+            "UN01005710 BBIE 0..1 CI_ Trade_ Allowance Charge. Calculation. Percent",
+            "UN01005713 BBIE 0..1 CI_ Trade_ Allowance Charge. Actual. Amount",
+            "UN01005714 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Code",
+            "UN01005715 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Text",
+            "UN01008286 BBIE 0..1 CI_ Trade_ Allowance Charge. Basis. Amount"
+        ]
+    ],
+    "UN01005832 CI_ Trade_ Tax. Details": [
+        [
+            "UN01005833 BBIE 0..1 CI_ Trade_ Tax. Calculated. Amount",
+            "UN01005834 BBIE 0..1 CI_ Trade_ Tax. Type. Code",
+            "UN01005839 BBIE 0..1 CI_ Trade_ Tax. Basis. Amount",
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code",
+            "UN01005842 BBIE 0..1 CI_ Trade_ Tax. Currency. Code",
+            "UN01005850 BBIE 0..1 CI_ Trade_ Tax. Category Name. Text",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent",
+            "UN01013040 BBIE 0..1 CI_ Trade_ Tax. Grand Total. Amount",
+            "UN01013096 BBIE 0..1 CI_ Trade_ Tax. Calculation Method. Code",
+            "UN01014650 BBIE 0..1 CI_ Trade_ Tax. Local Tax System. Identifier"
+        ],
+        [
+            "UN01005833 BBIE 0..1 CI_ Trade_ Tax. Calculated. Amount",
+            "UN01005839 BBIE 0..1 CI_ Trade_ Tax. Basis. Amount",
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code",
+            "UN01005842 BBIE 0..1 CI_ Trade_ Tax. Currency. Code",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent",
+            "UN01014650 BBIE 0..1 CI_ Trade_ Tax. Local Tax System. Identifier"
+        ],
+        [
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent"
+        ],
+        [
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent"
+        ],
+        [
+            "UN01005836 BBIE 0..1 CI_ Trade_ Tax. Calculated. Rate",
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code"
+        ],
+        [
+            "UN01005834 BBIE 0..1 CI_ Trade_ Tax. Type. Code",
+            "UN01005839 BBIE 0..1 CI_ Trade_ Tax. Basis. Amount",
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code",
+            "UN01005850 BBIE 0..1 CI_ Trade_ Tax. Category Name. Text",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent",
+            "UN01013040 BBIE 0..1 CI_ Trade_ Tax. Grand Total. Amount",
+            "UN01014650 BBIE 0..1 CI_ Trade_ Tax. Local Tax System. Identifier"
+        ]
+    ],
+    "UN01005608 CI_ Specified_ Period. Details": [
+        [
+            "UN01005612 BBIE 1..1 CI_ Specified_ Period. Start. Date Time",
+            "UN01005613 BBIE 0..1 CI_ Specified_ Period. End. Date Time"
+        ],
+        [
+            "UN01005612 BBIE 0..1 CI_ Specified_ Period. Start. Date Time",
+            "UN01005613 BBIE 1..1 CI_ Specified_ Period. End. Date Time"
+        ]
+    ],
+    "UN01006006 CIIL_ Trade Settlement_ Monetary Summation. Details": [
+        [
+            "UN01006008 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Charge Total. Amount",
+            "UN01006009 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Allowance Total. Amount",
+            "UN01006011 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Tax Total. Amount",
+            "UN01008455 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Gross_ Line Total. Amount",
+            "UN01008456 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Net_ Line Total. Amount",
+            "UN01008457 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Net Including Taxes_ Line Total. Amount",
+            "UN01011519 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Grand Total. Amount"
+        ],
+        [
+            "UN01006011 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Tax Total. Amount"
+        ]
+    ],
+    "UN01005487 CI_ Financial_ Adjustment. Details": [
+        [
+            "UN01005488 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Code",
+            "UN01005489 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Text",
+            "UN01005490 BBIE 0..1 CI_ Financial_ Adjustment. Actual. Amount",
+            "UN01014649 BBIE 0..1 CI_ Financial_ Adjustment. Direction. Code",
+            "UN01014897 ASBIE 0..n CI_ Financial_ Adjustment. Related. CI_ Trade_ Tax"
+        ],
+        [
+            "UN01005488 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Code",
+            "UN01005489 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Text",
+            "UN01005490 BBIE 0..1 CI_ Financial_ Adjustment. Actual. Amount"
+        ]
+    ],
+    "UN01005680 CI_ Trade_ Accounting Account. Details": [
+        [
+            "UN01005683 BBIE 1..1 CI_ Trade_ Accounting Account. Type. Code",
+            "UN01005685 BBIE 0..1 CI_ Trade_ Accounting Account. Name. Text"
+        ],
+        [
+            "UN01005683 BBIE 0..1 CI_ Trade_ Accounting Account. Type. Code",
+            "UN01005685 BBIE 0..1 CI_ Trade_ Accounting Account. Name. Text"
+        ]
+    ],
+    "UN01009653 CIILB_ Supply Chain_ Trade Agreement. Details": [
+        [
+            "UN01009654 ASBIE 0..1 CIILB_ Supply Chain_ Trade Agreement. Seller Order_ Referenced. CI_ Referenced_ Document",
+            "UN01009655 ASBIE 0..1 CIILB_ Supply Chain_ Trade Agreement. Buyer Order_ Referenced. CI_ Referenced_ Document",
+            "UN01009656 ASBIE 0..1 CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document",
+            "UN01009656 ASBIE 0..1 CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document",
+            "UN01009658 ASBIE 1..1 CIILB_ Supply Chain_ Trade Agreement. Net Price_ Product. CI_ Trade_ Price"
+        ]
+    ],
+    "UN01009659 CIILB_ Supply Chain_ Trade Delivery. Details": [
+        [
+            "UN01009660 BBIE 0..1 CIILB_ Supply Chain_ Trade Delivery. Package. Quantity",
+            "UN01009661 BBIE 0..1 CIILB_ Supply Chain_ Trade Delivery. Product_ Unit. Quantity",
+            "UN01009662 BBIE 0..1 CIILB_ Supply Chain_ Trade Delivery. Per Package_ Unit. Quantity",
+            "UN01014639 BBIE 1..1 CIILB_ Supply Chain_ Trade Delivery. Billed. Quantity"
+        ]
+    ],
+    "UN01009664 CIILB_ Supply Chain_ Trade Settlement. Details": [
+        [
+            "UN01014641 BBIE 0..1 CIILB_ Supply Chain_ Trade Settlement. Direction. Code",
+            "UN01009665 ASBIE 1..1 CIILB_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax",
+            "UN01014642 ASBIE 0..n CIILB_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document",
+            "UN01014644 ASBIE 0..n CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge",
+            "UN01014644 ASBIE 0..n CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge",
+            "UN01014643 ASBIE 0..n CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment",
+            "UN01014894 ASBIE 1..1 CIILB_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period",
+            "UN01015534 ASBIE 0..1 CIILB_ Supply Chain_ Trade Settlement. Purchase_ Specified. CI_ Trade_ Accounting Account"
+        ]
+    ],
+    "UN01005809 CI_ Trade_ Product. Details": [
+        [
+            "UN01005810 BBIE 0..1 CI_ Trade_ Product. Identification. Identifier",
+            "UN01005811 BBIE 0..1 CI_ Trade_ Product. Global_ Identification. Identifier",
+            "UN01005812 BBIE 0..1 CI_ Trade_ Product. Seller Assigned_ Identification. Identifier",
+            "UN01005813 BBIE 0..1 CI_ Trade_ Product. Buyer Assigned_ Identification. Identifier",
+            "UN01005814 BBIE 0..1 CI_ Trade_ Product. Manufacturer Assigned_ Identification. Identifier",
+            "UN01005815 BBIE 1..1 CI_ Trade_ Product. Name. Text",
+            "UN01005817 BBIE 0..1 CI_ Trade_ Product. Description. Text",
+            "UN01008533 BBIE 0..1 CI_ Trade_ Product. Variable Measure. Indicator",
+            "UN01005823 ASBIE 0..1 CI_ Trade_ Product. Designated. CI_ Product_ Classification",
+            "UN01005821 ASBIE 0..n CI_ Trade_ Product. Applicable. CI_ Product_ Characteristic",
+            "UN01005827 ASBIE 0..n CI_ Trade_ Product. Origin. CI_ Trade_ Country"
+        ]
+    ],
+    "UN01003138 Branch_ Financial Institution. Details": [
+        [
+            "UN01003139 BBIE 0..1 Branch_ Financial Institution. Identification. Identifier",
+            "UN01003140 BBIE 0..1 Branch_ Financial Institution. Name. Text"
+        ]
+    ],
+    "UN01005790 CI_ Trade_ Price. Details": [
+        [
+            "UN01005791 BBIE 0..1 CI_ Trade_ Price. Type. Code",
+            "UN01005792 BBIE 1..1 CI_ Trade_ Price. Charge. Amount",
+            "UN01005793 BBIE 0..1 CI_ Trade_ Price. Basis. Quantity"
+        ]
+    ],
+    "UN01005573 CI_ Product_ Classification. Details": [
+        [
+            "UN01005574 BBIE 0..1 CI_ Product_ Classification. System. Identifier"
+        ]
+    ],
+    "UN01005567 CI_ Product_ Characteristic. Details": [
+        [
+            "UN01005570 BBIE 0..1 CI_ Product_ Characteristic. Description. Text",
+            "UN01011457 BBIE 0..1 CI_ Product_ Characteristic. Value. Text"
+        ]
+    ],
+    "UN01005735 CI_ Trade_ Country. Details": [
+        [
+            "UN01005736 BBIE 0..1 CI_ Trade_ Country. Identification. Identifier"
+        ]
+    ]
+}

@@ -1,0 +1,56 @@
+﻿ID,Level,Card,Class,Properties,ISO 21377,XBRL-GL
+GL03,1,__,GL Header,,/AdcGlDetails /GlDtls,
+GL03-01,2,1..1,GL Header,Journal ID,/AdcGlDetails /GlDtls /JrnId,//gl-cor:entryNumber
+GL03-02,2,0..1,GL Header,Journal Number,/AdcGlDetails /GlDtls /JrnNr,
+GL03-04,2,0..1,GL Header,Fiscal Year,/AdcGlDetails /GlDtls /FiscYr,//gl-bus:fiscalYearEnd
+GL03-05,2,0..1,GL Header,Accounting Period,/AdcGlDetails /GlDtls /AcntingPer,//gl-bus:postingCode
+GL03-11,2,0..1,GL Header,Source Code,/AdcGlDetails /GlDtls /SrcCd,//gl-cor:SourceJournalID
+GL03-06,2,0..1,GL Header,Effective Date,/AdcGlDetails /GlDtls /EffectiveDt,//gl-cor:postingDate
+GL03-09,2,0..1,GL Header,Journal Entry Header Description,/AdcGlDetails /GlDtls /JeHdrDscr,//gl-cor:entryComment
+GL03-GL04,2,1..*,GL Details,,,
+GL03-GL04-07,3,0..1,GL Details,Journal Line Number,/AdcGlDetails /GlDtls /JrnLnNr,//gl-cor:lineNumber
+GL03-GL04-08,3,0..1,GL Details,Journal Entry Type Code,/AdcGlDetails /GlDtls /JeTypCd,//gl-cor:entryType
+GL03-GL04-10,3,0..1,GL Details,Journal Entry Line Description,/AdcGlDetails /GlDtls /JeHdrDscr,//gl-cor:detailComment
+GL03-GL04-03,3,0..1,GL Details,GL Account Number,/AdcGlDetails /GlDtls /GlAcntNr,//gl-cor:accountMainID
+GL03-GL04-12,3,0..1,GL Details,Bill Number,/AdcGlDetails /GlDtls /BillNr,//gl-cor:documentNumber
+GL03-GL04-13,3,0..1,GL Details,Bill Type Code,/AdcGlDetails /GlDtls /BillTypCd,//gl-cor:documentType
+GL03-GL04-14,3,0..1,GL Details,Bill Date,/AdcGlDetails /GlDtls /BillDt,//gl-cor:documentDate
+GL03-GL04-15,3,0..1,GL Details,Quantity,/AdcGlDetails /GlDtls /Qt,//gl-bus:measurableQuantity
+GL03-GL04-16,3,0..1,GL Details,Unit of Measurement Code,/AdcGlDetails /GlDtls /UomCd,//gl-bus:measurableUnitOfMeasure
+GL03-GL04-17,3,0..1,GL Details,Unit Price,/AdcGlDetails /GlDtls /UnitPrice,//gl-bus:measurableCostPerUnit
+GL03-GL04-18,3,0..1,GL Details,Settlement Method Code,/AdcGlDetails /GlDtls /SetlMthdCd,//gl-bus:paymentMethod
+GL03-GL04-19,3,0..1,GL Details,Credit Debit Indicator,/AdcGlDetails /GlDtls /CrDbInd,//gl-cor:debitCreditCode
+GL03-GL04-20,3,0..1,GL Details,Reversal Indicator,/AdcGlDetails /GlDtls /RevInd,//gl-usk:reverse
+GL03-GL04-21,3,0..1,GL Details,Reversal Journal ID,/AdcGlDetails /GlDtls /RevJrnId,//gl-usk:reversingStdId
+GL03-GL04-22,3,0..1,GL Details,Cancellation Sign,/AdcGlDetails /GlDtls /CnclSign,//gl-adc:cancellationSign
+GL03-GL04-CC05_CC24,3,0..1,Amount_ Monetary Amounts,,/AdcGlDetails /GlDtls /TrAmt,
+GL03-GL04-CC05_CC24-01,4,0..1,Amount_ Monetary Amounts,Functional Amount,/AdcGlDetails /GlDtls /TrAmt /FuncAmt,//gl-cor:amount
+GL03-GL04-CC05_CC24-02,4,0..1,Amount_ Monetary Amounts,Functional Currency Code,/AdcGlDetails /GlDtls /TrAmt /FuncCurCd,//gl-muc:amountCurrency
+GL03-GL04-CC05_CC24-03,4,0..1,Amount_ Monetary Amounts,Transaction Amount,/AdcGlDetails /GlDtls /TrAmt /TrAmt,//gl-adc:amountTransactionAmount
+GL03-GL04-CC05_CC24-04,4,0..1,Amount_ Monetary Amounts,Transaction Currency Code,/AdcGlDetails /GlDtls /TrAmt /TrCurCd,//gl-adc:amountTransactionCurrency
+GL03-GL04-CC05_CC24-05,4,0..1,Amount_ Monetary Amounts,Reporting Amount,/AdcGlDetails /GlDtls /TrAmt /RprtAmt, //gl-cor:amountTriangulationAmount
+GL03-GL04-CC05_CC24-06,4,0..1,Amount_ Monetary Amounts,Reporting Currency Code,/AdcGlDetails /GlDtls /TrAmt /RprtCurCd,//gl-muc:amountTriangulationCurrency
+GL03-GL04-CC05_CC24-07,4,0..1,Amount_ Monetary Amounts,Local Amount,/AdcGlDetails /GlDtls /TrAmt /LocAmt,//gl-muc:amountOriginalAmount
+GL03-GL04-CC05_CC24-08,4,0..1,Amount_ Monetary Amounts,Local Currency Code,/AdcGlDetails /GlDtls /TrAmt /LocCurCd,//gl-muc:amountOriginalCurrency
+GL03-GL04-CC06_CC02,3,0..1,Approved_ Activity,,/AdcGlDetails /GlDtls /Aprv,
+GL03-GL04-CC06_CC02-01,4,0..1,Approved_ Activity,User ID,/AdcGlDetails /GlDtls /Aprv /UserId,//gl-cor:entryResponsiblePerson
+GL03-GL04-CC06_CC02-02,4,0..1,Approved_ Activity,Date,/AdcGlDetails /GlDtls /Aprv /Dt,//gl-usk:nextDateRepeat 
+GL03-GL04-CC06_CC02-03,4,0..1,Approved_ Activity,Time,/AdcGlDetails /GlDtls /Aprv /Tm,
+GL03-GL04-CC15_CC02,3,0..1,Created_ Activity,,/AdcGlDetails /GlDtls /Crea,
+GL03-GL04-CC15_CC02-01,4,0..1,Created_ Activity,User ID,/AdcGlDetails /GlDtls /Crea /UserId,//gl-cor:enteredBy  
+GL03-GL04-CC15_CC02-02,4,0..1,Created_ Activity,Date,/AdcGlDetails /GlDtls /Crea /Dt,//gl-cor:enteredDate 
+GL03-GL04-CC15_CC02-03,4,0..1,Created_ Activity,Time,/AdcGlDetails /GlDtls /Crea /Tm,
+GL03-GL04-CC28_CC02,3,0..1,Posted_ Activity,,/AdcGlDetails /GlDtls /Posted,
+GL03-GL04-CC28_CC02-01,4,0..1,Posted_ Activity,User ID,/AdcGlDetails /GlDtls /Posted /UserId,//gl-adc:postedBy
+GL03-GL04-GL02,3,0..*,Account Segment,,/AdcGlDetails /GlDtls /AcntSg,
+GL03-GL04-GL02-01,4,1..1,Account Segment,,/AdcGlDetails /GlDtls /AcntSg,
+GL03-GL04-GL02-02,4,0..1,Account Segment,GL Account Number,,//gl-cor:accountSubID
+GL03-GL04-GL02-03,4,1..1,Account Segment,Account Segment Number,/AdcGlDetails /GlDtls /AcntSg /AcntSgNr,//gl-cor:accountSubType
+GL03-GL04-GL02-04,4,0..1,Account Segment,Account Segment Name,,
+GL03-GL04-GL02-05,4,0..1,Account Segment,Corresponding File,,//gl-cor:accountSubDescription
+GL03-GL04-GL02-06,4,0..1,Account Segment,Account Segment Description,,
+GL03-GL04-BS04,3,__,Business Segment,,/AdcGlDetails /GlDtls /BusSg,
+GL03-GL04-BS04-01,4,1..1,Business Segment,Business Segment Code,/AdcGlDetails /GlDtls /BusSg /BusSgCd,//gl-cor:accountSubID
+GL03-GL04-BS04-02,4,0..1,Business Segment,Business Segment Name,,//gl-cor:accountSubDescription
+GL03-GL04-BS04-03,4,0..1,Business Segment,Segment Reference Level,,
+GL03-GL04-BS04-04,4,0..1,Business Segment,Organization Type Name,,//gl-cor:accountSubType

@@ -1,0 +1,421 @@
+﻿id,bie,level,card,classTerm,propertyTerm,representation,associatedClass,description
+BS01,ABIE,1,__,Accounting Period,,,,"Contains information related to the accounting period, including corresponding fiscal year, beginning date and ending date. The table captures the time range within a specific reporting period and year, in which business transactions and entries are accumulated into financial statements and other reports."
+BS01-01,PKBIE,2,1..1,Accounting Period,Fiscal Year,Identifier,,"Fiscal year in which the calendar date occurs.\nThe year shall be shown in four digits as YYYY, which is part of the extended format and the YYYY-MM-DD from ISO 8601-1."
+BS01-02,PKBIE,2,1..1,Accounting Period,Accounting Period,Identifier,,"Accounting period in which the calendar date occurs.\nEXAMPLE   W1-W53 for weekly periods, M1-M12 for monthly periods, Q1-Q4 for quarterly periods, from any beginning date to any ending date."
+BS01-03,BBIE,2,0..1,Accounting Period,Accounting Period Beginning Date,Date,,Calendar beginning date of the current accounting period.
+BS01-04,BBIE,2,0..1,Accounting Period,Accounting Period Ending Date,Date,,Calendar ending date of the current accounting period.
+BS02,ABIE,1,__,Bank Account,,,,Contains the details of a bank account.
+BS02-01,PKBIE,2,1..1,Bank Account,Bank Account Number,Identifier,,"Number of the account opened in an institution (e.g. bank, financial institution, settlement centre).\nISO 13616-2 is recommended if applicable."
+BS02-02,BBIE,2,0..1,Bank Account,Bank Account Name,Text,,"Name of the account opened in an institution (e.g. bank, financial institution, settlement centre)."
+BS02-03,BBIE,2,0..1,Bank Account,Bank Code,Code,,Code for the financial institution (in accordance with ISO 9362 or ISO 17442).\nISO 17442 is preferred. One reason is that the bank branch identifier will not change due to location movement.
+BS02-04,BBIE,2,0..1,Bank Account,Bank Name,Text,,"Full name of the institution (e.g. bank, financial institution, settlement centre)."
+BS02-05,BBIE,2,0..1,Bank Account,Branch Code,Code,,Code for the institution's branch.
+BS02-06,BBIE,2,0..1,Bank Account,Branch Name,Text,,Full name of the institution's branch.
+BS02-07,BBIE,2,0..1,Bank Account,Branch Country Code,Code,,Country code where the branch is physically located (in accordance with ISO 3166-1).
+BS02-08,BBIE,2,0..1,Bank Account,Branch Region,Text,,"Sub-region within a country.\nEXAMPLE   A state in the US, a province in Canada."
+BS02-09,BBIE,2,0..1,Bank Account,Active Flag,Indicator,,"Indicates whether the bank account is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS02-10,ASBIE,2,0..*,Bank Account,contains,,Business Segment,
+BS02-BS04,ABIE,2,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+BS02-BS04-01,PKBIE,3,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+BS02-BS04-02,BBIE,3,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+BS02-BS04-03,BBIE,3,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+BS02-BS04-04,BBIE,3,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+BS03,ABIE,1,__,Bill Type,,,,"The information of the bill type (e.g. bank draft, commercial draft, promissory note, check). Bills are frequently used in the business cycle of sales and purchase, as evidence of debt, payment and/or settlement instrument."
+BS03-01,PKBIE,2,1..1,Bill Type,Bill Type Code,Identifier,,"Code for the bill type.\nEXAMPLE   004 is bank draft, 005 is promissory note, 006 is check."
+BS03-02,BBIE,2,0..1,Bill Type,Bill Type Name,Text,,"Name of the bill type.\nEXAMPLE   Bank draft, commercial draft, promissory note and check."
+BS03-03,BBIE,2,0..1,Bill Type,Active Flag,Indicator,,"Indicates whether the bill type is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS04,ABIE,1,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+BS04-01,PKBIE,2,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+BS04-02,BBIE,2,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+BS04-03,BBIE,2,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+BS04-04,BBIE,2,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+BS05,ABIE,1,__,Business Segment Hierarchy,,,,"The fields in the Base Business Segment Hierarchy are used to capture the relationships between the individual organization units. The table assumes a one to one relationship and captures the data necessary to consolidate transactions occurring for child level organizational units into higher level organizational structures (for example, business unit to division)."
+BS05-01,PKBIE,2,1..1,Business Segment Hierarchy,Parent Code,Identifier,,Code for the parent business segment.
+BS05-02,PKBIE,2,1..1,Business Segment Hierarchy,Child Code,Identifier,,Code for the child business segment.
+BS06,ABIE,1,__,Chart Of Accounts,,,,"Contains the information about GL accounts, including name, description, type and hierarchy. This table is level 1. When it is cross-referred by other table(s), consistency shall apply. For example, in this table, the value of GL Account Number is 101, the value of GL Account Name is cash, and the value of Balance Debit Or Credit is D. If the value of GL Account Number in GL Trial Balance table is 101, then the Amount corresponding with cash account (101) must be debit."
+BS06-01,PKBIE,2,1..1,Chart Of Accounts,GL Account Number,Identifier,,Number of the GL account.
+BS06-02,BBIE,2,0..1,Chart Of Accounts,GL Account Name,Text,,Name of the GL account.
+BS06-03,BBIE,2,0..1,Chart Of Accounts,GL Account Description,Text,,Label or description associated with the GL Account Number.
+BS06-04,BBIE,2,0..1,Chart Of Accounts,Financial Statement Caption,Text,,"Financial statement caption that represents a related group of accounts.\nEXAMPLE   Cash and cash equivalents, AP, cost of sales.\nThe caption can be at the trial balance level."
+BS06-05,BBIE,2,0..1,Chart Of Accounts,Account Type,Code,,"Type of account.\nEXAMPLE   Assets, liabilities, equity, revenues, expenses."
+BS06-06,BBIE,2,0..1,Chart Of Accounts,Account Subtype,Code,,Subtype of the account.\nEXAMPLE   Current assets are the subtype of assets.
+BS06-07,BBIE,2,0..1,Chart Of Accounts,Account Hierarchy,Integer,,"Corresponding level for account number in the account hierarchy.\nEXAMPLE   1 is assets, 2 is the account subtype current assets."
+BS06-08,RFBIE,2,0..1,Chart Of Accounts,Parent GL Account Number,,Chart Of Accounts,"Number of the parent account in an account hierarchy.\nThis is provided to allow more than the predefined levels of the hierarchy in the Base Chart Of Accounts table.\nWhen Parent GL Account Number is the highest level, its value can be set to the default value (e.g. set to NULL)."
+BS06-09,BBIE,2,0..1,Chart Of Accounts,Balance Debit Or Credit Code,Code,,"Indicates whether the natural balance of the account is a debit or credit balance by indicating D or C, where assets and expenses have a natural balance of debit, and liabilities, equity and revenues have a natural balance of credit."
+BS06-10,BBIE,2,0..1,Chart Of Accounts,Active Flag,Indicator,,"Indicates whether the GL account is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS06-11,ASBIE,2,0..*,Chart Of Accounts,contains,,Business Segment,
+BS06-BS04,ABIE,2,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+BS06-BS04-01,PKBIE,3,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+BS06-BS04-02,BBIE,3,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+BS06-BS04-03,BBIE,3,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+BS06-BS04-04,BBIE,3,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+BS07,ABIE,1,__,Currency,,,,Contains the information of the currency.
+BS07-01,PKBIE,2,1..1,Currency,Currency Code,Identifier,,Code for the currency (in accordance with ISO 4217).
+BS07-02,BBIE,2,0..1,Currency,Currency Name,Text,,Name of the currency in the accounting and/or ERP system.
+BS07-03,BBIE,2,0..1,Currency,Minor Unit,Integer,,"Unit of recorded value that is a division of the respective unit of currency.\nMinor unit shows the decimal relationship between such a unit and the currency itself (in accordance with ISO 4217). Number 0 means that there is no minor unit for that currency. Numbers 1, 2, 3, etc. signify a ratio of 10:1, 100:1, 1 000:1, etc., respectively.\nEXAMPLE   The US cent is a one hundredth part of the US dollar. The GB penny is a one hundredth part of the pound sterling. The minor unit number for both is 2."
+BS07-04,BBIE,2,0..1,Currency,Active Flag,Indicator,,"Indicates whether Currency Code is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS10,ABIE,1,__,Customized Account Segment,,,,"An Account Segment is a customized file item, which includes the information of the customized account segments that are not fixed account segments and no other table contains their description information (e.g. region type). This table is used together with the Base Customized Account Value."
+BS10-01,PKBIE,2,1..1,Customized Account Segment,Customized Account Segment Code,Identifier,,"Code for the customized account segment that audit data need to be used.\nThis does not include the fixed account segment having been identified.\nEXAMPLE   Unlike customer, budget information is not included in the Base module as an individual table, therefore budget can be identified as a customized account segment."
+BS10-02,BBIE,2,0..1,Customized Account Segment,Customized Account Segment Name,Text,,"Customized account segment name that audit data need to be used.\nEXAMPLE   Budget records, planned revenue, expenditure."
+BS10-03,BBIE,2,0..1,Customized Account Segment,Customized Account Description,Text,,"Customized account segment description that audit data need to be used.\nEXAMPLE   Budget can be described as the annual plan of aggregated fiscal revenue and expenditure for a state, which is verified and approved through legal procedures."
+BS10-04,BBIE,2,0..1,Customized Account Segment,Customized Account Encoding Rule,Code,,"Encoding rules of the value of a customized account segment.\nIf the encoding rule has a hierarchy feature, each level is separated by ""-"".\nEXAMPLE   Budget (with a 1-digit code, e.g. 1) can be subdivided into financial budget (with a 2-digit code, e.g. 01) and construction budget (with a 2-digit code, e.g. 05), with the financial budget containing budgeted revenue (with a 2-digit code, e.g. 03) and budgeted expenditure (with a 2-digit code, e.g. 04), which are the third-level segments. In this case, the Customized Account Encoding Rule is 1-2-2."
+BS10-05,BBIE,2,0..1,Customized Account Segment,Hierarchy Flag,Indicator,,"Whether or not the table value has a hierarchy feature.\nEXAMPLE   1 is yes, 0 is no."
+BS10-06,BBIE,2,0..1,Customized Account Segment,Active Flag,Indicator,,"Indicates whether the Customized Account Segment Code is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS11,ABIE,1,__,Customized Account Value,,,,Contains the information from the customized account segment value.
+BS11-01,PKBIE,2,1..1,Customized Account Value,Customized Account Value Code,Identifier,,"Code for the customized account segment value.\nIf the Customized Account Encoding Rule is 1-2-2, the corresponding budget-financial budget-budgeted expenditure is 10104."
+BS11-02,RFBIE,2,0..1,Customized Account Value,Customized Account Segment Code,,Customized Account Segment,Associated with the Base Customized Account Segment table.
+BS11-03,BBIE,2,0..1,Customized Account Value,Customized Account Value Name,Text,,Name of the account segment value of each file.\nEXAMPLE   Budget-financial budget-budgeted expenditure.
+BS11-04,BBIE,2,0..1,Customized Account Value,Account Value Description,Text,,Detailed description of the account segment value.
+BS11-05,RFBIE,2,0..1,Customized Account Value,Parent Account Value Code,,Customized Account Value,Code for the parent customized account segment value.
+BS11-06,BBIE,2,0..1,Customized Account Value,Customized Account Value Hierarchy,Code,,Level of the current value in the file structure.\nEXAMPLE   1 is the highest.
+BS12,ABIE,1,__,Employee,,,,Contains the personnel information of the employee in an independent accounting unit.
+BS12-01,PKBIE,2,1..1,Employee,Employee ID,Identifier,,Unique identifier for an employee.
+BS12-02,BBIE,2,0..1,Employee,Employee Code,Text,,"Code for the employee. Each employee has only one code. If someone has part-time jobs in multiple departments, there will be more than one record with different Employee ID in this table. The part time status will be reflected in Employee Type Code."
+BS12-03,BBIE,2,0..1,Employee,Employee Name,Name,,The name of the employee.
+BS12-04,BBIE,2,0..1,Employee,Inactive Flag,Indicator,,Indicates whether one employee is active or inactive.\nAn employee can become inactive due to various reasons (e.g taking a sabbatical).
+BS12-05,BBIE,2,0..1,Employee,Employee Type Code,Text,,"Code for the employee type.\nEXAMPLE 004 is an on-the job employee, 005 is a retired employee, 006 is a deceased employee, 007 is a part-time employee."
+BS12-06,BBIE,2,0..1,Employee,Employee Type Name,Text,,"Name of the employee type.\nEXAMPLE Employed, retired, probation, part-time."
+BS12-07,RFBIE,2,0..1,Employee,Department Code,,Business Segment,"Code for department rosters. \nEXAMPLE The department name is Information Technology department, the code is 0018."
+BS12-08,BBIE,2,0..1,Employee,Employee Job Title,Text,,Job title of the person in an accounting unit.\nEXAMPLE Accounting manager.
+BS12-09,BBIE,2,0..1,Employee,Employee Academic Degree,Text,,"Highest academic degree acquired.\nEXAMPLE Doctor, Master."
+BS12-10,BBIE,2,0..1,Employee,Employment Date,Date,,Employment date of the employee.
+BS12-11,BBIE,2,0..1,Employee,Termination Date,Date,,"Termination date of the employee from which the labor contract was no longer valid, or the employee no longer works in this department."
+BS12-12,RFBIE,2,0..1,Employee,User ID,,User,System user ID associated with the employee.
+BS13,ABIE,1,__,Journal Entry Type,,,,"Contains information relevant to the GL journal entry type (e.g. cash receipts, cash disbursements)."
+BS13-01,PKBIE,2,1..1,Journal Entry Type,Journal Entry Type Code,Identifier,,"Code for the journal entry type.\nEXAMPLE   004 is a cash receipt entry, 005 is a cash disbursement entry, 006 is a non-cash entry."
+BS13-02,BBIE,2,0..1,Journal Entry Type,Journal Entry Type Name,Text,,"Name of the journal entry type.\nThis is usually categorized by business to satisfy an internal control need and/or to facilitate sorting and querying.\nEXAMPLE   Journal entries can be classified based on whether the transaction involves cash. In this case, there can be a cash receipt entry, cash disbursement entry and non-cash entry of adjusting that is the recording of interest revenue earned and wages payable, estimation that is the recording depreciation, and bad-debt expenses, and/or correction that makes entries to counteract the effects of errors found in the GL."
+BS13-03,BBIE,2,0..1,Journal Entry Type,Journal Entry Type Abbreviation,Text,,Abbreviation of the journal entry type.
+BS13-04,BBIE,2,0..1,Journal Entry Type,Active Flag,Indicator,,"Indicates whether the Journal Entry type is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS14,ABIE,1,__,Measurement Unit,,,,"Contains information of the measurement unit (UOM) used in the modules of GL, Sales, Purchase, Inventory and PPE."
+BS14-01,PKBIE,2,1..1,Measurement Unit,Unit of Measurement Code,Identifier,,Code of the measurement unit.
+BS14-02,BBIE,2,0..1,Measurement Unit,Unit of Measurement Name,Text,,"Name of the measurement unit for measuring the quantity of the material, etc."
+BS14-03,BBIE,2,0..1,Measurement Unit,Unit of Measurement Abbreviation,Text,,"Abbreviation of the measurement unit's name.\nEXAMPLE   Kilogram is kg, square metre is sq.m."
+BS14-04,BBIE,2,0..1,Measurement Unit,Active Flag,Indicator,,"Indicates whether the Unit of Measurement Code is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS15,ABIE,1,__,Payment Term,,,,"Contains the details of the payment term, which is applied and referenced in the Purchase and Sales modules. The payment term refers to the condition of a sale/purchase agreement and is related to how the customer will pay (type of credit instrument), and especially how much time is allowed for payment (credit period) and discount (cash discount and discount period)."
+BS15-01,PKBIE,2,1..1,Payment Term,Payment Term Code,Identifier,,"Code for the payment term.\nEXAMPLE   Terms of 2/10, net 60 are quoted. This means that customers have 60 days from the invoice date to pay the full amount. However, if payment is made within 10 days, a 2 % cash discount can be taken."
+BS15-02,BBIE,2,0..1,Payment Term,Payment Term Name,Text,,The full name of the payment term.
+BS15-03,BBIE,2,0..1,Payment Term,Payment Term Line Number,Text,,Number of the lines according to the Payment Term Code value.\nThis number is generated either by manual input or by the system.
+BS15-04,BBIE,2,0..1,Payment Term,Payment Term Line Description,Text,,"Detailed description of the payment term's line.\nEXAMPLE   Payment due date, discount days, discount percentage."
+BS15-05,BBIE,2,0..1,Payment Term,Active Flag,Indicator,,"Indicates whether the payment term is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS16,ABIE,1,__,Profile,,,,"Contains industry and software version information. This table contains information related to the profile of the data being collected. For example, when we extract the financial data of 2016 from an auditee using SAP XXX ERP System in 2017.1.16, there should be a record with the Profile Name ""XXX 2016"", Fiscal Year ""2016"", Developer Name ""SAP"", Software Name ""SAP S/4"", Software Version ""2.0"", Functional Currency ""CNY"", Standard Version ""ISO 21378"", Extracted Date ""2017-01-16""."
+BS16-01,PKBIE,2,1..1,Profile,Profile Number,Identifier,,Number of the current data collection.\nThis number is generated either by manual input or by the system.
+BS16-02,BBIE,2,0..1,Profile,Profile Name,Text,,Name of the current data collection.
+BS16-03,BBIE,2,0..1,Profile,Fiscal Year,Identifier,,Fiscal year in which the calendar date occurs.\nThe date shall be shown as YYYY-MM-DD in the extended format. The YYYY indicates a four-digit year (in accordance with ISO 8601-1).
+BS16-04,BBIE,2,0..1,Profile,Accounting Entity,Text,,Legal name of an accounting entity.
+BS16-05,BBIE,2,0..1,Profile,Industry,Text,,Corresponding industry name under a superior sector code.
+BS16-06,BBIE,2,0..1,Profile,Developer Name,Name,,Name of accounting and/or ERP system software developer.
+BS16-07,BBIE,2,0..1,Profile,Software Name,Text,,Name of accounting and/or ERP system software products.
+BS16-08,BBIE,2,0..1,Profile,Software Version,Text,,Accounting and/or ERP system software version.
+BS16-09,BBIE,2,0..1,Profile,Functional Currency Code,Code,,Functional or group currency used in accounting and/or ERP system software (in accordance with ISO 4217).
+BS16-10,BBIE,2,0..1,Profile,Standard Version,Text,,Standard issuing number of the standard(s) with which the current output files are consistent.\nEXAMPLE   ISO 21378.
+BS16-11,BBIE,2,0..1,Profile,Extracted Date,Date,,Date of the data extraction.
+BS16-12,BBIE,2,0..1,Profile,Time Zone,Code,,"Indicates the difference between the local time and UTC of a day.\nThe representation of the difference can be expressed in hours and minutes, or hours only. The Time Zone shall be shown as \xb1hh:mm in the extended format (in accordance with ISO 8601-1).\nEXAMPLE   Newfoundland's time zone is -03:30, Beijing's time zone is +08:00."
+BS16-13,ASBIE,2,0..*,Profile,contains,,Business Segment,
+BS16-BS04,ABIE,2,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+BS16-BS04-01,PKBIE,3,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+BS16-BS04-02,BBIE,3,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+BS16-BS04-03,BBIE,3,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+BS16-BS04-04,BBIE,3,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+BS17,ABIE,1,__,Project,,,,"Contains the detailed information related to the project (e.g. construction project, government or business-funded research project). Projects are commonly administrated separately and could be subject to being audit in accordance with regulatory and/or managerial requirements. The audit of a project is a thorough examination of the management, execution, methodology, procedures, records, budgets, expenditures, and the degree of completion. It is referenced in several modules including GL, AR, AP and Inventory."
+BS17-01,PKBIE,2,1..1,Project,Project ID,Identifier,,Unique identifier for the project.
+BS17-02,BBIE,2,0..1,Project,Project Code,Text,,Code of the project.
+BS17-03,BBIE,2,0..1,Project,Project Name,Text,,Name of the project related to operation and administration.
+BS17-04,BBIE,2,0..1,Project,Project Beginning Date,Date,,Beginning date of the project.
+BS17-05,BBIE,2,0..1,Project,Project Ending Date,Date,,Ending date of the project.
+BS17-06,BBIE,2,0..1,Project,Active Flag,Indicator,,"Indicates whether the project is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS17-07,ASBIE,2,0..*,Project,contains,,Business Segment,
+BS17-BS04,ABIE,2,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+BS17-BS04-01,PKBIE,3,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+BS17-BS04-02,BBIE,3,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+BS17-BS04-03,BBIE,3,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+BS17-BS04-04,BBIE,3,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+BS18,ABIE,1,__,Selection Period,,,,Unique identifier that refers to the selection criteria for selecting tables and fields. The permitted values of Selection ID and the associated selection criteria should be determined by mutual agreement between the auditor and the auditee.
+BS18-01,PKBIE,2,1..1,Selection Period,Selection ID,Identifier,,Unique identifier that refers to the separately defined criteria for selecting tables and fields.
+BS18-02,BBIE,2,0..1,Selection Period,Selection Start Date,Date,,"Start date of the selected period (YYYY-MM-DD). The start time is always ""00:00:00""."
+BS18-03,BBIE,2,0..1,Selection Period,Selection End Date,Date,,"End date of the selected period (YYYY-MM-DD). The end time is always ""23:59:59""."
+BS19,ABIE,1,__,Settlement Method,,,,"Contains information on methods used to settle transactions. Businesses can adopt various methods to settle transactions and transfer money, especially in sales and purchase activities. Typical settlement methods include cash settlements, issuing bills, using credit cards, bank remittances and bank collections."
+BS19-01,PKBIE,2,1..1,Settlement Method,Settlement Method Code,Identifier,,"Code for the settlement method.\nVarious methods can be used to settle transactions and transfer money.\nEXAMPLE   001 for cash, 002 for bills, 003 for credit card, 004 for remittance, 005 for bank collection."
+BS19-02,BBIE,2,0..1,Settlement Method,Settlement Method Name,Text,,"Name of the settlement method.\nEXAMPLE   Cash settlement, issuing bills, credit card, bank remittance, bank collection."
+BS19-03,BBIE,2,0..1,Settlement Method,Active Flag,Indicator,,"Indicates whether the settlement method is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS22,ABIE,1,__,Tax Regulatory,,,,"Contains regulatory information related to taxes, including regulator country, region, name and role."
+BS22-01,PKBIE,2,1..1,Tax Regulatory,Regulator Code,Identifier,,Code of the regulator or jurisdiction.
+BS22-02,BBIE,2,0..1,Tax Regulatory,Regulator Country Code,Code,,Country code where the regulator is located (in accordance with ISO 3166-1).
+BS22-03,BBIE,2,0..1,Tax Regulatory,Regulator Region,Code,,"Sub-region within a country.\nEXAMPLE   A state in the US, a province in Canada."
+BS22-04,BBIE,2,0..1,Tax Regulatory,Regulator Name,Text,,Name of the regulator for which tax is withheld or accrued.
+BS22-05,BBIE,2,0..1,Tax Regulatory,Regulator Role,Text,,"Role of the regulator, whether federal, regional or local."
+BS22-06,RFBIE,2,0..1,Tax Regulatory,Regulator Payable Account Number,,Chart Of Accounts,GL account used to reflect the amounts payable to the regulator.
+BS22-07,RFBIE,2,0..1,Tax Regulatory,Regulator Accrual Account Number,,Chart Of Accounts,GL account used to reflect the accruals due to the regulator.
+BS22-08,RFBIE,2,0..1,Tax Regulatory,Regulator Expense Account Number,,Chart Of Accounts,GL account used to reflect the expenses related to the regulator.
+BS22-09,BBIE,2,0..1,Tax Regulatory,Regulator ID,Identifier,,ID assigned/generated by the regulator for the reporting organization to the regulator.
+BS22-10,RFBIE,2,0..1,Tax Regulatory,Regulator Reporting Organization,,Business Segment,Code for the reporting organization.
+BS22-11,BBIE,2,0..1,Tax Regulatory,Regulator Active Flag,Indicator,,"Indicates whether the Regulator Code is active or inactive.\nEXAMPLE   1 is active, 0 is inactive."
+BS22-12,ASBIE,2,0..*,Tax Regulatory,contains,,Business Segment,
+BS22-BS04,ABIE,2,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+BS22-BS04-01,PKBIE,3,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+BS22-BS04-02,BBIE,3,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+BS22-BS04-03,BBIE,3,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+BS22-BS04-04,BBIE,3,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+BS23,ABIE,1,__,Tax Type,,,,"Contains detailed information on tax types used by the business. The tables in AR, Sales, AP and Purchase modules contain 4 tax types, which can meet the requirements in most cases of the business. Tax types could be tax in country level, state level, county level or in local level, or could be tax related to a transaction (e.g. sales tax, value added tax, tariff)."
+BS23-01,PKBIE,2,1..1,Tax Type,Tax Type Code,Identifier,,"Code used to refer to this tax type, used as a key or cross-reference in files.\nEXAMPLE   004 is the income tax, 005 is the tariff, 006 is the value added tax."
+BS23-02,BBIE,2,0..1,Tax Type,Tax Name,Text,,"Name of the tax type.\nEXAMPLE   Income tax, tariff, value added tax."
+BS23-03,RFBIE,2,0..1,Tax Type,Regulator Code,,Tax Regulatory,Code for the regulator for this tax.
+BS23-04,BBIE,2,0..1,Tax Type,Tax Type Description,Text,,Description of the tax type.
+BS23-05,BBIE,2,0..1,Tax Type,Tax Code Description,Text,,"Description of the tax code, which is a sub-division of the tax type.\nEXAMPLE   Lower percentage applicable for common goods."
+BS23-06,BBIE,2,0..1,Tax Type,Tax Percentage,Amount,,Default percentage for this combination of tax type and tax code.\nCan use the Extracted Date from the Base Profile table.
+BS23-07,ASBIE,2,0..*,Tax Type,contains,,Business Segment,
+BS23-BS04,ABIE,2,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+BS23-BS04-01,PKBIE,3,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+BS23-BS04-02,BBIE,3,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+BS23-BS04-03,BBIE,3,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+BS23-BS04-04,BBIE,3,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+BS24,ABIE,1,__,User,,,,Contains the user information of accounting and/or ERP system.
+BS24-01,PKBIE,2,1..1,User,User ID,Identifier,,"Unique identifier for individuals entering transactions into the accounting and/or ERP system.\nThis field is used to join information in this table to other tables based on fields such as Created User ID, \nLast Modified User ID, \nApproved User ID and Posted User ID."
+BS24-02,BBIE,2,0..1,User,User Active Status,Indicator,,"Indicates whether the status of the user is active or inactive.\nA user can become inactive due to retirement, dismissal or termination, etc.\nEXAMPLE   1 is active, 0 is inactive."
+BS24-03,BBIE,2,0..1,User,User Status Modified Date,Date,,Modified date of the user's activation or termination status.
+BS24-04,BBIE,2,0..1,User,User Name,Name,,Name of the user.
+BS24-05,BBIE,2,0..1,User,User Job Title,Text,,Job title of the person in the system.\nEXAMPLE   System manager.
+BS24-06,RFBIE,2,0..1,User,Department Code,,Business Segment,"Code for department rosters.\nEXAMPLE   The department name is Information Technology department, the code is 0018."
+BS24-07,BBIE,2,0..1,User,User Role Responsibility,Text,,Free-form description of the individual's functional role or primary responsibility.\nEXAMPLE   Responsibility related to managing the information of AP in the system.
+CC02,ACC,1,__,Activity,,,,Activity information.
+CC02-01,RFCC,2,0..1,Activity,User ID,,User,The unique identifier for the person who did the activity.
+CC02-02,BCC,2,0..1,Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+CC02-03,BCC,2,0..1,Activity,Time,Time,,The time of activity.
+CC03,ACC,1,__,Address,,,,Address information.
+CC03-01,BCC,2,0..1,Address,Street Address1,Text,,Line 1 of the street address.
+CC03-02,BCC,2,0..1,Address,Street Address2,Text,,Line 2 of the street address.
+CC03-03,BCC,2,0..1,Address,City Name,Name,,City name of this address.
+CC03-04,BCC,2,0..1,Address,State Province Code,Code,,The state or province of this address (in accordance with ISO 3166-2).
+CC03-05,BCC,2,0..1,Address,Postal Code,Code,,Zip or postal code of this address.
+CC03-06,BCC,2,0..1,Address,Country Code,Code,,The country code of this address (in accordance with ISO 3166-1).
+CC04,SPCC,1,__,Adjustment Amount,A derived attribute,,Monetary Amounts,"Related adjustment amount expressed in functional, transaction, reporting and local currency."
+CC04_CC24,ACC,1,__,Adjustment Amount_ Monetary Amounts,,,,Different types of amounts with corresponding currency code.
+CC04_CC24-01,BCC,2,0..1,Adjustment Amount_ Monetary Amounts,Functional Amount,Amount,,Amount recorded in the functional or group currency.
+CC04_CC24-02,RFCC,2,0..1,Adjustment Amount_ Monetary Amounts,Functional Currency Code,,Currency,Code of the functional or group currency (in accordance with ISO 4217).
+CC04_CC24-03,BCC,2,0..1,Adjustment Amount_ Monetary Amounts,Transaction Amount,Amount,,Amount recorded in the transaction currency.
+CC04_CC24-04,RFCC,2,0..1,Adjustment Amount_ Monetary Amounts,Transaction Currency Code,,Currency,The code of currency used in the actual transaction (in accordance with ISO 4217).
+CC04_CC24-05,BCC,2,0..1,Adjustment Amount_ Monetary Amounts,Reporting Amount,Amount,,Amount recorded in the reporting currency.
+CC04_CC24-06,RFCC,2,0..1,Adjustment Amount_ Monetary Amounts,Reporting Currency Code,,Currency,The code of currency used for non-consolidated reporting (in accordance with ISO 4217).
+CC04_CC24-07,BCC,2,0..1,Adjustment Amount_ Monetary Amounts,Local Amount,Amount,,Amount recorded in the local currency.
+CC04_CC24-08,RFCC,2,0..1,Adjustment Amount_ Monetary Amounts,Local Currency Code,,Currency,The code of currency used for local country reporting requirements  (in accordance with ISO 4217).
+CC05,SPCC,1,__,Amount,A derived attribute,,Monetary Amounts,"Related amount expressed in functional, transaction, reporting and local currency."
+CC05_CC24,ACC,1,__,Amount_ Monetary Amounts,,,,Different types of amounts with corresponding currency code.
+CC05_CC24-01,BCC,2,0..1,Amount_ Monetary Amounts,Functional Amount,Amount,,Amount recorded in the functional or group currency.
+CC05_CC24-02,RFCC,2,0..1,Amount_ Monetary Amounts,Functional Currency Code,,Currency,Code of the functional or group currency (in accordance with ISO 4217).
+CC05_CC24-03,BCC,2,0..1,Amount_ Monetary Amounts,Transaction Amount,Amount,,Amount recorded in the transaction currency.
+CC05_CC24-04,RFCC,2,0..1,Amount_ Monetary Amounts,Transaction Currency Code,,Currency,The code of currency used in the actual transaction (in accordance with ISO 4217).
+CC05_CC24-05,BCC,2,0..1,Amount_ Monetary Amounts,Reporting Amount,Amount,,Amount recorded in the reporting currency.
+CC05_CC24-06,RFCC,2,0..1,Amount_ Monetary Amounts,Reporting Currency Code,,Currency,The code of currency used for non-consolidated reporting (in accordance with ISO 4217).
+CC05_CC24-07,BCC,2,0..1,Amount_ Monetary Amounts,Local Amount,Amount,,Amount recorded in the local currency.
+CC05_CC24-08,RFCC,2,0..1,Amount_ Monetary Amounts,Local Currency Code,,Currency,The code of currency used for local country reporting requirements  (in accordance with ISO 4217).
+CC06,SPCC,1,__,Approved,A derived attribute,,Activity,Information about the data was approved within the system.
+CC06_CC02,ACC,1,__,Approved_ Activity,,,,Activity information.
+CC06_CC02-01,RFCC,2,0..1,Approved_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+CC06_CC02-02,BCC,2,0..1,Approved_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+CC06_CC02-03,BCC,2,0..1,Approved_ Activity,Time,Time,,The time of activity.
+CC10,SPCC,1,__,Billing Address,A derived attribute,,Address,Billing address information.
+CC10_CC03,ACC,1,__,Billing Address_ Address,,,,Address information.
+CC10_CC03-01,BCC,2,0..1,Billing Address_ Address,Street Address1,Text,,Line 1 of the street address.
+CC10_CC03-02,BCC,2,0..1,Billing Address_ Address,Street Address2,Text,,Line 2 of the street address.
+CC10_CC03-03,BCC,2,0..1,Billing Address_ Address,City Name,Name,,City name of this address.
+CC10_CC03-04,BCC,2,0..1,Billing Address_ Address,State Province Code,Code,,The state or province of this address (in accordance with ISO 3166-2).
+CC10_CC03-05,BCC,2,0..1,Billing Address_ Address,Postal Code,Code,,Zip or postal code of this address.
+CC10_CC03-06,BCC,2,0..1,Billing Address_ Address,Country Code,Code,,The country code of this address (in accordance with ISO 3166-1).
+CC15,SPCC,1,__,Created,A derived attribute,,Activity,Information about the data that was created into the system.
+CC15_CC02,ACC,1,__,Created_ Activity,,,,Activity information.
+CC15_CC02-01,RFCC,2,0..1,Created_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+CC15_CC02-02,BCC,2,0..1,Created_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+CC15_CC02-03,BCC,2,0..1,Created_ Activity,Time,Time,,The time of activity.
+CC16,SPCC,1,__,Credit Amount,A derived attribute,,Monetary Amounts,The accumulative credit total during particular accounting period.
+CC16_CC24,ACC,1,__,Credit Amount_ Monetary Amounts,,,,Different types of amounts with corresponding currency code.
+CC16_CC24-01,BCC,2,0..1,Credit Amount_ Monetary Amounts,Functional Amount,Amount,,Amount recorded in the functional or group currency.
+CC16_CC24-02,RFCC,2,0..1,Credit Amount_ Monetary Amounts,Functional Currency Code,,Currency,Code of the functional or group currency (in accordance with ISO 4217).
+CC16_CC24-03,BCC,2,0..1,Credit Amount_ Monetary Amounts,Transaction Amount,Amount,,Amount recorded in the transaction currency.
+CC16_CC24-04,RFCC,2,0..1,Credit Amount_ Monetary Amounts,Transaction Currency Code,,Currency,The code of currency used in the actual transaction (in accordance with ISO 4217).
+CC16_CC24-05,BCC,2,0..1,Credit Amount_ Monetary Amounts,Reporting Amount,Amount,,Amount recorded in the reporting currency.
+CC16_CC24-06,RFCC,2,0..1,Credit Amount_ Monetary Amounts,Reporting Currency Code,,Currency,The code of currency used for non-consolidated reporting (in accordance with ISO 4217).
+CC16_CC24-07,BCC,2,0..1,Credit Amount_ Monetary Amounts,Local Amount,Amount,,Amount recorded in the local currency.
+CC16_CC24-08,RFCC,2,0..1,Credit Amount_ Monetary Amounts,Local Currency Code,,Currency,The code of currency used for local country reporting requirements  (in accordance with ISO 4217).
+CC18,SPCC,1,__,Debit Amount,A derived attribute,,Monetary Amounts,The accumulative debit total during particular accounting period.
+CC18_CC24,ACC,1,__,Debit Amount_ Monetary Amounts,,,,Different types of amounts with corresponding currency code.
+CC18_CC24-01,BCC,2,0..1,Debit Amount_ Monetary Amounts,Functional Amount,Amount,,Amount recorded in the functional or group currency.
+CC18_CC24-02,RFCC,2,0..1,Debit Amount_ Monetary Amounts,Functional Currency Code,,Currency,Code of the functional or group currency (in accordance with ISO 4217).
+CC18_CC24-03,BCC,2,0..1,Debit Amount_ Monetary Amounts,Transaction Amount,Amount,,Amount recorded in the transaction currency.
+CC18_CC24-04,RFCC,2,0..1,Debit Amount_ Monetary Amounts,Transaction Currency Code,,Currency,The code of currency used in the actual transaction (in accordance with ISO 4217).
+CC18_CC24-05,BCC,2,0..1,Debit Amount_ Monetary Amounts,Reporting Amount,Amount,,Amount recorded in the reporting currency.
+CC18_CC24-06,RFCC,2,0..1,Debit Amount_ Monetary Amounts,Reporting Currency Code,,Currency,The code of currency used for non-consolidated reporting (in accordance with ISO 4217).
+CC18_CC24-07,BCC,2,0..1,Debit Amount_ Monetary Amounts,Local Amount,Amount,,Amount recorded in the local currency.
+CC18_CC24-08,RFCC,2,0..1,Debit Amount_ Monetary Amounts,Local Currency Code,,Currency,The code of currency used for local country reporting requirements  (in accordance with ISO 4217).
+CC22,SPCC,1,__,Last Modified,A derived attribute,,Activity,Information about the data was  last modified within the system.
+CC22_CC02,ACC,1,__,Last Modified_ Activity,,,,Activity information.
+CC22_CC02-01,RFCC,2,0..1,Last Modified_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+CC22_CC02-02,BCC,2,0..1,Last Modified_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+CC22_CC02-03,BCC,2,0..1,Last Modified_ Activity,Time,Time,,The time of activity.
+CC24,ACC,1,__,Monetary Amounts,,,,Different types of amounts with corresponding currency code.
+CC24-01,BCC,2,0..1,Monetary Amounts,Functional Amount,Amount,,Amount recorded in the functional or group currency.
+CC24-02,RFCC,2,0..1,Monetary Amounts,Functional Currency Code,,Currency,Code of the functional or group currency (in accordance with ISO 4217).
+CC24-03,BCC,2,0..1,Monetary Amounts,Transaction Amount,Amount,,Amount recorded in the transaction currency.
+CC24-04,RFCC,2,0..1,Monetary Amounts,Transaction Currency Code,,Currency,The code of currency used in the actual transaction (in accordance with ISO 4217).
+CC24-05,BCC,2,0..1,Monetary Amounts,Reporting Amount,Amount,,Amount recorded in the reporting currency.
+CC24-06,RFCC,2,0..1,Monetary Amounts,Reporting Currency Code,,Currency,The code of currency used for non-consolidated reporting (in accordance with ISO 4217).
+CC24-07,BCC,2,0..1,Monetary Amounts,Local Amount,Amount,,Amount recorded in the local currency.
+CC24-08,RFCC,2,0..1,Monetary Amounts,Local Currency Code,,Currency,The code of currency used for local country reporting requirements  (in accordance with ISO 4217).
+CC27,SPCC,1,__,Physical Address,A derived attribute,,Address,Physical address information.
+CC27_CC03,ACC,1,__,Physical Address_ Address,,,,Address information.
+CC27_CC03-01,BCC,2,0..1,Physical Address_ Address,Street Address1,Text,,Line 1 of the street address.
+CC27_CC03-02,BCC,2,0..1,Physical Address_ Address,Street Address2,Text,,Line 2 of the street address.
+CC27_CC03-03,BCC,2,0..1,Physical Address_ Address,City Name,Name,,City name of this address.
+CC27_CC03-04,BCC,2,0..1,Physical Address_ Address,State Province Code,Code,,The state or province of this address (in accordance with ISO 3166-2).
+CC27_CC03-05,BCC,2,0..1,Physical Address_ Address,Postal Code,Code,,Zip or postal code of this address.
+CC27_CC03-06,BCC,2,0..1,Physical Address_ Address,Country Code,Code,,The country code of this address (in accordance with ISO 3166-1).
+CC28,SPCC,1,__,Posted,A derived attribute,,Activity,Information about the data that was posted.
+CC28_CC02,ACC,1,__,Posted_ Activity,,,,Activity information.
+CC28_CC02-01,RFCC,2,0..1,Posted_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+CC28_CC02-02,BCC,2,0..1,Posted_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+CC28_CC02-03,BCC,2,0..1,Posted_ Activity,Time,Time,,The time of activity.
+CC30,ACC,1,__,Tax,,,,Tax information.
+CC30-01,RFCC,2,0..1,Tax,Tax Type Code,,Tax Type,The code of Tax type.
+CC30-02,BCC,2,0..1,Tax,Tax Local Amount,Amount,,The amount of Tax included in the transaction. Recorded in local currency.
+CC30-03,BCC,2,0..1,Tax,Tax Transaction Amount,Amount,,The amount of Tax included in the transaction. Recorded in transaction currency.
+CC30-04,RFCC,2,0..1,Tax,GL Tax Debit Account Number,,Chart Of Accounts,The GL account number on which the debit side of the Tax transaction has been posted.
+CC30-05,RFCC,2,0..1,Tax,GL Tax Credit Account Number,,Chart Of Accounts,The GL account number on which the credit side of the Tax transaction has been posted.
+GL02,ABIE,1,__,Account Segment,,,,"Contains the code and name for the account segment, as well as the GL Account Number to which the account segment is related. Account Segment provides additional information for particular GL Accounts (e.g. the AR contains the information regarding supplier, customer, employee, and project). Such information would be treated as an Account Segment below A/R, thus resulting in a lengthy account structure. The Account Segment structure is therefore defined as a set to record related information, which efficiently stops account names and numbers from becoming too long and too complex. Account Segment is more flexible to capture the complicated information."
+GL02-01,PKBIE,2,1..1,Account Segment,GL Account Number,Identifier,,Number of the GL account. \nThis number is generated either by manual input or by the system.
+GL02-02,BBIE,2,0..1,Account Segment,Account Segment Number,Text,,"Number of the Account Segment.\nCase 1: If the value of this field is 0, the record is used to explain a fixed account segment that is distinguished by the Account Segment Name of the record.\nCase 2: If the value of this field is 5, the record is used to explain the No.5 field of Account Segment X, named Account Segment 5 in the tables, such as GL Details.\nThis number is generated either by manual input or by the system."
+GL02-03,PKBIE,2,1..1,Account Segment,Account Segment Name,Identifier,,"Name of the Account Segment.\nCase 1: If the value of the Account Segment Number of the record is 0, the field contains the name of a fixed account segment, such as Account Segment Employee.\nCase 2: If the value of the Account Segment Number of the record is 5, the field value should be the name of a customized account segment, such as welfare expenditure."
+GL02-04,BBIE,2,0..1,Account Segment,Corresponding File,Text,,"Table corresponding to the account segment. \nCase 1: If the value of the Account Segment Number of the record is 0, the field contains the table name corresponding to the fixed account segment, such as Base Employee for Account Segment Employee.\nCase 2: If the value of the Account Segment Number is larger than 0, and no other table besides Base Customized Account Segment contains the basic information of the customized account segment, the field value should be Base Customized Account Segment.\nCase 3: If the value of the Account Segment Number is larger than 0, and there is a table containing the basic information of the customized account segment, the field value should be the table's name, such as Base Customer."
+GL02-05,BBIE,2,0..1,Account Segment,Account Segment Description,Text,,Detailed description of the Account Segment Name.
+GL02-06,RFBIE,2,0..1,Account Segment,Customized Account Segment Code,,Customized Account Segment,Code for the customized account segment.
+GL03,ABIE,1,__,GL Header,,,,"Contains all of the journal entry header data for each transaction (e.g. Journal ID, Accounting Period, Effective Date). This table should be at the journal header level."
+GL03-01,PKBIE,2,1..1,GL Header,Journal ID,Identifier,,Unique identifier for each journal entry.
+GL03-02,BBIE,2,0..1,GL Header,Journal Number,Identifier,,"Number of the journal entry (e.g. including serial number, document type, date)."
+GL03-04,RFBIE,2,0..1,GL Header,Fiscal Year,,Accounting Period,"Fiscal year in which the Effective Date occurs.\nThe year shall be shown in four digits as YYYY, which is part of the extended format and the YYYY-MM-DD from ISO 8601-1."
+GL03-05,RFBIE,2,0..1,GL Header,Accounting Period,,Accounting Period,"Accounting period in which the Effective Date occurs.\nEXAMPLE   W1-W53 for weekly periods, M1-M12 for monthly periods, Q1-Q4 for quarterly periods, from any beginning date to any ending date."
+GL03-11,RFBIE,2,0..1,GL Header,Source Code,,Source,"Code for the source from which the journal entry originated.\nEXAMPLE   Sales journal, cash receipts journal, general journal, payroll journal, accountant manual entry, spreadsheet."
+GL03-06,BBIE,2,0..1,GL Header,Effective Date,Date,,"Date of the journal entry, no matter when the entry is received or created.\nThis sometimes refers to the accounting date or accounting effective date.\nEXAMPLE   If the user wants to see the financial results for the period ending March 5, 20XX, the journal entry may be created on any day during the open period and be assigned to the period ending March 5, 20XX."
+GL03-09,BBIE,2,0..1,GL Header,Journal Entry Header Description,Text,,Description of the entire journal entry as described by the journal entry header.
+GL03-10,ASBIE,2,1..*,GL Header,contains,,GL Details,
+GL03-GL04,ABIE,2,__,GL Details,,,,"Contains all of the journal entry details for each transaction (e.g. associated journal entry ID, associated account number, debits or credits associated with the journal entry line). This table should be at the journal entry line level."
+GL03-GL04-07,BBIE,3,0..1,GL Details,Journal Line Number,Text,,Number of the line within a journal entry.\nThis number is generated either by manual input or by the system.
+GL03-GL04-08,RFBIE,3,0..1,GL Details,Journal Entry Type Code,,Journal Entry Type,Code for the journal entry type.
+GL03-GL04-10,BBIE,3,0..1,GL Details,Journal Entry Line Description,Text,,Description of the individual line within the journal entry.
+GL03-GL04-03,RFBIE,3,0..1,GL Details,GL Account Number,,Chart Of Accounts,Number of the GL account.
+GL03-GL04-12,BBIE,3,0..1,GL Details,Bill Number,Text,,"Number of the bill.\nA bill usually includes bank drafts, promissory notes and checks. A bill may be issued by the drawer who agreed upon themselves or entrusts the drawee at sight. A specified date to the payee or bearer unconditionally pays a certain amount of securities.\nThis number is generated either by manual input or by the system."
+GL03-GL04-13,RFBIE,3,0..1,GL Details,Bill Type Code,,Bill Type,"Type of bill.\nEXAMPLE   Bank drafts, promissory notes, checks."
+GL03-GL04-14,BBIE,3,0..1,GL Details,Bill Date,Date,,Date of the bill.
+GL03-GL04-15,BBIE,3,0..1,GL Details,Quantity,Amount,,"Quantity of items referenced in the journal entry line.\nWhen the GL Account Number is for inventories or fixed assets, this field is effective. If not, this field is NULL."
+GL03-GL04-16,RFBIE,3,0..1,GL Details,Unit of Measurement Code,,Measurement Unit,"Code for the physical measurement scale for the inventory and Property, Plant and Equipment referred to as a ""unit of measurement (UOM)""."
+GL03-GL04-17,BBIE,3,0..1,GL Details,Unit Price,Amount,,"Per unit price of the inventory or PPE.\nThis field is associated with Quantity and Amount.\nEXAMPLE   If the account is inventory or PPE, Quantity can be multiplied by Unit Price to get total line Amount."
+GL03-GL04-18,RFBIE,3,0..1,GL Details,Settlement Method Code,,Settlement Method,"Code value or indicator of the settlement method used for cash receipt from customers (i.e. sales) and cash payment to suppliers (i.e. purchase).\nEXAMPLE   Check, wire transfer, cash."
+GL03-GL04-19,BBIE,3,0..1,GL Details,Credit Debit Indicator,Code,,"Indicates whether the amount is a credit or a debit.\nEXAMPLE   C is credit, D is debit."
+GL03-GL04-20,BBIE,3,0..1,GL Details,Reversal Indicator,Code,,"Indicates whether this entry is a reversal or to be reversed.\nEXAMPLE   1 is the entry is a reversal, 2 is the entry is being reversed, an empty ("" "") is none of the above or system-generated indicators."
+GL03-GL04-21,BBIE,3,0..1,GL Details,Reversal Journal ID,Identifier,,"When the Reversal Indicator = 1, this field identifies the Journal ID of the entry being reversed."
+GL03-GL04-22,BBIE,3,0..1,GL Details,Cancellation Sign,Indicator,,"Sign of cancellation of a journal entry already formed but not yet posted.\nEXAMPLE   0 is entry is not cancelled, 1 is entry is cancelled."
+GL03-GL04-27,ASBIE,3,0..1,GL Details,contains,,Amount,
+GL03-GL04-CC05,SPCC,3,__,Amount,is specialized from,,Monetary Amounts,"Related amount expressed in functional, transaction, reporting and local currency."
+GL03-GL04-CC05_CC24,ACC,3,__,Amount_ Monetary Amounts,,,,Different types of amounts with corresponding currency code.
+GL03-GL04-CC05_CC24-01,BCC,4,0..1,Amount_ Monetary Amounts,Functional Amount,Amount,,Amount recorded in the functional or group currency.
+GL03-GL04-CC05_CC24-02,RFCC,4,0..1,Amount_ Monetary Amounts,Functional Currency Code,,Currency,Code of the functional or group currency (in accordance with ISO 4217).
+GL03-GL04-CC05_CC24-03,BCC,4,0..1,Amount_ Monetary Amounts,Transaction Amount,Amount,,Amount recorded in the transaction currency.
+GL03-GL04-CC05_CC24-04,RFCC,4,0..1,Amount_ Monetary Amounts,Transaction Currency Code,,Currency,The code of currency used in the actual transaction (in accordance with ISO 4217).
+GL03-GL04-CC05_CC24-05,BCC,4,0..1,Amount_ Monetary Amounts,Reporting Amount,Amount,,Amount recorded in the reporting currency.
+GL03-GL04-CC05_CC24-06,RFCC,4,0..1,Amount_ Monetary Amounts,Reporting Currency Code,,Currency,The code of currency used for non-consolidated reporting (in accordance with ISO 4217).
+GL03-GL04-CC05_CC24-07,BCC,4,0..1,Amount_ Monetary Amounts,Local Amount,Amount,,Amount recorded in the local currency.
+GL03-GL04-CC05_CC24-08,RFCC,4,0..1,Amount_ Monetary Amounts,Local Currency Code,,Currency,The code of currency used for local country reporting requirements  (in accordance with ISO 4217).
+GL03-GL04-28,ASBIE,3,0..1,GL Details,A derived attribute,,Approved,
+GL03-GL04-CC06,SPCC,3,__,Approved,is specialized from,,Activity,Information about the data was approved within the system.
+GL03-GL04-CC06_CC02,ACC,3,__,Approved_ Activity,,,,Activity information.
+GL03-GL04-CC06_CC02-01,RFCC,4,0..1,Approved_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+GL03-GL04-CC06_CC02-02,BCC,4,0..1,Approved_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+GL03-GL04-CC06_CC02-03,BCC,4,0..1,Approved_ Activity,Time,Time,,The time of activity.
+GL03-GL04-30,ASBIE,3,0..1,GL Details,A derived attribute,,Created,
+GL03-GL04-CC15,SPCC,3,__,Created,is specialized from,,Activity,Information about the data that was created into the system.
+GL03-GL04-CC15_CC02,ACC,3,__,Created_ Activity,,,,Activity information.
+GL03-GL04-CC15_CC02-01,RFCC,4,0..1,Created_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+GL03-GL04-CC15_CC02-02,BCC,4,0..1,Created_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+GL03-GL04-CC15_CC02-03,BCC,4,0..1,Created_ Activity,Time,Time,,The time of activity.
+GL03-GL04-31,ASBIE,3,0..1,GL Details,A derived attribute,,Posted,
+GL03-GL04-CC28,SPCC,3,__,Posted,is specialized from,,Activity,Information about the data that was posted.
+GL03-GL04-CC28_CC02,ACC,3,__,Posted_ Activity,,,,Activity information.
+GL03-GL04-CC28_CC02-01,RFCC,4,0..1,Posted_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+GL03-GL04-CC28_CC02-02,BCC,4,0..1,Posted_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+GL03-GL04-CC28_CC02-03,BCC,4,0..1,Posted_ Activity,Time,Time,,The time of activity.
+GL03-GL04-26,ASBIE,3,0..*,GL Details,contains,,Account Segment,"Account Segment Employee, Account Segment Project, Account Segment Bank Account are commonly used Account Segment."
+GL03-GL04-GL02,ABIE,3,__,Account Segment,,,,"Contains the code and name for the account segment, as well as the GL Account Number to which the account segment is related. Account Segment provides additional information for particular GL Accounts (e.g. the AR contains the information regarding supplier, customer, employee, and project). Such information would be treated as an Account Segment below A/R, thus resulting in a lengthy account structure. The Account Segment structure is therefore defined as a set to record related information, which efficiently stops account names and numbers from becoming too long and too complex. Account Segment is more flexible to capture the complicated information."
+GL03-GL04-GL02-01,PKBIE,4,1..1,Account Segment,GL Account Number,Identifier,,Number of the GL account. \nThis number is generated either by manual input or by the system.
+GL03-GL04-GL02-02,BBIE,4,0..1,Account Segment,Account Segment Number,Text,,"Number of the Account Segment.\nCase 1: If the value of this field is 0, the record is used to explain a fixed account segment that is distinguished by the Account Segment Name of the record.\nCase 2: If the value of this field is 5, the record is used to explain the No.5 field of Account Segment X, named Account Segment 5 in the tables, such as GL Details.\nThis number is generated either by manual input or by the system."
+GL03-GL04-GL02-03,PKBIE,4,1..1,Account Segment,Account Segment Name,Identifier,,"Name of the Account Segment.\nCase 1: If the value of the Account Segment Number of the record is 0, the field contains the name of a fixed account segment, such as Account Segment Employee.\nCase 2: If the value of the Account Segment Number of the record is 5, the field value should be the name of a customized account segment, such as welfare expenditure."
+GL03-GL04-GL02-04,BBIE,4,0..1,Account Segment,Corresponding File,Text,,"Table corresponding to the account segment. \nCase 1: If the value of the Account Segment Number of the record is 0, the field contains the table name corresponding to the fixed account segment, such as Base Employee for Account Segment Employee.\nCase 2: If the value of the Account Segment Number is larger than 0, and no other table besides Base Customized Account Segment contains the basic information of the customized account segment, the field value should be Base Customized Account Segment.\nCase 3: If the value of the Account Segment Number is larger than 0, and there is a table containing the basic information of the customized account segment, the field value should be the table's name, such as Base Customer."
+GL03-GL04-GL02-05,BBIE,4,0..1,Account Segment,Account Segment Description,Text,,Detailed description of the Account Segment Name.
+GL03-GL04-GL02-06,RFBIE,4,0..1,Account Segment,Customized Account Segment Code,,Customized Account Segment,Code for the customized account segment.
+GL03-GL04-29,ASBIE,3,0..*,GL Details,contains,,Business Segment,
+GL03-GL04-BS04,ABIE,3,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+GL03-GL04-BS04-01,PKBIE,4,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+GL03-GL04-BS04-02,BBIE,4,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+GL03-GL04-BS04-03,BBIE,4,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+GL03-GL04-BS04-04,BBIE,4,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+GL04,ABIE,1,__,GL Details,,,,"Contains all of the journal entry details for each transaction (e.g. associated journal entry ID, associated account number, debits or credits associated with the journal entry line). This table should be at the journal entry line level."
+GL04-07,BBIE,2,0..1,GL Details,Journal Line Number,Text,,Number of the line within a journal entry.\nThis number is generated either by manual input or by the system.
+GL04-08,RFBIE,2,0..1,GL Details,Journal Entry Type Code,,Journal Entry Type,Code for the journal entry type.
+GL04-10,BBIE,2,0..1,GL Details,Journal Entry Line Description,Text,,Description of the individual line within the journal entry.
+GL04-03,RFBIE,2,0..1,GL Details,GL Account Number,,Chart Of Accounts,Number of the GL account.
+GL04-12,BBIE,2,0..1,GL Details,Bill Number,Text,,"Number of the bill.\nA bill usually includes bank drafts, promissory notes and checks. A bill may be issued by the drawer who agreed upon themselves or entrusts the drawee at sight. A specified date to the payee or bearer unconditionally pays a certain amount of securities.\nThis number is generated either by manual input or by the system."
+GL04-13,RFBIE,2,0..1,GL Details,Bill Type Code,,Bill Type,"Type of bill.\nEXAMPLE   Bank drafts, promissory notes, checks."
+GL04-14,BBIE,2,0..1,GL Details,Bill Date,Date,,Date of the bill.
+GL04-15,BBIE,2,0..1,GL Details,Quantity,Amount,,"Quantity of items referenced in the journal entry line.\nWhen the GL Account Number is for inventories or fixed assets, this field is effective. If not, this field is NULL."
+GL04-16,RFBIE,2,0..1,GL Details,Unit of Measurement Code,,Measurement Unit,"Code for the physical measurement scale for the inventory and Property, Plant and Equipment referred to as a ""unit of measurement (UOM)""."
+GL04-17,BBIE,2,0..1,GL Details,Unit Price,Amount,,"Per unit price of the inventory or PPE.\nThis field is associated with Quantity and Amount.\nEXAMPLE   If the account is inventory or PPE, Quantity can be multiplied by Unit Price to get total line Amount."
+GL04-18,RFBIE,2,0..1,GL Details,Settlement Method Code,,Settlement Method,"Code value or indicator of the settlement method used for cash receipt from customers (i.e. sales) and cash payment to suppliers (i.e. purchase).\nEXAMPLE   Check, wire transfer, cash."
+GL04-19,BBIE,2,0..1,GL Details,Credit Debit Indicator,Code,,"Indicates whether the amount is a credit or a debit.\nEXAMPLE   C is credit, D is debit."
+GL04-20,BBIE,2,0..1,GL Details,Reversal Indicator,Code,,"Indicates whether this entry is a reversal or to be reversed.\nEXAMPLE   1 is the entry is a reversal, 2 is the entry is being reversed, an empty ("" "") is none of the above or system-generated indicators."
+GL04-21,BBIE,2,0..1,GL Details,Reversal Journal ID,Identifier,,"When the Reversal Indicator = 1, this field identifies the Journal ID of the entry being reversed."
+GL04-22,BBIE,2,0..1,GL Details,Cancellation Sign,Indicator,,"Sign of cancellation of a journal entry already formed but not yet posted.\nEXAMPLE   0 is entry is not cancelled, 1 is entry is cancelled."
+GL04-27,ASBIE,2,0..1,GL Details,contains,,Amount,
+GL04-CC05,SPCC,2,__,Amount,is specialized from,,Monetary Amounts,"Related amount expressed in functional, transaction, reporting and local currency."
+GL04-CC05_CC24,ACC,2,__,Amount_ Monetary Amounts,,,,Different types of amounts with corresponding currency code.
+GL04-CC05_CC24-01,BCC,3,0..1,Amount_ Monetary Amounts,Functional Amount,Amount,,Amount recorded in the functional or group currency.
+GL04-CC05_CC24-02,RFCC,3,0..1,Amount_ Monetary Amounts,Functional Currency Code,,Currency,Code of the functional or group currency (in accordance with ISO 4217).
+GL04-CC05_CC24-03,BCC,3,0..1,Amount_ Monetary Amounts,Transaction Amount,Amount,,Amount recorded in the transaction currency.
+GL04-CC05_CC24-04,RFCC,3,0..1,Amount_ Monetary Amounts,Transaction Currency Code,,Currency,The code of currency used in the actual transaction (in accordance with ISO 4217).
+GL04-CC05_CC24-05,BCC,3,0..1,Amount_ Monetary Amounts,Reporting Amount,Amount,,Amount recorded in the reporting currency.
+GL04-CC05_CC24-06,RFCC,3,0..1,Amount_ Monetary Amounts,Reporting Currency Code,,Currency,The code of currency used for non-consolidated reporting (in accordance with ISO 4217).
+GL04-CC05_CC24-07,BCC,3,0..1,Amount_ Monetary Amounts,Local Amount,Amount,,Amount recorded in the local currency.
+GL04-CC05_CC24-08,RFCC,3,0..1,Amount_ Monetary Amounts,Local Currency Code,,Currency,The code of currency used for local country reporting requirements  (in accordance with ISO 4217).
+GL04-28,ASBIE,2,0..1,GL Details,A derived attribute,,Approved,
+GL04-CC06,SPCC,2,__,Approved,is specialized from,,Activity,Information about the data was approved within the system.
+GL04-CC06_CC02,ACC,2,__,Approved_ Activity,,,,Activity information.
+GL04-CC06_CC02-01,RFCC,3,0..1,Approved_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+GL04-CC06_CC02-02,BCC,3,0..1,Approved_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+GL04-CC06_CC02-03,BCC,3,0..1,Approved_ Activity,Time,Time,,The time of activity.
+GL04-30,ASBIE,2,0..1,GL Details,A derived attribute,,Created,
+GL04-CC15,SPCC,2,__,Created,is specialized from,,Activity,Information about the data that was created into the system.
+GL04-CC15_CC02,ACC,2,__,Created_ Activity,,,,Activity information.
+GL04-CC15_CC02-01,RFCC,3,0..1,Created_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+GL04-CC15_CC02-02,BCC,3,0..1,Created_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+GL04-CC15_CC02-03,BCC,3,0..1,Created_ Activity,Time,Time,,The time of activity.
+GL04-31,ASBIE,2,0..1,GL Details,A derived attribute,,Posted,
+GL04-CC28,SPCC,2,__,Posted,is specialized from,,Activity,Information about the data that was posted.
+GL04-CC28_CC02,ACC,2,__,Posted_ Activity,,,,Activity information.
+GL04-CC28_CC02-01,RFCC,3,0..1,Posted_ Activity,User ID,,User,The unique identifier for the person who did the activity.
+GL04-CC28_CC02-02,BCC,3,0..1,Posted_ Activity,Date,Date,,"The date of activity. This should be a system generated date (rather than user-created date), when possible. This is sometimes referred to as the creation date."
+GL04-CC28_CC02-03,BCC,3,0..1,Posted_ Activity,Time,Time,,The time of activity.
+GL04-26,ASBIE,2,0..*,GL Details,contains,,Account Segment,"Account Segment Employee, Account Segment Project, Account Segment Bank Account are commonly used Account Segment."
+GL04-GL02,ABIE,2,__,Account Segment,,,,"Contains the code and name for the account segment, as well as the GL Account Number to which the account segment is related. Account Segment provides additional information for particular GL Accounts (e.g. the AR contains the information regarding supplier, customer, employee, and project). Such information would be treated as an Account Segment below A/R, thus resulting in a lengthy account structure. The Account Segment structure is therefore defined as a set to record related information, which efficiently stops account names and numbers from becoming too long and too complex. Account Segment is more flexible to capture the complicated information."
+GL04-GL02-01,PKBIE,3,1..1,Account Segment,GL Account Number,Identifier,,Number of the GL account. \nThis number is generated either by manual input or by the system.
+GL04-GL02-02,BBIE,3,0..1,Account Segment,Account Segment Number,Text,,"Number of the Account Segment.\nCase 1: If the value of this field is 0, the record is used to explain a fixed account segment that is distinguished by the Account Segment Name of the record.\nCase 2: If the value of this field is 5, the record is used to explain the No.5 field of Account Segment X, named Account Segment 5 in the tables, such as GL Details.\nThis number is generated either by manual input or by the system."
+GL04-GL02-03,PKBIE,3,1..1,Account Segment,Account Segment Name,Identifier,,"Name of the Account Segment.\nCase 1: If the value of the Account Segment Number of the record is 0, the field contains the name of a fixed account segment, such as Account Segment Employee.\nCase 2: If the value of the Account Segment Number of the record is 5, the field value should be the name of a customized account segment, such as welfare expenditure."
+GL04-GL02-04,BBIE,3,0..1,Account Segment,Corresponding File,Text,,"Table corresponding to the account segment. \nCase 1: If the value of the Account Segment Number of the record is 0, the field contains the table name corresponding to the fixed account segment, such as Base Employee for Account Segment Employee.\nCase 2: If the value of the Account Segment Number is larger than 0, and no other table besides Base Customized Account Segment contains the basic information of the customized account segment, the field value should be Base Customized Account Segment.\nCase 3: If the value of the Account Segment Number is larger than 0, and there is a table containing the basic information of the customized account segment, the field value should be the table's name, such as Base Customer."
+GL04-GL02-05,BBIE,3,0..1,Account Segment,Account Segment Description,Text,,Detailed description of the Account Segment Name.
+GL04-GL02-06,RFBIE,3,0..1,Account Segment,Customized Account Segment Code,,Customized Account Segment,Code for the customized account segment.
+GL04-29,ASBIE,2,0..*,GL Details,contains,,Business Segment,
+GL04-BS04,ABIE,2,__,Business Segment,,,,"The Base Business Segment and the Base Business Segment Hierarchy have been designed to tabularize the portions of an organizational chart that is reflected in the business transactions as structural units e.g. business unit, department, cost center and project)."
+GL04-BS04-01,PKBIE,3,1..1,Business Segment,Business Segment Code,Identifier,,Code for each business segment.
+GL04-BS04-02,BBIE,3,0..1,Business Segment,Business Segment Name,Name,,Name of the business segment.
+GL04-BS04-03,BBIE,3,0..1,Business Segment,Segment Reference Level,Code,,"Relative level of the segment, with 1 being the consolidated level and the numbers increasing through the lower levels of the organizational chart."
+GL04-BS04-04,BBIE,3,0..1,Business Segment,Organization Type Name,Name,,"Indicates the name of the organization type (e.g. department, cost centre)."
+GL05,ABIE,1,__,Source,,,,"Contains additional information about the sources provided in the GL Details table. Each source shall include a description of the ERP system or accounting package, from which the data is extracted, and information related to the business process the data represents."
+GL05-01,PKBIE,2,1..1,Source,Source Code,Identifier,,"Code for the posting source (code for the source from which the journal entry originated).\nEXAMPLE   Sales journal, cash receipts journal, general journal, payroll journal, accountant manual entry, spreadsheet.\nThe code shall be a unique indicator for the underlying source."
+GL05-02,BBIE,2,0..1,Source,Source Description,Text,,Description of the source system.
+GL05-03,BBIE,2,0..1,Source,ERP Subledger Module,Text,,"Description of the subledger or ERP module from which the journal entry originated.\nThis should tie back to a system or significant accounting process. In some instances, it can be represented by the source system."
+GL05-04,BBIE,2,0..1,Source,System Manual Identifier,Identifier,,"Indicates whether the journal entry is system-generated or manually-entered.\nEXAMPLE   S is system-generated, M is manually-entered."
+GL05-05,BBIE,2,0..1,Source,Business Process Major,Text,,Major class of transaction associated with a business process.\nEXAMPLE   Sales.
+GL05-06,BBIE,2,0..1,Source,Business Process Minor,Text,,"Sub-process of a major business process.\nEXAMPLE   Orders, returns, discounts."

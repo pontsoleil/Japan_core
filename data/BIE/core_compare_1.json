@@ -1,0 +1,867 @@
+{
+    "UN01005479 CI_ Exchanged Document_ Context. Details": [
+        [
+            "UN01005480 BBIE 0..1 CI_ Exchanged Document_ Context. Specified_ Transaction. Identifier / SMEInvoice/ CIExchangedDocumentContext/ CIExchangedDocumentContextSpecifiedTransactionID",
+            "UN01012746 BBIE 0..1 CI_ Exchanged Document_ Context. Processing_ Transaction. Date Time / SMEInvoice/ CIExchangedDocumentContext/ ",
+            "UN01005481 ASBIE 1..1 CI_ Exchanged Document_ Context. Business Process_ Specified. CI_ Document Context_ Parameter / SMEInvoice/ CIExchangedDocumentContext/ ",
+            "UN01005483 ASBIE 0..1 CI_ Exchanged Document_ Context. Scenario_ Specified. CI_ Document Context_ Parameter / SMEInvoice/ CIExchangedDocumentContext/ ",
+            "UN01005484 ASBIE 0..1 CI_ Exchanged Document_ Context. Application_ Specified. CI_ Document Context_ Parameter / SMEInvoice/ CIExchangedDocumentContext/ ",
+            "UN01005486 ASBIE 1..1 CI_ Exchanged Document_ Context. Subset_ Specified. CI_ Document Context_ Parameter / SMEInvoice/ CIExchangedDocumentContext/ "
+        ]
+    ],
+    "UN01005861 CIIH_ Exchanged_ Document. Details": [
+        [
+            "UN01005862 BBIE 1..1 CIIH_ Exchanged_ Document. Identification. Identifier / SMEInvoice/ CIIHExchangedDocument/ CIIHExchangedDocumentID",
+            "UN01005863 BBIE 0..1 CIIH_ Exchanged_ Document. Name. Text / SMEInvoice/ CIIHExchangedDocument/ CIIHExchangedDocumentName",
+            "UN01005864 BBIE 0..1 CIIH_ Exchanged_ Document. Type. Code / SMEInvoice/ CIIHExchangedDocument/ ",
+            "UN01005865 BBIE 1..1 CIIH_ Exchanged_ Document. Issue. Date Time / SMEInvoice/ CIIHExchangedDocument/ ",
+            "UN01005869 BBIE 0..1 CIIH_ Exchanged_ Document. Purpose. Code / SMEInvoice/ CIIHExchangedDocument/ ",
+            "UN01005874 BBIE 0..1 CIIH_ Exchanged_ Document. Previous Revision_ Identification. Identifier / SMEInvoice/ CIIHExchangedDocument/ CIIHExchangedDocumentPreviousRevisionID",
+            "UN01005875 BBIE 0..1 CIIH_ Exchanged_ Document. Category. Code / SMEInvoice/ CIIHExchangedDocument/ ",
+            "UN01014636 BBIE 0..1 CIIH_ Exchanged_ Document. Subtype. Code / SMEInvoice/ CIIHExchangedDocument/ ",
+            "UN01005876 ASBIE 0..n CIIH_ Exchanged_ Document. Included. CI_ Note / SMEInvoice/ CIIHExchangedDocument/ ",
+            "UN01012702 ASBIE 0..n CIIH_ Exchanged_ Document. Reference. CI_ Referenced_ Document / SMEInvoice/ CIIHExchangedDocument/ ",
+            "UN01015490 ASBIE 0..n CIIH_ Exchanged_ Document. Attached. Specified_ Binary File / SMEInvoice/ CIIHExchangedDocument/ "
+        ]
+    ],
+    "UN01005936 CIIH_ Supply Chain_ Trade Transaction. Details": [
+        [
+            "UN01005937 ASBIE 1..1 CIIH_ Supply Chain_ Trade Transaction. Applicable. CIIH_ Supply Chain_ Trade Agreement / SMEInvoice/ CIIHSupplyChainTradeTransaction/ ",
+            "UN01005939 ASBIE 1..1 CIIH_ Supply Chain_ Trade Transaction. Applicable. CIIH_ Supply Chain_ Trade Settlement / SMEInvoice/ CIIHSupplyChainTradeTransaction/ ",
+            "UN01005940 ASBIE 1..n CIIH_ Supply Chain_ Trade Transaction. Included. CIIL_ Supply Chain_ Trade Line Item / SMEInvoice/ CIIHSupplyChainTradeTransaction/ "
+        ]
+    ],
+    "UN01005471 CI_ Document Context_ Parameter. Details": [
+        [
+            "UN01005472 BBIE 0..1 CI_ Document Context_ Parameter. Identification. Identifier / SMEInvoice/ CIExchangedDocumentContext/ / CIDocumentContextParameterID",
+            "UN01005473 BBIE 0..1 CI_ Document Context_ Parameter. Value. Text / SMEInvoice/ CIExchangedDocumentContext/ / CIDocumentContextParameterValue",
+            "UN01005474 ASBIE 1..1 CI_ Document Context_ Parameter. Specified. CI_ Document_ Version / SMEInvoice/ CIExchangedDocumentContext/ / "
+        ],
+        [
+            "UN01005472 BBIE 0..1 CI_ Document Context_ Parameter. Identification. Identifier / SMEInvoice/ CIExchangedDocumentContext/ / CIDocumentContextParameterID",
+            "UN01005473 BBIE 0..1 CI_ Document Context_ Parameter. Value. Text / SMEInvoice/ CIExchangedDocumentContext/ / CIDocumentContextParameterValue"
+        ],
+        [
+            "UN01005472 BBIE 0..1 CI_ Document Context_ Parameter. Identification. Identifier / SMEInvoice/ CIExchangedDocumentContext/ / CIDocumentContextParameterID",
+            "UN01005473 BBIE 0..1 CI_ Document Context_ Parameter. Value. Text / SMEInvoice/ CIExchangedDocumentContext/ / CIDocumentContextParameterValue"
+        ],
+        [
+            "UN01005472 BBIE 0..1 CI_ Document Context_ Parameter. Identification. Identifier / SMEInvoice/ CIExchangedDocumentContext/ / CIDocumentContextParameterID",
+            "UN01005473 BBIE 0..1 CI_ Document Context_ Parameter. Value. Text / SMEInvoice/ CIExchangedDocumentContext/ / CIDocumentContextParameterValue",
+            "UN01005474 ASBIE 0..1 CI_ Document Context_ Parameter. Specified. CI_ Document_ Version / SMEInvoice/ CIExchangedDocumentContext/ / "
+        ]
+    ],
+    "UN01005557 CI_ Note. Details": [
+        [
+            "UN01005558 BBIE 0..1 CI_ Note. Subject. Text / SMEInvoice/ CIIHExchangedDocument/ / CINoteSubject",
+            "UN01005560 BBIE 0..1 CI_ Note. Content. Text / SMEInvoice/ CIIHExchangedDocument/ / CINoteContent",
+            "UN01005562 BBIE 0..1 CI_ Note. Identification. Identifier / SMEInvoice/ CIIHExchangedDocument/ / CINoteID"
+        ],
+        [
+            "UN01005558 BBIE 0..1 CI_ Note. Subject. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CINoteSubject",
+            "UN01005560 BBIE 0..1 CI_ Note. Content. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CINoteContent",
+            "UN01005562 BBIE 0..1 CI_ Note. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CINoteID"
+        ],
+        [
+            "UN01005558 BBIE 0..1 CI_ Note. Subject. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CINoteSubject",
+            "UN01005560 BBIE 0..1 CI_ Note. Content. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CINoteContent",
+            "UN01005562 BBIE 0..1 CI_ Note. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CINoteID"
+        ]
+    ],
+    "UN01005579 CI_ Referenced_ Document. Details": [
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHExchangedDocument/ / CIReferencedDocumentIssuerAssignedID",
+            "UN01005581 BBIE 0..1 CI_ Referenced_ Document. URI_ Identification. Identifier / SMEInvoice/ CIIHExchangedDocument/ / CIReferencedDocumentURIID",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time / SMEInvoice/ CIIHExchangedDocument/ / ",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHExchangedDocument/ / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHExchangedDocument/ / CIReferencedDocumentRevisionID",
+            "UN01006415 BBIE 0..1 CI_ Referenced_ Document. Information. Text / SMEInvoice/ CIIHExchangedDocument/ / CIReferencedDocumentInformation",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHExchangedDocument/ / ",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object / SMEInvoice/ CIIHExchangedDocument/ / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHExchangedDocument/ / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID",
+            "UN01006415 BBIE 0..1 CI_ Referenced_ Document. Information. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentInformation",
+            "UN01009672 BBIE 1..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01013318 BBIE 0..1 CI_ Referenced_ Document. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID",
+            "UN01006415 BBIE 0..1 CI_ Referenced_ Document. Information. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentInformation",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentRevisionID",
+            "UN01006415 BBIE 0..1 CI_ Referenced_ Document. Information. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIReferencedDocumentInformation",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005585 BBIE 1..1 CI_ Referenced_ Document. Line. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentLineID",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentRevisionID"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005585 BBIE 1..1 CI_ Referenced_ Document. Line. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentLineID",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentRevisionID"
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005585 BBIE 1..1 CI_ Referenced_ Document. Line. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentLineID",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentRevisionID",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005585 BBIE 1..1 CI_ Referenced_ Document. Line. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentLineID",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentRevisionID",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01011455 BBIE 0..1 CI_ Referenced_ Document. Attachment. Binary Object / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ],
+        [
+            "UN01005580 BBIE 1..1 CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentIssuerAssignedID",
+            "UN01005582 BBIE 0..1 CI_ Referenced_ Document. Issue. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005585 BBIE 1..1 CI_ Referenced_ Document. Line. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentLineID",
+            "UN01005586 BBIE 0..1 CI_ Referenced_ Document. Reference_ Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005588 BBIE 0..1 CI_ Referenced_ Document. Revision_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIReferencedDocumentRevisionID",
+            "UN01009672 BBIE 0..1 CI_ Referenced_ Document. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01014899 BBIE 0..1 CI_ Referenced_ Document. Subtype. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ]
+    ],
+    "UN01006014 Specified_ Binary File. Details": [
+        [
+            "UN01006015 BBIE 1..1 Specified_ Binary File. Identification. Identifier / SMEInvoice/ CIIHExchangedDocument/ / SpecifiedBinaryFileID",
+            "UN01006019 BBIE 0..1 Specified_ Binary File. File Name. Text / SMEInvoice/ CIIHExchangedDocument/ / SpecifiedBinaryFileFileName",
+            "UN01006020 BBIE 0..1 Specified_ Binary File. URI. Identifier / SMEInvoice/ CIIHExchangedDocument/ / SpecifiedBinaryFileURIID",
+            "UN01006021 BBIE 1..1 Specified_ Binary File. MIME. Code / SMEInvoice/ CIIHExchangedDocument/ / ",
+            "UN01006026 BBIE 0..1 Specified_ Binary File. Description. Text / SMEInvoice/ CIIHExchangedDocument/ / SpecifiedBinaryFileDescription"
+        ]
+    ],
+    "UN01005878 CIIH_ Supply Chain_ Trade Agreement. Details": [
+        [
+            "UN01005879 ASBIE 1..1 CIIH_ Supply Chain_ Trade Agreement. Seller. CI_ Trade_ Party / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005880 ASBIE 1..1 CIIH_ Supply Chain_ Trade Agreement. Buyer. CI_ Trade_ Party / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01011516 ASBIE 0..1 CIIH_ Supply Chain_ Trade Agreement. Specified. Procuring_ Project / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / "
+        ]
+    ],
+    "UN01005909 CIIH_ Supply Chain_ Trade Settlement. Details": [
+        [
+            "UN01005913 BBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Tax_ Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005914 BBIE 1..1 CIIH_ Supply Chain_ Trade Settlement. Invoice_ Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005915 BBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Payment_ Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005916 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Invoicer. CI_ Trade_ Party / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005917 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Invoicee. CI_ Trade_ Party / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005918 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Payee. CI_ Trade_ Party / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005919 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Payer. CI_ Trade_ Party / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005921 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Invoice_ Applicable. CI_ Trade_ Currency Exchange / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005922 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Payment_ Applicable. CI_ Trade_ Currency Exchange / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005923 ASBIE 0..n CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Trade Settlement_ Payment Means / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005924 ASBIE 0..n CIIH_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005925 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005929 ASBIE 0..n CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Payment Terms / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005930 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Specified. CIIH_ Trade Settlement_ Monetary Summation / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005931 ASBIE 0..n CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "JPS2300021 ASBIE 0..n CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Advance_ Payment / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01015492 ASBIE 0..1 CIIH_ Supply Chain_ Trade Settlement. Outstanding_ Specified. CIIH_ Trade Settlement_ Monetary Summation / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / "
+        ]
+    ],
+    "UN01005988 CIIL_ Supply Chain_ Trade Line Item. Details": [
+        [
+            "UN01005989 ASBIE 1..1 CIIL_ Supply Chain_ Trade Line Item. Associated. CIIL_ Document Line_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005990 ASBIE 0..1 CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Agreement / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005991 ASBIE 0..1 CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Delivery / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01005992 ASBIE 0..1 CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Settlement / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / ",
+            "UN01009669 ASBIE 1..n CIIL_ Supply Chain_ Trade Line Item. Subordinate. CIILB_ Subordinate_ Trade Line Item / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / "
+        ]
+    ],
+    "UN01005475 CI_ Document_ Version. Details": [
+        [
+            "UN01005476 BBIE 0..1 CI_ Document_ Version. Identification. Identifier / SMEInvoice/ CIExchangedDocumentContext/ / / CIDocumentVersionID",
+            "UN01005478 BBIE 0..1 CI_ Document_ Version. Issue. Date Time / SMEInvoice/ CIExchangedDocumentContext/ / / "
+        ],
+        [
+            "UN01005476 BBIE 0..1 CI_ Document_ Version. Identification. Identifier / SMEInvoice/ CIExchangedDocumentContext/ / / CIDocumentVersionID",
+            "UN01005478 BBIE 0..1 CI_ Document_ Version. Issue. Date Time / SMEInvoice/ CIExchangedDocumentContext/ / / "
+        ]
+    ],
+    "UN01005756 CI_ Trade_ Party. Details": [
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyID",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyGlobalID",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyName",
+            "UN01013039 BBIE 0..1 CI_ Trade_ Party. Registered_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyRegisteredID",
+            "UN01012925 BBIE 0..1 CI_ Trade_ Party. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005761 ASBIE 0..1 CI_ Trade_ Party. Defined. CI_ Trade_ Contact / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005765 ASBIE 0..1 CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyID",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyGlobalID",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyName",
+            "UN01013039 BBIE 0..1 CI_ Trade_ Party. Registered_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyRegisteredID",
+            "UN01012925 BBIE 0..1 CI_ Trade_ Party. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005761 ASBIE 0..1 CI_ Trade_ Party. Defined. CI_ Trade_ Contact / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005765 ASBIE 0..1 CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyID",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyGlobalID",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyName",
+            "UN01013039 BBIE 0..1 CI_ Trade_ Party. Registered_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyRegisteredID",
+            "UN01012925 BBIE 1..1 CI_ Trade_ Party. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005761 ASBIE 0..1 CI_ Trade_ Party. Defined. CI_ Trade_ Contact / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005765 ASBIE 1..1 CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyID",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyGlobalID",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyName",
+            "UN01005761 ASBIE 0..1 CI_ Trade_ Party. Defined. CI_ Trade_ Contact / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005765 ASBIE 0..1 CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyID",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyGlobalID",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyName",
+            "UN01005761 ASBIE 0..1 CI_ Trade_ Party. Defined. CI_ Trade_ Contact / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyID",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyGlobalID",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePartyName",
+            "UN01005761 ASBIE 0..1 CI_ Trade_ Party. Defined. CI_ Trade_ Contact / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005757 BBIE 0..1 CI_ Trade_ Party. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradePartyID",
+            "UN01005758 BBIE 0..1 CI_ Trade_ Party. Global_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradePartyGlobalID",
+            "UN01005759 BBIE 0..1 CI_ Trade_ Party. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradePartyName",
+            "UN01005762 ASBIE 0..1 CI_ Trade_ Party. Postal. CI_ Trade_ Address / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01000371 Procuring_ Project. Details": [
+        [
+            "UN01000372 BBIE 0..1 Procuring_ Project. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ProcuringProjectID",
+            "UN01000374 BBIE 0..1 Procuring_ Project. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ProcuringProjectName"
+        ]
+    ],
+    "UN01005738 CI_ Trade_ Currency Exchange. Details": [
+        [
+            "UN01005739 BBIE 0..1 CI_ Trade_ Currency Exchange. Source Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005741 BBIE 0..1 CI_ Trade_ Currency Exchange. Target Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005744 BBIE 0..1 CI_ Trade_ Currency Exchange. Conversion. Rate / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005745 BBIE 0..1 CI_ Trade_ Currency Exchange. Conversion Rate. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005739 BBIE 0..1 CI_ Trade_ Currency Exchange. Source Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005741 BBIE 0..1 CI_ Trade_ Currency Exchange. Target Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005744 BBIE 0..1 CI_ Trade_ Currency Exchange. Conversion. Rate / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005745 BBIE 0..1 CI_ Trade_ Currency Exchange. Conversion Rate. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01005670 CI_ Trade Settlement_ Payment Means. Details": [
+        [
+            "UN01005672 BBIE 0..1 CI_ Trade Settlement_ Payment Means. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01011456 BBIE 0..1 CI_ Trade Settlement_ Payment Means. Information. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradeSettlementPaymentMeansInformation",
+            "UN01015504 BBIE 0..1 CI_ Trade Settlement_ Payment Means. Paid. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005677 ASBIE 0..1 CI_ Trade Settlement_ Payment Means. Payee_ Party. CI_ Creditor_ Financial Account / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005679 ASBIE 0..1 CI_ Trade Settlement_ Payment Means. Payee_ Specified. CI_ Creditor_ Financial Institution / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006057 ASBIE 0..1 CI_ Trade Settlement_ Payment Means. Applicable. Trade Settlement_ Financial Card / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01005832 CI_ Trade_ Tax. Details": [
+        [
+            "UN01005833 BBIE 0..1 CI_ Trade_ Tax. Calculated. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005841 BBIE 0..1 CI_ Trade_ Tax. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005850 BBIE 0..1 CI_ Trade_ Tax. Category Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradeTaxCategoryName",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01013096 BBIE 0..1 CI_ Trade_ Tax. Calculation Method. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01014650 BBIE 0..1 CI_ Trade_ Tax. Local Tax System. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradeTaxLocalTaxSystemID"
+        ],
+        [
+            "UN01005833 BBIE 0..1 CI_ Trade_ Tax. Calculated. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005836 BBIE 0..1 CI_ Trade_ Tax. Calculated. Rate / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005841 BBIE 0..1 CI_ Trade_ Tax. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005833 BBIE 0..1 CI_ Trade_ Tax. Calculated. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005834 BBIE 0..1 CI_ Trade_ Tax. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005839 BBIE 0..1 CI_ Trade_ Tax. Basis. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005842 BBIE 0..1 CI_ Trade_ Tax. Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005850 BBIE 0..1 CI_ Trade_ Tax. Category Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeTaxCategoryName",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01013040 BBIE 0..1 CI_ Trade_ Tax. Grand Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01013096 BBIE 0..1 CI_ Trade_ Tax. Calculation Method. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014650 BBIE 0..1 CI_ Trade_ Tax. Local Tax System. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeTaxLocalTaxSystemID"
+        ],
+        [
+            "UN01005833 BBIE 0..1 CI_ Trade_ Tax. Calculated. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005839 BBIE 0..1 CI_ Trade_ Tax. Basis. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005842 BBIE 0..1 CI_ Trade_ Tax. Currency. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014650 BBIE 0..1 CI_ Trade_ Tax. Local Tax System. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeTaxLocalTaxSystemID"
+        ],
+        [
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ],
+        [
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ],
+        [
+            "UN01005833 BBIE 0..1 CI_ Trade_ Tax. Calculated. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005841 BBIE 0..1 CI_ Trade_ Tax. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01007174 BBIE 1..1 CI_ Trade_ Tax. Rate_ Applicable. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ],
+        [
+            "UN01005834 BBIE 0..1 CI_ Trade_ Tax. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005839 BBIE 0..1 CI_ Trade_ Tax. Basis. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005841 BBIE 1..1 CI_ Trade_ Tax. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005850 BBIE 0..1 CI_ Trade_ Tax. Category Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeTaxCategoryName",
+            "UN01007174 BBIE 0..1 CI_ Trade_ Tax. Rate_ Applicable. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01013040 BBIE 0..1 CI_ Trade_ Tax. Grand Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01014650 BBIE 0..1 CI_ Trade_ Tax. Local Tax System. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeTaxLocalTaxSystemID"
+        ]
+    ],
+    "UN01005608 CI_ Specified_ Period. Details": [
+        [
+            "UN01005612 BBIE 0..1 CI_ Specified_ Period. Start. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005613 BBIE 1..1 CI_ Specified_ Period. End. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005612 BBIE 0..1 CI_ Specified_ Period. Start. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005613 BBIE 1..1 CI_ Specified_ Period. End. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005612 BBIE 0..1 CI_ Specified_ Period. Start. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005613 BBIE 1..1 CI_ Specified_ Period. End. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ]
+    ],
+    "UN01005779 CI_ Trade_ Payment Terms. Details": [
+        [
+            "UN01005780 BBIE 0..1 CI_ Trade_ Payment Terms. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePaymentTermsID",
+            "UN01005783 BBIE 0..1 CI_ Trade_ Payment Terms. Description. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CITradePaymentTermsDescription",
+            "UN01005784 BBIE 0..1 CI_ Trade_ Payment Terms. Due Date. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01008502 BBIE 0..1 CI_ Trade_ Payment Terms. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01015539 BBIE 0..1 CI_ Trade_ Payment Terms. Instructed. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01008502 BBIE 0..1 CI_ Trade_ Payment Terms. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01005941 CIIH_ Trade Settlement_ Monetary Summation. Details": [
+        [
+            "UN01005945 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Tax Basis Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005946 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Tax Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005948 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Grand Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005950 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Total Prepaid. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01008445 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Due Payable. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01008451 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Net_ Line Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01013091 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Including Taxes_ Line Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005943 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Charge Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005944 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Allowance Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005948 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Grand Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005950 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Total Prepaid. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01008445 BBIE 0..1 CIIH_ Trade Settlement_ Monetary Summation. Due Payable. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01015493 ASBIE 0..n CIIH_ Trade Settlement_ Monetary Summation. Specified. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01005487 CI_ Financial_ Adjustment. Details": [
+        [
+            "UN01005488 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005489 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CIFinancialAdjustmentReason",
+            "UN01005490 BBIE 0..1 CI_ Financial_ Adjustment. Actual. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01014649 BBIE 0..1 CI_ Financial_ Adjustment. Direction. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01009671 ASBIE 0..1 CI_ Financial_ Adjustment. Invoice_ Reference. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01014897 ASBIE 0..n CI_ Financial_ Adjustment. Related. CI_ Trade_ Tax / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ],
+        [
+            "UN01005488 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005489 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIFinancialAdjustmentReason",
+            "UN01005490 BBIE 0..1 CI_ Financial_ Adjustment. Actual. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014649 BBIE 0..1 CI_ Financial_ Adjustment. Direction. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014897 ASBIE 0..n CI_ Financial_ Adjustment. Related. CI_ Trade_ Tax / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005488 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005489 BBIE 0..1 CI_ Financial_ Adjustment. Reason. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIFinancialAdjustmentReason",
+            "UN01005490 BBIE 0..1 CI_ Financial_ Adjustment. Actual. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ]
+    ],
+    "UN01015590 CI_ Advance_ Payment. Details": [
+        [
+            "UN01015591 BBIE 0..1 CI_ Advance_ Payment. Paid. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01015592 BBIE 0..1 CI_ Advance_ Payment. Formatted_ Received. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01015593 BBIE 0..1 CI_ Advance_ Payment. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CIAdvancePaymentID",
+            "UN01015596 ASBIE 0..1 CI_ Advance_ Payment. Identified. CI_ Trade_ Payment Terms / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01005953 CIIL_ Document Line_ Document. Details": [
+        [
+            "UN01005954 BBIE 1..1 CIIL_ Document Line_ Document. Line. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CIILDocumentLineDocumentLineID",
+            "UN01014645 BBIE 0..1 CIIL_ Document Line_ Document. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005957 ASBIE 0..n CIIL_ Document Line_ Document. Included. CI_ Note / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01014895 ASBIE 0..1 CIIL_ Document Line_ Document. Reference. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01005958 CIIL_ Supply Chain_ Trade Agreement. Details": [
+        [
+            "UN01005960 ASBIE 0..1 CIIL_ Supply Chain_ Trade Agreement. Seller Order_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005961 ASBIE 0..1 CIIL_ Supply Chain_ Trade Agreement. Buyer Order_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005963 ASBIE 0..1 CIIL_ Supply Chain_ Trade Agreement. Contract_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01005968 CIIL_ Supply Chain_ Trade Delivery. Details": [
+        [
+            "UN01005980 ASBIE 0..1 CIIL_ Supply Chain_ Trade Delivery. Ship To. CI_ Trade_ Party / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005986 ASBIE 0..1 CIIL_ Supply Chain_ Trade Delivery. Actual_ Delivery. CI_ Supply Chain_ Event / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006039 ASBIE 0..n CIIL_ Supply Chain_ Trade Delivery. Despatch Advice_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006040 ASBIE 0..n CIIL_ Supply Chain_ Trade Delivery. Receiving Advice_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01005994 CIIL_ Supply Chain_ Trade Settlement. Details": [
+        [
+            "UN01014647 BBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Direction. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005998 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005998 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005996 ASBIE 1..n CIIL_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005996 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01005997 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006002 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Specified. CIIL_ Trade Settlement_ Monetary Summation / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006002 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Specified. CIIL_ Trade Settlement_ Monetary Summation / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006003 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006004 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006005 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Additional_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006005 ASBIE 0..n CIIL_ Supply Chain_ Trade Settlement. Additional_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01006080 ASBIE 0..1 CIIL_ Supply Chain_ Trade Settlement. Purchase_ Specified. CI_ Trade_ Accounting Account / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01009647 CIILB_ Subordinate_ Trade Line Item. Details": [
+        [
+            "UN01009648 BBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / CIILBSubordinateTradeLineItemID",
+            "UN01014637 BBIE 0..1 CIILB_ Subordinate_ Trade Line Item. Category. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01015533 ASBIE 0..n CIILB_ Subordinate_ Trade Line Item. Included. CI_ Note / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01009649 ASBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Agreement / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01009650 ASBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Delivery / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01009651 ASBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Settlement / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / ",
+            "UN01010016 ASBIE 1..1 CIILB_ Subordinate_ Trade Line Item. Applicable. CI_ Trade_ Product / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / "
+        ]
+    ],
+    "UN01005718 CI_ Trade_ Contact. Details": [
+        [
+            "UN01005719 BBIE 0..1 CI_ Trade_ Contact. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactID",
+            "UN01005720 BBIE 0..1 CI_ Trade_ Contact. Person Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonName",
+            "UN01005721 BBIE 0..1 CI_ Trade_ Contact. Department Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactDepartmentName",
+            "UN01005725 BBIE 0..1 CI_ Trade_ Contact. Person_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonID",
+            "UN01005726 ASBIE 0..1 CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005729 ASBIE 0..1 CI_ Trade_ Contact. Fax. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005730 ASBIE 0..1 CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005719 BBIE 0..1 CI_ Trade_ Contact. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactID",
+            "UN01005720 BBIE 0..1 CI_ Trade_ Contact. Person Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonName",
+            "UN01005721 BBIE 0..1 CI_ Trade_ Contact. Department Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactDepartmentName",
+            "UN01005725 BBIE 0..1 CI_ Trade_ Contact. Person_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonID",
+            "UN01005726 ASBIE 0..1 CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005729 ASBIE 0..1 CI_ Trade_ Contact. Fax. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005730 ASBIE 0..1 CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005719 BBIE 0..1 CI_ Trade_ Contact. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactID",
+            "UN01005720 BBIE 0..1 CI_ Trade_ Contact. Person Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonName",
+            "UN01005721 BBIE 0..1 CI_ Trade_ Contact. Department Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactDepartmentName",
+            "UN01005725 BBIE 0..1 CI_ Trade_ Contact. Person_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonID",
+            "UN01005726 ASBIE 0..1 CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005729 ASBIE 0..1 CI_ Trade_ Contact. Fax. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005730 ASBIE 0..1 CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005719 BBIE 0..1 CI_ Trade_ Contact. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactID",
+            "UN01005720 BBIE 0..1 CI_ Trade_ Contact. Person Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonName",
+            "UN01005721 BBIE 0..1 CI_ Trade_ Contact. Department Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactDepartmentName",
+            "UN01005725 BBIE 0..1 CI_ Trade_ Contact. Person_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonID",
+            "UN01005726 ASBIE 0..1 CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005729 ASBIE 0..1 CI_ Trade_ Contact. Fax. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005730 ASBIE 0..1 CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005719 BBIE 0..1 CI_ Trade_ Contact. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactID",
+            "UN01005720 BBIE 0..1 CI_ Trade_ Contact. Person Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonName",
+            "UN01005721 BBIE 0..1 CI_ Trade_ Contact. Department Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactDepartmentName",
+            "UN01005725 BBIE 0..1 CI_ Trade_ Contact. Person_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonID",
+            "UN01005726 ASBIE 0..1 CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005729 ASBIE 0..1 CI_ Trade_ Contact. Fax. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005730 ASBIE 0..1 CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005719 BBIE 0..1 CI_ Trade_ Contact. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactID",
+            "UN01005720 BBIE 0..1 CI_ Trade_ Contact. Person Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonName",
+            "UN01005721 BBIE 0..1 CI_ Trade_ Contact. Department Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactDepartmentName",
+            "UN01005725 BBIE 0..1 CI_ Trade_ Contact. Person_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeContactPersonID",
+            "UN01005726 ASBIE 0..1 CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005729 ASBIE 0..1 CI_ Trade_ Contact. Fax. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005730 ASBIE 0..1 CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01005687 CI_ Trade_ Address. Details": [
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineOne",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineTwo",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineThree",
+            "UN01005700 BBIE 1..1 CI_ Trade_ Address. Country. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressCountryID"
+        ],
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineOne",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineTwo",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineThree",
+            "UN01005700 BBIE 1..1 CI_ Trade_ Address. Country. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressCountryID"
+        ],
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineOne",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineTwo",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineThree",
+            "UN01005700 BBIE 1..1 CI_ Trade_ Address. Country. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressCountryID"
+        ],
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineOne",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineTwo",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineThree",
+            "UN01005700 BBIE 1..1 CI_ Trade_ Address. Country. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressCountryID"
+        ],
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineOne",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineTwo",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineThree",
+            "UN01005700 BBIE 1..1 CI_ Trade_ Address. Country. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressCountryID"
+        ],
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineOne",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineTwo",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressLineThree",
+            "UN01005700 BBIE 1..1 CI_ Trade_ Address. Country. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAddressCountryID"
+        ],
+        [
+            "UN01005689 BBIE 0..1 CI_ Trade_ Address. Postcode. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005692 BBIE 0..1 CI_ Trade_ Address. Line One. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeAddressLineOne",
+            "UN01005693 BBIE 0..1 CI_ Trade_ Address. Line Two. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeAddressLineTwo",
+            "UN01005694 BBIE 0..1 CI_ Trade_ Address. Line Three. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeAddressLineThree",
+            "UN01005700 BBIE 0..1 CI_ Trade_ Address. Country. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeAddressCountryID"
+        ]
+    ],
+    "UN01005857 CI_ Universal_ Communication. Details": [
+        [
+            "UN01005859 BBIE 0..1 CI_ Universal_ Communication. Channel. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005859 BBIE 0..1 CI_ Universal_ Communication. Channel. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005859 BBIE 1..1 CI_ Universal_ Communication. Channel. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005860 BBIE 1..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005859 BBIE 0..1 CI_ Universal_ Communication. Channel. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005858 BBIE 0..1 CI_ Universal_ Communication. URI. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationURIID"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005858 BBIE 0..1 CI_ Universal_ Communication. URI. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationURIID"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005858 BBIE 0..1 CI_ Universal_ Communication. URI. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationURIID"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005858 BBIE 0..1 CI_ Universal_ Communication. URI. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationURIID"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005858 BBIE 0..1 CI_ Universal_ Communication. URI. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationURIID"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005860 BBIE 0..1 CI_ Universal_ Communication. Complete Number. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationCompleteNumber"
+        ],
+        [
+            "UN01005858 BBIE 0..1 CI_ Universal_ Communication. URI. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIUniversalCommunicationURIID"
+        ]
+    ],
+    "UN01005398 CI_ Creditor_ Financial Account. Details": [
+        [
+            "UN01005400 BBIE 0..1 CI_ Creditor_ Financial Account. Account Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CICreditorFinancialAccountAccountName",
+            "UN01005401 BBIE 0..1 CI_ Creditor_ Financial Account. Proprietary_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CICreditorFinancialAccountProprietaryID",
+            "UN01012127 BBIE 0..1 CI_ Creditor_ Financial Account. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01005402 CI_ Creditor_ Financial Institution. Details": [
+        [
+            "UN01005426 BBIE 0..1 CI_ Creditor_ Financial Institution. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CICreditorFinancialInstitutionName",
+            "UN01011521 BBIE 0..1 CI_ Creditor_ Financial Institution. Japan Financial Institution Common_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CICreditorFinancialInstitutionJapanFinancialInstitutionCommonID",
+            "UN01005428 ASBIE 0..1 CI_ Creditor_ Financial Institution. Sub-Division. Branch_ Financial Institution / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01004493 Trade Settlement_ Financial Card. Details": [
+        [
+            "UN01004495 BBIE 1..1 Trade Settlement_ Financial Card. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / TradeSettlementFinancialCardID",
+            "UN01004496 BBIE 0..1 Trade Settlement_ Financial Card. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01004497 BBIE 1..1 Trade Settlement_ Financial Card. Cardholder Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / TradeSettlementFinancialCardCardholderName",
+            "UN01009966 BBIE 0..1 Trade Settlement_ Financial Card. Issuing Company Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / TradeSettlementFinancialCardIssuingCompanyName"
+        ]
+    ],
+    "UN01005626 CI_ Supply Chain_ Event. Details": [
+        [
+            "UN01005628 BBIE 0..1 CI_ Supply Chain_ Event. Occurrence. Date Time / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01005706 CI_ Trade_ Allowance Charge. Details": [
+        [
+            "UN01005707 BBIE 1..1 CI_ Trade_ Allowance Charge. Charge. Indicator / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005710 BBIE 0..1 CI_ Trade_ Allowance Charge. Calculation. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005713 BBIE 0..1 CI_ Trade_ Allowance Charge. Actual. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005714 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005715 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAllowanceChargeReason",
+            "UN01008286 BBIE 0..1 CI_ Trade_ Allowance Charge. Basis. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005716 ASBIE 0..n CI_ Trade_ Allowance Charge. Category. CI_ Trade_ Tax / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005707 BBIE 1..1 CI_ Trade_ Allowance Charge. Charge. Indicator / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005710 BBIE 0..1 CI_ Trade_ Allowance Charge. Calculation. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005713 BBIE 0..1 CI_ Trade_ Allowance Charge. Actual. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005714 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005715 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAllowanceChargeReason",
+            "UN01008286 BBIE 0..1 CI_ Trade_ Allowance Charge. Basis. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005716 ASBIE 0..n CI_ Trade_ Allowance Charge. Category. CI_ Trade_ Tax / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01005707 BBIE 1..1 CI_ Trade_ Allowance Charge. Charge. Indicator / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005710 BBIE 0..1 CI_ Trade_ Allowance Charge. Calculation. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005713 BBIE 0..1 CI_ Trade_ Allowance Charge. Actual. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005714 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005715 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeAllowanceChargeReason",
+            "UN01008286 BBIE 0..1 CI_ Trade_ Allowance Charge. Basis. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ],
+        [
+            "UN01005707 BBIE 1..1 CI_ Trade_ Allowance Charge. Charge. Indicator / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005710 BBIE 0..1 CI_ Trade_ Allowance Charge. Calculation. Percent / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005713 BBIE 0..1 CI_ Trade_ Allowance Charge. Actual. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005714 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005715 BBIE 0..1 CI_ Trade_ Allowance Charge. Reason. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeAllowanceChargeReason",
+            "UN01008286 BBIE 0..1 CI_ Trade_ Allowance Charge. Basis. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ]
+    ],
+    "UN01006006 CIIL_ Trade Settlement_ Monetary Summation. Details": [
+        [
+            "UN01006008 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Charge Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01006009 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Allowance Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01006011 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Tax Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01008455 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Gross_ Line Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01008456 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Net_ Line Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01008457 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Net Including Taxes_ Line Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01011519 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Grand Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ],
+        [
+            "UN01006011 BBIE 0..1 CIIL_ Trade Settlement_ Monetary Summation. Tax Total. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01005680 CI_ Trade_ Accounting Account. Details": [
+        [
+            "UN01005683 BBIE 1..1 CI_ Trade_ Accounting Account. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005685 BBIE 0..1 CI_ Trade_ Accounting Account. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeAccountingAccountName"
+        ],
+        [
+            "UN01005683 BBIE 0..1 CI_ Trade_ Accounting Account. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005685 BBIE 0..1 CI_ Trade_ Accounting Account. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeAccountingAccountName"
+        ]
+    ],
+    "UN01009653 CIILB_ Supply Chain_ Trade Agreement. Details": [
+        [
+            "UN01009654 ASBIE 0..1 CIILB_ Supply Chain_ Trade Agreement. Seller Order_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01009655 ASBIE 0..1 CIILB_ Supply Chain_ Trade Agreement. Buyer Order_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01009656 ASBIE 0..1 CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01009656 ASBIE 0..n CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01009658 ASBIE 1..1 CIILB_ Supply Chain_ Trade Agreement. Net Price_ Product. CI_ Trade_ Price / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01009659 CIILB_ Supply Chain_ Trade Delivery. Details": [
+        [
+            "UN01009660 BBIE 0..1 CIILB_ Supply Chain_ Trade Delivery. Package. Quantity / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01009661 BBIE 0..1 CIILB_ Supply Chain_ Trade Delivery. Product_ Unit. Quantity / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01009662 BBIE 0..1 CIILB_ Supply Chain_ Trade Delivery. Per Package_ Unit. Quantity / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014639 BBIE 1..1 CIILB_ Supply Chain_ Trade Delivery. Billed. Quantity / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01009664 CIILB_ Supply Chain_ Trade Settlement. Details": [
+        [
+            "UN01014641 BBIE 0..1 CIILB_ Supply Chain_ Trade Settlement. Direction. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01009665 ASBIE 1..1 CIILB_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014642 ASBIE 0..n CIILB_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014644 ASBIE 0..n CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014644 ASBIE 0..n CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014643 ASBIE 0..n CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01014894 ASBIE 1..1 CIILB_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01015534 ASBIE 0..1 CIILB_ Supply Chain_ Trade Settlement. Purchase_ Specified. CI_ Trade_ Accounting Account / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01005809 CI_ Trade_ Product. Details": [
+        [
+            "UN01005810 BBIE 0..1 CI_ Trade_ Product. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeProductID",
+            "UN01005811 BBIE 0..1 CI_ Trade_ Product. Global_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeProductGlobalID",
+            "UN01005812 BBIE 0..1 CI_ Trade_ Product. Seller Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeProductSellerAssignedID",
+            "UN01005813 BBIE 0..1 CI_ Trade_ Product. Buyer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeProductBuyerAssignedID",
+            "UN01005814 BBIE 0..1 CI_ Trade_ Product. Manufacturer Assigned_ Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeProductManufacturerAssignedID",
+            "UN01005815 BBIE 1..1 CI_ Trade_ Product. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeProductName",
+            "UN01005817 BBIE 0..1 CI_ Trade_ Product. Description. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / CITradeProductDescription",
+            "UN01008533 BBIE 0..1 CI_ Trade_ Product. Variable Measure. Indicator / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005823 ASBIE 0..1 CI_ Trade_ Product. Designated. CI_ Product_ Classification / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005821 ASBIE 0..n CI_ Trade_ Product. Applicable. CI_ Product_ Characteristic / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / ",
+            "UN01005827 ASBIE 0..n CI_ Trade_ Product. Origin. CI_ Trade_ Country / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / "
+        ]
+    ],
+    "UN01003138 Branch_ Financial Institution. Details": [
+        [
+            "UN01003139 BBIE 0..1 Branch_ Financial Institution. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / BranchFinancialInstitutionID",
+            "UN01003140 BBIE 0..1 Branch_ Financial Institution. Name. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / BranchFinancialInstitutionName"
+        ]
+    ],
+    "UN01005790 CI_ Trade_ Price. Details": [
+        [
+            "UN01005791 BBIE 0..1 CI_ Trade_ Price. Type. Code / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005792 BBIE 1..1 CI_ Trade_ Price. Charge. Amount / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / ",
+            "UN01005793 BBIE 0..1 CI_ Trade_ Price. Basis. Quantity / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / "
+        ]
+    ],
+    "UN01005573 CI_ Product_ Classification. Details": [
+        [
+            "UN01005574 BBIE 0..1 CI_ Product_ Classification. System. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIProductClassificationSystemID"
+        ]
+    ],
+    "UN01005567 CI_ Product_ Characteristic. Details": [
+        [
+            "UN01005570 BBIE 0..1 CI_ Product_ Characteristic. Description. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIProductCharacteristicDescription",
+            "UN01011457 BBIE 0..1 CI_ Product_ Characteristic. Value. Text / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CIProductCharacteristicValue"
+        ]
+    ],
+    "UN01005735 CI_ Trade_ Country. Details": [
+        [
+            "UN01005736 BBIE 0..1 CI_ Trade_ Country. Identification. Identifier / SMEInvoice/ CIIHSupplyChainTradeTransaction/ / / / / CITradeCountryID"
+        ]
+    ]
+}
