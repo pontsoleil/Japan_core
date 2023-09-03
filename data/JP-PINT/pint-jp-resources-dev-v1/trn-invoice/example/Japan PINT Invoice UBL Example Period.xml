@@ -10,7 +10,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<!-- 
-Japan common commercial invoice, example1-minimum
+Japan common commercial invoice, example1-minimum Period ERROR
 -->
 
 	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
