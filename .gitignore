@@ -147,5 +147,8 @@ XBRL_GLinstances/
 data/xbrl/230424/
 data/general_ledger/test/
 data/SME_Common/15JUL23XMLSchemas-D23A/
+data/SME_Common/SMEEDI_4p1_20230801/提案SME-COMMON_4p1/
 data/PCAサンプルデータ/
 data/グローバルワイズ/
+
+*[0-9]{6}/
