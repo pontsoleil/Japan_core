@@ -495,8 +495,8 @@ version="20230720134820">
       <xsd:element name="Value" type="TextType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01005473-->
       </xsd:element>
-      <xsd:element name="SpecifiedCIDocumentVersion" type="CIDocumentVersionType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01005474-->
+      <xsd:element name="SpecifiedCIDocumentVersion" type="CIDocumentVersionType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005474 Changed minOccurs to 0-->
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
@@ -543,7 +543,7 @@ version="20230720134820">
       </xsd:element>
       <xsd:element name="TypeCode" type="CodeType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01009672 任意項目？-->
-      </xsd:element>
+      </xsd:element>      
       <!-- DUPLICATE <xsd:element name="TypeCode" type="CodeType"  minOccurs="1" maxOccurs="1"  >-->
         <!--UN01009672-->
       <!--</xsd:element>-->
@@ -558,6 +558,9 @@ version="20230720134820">
       </xsd:element>
       <xsd:element name="SubtypeCode" type="CodeType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01014899-->
+      </xsd:element>
+      <xsd:element name="AttachedSpecifiedBinaryFile" type="SpecifiedBinaryFileType" minOccurs="0" maxOccurs="unbounded">
+        <!--UN01010482 Added to specify name and description etc. SAMBUICHI-->
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
@@ -576,8 +579,8 @@ version="20230720134820">
       <xsd:element name="URIID" type="IDType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01006020-->
       </xsd:element>
-      <xsd:element name="MIMECode" type="CodeType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01006021-->
+      <xsd:element name="MIMECode" type="CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01006021 Changed minOccurs to 0 SAMBUICHI-->
       </xsd:element>
       <xsd:element name="Description" type="TextType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01006026-->
@@ -671,8 +674,8 @@ version="20230720134820">
       <xsd:element name="URIID" type="IDType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01005858-->
       </xsd:element>
-      <xsd:element name="ChannelCode" type="CodeType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01005859-->
+      <xsd:element name="ChannelCode" type="CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005859 Changed minOccurs to 0-->
       </xsd:element>
       <xsd:element name="CompleteNumber" type="TextType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01005860-->
@@ -739,16 +742,13 @@ version="20230720134820">
       </xsd:element>
       <xsd:element name="SpecifiedCITradeSettlementPaymentMeans" type="CITradeSettlementPaymentMeansType"  minOccurs="0" maxOccurs="unbounded"  >
         <!--UN01005923-->
-      </xsd:element>
-      
+      </xsd:element>      
       <xsd:element name="ApplicableCITradeTax" type="CITradeTaxType"  minOccurs="0" maxOccurs="unbounded"  >
         <!--UN01005924 BIE表にある項目だが未定義-->
       </xsd:element>
       <xsd:element name="BillingCISpecifiedPeriod" type="CISpecifiedPeriodType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01005925 BIE表にある項目だが未定義-->
-      </xsd:element>
-      
-      
+      </xsd:element>           
       <xsd:element name="SpecifiedCITradePaymentTerms" type="CITradePaymentTermsType"  minOccurs="0" maxOccurs="unbounded"  >
         <!--UN01005929-->
       </xsd:element>
@@ -964,8 +964,8 @@ version="20230720134820">
   <xsd:complexType name="CIILSupplyChainTradeLineItemType">
     <!--UN01005988-->
     <xsd:sequence>
-      <xsd:element name="AssociatedCIILDocumentLineDocument" type="CIILDocumentLineDocumentType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01005989-->
+      <xsd:element name="AssociatedCIILDocumentLineDocument" type="CIILDocumentLineDocumentType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005989 Changed minOccurs to 0-->
       </xsd:element>
       <xsd:element name="SpecifiedCIILSupplyChainTradeAgreement" type="CIILSupplyChainTradeAgreementType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01005990-->
@@ -987,11 +987,11 @@ version="20230720134820">
   <xsd:complexType name="CIILDocumentLineDocumentType">
     <!--UN01005953-->
     <xsd:sequence>
-      <xsd:element name="LineID" type="IDType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01005954-->
+      <xsd:element name="LineID" type="IDType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005954 Changed minOccurs to 0 SAMBUICHI-->
       </xsd:element>
-      <xsd:element name="CategoryCode" type="CodeType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01014645-->
+      <xsd:element name="CategoryCode" type="CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01014645 Changed minOccurs to 0 SAMBUICHI-->
       </xsd:element>
       <xsd:element name="IncludedCINote" type="CINoteType"  minOccurs="0" maxOccurs="unbounded"  >
         <!--UN01005957-->
@@ -1069,8 +1069,8 @@ version="20230720134820">
   <xsd:complexType name="CIILSupplyChainTradeSettlementType">
     <!--UN01005994-->
     <xsd:sequence>
-      <xsd:element name="DirectionCode" type="CodeType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01014647-->
+      <xsd:element name="DirectionCode" type="CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01014647 Changed minOccurs to 0-->
       </xsd:element>
       <xsd:element name="ApplicableCITradeTax" type="CITradeTaxType"  minOccurs="1" maxOccurs="unbounded"  >
         <!--UN01005996-->
@@ -1194,8 +1194,8 @@ version="20230720134820">
       <xsd:element name="AllowanceTotalAmount" type="AmountType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01006009-->
       </xsd:element>
-      <xsd:element name="TaxTotalAmount" type="AmountType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01006011-->
+      <xsd:element name="TaxTotalAmount" type="AmountType"  minOccurs="1" maxOccurs="2"  >
+        <!--UN01006011 Changed maxOccurence to 2 TaxCurrency and InvoiceCurrency SAMBUICHI-->
       </xsd:element>
       <xsd:element name="GrossLineTotalAmount" type="AmountType"  minOccurs="1" maxOccurs="1"  >
         <!--UN01008455-->
@@ -1240,8 +1240,8 @@ version="20230720134820">
   <xsd:complexType name="CITradeAccountingAccountType">
     <!--UN01005680-->
     <xsd:sequence>
-      <xsd:element name="TypeCode" type="CodeType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01005683-->
+      <xsd:element name="TypeCode" type="CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01005683 changed minOccurs to 0 SAMBUICHI-->
       </xsd:element>
       <xsd:element name="Name" type="TextType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01005685-->
@@ -1340,8 +1340,8 @@ version="20230720134820">
   <xsd:complexType name="CIILBSupplyChainTradeSettlementType">
     <!--UN01009664-->
     <xsd:sequence>
-      <xsd:element name="DirectionCode" type="CodeType"  minOccurs="1" maxOccurs="1"  >
-        <!--UN01014641-->
+      <xsd:element name="DirectionCode" type="CodeType"  minOccurs="0" maxOccurs="1"  >
+        <!--UN01014641 Changed minOccurs to 0 SAMBUICHI-->
       </xsd:element>
       <xsd:element name="ApplicableCITradeTax" type="CITradeTaxType"  minOccurs="1" maxOccurs="1"  >
         <!--UN01009665-->
@@ -1360,7 +1360,7 @@ version="20230720134820">
       </xsd:element>
       <xsd:element name="PurchaseSpecifiedCITradeAccountingAccount" type="CITradeAccountingAccountType"  minOccurs="0" maxOccurs="1"  >
         <!--UN01015534-->
-      </xsd:element>
+      </xsd:element>      
     </xsd:sequence>
   </xsd:complexType>
 <!-- ================================================================== -->

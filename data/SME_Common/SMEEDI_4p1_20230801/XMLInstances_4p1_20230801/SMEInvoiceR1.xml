@@ -1,8 +1,5 @@
-<SMEInvoice 
-	xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1 ../XMLSchemas_4p1_20230801/SMEinvoice.xsd"
-	>
+<SMEInvoice xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1 ../XMLSchemas_4p1_20230801/SMEinvoice.xsd">
     <CIExchangedDocumentContext>
         <SpecifiedTransactionID>C0B0578C-8EAD-4520-B6D0-CA1F11C7953A</SpecifiedTransactionID>
         <ProcessingTransactionDateTime>

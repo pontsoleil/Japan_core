@@ -67,7 +67,6 @@
             </BuyerCITradeParty>
         </ApplicableCIIHSupplyChainTradeAgreement>
         <ApplicableCIIHSupplyChainTradeSettlement>
-            <TaxCurrencyCode >JPY</TaxCurrencyCode>
             <InvoiceCurrencyCode >JPY</InvoiceCurrencyCode>
             <SpecifiedCITradePaymentTerms>
                 <DueDateDateTime>
@@ -110,15 +109,16 @@
                     <ChargeTotalAmount >0</ChargeTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
                     <AllowanceTotalAmount >0</AllowanceTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
                     <TaxTotalAmount>10</TaxTotalAmount>
+                    <!--<TaxTotalAmount currencyID="JPY">10</TaxTotalAmount>-->
                     <GrossLineTotalAmount>100</GrossLineTotalAmount>
                     <NetLineTotalAmount>100</NetLineTotalAmount>
                     <NetIncludingTaxesLineTotalAmount >0</NetIncludingTaxesLineTotalAmount>                    <!-- '' is not a valid value for 'decimal'. -->
                     <GrandTotalAmount>110</GrandTotalAmount>
                 </SpecifiedCIILTradeSettlementMonetarySummation>
-                <PurchaseSpecifiedCITradeAccountingAccount>
+<!--                <PurchaseSpecifiedCITradeAccountingAccount>
                     <TypeCode />
                     <Name />
-                </PurchaseSpecifiedCITradeAccountingAccount>
+                </PurchaseSpecifiedCITradeAccountingAccount>-->
             </SpecifiedCIILSupplyChainTradeSettlement>
             <SubordinateCIILBSubordinateTradeLineItem>
                 <ID>1</ID>
