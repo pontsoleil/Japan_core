@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--  (c) 2023 XBRL Japan inc. -->
+<link:linkbase
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:link="http://www.xbrl.org/2003/linkbase"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">
+	<!--link:roleRef roleURI="http://www.xbrl.jp/japan-core/role/description" xlink:type="simple" xlink:href="core.xsd#description"/>
+	<link:arcroleRef arcroleURI="http://www.xbrl.jp/japan-core/arcrole/concept-description" xlink:type="simple" xlink:href="core.xsd#concept-description"/-->
+	<link:labelLink xlink:type="extended" xlink:role="http://www.xbrl.org/2003/role/link">
+	</link:labelLink>
+</link:linkbase>

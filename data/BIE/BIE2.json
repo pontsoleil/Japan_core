@@ -1,0 +1,3053 @@
+{
+    "CIExchangedDocumentContextType UN01005479 CI_ Exchanged Document_ Context. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "SpecifiedTransactionID",
+                "card": "0..1",
+                "UNID": "UN01005480",
+                "DEN": "CI_ Exchanged Document_ Context. Specified_ Transaction. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ProcessingTransactionDateTime",
+                "card": "0..1",
+                "UNID": "UN01012746",
+                "DEN": "CI_ Exchanged Document_ Context. Processing_ Transaction. Date Time"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "BusinessProcessSpecifiedCIDocumentContextParameter",
+                "card": "1..1",
+                "UNID": "UN01005481",
+                "DEN": "CI_ Exchanged Document_ Context. Business Process_ Specified. CI_ Document Context_ Parameter"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ScenarioSpecifiedCIDocumentContextParameter",
+                "card": "0..1",
+                "UNID": "UN01005483",
+                "DEN": "CI_ Exchanged Document_ Context. Scenario_ Specified. CI_ Document Context_ Parameter"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ApplicationSpecifiedCIDocumentContextParameter",
+                "card": "0..1",
+                "UNID": "UN01005484",
+                "DEN": "CI_ Exchanged Document_ Context. Application_ Specified. CI_ Document Context_ Parameter"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SubsetSpecifiedCIDocumentContextParameter",
+                "card": "1..1",
+                "UNID": "UN01005486",
+                "DEN": "CI_ Exchanged Document_ Context. Subset_ Specified. CI_ Document Context_ Parameter"
+            }
+        ]
+    ],
+    "CIIHExchangedDocumentType UN01005861 CIIH_ Exchanged_ Document. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "1..1",
+                "UNID": "UN01005862",
+                "DEN": "CIIH_ Exchanged_ Document. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01005863",
+                "DEN": "CIIH_ Exchanged_ Document. Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "1..1",
+                "UNID": "UN01005864",
+                "DEN": "CIIH_ Exchanged_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "1..1",
+                "UNID": "UN01005865",
+                "DEN": "CIIH_ Exchanged_ Document. Issue. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PurposeCode",
+                "card": "0..1",
+                "UNID": "UN01005869",
+                "DEN": "CIIH_ Exchanged_ Document. Purpose. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PreviousRevisionID",
+                "card": "0..1",
+                "UNID": "UN01005874",
+                "DEN": "CIIH_ Exchanged_ Document. Previous Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "1..1",
+                "UNID": "UN01005875",
+                "DEN": "CIIH_ Exchanged_ Document. Category. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "1..1",
+                "UNID": "UN01014636",
+                "DEN": "CIIH_ Exchanged_ Document. Subtype. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ReferenceCIReferencedDocument",
+                "card": "0..n",
+                "UNID": "UN01012702",
+                "DEN": "CIIH_ Exchanged_ Document. Reference. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "AttachedSpecifiedBinaryFile",
+                "card": "0..n",
+                "UNID": "UN01015490",
+                "DEN": "CIIH_ Exchanged_ Document. Attached. Specified_ Binary File"
+            }
+        ]
+    ],
+    "CIIHSupplyChainTradeTransactionType UN01005936 CIIH_ Supply Chain_ Trade Transaction. Details": [
+        [
+            {
+                "kind": "ASBIE",
+                "name": "ApplicableCIIHSupplyChainTradeAgreement",
+                "card": "1..1",
+                "UNID": "UN01005937",
+                "DEN": "CIIH_ Supply Chain_ Trade Transaction. Applicable. CIIH_ Supply Chain_ Trade Agreement"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ApplicableCIIHSupplyChainTradeSettlement",
+                "card": "1..1",
+                "UNID": "UN01005939",
+                "DEN": "CIIH_ Supply Chain_ Trade Transaction. Applicable. CIIH_ Supply Chain_ Trade Settlement"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "IncludedCIILSupplyChainTradeLineItem",
+                "card": "1..n",
+                "UNID": "UN01005940",
+                "DEN": "CIIH_ Supply Chain_ Trade Transaction. Included. CIIL_ Supply Chain_ Trade Line Item"
+            }
+        ]
+    ],
+    "CIDocumentContextParameterType UN01005471 CI_ Document Context_ Parameter. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "1..1",
+                "UNID": "UN01005472",
+                "DEN": "CI_ Document Context_ Parameter. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Value",
+                "card": "0..1",
+                "UNID": "UN01005473",
+                "DEN": "CI_ Document Context_ Parameter. Value. Text"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIDocumentVersion",
+                "card": "1..1",
+                "UNID": "UN01005474",
+                "DEN": "CI_ Document Context_ Parameter. Specified. CI_ Document_ Version"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005472",
+                "DEN": "CI_ Document Context_ Parameter. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Value",
+                "card": "0..1",
+                "UNID": "UN01005473",
+                "DEN": "CI_ Document Context_ Parameter. Value. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005472",
+                "DEN": "CI_ Document Context_ Parameter. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Value",
+                "card": "0..1",
+                "UNID": "UN01005473",
+                "DEN": "CI_ Document Context_ Parameter. Value. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "1..1",
+                "UNID": "UN01005472",
+                "DEN": "CI_ Document Context_ Parameter. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Value",
+                "card": "0..1",
+                "UNID": "UN01005473",
+                "DEN": "CI_ Document Context_ Parameter. Value. Text"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIDocumentVersion",
+                "card": "1..1",
+                "UNID": "UN01005474",
+                "DEN": "CI_ Document Context_ Parameter. Specified. CI_ Document_ Version"
+            }
+        ]
+    ],
+    "CIReferencedDocumentType UN01005579 CI_ Referenced_ Document. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "URIID",
+                "card": "0..1",
+                "UNID": "UN01005581",
+                "DEN": "CI_ Referenced_ Document. URI_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "0..1",
+                "UNID": "UN01005582",
+                "DEN": "CI_ Referenced_ Document. Issue. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReferenceTypeCode",
+                "card": "0..1",
+                "UNID": "UN01005586",
+                "DEN": "CI_ Referenced_ Document. Reference_ Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Information",
+                "card": "0..1",
+                "UNID": "UN01006415",
+                "DEN": "CI_ Referenced_ Document. Information. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "AttachmentBinaryObject",
+                "card": "0..1",
+                "UNID": "UN01011455",
+                "DEN": "CI_ Referenced_ Document. Attachment. Binary Object"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "0..1",
+                "UNID": "UN01005582",
+                "DEN": "CI_ Referenced_ Document. Issue. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReferenceTypeCode",
+                "card": "0..1",
+                "UNID": "UN01005586",
+                "DEN": "CI_ Referenced_ Document. Reference_ Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Information",
+                "card": "0..1",
+                "UNID": "UN01006415",
+                "DEN": "CI_ Referenced_ Document. Information. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "AttachmentBinaryObject",
+                "card": "0..1",
+                "UNID": "UN01011455",
+                "DEN": "CI_ Referenced_ Document. Attachment. Binary Object"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "0..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "0..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "0..1",
+                "UNID": "UN01013318",
+                "DEN": "CI_ Referenced_ Document. Category. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "0..1",
+                "UNID": "UN01005582",
+                "DEN": "CI_ Referenced_ Document. Issue. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReferenceTypeCode",
+                "card": "0..1",
+                "UNID": "UN01005586",
+                "DEN": "CI_ Referenced_ Document. Reference_ Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "0..1",
+                "UNID": "UN01005582",
+                "DEN": "CI_ Referenced_ Document. Issue. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReferenceTypeCode",
+                "card": "0..1",
+                "UNID": "UN01005586",
+                "DEN": "CI_ Referenced_ Document. Reference_ Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Information",
+                "card": "0..1",
+                "UNID": "UN01006415",
+                "DEN": "CI_ Referenced_ Document. Information. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "AttachmentBinaryObject",
+                "card": "0..1",
+                "UNID": "UN01011455",
+                "DEN": "CI_ Referenced_ Document. Attachment. Binary Object"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "0..1",
+                "UNID": "UN01005582",
+                "DEN": "CI_ Referenced_ Document. Issue. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReferenceTypeCode",
+                "card": "0..1",
+                "UNID": "UN01005586",
+                "DEN": "CI_ Referenced_ Document. Reference_ Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Information",
+                "card": "0..1",
+                "UNID": "UN01006415",
+                "DEN": "CI_ Referenced_ Document. Information. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "AttachmentBinaryObject",
+                "card": "0..1",
+                "UNID": "UN01011455",
+                "DEN": "CI_ Referenced_ Document. Attachment. Binary Object"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineID",
+                "card": "1..1",
+                "UNID": "UN01005585",
+                "DEN": "CI_ Referenced_ Document. Line. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineID",
+                "card": "0..1",
+                "UNID": "UN01005585",
+                "DEN": "CI_ Referenced_ Document. Line. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineID",
+                "card": "0..1",
+                "UNID": "UN01005585",
+                "DEN": "CI_ Referenced_ Document. Line. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReferenceTypeCode",
+                "card": "0..1",
+                "UNID": "UN01005586",
+                "DEN": "CI_ Referenced_ Document. Reference_ Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "AttachmentBinaryObject",
+                "card": "0..1",
+                "UNID": "UN01011455",
+                "DEN": "CI_ Referenced_ Document. Attachment. Binary Object"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineID",
+                "card": "0..1",
+                "UNID": "UN01005585",
+                "DEN": "CI_ Referenced_ Document. Line. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReferenceTypeCode",
+                "card": "0..1",
+                "UNID": "UN01005586",
+                "DEN": "CI_ Referenced_ Document. Reference_ Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "AttachmentBinaryObject",
+                "card": "0..1",
+                "UNID": "UN01011455",
+                "DEN": "CI_ Referenced_ Document. Attachment. Binary Object"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IssuerAssignedID",
+                "card": "1..1",
+                "UNID": "UN01005580",
+                "DEN": "CI_ Referenced_ Document. Issuer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "0..1",
+                "UNID": "UN01005582",
+                "DEN": "CI_ Referenced_ Document. Issue. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineID",
+                "card": "0..1",
+                "UNID": "UN01005585",
+                "DEN": "CI_ Referenced_ Document. Line. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReferenceTypeCode",
+                "card": "0..1",
+                "UNID": "UN01005586",
+                "DEN": "CI_ Referenced_ Document. Reference_ Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RevisionID",
+                "card": "0..1",
+                "UNID": "UN01005588",
+                "DEN": "CI_ Referenced_ Document. Revision_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01009672",
+                "DEN": "CI_ Referenced_ Document. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SubtypeCode",
+                "card": "0..1",
+                "UNID": "UN01014899",
+                "DEN": "CI_ Referenced_ Document. Subtype. Code"
+            }
+        ]
+    ],
+    "SpecifiedBinaryFileType UN01006014 Specified_ Binary File. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "1..1",
+                "UNID": "UN01006015",
+                "DEN": "Specified_ Binary File. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "FileName",
+                "card": "0..1",
+                "UNID": "UN01006019",
+                "DEN": "Specified_ Binary File. File Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "URIID",
+                "card": "0..1",
+                "UNID": "UN01006020",
+                "DEN": "Specified_ Binary File. URI. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "MIMECode",
+                "card": "1..1",
+                "UNID": "UN01006021",
+                "DEN": "Specified_ Binary File. MIME. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Description",
+                "card": "0..1",
+                "UNID": "UN01006026",
+                "DEN": "Specified_ Binary File. Description. Text"
+            }
+        ]
+    ],
+    "CIIHSupplyChainTradeAgreementType UN01005878 CIIH_ Supply Chain_ Trade Agreement. Details": [
+        [
+            {
+                "kind": "ASBIE",
+                "name": "SellerCITradeParty",
+                "card": "1..1",
+                "UNID": "UN01005879",
+                "DEN": "CIIH_ Supply Chain_ Trade Agreement. Seller. CI_ Trade_ Party"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "BuyerCITradeParty",
+                "card": "1..1",
+                "UNID": "UN01005880",
+                "DEN": "CIIH_ Supply Chain_ Trade Agreement. Buyer. CI_ Trade_ Party"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedProcuringProject",
+                "card": "0..1",
+                "UNID": "UN01011516",
+                "DEN": "CIIH_ Supply Chain_ Trade Agreement. Specified. Procuring_ Project"
+            }
+        ]
+    ],
+    "CIIHSupplyChainTradeSettlementType UN01005909 CIIH_ Supply Chain_ Trade Settlement. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "TaxCurrencyCode",
+                "card": "0..1",
+                "UNID": "UN01005913",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Tax_ Currency. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "InvoiceCurrencyCode",
+                "card": "1..1",
+                "UNID": "UN01005914",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Invoice_ Currency. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PaymentCurrencyCode",
+                "card": "0..1",
+                "UNID": "UN01005915",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Payment_ Currency. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "PayeeCITradeParty",
+                "card": "0..1",
+                "UNID": "UN01005918",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Payee. CI_ Trade_ Party"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "InvoiceApplicableCITradeCurrencyExchange",
+                "card": "0..1",
+                "UNID": "UN01005921",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Invoice_ Applicable. CI_ Trade_ Currency Exchange"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCITradeSettlementPaymentMeans",
+                "card": "0..n",
+                "UNID": "UN01005923",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Trade Settlement_ Payment Means"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCITradePaymentTerms",
+                "card": "0..n",
+                "UNID": "UN01005929",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Payment Terms"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIIHTradeSettlementMonetarySummation",
+                "card": "0..1",
+                "UNID": "UN01005930",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Specified. CIIH_ Trade Settlement_ Monetary Summation"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIAdvancePayment",
+                "card": "0..n",
+                "UNID": "JPS2300021",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Specified. CI_ Advance_ Payment"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "OutstandingSpecifiedCIIHTradeSettlementMonetarySummation",
+                "card": "0..1",
+                "UNID": "UN01015492",
+                "DEN": "CIIH_ Supply Chain_ Trade Settlement. Outstanding_ Specified. CIIH_ Trade Settlement_ Monetary Summation"
+            }
+        ]
+    ],
+    "CIILSupplyChainTradeLineItemType UN01005988 CIIL_ Supply Chain_ Trade Line Item. Details": [
+        [
+            {
+                "kind": "ASBIE",
+                "name": "AssociatedCIILDocumentLineDocument",
+                "card": "1..1",
+                "UNID": "UN01005989",
+                "DEN": "CIIL_ Supply Chain_ Trade Line Item. Associated. CIIL_ Document Line_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIILSupplyChainTradeAgreement",
+                "card": "0..1",
+                "UNID": "UN01005990",
+                "DEN": "CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Agreement"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIILSupplyChainTradeDelivery",
+                "card": "0..1",
+                "UNID": "UN01005991",
+                "DEN": "CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Delivery"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIILSupplyChainTradeSettlement",
+                "card": "0..1",
+                "UNID": "UN01005992",
+                "DEN": "CIIL_ Supply Chain_ Trade Line Item. Specified. CIIL_ Supply Chain_ Trade Settlement"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SubordinateCIILBSubordinateTradeLineItem",
+                "card": "1..n",
+                "UNID": "UN01009669",
+                "DEN": "CIIL_ Supply Chain_ Trade Line Item. Subordinate. CIILB_ Subordinate_ Trade Line Item"
+            }
+        ]
+    ],
+    "CIDocumentVersionType UN01005475 CI_ Document_ Version. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "1..1",
+                "UNID": "UN01005476",
+                "DEN": "CI_ Document_ Version. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "1..1",
+                "UNID": "UN01005478",
+                "DEN": "CI_ Document_ Version. Issue. Date Time"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "1..1",
+                "UNID": "UN01005476",
+                "DEN": "CI_ Document_ Version. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssueDateTime",
+                "card": "1..1",
+                "UNID": "UN01005478",
+                "DEN": "CI_ Document_ Version. Issue. Date Time"
+            }
+        ]
+    ],
+    "CITradePartyType UN01005756 CI_ Trade_ Party. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005757",
+                "DEN": "CI_ Trade_ Party. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GlobalID",
+                "card": "0..1",
+                "UNID": "UN01005758",
+                "DEN": "CI_ Trade_ Party. Global_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01005759",
+                "DEN": "CI_ Trade_ Party. Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RegisteredID",
+                "card": "0..1",
+                "UNID": "UN01013039",
+                "DEN": "CI_ Trade_ Party. Registered_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01012925",
+                "DEN": "CI_ Trade_ Party. Type. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "DefinedCITradeContact",
+                "card": "0..1",
+                "UNID": "UN01005761",
+                "DEN": "CI_ Trade_ Party. Defined. CI_ Trade_ Contact"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "PostalCITradeAddress",
+                "card": "0..1",
+                "UNID": "UN01005762",
+                "DEN": "CI_ Trade_ Party. Postal. CI_ Trade_ Address"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "EndPointURICIUniversalCommunication",
+                "card": "0..1",
+                "UNID": "UN01005765",
+                "DEN": "CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005757",
+                "DEN": "CI_ Trade_ Party. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GlobalID",
+                "card": "0..1",
+                "UNID": "UN01005758",
+                "DEN": "CI_ Trade_ Party. Global_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01005759",
+                "DEN": "CI_ Trade_ Party. Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RegisteredID",
+                "card": "0..1",
+                "UNID": "UN01013039",
+                "DEN": "CI_ Trade_ Party. Registered_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01012925",
+                "DEN": "CI_ Trade_ Party. Type. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "DefinedCITradeContact",
+                "card": "0..1",
+                "UNID": "UN01005761",
+                "DEN": "CI_ Trade_ Party. Defined. CI_ Trade_ Contact"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "PostalCITradeAddress",
+                "card": "0..1",
+                "UNID": "UN01005762",
+                "DEN": "CI_ Trade_ Party. Postal. CI_ Trade_ Address"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "EndPointURICIUniversalCommunication",
+                "card": "0..1",
+                "UNID": "UN01005765",
+                "DEN": "CI_ Trade_ Party. End Point_ URI. CI_ Universal_ Communication"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005757",
+                "DEN": "CI_ Trade_ Party. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GlobalID",
+                "card": "0..1",
+                "UNID": "UN01005758",
+                "DEN": "CI_ Trade_ Party. Global_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01005759",
+                "DEN": "CI_ Trade_ Party. Name. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005757",
+                "DEN": "CI_ Trade_ Party. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GlobalID",
+                "card": "0..1",
+                "UNID": "UN01005758",
+                "DEN": "CI_ Trade_ Party. Global_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01005759",
+                "DEN": "CI_ Trade_ Party. Name. Text"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "PostalCITradeAddress",
+                "card": "0..1",
+                "UNID": "UN01005762",
+                "DEN": "CI_ Trade_ Party. Postal. CI_ Trade_ Address"
+            }
+        ]
+    ],
+    "ProcuringProjectType UN01000371 Procuring_ Project. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01000372",
+                "DEN": "Procuring_ Project. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01000374",
+                "DEN": "Procuring_ Project. Name. Text"
+            }
+        ]
+    ],
+    "CITradeCurrencyExchangeType UN01005738 CI_ Trade_ Currency Exchange. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "SourceCurrencyCode",
+                "card": "0..1",
+                "UNID": "UN01005739",
+                "DEN": "CI_ Trade_ Currency Exchange. Source Currency. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TargetCurrencyCode",
+                "card": "0..1",
+                "UNID": "UN01005741",
+                "DEN": "CI_ Trade_ Currency Exchange. Target Currency. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ConversionRate",
+                "card": "0..1",
+                "UNID": "UN01005744",
+                "DEN": "CI_ Trade_ Currency Exchange. Conversion. Rate"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ConversionRateDateTime",
+                "card": "0..1",
+                "UNID": "UN01005745",
+                "DEN": "CI_ Trade_ Currency Exchange. Conversion Rate. Date Time"
+            }
+        ]
+    ],
+    "CITradeSettlementPaymentMeansType UN01005670 CI_ Trade Settlement_ Payment Means. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01005672",
+                "DEN": "CI_ Trade Settlement_ Payment Means. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Information",
+                "card": "0..1",
+                "UNID": "UN01011456",
+                "DEN": "CI_ Trade Settlement_ Payment Means. Information. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PaidAmount",
+                "card": "0..1",
+                "UNID": "UN01015504",
+                "DEN": "CI_ Trade Settlement_ Payment Means. Paid. Amount"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "PayeePartyCICreditorFinancialAccount",
+                "card": "0..1",
+                "UNID": "UN01005677",
+                "DEN": "CI_ Trade Settlement_ Payment Means. Payee_ Party. CI_ Creditor_ Financial Account"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "PayeeSpecifiedCICreditorFinancialInstitution",
+                "card": "0..1",
+                "UNID": "UN01005679",
+                "DEN": "CI_ Trade Settlement_ Payment Means. Payee_ Specified. CI_ Creditor_ Financial Institution"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ApplicableTradeSettlementFinancialCard",
+                "card": "0..1",
+                "UNID": "UN01006057",
+                "DEN": "CI_ Trade Settlement_ Payment Means. Applicable. Trade Settlement_ Financial Card"
+            }
+        ]
+    ],
+    "CITradePaymentTermsType UN01005779 CI_ Trade_ Payment Terms. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005780",
+                "DEN": "CI_ Trade_ Payment Terms. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Description",
+                "card": "0..1",
+                "UNID": "UN01005783",
+                "DEN": "CI_ Trade_ Payment Terms. Description. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "DueDateDateTime",
+                "card": "0..1",
+                "UNID": "UN01005784",
+                "DEN": "CI_ Trade_ Payment Terms. Due Date. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01008502",
+                "DEN": "CI_ Trade_ Payment Terms. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "InstructedAmount",
+                "card": "0..1",
+                "UNID": "UN01015539",
+                "DEN": "CI_ Trade_ Payment Terms. Instructed. Amount"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01008502",
+                "DEN": "CI_ Trade_ Payment Terms. Type. Code"
+            }
+        ]
+    ],
+    "CIIHTradeSettlementMonetarySummationType UN01005941 CIIH_ Trade Settlement_ Monetary Summation. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "TaxBasisTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01005945",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Tax Basis Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TaxTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01005946",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Tax Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GrandTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01005948",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Grand Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TotalPrepaidAmount",
+                "card": "0..1",
+                "UNID": "UN01005950",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Total Prepaid. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "DuePayableAmount",
+                "card": "0..1",
+                "UNID": "UN01008445",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Due Payable. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "NetLineTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01008451",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Net_ Line Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IncludingTaxesLineTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01013091",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Including Taxes_ Line Total. Amount"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "ChargeTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01005943",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Charge Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "AllowanceTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01005944",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Allowance Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GrandTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01005948",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Grand Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TotalPrepaidAmount",
+                "card": "0..1",
+                "UNID": "UN01005950",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Total Prepaid. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "DuePayableAmount",
+                "card": "0..1",
+                "UNID": "UN01008445",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Due Payable. Amount"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIReferencedDocument",
+                "card": "0..n",
+                "UNID": "UN01015493",
+                "DEN": "CIIH_ Trade Settlement_ Monetary Summation. Specified. CI_ Referenced_ Document"
+            }
+        ]
+    ],
+    "CIAdvancePaymentType UN01015590 CI_ Advance_ Payment. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "PaidAmount",
+                "card": "0..1",
+                "UNID": "UN01015591",
+                "DEN": "CI_ Advance_ Payment. Paid. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "FormattedReceivedDateTime",
+                "card": "0..1",
+                "UNID": "UN01015592",
+                "DEN": "CI_ Advance_ Payment. Formatted_ Received. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01015593",
+                "DEN": "CI_ Advance_ Payment. Identification. Identifier"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "IdentifiedCITradePaymentTerms",
+                "card": "0..1",
+                "UNID": "UN01015596",
+                "DEN": "CI_ Advance_ Payment. Identified. CI_ Trade_ Payment Terms"
+            }
+        ]
+    ],
+    "CIILDocumentLineDocumentType UN01005953 CIIL_ Document Line_ Document. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "LineID",
+                "card": "1..1",
+                "UNID": "UN01005954",
+                "DEN": "CIIL_ Document Line_ Document. Line. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "0..1",
+                "UNID": "UN01014645",
+                "DEN": "CIIL_ Document Line_ Document. Category. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "IncludedCINote",
+                "card": "0..n",
+                "UNID": "UN01005957",
+                "DEN": "CIIL_ Document Line_ Document. Included. CI_ Note"
+            }
+        ]
+    ],
+    "CIILSupplyChainTradeAgreementType UN01005958 CIIL_ Supply Chain_ Trade Agreement. Details": [
+        [
+            {
+                "kind": "ASBIE",
+                "name": "SellerOrderReferencedCIReferencedDocument",
+                "card": "0..1",
+                "UNID": "UN01005960",
+                "DEN": "CIIL_ Supply Chain_ Trade Agreement. Seller Order_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "BuyerOrderReferencedCIReferencedDocument",
+                "card": "0..1",
+                "UNID": "UN01005961",
+                "DEN": "CIIL_ Supply Chain_ Trade Agreement. Buyer Order_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ContractReferencedCIReferencedDocument",
+                "card": "0..1",
+                "UNID": "UN01005963",
+                "DEN": "CIIL_ Supply Chain_ Trade Agreement. Contract_ Referenced. CI_ Referenced_ Document"
+            }
+        ]
+    ],
+    "CIILSupplyChainTradeDeliveryType UN01005968 CIIL_ Supply Chain_ Trade Delivery. Details": [
+        [
+            {
+                "kind": "ASBIE",
+                "name": "ShipToCITradeParty",
+                "card": "0..1",
+                "UNID": "UN01005980",
+                "DEN": "CIIL_ Supply Chain_ Trade Delivery. Ship To. CI_ Trade_ Party"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ActualDeliveryCISupplyChainEvent",
+                "card": "0..1",
+                "UNID": "UN01005986",
+                "DEN": "CIIL_ Supply Chain_ Trade Delivery. Actual_ Delivery. CI_ Supply Chain_ Event"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "DespatchAdviceReferencedCIReferencedDocument",
+                "card": "0..n",
+                "UNID": "UN01006039",
+                "DEN": "CIIL_ Supply Chain_ Trade Delivery. Despatch Advice_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ReceivingAdviceReferencedCIReferencedDocument",
+                "card": "0..n",
+                "UNID": "UN01006040",
+                "DEN": "CIIL_ Supply Chain_ Trade Delivery. Receiving Advice_ Referenced. CI_ Referenced_ Document"
+            }
+        ]
+    ],
+    "CIILSupplyChainTradeSettlementType UN01005994 CIIL_ Supply Chain_ Trade Settlement. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "DirectionCode",
+                "card": "0..1",
+                "UNID": "UN01014647",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Direction. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCITradeAllowanceCharge",
+                "card": "0..n",
+                "UNID": "UN01005998",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCITradeAllowanceCharge",
+                "card": "0..n",
+                "UNID": "UN01005998",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ApplicableCITradeTax",
+                "card": "1..n",
+                "UNID": "UN01005996",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ApplicableCITradeTax",
+                "card": "0..n",
+                "UNID": "UN01005996",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "BillingCISpecifiedPeriod",
+                "card": "1..1",
+                "UNID": "UN01005997",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIILTradeSettlementMonetarySummation",
+                "card": "0..1",
+                "UNID": "UN01006002",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Specified. CIIL_ Trade Settlement_ Monetary Summation"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIILTradeSettlementMonetarySummation",
+                "card": "0..1",
+                "UNID": "UN01006002",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Specified. CIIL_ Trade Settlement_ Monetary Summation"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIFinancialAdjustment",
+                "card": "0..n",
+                "UNID": "UN01006003",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "InvoiceReferencedCIReferencedDocument",
+                "card": "0..n",
+                "UNID": "UN01006004",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "AdditionalReferencedCIReferencedDocument",
+                "card": "0..1",
+                "UNID": "UN01006005",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Additional_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "AdditionalReferencedCIReferencedDocument",
+                "card": "0..n",
+                "UNID": "UN01006005",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Additional_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "PurchaseSpecifiedCITradeAccountingAccount",
+                "card": "0..1",
+                "UNID": "UN01006080",
+                "DEN": "CIIL_ Supply Chain_ Trade Settlement. Purchase_ Specified. CI_ Trade_ Accounting Account"
+            }
+        ]
+    ],
+    "CIILBSubordinateTradeLineItemType UN01009647 CIILB_ Subordinate_ Trade Line Item. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "1..1",
+                "UNID": "UN01009648",
+                "DEN": "CIILB_ Subordinate_ Trade Line Item. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "0..1",
+                "UNID": "UN01014637",
+                "DEN": "CIILB_ Subordinate_ Trade Line Item. Category. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "IncludedCINote",
+                "card": "0..n",
+                "UNID": "UN01015533",
+                "DEN": "CIILB_ Subordinate_ Trade Line Item. Included. CI_ Note"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIILBSupplyChainTradeAgreement",
+                "card": "1..1",
+                "UNID": "UN01009649",
+                "DEN": "CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Agreement"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIILBSupplyChainTradeDelivery",
+                "card": "1..1",
+                "UNID": "UN01009650",
+                "DEN": "CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Delivery"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIILBSupplyChainTradeSettlement",
+                "card": "1..1",
+                "UNID": "UN01009651",
+                "DEN": "CIILB_ Subordinate_ Trade Line Item. Specified. CIILB_ Supply Chain_ Trade Settlement"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ApplicableCITradeProduct",
+                "card": "1..1",
+                "UNID": "UN01010016",
+                "DEN": "CIILB_ Subordinate_ Trade Line Item. Applicable. CI_ Trade_ Product"
+            }
+        ]
+    ],
+    "CITradeContactType UN01005718 CI_ Trade_ Contact. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005719",
+                "DEN": "CI_ Trade_ Contact. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PersonName",
+                "card": "0..1",
+                "UNID": "UN01005720",
+                "DEN": "CI_ Trade_ Contact. Person Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "DepartmentName",
+                "card": "0..1",
+                "UNID": "UN01005721",
+                "DEN": "CI_ Trade_ Contact. Department Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PersonID",
+                "card": "0..1",
+                "UNID": "UN01005725",
+                "DEN": "CI_ Trade_ Contact. Person_ Identification. Identifier"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "TelephoneCIUniversalCommunication",
+                "card": "0..1",
+                "UNID": "UN01005726",
+                "DEN": "CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "FaxCIUniversalCommunication",
+                "card": "0..1",
+                "UNID": "UN01005729",
+                "DEN": "CI_ Trade_ Contact. Fax. CI_ Universal_ Communication"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "EmailURICIUniversalCommunication",
+                "card": "0..1",
+                "UNID": "UN01005730",
+                "DEN": "CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005719",
+                "DEN": "CI_ Trade_ Contact. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PersonName",
+                "card": "0..1",
+                "UNID": "UN01005720",
+                "DEN": "CI_ Trade_ Contact. Person Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "DepartmentName",
+                "card": "0..1",
+                "UNID": "UN01005721",
+                "DEN": "CI_ Trade_ Contact. Department Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PersonID",
+                "card": "0..1",
+                "UNID": "UN01005725",
+                "DEN": "CI_ Trade_ Contact. Person_ Identification. Identifier"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "TelephoneCIUniversalCommunication",
+                "card": "0..1",
+                "UNID": "UN01005726",
+                "DEN": "CI_ Trade_ Contact. Telephone. CI_ Universal_ Communication"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "FaxCIUniversalCommunication",
+                "card": "0..1",
+                "UNID": "UN01005729",
+                "DEN": "CI_ Trade_ Contact. Fax. CI_ Universal_ Communication"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "EmailURICIUniversalCommunication",
+                "card": "0..1",
+                "UNID": "UN01005730",
+                "DEN": "CI_ Trade_ Contact. Email_ URI. CI_ Universal_ Communication"
+            }
+        ]
+    ],
+    "CITradeAddressType UN01005687 CI_ Trade_ Address. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "PostcodeCode",
+                "card": "0..1",
+                "UNID": "UN01005689",
+                "DEN": "CI_ Trade_ Address. Postcode. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineOne",
+                "card": "0..1",
+                "UNID": "UN01005692",
+                "DEN": "CI_ Trade_ Address. Line One. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineTwo",
+                "card": "0..1",
+                "UNID": "UN01005693",
+                "DEN": "CI_ Trade_ Address. Line Two. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineThree",
+                "card": "0..1",
+                "UNID": "UN01005694",
+                "DEN": "CI_ Trade_ Address. Line Three. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CountryID",
+                "card": "1..1",
+                "UNID": "UN01005700",
+                "DEN": "CI_ Trade_ Address. Country. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "PostcodeCode",
+                "card": "0..1",
+                "UNID": "UN01005689",
+                "DEN": "CI_ Trade_ Address. Postcode. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineOne",
+                "card": "0..1",
+                "UNID": "UN01005692",
+                "DEN": "CI_ Trade_ Address. Line One. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineTwo",
+                "card": "0..1",
+                "UNID": "UN01005693",
+                "DEN": "CI_ Trade_ Address. Line Two. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineThree",
+                "card": "0..1",
+                "UNID": "UN01005694",
+                "DEN": "CI_ Trade_ Address. Line Three. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CountryID",
+                "card": "1..1",
+                "UNID": "UN01005700",
+                "DEN": "CI_ Trade_ Address. Country. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "PostcodeCode",
+                "card": "0..1",
+                "UNID": "UN01005689",
+                "DEN": "CI_ Trade_ Address. Postcode. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineOne",
+                "card": "0..1",
+                "UNID": "UN01005692",
+                "DEN": "CI_ Trade_ Address. Line One. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineTwo",
+                "card": "0..1",
+                "UNID": "UN01005693",
+                "DEN": "CI_ Trade_ Address. Line Two. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LineThree",
+                "card": "0..1",
+                "UNID": "UN01005694",
+                "DEN": "CI_ Trade_ Address. Line Three. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CountryID",
+                "card": "0..1",
+                "UNID": "UN01005700",
+                "DEN": "CI_ Trade_ Address. Country. Identifier"
+            }
+        ]
+    ],
+    "CIUniversalCommunicationType UN01005857 CI_ Universal_ Communication. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "ChannelCode",
+                "card": "0..1",
+                "UNID": "UN01005859",
+                "DEN": "CI_ Universal_ Communication. Channel. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CompleteNumber",
+                "card": "0..1",
+                "UNID": "UN01005860",
+                "DEN": "CI_ Universal_ Communication. Complete Number. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "ChannelCode",
+                "card": "0..1",
+                "UNID": "UN01005859",
+                "DEN": "CI_ Universal_ Communication. Channel. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CompleteNumber",
+                "card": "0..1",
+                "UNID": "UN01005860",
+                "DEN": "CI_ Universal_ Communication. Complete Number. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "CompleteNumber",
+                "card": "0..1",
+                "UNID": "UN01005860",
+                "DEN": "CI_ Universal_ Communication. Complete Number. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "CompleteNumber",
+                "card": "0..1",
+                "UNID": "UN01005860",
+                "DEN": "CI_ Universal_ Communication. Complete Number. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "URIID",
+                "card": "0..1",
+                "UNID": "UN01005858",
+                "DEN": "CI_ Universal_ Communication. URI. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "CompleteNumber",
+                "card": "0..1",
+                "UNID": "UN01005860",
+                "DEN": "CI_ Universal_ Communication. Complete Number. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "CompleteNumber",
+                "card": "0..1",
+                "UNID": "UN01005860",
+                "DEN": "CI_ Universal_ Communication. Complete Number. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "URIID",
+                "card": "0..1",
+                "UNID": "UN01005858",
+                "DEN": "CI_ Universal_ Communication. URI. Identifier"
+            }
+        ]
+    ],
+    "CICreditorFinancialAccountType UN01005398 CI_ Creditor_ Financial Account. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "AccountName",
+                "card": "0..1",
+                "UNID": "UN01005400",
+                "DEN": "CI_ Creditor_ Financial Account. Account Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ProprietaryID",
+                "card": "0..1",
+                "UNID": "UN01005401",
+                "DEN": "CI_ Creditor_ Financial Account. Proprietary_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01012127",
+                "DEN": "CI_ Creditor_ Financial Account. Type. Code"
+            }
+        ]
+    ],
+    "CICreditorFinancialInstitutionType UN01005402 CI_ Creditor_ Financial Institution. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01005426",
+                "DEN": "CI_ Creditor_ Financial Institution. Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "JapanFinancialInstitutionCommonID",
+                "card": "0..1",
+                "UNID": "UN01011521",
+                "DEN": "CI_ Creditor_ Financial Institution. Japan Financial Institution Common_ Identification. Identifier"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "Sub-DivisionBranchFinancialInstitution",
+                "card": "0..1",
+                "UNID": "UN01005428",
+                "DEN": "CI_ Creditor_ Financial Institution. Sub-Division. Branch_ Financial Institution"
+            }
+        ]
+    ],
+    "TradeSettlementFinancialCardType UN01004493 Trade Settlement_ Financial Card. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "1..1",
+                "UNID": "UN01004495",
+                "DEN": "Trade Settlement_ Financial Card. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01004496",
+                "DEN": "Trade Settlement_ Financial Card. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CardholderName",
+                "card": "1..1",
+                "UNID": "UN01004497",
+                "DEN": "Trade Settlement_ Financial Card. Cardholder Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IssuingCompanyName",
+                "card": "0..1",
+                "UNID": "UN01009966",
+                "DEN": "Trade Settlement_ Financial Card. Issuing Company Name. Text"
+            }
+        ]
+    ],
+    "CINoteType UN01005557 CI_ Note. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "Subject",
+                "card": "0..1",
+                "UNID": "UN01005558",
+                "DEN": "CI_ Note. Subject. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Content",
+                "card": "0..1",
+                "UNID": "UN01005560",
+                "DEN": "CI_ Note. Content. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005562",
+                "DEN": "CI_ Note. Identification. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "Subject",
+                "card": "0..1",
+                "UNID": "UN01005558",
+                "DEN": "CI_ Note. Subject. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Content",
+                "card": "0..1",
+                "UNID": "UN01005560",
+                "DEN": "CI_ Note. Content. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005562",
+                "DEN": "CI_ Note. Identification. Identifier"
+            }
+        ]
+    ],
+    "CISupplyChainEventType UN01005626 CI_ Supply Chain_ Event. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "OccurrenceDateTime",
+                "card": "0..1",
+                "UNID": "UN01005628",
+                "DEN": "CI_ Supply Chain_ Event. Occurrence. Date Time"
+            }
+        ]
+    ],
+    "CITradeAllowanceChargeType UN01005706 CI_ Trade_ Allowance Charge. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "ChargeIndicator",
+                "card": "1..1",
+                "UNID": "UN01005707",
+                "DEN": "CI_ Trade_ Allowance Charge. Charge. Indicator"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CalculationPercent",
+                "card": "0..1",
+                "UNID": "UN01005710",
+                "DEN": "CI_ Trade_ Allowance Charge. Calculation. Percent"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ActualAmount",
+                "card": "0..1",
+                "UNID": "UN01005713",
+                "DEN": "CI_ Trade_ Allowance Charge. Actual. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReasonCode",
+                "card": "0..1",
+                "UNID": "UN01005714",
+                "DEN": "CI_ Trade_ Allowance Charge. Reason. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Reason",
+                "card": "0..1",
+                "UNID": "UN01005715",
+                "DEN": "CI_ Trade_ Allowance Charge. Reason. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BasisAmount",
+                "card": "0..1",
+                "UNID": "UN01008286",
+                "DEN": "CI_ Trade_ Allowance Charge. Basis. Amount"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "CategoryCITradeTax",
+                "card": "0..n",
+                "UNID": "UN01005716",
+                "DEN": "CI_ Trade_ Allowance Charge. Category. CI_ Trade_ Tax"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "ChargeIndicator",
+                "card": "1..1",
+                "UNID": "UN01005707",
+                "DEN": "CI_ Trade_ Allowance Charge. Charge. Indicator"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CalculationPercent",
+                "card": "0..1",
+                "UNID": "UN01005710",
+                "DEN": "CI_ Trade_ Allowance Charge. Calculation. Percent"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ActualAmount",
+                "card": "0..1",
+                "UNID": "UN01005713",
+                "DEN": "CI_ Trade_ Allowance Charge. Actual. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReasonCode",
+                "card": "0..1",
+                "UNID": "UN01005714",
+                "DEN": "CI_ Trade_ Allowance Charge. Reason. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Reason",
+                "card": "0..1",
+                "UNID": "UN01005715",
+                "DEN": "CI_ Trade_ Allowance Charge. Reason. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BasisAmount",
+                "card": "0..1",
+                "UNID": "UN01008286",
+                "DEN": "CI_ Trade_ Allowance Charge. Basis. Amount"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "CategoryCITradeTax",
+                "card": "0..n",
+                "UNID": "UN01005716",
+                "DEN": "CI_ Trade_ Allowance Charge. Category. CI_ Trade_ Tax"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "ChargeIndicator",
+                "card": "1..1",
+                "UNID": "UN01005707",
+                "DEN": "CI_ Trade_ Allowance Charge. Charge. Indicator"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CalculationPercent",
+                "card": "0..1",
+                "UNID": "UN01005710",
+                "DEN": "CI_ Trade_ Allowance Charge. Calculation. Percent"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ActualAmount",
+                "card": "0..1",
+                "UNID": "UN01005713",
+                "DEN": "CI_ Trade_ Allowance Charge. Actual. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReasonCode",
+                "card": "0..1",
+                "UNID": "UN01005714",
+                "DEN": "CI_ Trade_ Allowance Charge. Reason. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Reason",
+                "card": "0..1",
+                "UNID": "UN01005715",
+                "DEN": "CI_ Trade_ Allowance Charge. Reason. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BasisAmount",
+                "card": "0..1",
+                "UNID": "UN01008286",
+                "DEN": "CI_ Trade_ Allowance Charge. Basis. Amount"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "ChargeIndicator",
+                "card": "1..1",
+                "UNID": "UN01005707",
+                "DEN": "CI_ Trade_ Allowance Charge. Charge. Indicator"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CalculationPercent",
+                "card": "0..1",
+                "UNID": "UN01005710",
+                "DEN": "CI_ Trade_ Allowance Charge. Calculation. Percent"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ActualAmount",
+                "card": "0..1",
+                "UNID": "UN01005713",
+                "DEN": "CI_ Trade_ Allowance Charge. Actual. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ReasonCode",
+                "card": "0..1",
+                "UNID": "UN01005714",
+                "DEN": "CI_ Trade_ Allowance Charge. Reason. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Reason",
+                "card": "0..1",
+                "UNID": "UN01005715",
+                "DEN": "CI_ Trade_ Allowance Charge. Reason. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BasisAmount",
+                "card": "0..1",
+                "UNID": "UN01008286",
+                "DEN": "CI_ Trade_ Allowance Charge. Basis. Amount"
+            }
+        ]
+    ],
+    "CITradeTaxType UN01005832 CI_ Trade_ Tax. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "CalculatedAmount",
+                "card": "0..1",
+                "UNID": "UN01005833",
+                "DEN": "CI_ Trade_ Tax. Calculated. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01005834",
+                "DEN": "CI_ Trade_ Tax. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BasisAmount",
+                "card": "0..1",
+                "UNID": "UN01005839",
+                "DEN": "CI_ Trade_ Tax. Basis. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "1..1",
+                "UNID": "UN01005841",
+                "DEN": "CI_ Trade_ Tax. Category. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CurrencyCode",
+                "card": "0..1",
+                "UNID": "UN01005842",
+                "DEN": "CI_ Trade_ Tax. Currency. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryName",
+                "card": "0..1",
+                "UNID": "UN01005850",
+                "DEN": "CI_ Trade_ Tax. Category Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RateApplicablePercent",
+                "card": "0..1",
+                "UNID": "UN01007174",
+                "DEN": "CI_ Trade_ Tax. Rate_ Applicable. Percent"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GrandTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01013040",
+                "DEN": "CI_ Trade_ Tax. Grand Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CalculationMethodCode",
+                "card": "0..1",
+                "UNID": "UN01013096",
+                "DEN": "CI_ Trade_ Tax. Calculation Method. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LocalTaxSystemID",
+                "card": "0..1",
+                "UNID": "UN01014650",
+                "DEN": "CI_ Trade_ Tax. Local Tax System. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "CalculatedAmount",
+                "card": "0..1",
+                "UNID": "UN01005833",
+                "DEN": "CI_ Trade_ Tax. Calculated. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BasisAmount",
+                "card": "0..1",
+                "UNID": "UN01005839",
+                "DEN": "CI_ Trade_ Tax. Basis. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "1..1",
+                "UNID": "UN01005841",
+                "DEN": "CI_ Trade_ Tax. Category. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CurrencyCode",
+                "card": "0..1",
+                "UNID": "UN01005842",
+                "DEN": "CI_ Trade_ Tax. Currency. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RateApplicablePercent",
+                "card": "0..1",
+                "UNID": "UN01007174",
+                "DEN": "CI_ Trade_ Tax. Rate_ Applicable. Percent"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LocalTaxSystemID",
+                "card": "0..1",
+                "UNID": "UN01014650",
+                "DEN": "CI_ Trade_ Tax. Local Tax System. Identifier"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "1..1",
+                "UNID": "UN01005841",
+                "DEN": "CI_ Trade_ Tax. Category. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RateApplicablePercent",
+                "card": "0..1",
+                "UNID": "UN01007174",
+                "DEN": "CI_ Trade_ Tax. Rate_ Applicable. Percent"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "1..1",
+                "UNID": "UN01005841",
+                "DEN": "CI_ Trade_ Tax. Category. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RateApplicablePercent",
+                "card": "0..1",
+                "UNID": "UN01007174",
+                "DEN": "CI_ Trade_ Tax. Rate_ Applicable. Percent"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "CalculatedRate",
+                "card": "0..1",
+                "UNID": "UN01005836",
+                "DEN": "CI_ Trade_ Tax. Calculated. Rate"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "1..1",
+                "UNID": "UN01005841",
+                "DEN": "CI_ Trade_ Tax. Category. Code"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01005834",
+                "DEN": "CI_ Trade_ Tax. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BasisAmount",
+                "card": "0..1",
+                "UNID": "UN01005839",
+                "DEN": "CI_ Trade_ Tax. Basis. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryCode",
+                "card": "1..1",
+                "UNID": "UN01005841",
+                "DEN": "CI_ Trade_ Tax. Category. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "CategoryName",
+                "card": "0..1",
+                "UNID": "UN01005850",
+                "DEN": "CI_ Trade_ Tax. Category Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "RateApplicablePercent",
+                "card": "0..1",
+                "UNID": "UN01007174",
+                "DEN": "CI_ Trade_ Tax. Rate_ Applicable. Percent"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GrandTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01013040",
+                "DEN": "CI_ Trade_ Tax. Grand Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "LocalTaxSystemID",
+                "card": "0..1",
+                "UNID": "UN01014650",
+                "DEN": "CI_ Trade_ Tax. Local Tax System. Identifier"
+            }
+        ]
+    ],
+    "CISpecifiedPeriodType UN01005608 CI_ Specified_ Period. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "StartDateTime",
+                "card": "1..1",
+                "UNID": "UN01005612",
+                "DEN": "CI_ Specified_ Period. Start. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "EndDateTime",
+                "card": "0..1",
+                "UNID": "UN01005613",
+                "DEN": "CI_ Specified_ Period. End. Date Time"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "StartDateTime",
+                "card": "0..1",
+                "UNID": "UN01005612",
+                "DEN": "CI_ Specified_ Period. Start. Date Time"
+            },
+            {
+                "kind": "BBIE",
+                "name": "EndDateTime",
+                "card": "1..1",
+                "UNID": "UN01005613",
+                "DEN": "CI_ Specified_ Period. End. Date Time"
+            }
+        ]
+    ],
+    "CIILTradeSettlementMonetarySummationType UN01006006 CIIL_ Trade Settlement_ Monetary Summation. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "ChargeTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01006008",
+                "DEN": "CIIL_ Trade Settlement_ Monetary Summation. Charge Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "AllowanceTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01006009",
+                "DEN": "CIIL_ Trade Settlement_ Monetary Summation. Allowance Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "TaxTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01006011",
+                "DEN": "CIIL_ Trade Settlement_ Monetary Summation. Tax Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GrossLineTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01008455",
+                "DEN": "CIIL_ Trade Settlement_ Monetary Summation. Gross_ Line Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "NetLineTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01008456",
+                "DEN": "CIIL_ Trade Settlement_ Monetary Summation. Net_ Line Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "NetIncludingTaxesLineTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01008457",
+                "DEN": "CIIL_ Trade Settlement_ Monetary Summation. Net Including Taxes_ Line Total. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GrandTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01011519",
+                "DEN": "CIIL_ Trade Settlement_ Monetary Summation. Grand Total. Amount"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "TaxTotalAmount",
+                "card": "0..1",
+                "UNID": "UN01006011",
+                "DEN": "CIIL_ Trade Settlement_ Monetary Summation. Tax Total. Amount"
+            }
+        ]
+    ],
+    "CIFinancialAdjustmentType UN01005487 CI_ Financial_ Adjustment. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "ReasonCode",
+                "card": "0..1",
+                "UNID": "UN01005488",
+                "DEN": "CI_ Financial_ Adjustment. Reason. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Reason",
+                "card": "0..1",
+                "UNID": "UN01005489",
+                "DEN": "CI_ Financial_ Adjustment. Reason. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ActualAmount",
+                "card": "0..1",
+                "UNID": "UN01005490",
+                "DEN": "CI_ Financial_ Adjustment. Actual. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "DirectionCode",
+                "card": "0..1",
+                "UNID": "UN01014649",
+                "DEN": "CI_ Financial_ Adjustment. Direction. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "RelatedCITradeTax",
+                "card": "0..n",
+                "UNID": "UN01014897",
+                "DEN": "CI_ Financial_ Adjustment. Related. CI_ Trade_ Tax"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "ReasonCode",
+                "card": "0..1",
+                "UNID": "UN01005488",
+                "DEN": "CI_ Financial_ Adjustment. Reason. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Reason",
+                "card": "0..1",
+                "UNID": "UN01005489",
+                "DEN": "CI_ Financial_ Adjustment. Reason. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ActualAmount",
+                "card": "0..1",
+                "UNID": "UN01005490",
+                "DEN": "CI_ Financial_ Adjustment. Actual. Amount"
+            }
+        ]
+    ],
+    "CITradeAccountingAccountType UN01005680 CI_ Trade_ Accounting Account. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "1..1",
+                "UNID": "UN01005683",
+                "DEN": "CI_ Trade_ Accounting Account. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01005685",
+                "DEN": "CI_ Trade_ Accounting Account. Name. Text"
+            }
+        ],
+        [
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01005683",
+                "DEN": "CI_ Trade_ Accounting Account. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01005685",
+                "DEN": "CI_ Trade_ Accounting Account. Name. Text"
+            }
+        ]
+    ],
+    "CIILBSupplyChainTradeAgreementType UN01009653 CIILB_ Supply Chain_ Trade Agreement. Details": [
+        [
+            {
+                "kind": "ASBIE",
+                "name": "SellerOrderReferencedCIReferencedDocument",
+                "card": "0..1",
+                "UNID": "UN01009654",
+                "DEN": "CIILB_ Supply Chain_ Trade Agreement. Seller Order_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "BuyerOrderReferencedCIReferencedDocument",
+                "card": "0..1",
+                "UNID": "UN01009655",
+                "DEN": "CIILB_ Supply Chain_ Trade Agreement. Buyer Order_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "AdditionalReferencedCIReferencedDocument",
+                "card": "0..1",
+                "UNID": "UN01009656",
+                "DEN": "CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "AdditionalReferencedCIReferencedDocument",
+                "card": "0..1",
+                "UNID": "UN01009656",
+                "DEN": "CIILB_ Supply Chain_ Trade Agreement. Additional_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "NetPriceProductCITradePrice",
+                "card": "1..1",
+                "UNID": "UN01009658",
+                "DEN": "CIILB_ Supply Chain_ Trade Agreement. Net Price_ Product. CI_ Trade_ Price"
+            }
+        ]
+    ],
+    "CIILBSupplyChainTradeDeliveryType UN01009659 CIILB_ Supply Chain_ Trade Delivery. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "PackageQuantity",
+                "card": "0..1",
+                "UNID": "UN01009660",
+                "DEN": "CIILB_ Supply Chain_ Trade Delivery. Package. Quantity"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ProductUnitQuantity",
+                "card": "0..1",
+                "UNID": "UN01009661",
+                "DEN": "CIILB_ Supply Chain_ Trade Delivery. Product_ Unit. Quantity"
+            },
+            {
+                "kind": "BBIE",
+                "name": "PerPackageUnitQuantity",
+                "card": "0..1",
+                "UNID": "UN01009662",
+                "DEN": "CIILB_ Supply Chain_ Trade Delivery. Per Package_ Unit. Quantity"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BilledQuantity",
+                "card": "1..1",
+                "UNID": "UN01014639",
+                "DEN": "CIILB_ Supply Chain_ Trade Delivery. Billed. Quantity"
+            }
+        ]
+    ],
+    "CIILBSupplyChainTradeSettlementType UN01009664 CIILB_ Supply Chain_ Trade Settlement. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "DirectionCode",
+                "card": "0..1",
+                "UNID": "UN01014641",
+                "DEN": "CIILB_ Supply Chain_ Trade Settlement. Direction. Code"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ApplicableCITradeTax",
+                "card": "1..1",
+                "UNID": "UN01009665",
+                "DEN": "CIILB_ Supply Chain_ Trade Settlement. Applicable. CI_ Trade_ Tax"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "InvoiceReferencedCIReferencedDocument",
+                "card": "0..n",
+                "UNID": "UN01014642",
+                "DEN": "CIILB_ Supply Chain_ Trade Settlement. Invoice_ Referenced. CI_ Referenced_ Document"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCITradeAllowanceCharge",
+                "card": "0..n",
+                "UNID": "UN01014644",
+                "DEN": "CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCITradeAllowanceCharge",
+                "card": "0..n",
+                "UNID": "UN01014644",
+                "DEN": "CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Trade_ Allowance Charge"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "SpecifiedCIFinancialAdjustment",
+                "card": "0..n",
+                "UNID": "UN01014643",
+                "DEN": "CIILB_ Supply Chain_ Trade Settlement. Specified. CI_ Financial_ Adjustment"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "BillingCISpecifiedPeriod",
+                "card": "1..1",
+                "UNID": "UN01014894",
+                "DEN": "CIILB_ Supply Chain_ Trade Settlement. Billing. CI_ Specified_ Period"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "PurchaseSpecifiedCITradeAccountingAccount",
+                "card": "0..1",
+                "UNID": "UN01015534",
+                "DEN": "CIILB_ Supply Chain_ Trade Settlement. Purchase_ Specified. CI_ Trade_ Accounting Account"
+            }
+        ]
+    ],
+    "CITradeProductType UN01005809 CI_ Trade_ Product. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005810",
+                "DEN": "CI_ Trade_ Product. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "GlobalID",
+                "card": "0..1",
+                "UNID": "UN01005811",
+                "DEN": "CI_ Trade_ Product. Global_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "SellerAssignedID",
+                "card": "0..1",
+                "UNID": "UN01005812",
+                "DEN": "CI_ Trade_ Product. Seller Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BuyerAssignedID",
+                "card": "0..1",
+                "UNID": "UN01005813",
+                "DEN": "CI_ Trade_ Product. Buyer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ManufacturerAssignedID",
+                "card": "0..1",
+                "UNID": "UN01005814",
+                "DEN": "CI_ Trade_ Product. Manufacturer Assigned_ Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "1..1",
+                "UNID": "UN01005815",
+                "DEN": "CI_ Trade_ Product. Name. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Description",
+                "card": "0..1",
+                "UNID": "UN01005817",
+                "DEN": "CI_ Trade_ Product. Description. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "VariableMeasureIndicator",
+                "card": "0..1",
+                "UNID": "UN01008533",
+                "DEN": "CI_ Trade_ Product. Variable Measure. Indicator"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "DesignatedCIProductClassification",
+                "card": "0..1",
+                "UNID": "UN01005823",
+                "DEN": "CI_ Trade_ Product. Designated. CI_ Product_ Classification"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "ApplicableCIProductCharacteristic",
+                "card": "0..n",
+                "UNID": "UN01005821",
+                "DEN": "CI_ Trade_ Product. Applicable. CI_ Product_ Characteristic"
+            },
+            {
+                "kind": "ASBIE",
+                "name": "OriginCITradeCountry",
+                "card": "0..n",
+                "UNID": "UN01005827",
+                "DEN": "CI_ Trade_ Product. Origin. CI_ Trade_ Country"
+            }
+        ]
+    ],
+    "BranchFinancialInstitutionType UN01003138 Branch_ Financial Institution. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01003139",
+                "DEN": "Branch_ Financial Institution. Identification. Identifier"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Name",
+                "card": "0..1",
+                "UNID": "UN01003140",
+                "DEN": "Branch_ Financial Institution. Name. Text"
+            }
+        ]
+    ],
+    "CITradePriceType UN01005790 CI_ Trade_ Price. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "TypeCode",
+                "card": "0..1",
+                "UNID": "UN01005791",
+                "DEN": "CI_ Trade_ Price. Type. Code"
+            },
+            {
+                "kind": "BBIE",
+                "name": "ChargeAmount",
+                "card": "1..1",
+                "UNID": "UN01005792",
+                "DEN": "CI_ Trade_ Price. Charge. Amount"
+            },
+            {
+                "kind": "BBIE",
+                "name": "BasisQuantity",
+                "card": "0..1",
+                "UNID": "UN01005793",
+                "DEN": "CI_ Trade_ Price. Basis. Quantity"
+            }
+        ]
+    ],
+    "CIProductClassificationType UN01005573 CI_ Product_ Classification. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "SystemID",
+                "card": "0..1",
+                "UNID": "UN01005574",
+                "DEN": "CI_ Product_ Classification. System. Identifier"
+            }
+        ]
+    ],
+    "CIProductCharacteristicType UN01005567 CI_ Product_ Characteristic. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "Description",
+                "card": "0..1",
+                "UNID": "UN01005570",
+                "DEN": "CI_ Product_ Characteristic. Description. Text"
+            },
+            {
+                "kind": "BBIE",
+                "name": "Value",
+                "card": "0..1",
+                "UNID": "UN01011457",
+                "DEN": "CI_ Product_ Characteristic. Value. Text"
+            }
+        ]
+    ],
+    "CITradeCountryType UN01005735 CI_ Trade_ Country. Details": [
+        [
+            {
+                "kind": "BBIE",
+                "name": "IdentificationID",
+                "card": "0..1",
+                "UNID": "UN01005736",
+                "DEN": "CI_ Trade_ Country. Identification. Identifier"
+            }
+        ]
+    ]
+}

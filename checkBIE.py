@@ -1,13 +1,14 @@
 import csv
 import json
+import re
 from lxml import etree
 
 # bie = 'SMEinvoice-BIE'
 bie = 'core_compare'
 bie_file = f'data/BIE/{bie}.csv'
 xpath_file = f'data/BIE/{bie}1.csv'
-header0 = ['seq','part','UNID','kind','C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','term','desc','card','n','code','num','level']
-header1 = ['seq','part','UNID','kind','C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','term','desc','card','n','code','num','level','XPath','d1','d2','d3','d4','SemPath']
+header0 = ['seq','part','UNID','kind','C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','term','desc','card','n','code','level','ABIEcode']
+header1 = ['seq','part','UNID','kind','C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','term','desc','card','n','code','level','ABIEcode','XPath','d1','d2','d3','d4','SemPath']
 bie1_json = f'data/BIE/{bie}_1.json'
 bie2_json = f'data/BIE/{bie}_2.json'
 log_file  = f'data/BIE/{bie}.log'
@@ -22,24 +23,26 @@ UNIDs     = None
 abieDict  = {}
 abieLabel = {}
 abieNum   = {}
+nums      = []
+qualifier = {}
 
 def den_to_xml_element_name(den):
     name = ''
-    # property = den[2+den.index('.'):]
+    property = den[2+den.index('.'):]
     # `. Details` で終わる場合の削除
     if den.endswith(". Details"):
         name = den.rsplit(". Details", 1)[0] + "Type"
     # ` Identification. Identifier` で終わる場合の変換
-    elif den.endswith("Identification. Identifier"):
-        name = den.rsplit("Identification. Identifier", 1)[0] + "ID"
+    elif property.endswith("Identification. Identifier"):
+        name = property.rsplit("Identification. Identifier", 1)[0] + "ID"
     # `. Identifier` で終わる場合の変換
-    elif den.endswith(" Identifier"):
-        name = den.rsplit(" Identifier", 1)[0] + "ID"
+    elif property.endswith(" Identifier"):
+        name = property.rsplit(" Identifier", 1)[0] + "ID"
         # `. Identifier` で終わる場合の変換
-    elif den.endswith(". Text"):
-        name = den.rsplit(". Text", 1)[0]
-    # else:
-    #     name = property
+    elif property.endswith(". Text"):
+        name = property.rsplit(". Text", 1)[0]
+    else:
+        name = property
     # スペース、アンダースコア、ピリオドを削除して単語に分割
     words = name.replace("_", " ").replace(".", "").split()    
     # 各単語の最初の文字を大文字に変換
@@ -143,6 +146,30 @@ def is_valid_sublist(original, sublist):
     # すべての要素が正しい順序で存在する場合、部分リストは有効
     return True
 
+def reviceCode(code):
+    global nums
+    num = ''
+    unid = f"UN010{code}"
+    if unid in nums:
+        num = nums.index(unid)
+        hexNum = hex(num)[2:].zfill(2)
+        code = f'JC{hexNum}'
+    else:
+        unid = f"JPS23{code}"
+        if unid in nums:
+            num = nums.index(unid)
+            hexNum = hex(num)[2:].zfill(2)
+            code = f'JP{hexNum}'
+    if ''==num:
+        if len(code) > 5:
+            head = reviceCode(code[:5])
+            code_ = code[6:-1]
+            if code_ not in qualifier:
+                hexNum = hex(1+len(qualifier))[2:]
+                qualifier[code_] = hexNum
+            code =  f"{head}_{qualifier[code_]}"
+    return code
+
 with open(bie_file, 'r', encoding='utf-8-sig') as f:
     reader = csv.DictReader(f, fieldnames=header0)
     next(reader)
@@ -157,28 +184,67 @@ with open(bie_file, 'r', encoding='utf-8-sig') as f:
                 record[k] = v
         records0.append(record)
 
-UNIDs = list(set([x['UNID'] for x in records0]))
+UNIDs    = sorted(list(set([x['UNID'] for x in records0])))
 abieDict = extract_complex_type_data(xsd_path)
+nums     = sorted(list(set([x['UNID'] for x in records0 if 'BBIE'!=x['kind']])))
 
-root = 'SMEInvoice'
+root     = 'SMEInvoice'
 unidABIE = None
-path = [root] + ['']*6
+path     = [root] + ['']*6
+seq      = 0
+ABIEcode = ABIEcode_ = ''
 for i in range(len(records0)):
-    data   = {}
-    record = records0[i]
-    unid = record['UNID']
-    kind = record['kind']
+    data         = {}
+    record       = records0[i]
+    unid         = record['UNID']
+    kind         = record['kind']
     data['kind'] = kind
     if 'ABIE'==kind:
         unidABIE = unid
-    if 'BBIE'==kind and  unidABIE and unidABIE in abieNum:
-        if unid in abieNum[unidABIE]:
-            num = abieNum[unidABIE][unid]
+        num = ''
+        code = ''
+    elif 'BBIE'==kind:
+        num = ''
+        seq += 1
+        i   = str(seq).zfill(2)
+        if 0==len(ABIEcode):
+            continue
+        elif len(ABIEcode)<=5:
+            ABIEcode_ = ABIEcode.zfill(5)
+            ABIEcode__ = reviceCode(ABIEcode_)
+            code     = f"{ABIEcode__}_{i}"
+        elif 11==len(ABIEcode):
+            head = reviceCode(ABIEcode[:5])
+            tail = reviceCode(ABIEcode[-5:])
+            code = f"{head}_{tail}_{i}"
         else:
-            print(f"** {unid} NOT in abieNum[{unidABIE}]")
-            num = ''
-    else:
-        num = record['num']
+            # classifier = ABIEcode[:-6]
+            head = reviceCode(ABIEcode[:-5])
+            tail = reviceCode(ABIEcode[-5:])
+            code = f"{head}_{tail}_{i}"
+    elif 'AS' in kind:
+        num  = ''
+        if record['ABIEcode']:
+            ABIEcode = record['ABIEcode']
+            seq = 0
+            if 0==len(ABIEcode):
+                continue
+            elif len(ABIEcode)<=5:
+                ABIEcode_ = ABIEcode.zfill(5)
+                code      = reviceCode(ABIEcode_)
+            elif 11==len(ABIEcode):
+                head = reviceCode(ABIEcode[:5])
+                tail = reviceCode(ABIEcode[-5:])
+                code = f"{head}_{tail}"
+            else:
+                head = reviceCode(ABIEcode[:-5])
+                tail = reviceCode(ABIEcode[-5:])
+                code = f"{head}_{tail}"
+        else:
+            code = ''
+    # else:
+    #     # num  = record['num']
+    #     code = reviceCode(record['code'])
     den = ''
     level = None
     if len(record['C1']) > 0:
@@ -243,26 +309,30 @@ for i in range(len(records0)):
             while i <= level:
                 XPath += '/ '+path[i]
                 i += 1        
-
+    if 'ASBIE'==kind and not code:
+        XPath = ''
     data = {
         'UNID':  unid,
-        'kind':  record['kind'],
+        'kind':  kind,
         'd':     d,
         'DEN':   den,
         'name':  name,
         'card':  record['card'],
         'XPath': XPath,
-        'term': record['term'],
-        'desc': record['desc'],
-        'n': record['n'],
-        'code': record['code'],
-        'num': num
+        'term':  record['term'],
+        'desc':  record['desc'],
+        'n':     record['n'],
+        'code':  code,
+        'num':   num
     }
     records.append(data)
-
     record['XPath'] = XPath
+    record['code']  = code
+    print(f"{kind} {code or 'NULL'} {XPath or 'UNDEFINED XPath'}")
     records1.append(record)
 
+print(f"\n- write {xpath_file}")
+asbieCode = ''
 # CSVファイルを書き込みモードで開く
 with open(xpath_file, "w", encoding='utf-8-sig', newline='') as csvfile:
     # DictWriterオブジェクトの作成
@@ -271,34 +341,11 @@ with open(xpath_file, "w", encoding='utf-8-sig', newline='') as csvfile:
     writer.writeheader()
     # 各行を書き込む
     ds = ['JC00','','','','']
-    nums = list(set([x['UNID'] for x in records0 if 'BBIE'!=x['kind']]))
     for row in records1:
         code = row['code']
+        kind = row['kind']
         if code:
-            unid = f"UN010{code}"
-            num = ''
-            if unid in nums:
-                num = nums.index(unid)
-            else:
-                unid = f"JPS23{code}"
-                if unid in nums:
-                    num = nums.index(unid)
-            if num:
-                hexNum = hex(num)[2:]
-                if 1==len(hexNum):
-                    code = f'JC0{hexNum}'
-                else:
-                    code = f'JC{hexNum}'
-            else:
-                print(f'** {code} NOT in nums.')
-            num = row['num']
-            if num:
-                num = format(int(row['num']), '02x')
-                row['code'] = f"{code}-{num}"
-            elif row['XPath']:
-                row['code'] = code
-            else:
-                row['code'] = ''
+            row['code'] = code
         if row['level']:
             n = row['level']
             i = int(n)
@@ -308,14 +355,30 @@ with open(xpath_file, "w", encoding='utf-8-sig', newline='') as csvfile:
             while idx > i and idx <= 4:
                 ds[idx] = ''
                 idx += 1
-        if 'ABIE'!=row['kind']:
+        if 'ABIE'!=kind:
             idx = 1
             while idx <= 4:
                 row['d'+str(idx)] = ds[idx]
                 idx += 1
-        row['SemPath'] = ds[0]+(ds[1] and f'-{ds[1]}')+(ds[2] and f'-{ds[2]}')+(ds[3] and f'-{ds[3]}')+(ds[4] and f'-{ds[4]}')+f'-{code}'
+        if 'ASBIE'==kind and not row['code']:
+            row['d1'] = row['d2'] = row['d3'] = row['d4'] = ''
+        dPath = f'/{ds[0]}' + (ds[1] and f'/{ds[1]}') + (ds[2] and f'/{ds[2]}') + (ds[3] and f'/{ds[3]}') + (ds[4] and f'/{ds[4]}')
+        code_ = (row['code'] and f"{row['code']}")
+        if code_:
+            if 'BBIE'==kind:
+                num     = row['code'][-2:]
+                parent  = dPath.split('/')[-1]
+                SemPath = f"{dPath}/{parent}_{num}"
+            elif 'ASBIE'==kind:
+                SemPath = dPath
+            else:
+                SemPath = dPath
+            row['SemPath'] = SemPath
+        else:
+            SemPath = ''
+        print(f"{row['seq']} {kind} {code_ or 'NULL'} {SemPath or 'NULL'} {row['XPath']}")
         writer.writerow(row)
-
+ 
 # 指定した d 値の ABIE のみを対象として処理
 result1 = {}
 for d_value in [1,3,5,7,9,11]:

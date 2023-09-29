@@ -1,0 +1,29 @@
+﻿column,name,card,datatype,semSort,semPath,fixedValue,JP PINT ID,BusinessTerm_ja
+A,自会社コード,0..1,Identifier,102,/JC00/JC27_2_JC21_01,,IBT-046,買い手ID
+B,ＥＤＩ対象企業コード,0..n,Identifier,67,/JC00/JC2e_1_JC21_01,,IBT-029,売り手ID
+C,発注ＳＥＱＮＯ,0..1,Document Reference,565,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC38_JC11_01,,IBT-183,購買発注書参照
+D,受注担当,0..1,Text,77,/JC00/JC2e_1_JC21/JC2e_1_JC60_02,,IBT-041,売り手連絡先
+E,出荷先コード,0..1,Identifier,414,/JC00/JC26_JC44/JC5d_JC4d/JC15_JC21_01,,IBT-071,納入先ID
+F,出荷先名称　＜漢字＞,0..1,Text,417,/JC00/JC26_JC44/JC5d_JC4d/JC15_JC21_03,,IBT-070,納入先名称
+G,出荷先住所　＜漢字＞,0..1,Text,421,/JC00/JC26_JC44/JC5d_JC4d/JC15_JC21_05,,IBT-075,納入先住所欄1
+H,コメント ＜漢字＞,0..1,Text,41,/JC00/JC58_JC66_02,,IBT-022,請求書注釈内容
+I,商品コード,0..1,Identifier,655,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC2d_JC2f_04,,IBT-156,買い手による品目ID
+J,商品名＜半角英数カナ＞,1..1,Text,657,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC2d_JC2f_06,,IBT-153,品名
+K,数量,1..1,Quantity,597,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC20_JC6d_04,,IBT-129,請求する数量
+L,単価,1..1,Unit Price Amount,589,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC4b_JC57_02,,IBT-146,品目単価(値引後)(税抜き)
+M,納品書番号,0..1,Document Reference,570,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC16_e_JC11_01,,IBT-184,出荷案内書参照
+N,納品日,0..1,Date,427,/JC00/JC26_JC44/JC5d_JC4d/JC15_JC21_09,,IBT-072,実際納入日
+O,請求書番号,1..1,Identifier,30,/JC00/JC69_15,,IBT-001,請求書番号
+P,請求書発行日,1..1,Date,33,/JC00/JC69_18,,IBT-002,請求書発行日
+Q,事業者登録番号,0..1,Identifier,72,/JC00/JC2e_1_JC21_04,,IBT-031,売り手税ID
+R,税額合計1,1..1,Amount,470,/JC00/JC26_JC44/JC5d_JC4d[JC04_a_JC65_04='S']/JC04_a_JC65_01,,IBT-117,課税分類毎の消費税額
+S,税率1,0..1,Percentage,476,/JC00/JC26_JC44/JC5d_JC4d[JC04_a_JC65_04='S']/JC04_a_JC65_07,,IBT-119,課税分類毎の税率
+T,税額合計2,1..1,Amount,470,/JC00/JC26_JC44/JC5d_JC4d[JC04_a_JC65_04='AA']/JC04_a_JC65_01,,IBT-117,課税分類毎の消費税額
+U,税率2,0..1,Percentage,476,/JC00/JC26_JC44/JC5d_JC4d[JC04_a_JC65_04='AA']/JC04_a_JC65_07,,IBT-119,課税分類毎の税率
+V,税込み合計金額,1..1,Amount,499,/JC00/JC26_JC44/JC5d_JC4d/JC1d_c_JC78_06,,IBT-112,請求書合計金額(税込み)
+W,請求明細番号,1..1,Identifier,549,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48_01,,IBT-126,請求書明細行ID
+X,税抜き明細金額,1..1,Amount,605,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC7c_JC65_02,,IBT-131,値引後請求書明細行金額(税抜き)
+Y,明細行税率,0..1,Percentage,608,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC7c_JC65_05,,IBT-152,請求する品目に対する税率
+,税額合計金額,,,498,/JC00/JC26_JC44/JC5d_JC4d/JC1d_c_JC78_05,,IBT-109,請求書合計金額(税抜き)
+,明細行合計金額,,,497,/JC00/JC26_JC44/JC5d_JC4d/JC1d_c_JC78_04,,IBT-106,値引後請求書明細行金額の合計
+,,,,606,/JC00/JC26_JC44/JC5d_JC4d/JC25_JC48/JC7c_JC65_03,,IBT-151,請求する品目に対する課税分類コード

@@ -120,8 +120,18 @@ chdir(__DIR__);
 wh_log($_SERVER['REQUEST_METHOD']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    $uuid = $_POST["uuid"];
-    if (!$uuid || !UUID::is_valid($uuid)) {
+    // $uuid = $_POST["uuid"] ?? "";
+    // if (!$uuid || !UUID::is_valid($uuid)) {
+    //     $uuid = UUID::v4();
+    // }
+    if (isset($_POST["uuid"]))
+    {
+        $uuid = $_POST["uuid"];
+        if (!UUID::is_valid($uuid)) {
+            $uuid = UUID::v4();
+        }
+    }
+    else {
         $uuid = UUID::v4();
     }
     $syntax = htmlspecialchars($_POST["syntax"]);
@@ -192,17 +202,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     header("Content-Type: application/json; charset=utf-8");
     echo json_encode(
         array(
-            'uuid'=>$uuid,
-            'source'=>$source,
-            'target'=>$target,
-            'source_xml'=>$source_xml,
-            'csv_file'=>$csv_file,
-            'transposed_file'=>$transposed_file,
-            'target_xml'=>$target_xml,
-            'source_contents'=>$source_contents,
-            'csv_contents'=>$csv_contents,
-            'transposed_contents'=>$transposed_contents,
-            'target_contents'=>$target_contents,
+            'uuid'=>$uuid ?? "",
+            'source'=>$source ?? "",
+            'target'=>$target ?? "",
+            'source_xml'=>$source_xml ?? "",
+            'csv_file'=>$csv_file ?? "",
+            'transposed_file'=>$transposed_file ?? "",
+            'target_xml'=>$target_xml ?? "",
+            'source_contents'=>$source_contents ?? "",
+            'csv_contents'=>$csv_contents ?? "",
+            'transposed_contents'=>$transposed_contents ?? "",
+            'target_contents'=>$target_contents ?? "",
         ),
         JSON_UNESCAPED_UNICODE
     );

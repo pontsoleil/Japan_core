@@ -1,0 +1,31 @@
+﻿column,name,card,datatype,semSort,semPath,fixedValue,ID,BusinessTerm_ja
+1,自会社コード,,,,JC00-JC75_JC62-01,,IBT-046,買い手ID
+2,ＥＤＩ対象企業コード,,,,JC00-JC36_JC62-01,,IBT-029,売り手ID
+3,発注ＳＥＱＮＯ,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC4c_JC3e-01,,IBT-183,購買発注書参照
+4,受注担当,,,,JC00-JC36_JC62-JC36_JC23-02,,IBT-041,売り手連絡先
+5,出荷先コード,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC32_JC62-01,,IBT-071,納入先ID
+6,出荷先名称　＜漢字＞,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC32_JC62-03,,IBT-070,納入先名称
+7,出荷先住所　＜漢字＞,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC32_JC62-05,,IBT-075,納入先住所欄1
+8,コメント ＜漢字＞,,,,JC00-JC57_JC1c-02,,IBT-022,請求書注釈内容
+9,商品コード,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC54_JC27-04,,IBT-156,買い手による品目ID
+10,商品名＜半角英数カナ＞,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC54_JC27-06,,IBT-153,品名
+11,数量,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC6e_JC05-04,,IBT-129,請求する数量
+12,単価,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC18_JC30-02,,IBT-146,品目単価(値引後)(税抜き)
+13,納品書番号,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC4e_JC3e-01,,IBT-184,出荷案内書参照
+14,納品日,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC32_JC62-09,,IBT-072,実際納入日
+15,請求書番号,,,,JC00-15,,IBT-001,請求書番号
+16,請求書発行日,,,,JC00-18,,IBT-002,請求書発行日
+17,事業者登録番号,,,,JC00-JC36_JC62-04,,IBT-031,売り手税ID
+22,税込み合計金額,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC65_JC07-06,,IBT-112,請求書合計金額(税込み)
+23,請求明細番号,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-01,,IBT-126,請求書明細行ID
+24,税抜き明細金額,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC0d_JC51-02,,IBT-131,値引後請求書明細行金額(税抜き)
+25,明細行税率,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC0d_JC51-05,,IBT-152,請求する品目に対する税率
+18,税額合計,,,,JC00-JC0b_JC2e-JC6b_JC5a[JC5a-JC04_JC53-JC0d_JC51-03='S']-JC77_JC51-01,,IBT-117,課税分類毎の消費税額
+19,税率,,,,JC00-JC0b_JC2e-JC6b_JC5a[JC5a-JC04_JC53-JC0d_JC51-03='S']-JC77_JC51-07,,IBT-119,課税分類毎の税率
+20,税額合計,,,,JC00-JC0b_JC2e-JC6b_JC5a[JC5a-JC04_JC53-JC0d_JC51-03='AA']-JC77_JC51-01,,IBT-117,課税分類毎の消費税額
+21,税率,,,,JC00-JC0b_JC2e-JC6b_JC5a[JC5a-JC04_JC53-JC0d_JC51-03='AA']-JC77_JC51-07,,IBT-119,課税分類毎の税率
+,税額合計金額,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC65_JC07-05,,IBT-109,請求書合計金額(税抜き)
+,明細行合計金額,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC65_JC07-04,,IBT-106,値引後請求書明細行金額の合計
+,税込みの請求総合計金額,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC65_JC07-06,,IBT-112,請求書合計金額(税込み)
+,,,,,,,,
+,,,,,JC00-JC0b_JC2e-JC6b_JC5a-JC04_JC53-JC0d_JC51-03,,IBT-151,請求する品目に対する課税分類コード

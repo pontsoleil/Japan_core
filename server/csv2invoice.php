@@ -86,12 +86,21 @@ function escaped_entities($string)
     );
 }
 
+// 定義したエラーハンドラを設定する
+$old_error_handler = set_error_handler("errorHandler");
+
 chdir(__DIR__);
 wh_log($_SERVER['REQUEST_METHOD']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file']))
 {
-    $uuid = $_POST["uuid"];
-    if (!$uuid || !UUID::is_valid($uuid)) {
+    if (isset($_POST["uuid"]))
+    {
+        $uuid = $_POST["uuid"];
+        if (!UUID::is_valid($uuid)) {
+            $uuid = UUID::v4();
+        }
+    }
+    else {
         $uuid = UUID::v4();
     }
     $syntax = htmlspecialchars($_POST["syntax"]);
@@ -119,12 +128,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file']))
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode(
             array(
-                'uuid'=>$uuid,
-                'syntax'=>$syntax,
-                'csv_file'=>$csv_file,
-                'xml_file'=>$xml_file,
-                'csv_contents'=>$csv_contents,
-                'xml_contents'=>$xml_contents,
+                'uuid'=>$uuid ?? "",
+                'syntax'=>$syntax ?? "",
+                'csv_file'=>$csv_file ?? "",
+                'xml_file'=>$xml_file ?? "",
+                'csv_contents'=>$csv_contents ?? "",
+                'xml_contents'=>$xml_contents ?? "",
             ),
             JSON_UNESCAPED_UNICODE
         );

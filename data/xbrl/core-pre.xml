@@ -1,0 +1,993 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--  (c) 2023 XBRL Japan inc. -->
+<link:linkbase
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"
+	xmlns:link="http://www.xbrl.org/2003/linkbase"
+	xmlns:xlink="http://www.w3.org/1999/xlink">
+	<link:roleRef roleURI="http://www.xbrl.jp/japan-core/role" xlink:type="simple" xlink:href="core.xsd#japan-core-role"/>
+	<link:presentationLink xlink:type="extended" xlink:role="http://www.xbrl.jp/japan-core/role">
+		<!-- Aggregation JC00 請求書 -->
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC00" xlink:label="JC00" xlink:title="presentation: JC00 請求書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a" xlink:label="JC0a" xlink:title="presentation parent: JC0a ヘッダ"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC0a" order="1" xlink:title="presentation: JC00 請求書 to JC0a ヘッダ"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_01" xlink:label="JC0a_01" xlink:title="presentation parent: JC0a_01 取引ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_01" order="2" xlink:title="presentation: JC0a ヘッダ to JC0a_01 取引ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_02" xlink:label="JC0a_02" xlink:title="presentation parent: JC0a_02 処理日時"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_02" order="3" xlink:title="presentation: JC0a ヘッダ to JC0a_02 処理日時"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_03" xlink:label="JC0a_03" xlink:title="presentation parent: JC0a_03 取引プロセスID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_03" order="4" xlink:title="presentation: JC0a ヘッダ to JC0a_03 取引プロセスID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_04" xlink:label="JC0a_04" xlink:title="presentation parent: JC0a_04 取引プロセス名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_04" order="5" xlink:title="presentation: JC0a ヘッダ to JC0a_04 取引プロセス名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_05" xlink:label="JC0a_05" xlink:title="presentation parent: JC0a_05 バージョンID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_05" order="6" xlink:title="presentation: JC0a ヘッダ to JC0a_05 バージョンID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_06" xlink:label="JC0a_06" xlink:title="presentation parent: JC0a_06 バージョン発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_06" order="7" xlink:title="presentation: JC0a ヘッダ to JC0a_06 バージョン発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_07" xlink:label="JC0a_07" xlink:title="presentation parent: JC0a_07 取引シナリオID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_07" order="8" xlink:title="presentation: JC0a ヘッダ to JC0a_07 取引シナリオID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_08" xlink:label="JC0a_08" xlink:title="presentation parent: JC0a_08 取引シナリオ名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_08" order="9" xlink:title="presentation: JC0a ヘッダ to JC0a_08 取引シナリオ名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_09" xlink:label="JC0a_09" xlink:title="presentation parent: JC0a_09 アプリケーションID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_09" order="10" xlink:title="presentation: JC0a ヘッダ to JC0a_09 アプリケーションID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_10" xlink:label="JC0a_10" xlink:title="presentation parent: JC0a_10 アプリケーション名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_10" order="11" xlink:title="presentation: JC0a ヘッダ to JC0a_10 アプリケーション名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_11" xlink:label="JC0a_11" xlink:title="presentation parent: JC0a_11 ドメインID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_11" order="12" xlink:title="presentation: JC0a ヘッダ to JC0a_11 ドメインID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_12" xlink:label="JC0a_12" xlink:title="presentation parent: JC0a_12 ドメイン名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_12" order="13" xlink:title="presentation: JC0a ヘッダ to JC0a_12 ドメイン名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_13" xlink:label="JC0a_13" xlink:title="presentation parent: JC0a_13 バージョンID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_13" order="14" xlink:title="presentation: JC0a ヘッダ to JC0a_13 バージョンID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_14" xlink:label="JC0a_14" xlink:title="presentation parent: JC0a_14 バージョン発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_14" order="15" xlink:title="presentation: JC0a ヘッダ to JC0a_14 バージョン発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_15" xlink:label="JC0a_15" xlink:title="presentation parent: JC0a_15 インボイスID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_15" order="16" xlink:title="presentation: JC0a ヘッダ to JC0a_15 インボイスID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_16" xlink:label="JC0a_16" xlink:title="presentation parent: JC0a_16 インボイス名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_16" order="17" xlink:title="presentation: JC0a ヘッダ to JC0a_16 インボイス名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_17" xlink:label="JC0a_17" xlink:title="presentation parent: JC0a_17 インボイスタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_17" order="18" xlink:title="presentation: JC0a ヘッダ to JC0a_17 インボイスタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_18" xlink:label="JC0a_18" xlink:title="presentation parent: JC0a_18 インボイス発効日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_18" order="19" xlink:title="presentation: JC0a ヘッダ to JC0a_18 インボイス発効日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_19" xlink:label="JC0a_19" xlink:title="presentation parent: JC0a_19 インボイス目的コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_19" order="20" xlink:title="presentation: JC0a ヘッダ to JC0a_19 インボイス目的コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_20" xlink:label="JC0a_20" xlink:title="presentation parent: JC0a_20 インボイス履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_20" order="21" xlink:title="presentation: JC0a ヘッダ to JC0a_20 インボイス履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_21" xlink:label="JC0a_21" xlink:title="presentation parent: JC0a_21 インボイス類型コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_21" order="22" xlink:title="presentation: JC0a ヘッダ to JC0a_21 インボイス類型コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC0a_22" xlink:label="JC0a_22" xlink:title="presentation parent: JC0a_22 インボイスサブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC0a" xlink:to="JC0a_22" order="23" xlink:title="presentation: JC0a ヘッダ to JC0a_22 インボイスサブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC30_JC10" xlink:label="JC30_JC10" xlink:title="presentation parent: JC30_JC10 ヘッダ注釈"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC30_JC10" order="24" xlink:title="presentation: JC00 請求書 to JC30_JC10 ヘッダ注釈"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC30_JC10_01" xlink:label="JC30_JC10_01" xlink:title="presentation parent: JC30_JC10_01 ヘッダ注釈表題"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC30_JC10" xlink:to="JC30_JC10_01" order="25" xlink:title="presentation: JC30_JC10 ヘッダ注釈 to JC30_JC10_01 ヘッダ注釈表題"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC30_JC10_02" xlink:label="JC30_JC10_02" xlink:title="presentation parent: JC30_JC10_02 ヘッダ注釈内容"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC30_JC10" xlink:to="JC30_JC10_02" order="26" xlink:title="presentation: JC30_JC10 ヘッダ注釈 to JC30_JC10_02 ヘッダ注釈内容"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC30_JC10_03" xlink:label="JC30_JC10_03" xlink:title="presentation parent: JC30_JC10_03 ヘッダ注釈ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC30_JC10" xlink:to="JC30_JC10_03" order="27" xlink:title="presentation: JC30_JC10 ヘッダ注釈 to JC30_JC10_03 ヘッダ注釈ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13" xlink:label="JC72_JC13" xlink:title="presentation parent: JC72_JC13 ヘッダ参照文書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC72_JC13" order="28" xlink:title="presentation: JC00 請求書 to JC72_JC13 ヘッダ参照文書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_01" xlink:label="JC72_JC13_01" xlink:title="presentation parent: JC72_JC13_01 文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_01" order="29" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_01 文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_02" xlink:label="JC72_JC13_02" xlink:title="presentation parent: JC72_JC13_02 文書URL_ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_02" order="30" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_02 文書URL_ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_03" xlink:label="JC72_JC13_03" xlink:title="presentation parent: JC72_JC13_03 文書発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_03" order="31" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_03 文書発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_04" xlink:label="JC72_JC13_04" xlink:title="presentation parent: JC72_JC13_04 文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_04" order="32" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_04 文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_05" xlink:label="JC72_JC13_05" xlink:title="presentation parent: JC72_JC13_05 文書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_05" order="33" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_05 文書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_06" xlink:label="JC72_JC13_06" xlink:title="presentation parent: JC72_JC13_06 文書情報"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_06" order="34" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_06 文書情報"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_07" xlink:label="JC72_JC13_07" xlink:title="presentation parent: JC72_JC13_07 文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_07" order="35" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_07 文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_08" xlink:label="JC72_JC13_08" xlink:title="presentation parent: JC72_JC13_08 文書添付ファイル"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_08" order="36" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_08 文書添付ファイル"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC72_JC13_09" xlink:label="JC72_JC13_09" xlink:title="presentation parent: JC72_JC13_09 文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC72_JC13" xlink:to="JC72_JC13_09" order="37" xlink:title="presentation: JC72_JC13 ヘッダ参照文書 to JC72_JC13_09 文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC79_JC5d" xlink:label="JC79_JC5d" xlink:title="presentation parent: JC79_JC5d ヘッダ添付ファイル"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC79_JC5d" order="38" xlink:title="presentation: JC00 請求書 to JC79_JC5d ヘッダ添付ファイル"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC79_JC5d_01" xlink:label="JC79_JC5d_01" xlink:title="presentation parent: JC79_JC5d_01 添付バイナリファイルID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC79_JC5d" xlink:to="JC79_JC5d_01" order="39" xlink:title="presentation: JC79_JC5d ヘッダ添付ファイル to JC79_JC5d_01 添付バイナリファイルID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC79_JC5d_02" xlink:label="JC79_JC5d_02" xlink:title="presentation parent: JC79_JC5d_02 添付バイナリファイル名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC79_JC5d" xlink:to="JC79_JC5d_02" order="40" xlink:title="presentation: JC79_JC5d ヘッダ添付ファイル to JC79_JC5d_02 添付バイナリファイル名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC79_JC5d_03" xlink:label="JC79_JC5d_03" xlink:title="presentation parent: JC79_JC5d_03 添付バイナリファイルURI ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC79_JC5d" xlink:to="JC79_JC5d_03" order="41" xlink:title="presentation: JC79_JC5d ヘッダ添付ファイル to JC79_JC5d_03 添付バイナリファイルURI ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC79_JC5d_04" xlink:label="JC79_JC5d_04" xlink:title="presentation parent: JC79_JC5d_04 添付バイナリファイルのMIMEコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC79_JC5d" xlink:to="JC79_JC5d_04" order="42" xlink:title="presentation: JC79_JC5d ヘッダ添付ファイル to JC79_JC5d_04 添付バイナリファイルのMIMEコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC79_JC5d_05" xlink:label="JC79_JC5d_05" xlink:title="presentation parent: JC79_JC5d_05 添付バイナリファイルの説明文"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC79_JC5d" xlink:to="JC79_JC5d_05" order="43" xlink:title="presentation: JC79_JC5d ヘッダ添付ファイル to JC79_JC5d_05 添付バイナリファイルの説明文"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23" xlink:label="JC32_1_JC23" xlink:title="presentation parent: JC32_1_JC23 売り手"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC32_1_JC23" order="44" xlink:title="presentation: JC00 請求書 to JC32_1_JC23 売り手"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_01" xlink:label="JC32_1_JC23_01" xlink:title="presentation parent: JC32_1_JC23_01 受注者ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_01" order="45" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_01 受注者ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_20" xlink:label="JC32_1_JC23_20" xlink:title="presentation parent: JC32_1_JC23_20 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_20" order="46" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_20 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_02" xlink:label="JC32_1_JC23_02" xlink:title="presentation parent: JC32_1_JC23_02 受注者国際企業ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_02" order="47" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_02 受注者国際企業ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_21" xlink:label="JC32_1_JC23_21" xlink:title="presentation parent: JC32_1_JC23_21 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_21" order="48" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_21 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_03" xlink:label="JC32_1_JC23_03" xlink:title="presentation parent: JC32_1_JC23_03 受注者名称"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_03" order="49" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_03 受注者名称"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_04" xlink:label="JC32_1_JC23_04" xlink:title="presentation parent: JC32_1_JC23_04 適格請求書発行事業者登録番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_04" order="50" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_04 適格請求書発行事業者登録番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_05" xlink:label="JC32_1_JC23_05" xlink:title="presentation parent: JC32_1_JC23_05 受注者タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_05" order="51" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_05 受注者タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_06" xlink:label="JC32_1_JC23_06" xlink:title="presentation parent: JC32_1_JC23_06 受注部門ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_06" order="52" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_06 受注部門ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_07" xlink:label="JC32_1_JC23_07" xlink:title="presentation parent: JC32_1_JC23_07 受注者担当名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_07" order="53" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_07 受注者担当名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_08" xlink:label="JC32_1_JC23_08" xlink:title="presentation parent: JC32_1_JC23_08 受注者部門名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_08" order="54" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_08 受注者部門名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_09" xlink:label="JC32_1_JC23_09" xlink:title="presentation parent: JC32_1_JC23_09 受注者担当ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_09" order="55" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_09 受注者担当ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_10" xlink:label="JC32_1_JC23_10" xlink:title="presentation parent: JC32_1_JC23_10 受注者電話番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_10" order="56" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_10 受注者電話番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_11" xlink:label="JC32_1_JC23_11" xlink:title="presentation parent: JC32_1_JC23_11 受注者FAX番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_11" order="57" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_11 受注者FAX番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_12" xlink:label="JC32_1_JC23_12" xlink:title="presentation parent: JC32_1_JC23_12 受注者メールアドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_12" order="58" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_12 受注者メールアドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_13" xlink:label="JC32_1_JC23_13" xlink:title="presentation parent: JC32_1_JC23_13 受注者郵便番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_13" order="59" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_13 受注者郵便番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_14" xlink:label="JC32_1_JC23_14" xlink:title="presentation parent: JC32_1_JC23_14 受注者住所1"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_14" order="60" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_14 受注者住所1"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_15" xlink:label="JC32_1_JC23_15" xlink:title="presentation parent: JC32_1_JC23_15 受注者住所2"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_15" order="61" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_15 受注者住所2"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_16" xlink:label="JC32_1_JC23_16" xlink:title="presentation parent: JC32_1_JC23_16 受注者住所3"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_16" order="62" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_16 受注者住所3"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_17" xlink:label="JC32_1_JC23_17" xlink:title="presentation parent: JC32_1_JC23_17 受注者国ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_17" order="63" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_17 受注者国ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_18" xlink:label="JC32_1_JC23_18" xlink:title="presentation parent: JC32_1_JC23_18 国際アドレス登録機関コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_18" order="64" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_18 国際アドレス登録機関コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC32_1_JC23_19" xlink:label="JC32_1_JC23_19" xlink:title="presentation parent: JC32_1_JC23_19 受注者国際アドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC32_1_JC23" xlink:to="JC32_1_JC23_19" order="65" xlink:title="presentation: JC32_1_JC23 売り手 to JC32_1_JC23_19 受注者国際アドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23" xlink:label="JC33_2_JC23" xlink:title="presentation parent: JC33_2_JC23 買い手"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC33_2_JC23" order="66" xlink:title="presentation: JC00 請求書 to JC33_2_JC23 買い手"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_01" xlink:label="JC33_2_JC23_01" xlink:title="presentation parent: JC33_2_JC23_01 発注者ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_01" order="67" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_01 発注者ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_20" xlink:label="JC33_2_JC23_20" xlink:title="presentation parent: JC33_2_JC23_20 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_20" order="68" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_20 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_02" xlink:label="JC33_2_JC23_02" xlink:title="presentation parent: JC33_2_JC23_02 発注者国際企業ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_02" order="69" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_02 発注者国際企業ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_21" xlink:label="JC33_2_JC23_21" xlink:title="presentation parent: JC33_2_JC23_21 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_21" order="70" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_21 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_03" xlink:label="JC33_2_JC23_03" xlink:title="presentation parent: JC33_2_JC23_03 発注者名称"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_03" order="71" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_03 発注者名称"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_04" xlink:label="JC33_2_JC23_04" xlink:title="presentation parent: JC33_2_JC23_04 適格請求書発行事業者登録番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_04" order="72" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_04 適格請求書発行事業者登録番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_05" xlink:label="JC33_2_JC23_05" xlink:title="presentation parent: JC33_2_JC23_05 発注者タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_05" order="73" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_05 発注者タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_06" xlink:label="JC33_2_JC23_06" xlink:title="presentation parent: JC33_2_JC23_06 発注者部門ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_06" order="74" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_06 発注者部門ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_07" xlink:label="JC33_2_JC23_07" xlink:title="presentation parent: JC33_2_JC23_07 発注者担当名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_07" order="75" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_07 発注者担当名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_08" xlink:label="JC33_2_JC23_08" xlink:title="presentation parent: JC33_2_JC23_08 発注者部門名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_08" order="76" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_08 発注者部門名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_09" xlink:label="JC33_2_JC23_09" xlink:title="presentation parent: JC33_2_JC23_09 発注者担当ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_09" order="77" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_09 発注者担当ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_10" xlink:label="JC33_2_JC23_10" xlink:title="presentation parent: JC33_2_JC23_10 発注者電話番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_10" order="78" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_10 発注者電話番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_11" xlink:label="JC33_2_JC23_11" xlink:title="presentation parent: JC33_2_JC23_11 発注者FAX番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_11" order="79" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_11 発注者FAX番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_12" xlink:label="JC33_2_JC23_12" xlink:title="presentation parent: JC33_2_JC23_12 発注者メールアドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_12" order="80" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_12 発注者メールアドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_13" xlink:label="JC33_2_JC23_13" xlink:title="presentation parent: JC33_2_JC23_13 発注者郵便番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_13" order="81" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_13 発注者郵便番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_14" xlink:label="JC33_2_JC23_14" xlink:title="presentation parent: JC33_2_JC23_14 発注者住所1"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_14" order="82" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_14 発注者住所1"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_15" xlink:label="JC33_2_JC23_15" xlink:title="presentation parent: JC33_2_JC23_15 発注者住所2"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_15" order="83" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_15 発注者住所2"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_16" xlink:label="JC33_2_JC23_16" xlink:title="presentation parent: JC33_2_JC23_16 発注者住所3"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_16" order="84" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_16 発注者住所3"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_17" xlink:label="JC33_2_JC23_17" xlink:title="presentation parent: JC33_2_JC23_17 発注者国ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_17" order="85" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_17 発注者国ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_18" xlink:label="JC33_2_JC23_18" xlink:title="presentation parent: JC33_2_JC23_18 国際アドレス登録機関コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_18" order="86" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_18 国際アドレス登録機関コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC33_2_JC23_19" xlink:label="JC33_2_JC23_19" xlink:title="presentation parent: JC33_2_JC23_19 発注者国際アドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC33_2_JC23" xlink:to="JC33_2_JC23_19" order="87" xlink:title="presentation: JC33_2_JC23 買い手 to JC33_2_JC23_19 発注者国際アドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC71_JC01" xlink:label="JC71_JC01" xlink:title="presentation parent: JC71_JC01 プロジェクト調達"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC71_JC01" order="88" xlink:title="presentation: JC00 請求書 to JC71_JC01 プロジェクト調達"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC71_JC01_01" xlink:label="JC71_JC01_01" xlink:title="presentation parent: JC71_JC01_01 プロジェクトID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC71_JC01" xlink:to="JC71_JC01_01" order="89" xlink:title="presentation: JC71_JC01 プロジェクト調達 to JC71_JC01_01 プロジェクトID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC71_JC01_02" xlink:label="JC71_JC01_02" xlink:title="presentation parent: JC71_JC01_02 プロジェクト名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC71_JC01" xlink:to="JC71_JC01_02" order="90" xlink:title="presentation: JC71_JC01 プロジェクト調達 to JC71_JC01_02 プロジェクト名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC43_JC34" xlink:label="JC43_JC34" xlink:title="presentation parent: JC43_JC34 通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC43_JC34" order="91" xlink:title="presentation: JC00 請求書 to JC43_JC34 通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC43_JC34_01" xlink:label="JC43_JC34_01" xlink:title="presentation parent: JC43_JC34_01 税通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC43_JC34" xlink:to="JC43_JC34_01" order="92" xlink:title="presentation: JC43_JC34 通貨コード to JC43_JC34_01 税通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC43_JC34_02" xlink:label="JC43_JC34_02" xlink:title="presentation parent: JC43_JC34_02 文書通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC43_JC34" xlink:to="JC43_JC34_02" order="93" xlink:title="presentation: JC43_JC34 通貨コード to JC43_JC34_02 文書通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC43_JC34_03" xlink:label="JC43_JC34_03" xlink:title="presentation parent: JC43_JC34_03 支払通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC43_JC34" xlink:to="JC43_JC34_03" order="94" xlink:title="presentation: JC43_JC34 通貨コード to JC43_JC34_03 支払通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23" xlink:label="JC35_3_JC23" xlink:title="presentation parent: JC35_3_JC23 請求者"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC35_3_JC23" order="95" xlink:title="presentation: JC00 請求書 to JC35_3_JC23 請求者"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_01" xlink:label="JC35_3_JC23_01" xlink:title="presentation parent: JC35_3_JC23_01 請求者ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_01" order="96" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_01 請求者ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_02" xlink:label="JC35_3_JC23_02" xlink:title="presentation parent: JC35_3_JC23_02 請求者国際企業ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_02" order="97" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_02 請求者国際企業ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_03" xlink:label="JC35_3_JC23_03" xlink:title="presentation parent: JC35_3_JC23_03 請求者名称"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_03" order="98" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_03 請求者名称"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_04" xlink:label="JC35_3_JC23_04" xlink:title="presentation parent: JC35_3_JC23_04 請求者適格請求書発行事業者登録番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_04" order="99" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_04 請求者適格請求書発行事業者登録番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_05" xlink:label="JC35_3_JC23_05" xlink:title="presentation parent: JC35_3_JC23_05 請求者タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_05" order="100" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_05 請求者タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_06" xlink:label="JC35_3_JC23_06" xlink:title="presentation parent: JC35_3_JC23_06 請求部門ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_06" order="101" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_06 請求部門ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_07" xlink:label="JC35_3_JC23_07" xlink:title="presentation parent: JC35_3_JC23_07 請求者担当名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_07" order="102" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_07 請求者担当名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_08" xlink:label="JC35_3_JC23_08" xlink:title="presentation parent: JC35_3_JC23_08 請求者部門名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_08" order="103" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_08 請求者部門名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_09" xlink:label="JC35_3_JC23_09" xlink:title="presentation parent: JC35_3_JC23_09 請求者担当ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_09" order="104" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_09 請求者担当ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_10" xlink:label="JC35_3_JC23_10" xlink:title="presentation parent: JC35_3_JC23_10 請求者電話番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_10" order="105" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_10 請求者電話番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_11" xlink:label="JC35_3_JC23_11" xlink:title="presentation parent: JC35_3_JC23_11 請求者FAX番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_11" order="106" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_11 請求者FAX番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_12" xlink:label="JC35_3_JC23_12" xlink:title="presentation parent: JC35_3_JC23_12 請求者メールアドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_12" order="107" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_12 請求者メールアドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_13" xlink:label="JC35_3_JC23_13" xlink:title="presentation parent: JC35_3_JC23_13 請求者郵便番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_13" order="108" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_13 請求者郵便番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_14" xlink:label="JC35_3_JC23_14" xlink:title="presentation parent: JC35_3_JC23_14 請求者住所1"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_14" order="109" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_14 請求者住所1"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_15" xlink:label="JC35_3_JC23_15" xlink:title="presentation parent: JC35_3_JC23_15 請求者住所2"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_15" order="110" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_15 請求者住所2"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_16" xlink:label="JC35_3_JC23_16" xlink:title="presentation parent: JC35_3_JC23_16 請求者住所3"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_16" order="111" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_16 請求者住所3"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_17" xlink:label="JC35_3_JC23_17" xlink:title="presentation parent: JC35_3_JC23_17 請求者国ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_17" order="112" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_17 請求者国ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_18" xlink:label="JC35_3_JC23_18" xlink:title="presentation parent: JC35_3_JC23_18 国際アドレス登録機関コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_18" order="113" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_18 国際アドレス登録機関コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC35_3_JC23_19" xlink:label="JC35_3_JC23_19" xlink:title="presentation parent: JC35_3_JC23_19 請求者国際アドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC35_3_JC23" xlink:to="JC35_3_JC23_19" order="114" xlink:title="presentation: JC35_3_JC23 請求者 to JC35_3_JC23_19 請求者国際アドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23" xlink:label="JC36_4_JC23" xlink:title="presentation parent: JC36_4_JC23 請求先"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC36_4_JC23" order="115" xlink:title="presentation: JC00 請求書 to JC36_4_JC23 請求先"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_01" xlink:label="JC36_4_JC23_01" xlink:title="presentation parent: JC36_4_JC23_01 請求先ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_01" order="116" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_01 請求先ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_02" xlink:label="JC36_4_JC23_02" xlink:title="presentation parent: JC36_4_JC23_02 請求先国際企業ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_02" order="117" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_02 請求先国際企業ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_03" xlink:label="JC36_4_JC23_03" xlink:title="presentation parent: JC36_4_JC23_03 請求先名称"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_03" order="118" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_03 請求先名称"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_04" xlink:label="JC36_4_JC23_04" xlink:title="presentation parent: JC36_4_JC23_04 請求先部門ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_04" order="119" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_04 請求先部門ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_05" xlink:label="JC36_4_JC23_05" xlink:title="presentation parent: JC36_4_JC23_05 請求先担当名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_05" order="120" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_05 請求先担当名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_06" xlink:label="JC36_4_JC23_06" xlink:title="presentation parent: JC36_4_JC23_06 請求先部門名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_06" order="121" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_06 請求先部門名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_07" xlink:label="JC36_4_JC23_07" xlink:title="presentation parent: JC36_4_JC23_07 請求先担当ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_07" order="122" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_07 請求先担当ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_08" xlink:label="JC36_4_JC23_08" xlink:title="presentation parent: JC36_4_JC23_08 請求先電話番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_08" order="123" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_08 請求先電話番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_09" xlink:label="JC36_4_JC23_09" xlink:title="presentation parent: JC36_4_JC23_09 請求先FAX番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_09" order="124" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_09 請求先FAX番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_10" xlink:label="JC36_4_JC23_10" xlink:title="presentation parent: JC36_4_JC23_10 請求先メールアドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_10" order="125" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_10 請求先メールアドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_11" xlink:label="JC36_4_JC23_11" xlink:title="presentation parent: JC36_4_JC23_11 請求先郵便番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_11" order="126" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_11 請求先郵便番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_12" xlink:label="JC36_4_JC23_12" xlink:title="presentation parent: JC36_4_JC23_12 請求先住所1"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_12" order="127" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_12 請求先住所1"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_13" xlink:label="JC36_4_JC23_13" xlink:title="presentation parent: JC36_4_JC23_13 請求先住所2"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_13" order="128" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_13 請求先住所2"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_14" xlink:label="JC36_4_JC23_14" xlink:title="presentation parent: JC36_4_JC23_14 請求先住所3"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_14" order="129" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_14 請求先住所3"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_15" xlink:label="JC36_4_JC23_15" xlink:title="presentation parent: JC36_4_JC23_15 請求先国ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_15" order="130" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_15 請求先国ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_16" xlink:label="JC36_4_JC23_16" xlink:title="presentation parent: JC36_4_JC23_16 国際アドレス登録機関コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_16" order="131" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_16 国際アドレス登録機関コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC36_4_JC23_17" xlink:label="JC36_4_JC23_17" xlink:title="presentation parent: JC36_4_JC23_17 請求先国際アドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC36_4_JC23" xlink:to="JC36_4_JC23_17" order="132" xlink:title="presentation: JC36_4_JC23 請求先 to JC36_4_JC23_17 請求先国際アドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23" xlink:label="JC37_5_JC23" xlink:title="presentation parent: JC37_5_JC23 支払先"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC37_5_JC23" order="133" xlink:title="presentation: JC00 請求書 to JC37_5_JC23 支払先"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_01" xlink:label="JC37_5_JC23_01" xlink:title="presentation parent: JC37_5_JC23_01 支払先ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_01" order="134" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_01 支払先ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_16" xlink:label="JC37_5_JC23_16" xlink:title="presentation parent: JC37_5_JC23_16 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_16" order="135" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_16 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_02" xlink:label="JC37_5_JC23_02" xlink:title="presentation parent: JC37_5_JC23_02 支払先国際企業ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_02" order="136" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_02 支払先国際企業ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_17" xlink:label="JC37_5_JC23_17" xlink:title="presentation parent: JC37_5_JC23_17 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_17" order="137" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_17 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_03" xlink:label="JC37_5_JC23_03" xlink:title="presentation parent: JC37_5_JC23_03 支払先名称"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_03" order="138" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_03 支払先名称"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_04" xlink:label="JC37_5_JC23_04" xlink:title="presentation parent: JC37_5_JC23_04 支払先部門ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_04" order="139" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_04 支払先部門ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_05" xlink:label="JC37_5_JC23_05" xlink:title="presentation parent: JC37_5_JC23_05 支払先担当名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_05" order="140" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_05 支払先担当名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_06" xlink:label="JC37_5_JC23_06" xlink:title="presentation parent: JC37_5_JC23_06 支払先部門名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_06" order="141" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_06 支払先部門名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_07" xlink:label="JC37_5_JC23_07" xlink:title="presentation parent: JC37_5_JC23_07 支払先担当ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_07" order="142" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_07 支払先担当ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_08" xlink:label="JC37_5_JC23_08" xlink:title="presentation parent: JC37_5_JC23_08 支払先電話番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_08" order="143" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_08 支払先電話番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_09" xlink:label="JC37_5_JC23_09" xlink:title="presentation parent: JC37_5_JC23_09 支払先FAX番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_09" order="144" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_09 支払先FAX番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_10" xlink:label="JC37_5_JC23_10" xlink:title="presentation parent: JC37_5_JC23_10 支払先メールアドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_10" order="145" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_10 支払先メールアドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_11" xlink:label="JC37_5_JC23_11" xlink:title="presentation parent: JC37_5_JC23_11 支払先郵便番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_11" order="146" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_11 支払先郵便番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_12" xlink:label="JC37_5_JC23_12" xlink:title="presentation parent: JC37_5_JC23_12 支払先住所1"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_12" order="147" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_12 支払先住所1"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_13" xlink:label="JC37_5_JC23_13" xlink:title="presentation parent: JC37_5_JC23_13 支払先住所2"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_13" order="148" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_13 支払先住所2"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_14" xlink:label="JC37_5_JC23_14" xlink:title="presentation parent: JC37_5_JC23_14 支払先住所3"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_14" order="149" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_14 支払先住所3"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC37_5_JC23_15" xlink:label="JC37_5_JC23_15" xlink:title="presentation parent: JC37_5_JC23_15 支払先国ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC37_5_JC23" xlink:to="JC37_5_JC23_15" order="150" xlink:title="presentation: JC37_5_JC23 支払先 to JC37_5_JC23_15 支払先国ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23" xlink:label="JC38_6_JC23" xlink:title="presentation parent: JC38_6_JC23 支払人"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC38_6_JC23" order="151" xlink:title="presentation: JC00 請求書 to JC38_6_JC23 支払人"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_01" xlink:label="JC38_6_JC23_01" xlink:title="presentation parent: JC38_6_JC23_01 支払人ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_01" order="152" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_01 支払人ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_02" xlink:label="JC38_6_JC23_02" xlink:title="presentation parent: JC38_6_JC23_02 支払人国際企業ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_02" order="153" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_02 支払人国際企業ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_03" xlink:label="JC38_6_JC23_03" xlink:title="presentation parent: JC38_6_JC23_03 支払人名称"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_03" order="154" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_03 支払人名称"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_04" xlink:label="JC38_6_JC23_04" xlink:title="presentation parent: JC38_6_JC23_04 支払人部門ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_04" order="155" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_04 支払人部門ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_05" xlink:label="JC38_6_JC23_05" xlink:title="presentation parent: JC38_6_JC23_05 支払人担当名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_05" order="156" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_05 支払人担当名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_06" xlink:label="JC38_6_JC23_06" xlink:title="presentation parent: JC38_6_JC23_06 支払人部門名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_06" order="157" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_06 支払人部門名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_07" xlink:label="JC38_6_JC23_07" xlink:title="presentation parent: JC38_6_JC23_07 支払人担当ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_07" order="158" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_07 支払人担当ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_08" xlink:label="JC38_6_JC23_08" xlink:title="presentation parent: JC38_6_JC23_08 支払人電話番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_08" order="159" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_08 支払人電話番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_09" xlink:label="JC38_6_JC23_09" xlink:title="presentation parent: JC38_6_JC23_09 支払人FAX番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_09" order="160" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_09 支払人FAX番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_10" xlink:label="JC38_6_JC23_10" xlink:title="presentation parent: JC38_6_JC23_10 支払人メールアドレス"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_10" order="161" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_10 支払人メールアドレス"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_11" xlink:label="JC38_6_JC23_11" xlink:title="presentation parent: JC38_6_JC23_11 支払人郵便番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_11" order="162" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_11 支払人郵便番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_12" xlink:label="JC38_6_JC23_12" xlink:title="presentation parent: JC38_6_JC23_12 支払人住所1"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_12" order="163" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_12 支払人住所1"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_13" xlink:label="JC38_6_JC23_13" xlink:title="presentation parent: JC38_6_JC23_13 支払人住所2"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_13" order="164" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_13 支払人住所2"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_14" xlink:label="JC38_6_JC23_14" xlink:title="presentation parent: JC38_6_JC23_14 支払人住所3"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_14" order="165" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_14 支払人住所3"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC38_6_JC23_15" xlink:label="JC38_6_JC23_15" xlink:title="presentation parent: JC38_6_JC23_15 支払人国ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC38_6_JC23" xlink:to="JC38_6_JC23_15" order="166" xlink:title="presentation: JC38_6_JC23 支払人 to JC38_6_JC23_15 支払人国ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC39_JC22" xlink:label="JC39_JC22" xlink:title="presentation parent: JC39_JC22 請求時為替"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC39_JC22" order="167" xlink:title="presentation: JC00 請求書 to JC39_JC22 請求時為替"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC39_JC22_01" xlink:label="JC39_JC22_01" xlink:title="presentation parent: JC39_JC22_01 為替交換元通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC39_JC22" xlink:to="JC39_JC22_01" order="168" xlink:title="presentation: JC39_JC22 請求時為替 to JC39_JC22_01 為替交換元通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC39_JC22_02" xlink:label="JC39_JC22_02" xlink:title="presentation parent: JC39_JC22_02 為替交換先通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC39_JC22" xlink:to="JC39_JC22_02" order="169" xlink:title="presentation: JC39_JC22 請求時為替 to JC39_JC22_02 為替交換先通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC39_JC22_03" xlink:label="JC39_JC22_03" xlink:title="presentation parent: JC39_JC22_03 為替レート"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC39_JC22" xlink:to="JC39_JC22_03" order="170" xlink:title="presentation: JC39_JC22 請求時為替 to JC39_JC22_03 為替レート"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC39_JC22_04" xlink:label="JC39_JC22_04" xlink:title="presentation parent: JC39_JC22_04 為替レート日時"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC39_JC22" xlink:to="JC39_JC22_04" order="171" xlink:title="presentation: JC39_JC22 請求時為替 to JC39_JC22_04 為替レート日時"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3a_JC22" xlink:label="JC3a_JC22" xlink:title="presentation parent: JC3a_JC22 支払時為替"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC3a_JC22" order="172" xlink:title="presentation: JC00 請求書 to JC3a_JC22 支払時為替"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3a_JC22_01" xlink:label="JC3a_JC22_01" xlink:title="presentation parent: JC3a_JC22_01 為替交換元通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3a_JC22" xlink:to="JC3a_JC22_01" order="173" xlink:title="presentation: JC3a_JC22 支払時為替 to JC3a_JC22_01 為替交換元通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3a_JC22_02" xlink:label="JC3a_JC22_02" xlink:title="presentation parent: JC3a_JC22_02 為替交換先通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3a_JC22" xlink:to="JC3a_JC22_02" order="174" xlink:title="presentation: JC3a_JC22 支払時為替 to JC3a_JC22_02 為替交換先通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3a_JC22_03" xlink:label="JC3a_JC22_03" xlink:title="presentation parent: JC3a_JC22_03 為替レート"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3a_JC22" xlink:to="JC3a_JC22_03" order="175" xlink:title="presentation: JC3a_JC22 支払時為替 to JC3a_JC22_03 為替レート"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3a_JC22_04" xlink:label="JC3a_JC22_04" xlink:title="presentation parent: JC3a_JC22_04 為替レート日時"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3a_JC22" xlink:to="JC3a_JC22_04" order="176" xlink:title="presentation: JC3a_JC22 支払時為替 to JC3a_JC22_04 為替レート日時"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3b_JC16" xlink:label="JC3b_JC16" xlink:title="presentation parent: JC3b_JC16 支払手段"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC3b_JC16" order="177" xlink:title="presentation: JC00 請求書 to JC3b_JC16 支払手段"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3b_JC16_04" xlink:label="JC3b_JC16_04" xlink:title="presentation parent: JC3b_JC16_04 支払指示ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC3b_JC16_04" order="178" xlink:title="presentation: JC3b_JC16 支払手段 to JC3b_JC16_04 支払指示ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3b_JC16_01" xlink:label="JC3b_JC16_01" xlink:title="presentation parent: JC3b_JC16_01 支払手段タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC3b_JC16_01" order="179" xlink:title="presentation: JC3b_JC16 支払手段 to JC3b_JC16_01 支払手段タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3b_JC16_02" xlink:label="JC3b_JC16_02" xlink:title="presentation parent: JC3b_JC16_02 支払手段内容説明"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC3b_JC16_02" order="180" xlink:title="presentation: JC3b_JC16 支払手段 to JC3b_JC16_02 支払手段内容説明"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3b_JC16_05" xlink:label="JC3b_JC16_05" xlink:title="presentation parent: JC3b_JC16_05 送金情報"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC3b_JC16_05" order="181" xlink:title="presentation: JC3b_JC16 支払手段 to JC3b_JC16_05 送金情報"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3b_JC16_06" xlink:label="JC3b_JC16_06" xlink:title="presentation parent: JC3b_JC16_06 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC3b_JC16_06" order="182" xlink:title="presentation: JC3b_JC16 支払手段 to JC3b_JC16_06 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3b_JC16_03" xlink:label="JC3b_JC16_03" xlink:title="presentation parent: JC3b_JC16_03 支払金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC3b_JC16_03" order="183" xlink:title="presentation: JC3b_JC16 支払手段 to JC3b_JC16_03 支払金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC17_JC04" xlink:label="JC17_JC04" xlink:title="presentation parent: JC17_JC04 金融口座"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC17_JC04" order="184" xlink:title="presentation: JC3b_JC16 支払手段 to JC17_JC04 金融口座"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC17_JC04_01" xlink:label="JC17_JC04_01" xlink:title="presentation parent: JC17_JC04_01 口座名義"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC17_JC04" xlink:to="JC17_JC04_01" order="185" xlink:title="presentation: JC17_JC04 金融口座 to JC17_JC04_01 口座名義"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC17_JC04_02" xlink:label="JC17_JC04_02" xlink:title="presentation parent: JC17_JC04_02 口座番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC17_JC04" xlink:to="JC17_JC04_02" order="186" xlink:title="presentation: JC17_JC04 金融口座 to JC17_JC04_02 口座番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC17_JC04_04" xlink:label="JC17_JC04_04" xlink:title="presentation parent: JC17_JC04_04 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC17_JC04" xlink:to="JC17_JC04_04" order="187" xlink:title="presentation: JC17_JC04 金融口座 to JC17_JC04_04 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC17_JC04_03" xlink:label="JC17_JC04_03" xlink:title="presentation parent: JC17_JC04_03 口座種別コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC17_JC04" xlink:to="JC17_JC04_03" order="188" xlink:title="presentation: JC17_JC04 金融口座 to JC17_JC04_03 口座種別コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC18_JC05" xlink:label="JC18_JC05" xlink:title="presentation parent: JC18_JC05 金融機関"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC18_JC05" order="189" xlink:title="presentation: JC3b_JC16 支払手段 to JC18_JC05 金融機関"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC18_JC05_01" xlink:label="JC18_JC05_01" xlink:title="presentation parent: JC18_JC05_01 金融機関名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC18_JC05" xlink:to="JC18_JC05_01" order="190" xlink:title="presentation: JC18_JC05 金融機関 to JC18_JC05_01 金融機関名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC18_JC05_02" xlink:label="JC18_JC05_02" xlink:title="presentation parent: JC18_JC05_02 金融機関番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC18_JC05" xlink:to="JC18_JC05_02" order="191" xlink:title="presentation: JC18_JC05 金融機関 to JC18_JC05_02 金融機関番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC18_JC05_03" xlink:label="JC18_JC05_03" xlink:title="presentation parent: JC18_JC05_03 金融機関支店番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC18_JC05" xlink:to="JC18_JC05_03" order="192" xlink:title="presentation: JC18_JC05 金融機関 to JC18_JC05_03 金融機関支店番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC18_JC05_04" xlink:label="JC18_JC05_04" xlink:title="presentation parent: JC18_JC05_04 金融機関支店名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC18_JC05" xlink:to="JC18_JC05_04" order="193" xlink:title="presentation: JC18_JC05 金融機関 to JC18_JC05_04 金融機関支店名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC60_JC03" xlink:label="JC60_JC03" xlink:title="presentation parent: JC60_JC03 クレジットカード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3b_JC16" xlink:to="JC60_JC03" order="194" xlink:title="presentation: JC3b_JC16 支払手段 to JC60_JC03 クレジットカード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC60_JC03_01" xlink:label="JC60_JC03_01" xlink:title="presentation parent: JC60_JC03_01 金融カード番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC60_JC03" xlink:to="JC60_JC03_01" order="195" xlink:title="presentation: JC60_JC03 クレジットカード to JC60_JC03_01 金融カード番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC60_JC03_02" xlink:label="JC60_JC03_02" xlink:title="presentation parent: JC60_JC03_02 金融カードタイプ"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC60_JC03" xlink:to="JC60_JC03_02" order="196" xlink:title="presentation: JC60_JC03 クレジットカード to JC60_JC03_02 金融カードタイプ"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC60_JC03_03" xlink:label="JC60_JC03_03" xlink:title="presentation parent: JC60_JC03_03 金融カード名義人名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC60_JC03" xlink:to="JC60_JC03_03" order="197" xlink:title="presentation: JC60_JC03 クレジットカード to JC60_JC03_03 金融カード名義人名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC60_JC03_04" xlink:label="JC60_JC03_04" xlink:title="presentation parent: JC60_JC03_04 金融カード発行企業名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC60_JC03" xlink:to="JC60_JC03_04" order="198" xlink:title="presentation: JC60_JC03 クレジットカード to JC60_JC03_04 金融カード発行企業名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3c_JC2d" xlink:label="JC3c_JC2d" xlink:title="presentation parent: JC3c_JC2d ヘッダ税"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC3c_JC2d" order="199" xlink:title="presentation: JC00 請求書 to JC3c_JC2d ヘッダ税"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3c_JC2d_01" xlink:label="JC3c_JC2d_01" xlink:title="presentation parent: JC3c_JC2d_01 課税分類税額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3c_JC2d" xlink:to="JC3c_JC2d_01" order="200" xlink:title="presentation: JC3c_JC2d ヘッダ税 to JC3c_JC2d_01 課税分類税額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3c_JC2d_02" xlink:label="JC3c_JC2d_02" xlink:title="presentation parent: JC3c_JC2d_02 課税分類コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3c_JC2d" xlink:to="JC3c_JC2d_02" order="201" xlink:title="presentation: JC3c_JC2d ヘッダ税 to JC3c_JC2d_02 課税分類コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3c_JC2d_03" xlink:label="JC3c_JC2d_03" xlink:title="presentation parent: JC3c_JC2d_03 課税分類名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3c_JC2d" xlink:to="JC3c_JC2d_03" order="202" xlink:title="presentation: JC3c_JC2d ヘッダ税 to JC3c_JC2d_03 課税分類名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3c_JC2d_04" xlink:label="JC3c_JC2d_04" xlink:title="presentation parent: JC3c_JC2d_04 税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3c_JC2d" xlink:to="JC3c_JC2d_04" order="203" xlink:title="presentation: JC3c_JC2d ヘッダ税 to JC3c_JC2d_04 税率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3c_JC2d_05" xlink:label="JC3c_JC2d_05" xlink:title="presentation parent: JC3c_JC2d_05 税計算方式"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3c_JC2d" xlink:to="JC3c_JC2d_05" order="204" xlink:title="presentation: JC3c_JC2d ヘッダ税 to JC3c_JC2d_05 税計算方式"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3c_JC2d_06" xlink:label="JC3c_JC2d_06" xlink:title="presentation parent: JC3c_JC2d_06 適用税制ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3c_JC2d" xlink:to="JC3c_JC2d_06" order="205" xlink:title="presentation: JC3c_JC2d ヘッダ税 to JC3c_JC2d_06 適用税制ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3d_JC14" xlink:label="JC3d_JC14" xlink:title="presentation parent: JC3d_JC14 ヘッダ取引期間"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC3d_JC14" order="206" xlink:title="presentation: JC00 請求書 to JC3d_JC14 ヘッダ取引期間"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3d_JC14_01" xlink:label="JC3d_JC14_01" xlink:title="presentation parent: JC3d_JC14_01 ヘッダ取引開始日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3d_JC14" xlink:to="JC3d_JC14_01" order="207" xlink:title="presentation: JC3d_JC14 ヘッダ取引期間 to JC3d_JC14_01 ヘッダ取引開始日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3d_JC14_02" xlink:label="JC3d_JC14_02" xlink:title="presentation parent: JC3d_JC14_02 ヘッダ取引終了日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3d_JC14" xlink:to="JC3d_JC14_02" order="208" xlink:title="presentation: JC3d_JC14 ヘッダ取引期間 to JC3d_JC14_02 ヘッダ取引終了日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3e_JC27" xlink:label="JC3e_JC27" xlink:title="presentation parent: JC3e_JC27 支払条件"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC3e_JC27" order="209" xlink:title="presentation: JC00 請求書 to JC3e_JC27 支払条件"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3e_JC27_01" xlink:label="JC3e_JC27_01" xlink:title="presentation parent: JC3e_JC27_01 支払条件ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3e_JC27" xlink:to="JC3e_JC27_01" order="210" xlink:title="presentation: JC3e_JC27 支払条件 to JC3e_JC27_01 支払条件ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3e_JC27_02" xlink:label="JC3e_JC27_02" xlink:title="presentation parent: JC3e_JC27_02 支払条件説明"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3e_JC27" xlink:to="JC3e_JC27_02" order="211" xlink:title="presentation: JC3e_JC27 支払条件 to JC3e_JC27_02 支払条件説明"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3e_JC27_03" xlink:label="JC3e_JC27_03" xlink:title="presentation parent: JC3e_JC27_03 支払期日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3e_JC27" xlink:to="JC3e_JC27_03" order="212" xlink:title="presentation: JC3e_JC27 支払条件 to JC3e_JC27_03 支払期日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3e_JC27_06" xlink:label="JC3e_JC27_06" xlink:title="presentation parent: JC3e_JC27_06 マンデーション参照ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3e_JC27" xlink:to="JC3e_JC27_06" order="213" xlink:title="presentation: JC3e_JC27 支払条件 to JC3e_JC27_06 マンデーション参照ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3e_JC27_07" xlink:label="JC3e_JC27_07" xlink:title="presentation parent: JC3e_JC27_07 自動引落口座ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3e_JC27" xlink:to="JC3e_JC27_07" order="214" xlink:title="presentation: JC3e_JC27 支払条件 to JC3e_JC27_07 自動引落口座ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3e_JC27_04" xlink:label="JC3e_JC27_04" xlink:title="presentation parent: JC3e_JC27_04 支払条件タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3e_JC27" xlink:to="JC3e_JC27_04" order="215" xlink:title="presentation: JC3e_JC27 支払条件 to JC3e_JC27_04 支払条件タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3e_JC27_05" xlink:label="JC3e_JC27_05" xlink:title="presentation parent: JC3e_JC27_05 支払条件金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3e_JC27" xlink:to="JC3e_JC27_05" order="216" xlink:title="presentation: JC3e_JC27 支払条件 to JC3e_JC27_05 支払条件金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3f_JC45" xlink:label="JC3f_JC45" xlink:title="presentation parent: JC3f_JC45 文書合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC3f_JC45" order="217" xlink:title="presentation: JC00 請求書 to JC3f_JC45 文書合計金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3f_JC45_01" xlink:label="JC3f_JC45_01" xlink:title="presentation parent: JC3f_JC45_01 総合計金額（税抜き）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3f_JC45" xlink:to="JC3f_JC45_01" order="218" xlink:title="presentation: JC3f_JC45 文書合計金額 to JC3f_JC45_01 総合計金額（税抜き）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3f_JC45_02" xlink:label="JC3f_JC45_02" xlink:title="presentation parent: JC3f_JC45_02 総合計税額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3f_JC45" xlink:to="JC3f_JC45_02" order="219" xlink:title="presentation: JC3f_JC45 文書合計金額 to JC3f_JC45_02 総合計税額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3f_JC45_03" xlink:label="JC3f_JC45_03" xlink:title="presentation parent: JC3f_JC45_03 総合計金額（税込み）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3f_JC45" xlink:to="JC3f_JC45_03" order="220" xlink:title="presentation: JC3f_JC45 文書合計金額 to JC3f_JC45_03 総合計金額（税込み）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3f_JC45_04" xlink:label="JC3f_JC45_04" xlink:title="presentation parent: JC3f_JC45_04 前払合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3f_JC45" xlink:to="JC3f_JC45_04" order="221" xlink:title="presentation: JC3f_JC45 文書合計金額 to JC3f_JC45_04 前払合計金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3f_JC45_05" xlink:label="JC3f_JC45_05" xlink:title="presentation parent: JC3f_JC45_05 支払責務金額総合計"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3f_JC45" xlink:to="JC3f_JC45_05" order="222" xlink:title="presentation: JC3f_JC45 文書合計金額 to JC3f_JC45_05 支払責務金額総合計"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3f_JC45_06" xlink:label="JC3f_JC45_06" xlink:title="presentation parent: JC3f_JC45_06 譲渡資産合計金額(税抜き)"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3f_JC45" xlink:to="JC3f_JC45_06" order="223" xlink:title="presentation: JC3f_JC45 文書合計金額 to JC3f_JC45_06 譲渡資産合計金額(税抜き)"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC3f_JC45_07" xlink:label="JC3f_JC45_07" xlink:title="presentation parent: JC3f_JC45_07 譲渡資産合計金額(税込み)"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC3f_JC45" xlink:to="JC3f_JC45_07" order="224" xlink:title="presentation: JC3f_JC45 文書合計金額 to JC3f_JC45_07 譲渡資産合計金額(税込み)"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC40_JC0f" xlink:label="JC40_JC0f" xlink:title="presentation parent: JC40_JC0f 調整金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC40_JC0f" order="225" xlink:title="presentation: JC00 請求書 to JC40_JC0f 調整金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC40_JC0f_01" xlink:label="JC40_JC0f_01" xlink:title="presentation parent: JC40_JC0f_01 調整理由コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC40_JC0f" xlink:to="JC40_JC0f_01" order="226" xlink:title="presentation: JC40_JC0f 調整金額 to JC40_JC0f_01 調整理由コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC40_JC0f_02" xlink:label="JC40_JC0f_02" xlink:title="presentation parent: JC40_JC0f_02 調整理由"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC40_JC0f" xlink:to="JC40_JC0f_02" order="227" xlink:title="presentation: JC40_JC0f 調整金額 to JC40_JC0f_02 調整理由"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC40_JC0f_03" xlink:label="JC40_JC0f_03" xlink:title="presentation parent: JC40_JC0f_03 調整金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC40_JC0f" xlink:to="JC40_JC0f_03" order="228" xlink:title="presentation: JC40_JC0f 調整金額 to JC40_JC0f_03 調整金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC40_JC0f_04" xlink:label="JC40_JC0f_04" xlink:title="presentation parent: JC40_JC0f_04 調整取引方向コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC40_JC0f" xlink:to="JC40_JC0f_04" order="229" xlink:title="presentation: JC40_JC0f 調整金額 to JC40_JC0f_04 調整取引方向コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6f_JC13" xlink:label="JC6f_JC13" xlink:title="presentation parent: JC6f_JC13 調整参照文書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC40_JC0f" xlink:to="JC6f_JC13" order="230" xlink:title="presentation: JC40_JC0f 調整金額 to JC6f_JC13 調整参照文書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6f_JC13_01" xlink:label="JC6f_JC13_01" xlink:title="presentation parent: JC6f_JC13_01 インボイス調整参照文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6f_JC13" xlink:to="JC6f_JC13_01" order="231" xlink:title="presentation: JC6f_JC13 調整参照文書 to JC6f_JC13_01 インボイス調整参照文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6f_JC13_02" xlink:label="JC6f_JC13_02" xlink:title="presentation parent: JC6f_JC13_02 インボイス調整参照文書発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6f_JC13" xlink:to="JC6f_JC13_02" order="232" xlink:title="presentation: JC6f_JC13 調整参照文書 to JC6f_JC13_02 インボイス調整参照文書発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6f_JC13_03" xlink:label="JC6f_JC13_03" xlink:title="presentation parent: JC6f_JC13_03 インボイス調整参照文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6f_JC13" xlink:to="JC6f_JC13_03" order="233" xlink:title="presentation: JC6f_JC13 調整参照文書 to JC6f_JC13_03 インボイス調整参照文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6f_JC13_04" xlink:label="JC6f_JC13_04" xlink:title="presentation parent: JC6f_JC13_04 インボイス参照文書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6f_JC13" xlink:to="JC6f_JC13_04" order="234" xlink:title="presentation: JC6f_JC13 調整参照文書 to JC6f_JC13_04 インボイス参照文書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6f_JC13_05" xlink:label="JC6f_JC13_05" xlink:title="presentation parent: JC6f_JC13_05 インボイス調整参照文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6f_JC13" xlink:to="JC6f_JC13_05" order="235" xlink:title="presentation: JC6f_JC13 調整参照文書 to JC6f_JC13_05 インボイス調整参照文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6f_JC13_06" xlink:label="JC6f_JC13_06" xlink:title="presentation parent: JC6f_JC13_06 インボイス調整参照文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6f_JC13" xlink:to="JC6f_JC13_06" order="236" xlink:title="presentation: JC6f_JC13 調整参照文書 to JC6f_JC13_06 インボイス調整参照文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC78_7_JC2d" xlink:label="JC78_7_JC2d" xlink:title="presentation parent: JC78_7_JC2d 調整税"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC40_JC0f" xlink:to="JC78_7_JC2d" order="237" xlink:title="presentation: JC40_JC0f 調整金額 to JC78_7_JC2d 調整税"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC78_7_JC2d_01" xlink:label="JC78_7_JC2d_01" xlink:title="presentation parent: JC78_7_JC2d_01 調整税額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC78_7_JC2d" xlink:to="JC78_7_JC2d_01" order="238" xlink:title="presentation: JC78_7_JC2d 調整税 to JC78_7_JC2d_01 調整税額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC78_7_JC2d_02" xlink:label="JC78_7_JC2d_02" xlink:title="presentation parent: JC78_7_JC2d_02 調整税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC78_7_JC2d" xlink:to="JC78_7_JC2d_02" order="239" xlink:title="presentation: JC78_7_JC2d 調整税 to JC78_7_JC2d_02 調整税率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC78_7_JC2d_03" xlink:label="JC78_7_JC2d_03" xlink:title="presentation parent: JC78_7_JC2d_03 調整課税分類コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC78_7_JC2d" xlink:to="JC78_7_JC2d_03" order="240" xlink:title="presentation: JC78_7_JC2d 調整税 to JC78_7_JC2d_03 調整課税分類コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JP00_JC7e" xlink:label="JP00_JC7e" xlink:title="presentation parent: JP00_JC7e ヘッダ前払"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JP00_JC7e" order="241" xlink:title="presentation: JC00 請求書 to JP00_JC7e ヘッダ前払"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JP00_JC7e_01" xlink:label="JP00_JC7e_01" xlink:title="presentation parent: JP00_JC7e_01 前払金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JP00_JC7e" xlink:to="JP00_JC7e_01" order="242" xlink:title="presentation: JP00_JC7e ヘッダ前払 to JP00_JC7e_01 前払金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JP00_JC7e_02" xlink:label="JP00_JC7e_02" xlink:title="presentation parent: JP00_JC7e_02 前払受領日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JP00_JC7e" xlink:to="JP00_JC7e_02" order="243" xlink:title="presentation: JP00_JC7e ヘッダ前払 to JP00_JC7e_02 前払受領日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JP00_JC7e_03" xlink:label="JP00_JC7e_03" xlink:title="presentation parent: JP00_JC7e_03 前払ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JP00_JC7e" xlink:to="JP00_JC7e_03" order="244" xlink:title="presentation: JP00_JC7e ヘッダ前払 to JP00_JC7e_03 前払ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JP00_JC7e_04" xlink:label="JP00_JC7e_04" xlink:title="presentation parent: JP00_JC7e_04 前払条件タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JP00_JC7e" xlink:to="JP00_JC7e_04" order="245" xlink:title="presentation: JP00_JC7e ヘッダ前払 to JP00_JC7e_04 前払条件タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7a_JC45" xlink:label="JC7a_JC45" xlink:title="presentation parent: JC7a_JC45 消費税外合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC7a_JC45" order="246" xlink:title="presentation: JC00 請求書 to JC7a_JC45 消費税外合計金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7a_JC45_01" xlink:label="JC7a_JC45_01" xlink:title="presentation parent: JC7a_JC45_01 追加請求合計金額（消費税対象外）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7a_JC45" xlink:to="JC7a_JC45_01" order="247" xlink:title="presentation: JC7a_JC45 消費税外合計金額 to JC7a_JC45_01 追加請求合計金額（消費税対象外）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7a_JC45_02" xlink:label="JC7a_JC45_02" xlink:title="presentation parent: JC7a_JC45_02 返金合計金額（消費税対象外）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7a_JC45" xlink:to="JC7a_JC45_02" order="248" xlink:title="presentation: JC7a_JC45 消費税外合計金額 to JC7a_JC45_02 返金合計金額（消費税対象外）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7a_JC45_03" xlink:label="JC7a_JC45_03" xlink:title="presentation parent: JC7a_JC45_03 前回総合計金額（税込み）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7a_JC45" xlink:to="JC7a_JC45_03" order="249" xlink:title="presentation: JC7a_JC45 消費税外合計金額 to JC7a_JC45_03 前回総合計金額（税込み）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7a_JC45_04" xlink:label="JC7a_JC45_04" xlink:title="presentation parent: JC7a_JC45_04 入金済金額（前回分）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7a_JC45" xlink:to="JC7a_JC45_04" order="250" xlink:title="presentation: JC7a_JC45 消費税外合計金額 to JC7a_JC45_04 入金済金額（前回分）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7a_JC45_05" xlink:label="JC7a_JC45_05" xlink:title="presentation parent: JC7a_JC45_05 消費税外総合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7a_JC45" xlink:to="JC7a_JC45_05" order="251" xlink:title="presentation: JC7a_JC45 消費税外合計金額 to JC7a_JC45_05 消費税外総合計金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13" xlink:label="JC7b_JC13" xlink:title="presentation parent: JC7b_JC13 消費税外合計金額参照文書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7a_JC45" xlink:to="JC7b_JC13" order="252" xlink:title="presentation: JC7a_JC45 消費税外合計金額 to JC7b_JC13 消費税外合計金額参照文書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13_01" xlink:label="JC7b_JC13_01" xlink:title="presentation parent: JC7b_JC13_01 消費税外参照文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7b_JC13" xlink:to="JC7b_JC13_01" order="253" xlink:title="presentation: JC7b_JC13 消費税外合計金額参照文書 to JC7b_JC13_01 消費税外参照文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13_02" xlink:label="JC7b_JC13_02" xlink:title="presentation parent: JC7b_JC13_02 消費税外参照文書発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7b_JC13" xlink:to="JC7b_JC13_02" order="254" xlink:title="presentation: JC7b_JC13 消費税外合計金額参照文書 to JC7b_JC13_02 消費税外参照文書発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13_03" xlink:label="JC7b_JC13_03" xlink:title="presentation parent: JC7b_JC13_03 消費税外参照文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7b_JC13" xlink:to="JC7b_JC13_03" order="255" xlink:title="presentation: JC7b_JC13 消費税外合計金額参照文書 to JC7b_JC13_03 消費税外参照文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13_04" xlink:label="JC7b_JC13_04" xlink:title="presentation parent: JC7b_JC13_04 消費税外参照文書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7b_JC13" xlink:to="JC7b_JC13_04" order="256" xlink:title="presentation: JC7b_JC13 消費税外合計金額参照文書 to JC7b_JC13_04 消費税外参照文書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13_05" xlink:label="JC7b_JC13_05" xlink:title="presentation parent: JC7b_JC13_05 消費税外参照文書情報"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7b_JC13" xlink:to="JC7b_JC13_05" order="257" xlink:title="presentation: JC7b_JC13 消費税外合計金額参照文書 to JC7b_JC13_05 消費税外参照文書情報"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13_06" xlink:label="JC7b_JC13_06" xlink:title="presentation parent: JC7b_JC13_06 消費税外参照文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7b_JC13" xlink:to="JC7b_JC13_06" order="258" xlink:title="presentation: JC7b_JC13 消費税外合計金額参照文書 to JC7b_JC13_06 消費税外参照文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13_07" xlink:label="JC7b_JC13_07" xlink:title="presentation parent: JC7b_JC13_07 消費税外参照文書添付ファイル"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7b_JC13" xlink:to="JC7b_JC13_07" order="259" xlink:title="presentation: JC7b_JC13 消費税外合計金額参照文書 to JC7b_JC13_07 消費税外参照文書添付ファイル"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7b_JC13_08" xlink:label="JC7b_JC13_08" xlink:title="presentation parent: JC7b_JC13_08 消費税外参照文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7b_JC13" xlink:to="JC7b_JC13_08" order="260" xlink:title="presentation: JC7b_JC13 消費税外合計金額参照文書 to JC7b_JC13_08 消費税外参照文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC44_JC4f" xlink:label="JC44_JC4f" xlink:title="presentation parent: JC44_JC4f 文書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC00" xlink:to="JC44_JC4f" order="261" xlink:title="presentation: JC00 請求書 to JC44_JC4f 文書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC44_JC4f_01" xlink:label="JC44_JC4f_01" xlink:title="presentation parent: JC44_JC4f_01 文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC44_JC4f_01" order="262" xlink:title="presentation: JC44_JC4f 文書 to JC44_JC4f_01 文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC44_JC4f_02" xlink:label="JC44_JC4f_02" xlink:title="presentation parent: JC44_JC4f_02 文書類型コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC44_JC4f_02" order="263" xlink:title="presentation: JC44_JC4f 文書 to JC44_JC4f_02 文書類型コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10" xlink:label="JC47_JC10" xlink:title="presentation parent: JC47_JC10 文書レベル注釈"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC47_JC10" order="264" xlink:title="presentation: JC44_JC4f 文書 to JC47_JC10 文書レベル注釈"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10_01" xlink:label="JC47_JC10_01" xlink:title="presentation parent: JC47_JC10_01 文書レベル注釈表題"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC47_JC10" xlink:to="JC47_JC10_01" order="265" xlink:title="presentation: JC47_JC10 文書レベル注釈 to JC47_JC10_01 文書レベル注釈表題"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10_02" xlink:label="JC47_JC10_02" xlink:title="presentation parent: JC47_JC10_02 文書レベル注釈内容"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC47_JC10" xlink:to="JC47_JC10_02" order="266" xlink:title="presentation: JC47_JC10 文書レベル注釈 to JC47_JC10_02 文書レベル注釈内容"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10_03" xlink:label="JC47_JC10_03" xlink:title="presentation parent: JC47_JC10_03 文書レベル注釈ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC47_JC10" xlink:to="JC47_JC10_03" order="267" xlink:title="presentation: JC47_JC10 文書レベル注釈 to JC47_JC10_03 文書レベル注釈ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10_04" xlink:label="JC47_JC10_04" xlink:title="presentation parent: JC47_JC10_04 文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC47_JC10" xlink:to="JC47_JC10_04" order="268" xlink:title="presentation: JC47_JC10 文書レベル注釈 to JC47_JC10_04 文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10_05" xlink:label="JC47_JC10_05" xlink:title="presentation parent: JC47_JC10_05 文書発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC47_JC10" xlink:to="JC47_JC10_05" order="269" xlink:title="presentation: JC47_JC10 文書レベル注釈 to JC47_JC10_05 文書発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10_06" xlink:label="JC47_JC10_06" xlink:title="presentation parent: JC47_JC10_06 文書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC47_JC10" xlink:to="JC47_JC10_06" order="270" xlink:title="presentation: JC47_JC10 文書レベル注釈 to JC47_JC10_06 文書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10_07" xlink:label="JC47_JC10_07" xlink:title="presentation parent: JC47_JC10_07 文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC47_JC10" xlink:to="JC47_JC10_07" order="271" xlink:title="presentation: JC47_JC10 文書レベル注釈 to JC47_JC10_07 文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC47_JC10_08" xlink:label="JC47_JC10_08" xlink:title="presentation parent: JC47_JC10_08 文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC47_JC10" xlink:to="JC47_JC10_08" order="272" xlink:title="presentation: JC47_JC10 文書レベル注釈 to JC47_JC10_08 文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC49_JC13" xlink:label="JC49_JC13" xlink:title="presentation parent: JC49_JC13 文書レベル受注書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC49_JC13" order="273" xlink:title="presentation: JC44_JC4f 文書 to JC49_JC13 文書レベル受注書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC49_JC13_01" xlink:label="JC49_JC13_01" xlink:title="presentation parent: JC49_JC13_01 受注書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC49_JC13" xlink:to="JC49_JC13_01" order="274" xlink:title="presentation: JC49_JC13 文書レベル受注書 to JC49_JC13_01 受注書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC49_JC13_02" xlink:label="JC49_JC13_02" xlink:title="presentation parent: JC49_JC13_02 受注書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC49_JC13" xlink:to="JC49_JC13_02" order="275" xlink:title="presentation: JC49_JC13 文書レベル受注書 to JC49_JC13_02 受注書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4a_JC13" xlink:label="JC4a_JC13" xlink:title="presentation parent: JC4a_JC13 文書レベル注文書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC4a_JC13" order="276" xlink:title="presentation: JC44_JC4f 文書 to JC4a_JC13 文書レベル注文書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4a_JC13_01" xlink:label="JC4a_JC13_01" xlink:title="presentation parent: JC4a_JC13_01 注文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4a_JC13" xlink:to="JC4a_JC13_01" order="277" xlink:title="presentation: JC4a_JC13 文書レベル注文書 to JC4a_JC13_01 注文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4a_JC13_02" xlink:label="JC4a_JC13_02" xlink:title="presentation parent: JC4a_JC13_02 注文書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4a_JC13" xlink:to="JC4a_JC13_02" order="278" xlink:title="presentation: JC4a_JC13 文書レベル注文書 to JC4a_JC13_02 注文書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4b_JC13" xlink:label="JC4b_JC13" xlink:title="presentation parent: JC4b_JC13 文書レベル契約書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC4b_JC13" order="279" xlink:title="presentation: JC44_JC4f 文書 to JC4b_JC13 文書レベル契約書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4b_JC13_01" xlink:label="JC4b_JC13_01" xlink:title="presentation parent: JC4b_JC13_01 契約文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4b_JC13" xlink:to="JC4b_JC13_01" order="280" xlink:title="presentation: JC4b_JC13 文書レベル契約書 to JC4b_JC13_01 契約文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4b_JC13_02" xlink:label="JC4b_JC13_02" xlink:title="presentation parent: JC4b_JC13_02 契約書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4b_JC13" xlink:to="JC4b_JC13_02" order="281" xlink:title="presentation: JC4b_JC13 文書レベル契約書 to JC4b_JC13_02 契約書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23" xlink:label="JC4d_JC23" xlink:title="presentation parent: JC4d_JC23 文書レベル納入先"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC4d_JC23" order="282" xlink:title="presentation: JC44_JC4f 文書 to JC4d_JC23 文書レベル納入先"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_01" xlink:label="JC4d_JC23_01" xlink:title="presentation parent: JC4d_JC23_01 納入先ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_01" order="283" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_01 納入先ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_10" xlink:label="JC4d_JC23_10" xlink:title="presentation parent: JC4d_JC23_10 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_10" order="284" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_10 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_02" xlink:label="JC4d_JC23_02" xlink:title="presentation parent: JC4d_JC23_02 納入先国際企業ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_02" order="285" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_02 納入先国際企業ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_03" xlink:label="JC4d_JC23_03" xlink:title="presentation parent: JC4d_JC23_03 納入先名称"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_03" order="286" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_03 納入先名称"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_04" xlink:label="JC4d_JC23_04" xlink:title="presentation parent: JC4d_JC23_04 納入先郵便番号"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_04" order="287" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_04 納入先郵便番号"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_05" xlink:label="JC4d_JC23_05" xlink:title="presentation parent: JC4d_JC23_05 納入先住所1"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_05" order="288" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_05 納入先住所1"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_06" xlink:label="JC4d_JC23_06" xlink:title="presentation parent: JC4d_JC23_06 納入先住所2"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_06" order="289" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_06 納入先住所2"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_07" xlink:label="JC4d_JC23_07" xlink:title="presentation parent: JC4d_JC23_07 納入先住所3"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_07" order="290" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_07 納入先住所3"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_08" xlink:label="JC4d_JC23_08" xlink:title="presentation parent: JC4d_JC23_08 納入先国ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_08" order="291" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_08 納入先国ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC4d_JC23_09" xlink:label="JC4d_JC23_09" xlink:title="presentation parent: JC4d_JC23_09 配送日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC4d_JC23" xlink:to="JC4d_JC23_09" order="292" xlink:title="presentation: JC4d_JC23 文書レベル納入先 to JC4d_JC23_09 配送日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5e_JC13" xlink:label="JC5e_JC13" xlink:title="presentation parent: JC5e_JC13 文書レベル出荷案内書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC5e_JC13" order="293" xlink:title="presentation: JC44_JC4f 文書 to JC5e_JC13 文書レベル出荷案内書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5e_JC13_01" xlink:label="JC5e_JC13_01" xlink:title="presentation parent: JC5e_JC13_01 出荷案内書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5e_JC13" xlink:to="JC5e_JC13_01" order="294" xlink:title="presentation: JC5e_JC13 文書レベル出荷案内書 to JC5e_JC13_01 出荷案内書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5e_JC13_02" xlink:label="JC5e_JC13_02" xlink:title="presentation parent: JC5e_JC13_02 出荷案内書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5e_JC13" xlink:to="JC5e_JC13_02" order="295" xlink:title="presentation: JC5e_JC13 文書レベル出荷案内書 to JC5e_JC13_02 出荷案内書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5e_JC13_03" xlink:label="JC5e_JC13_03" xlink:title="presentation parent: JC5e_JC13_03 文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5e_JC13" xlink:to="JC5e_JC13_03" order="296" xlink:title="presentation: JC5e_JC13 文書レベル出荷案内書 to JC5e_JC13_03 文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5e_JC13_04" xlink:label="JC5e_JC13_04" xlink:title="presentation parent: JC5e_JC13_04 出荷案内書類型コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5e_JC13" xlink:to="JC5e_JC13_04" order="297" xlink:title="presentation: JC5e_JC13 文書レベル出荷案内書 to JC5e_JC13_04 出荷案内書類型コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5e_JC13_05" xlink:label="JC5e_JC13_05" xlink:title="presentation parent: JC5e_JC13_05 文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5e_JC13" xlink:to="JC5e_JC13_05" order="298" xlink:title="presentation: JC5e_JC13 文書レベル出荷案内書 to JC5e_JC13_05 文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5f_JC13" xlink:label="JC5f_JC13" xlink:title="presentation parent: JC5f_JC13 文書レベル出荷回答書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC5f_JC13" order="299" xlink:title="presentation: JC44_JC4f 文書 to JC5f_JC13 文書レベル出荷回答書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5f_JC13_01" xlink:label="JC5f_JC13_01" xlink:title="presentation parent: JC5f_JC13_01 出荷回答書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5f_JC13" xlink:to="JC5f_JC13_01" order="300" xlink:title="presentation: JC5f_JC13 文書レベル出荷回答書 to JC5f_JC13_01 出荷回答書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5f_JC13_02" xlink:label="JC5f_JC13_02" xlink:title="presentation parent: JC5f_JC13_02 出荷回答書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5f_JC13" xlink:to="JC5f_JC13_02" order="301" xlink:title="presentation: JC5f_JC13 文書レベル出荷回答書 to JC5f_JC13_02 出荷回答書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5f_JC13_03" xlink:label="JC5f_JC13_03" xlink:title="presentation parent: JC5f_JC13_03 文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5f_JC13" xlink:to="JC5f_JC13_03" order="302" xlink:title="presentation: JC5f_JC13 文書レベル出荷回答書 to JC5f_JC13_03 文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5f_JC13_04" xlink:label="JC5f_JC13_04" xlink:title="presentation parent: JC5f_JC13_04 文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5f_JC13" xlink:to="JC5f_JC13_04" order="303" xlink:title="presentation: JC5f_JC13 文書レベル出荷回答書 to JC5f_JC13_04 文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC44_JC4f_03" xlink:label="JC44_JC4f_03" xlink:title="presentation parent: JC44_JC4f_03 文書レベル取引方向コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC44_JC4f_03" order="304" xlink:title="presentation: JC44_JC4f 文書 to JC44_JC4f_03 文書レベル取引方向コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b" xlink:label="JC57_8_JC1b" xlink:title="presentation parent: JC57_8_JC1b 文書レベル返金"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC57_8_JC1b" order="305" xlink:title="presentation: JC44_JC4f 文書 to JC57_8_JC1b 文書レベル返金"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b_01" xlink:label="JC57_8_JC1b_01" xlink:title="presentation parent: JC57_8_JC1b_01 文書レベル追加請求判別子"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_8_JC1b" xlink:to="JC57_8_JC1b_01" order="306" xlink:title="presentation: JC57_8_JC1b 文書レベル返金 to JC57_8_JC1b_01 文書レベル追加請求判別子"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b_02" xlink:label="JC57_8_JC1b_02" xlink:title="presentation parent: JC57_8_JC1b_02 文書レベル返金計算率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_8_JC1b" xlink:to="JC57_8_JC1b_02" order="307" xlink:title="presentation: JC57_8_JC1b 文書レベル返金 to JC57_8_JC1b_02 文書レベル返金計算率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b_03" xlink:label="JC57_8_JC1b_03" xlink:title="presentation parent: JC57_8_JC1b_03 文書レベル返金金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_8_JC1b" xlink:to="JC57_8_JC1b_03" order="308" xlink:title="presentation: JC57_8_JC1b 文書レベル返金 to JC57_8_JC1b_03 文書レベル返金金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b_04" xlink:label="JC57_8_JC1b_04" xlink:title="presentation parent: JC57_8_JC1b_04 文書レベル返金理由コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_8_JC1b" xlink:to="JC57_8_JC1b_04" order="309" xlink:title="presentation: JC57_8_JC1b 文書レベル返金 to JC57_8_JC1b_04 文書レベル返金理由コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b_05" xlink:label="JC57_8_JC1b_05" xlink:title="presentation parent: JC57_8_JC1b_05 文書レベル返金理由"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_8_JC1b" xlink:to="JC57_8_JC1b_05" order="310" xlink:title="presentation: JC57_8_JC1b 文書レベル返金 to JC57_8_JC1b_05 文書レベル返金理由"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b_06" xlink:label="JC57_8_JC1b_06" xlink:title="presentation parent: JC57_8_JC1b_06 文書レベル返金計算根拠金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_8_JC1b" xlink:to="JC57_8_JC1b_06" order="311" xlink:title="presentation: JC57_8_JC1b 文書レベル返金 to JC57_8_JC1b_06 文書レベル返金計算根拠金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b_07" xlink:label="JC57_8_JC1b_07" xlink:title="presentation parent: JC57_8_JC1b_07 文書レベル返金課税分類コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_8_JC1b" xlink:to="JC57_8_JC1b_07" order="312" xlink:title="presentation: JC57_8_JC1b 文書レベル返金 to JC57_8_JC1b_07 文書レベル返金課税分類コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_8_JC1b_08" xlink:label="JC57_8_JC1b_08" xlink:title="presentation parent: JC57_8_JC1b_08 文書レベル返金税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_8_JC1b" xlink:to="JC57_8_JC1b_08" order="313" xlink:title="presentation: JC57_8_JC1b 文書レベル返金 to JC57_8_JC1b_08 文書レベル返金税率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b" xlink:label="JC57_9_JC1b" xlink:title="presentation parent: JC57_9_JC1b 文書レベル追加請求"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC57_9_JC1b" order="314" xlink:title="presentation: JC44_JC4f 文書 to JC57_9_JC1b 文書レベル追加請求"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b_01" xlink:label="JC57_9_JC1b_01" xlink:title="presentation parent: JC57_9_JC1b_01 文書レベル追加請求判別子"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_9_JC1b" xlink:to="JC57_9_JC1b_01" order="315" xlink:title="presentation: JC57_9_JC1b 文書レベル追加請求 to JC57_9_JC1b_01 文書レベル追加請求判別子"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b_02" xlink:label="JC57_9_JC1b_02" xlink:title="presentation parent: JC57_9_JC1b_02 文書レベル追加請求計算率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_9_JC1b" xlink:to="JC57_9_JC1b_02" order="316" xlink:title="presentation: JC57_9_JC1b 文書レベル追加請求 to JC57_9_JC1b_02 文書レベル追加請求計算率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b_03" xlink:label="JC57_9_JC1b_03" xlink:title="presentation parent: JC57_9_JC1b_03 文書レベル追加請求金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_9_JC1b" xlink:to="JC57_9_JC1b_03" order="317" xlink:title="presentation: JC57_9_JC1b 文書レベル追加請求 to JC57_9_JC1b_03 文書レベル追加請求金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b_04" xlink:label="JC57_9_JC1b_04" xlink:title="presentation parent: JC57_9_JC1b_04 文書レベル追加請求理由コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_9_JC1b" xlink:to="JC57_9_JC1b_04" order="318" xlink:title="presentation: JC57_9_JC1b 文書レベル追加請求 to JC57_9_JC1b_04 文書レベル追加請求理由コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b_05" xlink:label="JC57_9_JC1b_05" xlink:title="presentation parent: JC57_9_JC1b_05 文書レベル追加請求理由"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_9_JC1b" xlink:to="JC57_9_JC1b_05" order="319" xlink:title="presentation: JC57_9_JC1b 文書レベル追加請求 to JC57_9_JC1b_05 文書レベル追加請求理由"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b_06" xlink:label="JC57_9_JC1b_06" xlink:title="presentation parent: JC57_9_JC1b_06 文書レベル追加請求計算根拠金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_9_JC1b" xlink:to="JC57_9_JC1b_06" order="320" xlink:title="presentation: JC57_9_JC1b 文書レベル追加請求 to JC57_9_JC1b_06 文書レベル追加請求計算根拠金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b_07" xlink:label="JC57_9_JC1b_07" xlink:title="presentation parent: JC57_9_JC1b_07 文書レベル追加請求課税分類コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_9_JC1b" xlink:to="JC57_9_JC1b_07" order="321" xlink:title="presentation: JC57_9_JC1b 文書レベル追加請求 to JC57_9_JC1b_07 文書レベル追加請求課税分類コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC57_9_JC1b_08" xlink:label="JC57_9_JC1b_08" xlink:title="presentation parent: JC57_9_JC1b_08 文書レベル追加請求税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC57_9_JC1b" xlink:to="JC57_9_JC1b_08" order="322" xlink:title="presentation: JC57_9_JC1b 文書レベル追加請求 to JC57_9_JC1b_08 文書レベル追加請求税率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d" xlink:label="JC55_a_JC2d" xlink:title="presentation parent: JC55_a_JC2d 文書レベル税"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC55_a_JC2d" order="323" xlink:title="presentation: JC44_JC4f 文書 to JC55_a_JC2d 文書レベル税"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_01" xlink:label="JC55_a_JC2d_01" xlink:title="presentation parent: JC55_a_JC2d_01 文書レベル課税分類税額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_01" order="324" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_01 文書レベル課税分類税額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_02" xlink:label="JC55_a_JC2d_02" xlink:title="presentation parent: JC55_a_JC2d_02 文書レベル税タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_02" order="325" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_02 文書レベル税タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_03" xlink:label="JC55_a_JC2d_03" xlink:title="presentation parent: JC55_a_JC2d_03 文書レベル課税分類譲渡資産合計金額（税抜き）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_03" order="326" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_03 文書レベル課税分類譲渡資産合計金額（税抜き）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_04" xlink:label="JC55_a_JC2d_04" xlink:title="presentation parent: JC55_a_JC2d_04 文書レベル課税分類コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_04" order="327" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_04 文書レベル課税分類コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_05" xlink:label="JC55_a_JC2d_05" xlink:title="presentation parent: JC55_a_JC2d_05 文書レベル課税分類税通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_05" order="328" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_05 文書レベル課税分類税通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_06" xlink:label="JC55_a_JC2d_06" xlink:title="presentation parent: JC55_a_JC2d_06 文書レベル課税分類名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_06" order="329" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_06 文書レベル課税分類名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_07" xlink:label="JC55_a_JC2d_07" xlink:title="presentation parent: JC55_a_JC2d_07 文書レベル税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_07" order="330" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_07 文書レベル税率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_08" xlink:label="JC55_a_JC2d_08" xlink:title="presentation parent: JC55_a_JC2d_08 文書レベル課税分類譲渡資産合計金額(税込み)"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_08" order="331" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_08 文書レベル課税分類譲渡資産合計金額(税込み)"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_09" xlink:label="JC55_a_JC2d_09" xlink:title="presentation parent: JC55_a_JC2d_09 文書レベル税計算方式"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_09" order="332" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_09 文書レベル税計算方式"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_a_JC2d_10" xlink:label="JC55_a_JC2d_10" xlink:title="presentation parent: JC55_a_JC2d_10 文書レベル適用税制ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_a_JC2d" xlink:to="JC55_a_JC2d_10" order="333" xlink:title="presentation: JC55_a_JC2d 文書レベル税 to JC55_a_JC2d_10 文書レベル適用税制ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_b_JC2d" xlink:label="JC55_b_JC2d" xlink:title="presentation parent: JC55_b_JC2d 文書レベル会計通貨税"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC55_b_JC2d" order="334" xlink:title="presentation: JC44_JC4f 文書 to JC55_b_JC2d 文書レベル会計通貨税"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_b_JC2d_01" xlink:label="JC55_b_JC2d_01" xlink:title="presentation parent: JC55_b_JC2d_01 文書レベル会計通貨課税分類税額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_b_JC2d" xlink:to="JC55_b_JC2d_01" order="335" xlink:title="presentation: JC55_b_JC2d 文書レベル会計通貨税 to JC55_b_JC2d_01 文書レベル会計通貨課税分類税額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_b_JC2d_02" xlink:label="JC55_b_JC2d_02" xlink:title="presentation parent: JC55_b_JC2d_02 文書レベル会計通貨課税分類譲渡資産合計金額（税抜き）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_b_JC2d" xlink:to="JC55_b_JC2d_02" order="336" xlink:title="presentation: JC55_b_JC2d 文書レベル会計通貨税 to JC55_b_JC2d_02 文書レベル会計通貨課税分類譲渡資産合計金額（税抜き）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_b_JC2d_03" xlink:label="JC55_b_JC2d_03" xlink:title="presentation parent: JC55_b_JC2d_03 文書レベル会計通貨課税分類コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_b_JC2d" xlink:to="JC55_b_JC2d_03" order="337" xlink:title="presentation: JC55_b_JC2d 文書レベル会計通貨税 to JC55_b_JC2d_03 文書レベル会計通貨課税分類コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_b_JC2d_04" xlink:label="JC55_b_JC2d_04" xlink:title="presentation parent: JC55_b_JC2d_04 文書レベル会計通貨課税分類税通貨コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_b_JC2d" xlink:to="JC55_b_JC2d_04" order="338" xlink:title="presentation: JC55_b_JC2d 文書レベル会計通貨税 to JC55_b_JC2d_04 文書レベル会計通貨課税分類税通貨コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_b_JC2d_05" xlink:label="JC55_b_JC2d_05" xlink:title="presentation parent: JC55_b_JC2d_05 文書レベル会計通貨税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_b_JC2d" xlink:to="JC55_b_JC2d_05" order="339" xlink:title="presentation: JC55_b_JC2d 文書レベル会計通貨税 to JC55_b_JC2d_05 文書レベル会計通貨税率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC55_b_JC2d_06" xlink:label="JC55_b_JC2d_06" xlink:title="presentation parent: JC55_b_JC2d_06 文書レベル適用税制ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC55_b_JC2d" xlink:to="JC55_b_JC2d_06" order="340" xlink:title="presentation: JC55_b_JC2d 文書レベル会計通貨税 to JC55_b_JC2d_06 文書レベル適用税制ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC56_JC14" xlink:label="JC56_JC14" xlink:title="presentation parent: JC56_JC14 文書レベル取引期間"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC56_JC14" order="341" xlink:title="presentation: JC44_JC4f 文書 to JC56_JC14 文書レベル取引期間"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC56_JC14_01" xlink:label="JC56_JC14_01" xlink:title="presentation parent: JC56_JC14_01 文書レベル取引開始日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC56_JC14" xlink:to="JC56_JC14_01" order="342" xlink:title="presentation: JC56_JC14 文書レベル取引期間 to JC56_JC14_01 文書レベル取引開始日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC56_JC14_02" xlink:label="JC56_JC14_02" xlink:title="presentation parent: JC56_JC14_02 文書レベル取引終了日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC56_JC14" xlink:to="JC56_JC14_02" order="343" xlink:title="presentation: JC56_JC14 文書レベル取引期間 to JC56_JC14_02 文書レベル取引終了日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_c_JC5c" xlink:label="JC58_c_JC5c" xlink:title="presentation parent: JC58_c_JC5c 文書レベル合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC58_c_JC5c" order="344" xlink:title="presentation: JC44_JC4f 文書 to JC58_c_JC5c 文書レベル合計金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_c_JC5c_01" xlink:label="JC58_c_JC5c_01" xlink:title="presentation parent: JC58_c_JC5c_01 文書レベル追加請求合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC58_c_JC5c" xlink:to="JC58_c_JC5c_01" order="345" xlink:title="presentation: JC58_c_JC5c 文書レベル合計金額 to JC58_c_JC5c_01 文書レベル追加請求合計金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_c_JC5c_02" xlink:label="JC58_c_JC5c_02" xlink:title="presentation parent: JC58_c_JC5c_02 文書レベル返金合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC58_c_JC5c" xlink:to="JC58_c_JC5c_02" order="346" xlink:title="presentation: JC58_c_JC5c 文書レベル合計金額 to JC58_c_JC5c_02 文書レベル返金合計金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_c_JC5c_03" xlink:label="JC58_c_JC5c_03" xlink:title="presentation parent: JC58_c_JC5c_03 文書レベル合計税額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC58_c_JC5c" xlink:to="JC58_c_JC5c_03" order="347" xlink:title="presentation: JC58_c_JC5c 文書レベル合計金額 to JC58_c_JC5c_03 文書レベル合計税額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_c_JC5c_04" xlink:label="JC58_c_JC5c_04" xlink:title="presentation parent: JC58_c_JC5c_04 文書レベルグロス合計金額（税抜き）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC58_c_JC5c" xlink:to="JC58_c_JC5c_04" order="348" xlink:title="presentation: JC58_c_JC5c 文書レベル合計金額 to JC58_c_JC5c_04 文書レベルグロス合計金額（税抜き）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_c_JC5c_05" xlink:label="JC58_c_JC5c_05" xlink:title="presentation parent: JC58_c_JC5c_05 文書レベル譲渡資産合計金額(税抜き)"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC58_c_JC5c" xlink:to="JC58_c_JC5c_05" order="349" xlink:title="presentation: JC58_c_JC5c 文書レベル合計金額 to JC58_c_JC5c_05 文書レベル譲渡資産合計金額(税抜き)"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_c_JC5c_06" xlink:label="JC58_c_JC5c_06" xlink:title="presentation parent: JC58_c_JC5c_06 文書レベル譲渡資産合計金額(税込み)"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC58_c_JC5c" xlink:to="JC58_c_JC5c_06" order="350" xlink:title="presentation: JC58_c_JC5c 文書レベル合計金額 to JC58_c_JC5c_06 文書レベル譲渡資産合計金額(税込み)"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_c_JC5c_07" xlink:label="JC58_c_JC5c_07" xlink:title="presentation parent: JC58_c_JC5c_07 文書レベル総合計金額（税込み）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC58_c_JC5c" xlink:to="JC58_c_JC5c_07" order="351" xlink:title="presentation: JC58_c_JC5c 文書レベル合計金額 to JC58_c_JC5c_07 文書レベル総合計金額（税込み）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_b_JC5c" xlink:label="JC58_b_JC5c" xlink:title="presentation parent: JC58_b_JC5c 文書レベル会計通貨合計金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC58_b_JC5c" order="352" xlink:title="presentation: JC44_JC4f 文書 to JC58_b_JC5c 文書レベル会計通貨合計金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC58_b_JC5c_01" xlink:label="JC58_b_JC5c_01" xlink:title="presentation parent: JC58_b_JC5c_01 文書レベル会計通貨合計税額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC58_b_JC5c" xlink:to="JC58_b_JC5c_01" order="353" xlink:title="presentation: JC58_b_JC5c 文書レベル会計通貨合計金額 to JC58_b_JC5c_01 文書レベル会計通貨合計税額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC59_JC0f" xlink:label="JC59_JC0f" xlink:title="presentation parent: JC59_JC0f 文書レベル調整"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC59_JC0f" order="354" xlink:title="presentation: JC44_JC4f 文書 to JC59_JC0f 文書レベル調整"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC59_JC0f_01" xlink:label="JC59_JC0f_01" xlink:title="presentation parent: JC59_JC0f_01 文書レベル調整理由コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC59_JC0f" xlink:to="JC59_JC0f_01" order="355" xlink:title="presentation: JC59_JC0f 文書レベル調整 to JC59_JC0f_01 文書レベル調整理由コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC59_JC0f_02" xlink:label="JC59_JC0f_02" xlink:title="presentation parent: JC59_JC0f_02 文書レベル調整理由"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC59_JC0f" xlink:to="JC59_JC0f_02" order="356" xlink:title="presentation: JC59_JC0f 文書レベル調整 to JC59_JC0f_02 文書レベル調整理由"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC59_JC0f_03" xlink:label="JC59_JC0f_03" xlink:title="presentation parent: JC59_JC0f_03 文書レベル調整金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC59_JC0f" xlink:to="JC59_JC0f_03" order="357" xlink:title="presentation: JC59_JC0f 文書レベル調整 to JC59_JC0f_03 文書レベル調整金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC59_JC0f_04" xlink:label="JC59_JC0f_04" xlink:title="presentation parent: JC59_JC0f_04 文書レベル調整取引方向コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC59_JC0f" xlink:to="JC59_JC0f_04" order="358" xlink:title="presentation: JC59_JC0f 文書レベル調整 to JC59_JC0f_04 文書レベル調整取引方向コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC78_c_JC2d" xlink:label="JC78_c_JC2d" xlink:title="presentation parent: JC78_c_JC2d 文書レベル調整調整税"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC59_JC0f" xlink:to="JC78_c_JC2d" order="359" xlink:title="presentation: JC59_JC0f 文書レベル調整 to JC78_c_JC2d 文書レベル調整調整税"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC78_c_JC2d_01" xlink:label="JC78_c_JC2d_01" xlink:title="presentation parent: JC78_c_JC2d_01 文書レベル調整税額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC78_c_JC2d" xlink:to="JC78_c_JC2d_01" order="360" xlink:title="presentation: JC78_c_JC2d 文書レベル調整調整税 to JC78_c_JC2d_01 文書レベル調整税額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC78_c_JC2d_02" xlink:label="JC78_c_JC2d_02" xlink:title="presentation parent: JC78_c_JC2d_02 文書レベル調整課税分類コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC78_c_JC2d" xlink:to="JC78_c_JC2d_02" order="361" xlink:title="presentation: JC78_c_JC2d 文書レベル調整調整税 to JC78_c_JC2d_02 文書レベル調整課税分類コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC78_c_JC2d_03" xlink:label="JC78_c_JC2d_03" xlink:title="presentation parent: JC78_c_JC2d_03 文書レベル調整税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC78_c_JC2d" xlink:to="JC78_c_JC2d_03" order="362" xlink:title="presentation: JC78_c_JC2d 文書レベル調整調整税 to JC78_c_JC2d_03 文書レベル調整税率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5a_JC13" xlink:label="JC5a_JC13" xlink:title="presentation parent: JC5a_JC13 文書レベル対象物"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC5a_JC13" order="363" xlink:title="presentation: JC44_JC4f 文書 to JC5a_JC13 文書レベル対象物"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5a_JC13_01" xlink:label="JC5a_JC13_01" xlink:title="presentation parent: JC5a_JC13_01 対象物ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5a_JC13" xlink:to="JC5a_JC13_01" order="364" xlink:title="presentation: JC5a_JC13 文書レベル対象物 to JC5a_JC13_01 対象物ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5a_JC13_02" xlink:label="JC5a_JC13_02" xlink:title="presentation parent: JC5a_JC13_02 対象物発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5a_JC13" xlink:to="JC5a_JC13_02" order="365" xlink:title="presentation: JC5a_JC13 文書レベル対象物 to JC5a_JC13_02 対象物発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5a_JC13_03" xlink:label="JC5a_JC13_03" xlink:title="presentation parent: JC5a_JC13_03 文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5a_JC13" xlink:to="JC5a_JC13_03" order="366" xlink:title="presentation: JC5a_JC13 文書レベル対象物 to JC5a_JC13_03 文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5a_JC13_04" xlink:label="JC5a_JC13_04" xlink:title="presentation parent: JC5a_JC13_04 対象物履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5a_JC13" xlink:to="JC5a_JC13_04" order="367" xlink:title="presentation: JC5a_JC13 文書レベル対象物 to JC5a_JC13_04 対象物履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5a_JC13_05" xlink:label="JC5a_JC13_05" xlink:title="presentation parent: JC5a_JC13_05 文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5a_JC13" xlink:to="JC5a_JC13_05" order="368" xlink:title="presentation: JC5a_JC13 文書レベル対象物 to JC5a_JC13_05 文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5a_JC13_06" xlink:label="JC5a_JC13_06" xlink:title="presentation parent: JC5a_JC13_06 文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5a_JC13" xlink:to="JC5a_JC13_06" order="369" xlink:title="presentation: JC5a_JC13 文書レベル対象物 to JC5a_JC13_06 文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13" xlink:label="JC5b_d_JC13" xlink:title="presentation parent: JC5b_d_JC13 文書レベル入札書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC5b_d_JC13" order="370" xlink:title="presentation: JC44_JC4f 文書 to JC5b_d_JC13 文書レベル入札書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13_01" xlink:label="JC5b_d_JC13_01" xlink:title="presentation parent: JC5b_d_JC13_01 入札書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_d_JC13" xlink:to="JC5b_d_JC13_01" order="371" xlink:title="presentation: JC5b_d_JC13 文書レベル入札書 to JC5b_d_JC13_01 入札書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13_02" xlink:label="JC5b_d_JC13_02" xlink:title="presentation parent: JC5b_d_JC13_02 入札書発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_d_JC13" xlink:to="JC5b_d_JC13_02" order="372" xlink:title="presentation: JC5b_d_JC13 文書レベル入札書 to JC5b_d_JC13_02 入札書発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13_03" xlink:label="JC5b_d_JC13_03" xlink:title="presentation parent: JC5b_d_JC13_03 文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_d_JC13" xlink:to="JC5b_d_JC13_03" order="373" xlink:title="presentation: JC5b_d_JC13 文書レベル入札書 to JC5b_d_JC13_03 文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13_04" xlink:label="JC5b_d_JC13_04" xlink:title="presentation parent: JC5b_d_JC13_04 入札書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_d_JC13" xlink:to="JC5b_d_JC13_04" order="374" xlink:title="presentation: JC5b_d_JC13 文書レベル入札書 to JC5b_d_JC13_04 入札書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13_05" xlink:label="JC5b_d_JC13_05" xlink:title="presentation parent: JC5b_d_JC13_05 入札書説明"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_d_JC13" xlink:to="JC5b_d_JC13_05" order="375" xlink:title="presentation: JC5b_d_JC13 文書レベル入札書 to JC5b_d_JC13_05 入札書説明"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13_06" xlink:label="JC5b_d_JC13_06" xlink:title="presentation parent: JC5b_d_JC13_06 文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_d_JC13" xlink:to="JC5b_d_JC13_06" order="376" xlink:title="presentation: JC5b_d_JC13 文書レベル入札書 to JC5b_d_JC13_06 文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13_07" xlink:label="JC5b_d_JC13_07" xlink:title="presentation parent: JC5b_d_JC13_07 文書添付ファイル"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_d_JC13" xlink:to="JC5b_d_JC13_07" order="377" xlink:title="presentation: JC5b_d_JC13 文書レベル入札書 to JC5b_d_JC13_07 文書添付ファイル"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_d_JC13_08" xlink:label="JC5b_d_JC13_08" xlink:title="presentation parent: JC5b_d_JC13_08 （文書ヘッ参照）文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_d_JC13" xlink:to="JC5b_d_JC13_08" order="378" xlink:title="presentation: JC5b_d_JC13 文書レベル入札書 to JC5b_d_JC13_08 （文書ヘッ参照）文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13" xlink:label="JC5b_a_JC13" xlink:title="presentation parent: JC5b_a_JC13 文書レベル前回インボイス文書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC5b_a_JC13" order="379" xlink:title="presentation: JC44_JC4f 文書 to JC5b_a_JC13 文書レベル前回インボイス文書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13_01" xlink:label="JC5b_a_JC13_01" xlink:title="presentation parent: JC5b_a_JC13_01 前回インボイス文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_a_JC13" xlink:to="JC5b_a_JC13_01" order="380" xlink:title="presentation: JC5b_a_JC13 文書レベル前回インボイス文書 to JC5b_a_JC13_01 前回インボイス文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13_02" xlink:label="JC5b_a_JC13_02" xlink:title="presentation parent: JC5b_a_JC13_02 前回インボイス文書発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_a_JC13" xlink:to="JC5b_a_JC13_02" order="381" xlink:title="presentation: JC5b_a_JC13 文書レベル前回インボイス文書 to JC5b_a_JC13_02 前回インボイス文書発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13_03" xlink:label="JC5b_a_JC13_03" xlink:title="presentation parent: JC5b_a_JC13_03 インボイス文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_a_JC13" xlink:to="JC5b_a_JC13_03" order="382" xlink:title="presentation: JC5b_a_JC13 文書レベル前回インボイス文書 to JC5b_a_JC13_03 インボイス文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13_04" xlink:label="JC5b_a_JC13_04" xlink:title="presentation parent: JC5b_a_JC13_04 前回インボイス文書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_a_JC13" xlink:to="JC5b_a_JC13_04" order="383" xlink:title="presentation: JC5b_a_JC13 文書レベル前回インボイス文書 to JC5b_a_JC13_04 前回インボイス文書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13_05" xlink:label="JC5b_a_JC13_05" xlink:title="presentation parent: JC5b_a_JC13_05 前回インボイス文書説明"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_a_JC13" xlink:to="JC5b_a_JC13_05" order="384" xlink:title="presentation: JC5b_a_JC13 文書レベル前回インボイス文書 to JC5b_a_JC13_05 前回インボイス文書説明"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13_06" xlink:label="JC5b_a_JC13_06" xlink:title="presentation parent: JC5b_a_JC13_06 文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_a_JC13" xlink:to="JC5b_a_JC13_06" order="385" xlink:title="presentation: JC5b_a_JC13 文書レベル前回インボイス文書 to JC5b_a_JC13_06 文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13_07" xlink:label="JC5b_a_JC13_07" xlink:title="presentation parent: JC5b_a_JC13_07 文書添付ファイル"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_a_JC13" xlink:to="JC5b_a_JC13_07" order="386" xlink:title="presentation: JC5b_a_JC13 文書レベル前回インボイス文書 to JC5b_a_JC13_07 文書添付ファイル"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC5b_a_JC13_08" xlink:label="JC5b_a_JC13_08" xlink:title="presentation parent: JC5b_a_JC13_08 文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC5b_a_JC13" xlink:to="JC5b_a_JC13_08" order="387" xlink:title="presentation: JC5b_a_JC13 文書レベル前回インボイス文書 to JC5b_a_JC13_08 文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC61_JC19" xlink:label="JC61_JC19" xlink:title="presentation parent: JC61_JC19 文書レベル購買会計アカウント"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC61_JC19" order="388" xlink:title="presentation: JC44_JC4f 文書 to JC61_JC19 文書レベル購買会計アカウント"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC61_JC19_01" xlink:label="JC61_JC19_01" xlink:title="presentation parent: JC61_JC19_01 購買会計アカウントタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC61_JC19" xlink:to="JC61_JC19_01" order="389" xlink:title="presentation: JC61_JC19 文書レベル購買会計アカウント to JC61_JC19_01 購買会計アカウントタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC61_JC19_02" xlink:label="JC61_JC19_02" xlink:title="presentation parent: JC61_JC19_02 購買会計アカウント名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC61_JC19" xlink:to="JC61_JC19_02" order="390" xlink:title="presentation: JC61_JC19 文書レベル購買会計アカウント to JC61_JC19_02 購買会計アカウント名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6e_JC62" xlink:label="JC6e_JC62" xlink:title="presentation parent: JC6e_JC62 明細行"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC44_JC4f" xlink:to="JC6e_JC62" order="391" xlink:title="presentation: JC44_JC4f 文書 to JC6e_JC62 明細行"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6e_JC62_01" xlink:label="JC6e_JC62_01" xlink:title="presentation parent: JC6e_JC62_01 明細行ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC6e_JC62_01" order="392" xlink:title="presentation: JC6e_JC62 明細行 to JC6e_JC62_01 明細行ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6e_JC62_02" xlink:label="JC6e_JC62_02" xlink:title="presentation parent: JC6e_JC62_02 明細行類型コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC6e_JC62_02" order="393" xlink:title="presentation: JC6e_JC62 明細行 to JC6e_JC62_02 明細行類型コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7c_JC10" xlink:label="JC7c_JC10" xlink:title="presentation parent: JC7c_JC10 明細行注釈"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC7c_JC10" order="394" xlink:title="presentation: JC6e_JC62 明細行 to JC7c_JC10 明細行注釈"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7c_JC10_01" xlink:label="JC7c_JC10_01" xlink:title="presentation parent: JC7c_JC10_01 明細行注釈表題"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7c_JC10" xlink:to="JC7c_JC10_01" order="395" xlink:title="presentation: JC7c_JC10 明細行注釈 to JC7c_JC10_01 明細行注釈表題"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7c_JC10_02" xlink:label="JC7c_JC10_02" xlink:title="presentation parent: JC7c_JC10_02 明細行注釈内容"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7c_JC10" xlink:to="JC7c_JC10_02" order="396" xlink:title="presentation: JC7c_JC10 明細行注釈 to JC7c_JC10_02 明細行注釈内容"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7c_JC10_03" xlink:label="JC7c_JC10_03" xlink:title="presentation parent: JC7c_JC10_03 明細行注釈ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7c_JC10" xlink:to="JC7c_JC10_03" order="397" xlink:title="presentation: JC7c_JC10 明細行注釈 to JC7c_JC10_03 明細行注釈ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC67_JC13" xlink:label="JC67_JC13" xlink:title="presentation parent: JC67_JC13 明細行受注書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC67_JC13" order="398" xlink:title="presentation: JC6e_JC62 明細行 to JC67_JC13 明細行受注書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC67_JC13_01" xlink:label="JC67_JC13_01" xlink:title="presentation parent: JC67_JC13_01 明細行受注書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC67_JC13" xlink:to="JC67_JC13_01" order="399" xlink:title="presentation: JC67_JC13 明細行受注書 to JC67_JC13_01 明細行受注書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC67_JC13_02" xlink:label="JC67_JC13_02" xlink:title="presentation parent: JC67_JC13_02 明細行受注書明細行ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC67_JC13" xlink:to="JC67_JC13_02" order="400" xlink:title="presentation: JC67_JC13 明細行受注書 to JC67_JC13_02 明細行受注書明細行ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC67_JC13_03" xlink:label="JC67_JC13_03" xlink:title="presentation parent: JC67_JC13_03 明細行受注書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC67_JC13" xlink:to="JC67_JC13_03" order="401" xlink:title="presentation: JC67_JC13 明細行受注書 to JC67_JC13_03 明細行受注書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC68_JC13" xlink:label="JC68_JC13" xlink:title="presentation parent: JC68_JC13 明細行注文書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC68_JC13" order="402" xlink:title="presentation: JC6e_JC62 明細行 to JC68_JC13 明細行注文書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC68_JC13_01" xlink:label="JC68_JC13_01" xlink:title="presentation parent: JC68_JC13_01 明細行注文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC68_JC13" xlink:to="JC68_JC13_01" order="403" xlink:title="presentation: JC68_JC13 明細行注文書 to JC68_JC13_01 明細行注文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC68_JC13_02" xlink:label="JC68_JC13_02" xlink:title="presentation parent: JC68_JC13_02 明細行注文書明細行ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC68_JC13" xlink:to="JC68_JC13_02" order="404" xlink:title="presentation: JC68_JC13 明細行注文書 to JC68_JC13_02 明細行注文書明細行ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC68_JC13_03" xlink:label="JC68_JC13_03" xlink:title="presentation parent: JC68_JC13_03 明細行注文書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC68_JC13" xlink:to="JC68_JC13_03" order="405" xlink:title="presentation: JC68_JC13 明細行注文書 to JC68_JC13_03 明細行注文書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_e_JC13" xlink:label="JC69_e_JC13" xlink:title="presentation parent: JC69_e_JC13 明細行出荷案内書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC69_e_JC13" order="406" xlink:title="presentation: JC6e_JC62 明細行 to JC69_e_JC13 明細行出荷案内書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_e_JC13_01" xlink:label="JC69_e_JC13_01" xlink:title="presentation parent: JC69_e_JC13_01 明細行出荷案内書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_e_JC13" xlink:to="JC69_e_JC13_01" order="407" xlink:title="presentation: JC69_e_JC13 明細行出荷案内書 to JC69_e_JC13_01 明細行出荷案内書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_e_JC13_02" xlink:label="JC69_e_JC13_02" xlink:title="presentation parent: JC69_e_JC13_02 明細行出荷案内書明細行ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_e_JC13" xlink:to="JC69_e_JC13_02" order="408" xlink:title="presentation: JC69_e_JC13 明細行出荷案内書 to JC69_e_JC13_02 明細行出荷案内書明細行ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_e_JC13_03" xlink:label="JC69_e_JC13_03" xlink:title="presentation parent: JC69_e_JC13_03 明細行文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_e_JC13" xlink:to="JC69_e_JC13_03" order="409" xlink:title="presentation: JC69_e_JC13 明細行出荷案内書 to JC69_e_JC13_03 明細行文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_e_JC13_04" xlink:label="JC69_e_JC13_04" xlink:title="presentation parent: JC69_e_JC13_04 明細行出荷案内書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_e_JC13" xlink:to="JC69_e_JC13_04" order="410" xlink:title="presentation: JC69_e_JC13 明細行出荷案内書 to JC69_e_JC13_04 明細行出荷案内書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_e_JC13_05" xlink:label="JC69_e_JC13_05" xlink:title="presentation parent: JC69_e_JC13_05 明細行文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_e_JC13" xlink:to="JC69_e_JC13_05" order="411" xlink:title="presentation: JC69_e_JC13 明細行出荷案内書 to JC69_e_JC13_05 明細行文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_e_JC13_06" xlink:label="JC69_e_JC13_06" xlink:title="presentation parent: JC69_e_JC13_06 明細行文書添付ファイル"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_e_JC13" xlink:to="JC69_e_JC13_06" order="412" xlink:title="presentation: JC69_e_JC13 明細行出荷案内書 to JC69_e_JC13_06 明細行文書添付ファイル"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_e_JC13_07" xlink:label="JC69_e_JC13_07" xlink:title="presentation parent: JC69_e_JC13_07 明細行文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_e_JC13" xlink:to="JC69_e_JC13_07" order="413" xlink:title="presentation: JC69_e_JC13 明細行出荷案内書 to JC69_e_JC13_07 明細行文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_JC13" xlink:label="JC69_JC13" xlink:title="presentation parent: JC69_JC13 明細行参照文書"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC69_JC13" order="414" xlink:title="presentation: JC6e_JC62 明細行 to JC69_JC13 明細行参照文書"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_JC13_01" xlink:label="JC69_JC13_01" xlink:title="presentation parent: JC69_JC13_01 明細行文書ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_JC13" xlink:to="JC69_JC13_01" order="415" xlink:title="presentation: JC69_JC13 明細行参照文書 to JC69_JC13_01 明細行文書ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_JC13_02" xlink:label="JC69_JC13_02" xlink:title="presentation parent: JC69_JC13_02 明細行文書明細行ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_JC13" xlink:to="JC69_JC13_02" order="416" xlink:title="presentation: JC69_JC13 明細行参照文書 to JC69_JC13_02 明細行文書明細行ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_JC13_03" xlink:label="JC69_JC13_03" xlink:title="presentation parent: JC69_JC13_03 明細行文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_JC13" xlink:to="JC69_JC13_03" order="417" xlink:title="presentation: JC69_JC13 明細行参照文書 to JC69_JC13_03 明細行文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_JC13_04" xlink:label="JC69_JC13_04" xlink:title="presentation parent: JC69_JC13_04 明細行文書履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_JC13" xlink:to="JC69_JC13_04" order="418" xlink:title="presentation: JC69_JC13 明細行参照文書 to JC69_JC13_04 明細行文書履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_JC13_05" xlink:label="JC69_JC13_05" xlink:title="presentation parent: JC69_JC13_05 明細行文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_JC13" xlink:to="JC69_JC13_05" order="419" xlink:title="presentation: JC69_JC13 明細行参照文書 to JC69_JC13_05 明細行文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_JC13_06" xlink:label="JC69_JC13_06" xlink:title="presentation parent: JC69_JC13_06 明細行文書添付ファイル"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_JC13" xlink:to="JC69_JC13_06" order="420" xlink:title="presentation: JC69_JC13 明細行参照文書 to JC69_JC13_06 明細行文書添付ファイル"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC69_JC13_07" xlink:label="JC69_JC13_07" xlink:title="presentation parent: JC69_JC13_07 明細行文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC69_JC13" xlink:to="JC69_JC13_07" order="421" xlink:title="presentation: JC69_JC13 明細行参照文書 to JC69_JC13_07 明細行文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6a_JC28" xlink:label="JC6a_JC28" xlink:title="presentation parent: JC6a_JC28 単価"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC6a_JC28" order="422" xlink:title="presentation: JC6e_JC62 明細行 to JC6a_JC28 単価"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6a_JC28_01" xlink:label="JC6a_JC28_01" xlink:title="presentation parent: JC6a_JC28_01 単価コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6a_JC28" xlink:to="JC6a_JC28_01" order="423" xlink:title="presentation: JC6a_JC28 単価 to JC6a_JC28_01 単価コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6a_JC28_02" xlink:label="JC6a_JC28_02" xlink:title="presentation parent: JC6a_JC28_02 契約単価"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6a_JC28" xlink:to="JC6a_JC28_02" order="424" xlink:title="presentation: JC6a_JC28 単価 to JC6a_JC28_02 契約単価"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6a_JC28_03" xlink:label="JC6a_JC28_03" xlink:title="presentation parent: JC6a_JC28_03 単価基準数量"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6a_JC28" xlink:to="JC6a_JC28_03" order="425" xlink:title="presentation: JC6a_JC28 単価 to JC6a_JC28_03 単価基準数量"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6a_JC28_04" xlink:label="JC6a_JC28_04" xlink:title="presentation parent: JC6a_JC28_04 数量単位コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6a_JC28" xlink:to="JC6a_JC28_04" order="426" xlink:title="presentation: JC6a_JC28 単価 to JC6a_JC28_04 数量単位コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC64_JC6b" xlink:label="JC64_JC6b" xlink:title="presentation parent: JC64_JC6b 明細行配送"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC64_JC6b" order="427" xlink:title="presentation: JC6e_JC62 明細行 to JC64_JC6b 明細行配送"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC64_JC6b_01" xlink:label="JC64_JC6b_01" xlink:title="presentation parent: JC64_JC6b_01 請求セット数量"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC64_JC6b" xlink:to="JC64_JC6b_01" order="428" xlink:title="presentation: JC64_JC6b 明細行配送 to JC64_JC6b_01 請求セット数量"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC64_JC6b_02" xlink:label="JC64_JC6b_02" xlink:title="presentation parent: JC64_JC6b_02 請求バラ数量"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC64_JC6b" xlink:to="JC64_JC6b_02" order="429" xlink:title="presentation: JC64_JC6b 明細行配送 to JC64_JC6b_02 請求バラ数量"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC64_JC6b_03" xlink:label="JC64_JC6b_03" xlink:title="presentation parent: JC64_JC6b_03 請求セット単位数量(入り数）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC64_JC6b" xlink:to="JC64_JC6b_03" order="430" xlink:title="presentation: JC64_JC6b 明細行配送 to JC64_JC6b_03 請求セット単位数量(入り数）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC64_JC6b_04" xlink:label="JC64_JC6b_04" xlink:title="presentation parent: JC64_JC6b_04 請求数量"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC64_JC6b" xlink:to="JC64_JC6b_04" order="431" xlink:title="presentation: JC64_JC6b 明細行配送 to JC64_JC6b_04 請求数量"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC64_JC6b_05" xlink:label="JC64_JC6b_05" xlink:title="presentation parent: JC64_JC6b_05 数量単位コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC64_JC6b" xlink:to="JC64_JC6b_05" order="432" xlink:title="presentation: JC64_JC6b 明細行配送 to JC64_JC6b_05 数量単位コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC65_JC6c" xlink:label="JC65_JC6c" xlink:title="presentation parent: JC65_JC6c 明細行決裁"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC65_JC6c" order="433" xlink:title="presentation: JC6e_JC62 明細行 to JC65_JC6c 明細行決裁"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC65_JC6c_01" xlink:label="JC65_JC6c_01" xlink:title="presentation parent: JC65_JC6c_01 明細行取引方向コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC65_JC6c" xlink:to="JC65_JC6c_01" order="434" xlink:title="presentation: JC65_JC6c 明細行決裁 to JC65_JC6c_01 明細行取引方向コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6d_JC2d" xlink:label="JC6d_JC2d" xlink:title="presentation parent: JC6d_JC2d 明細行税"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC6d_JC2d" order="435" xlink:title="presentation: JC6e_JC62 明細行 to JC6d_JC2d 明細行税"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6d_JC2d_01" xlink:label="JC6d_JC2d_01" xlink:title="presentation parent: JC6d_JC2d_01 明細行税タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6d_JC2d" xlink:to="JC6d_JC2d_01" order="436" xlink:title="presentation: JC6d_JC2d 明細行税 to JC6d_JC2d_01 明細行税タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6d_JC2d_02" xlink:label="JC6d_JC2d_02" xlink:title="presentation parent: JC6d_JC2d_02 明細行譲渡資産金額（税抜き）"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6d_JC2d" xlink:to="JC6d_JC2d_02" order="437" xlink:title="presentation: JC6d_JC2d 明細行税 to JC6d_JC2d_02 明細行譲渡資産金額（税抜き）"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6d_JC2d_03" xlink:label="JC6d_JC2d_03" xlink:title="presentation parent: JC6d_JC2d_03 明細行課税分類コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6d_JC2d" xlink:to="JC6d_JC2d_03" order="438" xlink:title="presentation: JC6d_JC2d 明細行税 to JC6d_JC2d_03 明細行課税分類コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6d_JC2d_04" xlink:label="JC6d_JC2d_04" xlink:title="presentation parent: JC6d_JC2d_04 明細行課税分類名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6d_JC2d" xlink:to="JC6d_JC2d_04" order="439" xlink:title="presentation: JC6d_JC2d 明細行税 to JC6d_JC2d_04 明細行課税分類名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6d_JC2d_05" xlink:label="JC6d_JC2d_05" xlink:title="presentation parent: JC6d_JC2d_05 明細行税率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6d_JC2d" xlink:to="JC6d_JC2d_05" order="440" xlink:title="presentation: JC6d_JC2d 明細行税 to JC6d_JC2d_05 明細行税率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6d_JC2d_06" xlink:label="JC6d_JC2d_06" xlink:title="presentation parent: JC6d_JC2d_06 明細行譲渡資産金額(税込み)"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6d_JC2d" xlink:to="JC6d_JC2d_06" order="441" xlink:title="presentation: JC6d_JC2d 明細行税 to JC6d_JC2d_06 明細行譲渡資産金額(税込み)"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC6d_JC2d_07" xlink:label="JC6d_JC2d_07" xlink:title="presentation parent: JC6d_JC2d_07 明細行適用税制ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6d_JC2d" xlink:to="JC6d_JC2d_07" order="442" xlink:title="presentation: JC6d_JC2d 明細行税 to JC6d_JC2d_07 明細行適用税制ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC73_JC13" xlink:label="JC73_JC13" xlink:title="presentation parent: JC73_JC13 明細行対象物"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC73_JC13" order="443" xlink:title="presentation: JC6e_JC62 明細行 to JC73_JC13 明細行対象物"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC73_JC13_01" xlink:label="JC73_JC13_01" xlink:title="presentation parent: JC73_JC13_01 明細行対象物ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC73_JC13" xlink:to="JC73_JC13_01" order="444" xlink:title="presentation: JC73_JC13 明細行対象物 to JC73_JC13_01 明細行対象物ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC73_JC13_02" xlink:label="JC73_JC13_02" xlink:title="presentation parent: JC73_JC13_02 明細行対象物発行日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC73_JC13" xlink:to="JC73_JC13_02" order="445" xlink:title="presentation: JC73_JC13 明細行対象物 to JC73_JC13_02 明細行対象物発行日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC73_JC13_03" xlink:label="JC73_JC13_03" xlink:title="presentation parent: JC73_JC13_03 明細行対象物明細行ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC73_JC13" xlink:to="JC73_JC13_03" order="446" xlink:title="presentation: JC73_JC13 明細行対象物 to JC73_JC13_03 明細行対象物明細行ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC73_JC13_04" xlink:label="JC73_JC13_04" xlink:title="presentation parent: JC73_JC13_04 明細行文書参照タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC73_JC13" xlink:to="JC73_JC13_04" order="447" xlink:title="presentation: JC73_JC13 明細行対象物 to JC73_JC13_04 明細行文書参照タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC73_JC13_05" xlink:label="JC73_JC13_05" xlink:title="presentation parent: JC73_JC13_05 明細行対象物履歴ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC73_JC13" xlink:to="JC73_JC13_05" order="448" xlink:title="presentation: JC73_JC13 明細行対象物 to JC73_JC13_05 明細行対象物履歴ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC73_JC13_06" xlink:label="JC73_JC13_06" xlink:title="presentation parent: JC73_JC13_06 明細行文書タイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC73_JC13" xlink:to="JC73_JC13_06" order="449" xlink:title="presentation: JC73_JC13 明細行対象物 to JC73_JC13_06 明細行文書タイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC73_JC13_07" xlink:label="JC73_JC13_07" xlink:title="presentation parent: JC73_JC13_07 明細行文書サブタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC73_JC13" xlink:to="JC73_JC13_07" order="450" xlink:title="presentation: JC73_JC13 明細行対象物 to JC73_JC13_07 明細行文書サブタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_8_JC1b" xlink:label="JC75_8_JC1b" xlink:title="presentation parent: JC75_8_JC1b 明細行返金"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC75_8_JC1b" order="451" xlink:title="presentation: JC6e_JC62 明細行 to JC75_8_JC1b 明細行返金"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_8_JC1b_01" xlink:label="JC75_8_JC1b_01" xlink:title="presentation parent: JC75_8_JC1b_01 明細行追加請求判別子"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_8_JC1b" xlink:to="JC75_8_JC1b_01" order="452" xlink:title="presentation: JC75_8_JC1b 明細行返金 to JC75_8_JC1b_01 明細行追加請求判別子"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_8_JC1b_02" xlink:label="JC75_8_JC1b_02" xlink:title="presentation parent: JC75_8_JC1b_02 明細行返金計算率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_8_JC1b" xlink:to="JC75_8_JC1b_02" order="453" xlink:title="presentation: JC75_8_JC1b 明細行返金 to JC75_8_JC1b_02 明細行返金計算率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_8_JC1b_03" xlink:label="JC75_8_JC1b_03" xlink:title="presentation parent: JC75_8_JC1b_03 明細行返金金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_8_JC1b" xlink:to="JC75_8_JC1b_03" order="454" xlink:title="presentation: JC75_8_JC1b 明細行返金 to JC75_8_JC1b_03 明細行返金金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_8_JC1b_04" xlink:label="JC75_8_JC1b_04" xlink:title="presentation parent: JC75_8_JC1b_04 明細行返金理由コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_8_JC1b" xlink:to="JC75_8_JC1b_04" order="455" xlink:title="presentation: JC75_8_JC1b 明細行返金 to JC75_8_JC1b_04 明細行返金理由コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_8_JC1b_05" xlink:label="JC75_8_JC1b_05" xlink:title="presentation parent: JC75_8_JC1b_05 明細行返金理由"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_8_JC1b" xlink:to="JC75_8_JC1b_05" order="456" xlink:title="presentation: JC75_8_JC1b 明細行返金 to JC75_8_JC1b_05 明細行返金理由"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_8_JC1b_06" xlink:label="JC75_8_JC1b_06" xlink:title="presentation parent: JC75_8_JC1b_06 明細行返金計算根拠金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_8_JC1b" xlink:to="JC75_8_JC1b_06" order="457" xlink:title="presentation: JC75_8_JC1b 明細行返金 to JC75_8_JC1b_06 明細行返金計算根拠金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_9_JC1b" xlink:label="JC75_9_JC1b" xlink:title="presentation parent: JC75_9_JC1b 明細行追加請求"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC75_9_JC1b" order="458" xlink:title="presentation: JC6e_JC62 明細行 to JC75_9_JC1b 明細行追加請求"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_9_JC1b_01" xlink:label="JC75_9_JC1b_01" xlink:title="presentation parent: JC75_9_JC1b_01 明細行追加請求判別子"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_9_JC1b" xlink:to="JC75_9_JC1b_01" order="459" xlink:title="presentation: JC75_9_JC1b 明細行追加請求 to JC75_9_JC1b_01 明細行追加請求判別子"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_9_JC1b_02" xlink:label="JC75_9_JC1b_02" xlink:title="presentation parent: JC75_9_JC1b_02 明細行追加請求計算率"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_9_JC1b" xlink:to="JC75_9_JC1b_02" order="460" xlink:title="presentation: JC75_9_JC1b 明細行追加請求 to JC75_9_JC1b_02 明細行追加請求計算率"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_9_JC1b_03" xlink:label="JC75_9_JC1b_03" xlink:title="presentation parent: JC75_9_JC1b_03 明細行追加請求金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_9_JC1b" xlink:to="JC75_9_JC1b_03" order="461" xlink:title="presentation: JC75_9_JC1b 明細行追加請求 to JC75_9_JC1b_03 明細行追加請求金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_9_JC1b_04" xlink:label="JC75_9_JC1b_04" xlink:title="presentation parent: JC75_9_JC1b_04 明細行追加請求理由コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_9_JC1b" xlink:to="JC75_9_JC1b_04" order="462" xlink:title="presentation: JC75_9_JC1b 明細行追加請求 to JC75_9_JC1b_04 明細行追加請求理由コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_9_JC1b_05" xlink:label="JC75_9_JC1b_05" xlink:title="presentation parent: JC75_9_JC1b_05 明細行追加請求理由"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_9_JC1b" xlink:to="JC75_9_JC1b_05" order="463" xlink:title="presentation: JC75_9_JC1b 明細行追加請求 to JC75_9_JC1b_05 明細行追加請求理由"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC75_9_JC1b_06" xlink:label="JC75_9_JC1b_06" xlink:title="presentation parent: JC75_9_JC1b_06 明細行追加請求計算根拠金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC75_9_JC1b" xlink:to="JC75_9_JC1b_06" order="464" xlink:title="presentation: JC75_9_JC1b 明細行追加請求 to JC75_9_JC1b_06 明細行追加請求計算根拠金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC74_JC0f" xlink:label="JC74_JC0f" xlink:title="presentation parent: JC74_JC0f 明細行調整"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC74_JC0f" order="465" xlink:title="presentation: JC6e_JC62 明細行 to JC74_JC0f 明細行調整"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC74_JC0f_01" xlink:label="JC74_JC0f_01" xlink:title="presentation parent: JC74_JC0f_01 明細行調整理由コード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC74_JC0f" xlink:to="JC74_JC0f_01" order="466" xlink:title="presentation: JC74_JC0f 明細行調整 to JC74_JC0f_01 明細行調整理由コード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC74_JC0f_02" xlink:label="JC74_JC0f_02" xlink:title="presentation parent: JC74_JC0f_02 明細行調整理由"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC74_JC0f" xlink:to="JC74_JC0f_02" order="467" xlink:title="presentation: JC74_JC0f 明細行調整 to JC74_JC0f_02 明細行調整理由"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC74_JC0f_03" xlink:label="JC74_JC0f_03" xlink:title="presentation parent: JC74_JC0f_03 明細行調整金額"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC74_JC0f" xlink:to="JC74_JC0f_03" order="468" xlink:title="presentation: JC74_JC0f 明細行調整 to JC74_JC0f_03 明細行調整金額"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC76_JC14" xlink:label="JC76_JC14" xlink:title="presentation parent: JC76_JC14 明細行取引期間"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC76_JC14" order="469" xlink:title="presentation: JC6e_JC62 明細行 to JC76_JC14 明細行取引期間"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC76_JC14_01" xlink:label="JC76_JC14_01" xlink:title="presentation parent: JC76_JC14_01 明細行取引開始日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC76_JC14" xlink:to="JC76_JC14_01" order="470" xlink:title="presentation: JC76_JC14 明細行取引期間 to JC76_JC14_01 明細行取引開始日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC76_JC14_02" xlink:label="JC76_JC14_02" xlink:title="presentation parent: JC76_JC14_02 明細行取引終了日"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC76_JC14" xlink:to="JC76_JC14_02" order="471" xlink:title="presentation: JC76_JC14 明細行取引期間 to JC76_JC14_02 明細行取引終了日"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7d_JC19" xlink:label="JC7d_JC19" xlink:title="presentation parent: JC7d_JC19 明細行購買会計アカウント"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC7d_JC19" order="472" xlink:title="presentation: JC6e_JC62 明細行 to JC7d_JC19 明細行購買会計アカウント"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7d_JC19_01" xlink:label="JC7d_JC19_01" xlink:title="presentation parent: JC7d_JC19_01 明細行購買会計アカウントタイプコード"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7d_JC19" xlink:to="JC7d_JC19_01" order="473" xlink:title="presentation: JC7d_JC19 明細行購買会計アカウント to JC7d_JC19_01 明細行購買会計アカウントタイプコード"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC7d_JC19_02" xlink:label="JC7d_JC19_02" xlink:title="presentation parent: JC7d_JC19_02 明細行購買会計アカウント名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC7d_JC19" xlink:to="JC7d_JC19_02" order="474" xlink:title="presentation: JC7d_JC19 明細行購買会計アカウント to JC7d_JC19_02 明細行購買会計アカウント名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29" xlink:label="JC70_JC29" xlink:title="presentation parent: JC70_JC29 明細行取引品目"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC70_JC29" order="475" xlink:title="presentation: JC6e_JC62 明細行 to JC70_JC29 明細行取引品目"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_01" xlink:label="JC70_JC29_01" xlink:title="presentation parent: JC70_JC29_01 品目ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_01" order="476" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_01 品目ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_02" xlink:label="JC70_JC29_02" xlink:title="presentation parent: JC70_JC29_02 グローバル品目ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_02" order="477" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_02 グローバル品目ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_10" xlink:label="JC70_JC29_10" xlink:title="presentation parent: JC70_JC29_10 スキーマID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_10" order="478" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_10 スキーマID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_03" xlink:label="JC70_JC29_03" xlink:title="presentation parent: JC70_JC29_03 受注者品目ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_03" order="479" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_03 受注者品目ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_04" xlink:label="JC70_JC29_04" xlink:title="presentation parent: JC70_JC29_04 発注者品目ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_04" order="480" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_04 発注者品目ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_05" xlink:label="JC70_JC29_05" xlink:title="presentation parent: JC70_JC29_05 メーカー品目ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_05" order="481" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_05 メーカー品目ID"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_06" xlink:label="JC70_JC29_06" xlink:title="presentation parent: JC70_JC29_06 品目名"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_06" order="482" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_06 品目名"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_07" xlink:label="JC70_JC29_07" xlink:title="presentation parent: JC70_JC29_07 品目摘要"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_07" order="483" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_07 品目摘要"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_08" xlink:label="JC70_JC29_08" xlink:title="presentation parent: JC70_JC29_08 品目数量単位判別子"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_08" order="484" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_08 品目数量単位判別子"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC70_JC29_09" xlink:label="JC70_JC29_09" xlink:title="presentation parent: JC70_JC29_09 品目分類"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC70_JC29" xlink:to="JC70_JC29_09" order="485" xlink:title="presentation: JC70_JC29 明細行取引品目 to JC70_JC29_09 品目分類"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC2a_JC11" xlink:label="JC2a_JC11" xlink:title="presentation parent: JC2a_JC11 取引品目品目特性"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC2a_JC11" order="486" xlink:title="presentation: JC6e_JC62 明細行 to JC2a_JC11 取引品目品目特性"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC2a_JC11_01" xlink:label="JC2a_JC11_01" xlink:title="presentation parent: JC2a_JC11_01 取引品目特性内容"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC2a_JC11" xlink:to="JC2a_JC11_01" order="487" xlink:title="presentation: JC2a_JC11 取引品目品目特性 to JC2a_JC11_01 取引品目特性内容"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC2a_JC11_02" xlink:label="JC2a_JC11_02" xlink:title="presentation parent: JC2a_JC11_02 品目特性値"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC2a_JC11" xlink:to="JC2a_JC11_02" order="488" xlink:title="presentation: JC2a_JC11 取引品目品目特性 to JC2a_JC11_02 品目特性値"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC2c_JC21" xlink:label="JC2c_JC21" xlink:title="presentation parent: JC2c_JC21 取引品目原産地"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC6e_JC62" xlink:to="JC2c_JC21" order="489" xlink:title="presentation: JC6e_JC62 明細行 to JC2c_JC21 取引品目原産地"/>
+		<link:loc xlink:type="locator" xlink:href="core.xsd#JC2c_JC21_01" xlink:label="JC2c_JC21_01" xlink:title="presentation parent: JC2c_JC21_01 原産国ID"/>
+		<link:presentationArc xlink:type="arc" xlink:arcrole="http://www.xbrl.org/2003/arcrole/parent-child" xlink:from="JC2c_JC21" xlink:to="JC2c_JC21_01" order="490" xlink:title="presentation: JC2c_JC21 取引品目原産地 to JC2c_JC21_01 原産国ID"/>
+	</link:presentationLink>
+</link:linkbase>

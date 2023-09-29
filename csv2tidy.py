@@ -49,20 +49,375 @@ EPSONcolumns = {
     'AQ':'入力日付'
 }
 
+GWcolumns = {
+    'A': '自会社コード',
+    'B': 'ＥＤＩ対象企業コード',
+    'C': '発注ＳＥＱＮＯ',
+    'D': '受注担当',
+    'E': '出荷先コード',
+    'F': '出荷先名称　＜漢字＞',
+    'G': '出荷先住所　＜漢字＞',
+    'H': 'コメント ＜漢字＞',
+    'I': '商品コード',
+    'J': '商品名＜半角英数カナ＞',
+    'K': '数量',
+    'L': '単価',
+    'M': '納品書番号',
+    'N': '納品日',
+    'O': '請求書番号',
+    'P': '請求書発行日',
+    'Q': '事業者登録番号',
+    'R': '税額合計1',
+    'S': '税率1',
+    'T': '税額合計2',
+    'U': '税率2',
+    'V': '税込み合計金額',
+    'W': '請求明細番号',
+    'X': '税抜き明細金額',
+    'Y': '明細行税率',
+    'Z': '明細行課税区分'
+}
+
+# semantics_file   = 'data/base/ADC/adcs_semantics.csv'
+# semantics_header = ['semSort','id','kind','card','level','ObjectClass','Property','Property_ja','Representation','AssociatedClass','ReferencedClass']
+# binding_file     = 'data/journal_entry/EPSONbinding.csv'
+# binding_header   = ['column', 'name', 'card', 'datatype', 'semSort', 'semPath', 'fixedValue']
+# data_file = 'data/journal_entry/北海道産業(株)/北海道産業(株).csv'
+# out_file  = 'data/journal_entry/北海道産業(株)/GL_Details.csv'
+
+semantics_file   = 'data/base/japan-core_semantics.csv'
+semantics_header = ['semSort','semPath','id','kind','level','ObjectClass','Property','Representation','AssociatedClass','ReferencedClass','n']
+binding_file     = 'data/グローバルワイズ/sem-binding.csv'
+binding_header   = ['column', 'name', 'card', 'datatype', 'semSort', 'semPath', 'value', 'term']
+
+data_file        = 'data/グローバルワイズ/invoice.csv'
+out_file         = 'data/グローバルワイズ/tidy.csv'
+
+tidyData         = []
+semanticsDict    = {}
+header           = None
+
+def determine_type(value):
+    if isinstance(value, (int, float, str, bool, bytes, complex)):
+        return 'atomic'
+    elif isinstance(value, dict):
+        return 'dict'
+    elif isinstance(value, list):
+        return 'list'
+    else:
+        return 'unknown'
+    
+def notEmptyRecord(record):
+    global dataLine
+    Empty = True
+    for k in dataLine.keys():
+        if record[k] and len(record[k]) > 0:
+            Empty = False
+            break
+    return not Empty
+
+def isEmptyRecord(record):
+    global dataLine
+    Empty = True
+    for k in dataLine.keys():
+        if record[k] and len(record[k]) > 0:
+            Empty = False
+            break
+    return not Empty
+
+def setRecord(element, value):
+    global dimLevel
+    global dimLine
+    global dataLine
+    global record
+    for d_k,d_v in dimLine.items():
+        if d_k not in record or d_v!=record[d_k]:
+            record[d_k] = d_v
+    record[element] = value
+    dataLine.add(element)
+
+def atomicProcess(d, path):
+    global dimLevel
+    global dimLine
+    global dataLine
+    global record
+    global records
+    element = path.strip('/').split('/')[-1]
+    value   = d
+    setRecord(element,value)
+
+def listProcess(d, path):
+    global dimLevel
+    global dimLine
+    global dataLine
+    global record
+    global records
+    for sub in d:
+        if len(records)>0:
+            print(records[-1])
+        dim     = path.strip('/').split('/')[-1]
+        dim     = re.sub(r'\[\d+\]$', '', dim)
+        changed = False
+        dLevel  = -1      
+        record  = {}
+        records.append(record)
+        for d in dimLine.keys():
+            if d==dim:
+                dimLine[d] += 1
+                count       = dimLine[d]
+                dLevel      = dimLevel[d]
+                changed     = True
+        for d in dimLine.keys():
+            if changed and dimLevel[d]>=dLevel and dim!=d:
+                dimLine[d] = 0
+        for d in dimLine.keys():
+            record[d] = dimLine[d]
+        # print(f'- listProcess dimLine:{dimLine}')
+        path   = re.sub(r'\[\d+\]/$', '/', path)
+        path   = f'{path[:-1]}[{count}]/'
+        flatten_dict(sub, path)
+
+def dictProcess(d, path):
+    global dimLevel
+    global dimLine
+    global dataLine
+    global record
+    global records
+    for k, v in d.items():
+        if 'atomic'==determine_type(v):
+            path += f'{k}/'
+            atomicProcess(v, path)
+    for k, v in d.items():
+        if 'dict'==determine_type(v):
+            path += f'{k}/'
+            flatten_dict(v, path)
+    for k, v in d.items():
+        if 'list'==determine_type(v):
+            path += f'{k}/'
+            listProcess(v, path)
+
+def flatten_dict(d, path='/'):
+    global dimLevel
+    global dimLine
+    global dataLine
+    global record
+    global records
+    if 'atomic'==determine_type(d):
+        atomicProcess(d, path)
+    elif 'dict'==determine_type(d):
+        dictProcess(d, path)
+    elif 'list'==determine_type(d):
+        listProcess(d, path)
+
+def dict_to_csv(data, filename):
+    global dimLevel
+    global dimLine
+    global dataLine
+    """Converts a flattened dictionary to CSV."""
+    flatten_dict(data)
+    header = list(dimLine.keys()) + sorted(dataLine)
+    with open(filename, 'w', newline='', encoding='utf-8-sig') as f:
+        writer = csv.DictWriter(f, fieldnames=header)
+        writer.writeheader()
+        for record in records:
+            writer.writerow(record)
+
+def setPathValue(data, query):
+    def find_node_by_condition(test_node, condition_key, condition_value):
+        if isinstance(test_node,list):
+            keys = condition_key.split('/')
+            for sub_node in test_node:
+                current_node = sub_node
+                for key in keys[:-1]:
+                    if key in current_node:
+                        current_node = current_node[key]
+                    else:
+                        break
+                if condition_value==current_node[keys[-1]]:
+                    return sub_node
+            return None
+
+    def find_or_create_node_with_condition(test_node, condition_key, condition_value):
+        keys = condition_key.split('/')
+        if isinstance(test_node,dict):
+            current_node = test_node
+            found        = True
+            for key in keys:
+                if isinstance(current_node, dict) and key in current_node:
+                    found_node   = current_node
+                    current_node = current_node[key]
+                elif isinstance(current_node, list):
+                    for checking_node in current_node:
+                        found_node = find_or_create_node_with_condition(checking_node, condition_key, condition_value)
+                        return found_node
+                else:
+                    found = False
+                    break
+            if found and current_node == condition_value:
+                return test_node
+            new_node     = {}
+            current_node = new_node
+            for key in keys[:-1]:
+                current_node[key] = {}
+                current_node      = current_node[key]
+            current_node[keys[-1]] = condition_value
+            test_node[keys[-1]]    = condition_value
+            return test_node
+        elif isinstance(test_node,list):
+            if 0==len(test_node):
+                new_node     = {}
+                current_node = new_node
+                for key in keys[:-1]:
+                    current_node[key] = {}
+                    current_node      = current_node[key]
+                current_node[keys[-1]] = condition_value
+                test_node.append(new_node)
+                return test_node
+            else:
+                for sub_node in test_node:
+                    current_node = sub_node
+                    found = True
+                    for key in keys[:-1]:
+                        if isinstance(current_node, dict) and key in current_node:
+                            current_node = current_node[key]
+                        else:
+                            found = False
+                            break
+                    if found and condition_value==current_node[keys[-1]]:
+                        return test_node
+                new_node = {}
+                current_node = new_node
+                for key in keys[:-1]:
+                    current_node[key] = {}
+                    current_node = current_node[key]
+                current_node[keys[-1]] = condition_value
+                if 1==len(keys):
+                    target_node = [x for x in test_node if condition_value == x[keys[0]]]
+                elif 2==len(keys):
+                    target_node = [x for x in test_node if condition_value == x.get(keys[0]).get(keys[1])]
+                if not target_node or 0 == len(target_node):
+                    test_node.append(new_node)
+                else:
+                    test_node = target_node
+                return test_node
+
+    def lookup(node, query_elements):
+        if not query_elements:
+            return
+        first, *rest = query_elements
+        if "[" in first and "]" in first:
+            key, conditions = re.split(r'\[|\]', first)[:2]
+            conditions = conditions.split('and')
+            conditions = [condition.strip() for condition in conditions]
+            if 1==len(conditions):
+                condition = conditions[0]
+                condition_key, condition_value = condition.split("=")
+                condition_key   = condition_key.strip()
+                condition_value = condition_value.strip("'")
+                if isinstance(node, dict):
+                    if key not in node:
+                        node[key] = []
+                    existing_node = find_or_create_node_with_condition(node[key], condition_key, condition_value)
+                    return lookup(existing_node, rest)
+                elif isinstance(node, list):
+                    existing_node = find_or_create_node_with_condition(node, condition_key, condition_value)
+                    found_node    = find_node_by_condition(node, condition_key, condition_value)
+                    return lookup(found_node, rest)
+            elif 2==len(conditions) and isinstance(node, list):
+                condition_key0, condition_value0 = conditions[0].split("=")
+                condition_key0   = condition_key0.strip()
+                condition_value0 = condition_value0.strip("' ")
+                selected_node    = find_node_by_condition(node, condition_key0, condition_value0)
+                condition_key1, condition_value1 = conditions[1].split("=")
+                condition_key1   = condition_key1.strip()
+                condition_value1 = condition_value1.strip("' ")
+                current_node     = selected_node
+                keys1 = condition_key1.split('/') # パスを'/'で分割
+                for key in keys1[:-1]:
+                    if key not in current_node:
+                        current_node[key] = {}
+                    current_node = current_node[key]
+                current_node[keys1[-1]] = condition_value1
+                return lookup(selected_node, rest)
+        elif isinstance(node, dict):
+            if first not in node:
+                if '=' in first:
+                    k, v = first.split("=", 1)
+                    node[k] = v.strip("' ")
+                    return
+                elif rest and '[' in rest[0]:
+                    node[first] = []
+                else:
+                    node[first] = {}
+            return lookup(node[first], rest)
+        elif isinstance(node, list):
+            for sub_node in node:
+                return lookup(sub_node, query_elements)
+
+    def transform_conditions(element):
+        conditions = re.findall(r"\[(.*?)\]", element) # 角括弧内の内容を抽出
+        if len(conditions) > 1:
+            new_conditions = ' and '.join(conditions) # 複数の条件を 'and' で結合
+            return f"[{new_conditions}]"
+        return element
+
+    def compare_key_value_pairs(pair1, pair2):
+        key1, value1 = pair1.split("=")
+        key2, value2 = pair2.split("=")
+        if key1 != key2:
+            return False  # Keys must match for the pairs to be considered equal
+        try:
+            value1 = int(value1.strip("'"))
+        except ValueError:
+            value1 = value1.strip("'")  # Remove single quotes if present, else leave as is
+        try:
+            value2 = int(value2.strip("'"))
+        except ValueError:
+            value2 = value2.strip("'")  # Remove single quotes if present, else leave as is
+        return value1 == value2
+
+    def combine_conditions(element_list):
+        combined = []
+        last_condition_prefix = None
+
+        for element in element_list:
+            condition_match = re.search(r"\[([_\w]+)_\d+=['\w]+", element) or re.search(r"([_\w]+)_\d+=['\w]+", element)
+            if condition_match:
+                condition_prefix = condition_match.group(1)
+                if condition_prefix == last_condition_prefix:
+                    pair1 = combined[-1][1:-1]
+                    if '['==element[0]:
+                        pair2 = element[1:-1]
+                    else:
+                        pair2 = element
+                    if not compare_key_value_pairs(pair1, pair2):
+                        combined[-1] = f"[{pair1} and {pair2}]"
+                    else:
+                        continue
+                else:
+                    combined.append(element)
+                last_condition_prefix = condition_prefix
+            else:
+                combined.append(element)
+                last_condition_prefix = None
+
+        return combined
+
+    def split_elements(query):
+        elements = re.findall(r"(\[[^\]]+\]|[^/\[\]=]+=[^/\[\]=]+|\w+)", query.strip("/"))
+        return combine_conditions(elements)
+
+    elements = split_elements(query)
+    elements = [transform_conditions(e) for e in elements]
+    lookup(data, elements)
+
 def main():
+    global dimLevel
+    global dimLine
+    global dataLine
+    global record
+    global records
 
-    semantics_file   = 'data/base/ADC/adcs_semantics.csv'
-    semantics_header = ['semSort','id','kind','card','level','ObjectClass','Property','Property_ja','Representation','AssociatedClass','ReferencedClass']
-
-    binding_file     = 'data/journal_entry/EPSONbinding.csv'
-    binding_header   = ['column', 'name', 'card', 'datatype', 'semSort', 'semPath', 'fixedValue']
-
-    data_file = 'data/journal_entry/北海道産業(株)/北海道産業(株).csv'
-    out_file  = 'data/journal_entry/北海道産業(株)/GL_Details.csv'
-
-    tidyData = []
-
-    semanticsDict = {}
     with open(semantics_file, mode='r', encoding='utf-8-sig') as file:
         csv_reader = csv.DictReader(file, fieldnames=semantics_header)
         next(csv_reader)  # 見出し行を読み飛ばす
@@ -74,207 +429,116 @@ def main():
         csv_reader = csv.DictReader(file, fieldnames=binding_header)
         next(csv_reader)  # 見出し行を読み飛ばす
         for row in csv_reader:
-            if row['semSort'] != '':
+            if row['column'] != '':
                 bindingDict[row[binding_header[0]]] = row
+
+    # CSVcolumns = EPSONcolumns
+    # CSVcolumns = GWcolumns
+    CSVcolumnNames = [{x['column']:x['name']} for k,x in bindingDict.items() if 'd'!=k[0]]
+    CSVcolumns = {}
+    for d in CSVcolumnNames:
+        CSVcolumns.update(d)
+    data_header = list(CSVcolumns.keys())
+
     sorted_binding = sorted(bindingDict.values(), key=lambda x: int(x['semSort']))
 
-    data_header = list(EPSONcolumns.keys())
     dataList = []
     with open(data_file, mode='r', encoding='utf-8-sig') as file:
         csv_reader = csv.DictReader(file, fieldnames=data_header)
         next(csv_reader)  # 見出し行を読み飛ばす
         for row in csv_reader:
-            if row['G'] != '':
+            if row['A'] != '':
                 dataList.append(row)
 
-    n = 1
-    dimensions = {}
-    elements = {}
-    edges = set()
-    pattern = r"^([^\[\]]+)\[([^\[\]-]+-\d+)=([^\[\]]+)\]"
+    dimension  = {}
+    elements   = {}
+    line       = -1
+    tidyDict   = {}
     for record in dataList:
-        if DEBUG: print(record)
-        tidyRecord = {}
+        line += 1
+        # print(f'** line: {line}')
         for item in sorted_binding:
-            column  = item['column']
-            name    = item['name']
-            semPath = item['semPath'].split('/')
-            if '-'==column:
-                value = n
-            else:
-                value = record[column]
-                datatype = bindingDict[column]['datatype']
-                if 'Date'==datatype and re.match(r'^(?P<year>\d{4})(?P<month>\d{2})(?P<day>\d{2})$',value):
-                    value = f'{value[:4]}-{value[4:6]}-{value[6:]}'
-            if (''==value or '0'==value):
-                continue
-            parent = semPath[0]
-            edge   = semPath[-1]
-            edges.add(edge)
-            if DEBUG: print(f'{column} {semPath} {name} {value}')
-            match = re.search(pattern, parent)
-            if match:
-                dimension = match.group(1)
-                element   = match.group(2)
-                condition = match.group(3)                        
-                dimensions[dimension] = semanticsDict[dimension]
-                elements[element]     = semanticsDict[element]
-                if not parent in tidyRecord:
-                    tidyRecord[parent] = {}
-                if not element in tidyRecord[parent]:
-                    tidyRecord[parent][element] = {}
-                if not tidyRecord[parent][element]:
-                    tidyRecord[parent][element] = condition
-                    if DEBUG: print(f"tidyRecord[{parent}][{element}] = {condition}")
-            if 1==len(semPath):
-                if parent not in tidyRecord:
-                    tidyRecord[parent] = {}
-                tidyRecord[parent] = value
-                if DEBUG: print(f"tidyRecord[{parent}] = {value}")
-            elif 2==len(semPath):
-                parent  = semPath[0]
-                if parent not in tidyRecord:
-                    tidyRecord[parent] = {}
-                child = semPath[1]
-                if child not in tidyRecord[parent]:
-                    tidyRecord[parent][child] = {}
-                match = re.search(pattern, child)
-                if match:
-                    dimension = match.group(1)
-                    element   = match.group(2)
-                    condition = match.group(3)                        
-                    dimensions[dimension] = semanticsDict[dimension]
-                    elements[element]     = semanticsDict[element]
-                    if not tidyRecord[parent][child][element]:
-                        tidyRecord[parent][child][element] = condition
-                        if DEBUG: print(f"tidyRecord[{parent}][{child}][{element}] = {condition}")
-                tidyRecord[parent][child] = value
-                if DEBUG: print(f"tidyRecord[{parent}][{child}] = {value}")
-            elif 3==len(semPath):
-                parent  = semPath[0]
-                if parent not in tidyRecord:
-                    tidyRecord[parent] = {}
-                child = semPath[1]
-                if child not in tidyRecord[parent]:
-                    tidyRecord[parent][child] = {}
-                match = re.search(pattern, child)
-                if match:
-                    dimension = match.group(1)
-                    element   = match.group(2)
-                    condition = match.group(3)                        
-                    dimensions[dimension] = semanticsDict[dimension]
-                    elements[element]     = semanticsDict[element]
-                    if not tidyRecord[parent][child]:
-                        tidyRecord[parent][child][element] = condition
-                        if DEBUG: print(f"tidyRecord[{parent}][{child}][{element}] = {condition}")
-                grandchild = semPath[2]
-                tidyRecord[parent][child][grandchild] = value
-                if DEBUG: print(f"tidyRecord[{parent}][{child}][{grandchild}] = {value}")
-            else:
-                continue
-        tidyData.append(tidyRecord)
-        n += 1
+            column   = item['column']
+            datatype = item['datatype']
+            semPath  = item['semPath']
+            value    = item['value']
+            if 'd'==column[:1]:
+                columns   = column.split(',')
+                if 1==len(columns):
+                    columnValue = record[column[1:]]
+                    pathElements = []
+                    elements = re.findall(r"(\w+)", semPath.strip("/"))
+                    for element in elements:
+                        if element in dimension:
+                            if '*' in value and element==elements[-1]:
+                                path = f"{element}{value.replace('*',columnValue)}"
+                                dimension[element] = path
+                            e = dimension[element]
+                            pathElements.append(e)
+                        elif '*' in value:
+                            path = f"{element}{value.replace('*',columnValue)}"
+                            dimension[element] = path
+                            pathElements.append(path)
+                        else:
+                            pathElements.append(element)
+                    p = '/' + '/'.join(pathElements)
+                    # print(p)
+                    setPathValue(tidyDict, p)
+                else:
+                    elements = re.findall(r"(\w+)", semPath.strip("/"))
+                    values   = value.split(' ')
+                    for i in range(len(values)):
+                        pathElements = []
+                        for element in elements:
+                            if element in dimension:
+                                element = dimension[element]
+                                pathElements.append(element)
+                            elif '*' in value:
+                                path = f"{element}{value.replace('*',columnValue)}"
+                                dimension[element] = path
+                                pathElements.append(path)
+                            else:
+                                pathElements.append(f"{element}{values[i]}")
+                        p = '/' + '/'.join(pathElements)
+                        # print(p)
+                        setPathValue(tidyDict, p)
+            else: # element
+                # if 'A'==column:
+                #     print(f'-- dimension: {dimension}')
+                columnValue = record[column]
+                columnValue = re.sub('\s+',' ',columnValue)
+                columnValue = columnValue.strip('\s')
+                pathElements = []
+                elements = re.findall(r"(['=\[\]\w]+)", semPath.strip("/"))
+                for element in elements:
+                    if element in dimension:
+                        element = dimension[element]
+                        pathElements.append(element)
+                    else:
+                        pathElements.append(element)
+                path = '/' + '/'.join(pathElements)
+                if 'Date'==datatype and re.match(r'^\d{8}$',columnValue):
+                    columnValue = f"{columnValue[0:4]}-{columnValue[4:6]}-{columnValue[6:8]}"
+                if datatype in ['Amount','Unit Price Amount','Quantity','Integer','Numeric']:
+                    path = f"{path}={columnValue}"
+                else:
+                    path = f"{path}='{columnValue}'"
+                setPathValue(tidyDict, path)
 
-    # 重複を削除してキー（key）の値でソート
-    data = [{v['semSort']:v['semPath'].split('/')[-1]} for v in sorted_binding]
-    unique_data = {}
-    for item in data:
-        key, value = next(iter(item.items()))
-        if key not in unique_data:
-            unique_data[key] = value
-    sorted_data = sorted(unique_data.items(), key=lambda x: x[0])
-    data_header = [item[1] for item in sorted_data]
-    for element in data_header:
-        elements[element] = semanticsDict[element]
+    dimData = [{x['semPath'].split('/')[-1]:len(x['semPath'].split('/'))-2} for k,x in bindingDict.items() if 'd'==k[0]]
+    dimLevel = {}
+    for d in dimData:
+        dimLevel.update(d)
+    dimLine = {}
+    for k in dimLevel.keys():
+        dimLine.update({k:0})
+    dataLine = set()
+    record   = {}
+    records  = []
 
-    sorted_dimensions = sorted(dimensions.items(), key=lambda x: int(x[1]['semSort']))
-    dimension_header = [item[1]['id'] for item in sorted_dimensions]
-
-    sorted_elements = sorted(elements.items(), key=lambda x: int(x[1]['semSort']))
-    element_header = [item[1]['id'] for item in sorted_elements]    
-
-    def parseDict(k0, v0, parent, dims, records, n):
-        record = records[-1]
-        record[0] = n
-        dims[0]   = n
-        match = re.search(pattern, k0)
-        if match:
-            dimension = match.group(1)
-            siblings = list(parent.keys())
-            count = 0
-            for sib in siblings:
-                if dimension in sib:
-                    count += 1
-            if count > 0:
-                idx1 = header.index(dimension)
-                j = dims[idx1] or 0
-                j += 1
-                dims[idx1] = j
-                record = ['']*len(header)
-                records.append(record)
-                for idx in range(len(dims)-1):
-                    record[idx] = dims[idx]
-        for k1, v1 in v0.items(): # v0 is dict
-            if not isinstance(v1, dict):
-                idx = header.index(k1)
-                record[idx] = v1
-            else: # v1 is dict
-                match = re.search(pattern, k1)
-                if match:
-                    dimension = match.group(1)
-                    siblings = list(parent.keys())
-                    count = 0
-                    for sib in siblings:
-                        if dimension in sib:
-                            count += 1
-                    if count > 0:
-                        idx2 = header.index(dimension)
-                        j = dims[idx2] or 0
-                        j += 1
-                        dims[idx2] = j
-                        record = ['']*len(header)
-                        records.append(record)
-                        for idx in range(len(dims)-1):
-                            record[idx] = dims[idx]
-                for k2,v2 in v1.items():
-                    if not isinstance(v2, dict):
-                        idx = header.index(k2)
-                        record[idx] = v2
-                    else: # v2 is dict
-                        records = parseDict(k2, v2, v1, dims, records, n)
-        return records
-
-    header = ['GL02'] + dimension_header + element_header
-    if DEBUG: print(header)
-
-    records = []
-    pattern = r"^([^\[\]]+)\[([^\[\]-]+-\d+)=([^\[\]]+)\]"
-    n = 0
-    # dims[0] = n
-    for d in tidyData:
-        dims   = ['']*(1+len(dimension_header))
-        record = ['']*len(header)
-        records.append(record)
-        n += 1
-        dims[0] = n
-        records[-1][0] = n
-        if not isinstance(d, dict):
-            continue
-        else: # d is dict
-            for k, v in d.items():
-                if not isinstance(v, dict):
-                    idx = header.index(k)
-                    record[idx] = v
-                else: # v is dict
-                    records = parseDict(k, v, d, dims, records, n)
-
-    with open(f'{out_file}', 'w', newline='', encoding='utf-8-sig') as file:
-        writer = csv.writer(file)
-        writer.writerow(header)
-        for row in records:
-            writer.writerow(row)
-
-    print(f'** END {data_file} to {out_file}')
+    dict_to_csv(tidyDict, out_file)
+    
+    print(f'** END converted {data_file} to {out_file}')
 
 if __name__=='__main__':
     main()

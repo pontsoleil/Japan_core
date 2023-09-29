@@ -1,4 +1,4 @@
-column,name,card,Representation,semSort,semPath,fixedValue
+﻿column,name,card,Representation,semSort,semPath,fixedValue
 -,seq,,Identifier,1010,GL02-01,
 A,月種別,,,,,0
 B,種類,,,,,0
