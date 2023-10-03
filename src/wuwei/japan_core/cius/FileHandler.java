@@ -71,32 +71,32 @@ public class FileHandler
 	public static XPath xpath                = null;
 	public static Element root               = null;
 
-	public static String ROOT_ID                   = "NC00";
+	public static String ROOT_ID                   = "JC00";
 	public static String ROOT_GL_ID                = "GL03"; //"GL02"; // "NC00";
 	
-	public static Integer ROOT_SEMSORT             = 1000;	
-	public static String DOCUMENT_CURRENCY_ID      = "NC00-01"; /*文書通貨コードのID*/
-	public static String TAX_CURRENCY_ID           = "NC00-02"; /*税通貨コードのID*/
-	public static String INVOICE_ID                = "NC00-19"; /*インボイス番号のID*/	
-	public static int MIN_DOCUMENT_TOTAL           = 5190;      /*NC39-NC55 semSort 文書ヘッダ合計金額*/
-	public static int MAX_DOCUMENT_TOTAL           = 5260;      /*NC55-07   semSort*/
-	public static String TOTAL_TAX_ID              = "NC55-03"; /*文書ヘッダ合計税額のID*/
-	public static int TOTAL_TAX                    = 5220;      /*NC55-03 semSort*/
-	public static String TOTAL_TAX_CURRENCY_TAX_ID = "NC56-01"; /*外貨建て請求書文書ヘッダ合計税額のID*/
-	public static int TOTAL_TAX_CURRENCY_TAX       = 5280;      /*NC56-01 semSort*/
-	public static int MIN_TAX_BREAKDOWN            = 5290;      /*NC39-NC57 semSort 文書ヘッダ課税分類*/
-	public static int MAX_TAX_BREAKDOWN            = 5390;      /*NC57-10   semSort*/
-	public static int MIN_TAX_CURRENCY_BREAKDOWN   = 5400;      /*NC39-NC58 semSort 文書ヘッダ外貨建て課税分類*/
-	public static int MAX_TAX_CURRENCY_BREAKDOWN   = 5460;      /*NC58-06   semSort*/
-	public static String INVOICE_NUMBER            = null;      /*インボイス番号*/
-	public static String DOCUMENT_CURRENCY         = null;      /*文書通貨コード*/
-	public static String TAX_CURRENCY              = null;      /*税通貨コード*/
+	public static Integer ROOT_SEMSORT             = 1010;	
+	public static String DOCUMENT_CURRENCY_ID      = "JC43_JC34_02";   /*文書通貨コードのID*/
+	public static String TAX_CURRENCY_ID           = "JC43_JC34_01";   /*税通貨コードのID*/
+	public static String INVOICE_ID                = "JC0a_15";        /*インボイス番号のID*/	
+	public static int MIN_DOCUMENT_TOTAL           = 5920;             /*JC58_c_JC5c semSort 文書レベル合計金額*/
+	public static int MAX_DOCUMENT_TOTAL           = 6000;             /*JC58_c_JC5c_07   semSort*/
+	public static String TOTAL_TAX_ID              = "JC58_c_JC5c_03"; /*JC3f_JC45_02 文書レベル合計税額のID*/
+	public static int TOTAL_TAX                    = 5960;             /*JC58_c_JC5c_03 semSort*/
+	public static String TOTAL_TAX_CURRENCY_TAX_ID = "JC58_b_JC5c_01"; /*文書レベル会計通貨合計税額のID*/
+	public static int TOTAL_TAX_CURRENCY_TAX       = 6030;             /*JC58_b_JC5c_01 semSort*/
+	public static int MIN_TAX_BREAKDOWN            = 5680;             /*JC55_a_JC2d semSort 文書レベル税*/
+	public static int MAX_TAX_BREAKDOWN            = 5790;             /*JC55_a_JC2d_10   semSort*/
+	public static int MIN_TAX_CURRENCY_BREAKDOWN   = 5800;             /*JC58_b_JC5c semSort 文書レベル会計通貨税*/
+	public static int MAX_TAX_CURRENCY_BREAKDOWN   = 5870;             /*JC55_b_JC2d_06   semSort*/
+	public static String INVOICE_NUMBER            = null;             /*インボイス番号*/
+	public static String DOCUMENT_CURRENCY         = null;             /*文書通貨コード*/
+	public static String TAX_CURRENCY              = null;             /*税通貨コード*/
 			
 	public static boolean TRACE     = false;
 	public static boolean DEBUG     = false;
 	public static String PROCESSING = null;
 	
-	public static String SME_ROOT   = "/rsm:SMEinvoice";
+	public static String SME_ROOT   = "/SMEinvoice";
 	
 	public static ArrayList<String> MULTIPLE_ID = new ArrayList<>();
 	public static HashMap<String, String> nsURIMap = null;
@@ -167,6 +167,7 @@ public class FileHandler
 		Integer semSort, synSort, level, parent_level;
 		String  id, xPath, strippedXPath, additionalXPath;
 		String  parentID, parentXPath, strippedParentXPath;
+		String  key, value, card;
 		int     idx;
 		try 
 		{
@@ -176,20 +177,22 @@ public class FileHandler
 			for (int n=1; n < binding_data.size(); n++) 
 			{
 				ArrayList<String> cells = binding_data.get(n);
-				// semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,synSort,xPath,occur			"
+				// semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,synSort,xPath,occur
 				// 0       1  2    3     4            5    6            7        8        9       10    11
-				binding = new Binding(0, "", 0, "", "", "", "", 0, "", "");
+				// semSort,id,card,semPath,businessTerm,dataType,bindingSort,syntaxID,businessTerm,desc,businessTerm_ja,desc_ja,synSort,xPath,occur
+				// 0       1  2    3       4            6        7           8        9            10   11              12       13     14    15
+				binding = new Binding(0, "", "", 0, "", "", "", "", 0, "", "");
 				for (int i = 0; i < cells.size(); i++) 
 				{
-					String key = headers.get(i);
+					key = headers.get(i);
 					if (0==i) 
 						key	= removeUTF8BOM(key);
-					String value = cells.get(i);
+					value = cells.get(i);
 					semSort = synSort = -1;
 					level = 0;
 					switch (key) 
 					{
-						case "semSort":
+						case "semSort": // 0
 							if (value.matches("^[0-9]+$"))
 							{
 								semSort = Integer.parseInt(value);
@@ -198,8 +201,6 @@ public class FileHandler
 							break;
 						case "id":
 							binding.setID(value);
-							if (value.length() > 0 && value.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$"))
-								MULTIPLE_ID.add(value);
 							break;
 						case "defaultValue":
 							if (value.length() > 0 &&!"?".equals(value))
@@ -208,16 +209,23 @@ public class FileHandler
 						case "card":
 							binding.setCard(value);
 							break;
-						case "level":
-							if (value.matches("^[0-9]+$"))
-							{
-								level = Integer.parseInt(value);
-								if (0==PROCESSING.indexOf("ADC"))
-								{
-									level -= 1;
-								}
-								binding.setLevel(level);
-							}
+						case "semPath":
+							binding.setSemPath(value);
+							if (value.startsWith("/")) {
+					            value = value.substring(1);
+					        }
+					        level = value.split("/").length - 1;
+					        if (level > 1)
+					        	level -= 1;					        
+//							if (value.matches("^[0-9]+$"))
+//							{
+//								level = Integer.parseInt(value);
+//								if (0==PROCESSING.indexOf("ADC"))
+//								{
+//									level -= 1;
+//								}
+							binding.setLevel(level);
+//							}
 							break;
 						case "businessTerm":
 							binding.setBT(value);
@@ -233,6 +241,7 @@ public class FileHandler
 							}
 							break;
 						case "xPath":
+							value = value.replaceAll("\\s", "");
 							binding.setXPath(value);
 							if (PROCESSING.indexOf("SYNTAX")>0) 
 							{
@@ -249,10 +258,14 @@ public class FileHandler
 							binding.setOccur(value);
 					}
 				}
+
 				id      = binding.getID();
 				level   = binding.getLevel();
+				card    = binding.getCard();
 				semSort = binding.getSemSort();
 				synSort = binding.getSynSort();
+				if (card.equals("n"))
+					MULTIPLE_ID.add(id);
 				bindingDict.put(id, binding);			
 				if (semSort > 0)
 					semBindingMap.put(semSort, binding);
@@ -373,9 +386,9 @@ public class FileHandler
 					level         = binding.getLevel();
 					if (0==PROCESSING.indexOf("SME-COMMON") && (
 							strippedXPath.indexOf("udt:") > 0 ||
-							strippedXPath.indexOf("ram:TelephoneCIUniversalCommunication") > 0 ||
-							strippedXPath.indexOf("ram:FaxCIUniversalCommunication") > 0 ||
-							strippedXPath.indexOf("ram:EmailURICIUniversalCommunication") > 0 ))
+							strippedXPath.indexOf("TelephoneCIUniversalCommunication") > 0 ||
+							strippedXPath.indexOf("FaxCIUniversalCommunication") > 0 ||
+							strippedXPath.indexOf("EmailURICIUniversalCommunication") > 0 ))
 					{
 						level -= 1;
 					}
@@ -716,7 +729,7 @@ public class FileHandler
 			{
 				xPath = xPath.replace("/Invoice", "/*");
 			} else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("TaxCurrencyCode]")>0) 
-//		    } else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("ram:TaxCurrencyCode]")>0) 
+//		    } else if (0==PROCESSING.indexOf("SME-COMMON") && xPath.indexOf("TaxCurrencyCode]")>0) 
 			{
 				if (DEBUG) System.out.println(" (FileHandler) getXPathNodes "+xPath);
 			}
@@ -741,24 +754,24 @@ public class FileHandler
 				if (xPath.indexOf("InvoiceCurrencyCode]")>0) 
 				/*				{
 					xPath = xPath.replaceAll(
-							"//rsm:CIIHSupplyChainTradeTransaction/rsm:ApplicableCIIHSupplyChainTradeSettlement/rsm:InvoiceCurrencyCode",
+							"//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/InvoiceCurrencyCode",
 							"'"+DOCUMENT_CURRENCY+"'");
 				} else if (null!=TAX_CURRENCY && xPath.indexOf("TaxCurrencyCode]")>0) 
 				{
 					xPath = xPath.replaceAll(
-							"//rsm:CIIHSupplyChainTradeTransaction/rsm:ApplicableCIIHSupplyChainTradeSettlement/rsm:TaxCurrencyCode",
+							"//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/TaxCurrencyCode",
 							"'"+TAX_CURRENCY+"'");
 				}
 				*/
-				if (xPath.indexOf("ram:InvoiceCurrencyCode]")>0) 
+				if (xPath.indexOf("InvoiceCurrencyCode]")>0) 
 				{
 					xPath = xPath.replaceAll(
-							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode",
+							"//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/InvoiceCurrencyCode",
 							"'"+DOCUMENT_CURRENCY+"'");
-				} else if (null!=TAX_CURRENCY && xPath.indexOf("ram:TaxCurrencyCode]")>0) 
+				} else if (null!=TAX_CURRENCY && xPath.indexOf("TaxCurrencyCode]")>0) 
 				{
 					xPath = xPath.replaceAll(
-							"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode",
+							"//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/TaxCurrencyCode",
 							"'"+TAX_CURRENCY+"'");
 				}
 			}
@@ -1115,11 +1128,11 @@ public class FileHandler
 		if (0==PROCESSING.indexOf("SME-COMMON"))
 		{
 			String _path = path;
-			_path = _path.replace("[ram:TaxTotalAmount/@currencyID=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:TaxTotalAmount/@currencyID=...");
-			_path = _path.replace("[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement","[ram:CurrencyCode=...");
-			_path = _path.replace("/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeAgreement/","...Agreement/");
-			_path = _path.replace("/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:IncludedCIILSupplyChainTradeLineItem/","...LineItem/");
-			_path = _path.replace("/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/","...Settlement/");
+			_path = _path.replace("[TaxTotalAmount/@currencyID=/SMEinvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement","[TaxTotalAmount/@currencyID=...");
+			_path = _path.replace("[CurrencyCode=/SMEinvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement","[CurrencyCode=...");
+			_path = _path.replace("/SMEinvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeAgreement/","...Agreement/");
+			_path = _path.replace("/SMEinvoice/CIIHSupplyChainTradeTransaction/IncludedCIILSupplyChainTradeLineItem/","...LineItem/");
+			_path = _path.replace("/SMEinvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/","...Settlement/");
 			return _path;
 		} else
 		{

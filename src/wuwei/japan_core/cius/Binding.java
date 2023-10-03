@@ -8,14 +8,15 @@ import java.util.Set;
  */
 public class Binding {
 	Integer semSort;
-	String id;
+	String  id;
+	String  semPath;
 	Integer level;
-	String businessTerm;
-	String defaultValue;
-	String card;
-	String datatype;
+	String  businessTerm;
+	String  defaultValue;
+	String  card;
+	String  datatype;
 	Integer synSort;
-	String xPath;
+	String  xPath;
 	Set<String/*XPath*/> additionalXPath;
 	String occur;
 	boolean isUsed;
@@ -25,6 +26,7 @@ public class Binding {
 	 * 
 	 * @param semSort　セマンティックモデルの項目のソート順
 	 * @param id 項目id
+	 * @param semPath セマンティックモデルのPath
 	 * @param level セマンティックモデルの階層
 	 * @param businessTerm ビジネス項目名
 	 * @param defaultValue 規定値
@@ -34,9 +36,10 @@ public class Binding {
 	 * @param xPath XML要素が定義された位置のXPath
 	 * @param occur XML要素の出現回数指定
 	 */
-	public Binding(Integer semSort, String id, Integer level, String businessTerm, String defaultValue, String card, String datatype, Integer synSort, String xPath, String occur) {
+	public Binding(Integer semSort, String id, String semPath, Integer level, String businessTerm, String defaultValue, String card, String datatype, Integer synSort, String xPath, String occur) {
 		this.semSort         = semSort;
 		this.id              = id;
+		this.semPath         = semPath;
 		this.level           = level;
 		this.businessTerm    = businessTerm;
 		this.defaultValue    = defaultValue;
@@ -52,7 +55,8 @@ public class Binding {
 	// getter
 	public Integer getSemSort() { return this.semSort; }
 	public String  getID() { return this.id; }
-	public Integer  getLevel() { return this.level; }
+	public String  getSemPath() { return this.semPath; }
+	public Integer getLevel() { return this.level; }
 	public String  getBT() { return this.businessTerm; }
 	public String  getDefaultValue() { return this.defaultValue; }
 	public String  getCard() { return this.card; }
@@ -66,6 +70,7 @@ public class Binding {
 	// setter
 	public Integer setSemSort(Integer x) { return this.semSort = x; }
 	public String  setID(String x) { return this.id = x; }
+	public String  setSemPath(String x) { return this.semPath = x; }
 	public Integer setLevel(Integer x) { return this.level = x; }
 	public String  setBT(String x) { return this.businessTerm = x; }
 	public String  setDefaultValue(String x) { return this.defaultValue = x; }

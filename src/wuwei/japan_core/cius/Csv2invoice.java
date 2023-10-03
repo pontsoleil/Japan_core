@@ -242,7 +242,7 @@ public class Csv2invoice
 		try 
 		{
 			if (0==PROCESSING.indexOf("SME-COMMON"))
-				terminalElements = new ArrayList<String>(Arrays.asList("@unitCode","udt:DateTimeString","udt:Indicator","ram:IssueDateTime","ram:AccountName","ram:ActualAmount","ram:AdditionalReferencedCIReferencedDocument","ram:AllowanceTotalAmount","ram:AttachmentBinaryObject","ram:BasisAmount","ram:BasisQuantity","ram:BilledQuantity","ram:BuyerAssignedID","ram:BuyerOrderReferencedCIReferencedDocument","ram:CalculatedAmount","ram:CalculatedRate","ram:CalculationMethodCode","ram:CalculationPercent","ram:CardholderName","ram:CategoryCode","ram:CategoryName","ram:ChannelCode","ram:ChargeAmount","ram:ChargeIndicator","ram:ChargeTotalAmount","ram:CompleteNumber","ram:Content","ram:ConversionRate","ram:CountryID","ram:CurrencyCode","ram:DepartmentName","ram:Description","ram:DirectionCode","ram:DuePayableAmount","ram:FileName","ram:GlobalID","ram:GrandTotalAmount","ram:GrossLineTotalAmount","ram:ID","ram:IncludingTaxesLineTotalAmount","ram:Information","ram:InstructedAmount","ram:InvoiceCurrencyCode","ram:InvoiceCurrencyCode","ram:IssuerAssignedID","ram:IssuingCompanyName","ram:JapanFinancialInstitutionCommonID","ram:LineID","ram:LineOne","ram:LineThree","ram:LineTwo","ram:LocalTaxSystemID","ram:ManufacturerAssignedID","ram:MIMECode","ram:Name","ram:NetIncludingTaxesLineTotalAmount","ram:NetLineTotalAmount","ram:PackageQuantity","ram:PaidAmount","ram:PaymentCurrencyCode","ram:PerPackageUnitQuantity","ram:PersonID","ram:PersonName","ram:PostcodeCode","ram:PreviousRevisionID","ram:ProductGroupID","ram:ProductUnitQuantity","ram:ProprietaryID","ram:PurposeCode","ram:RateApplicablePercent","ram:Reason","ram:ReasonCode","ram:ReferenceTypeCode","ram:RegisteredID","ram:RevisionID","ram:SellerAssignedID","ram:SourceCurrencyCode","ram:SpecifiedTransactionID","ram:Subject","ram:SubordinateLineID","ram:SubtypeCode","ram:TargetCurrencyCode","ram:TaxBasisTotalAmount","ram:TaxCurrencyCode","ram:TaxCurrencyCode","ram:TaxTotalAmount","ram:TotalPrepaidAmount","ram:TypeCode","ram:URIID","ram:Value"));
+				terminalElements = new ArrayList<String>(Arrays.asList("@unitCode","udt:DateTimeString","udt:Indicator","IssueDateTime","AccountName","ActualAmount","AdditionalReferencedCIReferencedDocument","AllowanceTotalAmount","AttachmentBinaryObject","BasisAmount","BasisQuantity","BilledQuantity","BuyerAssignedID","BuyerOrderReferencedCIReferencedDocument","CalculatedAmount","CalculatedRate","CalculationMethodCode","CalculationPercent","CardholderName","CategoryCode","CategoryName","ChannelCode","ChargeAmount","ChargeIndicator","ChargeTotalAmount","CompleteNumber","Content","ConversionRate","CountryID","CurrencyCode","DepartmentName","Description","DirectionCode","DuePayableAmount","FileName","GlobalID","GrandTotalAmount","GrossLineTotalAmount","ID","IncludingTaxesLineTotalAmount","Information","InstructedAmount","InvoiceCurrencyCode","InvoiceCurrencyCode","IssuerAssignedID","IssuingCompanyName","JapanFinancialInstitutionCommonID","LineID","LineOne","LineThree","LineTwo","LocalTaxSystemID","ManufacturerAssignedID","MIMECode","Name","NetIncludingTaxesLineTotalAmount","NetLineTotalAmount","PackageQuantity","PaidAmount","PaymentCurrencyCode","PerPackageUnitQuantity","PersonID","PersonName","PostcodeCode","PreviousRevisionID","ProductGroupID","ProductUnitQuantity","ProprietaryID","PurposeCode","RateApplicablePercent","Reason","ReasonCode","ReferenceTypeCode","RegisteredID","RevisionID","SellerAssignedID","SourceCurrencyCode","SpecifiedTransactionID","Subject","SubordinateLineID","SubtypeCode","TargetCurrencyCode","TaxBasisTotalAmount","TaxCurrencyCode","TaxCurrencyCode","TaxTotalAmount","TotalPrepaidAmount","TypeCode","URIID","Value"));
 			FileHandler.csvFileRead(in_csv, CHARSET);
 		} catch (FileNotFoundException e) 
 		{
@@ -403,15 +403,15 @@ public class Csv2invoice
 					}
 				} else if  (0==PROCESSING.indexOf("SME-COMMON")) 
 				{
-					if (xPath.indexOf("ram:InvoiceCurrencyCode]")>0) 
+					if (xPath.indexOf("InvoiceCurrencyCode]")>0) 
 					{
 						xPath = xPath.replaceAll(
-								"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode",
+								"//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/InvoiceCurrencyCode",
 								"'"+DOCUMENT_CURRENCY+"'");
-					} else if (xPath.indexOf("ram:TaxCurrencyCode]")>0) 
+					} else if (xPath.indexOf("TaxCurrencyCode]")>0) 
 					{
 						xPath = xPath.replaceAll(
-								"//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode",
+								"//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/TaxCurrencyCode",
 								"'"+TAX_CURRENCY+"'");
 					}
 				}
@@ -488,31 +488,31 @@ public class Csv2invoice
 							 * SME-COMMONのときの外貨建ての税区分ごとの税額の判定が不正。暫定的に外貨建てを対象外とする。
 							 * TODO: 外貨建ての税区分ごとの税額サポート
 							 */
-							if (xPath.indexOf("[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode]") > 0) 
+							if (xPath.indexOf("[CurrencyCode=/SMEinvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/InvoiceCurrencyCode]") > 0) 
 							{
 								xPath = FileHandler.stripSelector(xPath);
 							}
-							else if (xPath.indexOf("[ram:CurrencyCode=/rsm:SMEinvoice/rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:TaxCurrencyCode]") > 0) 
+							else if (xPath.indexOf("[CurrencyCode=/SMEinvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/TaxCurrencyCode]") > 0) 
 							{
 								if (TRACE) System.out.println("TODO: support "+xPath);
 							}
 //							/**
-//							 * SME-COMMONのときのSelector条件では、子要素のほとんどで新しくram:ApplicableCITradeTaxを定義してしまう。
-//							 * ram:ApplicableCITradeTaxをまとめて定義しなくても済ませるために、ram:ApplicableCITradeTaxの定義順をpositionで指定する。
-//							 * ram:ApplicableCITradeTax[ram:CurrencyCode='JPY']
-//							 * ram:ApplicableCITradeTax[ram:CurrencyCode=//rsm:CIIHSupplyChainTradeTransaction/ram:ApplicableCIIHSupplyChainTradeSettlement/ram:InvoiceCurrencyCode]
+//							 * SME-COMMONのときのSelector条件では、子要素のほとんどで新しくApplicableCITradeTaxを定義してしまう。
+//							 * ApplicableCITradeTaxをまとめて定義しなくても済ませるために、ApplicableCITradeTaxの定義順をpositionで指定する。
+//							 * ApplicableCITradeTax[CurrencyCode='JPY']
+//							 * ApplicableCITradeTax[CurrencyCode=//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/InvoiceCurrencyCode]
 //							 */
 //							if (MIN_TAX_BREAKDOWN <= semSort && semSort <= MAX_TAX_BREAKDOWN) {
 //								if (COUNT_TAX_BREAKDOWN > 0) {
-//									xPath = xPath.replace("[ram:CurrencyCode='"+DOCUMENT_CURRENCY+"']","[position()="+(1+boughSeq)+"]");;
+//									xPath = xPath.replace("[CurrencyCode='"+DOCUMENT_CURRENCY+"']","[position()="+(1+boughSeq)+"]");;
 //								} else {
 //									xPath = FileHandler.stripSelector(xPath);
 //								}
 //							} else if (MIN_TAX_CURRENCY_BREAKDOWN <= semSort && semSort <= MAX_TAX_CURRENCY_BREAKDOWN) {
 //								if (COUNT_TAX_BREAKDOWN > 0) {
-//									xPath = xPath.replace("[ram:CurrencyCode='"+TAX_CURRENCY+"']","[position()="+(1+boughSeq+COUNT_TAX_BREAKDOWN)+"]");;
+//									xPath = xPath.replace("[CurrencyCode='"+TAX_CURRENCY+"']","[position()="+(1+boughSeq+COUNT_TAX_BREAKDOWN)+"]");;
 //								} else {
-//									xPath = xPath.replace("[ram:CurrencyCode='"+TAX_CURRENCY+"']","[position()=2]");
+//									xPath = xPath.replace("[CurrencyCode='"+TAX_CURRENCY+"']","[position()=2]");
 //								}
 //							}
 						}

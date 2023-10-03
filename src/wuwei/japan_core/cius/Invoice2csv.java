@@ -242,7 +242,7 @@ public class Invoice2csv
 			Integer sort    = binding.getSemSort();
 			String id       = binding.getID();
 			String card     = binding.getCard();
-			if (id.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$") &&
+			if (id.toUpperCase().matches("^[a-zA-Z0-9]+_([a-zA-Z0-9]_)?[a-zA-Z0-9]+$") &&
 					card.matches("^.*n$") && //!occur.matches("^.*0$") &&
 					isMultiple(sort)) 
 			{
@@ -414,7 +414,7 @@ public class Invoice2csv
 		{
 			String multipleID       = multipleEntry.getValue();
 			Binding multipleBinding = FileHandler.bindingDict.get(multipleID);
-			if (multipleID.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$") && multipleBinding.isUsed()) 
+			if (multipleID.toUpperCase().matches("^[a-zA-Z0-9]+_([a-zA-Z0-9]_)?[a-zA-Z0-9]+$") && multipleBinding.isUsed()) 
 			{
 				FileHandler.header.add(multipleID);
 			}
@@ -426,7 +426,7 @@ public class Invoice2csv
 			Binding dataBinding = dataEntry.getValue();
 			String dataID       = dataBinding.getID();
 			if (1!=dataSort &&
-					dataID.toUpperCase().matches("^NC[0-9]+-[0-9]+$") &&
+					dataID.toUpperCase().matches("^([a-zA-Z0-9]+|[a-zA-Z0-9]+_([a-zA-Z0-9]_)?[a-zA-Z0-9]+)_[0-9]+$") &&
 					dataBinding.isUsed() &&
 					! FileHandler.header.contains(dataID)) 
 			{
@@ -513,7 +513,7 @@ public class Invoice2csv
 				String data = FileHandler.tidyData.get(y).get(x);
 				if (usedList.get(x))
 				{
-					if (0==y && data.toUpperCase().matches("^(NC00|NC[0-9]+-NC[0-9]+)$"))
+					if (0==y && data.toUpperCase().matches("^([a-zA-Z0-9]+|[a-zA-Z0-9]+_([a-zA-Z0-9]_)?[a-zA-Z0-9]+)$"))
 						data = "d_"+data;
 					row.add(data);
 				}
@@ -630,13 +630,13 @@ public class Invoice2csv
 			{
 				if (countChildren > 1 && children.get(0).getNodeName().equals(children.get(1).getNodeName()))
 				{
-					if (childID.toUpperCase().matches("^NC[0-9]+-[0-9]+$"))
+					if (childID.toUpperCase().matches("^([a-zA-Z0-9]+|[a-zA-Z0-9]+_([a-zA-Z0-9]_)?[a-zA-Z0-9]+)_[0-9]+$"))
 					{
 						for (int i = 0; i < countChildren; i++) 
 						{
 							fillMultipleBusinessTerm(boughMap, sort, childSort, children, i);
 						}
-					} else if (childID.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$"))
+					} else if (childID.toUpperCase().matches("^[a-zA-Z0-9]+_([a-zA-Z0-9]_)?[a-zA-Z0-9]+$"))
 					{
 						for (int i = 0; i < countChildren; i++) 
 						{
@@ -657,7 +657,7 @@ public class Invoice2csv
 					{
 						fillData(childSort, value, boughMap); // @attribute
 						
-					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("^NC[0-9]+-[0-9]+$")) 
+					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("^([a-zA-Z0-9]+|[a-zA-Z0-9]+_([a-zA-Z0-9]_)?[a-zA-Z0-9]+)_[0-9]+$")) 
 					{
 						if (TRACE) 
 							System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
