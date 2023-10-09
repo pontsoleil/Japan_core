@@ -35,6 +35,7 @@ public class Binding {
 	 * @param synSort 構文バインディングのXML要素のソート順
 	 * @param xPath XML要素が定義された位置のXPath
 	 * @param occur XML要素の出現回数指定
+	 * @param fixed XML要素の固定値指定
 	 */
 	public Binding(Integer semSort, String id, String semPath, Integer level, String businessTerm, String defaultValue, String card, String datatype, Integer synSort, String xPath, String occur) {
 		this.semSort         = semSort;
