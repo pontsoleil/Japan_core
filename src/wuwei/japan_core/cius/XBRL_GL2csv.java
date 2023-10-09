@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+// import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -29,8 +29,7 @@ import wuwei.japan_core.utils.CSV;
 /**
  * デジタルインボイスのXMLインスタンス文書を読み取り、Tidy dataを格納しているCSVファイルを出力する.
  */
-public class XBRL_GL2csv 
-{
+public class XBRL_GL2csv {
 	static boolean TRACE         = false;	
 	static boolean DEBUG         = false;	
 	static String PROCESSING     = null;
@@ -92,8 +91,7 @@ public class XBRL_GL2csv
 	 * @param args an array of command-line arguments for the application
 	 * last updated 2023-03-11
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		ROOT_GL_ID                 = FileHandler.ROOT_GL_ID;
 		ROOT_SEMSORT               = FileHandler.ROOT_SEMSORT;	
 		TRACE = false;
@@ -105,8 +103,7 @@ public class XBRL_GL2csv
 //		{
 //			PROCESSING = args[0]+" SEMANTICS";
 //		}
-		if (args.length <= 1) 
-		{
+		if (args.length <= 1) {
 			TRACE = true;
 			DEBUG = true;
 			if (0==PROCESSING.indexOf("XBRL-GL")) {
@@ -116,8 +113,7 @@ public class XBRL_GL2csv
 			} else {
 				return;
 			}
-		} else if (args.length >= 4) 
-		{
+		} else if (args.length >= 4) {
 			String option = args[1];
 	        String value = args[2];
 	        switch (option) {
@@ -153,11 +149,9 @@ public class XBRL_GL2csv
 //			}	
 //		} else 
 //		{
-		if (0==PROCESSING.indexOf("XBRL-GL")) 
-		{
+		if (0==PROCESSING.indexOf("XBRL-GL")) {
 			FileHandler.SYNTAX_BINDING = FileHandler.XBRL_GL_CSV;
-		} else 
-		{
+		} else {
 			return;
 		}
 //		}
@@ -168,11 +162,9 @@ public class XBRL_GL2csv
 		Path dirPath;
         try {
 	        boolean[] header = {true};
-        	if (null!=INSTANCE && INSTANCE.length() > 0)
-        	{
+        	if (null!=INSTANCE && INSTANCE.length() > 0) {
             	processXBRL_GL(INSTANCE, OUT_CSV, header[0]);
-        	} else if (null!=IN_DIR && IN_DIR.length() > 0)
-        	{
+        	} else if (null!=IN_DIR && IN_DIR.length() > 0) {
 	        	dirPath = Paths.get(IN_DIR);
 	        	if (Files.notExists(dirPath) || !Files.isDirectory(dirPath)) {
 				    throw new FileNotFoundException("The specified directory does not exist or is not a directory.");
@@ -202,8 +194,7 @@ public class XBRL_GL2csv
 	 * @param in_xml_dir XBRL-GLインスタンス文書のディレクトリ.
 	 * @param out_csv Tidy dataのCSV(RFC4180形式)ファイル.
 	 */
-	private static void processXBRL_GL(String in_xml, String out_csv, boolean header) 
-	{
+	private static void processXBRL_GL(String in_xml, String out_csv, boolean header) {
 		if (TRACE) System.out.println("\n** processXBRL_GL("+in_xml+", "+out_csv+")");
 		
 		boughMap     = new TreeMap<Integer/*sort*/,Integer/*seq*/>();
@@ -214,11 +205,9 @@ public class XBRL_GL2csv
 		if (header)
 			FileHandler.parseBinding();
 		
-		try 
-		{
+		try {
 			FileHandler.parseInvoice(in_xml);
-		} catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			return;
 		}
@@ -393,8 +382,7 @@ public class XBRL_GL2csv
 	 * 
 	 * @param header　見出し行を出力する
 	 */
-	private static void fillTable(boolean header) 
-	{
+	private static void fillTable(boolean header) {
 		FileHandler.tidyData = new ArrayList<ArrayList<String>>();		
 		FileHandler.header.add(FileHandler.ROOT_GL_ID);
 
@@ -403,49 +391,40 @@ public class XBRL_GL2csv
 	    
 		if (header)
 			FileHandler.tidyData.add(FileHandler.header);
-		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) 
-		{
+		for (Map.Entry<String, TreeMap<Integer, String>> entryRow : rowMapList.entrySet()) {
 			ArrayList<String> record = new ArrayList<>();
-			for (int i = 0; i < FileHandler.header.size(); i++) 
-			{
+			for (int i = 0; i < FileHandler.header.size(); i++) {
 				record.add("");
 			}
 			// bough
 			String rowMapKey = entryRow.getKey();
 			String[] boughs = rowMapKey.split(" ");
-			for (String bough : boughs) 
-			{
+			for (String bough : boughs) {
 				String[] index       = bough.split("=");
 				Integer boughSort    = Integer.parseInt(index[0]);
 				Binding boughBinding = FileHandler.semBindingMap.get(boughSort);
-				if (null!=boughBinding) 
-				{
+				if (null!=boughBinding) {
 					String boughID  = boughBinding.getID();
 					String boughSeq = index[1];
 					int boughIndex  = FileHandler.header.indexOf(boughID);
-					if (boughIndex!=-1) 
-					{
+					if (boughIndex!=-1) {
 						record.set(boughIndex, boughSeq);
-					} else 
-					{
+					} else {
 						if (DEBUG) System.out.println("xx "+boughID+" NOT FOUND in the header");
 					}
 				}
 			}
 			// data
 			TreeMap<Integer, String> rowMap = entryRow.getValue();
-			for (Map.Entry<Integer, String> entry : rowMap.entrySet()) 
-			{
+			for (Map.Entry<Integer, String> entry : rowMap.entrySet()) {
 				Integer sort    = entry.getKey();
 				String value    = entry.getValue();
 				Binding binding = FileHandler.semBindingMap.get(sort);
 				String id       = binding.getID();
 				int dataIndex   = FileHandler.header.indexOf(id);
-				if (dataIndex >= 0) 
-				{
+				if (dataIndex >= 0) {
 					record.set(dataIndex, value);
-				} else 
-				{
+				} else {
 					if (DEBUG) System.out.println(id+" NOT FOUND in the header");
 				}
 			}
@@ -456,14 +435,11 @@ public class XBRL_GL2csv
 		int row_size = FileHandler.tidyData.size();
 		int col_size = FileHandler.tidyData.get(0).size();
 		ArrayList<Boolean> usedList = new ArrayList<>();        
-        for (int i = 0; i < col_size; i++)
-        {
+        for (int i = 0; i < col_size; i++) {
             usedList.add(false);
         }
-		for (int y = 1; y < row_size; y++) 
-		{
-			for (int x = 0; x < col_size; x++) 
-			{
+		for (int y = 1; y < row_size; y++) {
+			for (int x = 0; x < col_size; x++) {
 				String data = FileHandler.tidyData.get(y).get(x);
 				if (null!=data && data.length() > 0)
 					usedList.set(x, true);
@@ -475,11 +451,9 @@ public class XBRL_GL2csv
             	countUsed++;
         
     	ArrayList<ArrayList<String>> revisedData = new ArrayList<>(row_size);
-		for (int y = 0; y < row_size; y++) 
-		{
+		for (int y = 0; y < row_size; y++) {
 			ArrayList<String> row = new ArrayList<>(countUsed);
-			for (int x = 0; x < col_size; x++) 
-			{
+			for (int x = 0; x < col_size; x++) {
 				String data = FileHandler.tidyData.get(y).get(x);
 				row.add(data);
 			}
@@ -490,8 +464,7 @@ public class XBRL_GL2csv
 		FileHandler.header   = revisedData.get(0);
 
 		if (TRACE) System.out.println("* FileHandler.tidyData");
-		for (int y = 0; y < row_size; y++) 
-		{
+		for (int y = 0; y < row_size; y++) {
 			ArrayList<String> row = new ArrayList<>();
 			row = FileHandler.tidyData.get(y);
 			if (TRACE) System.out.println(row.toString());
@@ -510,8 +483,7 @@ public class XBRL_GL2csv
 	private static void fillData (
 			Integer semSort, 
 			String value, 
-			TreeMap<Integer, Integer> boughMap ) 
-	{
+			TreeMap<Integer, Integer> boughMap ) {
 		Binding binding     = (Binding) FileHandler.semBindingMap.get(semSort);
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
@@ -520,16 +492,14 @@ public class XBRL_GL2csv
 		if (DEBUG) 
 			System.out.println("  fillData boughMap="+boughMap.toString()+" "+id+"("+semSort+") "+businessTerm+" = "+value);
 		String rowMapKey = "";
-		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) 
-		{
+		for (Map.Entry<Integer, Integer> entry : boughMap.entrySet()) {
 			Integer boughSort = entry.getKey();
 			Integer seq       = entry.getValue();
 			rowMapKey += (boughSort+"="+seq+" ");
 		}
 		rowMap = new TreeMap<>();
 		rowMapKey = rowMapKey.trim();
-		if (rowMapList.containsKey(rowMapKey)) 
-		{
+		if (rowMapList.containsKey(rowMapKey)) {
 			rowMap = rowMapList.get(rowMapKey);
 		}
 		rowMap.put(semSort, value);
@@ -553,8 +523,7 @@ public class XBRL_GL2csv
 	private static void fillGroup (
 			Node parent, 
 			Integer sort, 
-			TreeMap<Integer, Integer> boughMap ) 
-	{
+			TreeMap<Integer, Integer> boughMap ) {
 		Binding binding     = FileHandler.semBindingMap.get(sort);
 		String id           = binding.getID();
 		String businessTerm = binding.getBT();
@@ -565,21 +534,17 @@ public class XBRL_GL2csv
 
 		TreeMap<Integer, List<Node>> childList = FileHandler.getChildren(parent, id);
 		
-		if (DEBUG) 
-		{
+		if (DEBUG) {
 			System.out.print("- 0 fillGroup boughMap="+boughMap.toString()+" "+id+"("+sort+") "+businessTerm);
-			if (0==childList.size()) 
-			{
+			if (0==childList.size()) {
 				System.out.println(" is Empty");
 				return;
-			} else 
-			{
+			} else {
 				System.out.println("");
 			}
 		}
    	
-		for (Integer childSort : childList.keySet()) 
-		{ // childList includes both #text and @attribute
+		for (Integer childSort : childList.keySet()) { // childList includes both #text and @attribute
 			Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
 			String childID           = childBinding.getID();
 			String childBusinessTerm = childBinding.getBT();
@@ -591,26 +556,19 @@ public class XBRL_GL2csv
 			List<Node> children = childList.get(childSort);
 			
 			int countChildren = children.size();
-			if (countChildren > 0) 
-			{
-				if (countChildren > 1 && children.get(0).getNodeName().equals(children.get(1).getNodeName()))
-				{
-					if (childID.toUpperCase().matches("^[A-Z]+[0-9]+-[0-9]+$"))
-					{
-						for (int i = 0; i < countChildren; i++) 
-						{
+			if (countChildren > 0) {
+				if (countChildren > 1 && children.get(0).getNodeName().equals(children.get(1).getNodeName())) {
+					if (childID.toUpperCase().matches("^[A-Z]+[0-9]+-[0-9]+$")) {
+						for (int i = 0; i < countChildren; i++) {
 							fillMultipleBusinessTerm(boughMap, sort, childSort, children, i);
 						}
-					} else if (childID.toUpperCase().matches("^[A-Z]+[0-9]+-[A-Z]+[0-9]+$"))
-					{
-						for (int i = 0; i < countChildren; i++) 
-						{
+					} else if (childID.toUpperCase().matches("^[A-Z]+[0-9]+-[A-Z]+[0-9]+$")) {
+						for (int i = 0; i < countChildren; i++) {
 							fillMultipleBusinessTermGroup(boughMap, sort, childSort, children, i);
 						}
 					}						
 				}
-				for (int i = 0; i < countChildren; i++) 
-				{
+				for (int i = 0; i < countChildren; i++) {
 					Node child           = children.get(i);
 					String childNodeName = child.getNodeName();
 					String value         = "";
@@ -618,34 +576,27 @@ public class XBRL_GL2csv
 						System.out.println(childNodeName);
 					else
 						value = child.getTextContent().trim();					
-					if (! "Invoice".equals(childNodeName) && childNodeName.indexOf(":")<0)
-					{
+					if (! "Invoice".equals(childNodeName) && childNodeName.indexOf(":")<0) {
 						fillData(childSort, value, boughMap); // @attribute
 						
-					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("^[A-Z]+[0-9]+-[0-9]+$")) 
-					{
+					} else if (null!=child && null != value && value.length() > 0 && childID.toUpperCase().matches("^[A-Z]+[0-9]+-[0-9]+$")) {
 						if (DEBUG) 
 							System.out.println("* 1 fillGroup - fillData child["+i+"]"+childID+"("+childSort+") "+childNodeName+" = "+value);
 
 						fillData(childSort, value, boughMap); // #text	
 						
-						if (FileHandler.semChildMap.containsKey(childSort)) 
-						{
+						if (FileHandler.semChildMap.containsKey(childSort)) {
 							ArrayList<Integer> grandchildren = FileHandler.semChildMap.get(childSort);
 							NamedNodeMap attributes = child.getAttributes();
-							for (Integer grandchildSort : grandchildren) 
-							{
+							for (Integer grandchildSort : grandchildren) {
 								fillGrandChildren(boughMap, childSort, i, childNodeName, attributes, grandchildSort);
 							}
 						}						
-					} else 
-					{
+					} else {
 						boolean is_multiple = isMultiple(childSort);
-						if (is_multiple && countChildren > 1) 
-						{
+						if (is_multiple && countChildren > 1) {
 							fillNewGroup(boughMap, sort, childSort, /*childID, childBusinessTerm, childLevel,*/	countChildren, i, child);
-						} else
-						{
+						} else {
 							if (DEBUG) 
 								System.out.println("* fillGroup "+ businessTerm+" -> level="+childLevel+" "+childID+"("+childSort+") "+childBusinessTerm+
 									"\n    boughMapList="+boughMapList.toString()+"\n    boughMap"+boughMap.toString());
@@ -673,8 +624,7 @@ public class XBRL_GL2csv
 			Integer childSort,
 			Integer countChildren, 
 			int i, 
-			Node child) 
-	{
+			Node child) {
 		Integer lastkey          = boughMap.lastKey();
 		Integer lastvalue        = boughMap.get(lastkey);
 		Binding binding          = FileHandler.semBindingMap.get(sort);
@@ -688,11 +638,9 @@ public class XBRL_GL2csv
 		TreeMap<Integer,Integer> boughMap1 = (TreeMap<Integer, Integer>) boughMap.clone();
 		if (DEBUG) 
 			System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
-		if (childSort != lastkey) 
-		{
+		if (childSort != lastkey) {
 			boughMap1.put(childSort, i);
-		} else if (countChildren > 1) 
-		{
+		} else if (countChildren > 1) {
 			Integer lastvalue1 = lastvalue + 1;
 			boughMap1.put(lastkey, lastvalue1);
 		}
@@ -724,8 +672,7 @@ public class XBRL_GL2csv
 			int          i, 
 			String       childNodeName,
 			NamedNodeMap attributes, 
-			Integer      grandchildSort) 
-	{
+			Integer      grandchildSort) {
 		Integer lastKey           = boughMap.lastKey();
 		Integer lastID            = boughMap.get(lastKey);
 		Binding childBinding      = (Binding) FileHandler.semBindingMap.get(childSort);
@@ -737,11 +684,9 @@ public class XBRL_GL2csv
 		String grandchildBT       = grandchildBinding.getBT();
 		String grandchildXPath    = grandchildBinding.getXPath();
 		String attrName           = grandchildXPath.substring(2+grandchildXPath.lastIndexOf("/@"));
-		if (attributes.getLength() > 0) 
-		{
+		if (attributes.getLength() > 0) {
 			Node attribute = attributes.getNamedItem(attrName);
-			if (null!=attribute) 
-			{
+			if (null!=attribute) {
 				String grandchildValue = attribute.getNodeValue();
 				if (DEBUG) 
 					System.out.print(
@@ -750,14 +695,11 @@ public class XBRL_GL2csv
 							"\n    @"+attrName+"("+grandchildSort+") = "+grandchildValue);
 				fillData(grandchildSort, grandchildValue, boughMap);
 			}
-		} else 
-		{									
+		} else {									
 			ParsedNode parsedNode      = FileHandler.nodeMap.get(grandchildSort);
 			List<Node> grandchildNodes = parsedNode.nodes;
-			for (int j = 0; j < grandchildNodes.size(); j++) 
-			{
-				if (0==i-lastID) 
-				{
+			for (int j = 0; j < grandchildNodes.size(); j++) {
+				if (0==i-lastID) {
 					Node grandchild           = grandchildNodes.get(lastID);
 					String grandchildNodeName = grandchild.getNodeName();
 					String grandchildValue    = grandchild.getTextContent().trim();
@@ -786,8 +728,7 @@ public class XBRL_GL2csv
 			Integer sort, 
 			Integer childSort,
 			List<Node> children, 
-			int i) 
-	{
+			int i) {
 		Binding binding          = FileHandler.semBindingMap.get(sort);
 		String businessTerm      = binding.getBT();
 		Binding childBinding     = (Binding) FileHandler.semBindingMap.get(childSort);
@@ -802,8 +743,7 @@ public class XBRL_GL2csv
 		Integer lastvalue        = boughMap1.get(lastkey);
 		if (DEBUG) 
 			System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
-		if (childSort != lastkey) 
-		{
+		if (childSort != lastkey) {
 //			if (boughMap1.size() < childLevel) 
 //			{
 				boughMap1.put(childSort, i);
@@ -813,8 +753,7 @@ public class XBRL_GL2csv
 //				boughMap1.put(childSort, i);
 //				boughMapList.remove(boughMapList.size() - 1);
 //			}
-		} else if (countChildren > 1) 
-		{
+		} else if (countChildren > 1) {
 			Integer lastvalue1 = lastvalue + 1;
 			boughMap1.put(lastkey, lastvalue1);
 		}
@@ -841,8 +780,7 @@ public class XBRL_GL2csv
 			Integer    sort, 
 			Integer    childSort, 
 			List<Node> children, 
-			int        i) 
-	{
+			int        i) {
 		Integer lastKey          = boughMap.lastKey();
 		Binding binding          = FileHandler.semBindingMap.get(sort);
 		String businessTerm      = binding.getBT();
@@ -858,8 +796,7 @@ public class XBRL_GL2csv
 		Integer lastvalue        = boughMap1.get(lastkey);
 		if (DEBUG) 
 			System.out.print("    boughMap lastKey="+lastkey+" child is multiple level="+childLevel);
-		if (i != lastvalue)
-		{
+		if (i != lastvalue) {
 			boughMap1.pollLastEntry();
 			boughMap1.put(lastKey, i);
 			boughMapList.remove(boughMapList.size() - 1);
@@ -880,21 +817,17 @@ public class XBRL_GL2csv
 	 * @return multiple 複数であればtrue.　存在しないか1件しかなければfalse.
 	 */
 	@SuppressWarnings("unlikely-arg-type")
-	private static boolean isMultiple(Integer semSort) 
-	{
+	private static boolean isMultiple(Integer semSort) {
 		boolean multiple  = false;
 		Binding binding   = FileHandler.semBindingMap.get(semSort);
 		String id         = binding.getID();
 		String xPath      = binding.getXPath();
 		List<Node> founds = FileHandler.getXPath(FileHandler.root, xPath);
-		if (null!=founds) 
-		{
-			if (xPath.indexOf("true") > 0 || xPath.indexOf("false") > 0 || founds.size() > 1) 
-			{
+		if (null!=founds) {
+			if (xPath.indexOf("true") > 0 || xPath.indexOf("false") > 0 || founds.size() > 1) {
 				multiple = true;
 			}
-		} else if (Arrays.asList(FileHandler.MULTIPLE_ID).contains(id.toLowerCase())) 
-		{
+		} else if (Arrays.asList(FileHandler.MULTIPLE_ID).contains(id.toLowerCase())) {
 			multiple = true;
 		}
 		return multiple;
