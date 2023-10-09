@@ -10,27 +10,33 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import javax.xml.transform.TransformerException;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import wuwei.japan_core.utils.CSV;
+import wuwei.japan_core.utils.CustomComparator;
 import wuwei.japan_core.utils.WriteXmlDom;
+import wuwei.japan_core.utils.XPathHandler;
 
 /**
  * Tidy dataを格納しているCSVファイルを読み取りセマンティックモデル定義と構文バインディング定義からXMLインスタンス文書を出力する.
  */
-public class Csv2invoice 
-{
+public class Csv2invoice {
 	static boolean TRACE         = false;	
 	static boolean DEBUG         = false;	
 	static String PROCESSING     = null;
 	static String SYNTAX_BINDING = null;
 	static String XML_SKELTON    = null;
+	static String CHARSET        = "UTF-8";
+	
 	static String IN_CSV         = null;
 	static String OUT_XML        = null;
-	static String CHARSET        = "UTF-8";
 	
 	static String ROOT_ID;
 	static Integer ROOT_SEMSORT;
@@ -66,8 +72,9 @@ public class Csv2invoice
 	/**
 	 * Tidy dataのテーブルデータ
 	 */
-	static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>();
- 	
+//	static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>();
+    static TreeMap<String, TreeMap<Integer, String>> rowMapList = new TreeMap<>(new CustomComparator());
+
 	/**
 	 * tidy data (Node定義)テーブルrowMapListをXMLスキーマで定義されたsyntax sort順にXML要素定義するために、縦横変換する。<br>
 	 * その際に要素の定義データを一時保存するために使用するクラス。
@@ -79,8 +86,7 @@ public class Csv2invoice
 	 * @param value この要素の値.
 	 * @param attributes この要素の属性.
 	 */
-	static class DataValue 
-	{
+	static class DataValue {
 		public Integer seq;
  		public Integer sort;
  		public String  id;
@@ -94,8 +100,7 @@ public class Csv2invoice
  				String id,
  				String xPath, 
  				String value, 
- 				HashMap<String,String> attributes) 
- 		{
+ 				HashMap<String,String> attributes) {
  			this.seq = seq;
  			this.sort = sort;
  			this.id = id;
@@ -112,8 +117,7 @@ public class Csv2invoice
  	 * @param value XML要素の値
  	 *
  	 */
-	static class PathValue 
- 	{
+	static class PathValue {
  		public String xPath;
  		public String value;
 
@@ -135,10 +139,15 @@ public class Csv2invoice
  	 * CSVをデジタルインボイス(XML)に変換する。
  	 * The application's entry point
 	 * @param args an array of command-line arguments for the application
-	 * last updated 2023-03-11
+	 * last updated 2023-10-09
 	 */
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
+	    parseAndSetArguments(args);
+	    processCSV(IN_CSV, OUT_XML);
+	    System.out.println("** END ** Csv2Invoice " + PROCESSING + " " + IN_CSV + " " + OUT_XML);
+	}
+	
+	private static void parseAndSetArguments(String[] args) {
 		ROOT_ID                    = FileHandler.ROOT_ID;
 		ROOT_SEMSORT               = FileHandler.ROOT_SEMSORT;	
 		DOCUMENT_CURRENCY_ID       = FileHandler.DOCUMENT_CURRENCY_ID;       /*文書通貨コードのID*/
@@ -156,197 +165,221 @@ public class Csv2invoice
 		MAX_TAX_CURRENCY_BREAKDOWN = FileHandler.MAX_TAX_CURRENCY_BREAKDOWN; /*semSort*/
 		TRACE = false;
 		DEBUG = false;
-		if (args.length <= 1) 
-		{
-			TRACE      = true;
-			if (1 == args.length) 
-			{
-				PROCESSING = args[0]+" SYNTAX";
-			} else 
-			{
-				PROCESSING = "JP-PINT SYNTAX";
-			}
-			if (0==PROCESSING.indexOf("JP-PINT")) 
-			{	
-				IN_CSV  = "data/csv/Example1_PINT.csv";
-				OUT_XML = "data/xml/Example1_PINT.xml";
-			} else if (0==PROCESSING.indexOf("SME-COMMON")) 
-			{
-				IN_CSV  = "data/csv/Example1_SME.csv";
-				OUT_XML = "data/xml/Example1_SME.xml";				
-			} else 
-			{
-				return;
-			}
-		} else if (args.length >= 3) 
-		{
-			PROCESSING = args[0]+" SYNTAX";
-			IN_CSV     = args[1];
-			OUT_XML    = args[2];	
-			if (4==args.length) 
-			{
-				if (args[3].indexOf("T")>=0)
-					TRACE = true;
-				if (args[3].indexOf("D")>=0)
-					DEBUG = true;
-			}
-		}
-		if (args.length>=5) 
-		{
-			SYNTAX_BINDING = args[3];
-			XML_SKELTON    = args[4];
-			FileHandler.SYNTAX_BINDING = SYNTAX_BINDING;
-			FileHandler.XML_SKELTON    = XML_SKELTON;
-			if (6==args.length) 
-			{
-				if (args[5].indexOf("T")>=0)
-					TRACE = true;
-				if (args[5].indexOf("D")>=0)
-					DEBUG = true;
-			}
-		} else 
-		{
-			if (0==PROCESSING.indexOf("JP-PINT")) 
-			{		
-				FileHandler.SYNTAX_BINDING = FileHandler.JP_PINT_CSV;
-				FileHandler.XML_SKELTON    = FileHandler.JP_PINT_XML_SKELTON;			
-			} else if (0==PROCESSING.indexOf("SME-COMMON")) 
-			{
-				FileHandler.SYNTAX_BINDING = FileHandler.SME_CSV;
-				FileHandler.XML_SKELTON    = FileHandler.SME_XML_SKELTON;
-			} else 
-			{
-				return;
-			}
-		}
-		FileHandler.PROCESSING = PROCESSING;
-		FileHandler.TRACE      = TRACE;
-		FileHandler.DEBUG      = DEBUG;	
-		
-		processCSV(IN_CSV, OUT_XML);
-		
-		System.out.println("** END ** Csv2Invoice "+PROCESSING+" "+IN_CSV+" "+OUT_XML);
+	    TRACE = false;
+	    DEBUG = false;
+
+	    if (args.length <= 1) {
+	        TRACE = true;
+	        if (1 == args.length) {
+	            PROCESSING = args[0] + " SYNTAX";
+	        } else {
+	            PROCESSING = "JP-PINT SYNTAX";
+	        }
+	        setFilesPathBasedOnProcessing();
+
+	    } else if (args.length >= 3) {
+	        PROCESSING = args[0] + " SYNTAX";
+	        IN_CSV = args[1];
+	        OUT_XML = args[2];
+	        if (args.length >= 4) {
+	            if (args[3].indexOf("T") >= 0)
+	                TRACE = true;
+	            if (args[3].indexOf("D") >= 0)
+	                DEBUG = true;
+	        }
+	    }
+	    
+	    if (args.length >= 5) {
+	        SYNTAX_BINDING = args[3];
+	        XML_SKELTON = args[4];
+	        FileHandler.SYNTAX_BINDING = SYNTAX_BINDING;
+	        FileHandler.XML_SKELTON = XML_SKELTON;
+	        if (6 == args.length) {
+	            if (args[5].indexOf("T") >= 0)
+	                TRACE = true;
+	            if (args[5].indexOf("D") >= 0)
+	                DEBUG = true;
+	        }
+	    } else {
+	        setDefaultSyntaxBindingAndSkeleton();
+	    }
+
+	    FileHandler.PROCESSING = PROCESSING;
+	    FileHandler.TRACE = TRACE;
+	    FileHandler.DEBUG = DEBUG;
+	    XPathHandler.TRACE = TRACE;
+	    XPathHandler.DEBUG = DEBUG;
+	    CSV.TRACE = TRACE;
+	    CSV.DEBUG = DEBUG;
 	}
-	
+
+	private static void setFilesPathBasedOnProcessing() {
+	    if (0 == PROCESSING.indexOf("JP-PINT")) {
+	        IN_CSV = "data/csv/Example1_PINT.csv";
+	        OUT_XML = "data/xml/Example1_PINT.xml";
+	    } else if (0 == PROCESSING.indexOf("SME-COMMON")) {
+	        IN_CSV = "data/csv/Example1_SME.csv";
+	        OUT_XML = "data/xml/Example1_SME.xml";
+	    } else {
+	        // Handling for unsupported PROCESSING type
+	        throw new IllegalArgumentException("Unsupported PROCESSING type");
+	    }
+	}
+
+	private static void setDefaultSyntaxBindingAndSkeleton() {
+	    if (0 == PROCESSING.indexOf("JP-PINT")) {
+	        FileHandler.SYNTAX_BINDING = FileHandler.JP_PINT_CSV;
+	        FileHandler.XML_SKELTON = FileHandler.JP_PINT_XML_SKELTON;
+	    } else if (0 == PROCESSING.indexOf("SME-COMMON")) {
+	        FileHandler.SYNTAX_BINDING = FileHandler.SME_CSV;
+	        FileHandler.XML_SKELTON = FileHandler.SME_XML_SKELTON;
+	    } else {
+	        // Handling for unsupported PROCESSING type
+	        throw new IllegalArgumentException("Unsupported PROCESSING type");
+	    }
+	}
+
 	/**
 	 * Tidy dataのCSVファイルをデジタルインボイスのXMLインスタンス文書に変換する.
 	 * 
 	 * @param in_csv 入力するTidy dataのCSVファイル.
 	 * @param out_xml 出力するデジタルインボイスのXMLインスタンス文書.
 	 */
-	public static void processCSV(String in_csv, String out_xml) 
-	{	
+	public static void processCSV(String in_csv, String out_xml) {
+		Binding binding        = null;
+		Binding defaultBinding = null;
+		Integer boughSort      = null;
+		Integer boughSeq       = null;
+		Integer semSort        = null;
+		Integer synSort        = null;
+		String id              = null;
+		String xPath           = null;
+		String value           = "";
+		String rowKey          = null;		
+		HashMap<String,String>                    attributes = new HashMap<>();
+		TreeMap<Integer/*synSort*/, String/*id*/> idMap      = new TreeMap<>();
+		TreeMap<String/*rowKey:id*/, Binding>     defaultMap = new TreeMap<>();
+		
 		FileHandler.parseBinding();		
 		FileHandler.parseSkeleton();
 			
-		try 
-		{
+		try {
 			if (0==PROCESSING.indexOf("SME-COMMON"))
-				terminalElements = new ArrayList<String>(Arrays.asList("@unitCode","udt:DateTimeString","udt:Indicator","IssueDateTime","AccountName","ActualAmount","AdditionalReferencedCIReferencedDocument","AllowanceTotalAmount","AttachmentBinaryObject","BasisAmount","BasisQuantity","BilledQuantity","BuyerAssignedID","BuyerOrderReferencedCIReferencedDocument","CalculatedAmount","CalculatedRate","CalculationMethodCode","CalculationPercent","CardholderName","CategoryCode","CategoryName","ChannelCode","ChargeAmount","ChargeIndicator","ChargeTotalAmount","CompleteNumber","Content","ConversionRate","CountryID","CurrencyCode","DepartmentName","Description","DirectionCode","DuePayableAmount","FileName","GlobalID","GrandTotalAmount","GrossLineTotalAmount","ID","IncludingTaxesLineTotalAmount","Information","InstructedAmount","InvoiceCurrencyCode","InvoiceCurrencyCode","IssuerAssignedID","IssuingCompanyName","JapanFinancialInstitutionCommonID","LineID","LineOne","LineThree","LineTwo","LocalTaxSystemID","ManufacturerAssignedID","MIMECode","Name","NetIncludingTaxesLineTotalAmount","NetLineTotalAmount","PackageQuantity","PaidAmount","PaymentCurrencyCode","PerPackageUnitQuantity","PersonID","PersonName","PostcodeCode","PreviousRevisionID","ProductGroupID","ProductUnitQuantity","ProprietaryID","PurposeCode","RateApplicablePercent","Reason","ReasonCode","ReferenceTypeCode","RegisteredID","RevisionID","SellerAssignedID","SourceCurrencyCode","SpecifiedTransactionID","Subject","SubordinateLineID","SubtypeCode","TargetCurrencyCode","TaxBasisTotalAmount","TaxCurrencyCode","TaxCurrencyCode","TaxTotalAmount","TotalPrepaidAmount","TypeCode","URIID","Value"));
+				terminalElements = new ArrayList<String>(Arrays.asList(
+						"@unitCode","DateTimeString","Indicator",
+						"IssueDateTime","AccountName","ActualAmount","AdditionalReferencedCIReferencedDocument","AllowanceTotalAmount",
+						"AttachmentBinaryObject","BasisAmount","BasisQuantity","BilledQuantity","BuyerAssignedID",
+						"BuyerOrderReferencedCIReferencedDocument","CalculatedAmount","CalculatedRate","CalculationMethodCode",
+						"CalculationPercent","CardholderName","CategoryCode","CategoryName","ChannelCode","ChargeAmount","ChargeIndicator",
+						"ChargeTotalAmount","CompleteNumber","Content","ConversionRate","CountryID","CurrencyCode","DepartmentName",
+						"Description","DirectionCode","DuePayableAmount","FileName","GlobalID","GrandTotalAmount","GrossLineTotalAmount",
+						"ID","IncludingTaxesLineTotalAmount","Information","InstructedAmount","InvoiceCurrencyCode","InvoiceCurrencyCode",
+						"IssuerAssignedID","IssuingCompanyName","JapanFinancialInstitutionCommonID","LineID","LineOne","LineThree",
+						"LineTwo","LocalTaxSystemID","ManufacturerAssignedID","MIMECode","Name","NetIncludingTaxesLineTotalAmount",
+						"NetLineTotalAmount","PackageQuantity","PaidAmount","PaymentCurrencyCode","PerPackageUnitQuantity","PersonID",
+						"PersonName","PostcodeCode","PreviousRevisionID","ProductGroupID","ProductUnitQuantity","ProprietaryID",
+						"PurposeCode","RateApplicablePercent","Reason","ReasonCode","ReferenceTypeCode","RegisteredID","RevisionID",
+						"SellerAssignedID","SourceCurrencyCode","SpecifiedTransactionID","Subject","SubordinateLineID","SubtypeCode",
+						"TargetCurrencyCode","TaxBasisTotalAmount","TaxCurrencyCode","TaxCurrencyCode","TaxTotalAmount","TotalPrepaidAmount",
+						"TypeCode","URIID","Value"));
 			FileHandler.csvFileRead(in_csv, CHARSET);
-		} catch (FileNotFoundException e) 
-		{
+		} catch (FileNotFoundException e) {
 			System.out.println("File not found "+in_csv);
 			e.printStackTrace();
-		} catch (IOException e) 
-		{
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		// 通貨コード取得
-		for (int i=0; i<FileHandler.header.size(); i++) 
-		{
-			String id = FileHandler.header.get(i);
+		for (int i=0; i<FileHandler.header.size(); i++) {
+			id = FileHandler.header.get(i);
 			if (id.equals(DOCUMENT_CURRENCY_ID))
 				DOCUMENT_CURRENCY = FileHandler.tidyData.get(0).get(i);
 			else if (id.equals(TAX_CURRENCY_ID))
 				TAX_CURRENCY = FileHandler.tidyData.get(0).get(i);
 		}
+		if (null==DOCUMENT_CURRENCY)
+			DOCUMENT_CURRENCY = "JPY";
+		else if (null!=TAX_CURRENCY && !TAX_CURRENCY.equals("JPY"))
+			TAX_CURRENCY = "JPY";
 		
 		if (TRACE) System.out.println("- processCSV FileHandler.tidyData record");
-		rowMapList = new TreeMap<>();
-		for (ArrayList<String> record: FileHandler.tidyData) 
-		{			
+		
+		rowMapList = new TreeMap<>(new CustomComparator());
+		
+		for (ArrayList<String> record: FileHandler.tidyData) {			
 			if (TRACE) System.out.println(record.toString());			
 			rowMap = new TreeMap<>();
 			String key = "";
-			for (int i = 0; i < record.size(); i++) 
-			{
+			for (int i = 0; i < record.size(); i++) {
 				String field = record.get(i);
-				if (field != null && field.length() > 0) 
-				{
-					String id       = FileHandler.header.get(i);
-					Binding binding = FileHandler.bindingDict.get(id);
-					if (null==binding && 0==id.indexOf("d_"))
-							binding = FileHandler.bindingDict.get(id.substring(2));
-					if (null==binding)
-					{
-						if (TRACE) System.out.println(id+" is NOT DEFINED in bindingDict");
+				if (field != null && field.length() > 0) {
+					id      = FileHandler.header.get(i);
+					binding = FileHandler.bindingDict.get(id);
+					if (null==binding && id.startsWith("d_")) {
+						binding = FileHandler.bindingDict.get(id.substring(2));
+					}
+					if (null==binding) {
+						if (DEBUG) System.out.println(id+" is NOT DEFINED in bindingDict");
 						String[] ids = FileHandler.header.get(0).split(",");
-						if (i<ids.length) 
-						{
+						if (i<ids.length) {
 							id      = ids[i];
 							binding = FileHandler.bindingDict.get(id);
 						}
 					}
 					if (null==binding)
 						continue;
-					Integer semSort = binding.getSemSort();
-					Integer synSort = binding.getSynSort();
-					if (id.toUpperCase().matches("^NC00$") || id.toUpperCase().matches("^NC[0-9]+-NC[0-9]+$")) 
-					{
+					semSort = binding.getSemSort();
+					synSort = binding.getSynSort();
+					if (id.toUpperCase().matches("^D_[A-Z0-9]+(_([A-Z0-9]_)?[A-Z0-9]+)?$")) {
 						key += synSort+"="+field+" ";
 						if (0 == PROCESSING.indexOf("SME-COMMON") && 0 == semSort - MIN_TAX_BREAKDOWN)
 							COUNT_TAX_BREAKDOWN = 1 + Integer.parseInt(field);
-					} else 
-					{
+					} else {
 						rowMap.put(synSort, field);
 					}
-					String xPath = binding.getXPath();
-					if (DOCUMENT_CURRENCY_ID.equals(id)) 
-					{
+					xPath = binding.getXPath();
+					if (DOCUMENT_CURRENCY_ID.equals(id)) {
 						documentCurrencyCode.xPath = xPath;
 						documentCurrencyCode.value = field;
-					} else if (TAX_CURRENCY_ID.equals(id)) 
-					{
+					} else if (TAX_CURRENCY_ID.equals(id)) {
 						taxCurrencyCode.xPath = xPath;
 						taxCurrencyCode.value = field;
 					}
 				}
 			}
-//			if (DEBUG && "".equals(key))
-//				System.out.println(key);
 			key = key.trim();
 			rowMapList.put(key, rowMap);
 		}
-		
-		Integer boughSort = null;
-		Integer boughSeq  = null;
-		String id         = null;
-		String xPath      = null;
-		String value      = "";
-		String rowKey     = null;
-		HashMap<String,String> attributes               = new HashMap<>();
-		TreeMap<Integer/*synSort*/, String/*id*/> idMap = new TreeMap<>();
-		
+					
 		int n = 0;
-		if (TRACE) 
-		{
+		if (TRACE) {
 			System.out.println("* HEADER");
 			System.out.println(FileHandler.header);
 		}
 		// Syntax Sort順にheaderをソート
-		for (Map.Entry<String, TreeMap<Integer, String>> rowMap : rowMapList.entrySet()) 
-		{
+		for (Map.Entry<String, TreeMap<Integer, String>> rowMap : rowMapList.entrySet()) {
 			rowKey                       = rowMap.getKey();
 			TreeMap<Integer, String> row = rowMapList.get(rowKey);
-			for (Integer synSort : row.keySet()) 
-			{
-				Binding binding = FileHandler.synBindingMap.get(synSort);
-				if (null!=binding) 
-				{
-					id = binding.getID();
-					idMap.put(synSort, id);
+			for (Integer _synSort : row.keySet()) {
+				binding = FileHandler.synBindingMap.get(_synSort);
+				if (null!=binding) {
+					id = binding.getID();			
+					idMap.put(_synSort, id);
+					String prefix = removeSuffix(id);
+			        List<String> keys = FileHandler.defaultMap.keySet().stream()
+			                .filter(k -> removeSuffix(k).equals(prefix))
+			                .collect(Collectors.toList());
+			        for (String key: keys) {
+			        	defaultBinding         = FileHandler.defaultMap.get(key);
+			        	Integer defaultSynSort = defaultBinding.getSynSort();
+			            defaultMap.put(rowKey+":"+defaultSynSort, defaultBinding);
+			        	idMap.put(defaultSynSort, key);
+			            if (DEBUG) {
+				        	String defaultValue = defaultBinding.getDefaultValue();
+			            	System.out.println("Default value: "+defaultBinding.getLevel()+" "+id+" "+key+" = "+defaultValue);
+			            }
+			        }
 				}
 			}
 			n++;
@@ -356,60 +389,65 @@ public class Csv2invoice
 		int col_size = idMap.size();
 		DataValue[][] dataRedords = new DataValue[row_size][col_size];	
 		
+//		if (DEBUG) {
+//			System.out.println("** idMap");
+//			for (Integer _synSort : idMap.keySet()) {
+//				Binding b = FileHandler.synBindingMap.get(_synSort);
+//				String xpath = b.getXPath();
+//				if (xpath.contains("Tax"))
+//					System.out.println(_synSort+" "+b.getLevel()+" "+b.getID()+" "+xpath+" "+b.getDefaultValue());
+//			}
+//		}
+		
 		int i = 0;
-		for (Map.Entry<String, TreeMap<Integer, String>> rowMap : rowMapList.entrySet()) 
-		{
+		for (Map.Entry<String, TreeMap<Integer, String>> rowMap : rowMapList.entrySet()) {
 			rowKey          = rowMap.getKey();
 			String[] boughs = rowKey.split(",");
 			String   bough  = boughs[boughs.length-1];
 			String[] data   = bough.split(" ");
 			String   ds     = data[data.length-1];
 			String[] d      = ds.split("=");
-			if (d.length < 2)
-			{
+			if (d.length < 2) {
 				System.out.println(d);
 				continue;
 			}
 			boughSort       = Integer.parseInt(d[0]);
 			boughSeq        = Integer.parseInt(d[1]);
 			TreeMap<Integer, String> row = rowMapList.get(rowKey);
-			for (Integer synSort : row.keySet()) 
-			{
-				if (synSort < 1000)
-				{
-					System.out.println(synSort);
+			for (Integer _synSort : idMap.keySet()) {
+				if (_synSort < 1) {
+					System.out.println(_synSort);
 					continue;
 				}
-				value           = row.get(synSort);
-				Binding binding = FileHandler.synBindingMap.get(synSort);
-				id              = binding.getID();
-				xPath           = binding.getXPath();
+				value = row.get(_synSort);
+				if (null==value || value.length()==0) {
+					defaultBinding = defaultMap.get(rowKey+":"+_synSort);
+					if (null!=defaultBinding)
+						value = defaultBinding.getDefaultValue();
+				}
+				if (null==value || value.length()==0)
+					continue;
+				binding = FileHandler.synBindingMap.get(_synSort);
+				id      = binding.getID();
+				xPath   = binding.getXPath();
 				// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
-				if (xPath.indexOf("true")>0) 
-				{
+				if (xPath.indexOf("true")>0) {
 					xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=true\\(\\)\\]","[normalize-space($1/text())='true']");
-				} else if (xPath.indexOf("false")>0) 
-				{
+				} else if (xPath.indexOf("false")>0) {
 					xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=false\\(\\)\\]","[normalize-space($1/text())='false']");
 				// XMLパーサーが[cbc:TaxAmount/@currencyID=./cbc:DocumentCurrencyCode]を正しく判定できないので、固定値との比較に書き換える。
-				} else if  (0==PROCESSING.indexOf("JP-PINT")) 
-				{
-					if (xPath.indexOf("cbc:DocumentCurrencyCode]")>0) 
-					{
+				} else if  (0==PROCESSING.indexOf("JP-PINT")) {
+					if (xPath.indexOf("cbc:DocumentCurrencyCode]")>0) {
 						xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:DocumentCurrencyCode","'"+DOCUMENT_CURRENCY+"'");
-					} else if (xPath.indexOf("cbc:TaxCurrencyCode]")>0) 
-					{
+					} else if (xPath.indexOf("cbc:TaxCurrencyCode]")>0) {
 						xPath = xPath.replaceAll("(/Invoice|/\\*|\\.)/cbc:TaxCurrencyCode","'"+TAX_CURRENCY+"'");
 					}
-				} else if  (0==PROCESSING.indexOf("SME-COMMON")) 
-				{
-					if (xPath.indexOf("InvoiceCurrencyCode]")>0) 
-					{
+				} else if  (0==PROCESSING.indexOf("SME-COMMON")) {
+					if (xPath.indexOf("InvoiceCurrencyCode]")>0) {
 						xPath = xPath.replaceAll(
 								"//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/InvoiceCurrencyCode",
 								"'"+DOCUMENT_CURRENCY+"'");
-					} else if (xPath.indexOf("TaxCurrencyCode]")>0) 
-					{
+					} else if (xPath.indexOf("TaxCurrencyCode]")>0) {
 						xPath = xPath.replaceAll(
 								"//CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/TaxCurrencyCode",
 								"'"+TAX_CURRENCY+"'");
@@ -417,70 +455,59 @@ public class Csv2invoice
 				}
 				String datatype = binding.getDatatype();
 				attributes      = new HashMap<>();
-				if (0==PROCESSING.indexOf("JP-PINT")) 
-				{
-					if ("Amount".equals(datatype) || "Unit Price Amount".equals(datatype)) 
-					{
-						if (xPath.length() > 0) 
-						{
-							if (null!=taxCurrencyCode.xPath && xPath.indexOf(taxCurrencyCode.xPath)>=0) 
-							{
+				if (0==PROCESSING.indexOf("JP-PINT")) {
+					if ("Amount".equals(datatype) || "Unit Price Amount".equals(datatype)) {
+						if (xPath.length() > 0) {
+							if (null!=taxCurrencyCode.xPath && xPath.indexOf(taxCurrencyCode.xPath)>=0) {
 								attributes.put("currencyID", taxCurrencyCode.value);
-							} else 
-							{
+							} else {
 								attributes.put("currencyID", documentCurrencyCode.value);
 							}
 						}
 					}
 				}
+				
 				// Get key set of the TreeMap using keySet method
 				Set<Integer> keySet = idMap.keySet();
+				
 				// Converting entrySet to ArrayList
 				List<Integer> entryList = new ArrayList<>(keySet);
-				int j = entryList.indexOf(synSort);
+				
+				int j = entryList.indexOf(_synSort);
 				if (TRACE) System.out.println("dataRedords["+i+"]["+j+"] = DataValue("+boughSort+" "+boughSeq+"  "+id+" "+FileHandler.getShortPath(xPath)+" "+value+" "+attributes);
+				
 				dataRedords[i][j] = new DataValue(boughSeq, boughSort, id, xPath, value, attributes);
 			}
 			i++;
 		}	
-		
-		for (int y = 0; y < col_size; y++) 
-		{
-			for (int x = 0; x < row_size; x++) 
-			{
-				DataValue dataValue = dataRedords[x][y];
-				if (null != dataValue) 
-				{
+		for (int y = 0; y < col_size; y++) {
+			for (int x = 0; x < row_size; x++) {
+				DataValue dataValue = dataRedords[x][y];		
+				if (null != dataValue) {
 					boughSeq   = dataValue.seq;
 					boughSort  = dataValue.sort;
 					id         = dataValue.id;					
 					xPath      = dataValue.xPath;
 					value      = dataValue.value;
 					attributes = dataValue.attributes;
-					if (null!=xPath && xPath.length() > 0) 
-					{					
-						if (0==PROCESSING.indexOf("JP-PINT") && id.equals("NC70-07")) 
-						{ 
-							// NC70-07(IBT-184 Despatch advice reference cac:DespatchLineReference/cac:DocumentReference/cbc:ID )
+					if (null!=xPath && xPath.length() > 0) {
+						if (0==PROCESSING.indexOf("JP-PINT") && id.equals("JC69_e_JC13_01")) { 
+							// JC69_e_JC13_01(IBT-184 Despatch advice reference cac:DespatchLineReference/cac:DocumentReference/cbc:ID )
 							// では、UBL構文が必須としている cac:DespatchLineReference/cbc:LineID　に　NA を定義する。
 							// Syntax required item. Value shall be NA. 構文必須要素。値として 'NA'を使用する。							
-							if (TRACE)
+							if (DEBUG)
 								System.out.println("call appendElementNS /Invoice/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID = NA");
 							appendElementNS(boughSort, boughSeq, "", "/Invoice/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID", "NA", attributes);
-						} else if (0==PROCESSING.indexOf("SME-COMMON")) 
-						{
+						} else if (0==PROCESSING.indexOf("SME-COMMON")) {
 							// 外貨でての税額があるときには、文書合計金額の税額に外貨建ての金額もあるのでSelkectorを修正する。
-							Binding binding = FileHandler.bindingDict.get(id);
-							Integer semSort = binding.getSemSort();
-							Integer synSort = binding.getSynSort();
+							binding         = FileHandler.bindingDict.get(id);
+							semSort = binding.getSemSort();
 							if (MIN_DOCUMENT_TOTAL <= semSort && semSort <= MAX_DOCUMENT_TOTAL)
 								xPath = FileHandler.stripSelector(xPath);
-							if (id.equals(TOTAL_TAX_ID)) 
-							{
+							if (id.equals(TOTAL_TAX_ID)) {
 								attributes.put("currencyID", DOCUMENT_CURRENCY);
 								xPath += "[position()=1]";
-							} else if (id.equals(TOTAL_TAX_CURRENCY_TAX_ID)) 
-							{
+							} else if (id.equals(TOTAL_TAX_CURRENCY_TAX_ID)) {
 								attributes.put("currencyID", TAX_CURRENCY);
 								xPath += "[position()=2]";
 							}
@@ -488,13 +515,11 @@ public class Csv2invoice
 							 * SME-COMMONのときの外貨建ての税区分ごとの税額の判定が不正。暫定的に外貨建てを対象外とする。
 							 * TODO: 外貨建ての税区分ごとの税額サポート
 							 */
-							if (xPath.indexOf("[CurrencyCode=/SMEinvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/InvoiceCurrencyCode]") > 0) 
-							{
+							if (xPath.indexOf("[CurrencyCode=/SMEInvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/InvoiceCurrencyCode]") > 0) {
 								xPath = FileHandler.stripSelector(xPath);
 							}
-							else if (xPath.indexOf("[CurrencyCode=/SMEinvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/TaxCurrencyCode]") > 0) 
-							{
-								if (TRACE) System.out.println("TODO: support "+xPath);
+							else if (xPath.indexOf("[CurrencyCode=/SMEInvoice/CIIHSupplyChainTradeTransaction/ApplicableCIIHSupplyChainTradeSettlement/TaxCurrencyCode]") > 0) {
+								if (DEBUG) System.out.println("TODO: support "+xPath);
 							}
 //							/**
 //							 * SME-COMMONのときのSelector条件では、子要素のほとんどで新しくApplicableCITradeTaxを定義してしまう。
@@ -516,30 +541,37 @@ public class Csv2invoice
 //								}
 //							}
 						}
-//						if (DEBUG && (id.matches("^.*NC53.*$") || id.matches("^.*NC54.*$") || id.matches("^.*NC72.*$") || id.matches("^.*NC73.*$")))
-//							System.out.println(id);
-						if (TRACE) 
+						if (DEBUG) 
 							System.out.println("call appendElementNS "+id+" "+FileHandler.getShortPath(xPath)+" = "+value);
+						
 						appendElementNS(boughSort, boughSeq, id, xPath, value, attributes);
+						
 					}
 				}
 			}
 		}
 
-		try (FileOutputStream output = new FileOutputStream(out_xml)) 
-		{
+		try (FileOutputStream output = new FileOutputStream(out_xml)) {
 			WriteXmlDom.writeXml(FileHandler.doc, output);
-		} catch (IOException eIO) 
-		{
+		} catch (IOException eIO) {
 			eIO.printStackTrace();
-		} catch (TransformerException eTE) 
-		{
+		} catch (TransformerException eTE) {
 			eTE.printStackTrace();
 		}
 		
-		if (TRACE) System.out.println("-- END -- "+out_xml);		
+		if (DEBUG) System.out.println("-- END -- "+out_xml);		
 	}
 
+    private static String removeSuffix(String str) {
+        Pattern pattern = Pattern.compile("^(.*?)(_\\d+)?$");
+        Matcher matcher = pattern.matcher(str);
+        if (matcher.find()) {
+            return matcher.group(1);
+        } else {
+            return str;  // これは起こり得ないが、マッチしなかった場合のフォールバックとして残しています
+        }
+    }
+    
 	/**
 	 * 指定された要素に対応するXML要素をXMLインスタンス文書に追加する.<br>
 	 * 次のステップで追加処理する.
@@ -564,124 +596,32 @@ public class Csv2invoice
 			String id,
 			String xPath,
 			String value, 
-			HashMap<String,String> attributes) 
-	{
-		value = value.trim();
-		Binding binding = FileHandler.bindingDict.get(id);
-//		Integer semSort = binding.getSemSort();
-		Integer synSort = binding.getSynSort();
+			HashMap<String,String> attributes) {
+		value               = value.trim();
+		Binding binding     = FileHandler.bindingDict.get(id);
+		Integer synSort     = binding.getSynSort();
 		String defaultValue = binding.getDefaultValue();
 		if (defaultValue.length() > 0 && ! value.equals(defaultValue))
 			value = defaultValue;
 
-		if (TRACE) {
-			if (value.length() > 0) 
-			{
+		if (DEBUG) {
+			if (value.length() > 0) {
 				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+" "+id+"("+synSort+")\n"+FileHandler.getShortPath(xPath) +" = "+value);
-			} else 
-			{
+			} else {
 				System.out.println("* appendElementNS "+boughSort+"="+boughSeq+"\n"+FileHandler.getShortPath(xPath));
 			}
 		}
-		Element element1, element2, element3, element4, element5, element6, element7, element8, element9;
-		ArrayList<String> paths     = splitPath(xPath);
-		int depth                   = paths.size();
-		Element element0            = FileHandler.root;
-		String val                  = null;
-		HashMap<String,String> attr = new HashMap<>();
-		if (depth > 1) 
-		{
-			if (depth != 2)
-				element1 = fillLevelElement(1, depth, element0, paths.get(1), boughSort, boughSeq, val, attr );
-			else
-				element1 = fillLevelElement(1, depth, element0, paths.get(1), boughSort, boughSeq, value, attributes );
-			if (2 == depth) 
-			{		
-				return element1;
+		ArrayList<String> paths = splitPath(xPath);
+		int depth               = paths.size();	
+	    Element currentElement  = FileHandler.root;	    
+	    for (int i = 1; i < depth; i++) {
+			if (depth == i+1) {
+				currentElement = fillLevelElement(i, currentElement, xPath, boughSort, boughSeq, value, attributes );
+				return currentElement;
 			} else {
-				if (depth != 3)
-					element2 = fillLevelElement(2, depth, element1, paths.get(2), boughSort, boughSeq, val, attr );
-				else
-					element2 = fillLevelElement(2, depth, element1, paths.get(2), boughSort, boughSeq, value, attributes );
-				if (3==depth) 
-				{
-					return element2;
-				} else {
-					if (depth != 4)
-						element3 = fillLevelElement(3, depth, element2, paths.get(3), boughSort, boughSeq, val, attr);
-					else
-						element3 = fillLevelElement(3, depth, element2, paths.get(3), boughSort, boughSeq, value, attributes );
-					if (4==depth) 
-					{
-						return element3;
-					} else 
-					{
-						if (depth != 5)
-							element4 = fillLevelElement(4, depth, element3, paths.get(4), boughSort, boughSeq, val, attr );
-						else
-							element4 = fillLevelElement(4, depth, element3, paths.get(4), boughSort, boughSeq, value, attributes );
-						if (5==depth) 
-						{
-							return element4;
-						} else 
-						{
-							if (depth != 6)
-								element5 = fillLevelElement(5, depth, element4, paths.get(5), boughSort, boughSeq, val, attr);
-							else
-								element5 = fillLevelElement(5, depth, element4, paths.get(5), boughSort, boughSeq, value, attributes );
-							if (6==depth) 
-							{
-								return element5;
-							} else 
-							{
-								if (depth != 7)
-									element6 = fillLevelElement(6, depth, element5, paths.get(6), boughSort, boughSeq, val, attr );
-								else
-									element6 = fillLevelElement(6, depth, element5, paths.get(6), boughSort, boughSeq, value, attributes );
-								if (7==depth) 
-								{
-									return element6;
-								} else 
-								{
-									if (depth != 8)
-										element7 = fillLevelElement(7, depth, element6, paths.get(7), boughSort, boughSeq, val, attr );
-									else
-										element7 = fillLevelElement(7, depth, element6, paths.get(7), boughSort, boughSeq, value, attributes );
-									if (8==depth) 
-									{
-										return element7;
-									} else 
-									{
-										if (depth != 9)
-											element8 = fillLevelElement(8, depth, element7, paths.get(8), boughSort, boughSeq, val, attr );
-										else
-											element8 = fillLevelElement(8, depth, element7, paths.get(8), boughSort, boughSeq, value, attributes );
-										if (9==depth) 
-										{
-											return element8;
-										} else 
-										{
-											if (depth != 10)
-												element9 = fillLevelElement(9, depth, element8, paths.get(9), boughSort, boughSeq, val, attr);
-											else
-												element9 = fillLevelElement(9, depth, element8, paths.get(9), boughSort, boughSeq, value, attributes );
-											if (10==depth) 
-											{
-												return element9;
-											} else 
-											{
-												if (TRACE) System.out.println("** ERROR appendElementNS appendElementNS XPath dpth is too deep 10.");
-												return null;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+				currentElement = fillLevelElement(i, currentElement, xPath, boughSort, boughSeq, null, new HashMap<>() );
 			}
-		}
+	    }
 		return null;
 	}
 
@@ -701,22 +641,24 @@ public class Csv2invoice
 	 */
 	private static Element fillLevelElement (
 			int     n, 
-			int     depth,
 			Element parent, 
-			String  path, 
+			String  xPath, 
 			Integer boughSort, 
 			Integer boughSeq,
 			String  value,
-			HashMap<String,String> attributes ) 
-	{
-		if (null==parent) 
-		{
-			if (TRACE) System.out.println("- fillLevelElement parent is NULL use root");
+			HashMap<String,String> attributes ) {
+		ArrayList<String> paths = splitPath(xPath);
+		int depth               = paths.size();	
+		String path             = paths.get(n);
+//		String childPath        = null;
+//		if (n + 1 <= depth - 1)
+//			childPath = paths.get(n+1);
+		if (null==parent) {
+			if (DEBUG) System.out.println("- fillLevelElement parent is NULL use root");
 			parent = FileHandler.root;
 		}
-		if (0==path.indexOf("@currencyID")) 
-		{
-			if (TRACE) System.out.println("- fillLevelElement setting @currencyID return Amount element");
+		if (0==path.indexOf("@currencyID")) {
+			if (DEBUG) System.out.println("- fillLevelElement setting @currencyID return Amount element");
 			return parent;
 		}			
 //		if ("cbc:TaxAmount".equals(parent.getNodeName()))
@@ -728,63 +670,58 @@ public class Csv2invoice
 		ArrayList<String> 
 			boughPaths       = splitPath(boughXPath);
 		int boughLevel       = boughPaths.size()-1;
-		String selector      = FileHandler.extractSelector(path);
+//		String selector      = FileHandler.extractSelector(path);
 		
-		List<Node> elements = FileHandler.getXPath(parent, path);
-		
-		Element element = null;
-		try 
-		{
-			if (TRACE) 
-			{
+		List<Node> elements  = FileHandler.getXPath(parent, strippedPath);// path);		
+		Element element      = null;
+		try {
+			if (DEBUG) {
 				System.out.print("- fillLevelElement getXPath returns "+elements.size()+" elements boughSeq = "+boughSeq+" "+path);
 				if (elements.size()==0 && n+1==depth &&
 					((0==PROCESSING.indexOf("JP-PINT") && ! path.matches("^cac:[a-zA-Z]+$")) || 
-						(0==PROCESSING.indexOf("SME-COMMON") && terminalElements.indexOf(strippedPath) >= 0))) 
-				{
+						(0==PROCESSING.indexOf("SME-COMMON") && terminalElements.indexOf(strippedPath) >= 0))) {
 					System.out.println(" = "+value);
-				} else 
-				{
+				} else {
 					System.out.println("");
 				}
 			}
 			
-			if (0 == elements.size()) 
-			{
-				if (TRACE) System.out.println("+createElement"+parent.getChildNodes().toString()+" "+path+" value="+value);
-				element = createElement(parent, strippedPath, boughSort, 0, value, attributes, n, depth);
-				if (selector.length() > 0 && 0==selector.indexOf("/")) 
-				{
-					if (TRACE) System.out.println("    selector="+selector);
-					defineSelector(element, selector, boughSort, boughSeq, n, depth);
-				}
-			} else 
-			{
-				if (n == boughLevel) 
-				{
-					if (path.indexOf("position") > 0) 
-					{ // 課税分類ごとの金額に外貨建てがあることを考慮したことでSelector条件をposition=nに変更していることにより、boughSeqで区別せずに済むため。
+			if (0 == elements.size()) {
+				if (DEBUG) System.out.println("+createElement"+parent.getChildNodes().toString()+" "+path+" value="+value);
+				
+				element = createElement(parent, strippedPath, value, attributes, n, depth);
+				
+//				if (selector.length() > 0 && selector.indexOf(childPath) < 0) {
+//					if (DEBUG) System.out.println("    selector="+selector);
+//					
+//					defineSelector(element, selector, boughSort, boughSeq, n, depth);
+//					
+//				}
+			} else {
+				if (n == boughLevel) {
+					if (path.indexOf("position") > 0) { // 課税分類ごとの金額に外貨建てがあることを考慮したことでSelector条件をposition=nに変更していることにより、boughSeqで区別せずに済むため。
 						 element = (Element) elements.get(0);
-					} else if (boughSeq < elements.size()) 
-					{ // 返金や追加請求など同じSelector条件で複数ある場合は、boughSeqで区別する。
-						 element = (Element) elements.get(boughSeq);
-					} else 
-					{
-						if (TRACE) System.out.println("+createElement"+parent.getChildNodes().toString()+" "+path+" value="+value);
-						element = createElement(parent, strippedPath, boughSort, boughSeq, value, attributes, n, depth);
-						if (selector.length() > 0 && selector.indexOf("position") < 0) 
-						{
-							if (TRACE) System.out.println("    selector="+selector);
-							defineSelector(element, selector, boughSort, boughSeq, n, depth);
-						}
+					} else if (boughSeq <= elements.size()) { // 返金や追加請求など同じSelector条件で複数ある場合は、boughSeqで区別する。 boughSeq=1, 2, 3, ...
+						 if (boughSeq > 0) // 2023-10-04
+							 boughSeq -= 1;
+						 element = (Element) elements.get(boughSeq); 
+					} else {
+						if (DEBUG) System.out.println("+createElement"+parent.getChildNodes().toString()+" "+path+" value="+value);
+						
+						element = createElement(parent, strippedPath, value, attributes, n, depth);
+						
+//						if (selector.length() > 0 && selector.indexOf("position") < 0) {
+//							if (DEBUG) System.out.println("    selector="+selector);
+//							
+//							defineSelector(element, selector, boughSort, boughSeq, n, depth);
+//							
+//						}
 					}
-				} else 
-				{
+				} else {
 					element = (Element) elements.get(0);
 				}				
 			}			
-		} catch (Exception e) 
-		{
+		} catch (Exception e) {
 			System.out.println("xx ERROR fillLevelElement "+parent.getNodeName()+" XPath="+path);
 			System.out.println(e.toString());
 			e.getStackTrace();
@@ -802,39 +739,47 @@ public class Csv2invoice
 	 * @param n XML要素のXPathを / で分割したときの何番目の要素か指定する番号.
 	 * @param depth XML要素のXPathを / で分割したときにいくつに分割されたかを示す分割された要素数.
 	 */
-	private static void defineSelector(
-			Element element, 
-			String  selector, 
-			Integer boughSort, 
-			Integer boughSeq, 
-			int n, 
-			int depth ) 
-	{
-		if (0==selector.length() || 0==selector.indexOf("not(") || selector.indexOf("position") >= 0) 
-		{
-			return;
-		}
-		selector = selector.substring(1,selector.length()-1);
-		String[] params = selector.split("=");
-		String selectorXPath = params[0];
-		String selectorValue = params[1];
-		String[] paths = selectorXPath.split("/");
-		HashMap<String,String> attrs = new HashMap<>();
-		Element el = null;
-		for (String sPath : paths) 
-		{
-			if (sPath.matches("^cac:.*$")) 
-			{
-				if (TRACE) System.out.println("- defineSelector => createElement "+boughSort+"="+boughSeq+" "+sPath);
-				el = createElement(element, sPath, boughSort, boughSeq, "", attrs, n, depth);
-			} else 
-			{
-				if (TRACE) System.out.println("- defineSelector => createElement "+boughSort+"="+boughSeq+" "+sPath+" value="+selectorValue);
-				createElement(el, sPath, boughSort, boughSeq, selectorValue, attrs, n, depth);
-			}
-		}
-	}
-	
+//	private static void defineSelector(
+//			Element element, 
+//			String  selector, 
+//			Integer boughSort, 
+//			Integer boughSeq, 
+//			int     n, 
+//			int     depth ) {
+//		if (selector==null || 0==selector.length() || 0==selector.indexOf("not(") || selector.indexOf("position") >= 0) {
+//			return;
+//		}
+//		selector = selector.substring(1,selector.length()-1);
+//		if (selector.startsWith("not("))
+//			return;
+//		String[] params      = selector.split("=");
+//		String selectorXPath = params[0];		
+//        // 正規表現パターンを用意します。こちらは "normalize-space(" の後の任意の文字列をキャプチャするものです。
+//        Pattern pattern = Pattern.compile("normalize-space\\(([^/]+)/text\\(\\)\\)");
+//        Matcher matcher = pattern.matcher(selectorXPath);
+//        // マッチするものが見つかった場合、キャプチャした部分（つまり、要素名）を返します。
+//        if (matcher.find()) {
+//        	selectorXPath = matcher.group(1);  // グループ 1 がキャプチャした部分です。
+//        }		
+//		String selectorValue         = params[1].replace("'","");
+//		String[] paths               = selectorXPath.split("/");
+//		HashMap<String,String> attrs = new HashMap<>();
+//		Element el = element;
+//		for (String sPath : paths) {
+//			if (sPath.matches("^cac:.*$")) {
+//				if (DEBUG) System.out.println("- defineSelector => createElement "+sPath);
+//				
+//				el = createElement(el, sPath, "", attrs, n, depth);
+//				
+//			} else {
+//				if (DEBUG) System.out.println("- defineSelector => createElement "+sPath+" value="+selectorValue);
+//				
+//				el = createElement(el, sPath, selectorValue, attrs, n, depth);
+//				
+//			}
+//		}
+//	}
+
 	/**
 	 * FileHandler.appendElementNSを使用してXML DOM DocumentにXML要素を追加定義し、そのXML要素を親のXML要素の子要素として追加する.
 	 * 指定されたパラメタから定義するXML要素の次の引数を作成し関数を呼び出す。
@@ -848,8 +793,6 @@ public class Csv2invoice
 	 * @param qname 定義するXML要素の名前.
 	 * @param parent 親のXML要素.
 	 * @param path XML要素のXPathを / で分割したときのn番目の要素に対応するXPathの文字列. 親のXML要素からの相対XPath.
-	 * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
-	 * @param boughSeq 要素が定義されたTidy dataの行に対応する索引(bough)の順序番号.
 	 * @param value 定義するXML要素の値.
 	 * @param attributes 定義するXML要素の属性.
 	 * @param level
@@ -857,39 +800,40 @@ public class Csv2invoice
 	 * 
 	 * @return element 定義したXML要素.
 	 */
-	private static Element createElement (
+	private static Element createElement(
 			Element parent, 
-			String path, 
-			Integer boughSort, 
-			Integer boughSeq,
+			String path,
 			String value, 
 			HashMap<String,String> attributes, 
 			int level,
-			int depth ) 
-	{
+			int depth ) {
 		Element element = null;
 		String cacValue = "";
 		HashMap<String,String> cacAttributes = null;
 				
 		String path1 = FileHandler.stripSelector(path);
 		String ns = null, nsURI = null, qname = null;
-		if ("@".equals(path1.substring(0,1))) 
-		{
+		if ("@".equals(path1.substring(0,1))) {
 			qname = path1;
-		} else 
-		{
-			String[] ename = path1.split(":");
-			ns = ename[0];
-			nsURI = FileHandler.nsURIMap.get(ns);
-			qname = ename[1];
+		} else {
+			if (path1.contains(":")) {
+				String[] ename = path1.split(":");
+				ns             = ename[0];
+				nsURI          = FileHandler.nsURIMap.get(ns);
+				qname          = ename[1];
+			} else {
+				ns    = "";
+				qname = path1;
+			}
 		}
 		
-		if (0==PROCESSING.indexOf("JP-PINT") && "cac".equals(ns)) 
-		{
-			value = cacValue;
+		if (0==PROCESSING.indexOf("JP-PINT") && "cac".equals(ns)) {
+			value      = cacValue;
 			attributes = cacAttributes;
 		}
+		
 		element = FileHandler.appendElementNS(parent, nsURI, ns, qname, value, attributes);
+		
 		return element;
 	}
 
@@ -900,28 +844,23 @@ public class Csv2invoice
 	 * 
 	 * @return paths 分割された階層ごとの文字列のリスト. ArrayList&lt;String&gt;.
 	 */
-	private static ArrayList<String> splitPath (String xPath ) 
-	{
+	private static ArrayList<String> splitPath (String xPath ) {
 		int start = xPath.indexOf("[");
 		int last = xPath.lastIndexOf("]");
 		String xPath1 = "";
-		if (start >= 0) 
-		{
+		if (start >= 0) {
 			String selector = xPath.substring(start, last+1);
 			selector = selector.replaceAll("/","_");
 			xPath1 = xPath.substring(0, start)+selector+xPath.substring(last+1,xPath.length());		
-		} else 
-		{
+		} else {
 			xPath1 = xPath;
 		}
 		ArrayList<String> paths = new ArrayList<>();
-		if ("/".equals(xPath1.substring(0,1))) 
-		{
+		if ("/".equals(xPath1.substring(0,1))) {
 			xPath1 = xPath1.substring(1);
 		}
 		String[] paths0 = xPath1.split("/");
-		for (int i = 0; i < paths0.length; i++) 
-		{
+		for (int i = 0; i < paths0.length; i++) {
 			String path = paths0[i];
 			path = path.replaceAll("_","/");
 			paths.add(path);
