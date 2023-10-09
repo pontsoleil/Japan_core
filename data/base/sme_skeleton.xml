@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <SMEInvoice 
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:31"
-		xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:4p1"
-		xmlns:rsm="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1"
-		xsi:schemaLocation="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1 ../SME_Common/SMEEDI_4p1_20230801/Schemas_NDR_4p1_20230801/SMEInvoice.xsd">
+    xmlns="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="urn:un:unece:uncefact:3055:413:data:standard:SMEInvoice:4p1 SMEinvoice.xsd">
 </SMEInvoice>
