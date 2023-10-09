@@ -12,8 +12,7 @@ import org.w3c.dom.Document;
  * 参考　https://howtodoinjava.com/java/xml/xpath-namespace-resolution-example/
  *
  */
-public class NamespaceResolver implements NamespaceContext 
-{
+public class NamespaceResolver implements NamespaceContext {
 	// Store the source document to search the namespaces
 	private Document sourceDocument;
  
