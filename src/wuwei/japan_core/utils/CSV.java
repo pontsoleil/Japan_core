@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+
 /**
  * RFC4180形式のCSVファイルとの入出力を制御するクラス.
  * 『Java：CSVパーサを作る - RFC4180対応』　[山中秀一氏]を参考に一部改変しています。
@@ -21,6 +22,9 @@ import java.util.ArrayList;
  *
  */
 public class CSV {
+	public static boolean TRACE = false;
+	public static boolean DEBUG = false;
+
 	public static ArrayList<String> columns         = new ArrayList<>();
 	public static ArrayList<ArrayList<String>> data = new ArrayList<>();
 
@@ -28,8 +32,7 @@ public class CSV {
  	 * The application's entry point
 	 * @param args an array of command-line arguments for the application
 	 */
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 //		String IN_CSV = "data/csv/Example0.csv";
 //		String OUT_CSV = "data/csv/Example0_out.csv";
 //		String CHARSET = "UTF-8";
@@ -80,9 +83,8 @@ public class CSV {
 	        String charset,
 	        String delimiter,
 	        boolean append)
-	        throws FileNotFoundException, IOException
-	{
-	    System.out.println("- csvFileWrite " + filename + " " + charset);
+	        throws FileNotFoundException, IOException {
+	    if (TRACE) System.out.println("- csvFileWrite " + filename + " " + charset);
 	    File file = new File(filename);
 
 	    try (FileOutputStream fileOutputStream = new FileOutputStream(file, append);
@@ -111,8 +113,7 @@ public class CSV {
 			String charset )
 		throws
 			FileNotFoundException,
-			IOException
-	{
+			IOException {
 		System.out.println("- csvFileRead " + filename + " " + charset);
 		FileInputStream fileInputStream = new FileInputStream(filename);
 		
@@ -161,52 +162,6 @@ public class CSV {
 	    return data;
 	}
 
-/*
-	public static ArrayList<ArrayList<String>> readFile(
-			InputStream stream,
-			String charset )
-	{
-		ArrayList<ArrayList<String>> data = new ArrayList<>();
-		InputStreamReader inputSteramReader = null;
-		BufferedReader bufferedReader = null;
-		try {
-			Charset cs = Charset.forName(charset);
-			inputSteramReader = new InputStreamReader(stream, cs);
-			bufferedReader    = new BufferedReader(inputSteramReader);
-			String record;
-//			int lineNum = 0;
-			while ((record = buildRecord(bufferedReader)) != null) {
-//				lineNum++;
-				if (record.length() <= 0)
-					continue;
-				if (record.startsWith("#"))
-					continue;
-				
-				columns = splitRecord(record);
-				
-				if (columns.size() <= 0)
-					continue;
-
-				data.add(columns);
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			try {
-				if (bufferedReader != null) {
-					bufferedReader.close();
-				}
-				if (inputSteramReader != null) {
-					inputSteramReader.close();
-				}
-				stream.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
-		return data;
-	}
-*/
 	/**
 	 * レコードの確定
 	 * レコード確定では，入力テキストデータに対して，ダブルクォーテーション（二重引用符）のペアをヒントに各レコードの末尾を確定して，レコードの切り分けを行います。
