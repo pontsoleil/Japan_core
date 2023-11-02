@@ -12,14 +12,14 @@ public class CustomComparator implements Comparator<String> {
     public int compare(String o1, String o2) {
         List<Map.Entry<Integer, Integer>> entries1 = Arrays.stream(o1.split(" "))
             .map(pair -> pair.split("="))
-            .filter(keyValue -> !keyValue[1].equals("0"))
+            .filter(keyValue -> keyValue.length > 1 && !keyValue[1].equals("0"))
             .map(keyValue -> new AbstractMap.SimpleEntry<>(Integer.parseInt(keyValue[0]), Integer.parseInt(keyValue[1])))
             .sorted(Map.Entry.comparingByKey())
             .collect(Collectors.toList());
 
         List<Map.Entry<Integer, Integer>> entries2 = Arrays.stream(o2.split(" "))
             .map(pair -> pair.split("="))
-            .filter(keyValue -> !keyValue[1].equals("0"))
+            .filter(keyValue -> keyValue.length > 1 &&!keyValue[1].equals("0"))
             .map(keyValue -> new AbstractMap.SimpleEntry<>(Integer.parseInt(keyValue[0]), Integer.parseInt(keyValue[1])))
             .sorted(Map.Entry.comparingByKey())
             .collect(Collectors.toList());

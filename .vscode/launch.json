@@ -11,8 +11,10 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "justMyCode": true,
+      "args": ["data/base/japan_core.csv", "-o data/xbrl/core.xsd", "-e utf-8", "-d", "-v"] // Japan_core2xBRL-taxonomy.py
+      
       // "args": ["-d data/XBRL-GL2.0a_instances/","-x data/XBRL-GL-REC-2015-03-25/gl/XBRL-GL2.1_instances/"] // XBRL-GL-Versionup.py
-      "args": ["-i data/XBRL-GL2.0a_instances/0001-20090401-18-1-1-463.xml","-o data/XBRL-GL-REC-2015-03-25/gl/XBRL-GL2.1_instances/0001-20090401-18-1-1-463.xml"]// XBRL-GL-Versionup.py
+      // "args": ["-i data/XBRL-GL2.0a_instances/0001-20090401-18-1-1-463.xml","-o data/XBRL-GL-REC-2015-03-25/gl/XBRL-GL2.1_instances/0001-20090401-18-1-1-463.xml"]// XBRL-GL-Versionup.py
 
       // "args": ["hokkaidou_sangyou.csv", "-o tidy_hokkaidou_sangyou.csv", "-e utf-8", "-d", "-v"] // mapping.py
 

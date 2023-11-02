@@ -2,7 +2,7 @@
   "documentInfo" : {
     "documentType" : "https://xbrl.org/2021/xbrl-csv",
     "namespaces" : {
-      "cor" : "http://www.xbrl.jp/core-japan",
+      "core" : "http://www.xbrl.jp/core-japan",
       "ns0" : "http://www.example.com",
       "link" : "http://www.xbrl.org/2003/linkbase",
       "iso4217" : "http://www.xbrl.org/2003/iso4217",
@@ -16,904 +16,699 @@
   "tableTemplates" : {
     "core_japan_template" : {
       "columns" : {
-        "d_NC00" : {},
-        "d_NC39-NC46" : {},
-        "d_NC39-NC57" : {},
-        "d_NC39-NC61" : {},
-        "NC00-01" : {
+        "d_JC00" : { },
+        "d_JC72_JC13" : { },
+        "d_JC55_a_JC2d" : { },
+        "d_JC6e_JC62" : { },
+        "JC0a_03" : {
           "dimensions" : {
-            "concept" : "cor:NC00-01"
+            "concept" : "core:JC0a_03"
           }
         },
-        "NC00-04" : {
+        "JC0a_11" : {
           "dimensions" : {
-            "concept" : "cor:NC00-04"
+            "concept" : "core:JC0a_11"
           }
         },
-        "NC00-07" : {
+        "JC0a_15" : {
           "dimensions" : {
-            "concept" : "cor:NC00-07"
+            "concept" : "core:JC0a_15"
           }
         },
-        "NC00-15" : {
+        "JC0a_17" : {
           "dimensions" : {
-            "concept" : "cor:NC00-15"
+            "concept" : "core:JC0a_17"
           }
         },
-        "NC00-19" : {
+        "JC0a_18" : {
           "dimensions" : {
-            "concept" : "cor:NC00-19"
+            "concept" : "core:JC0a_18"
           }
         },
-        "NC00-21" : {
+        "JC30_JC10_02" : {
           "dimensions" : {
-            "concept" : "cor:NC00-21"
+            "concept" : "core:JC30_JC10_02"
           }
         },
-        "NC00-22" : {
+        "JC72_JC13_01" : {
           "dimensions" : {
-            "concept" : "cor:NC00-22"
+            "concept" : "core:JC72_JC13_01"
           }
         },
-        "NC00-27" : {
+        "JC72_JC13_06" : {
           "dimensions" : {
-            "concept" : "cor:NC00-27"
+            "concept" : "core:JC72_JC13_06"
           }
         },
-        "NC00-29" : {
+        "JC72_JC13_11" : {
           "dimensions" : {
-            "concept" : "cor:NC00-29"
+            "concept" : "core:JC72_JC13_11"
           }
         },
-        "NC00-30" : {
+        "JC72_JC13_12" : {
           "dimensions" : {
-            "concept" : "cor:NC00-30"
+            "concept" : "core:JC72_JC13_12"
           }
         },
-        "NC03-02" : {
+        "JC72_JC13_13" : {
           "dimensions" : {
-            "concept" : "cor:NC03-02"
+            "concept" : "core:JC72_JC13_13"
           }
         },
-        "NC08-01" : {
+        "JC32_1_JC23_01" : {
           "dimensions" : {
-            "concept" : "cor:NC08-01"
+            "concept" : "core:JC32_1_JC23_01"
           }
         },
-        "NC08-02" : {
+        "JC32_1_JC23_20" : {
           "dimensions" : {
-            "concept" : "cor:NC08-02"
+            "concept" : "core:JC32_1_JC23_20"
           }
         },
-        "NC09-01" : {
+        "JC32_1_JC23_02" : {
           "dimensions" : {
-            "concept" : "cor:NC09-01"
+            "concept" : "core:JC32_1_JC23_02"
           }
         },
-        "NC09-02" : {
+        "JC32_1_JC23_21" : {
           "dimensions" : {
-            "concept" : "cor:NC09-02"
+            "concept" : "core:JC32_1_JC23_21"
           }
         },
-        "NC09-03" : {
+        "JC32_1_JC23_03" : {
           "dimensions" : {
-            "concept" : "cor:NC09-03"
+            "concept" : "core:JC32_1_JC23_03"
           }
         },
-        "NC09-04" : {
+        "JC32_1_JC23_04" : {
           "dimensions" : {
-            "concept" : "cor:NC09-04"
+            "concept" : "core:JC32_1_JC23_04"
           }
         },
-        "NC09-05" : {
+        "JC32_1_JC23_07" : {
           "dimensions" : {
-            "concept" : "cor:NC09-05"
+            "concept" : "core:JC32_1_JC23_07"
           }
         },
-        "NC09-06" : {
+        "JC32_1_JC23_08" : {
           "dimensions" : {
-            "concept" : "cor:NC09-06"
+            "concept" : "core:JC32_1_JC23_08"
           }
         },
-        "NC09-07" : {
+        "JC32_1_JC23_10" : {
           "dimensions" : {
-            "concept" : "cor:NC09-07"
+            "concept" : "core:JC32_1_JC23_10"
           }
         },
-        "NC09-08" : {
+        "JC32_1_JC23_12" : {
           "dimensions" : {
-            "concept" : "cor:NC09-08"
+            "concept" : "core:JC32_1_JC23_12"
           }
         },
-        "NC09-10" : {
+        "JC32_1_JC23_13" : {
           "dimensions" : {
-            "concept" : "cor:NC09-10"
+            "concept" : "core:JC32_1_JC23_13"
           }
         },
-        "NC09-11" : {
+        "JC32_1_JC23_14" : {
           "dimensions" : {
-            "concept" : "cor:NC09-11"
+            "concept" : "core:JC32_1_JC23_14"
           }
         },
-        "NC09-12" : {
+        "JC32_1_JC23_15" : {
           "dimensions" : {
-            "concept" : "cor:NC09-12"
+            "concept" : "core:JC32_1_JC23_15"
           }
         },
-        "NC10-02" : {
+        "JC32_1_JC23_16" : {
           "dimensions" : {
-            "concept" : "cor:NC10-02"
+            "concept" : "core:JC32_1_JC23_16"
           }
         },
-        "NC10-05" : {
+        "JC32_1_JC23_17" : {
           "dimensions" : {
-            "concept" : "cor:NC10-05"
+            "concept" : "core:JC32_1_JC23_17"
           }
         },
-        "NC10-07" : {
+        "JC32_1_JC23_18" : {
           "dimensions" : {
-            "concept" : "cor:NC10-07"
+            "concept" : "core:JC32_1_JC23_18"
           }
         },
-        "NC11-01" : {
+        "JC32_1_JC23_19" : {
           "dimensions" : {
-            "concept" : "cor:NC11-01"
+            "concept" : "core:JC32_1_JC23_19"
           }
         },
-        "NC11-02" : {
+        "JC33_2_JC23_01" : {
           "dimensions" : {
-            "concept" : "cor:NC11-02"
+            "concept" : "core:JC33_2_JC23_01"
           }
         },
-        "NC11-03" : {
+        "JC33_2_JC23_20" : {
           "dimensions" : {
-            "concept" : "cor:NC11-03"
+            "concept" : "core:JC33_2_JC23_20"
           }
         },
-        "NC11-04" : {
+        "JC33_2_JC23_02" : {
           "dimensions" : {
-            "concept" : "cor:NC11-04"
+            "concept" : "core:JC33_2_JC23_02"
           }
         },
-        "NC11-05" : {
+        "JC33_2_JC23_21" : {
           "dimensions" : {
-            "concept" : "cor:NC11-05"
+            "concept" : "core:JC33_2_JC23_21"
           }
         },
-        "NC11-06" : {
+        "JC33_2_JC23_03" : {
           "dimensions" : {
-            "concept" : "cor:NC11-06"
+            "concept" : "core:JC33_2_JC23_03"
           }
         },
-        "NC11-07" : {
+        "JC33_2_JC23_04" : {
           "dimensions" : {
-            "concept" : "cor:NC11-07"
+            "concept" : "core:JC33_2_JC23_04"
           }
         },
-        "NC12-01" : {
+        "JC33_2_JC23_07" : {
           "dimensions" : {
-            "concept" : "cor:NC12-01"
+            "concept" : "core:JC33_2_JC23_07"
           }
         },
-        "NC12-02" : {
+        "JC33_2_JC23_10" : {
           "dimensions" : {
-            "concept" : "cor:NC12-02"
+            "concept" : "core:JC33_2_JC23_10"
           }
         },
-        "NC12-03" : {
+        "JC33_2_JC23_12" : {
           "dimensions" : {
-            "concept" : "cor:NC12-03"
+            "concept" : "core:JC33_2_JC23_12"
           }
         },
-        "NC12-04" : {
+        "JC33_2_JC23_13" : {
           "dimensions" : {
-            "concept" : "cor:NC12-04"
+            "concept" : "core:JC33_2_JC23_13"
           }
         },
-        "NC12-05" : {
+        "JC33_2_JC23_14" : {
           "dimensions" : {
-            "concept" : "cor:NC12-05"
+            "concept" : "core:JC33_2_JC23_14"
           }
         },
-        "NC12-06" : {
+        "JC33_2_JC23_15" : {
           "dimensions" : {
-            "concept" : "cor:NC12-06"
+            "concept" : "core:JC33_2_JC23_15"
           }
         },
-        "NC12-07" : {
+        "JC33_2_JC23_16" : {
           "dimensions" : {
-            "concept" : "cor:NC12-07"
+            "concept" : "core:JC33_2_JC23_16"
           }
         },
-        "NC12-08" : {
+        "JC33_2_JC23_17" : {
           "dimensions" : {
-            "concept" : "cor:NC12-08"
+            "concept" : "core:JC33_2_JC23_17"
           }
         },
-        "NC12-09" : {
+        "JC33_2_JC23_18" : {
           "dimensions" : {
-            "concept" : "cor:NC12-09"
+            "concept" : "core:JC33_2_JC23_18"
           }
         },
-        "NC12-10" : {
+        "JC33_2_JC23_19" : {
           "dimensions" : {
-            "concept" : "cor:NC12-10"
+            "concept" : "core:JC33_2_JC23_19"
           }
         },
-        "NC13-02" : {
+        "JC71_JC01_01" : {
           "dimensions" : {
-            "concept" : "cor:NC13-02"
+            "concept" : "core:JC71_JC01_01"
           }
         },
-        "NC13-05" : {
+        "JC43_JC34_02" : {
           "dimensions" : {
-            "concept" : "cor:NC13-05"
+            "concept" : "core:JC43_JC34_02"
           }
         },
-        "NC13-07" : {
+        "JC37_5_JC23_01" : {
           "dimensions" : {
-            "concept" : "cor:NC13-07"
+            "concept" : "core:JC37_5_JC23_01"
           }
         },
-        "NC14-01" : {
+        "JC37_5_JC23_16" : {
           "dimensions" : {
-            "concept" : "cor:NC14-01"
+            "concept" : "core:JC37_5_JC23_16"
           }
         },
-        "NC14-02" : {
+        "JC37_5_JC23_02" : {
           "dimensions" : {
-            "concept" : "cor:NC14-02"
+            "concept" : "core:JC37_5_JC23_02"
           }
         },
-        "NC14-03" : {
+        "JC37_5_JC23_17" : {
           "dimensions" : {
-            "concept" : "cor:NC14-03"
+            "concept" : "core:JC37_5_JC23_17"
           }
         },
-        "NC14-04" : {
+        "JC37_5_JC23_03" : {
           "dimensions" : {
-            "concept" : "cor:NC14-04"
+            "concept" : "core:JC37_5_JC23_03"
           }
         },
-        "NC14-05" : {
+        "JC3b_JC16_01" : {
           "dimensions" : {
-            "concept" : "cor:NC14-05"
+            "concept" : "core:JC3b_JC16_01"
           }
         },
-        "NC14-06" : {
+        "JC3b_JC16_02" : {
           "dimensions" : {
-            "concept" : "cor:NC14-06"
+            "concept" : "core:JC3b_JC16_02"
           }
         },
-        "NC14-07" : {
+        "JC17_JC04_01" : {
           "dimensions" : {
-            "concept" : "cor:NC14-07"
+            "concept" : "core:JC17_JC04_01"
           }
         },
-        "NC15-01" : {
+        "JC17_JC04_02" : {
           "dimensions" : {
-            "concept" : "cor:NC15-01"
+            "concept" : "core:JC17_JC04_02"
           }
         },
-        "NC15-02" : {
+        "JC3e_JC27_02" : {
           "dimensions" : {
-            "concept" : "cor:NC15-02"
+            "concept" : "core:JC3e_JC27_02"
           }
         },
-        "NC15-03" : {
+        "JC3e_JC27_03" : {
           "dimensions" : {
-            "concept" : "cor:NC15-03"
+            "concept" : "core:JC3e_JC27_03"
           }
         },
-        "NC15-04" : {
+        "JC3f_JC45_04" : {
           "dimensions" : {
-            "concept" : "cor:NC15-04"
+            "concept" : "core:JC3f_JC45_04"
           }
         },
-        "NC15-05" : {
+        "JC49_JC13_01" : {
           "dimensions" : {
-            "concept" : "cor:NC15-05"
+            "concept" : "core:JC49_JC13_01"
           }
         },
-        "NC27-01" : {
+        "JC4a_JC13_01" : {
           "dimensions" : {
-            "concept" : "cor:NC27-01"
+            "concept" : "core:JC4a_JC13_01"
           }
         },
-        "NC27-02" : {
+        "JC4b_JC13_01" : {
           "dimensions" : {
-            "concept" : "cor:NC27-02"
+            "concept" : "core:JC4b_JC13_01"
           }
         },
-        "NC27-03" : {
+        "JC4d_JC23_01" : {
           "dimensions" : {
-            "concept" : "cor:NC27-03"
+            "concept" : "core:JC4d_JC23_01"
           }
         },
-        "NC28-01" : {
+        "JC4d_JC23_10" : {
           "dimensions" : {
-            "concept" : "cor:NC28-01"
+            "concept" : "core:JC4d_JC23_10"
           }
         },
-        "NC28-02" : {
+        "JC4d_JC23_03" : {
           "dimensions" : {
-            "concept" : "cor:NC28-02"
+            "concept" : "core:JC4d_JC23_03"
           }
         },
-        "NC28-03" : {
+        "JC4d_JC23_04" : {
           "dimensions" : {
-            "concept" : "cor:NC28-03"
+            "concept" : "core:JC4d_JC23_04"
           }
         },
-        "NC28-04" : {
+        "JC4d_JC23_05" : {
           "dimensions" : {
-            "concept" : "cor:NC28-04"
+            "concept" : "core:JC4d_JC23_05"
           }
         },
-        "NC28-05" : {
+        "JC4d_JC23_06" : {
           "dimensions" : {
-            "concept" : "cor:NC28-05"
+            "concept" : "core:JC4d_JC23_06"
           }
         },
-        "NC28-06" : {
+        "JC4d_JC23_07" : {
           "dimensions" : {
-            "concept" : "cor:NC28-06"
+            "concept" : "core:JC4d_JC23_07"
           }
         },
-        "NC28-07" : {
+        "JC4d_JC23_08" : {
           "dimensions" : {
-            "concept" : "cor:NC28-07"
+            "concept" : "core:JC4d_JC23_08"
           }
         },
-        "NC31-02" : {
+        "JC4d_JC23_09" : {
           "dimensions" : {
-            "concept" : "cor:NC31-02"
+            "concept" : "core:JC4d_JC23_09"
           }
         },
-        "NC31-03" : {
+        "JC5e_JC13_01" : {
           "dimensions" : {
-            "concept" : "cor:NC31-03"
+            "concept" : "core:JC5e_JC13_01"
           }
         },
-        "NC32-01" : {
+        "JC5f_JC13_01" : {
           "dimensions" : {
-            "concept" : "cor:NC32-01"
+            "concept" : "core:JC5f_JC13_01"
           }
         },
-        "NC32-02" : {
+        "JC57_8_JC1b_03" : {
           "dimensions" : {
-            "concept" : "cor:NC32-02"
-          }
-        },
-        "NC35-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC35-02"
-          }
-        },
-        "NC35-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC35-03"
-          }
-        },
-        "NC36-04" : {
-          "dimensions" : {
-            "concept" : "cor:NC36-04",
+            "concept" : "core:JC57_8_JC1b_03",
             "unit" : "iso4217:JPY"
           }
         },
-        "NC39-08" : {
+        "JC57_8_JC1b_04" : {
           "dimensions" : {
-            "concept" : "cor:NC39-08"
+            "concept" : "core:JC57_8_JC1b_04"
           }
         },
-        "NC39-09" : {
+        "JC57_8_JC1b_05" : {
           "dimensions" : {
-            "concept" : "cor:NC39-09"
+            "concept" : "core:JC57_8_JC1b_05"
           }
         },
-        "NC42-01" : {
+        "JC57_8_JC1b_07" : {
           "dimensions" : {
-            "concept" : "cor:NC42-01"
+            "concept" : "core:JC57_8_JC1b_07"
           }
         },
-        "NC43-01" : {
+        "JC57_8_JC1b_08" : {
           "dimensions" : {
-            "concept" : "cor:NC43-01"
+            "concept" : "core:JC57_8_JC1b_08"
           }
         },
-        "NC44-01" : {
+        "JC57_9_JC1b_03" : {
           "dimensions" : {
-            "concept" : "cor:NC44-01"
-          }
-        },
-        "NC45-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC45-01"
-          }
-        },
-        "NC45-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC45-02"
-          }
-        },
-        "NC45-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC45-03"
-          }
-        },
-        "NC46-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC46-01"
-          }
-        },
-        "NC46-07" : {
-          "dimensions" : {
-            "concept" : "cor:NC46-07"
-          }
-        },
-        "NC46-08" : {
-          "dimensions" : {
-            "concept" : "cor:NC46-08"
-          }
-        },
-        "NC46-11" : {
-          "dimensions" : {
-            "concept" : "cor:NC46-11"
-          }
-        },
-        "NC46-09" : {
-          "dimensions" : {
-            "concept" : "cor:NC46-09"
-          }
-        },
-        "NC46-10" : {
-          "dimensions" : {
-            "concept" : "cor:NC46-10"
-          }
-        },
-        "NC48-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC48-01"
-          }
-        },
-        "NC49-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC49-01"
-          }
-        },
-        "NC50-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC50-01"
-          }
-        },
-        "NC50-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC50-02"
-          }
-        },
-        "NC50-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC50-03"
-          }
-        },
-        "NC50-06" : {
-          "dimensions" : {
-            "concept" : "cor:NC50-06"
-          }
-        },
-        "NC51-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC51-01"
-          }
-        },
-        "NC51-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC51-02"
-          }
-        },
-        "NC51-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC51-03"
-          }
-        },
-        "NC51-04" : {
-          "dimensions" : {
-            "concept" : "cor:NC51-04"
-          }
-        },
-        "NC51-05" : {
-          "dimensions" : {
-            "concept" : "cor:NC51-05"
-          }
-        },
-        "NC51-06" : {
-          "dimensions" : {
-            "concept" : "cor:NC51-06"
-          }
-        },
-        "NC51-07" : {
-          "dimensions" : {
-            "concept" : "cor:NC51-07"
-          }
-        },
-        "NC53-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC53-01"
-          }
-        },
-        "NC53-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC53-03",
+            "concept" : "core:JC57_9_JC1b_03",
             "unit" : "iso4217:JPY"
           }
         },
-        "NC53-04" : {
+        "JC57_9_JC1b_04" : {
           "dimensions" : {
-            "concept" : "cor:NC53-04"
+            "concept" : "core:JC57_9_JC1b_04"
           }
         },
-        "NC53-05" : {
+        "JC57_9_JC1b_05" : {
           "dimensions" : {
-            "concept" : "cor:NC53-05"
+            "concept" : "core:JC57_9_JC1b_05"
           }
         },
-        "NC53-07" : {
+        "JC57_9_JC1b_07" : {
           "dimensions" : {
-            "concept" : "cor:NC53-07"
+            "concept" : "core:JC57_9_JC1b_07"
           }
         },
-        "NC53-08" : {
+        "JC57_9_JC1b_08" : {
           "dimensions" : {
-            "concept" : "cor:NC53-08"
+            "concept" : "core:JC57_9_JC1b_08"
           }
         },
-        "NC53-09" : {
+        "JC55_a_JC2d_01" : {
           "dimensions" : {
-            "concept" : "cor:NC53-09"
-          }
-        },
-        "NC54-09" : {
-          "dimensions" : {
-            "concept" : "cor:NC54-09"
-          }
-        },
-        "NC54-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC54-01"
-          }
-        },
-        "NC54-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC54-03",
+            "concept" : "core:JC55_a_JC2d_01",
             "unit" : "iso4217:JPY"
           }
         },
-        "NC54-04" : {
+        "JC55_a_JC2d_03" : {
           "dimensions" : {
-            "concept" : "cor:NC54-04"
-          }
-        },
-        "NC54-05" : {
-          "dimensions" : {
-            "concept" : "cor:NC54-05"
-          }
-        },
-        "NC54-07" : {
-          "dimensions" : {
-            "concept" : "cor:NC54-07"
-          }
-        },
-        "NC54-08" : {
-          "dimensions" : {
-            "concept" : "cor:NC54-08"
-          }
-        },
-        "NC55-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC55-01",
+            "concept" : "core:JC55_a_JC2d_03",
             "unit" : "iso4217:JPY"
           }
         },
-        "NC55-02" : {
+        "JC55_a_JC2d_04" : {
           "dimensions" : {
-            "concept" : "cor:NC55-02",
+            "concept" : "core:JC55_a_JC2d_04"
+          }
+        },
+        "JC55_a_JC2d_07" : {
+          "dimensions" : {
+            "concept" : "core:JC55_a_JC2d_07"
+          }
+        },
+        "JC56_JC14_01" : {
+          "dimensions" : {
+            "concept" : "core:JC56_JC14_01"
+          }
+        },
+        "JC56_JC14_02" : {
+          "dimensions" : {
+            "concept" : "core:JC56_JC14_02"
+          }
+        },
+        "JC58_c_JC5c_01" : {
+          "dimensions" : {
+            "concept" : "core:JC58_c_JC5c_01"
+          }
+        },
+        "JC58_c_JC5c_02" : {
+          "dimensions" : {
+            "concept" : "core:JC58_c_JC5c_02"
+          }
+        },
+        "JC58_c_JC5c_03" : {
+          "dimensions" : {
+            "concept" : "core:JC58_c_JC5c_03"
+          }
+        },
+        "JC58_c_JC5c_04" : {
+          "dimensions" : {
+            "concept" : "core:JC58_c_JC5c_04"
+          }
+        },
+        "JC58_c_JC5c_05" : {
+          "dimensions" : {
+            "concept" : "core:JC58_c_JC5c_05"
+          }
+        },
+        "JC58_c_JC5c_06" : {
+          "dimensions" : {
+            "concept" : "core:JC58_c_JC5c_06"
+          }
+        },
+        "JC58_c_JC5c_07" : {
+          "dimensions" : {
+            "concept" : "core:JC58_c_JC5c_07"
+          }
+        },
+        "JC5a_JC13_01" : {
+          "dimensions" : {
+            "concept" : "core:JC5a_JC13_01"
+          }
+        },
+        "JC5a_JC13_05" : {
+          "dimensions" : {
+            "concept" : "core:JC5a_JC13_05"
+          }
+        },
+        "JC5b_d_JC13_01" : {
+          "dimensions" : {
+            "concept" : "core:JC5b_d_JC13_01"
+          }
+        },
+        "JC5b_a_JC13_01" : {
+          "dimensions" : {
+            "concept" : "core:JC5b_a_JC13_01"
+          }
+        },
+        "JC5b_a_JC13_02" : {
+          "dimensions" : {
+            "concept" : "core:JC5b_a_JC13_02"
+          }
+        },
+        "JC61_JC19_02" : {
+          "dimensions" : {
+            "concept" : "core:JC61_JC19_02"
+          }
+        },
+        "JC6e_JC62_01" : {
+          "dimensions" : {
+            "concept" : "core:JC6e_JC62_01"
+          }
+        },
+        "JC7c_JC10_02" : {
+          "dimensions" : {
+            "concept" : "core:JC7c_JC10_02"
+          }
+        },
+        "JC68_JC13_01" : {
+          "dimensions" : {
+            "concept" : "core:JC68_JC13_01"
+          }
+        },
+        "JC68_JC13_02" : {
+          "dimensions" : {
+            "concept" : "core:JC68_JC13_02"
+          }
+        },
+        "JC69_e_JC13_01" : {
+          "dimensions" : {
+            "concept" : "core:JC69_e_JC13_01"
+          }
+        },
+        "JC69_JC13_01" : {
+          "dimensions" : {
+            "concept" : "core:JC69_JC13_01"
+          }
+        },
+        "JC6a_JC28_02" : {
+          "dimensions" : {
+            "concept" : "core:JC6a_JC28_02",
             "unit" : "iso4217:JPY"
           }
         },
-        "NC55-03" : {
+        "JC6a_JC28_03" : {
           "dimensions" : {
-            "concept" : "cor:NC55-03",
+            "concept" : "core:JC6a_JC28_03"
+          }
+        },
+        "JC6a_JC28_04" : {
+          "dimensions" : {
+            "concept" : "core:JC6a_JC28_04"
+          }
+        },
+        "JC64_JC6b_04" : {
+          "dimensions" : {
+            "concept" : "core:JC64_JC6b_04"
+          }
+        },
+        "JC64_JC6b_05" : {
+          "dimensions" : {
+            "concept" : "core:JC64_JC6b_05"
+          }
+        },
+        "JC6d_JC2d_01" : {
+          "dimensions" : {
+            "concept" : "core:JC6d_JC2d_01"
+          }
+        },
+        "JC6d_JC2d_02" : {
+          "dimensions" : {
+            "concept" : "core:JC6d_JC2d_02",
             "unit" : "iso4217:JPY"
           }
         },
-        "NC55-04" : {
+        "JC6d_JC2d_03" : {
           "dimensions" : {
-            "concept" : "cor:NC55-04",
+            "concept" : "core:JC6d_JC2d_03"
+          }
+        },
+        "JC6d_JC2d_05" : {
+          "dimensions" : {
+            "concept" : "core:JC6d_JC2d_05"
+          }
+        },
+        "JC73_JC13_01" : {
+          "dimensions" : {
+            "concept" : "core:JC73_JC13_01"
+          }
+        },
+        "JC73_JC13_06" : {
+          "dimensions" : {
+            "concept" : "core:JC73_JC13_06"
+          }
+        },
+        "JC75_8_JC1b_03" : {
+          "dimensions" : {
+            "concept" : "core:JC75_8_JC1b_03",
             "unit" : "iso4217:JPY"
           }
         },
-        "NC55-05" : {
+        "JC75_8_JC1b_04" : {
           "dimensions" : {
-            "concept" : "cor:NC55-05",
+            "concept" : "core:JC75_8_JC1b_04"
+          }
+        },
+        "JC75_8_JC1b_05" : {
+          "dimensions" : {
+            "concept" : "core:JC75_8_JC1b_05"
+          }
+        },
+        "JC75_9_JC1b_03" : {
+          "dimensions" : {
+            "concept" : "core:JC75_9_JC1b_03",
             "unit" : "iso4217:JPY"
           }
         },
-        "NC55-06" : {
+        "JC75_9_JC1b_04" : {
           "dimensions" : {
-            "concept" : "cor:NC55-06",
-            "unit" : "iso4217:JPY"
+            "concept" : "core:JC75_9_JC1b_04"
           }
         },
-        "NC55-07" : {
+        "JC75_9_JC1b_05" : {
           "dimensions" : {
-            "concept" : "cor:NC55-07",
-            "unit" : "iso4217:JPY"
+            "concept" : "core:JC75_9_JC1b_05"
           }
         },
-        "NC57-01" : {
+        "JC76_JC14_01" : {
           "dimensions" : {
-            "concept" : "cor:NC57-01",
-            "unit" : "iso4217:JPY"
+            "concept" : "core:JC76_JC14_01"
           }
         },
-        "NC57-02" : {
+        "JC76_JC14_02" : {
           "dimensions" : {
-            "concept" : "cor:NC57-02"
+            "concept" : "core:JC76_JC14_02"
           }
         },
-        "NC57-03" : {
+        "JC7d_JC19_02" : {
           "dimensions" : {
-            "concept" : "cor:NC57-03",
-            "unit" : "iso4217:JPY"
+            "concept" : "core:JC7d_JC19_02"
           }
         },
-        "NC57-04" : {
+        "JC70_JC29_02" : {
           "dimensions" : {
-            "concept" : "cor:NC57-04"
+            "concept" : "core:JC70_JC29_02"
           }
         },
-        "NC57-05" : {
+        "JC70_JC29_10" : {
           "dimensions" : {
-            "concept" : "cor:NC57-05"
+            "concept" : "core:JC70_JC29_10"
           }
         },
-        "NC57-07" : {
+        "JC70_JC29_03" : {
           "dimensions" : {
-            "concept" : "cor:NC57-07"
+            "concept" : "core:JC70_JC29_03"
           }
         },
-        "NC61-01" : {
+        "JC70_JC29_04" : {
           "dimensions" : {
-            "concept" : "cor:NC61-01"
+            "concept" : "core:JC70_JC29_04"
           }
         },
-        "NC61-03" : {
+        "JC70_JC29_06" : {
           "dimensions" : {
-            "concept" : "cor:NC61-03",
-            "unit" : "iso4217:JPY"
+            "concept" : "core:JC70_JC29_06"
           }
         },
-        "NC62-01" : {
+        "JC70_JC29_11" : {
           "dimensions" : {
-            "concept" : "cor:NC62-01"
+            "concept" : "core:JC70_JC29_11"
           }
         },
-        "NC62-02" : {
+        "JC2a_JC11_01" : {
           "dimensions" : {
-            "concept" : "cor:NC62-02"
+            "concept" : "core:JC2a_JC11_01"
           }
         },
-        "NC63-04" : {
+        "JC2a_JC11_02" : {
           "dimensions" : {
-            "concept" : "cor:NC63-04"
-          }
-        },
-        "NC63-05" : {
-          "dimensions" : {
-            "concept" : "cor:NC63-05"
-          }
-        },
-        "NC64-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC64-02"
-          }
-        },
-        "NC65-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC65-02"
-          }
-        },
-        "NC67-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC67-01"
-          }
-        },
-        "NC67-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC67-02"
-          }
-        },
-        "NC68-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC68-01"
-          }
-        },
-        "NC69-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC69-01"
-          }
-        },
-        "NC69-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC69-02"
-          }
-        },
-        "NC69-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC69-03"
-          }
-        },
-        "NC70-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC70-01"
-          }
-        },
-        "NC70-07" : {
-          "dimensions" : {
-            "concept" : "cor:NC70-07"
-          }
-        },
-        "NC71-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC71-01"
-          }
-        },
-        "NC71-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC71-02"
-          }
-        },
-        "NC71-04" : {
-          "dimensions" : {
-            "concept" : "cor:NC71-04"
-          }
-        },
-        "NC72-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC72-01"
-          }
-        },
-        "NC72-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC72-03",
-            "unit" : "iso4217:JPY"
-          }
-        },
-        "NC72-04" : {
-          "dimensions" : {
-            "concept" : "cor:NC72-04"
-          }
-        },
-        "NC72-05" : {
-          "dimensions" : {
-            "concept" : "cor:NC72-05"
-          }
-        },
-        "NC73-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC73-01"
-          }
-        },
-        "NC73-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC73-03",
-            "unit" : "iso4217:JPY"
-          }
-        },
-        "NC73-04" : {
-          "dimensions" : {
-            "concept" : "cor:NC73-04"
-          }
-        },
-        "NC73-05" : {
-          "dimensions" : {
-            "concept" : "cor:NC73-05"
-          }
-        },
-        "NC75-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-02"
-          }
-        },
-        "NC75-03" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-03"
-          }
-        },
-        "NC75-04" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-04"
-          }
-        },
-        "NC75-05" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-05"
-          }
-        },
-        "NC75-07" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-07"
-          }
-        },
-        "NC75-11" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-11"
-          }
-        },
-        "NC75-12" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-12"
-          }
-        },
-        "NC75-13" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-13"
-          }
-        },
-        "NC75-14" : {
-          "dimensions" : {
-            "concept" : "cor:NC75-14"
-          }
-        },
-        "NC76-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC76-02",
-            "unit" : "iso4217:JPY"
-          }
-        },
-        "NC76-04" : {
-          "dimensions" : {
-            "concept" : "cor:NC76-04",
-            "unit" : "iso4217:JPY"
-          }
-        },
-        "NC76-05" : {
-          "dimensions" : {
-            "concept" : "cor:NC76-05"
-          }
-        },
-        "NC76-06" : {
-          "dimensions" : {
-            "concept" : "cor:NC76-06",
-            "unit" : "iso4217:JPY"
-          }
-        },
-        "NC76-07" : {
-          "dimensions" : {
-            "concept" : "cor:NC76-07"
-          }
-        },
-        "NC76-08" : {
-          "dimensions" : {
-            "concept" : "cor:NC76-08"
-          }
-        },
-        "NC77-01" : {
-          "dimensions" : {
-            "concept" : "cor:NC77-01"
-          }
-        },
-        "NC77-02" : {
-          "dimensions" : {
-            "concept" : "cor:NC77-02"
+            "concept" : "core:JC2a_JC11_02"
           }
         }
       },
       "dimensions" : {
-        "cor:d_NC00" : "$d_NC00",
-        "cor:d_NC39-NC46" : "$d_NC39-NC46",
-        "cor:d_NC39-NC57" : "$d_NC39-NC57",
-        "cor:d_NC39-NC61" : "$d_NC39-NC61",
+        "core:d_JC00" : "$d_JC00",
+        "core:d_JC72_JC13" : "$d_JC72_JC13",
+        "core:d_JC55_a_JC2d" : "$d_JC55_a_JC2d",
+        "core:d_JC6e_JC62" : "$d_JC6e_JC62",
         "period" : "2023-11-01T00:00:00",
         "entity" : "ns0:Example co."
       }

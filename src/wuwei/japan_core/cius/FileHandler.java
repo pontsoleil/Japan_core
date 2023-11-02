@@ -10,6 +10,7 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -186,12 +187,14 @@ public class FileHandler {
 		int     idx;
 		try {
 			FileInputStream fileInputStream = new FileInputStream(SYNTAX_BINDING);
+			
 			binding_data = CSV.readFile(fileInputStream, "UTF-8");
 			ArrayList<String> headers = binding_data.get(0);
-			for (int n=1; n < binding_data.size(); n++) {
+			// 先頭行を削除
+			binding_data.remove(0);
+			binding_data.sort(Comparator.comparingInt(o -> Integer.parseInt(o.get(0))));			
+			for (int n=0; n < binding_data.size(); n++) {
 				ArrayList<String> cells = binding_data.get(n);
-				// semSort,id,card,level,businessTerm,desc,defaultValue,dataType,syntaxID,synSort,xPath,occur
-				// 0       1  2    3     4            5    6            7        8        9       10    11
 				// semSort,id,level,card,semPath,businessTerm,dataType,bindingSort,syntaxID,businessTerm,desc,businessTerm_ja,desc_ja,synSort,xPath,occur
 				// 0       1  2     3    4       6            7        8           9        10           11   12              13      14      15    16
 				// Binding(Integer semSort, String id, String semPath, Integer level, String businessTerm, String defaultValue, String card, String datatype, Integer synSort, String xPath, String occur) {
@@ -247,14 +250,14 @@ public class FileHandler {
 						case "xPath":
 							value = value.replaceAll("\\s", "");
 							binding.setXPath(value);
-							if (PROCESSING.indexOf("SYNTAX")>0) {
-								xPath = stripSelector(value);
-								level = countChar('/', xPath) - 1;
-								if (0==PROCESSING.indexOf("ADC")) {
-									level -= 1;
-								}
-								binding.setLevel(level);
-							}
+//							if (PROCESSING.contains("SYNTAX")) {
+//								xPath = stripSelector(value);
+//								level = countChar('/', xPath) - 1;
+//								if (0==PROCESSING.indexOf("ADC")) {
+//									level -= 1;
+//								}
+//								binding.setLevel(level);
+//							}
 							break;
 						case "occur":
 							binding.setOccur(value);
@@ -284,56 +287,54 @@ public class FileHandler {
 				if (DEBUG) System.out.println(" (FileHandler) parseBinding level:"+level+" semSort:"+semSort+" synSort:"+synSort+" "+id+" "+binding.getXPath());
 			}
 			
-			if (PROCESSING.indexOf("SEMANTICS")>0) {
-				for (Entry<Integer, Binding> entry : semBindingMap.entrySet()) {
-					semSort        = entry.getKey();
-					binding        = entry.getValue();
-					level          = binding.getLevel();
-					id             = binding.getID();
-					if (null==id || "".equals(id))
-						continue;
+			for (Entry<Integer, Binding> entry : semBindingMap.entrySet()) {
+				semSort        = entry.getKey();
+				binding        = entry.getValue();
+				level          = binding.getLevel();
+				id             = binding.getID();
+				if (null==id || "".equals(id))
+					continue;
 //					if (null==semSort)
 //						if (DEBUG) System.out.println("parseBinding "+id+"("+semSort+")");
-					parents[level] = semSort;
-					parent_level   = 0;
-					ArrayList<Integer> children = null;
-					if (0==Integer.compare(ROOT_SEMSORT,semSort))
-						continue;
-					try {
-						if (level == 0) {
-							if (semChildMap.containsKey(ROOT_SEMSORT)) {
-								children = semChildMap.get(ROOT_SEMSORT);
-							} else {
-								children = new ArrayList<Integer>();
-							}
-							if (ROOT_SEMSORT!=semSort) {
-								children.add(semSort);
-								semChildMap.put(ROOT_SEMSORT, children);
-								semParentMap.put(semSort, ROOT_SEMSORT);
-							}
-						} else if (level > 0) {
-							parent_level          = level - 1;
-							Integer parentSemSort = parents[parent_level];				
-							if (null==parentSemSort)
-								if (DEBUG) System.out.println(" (FileHandler) parseBinding semSort:"+semSort);
-							if (semChildMap.containsKey(parentSemSort)) {
-								children = semChildMap.get(parentSemSort);
-							} else {
-								children = new ArrayList<Integer>();
-							}
-							if (parentSemSort!=semSort) {
-								children.add(semSort);
-								semChildMap.put(parentSemSort, children);
-								semParentMap.put(semSort, parentSemSort);
-							}
+				parents[level] = semSort;
+				parent_level   = 0;
+				ArrayList<Integer> children = null;
+				if (0==Integer.compare(ROOT_SEMSORT,semSort))
+					continue;
+				try {
+					if (level == 0) {
+						if (semChildMap.containsKey(ROOT_SEMSORT)) {
+							children = semChildMap.get(ROOT_SEMSORT);
+						} else {
+							children = new ArrayList<Integer>();
 						}
-					} catch (Exception e) {
-						e.printStackTrace();
-					}				
-				}
+						if (ROOT_SEMSORT!=semSort) {
+							children.add(semSort);
+							semChildMap.put(ROOT_SEMSORT, children);
+							semParentMap.put(semSort, ROOT_SEMSORT);
+						}
+					} else if (level > 0) {
+						parent_level          = level - 1;
+						Integer parentSemSort = parents[parent_level];				
+						if (null==parentSemSort)
+							if (DEBUG) System.out.println(" (FileHandler) parseBinding semSort:"+semSort);
+						if (semChildMap.containsKey(parentSemSort)) {
+							children = semChildMap.get(parentSemSort);
+						} else {
+							children = new ArrayList<Integer>();
+						}
+						if (parentSemSort!=semSort) {
+							children.add(semSort);
+							semChildMap.put(parentSemSort, children); // Register parentSemSort's children
+							semParentMap.put(semSort, parentSemSort); // Register semSort's parent
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}				
 			  
-				for (Entry<Integer, Binding> entry : semBindingMap.entrySet()) {
-					binding       = entry.getValue();
+				for (Entry<Integer, Binding> semEntry : semBindingMap.entrySet()) {
+					binding       = semEntry.getValue();
 					id            = binding.getID();
 					semSort       = binding.getSemSort();
 					xPath         = binding.getXPath();
@@ -367,42 +368,41 @@ public class FileHandler {
 						}
 					}
 				}
-			} else if (PROCESSING.indexOf("SYNTAX")>0) {
-				for (Entry<Integer, Binding> entry : synBindingMap.entrySet()) {
-					synSort       = entry.getKey();
-					binding       = entry.getValue();
-					xPath         = binding.getXPath();
-					strippedXPath = stripSelector(xPath);
-					level         = binding.getLevel();
-					if (0==PROCESSING.indexOf("SME-COMMON") && (
+			}
+			for (Entry<Integer, Binding> synEntry : synBindingMap.entrySet()) {
+				synSort       = synEntry.getKey();
+				binding       = synEntry.getValue();
+				xPath         = binding.getXPath();
+				strippedXPath = stripSelector(xPath);
+				level         = binding.getLevel();
+				if (0==PROCESSING.indexOf("SME-COMMON") && (
 //							strippedXPath.indexOf("udt:") > 0 ||
-							endsWithUDTSuffix(strippedXPath) ||
-							strippedXPath.indexOf("TelephoneCIUniversalCommunication") > 0 ||
-							strippedXPath.indexOf("FaxCIUniversalCommunication") > 0 ||
-							strippedXPath.indexOf("EmailURICIUniversalCommunication") > 0 )) {
-						level -= 1;
+						endsWithUDTSuffix(strippedXPath) ||
+						strippedXPath.indexOf("TelephoneCIUniversalCommunication") > 0 ||
+						strippedXPath.indexOf("FaxCIUniversalCommunication") > 0 ||
+						strippedXPath.indexOf("EmailURICIUniversalCommunication") > 0 )) {
+					level -= 1;
+				}
+				if (level >= 0) {
+					parents[level]              = synSort;
+					parent_level                = level - 1;
+					if (-1==parent_level)
+						continue;
+					Integer parentSynSort       = parents[parent_level];
+					if (null==parentSynSort) {
+						if (DEBUG) System.out.println("parentSynSort of "+synSort+" is null.");
+						continue;
 					}
-					if (level >= 0) {
-						parents[level]              = synSort;
-						parent_level                = level - 1;
-						if (-1==parent_level)
-							continue;
-						Integer parentSynSort       = parents[parent_level];
-						if (null==parentSynSort) {
-							if (DEBUG) System.out.println("parentSynSort of "+synSort+" is null.");
-							continue;
-						}
-						ArrayList<Integer> children = null;
-						if (synChildMap.containsKey(parentSynSort)) {
-							children = synChildMap.get(parentSynSort);
-						} else {
-							children = new ArrayList<Integer>();
-						}
-						children.add(synSort);
-						synChildMap.put(parentSynSort, children);
-						for (Integer childSynSort: children) {
-							synParentMap.put(childSynSort, parentSynSort);
-						}
+					ArrayList<Integer> children = null;
+					if (synChildMap.containsKey(parentSynSort)) {
+						children = synChildMap.get(parentSynSort);
+					} else {
+						children = new ArrayList<Integer>();
+					}
+					children.add(synSort);
+					synChildMap.put(parentSynSort, children);
+					for (Integer childSynSort: children) {
+						synParentMap.put(childSynSort, parentSynSort);
 					}
 				}
 			}
@@ -653,7 +653,7 @@ public class FileHandler {
 					nodes           = new ArrayList<>();
 					nodes.add(child_node);
 					childList.put(sort, nodes);
-				} else if (null!=additionalXPath) {
+				} else if (null!=additionalXPath && additionalXPath.size() > 0) {
 					for (Iterator<String> iterator = additionalXPath.iterator(); iterator.hasNext();) {
 						String additional_xpath     = iterator.next();
 						List<Node> additional_nodes = getXPathNodes(parent, additional_xpath);
@@ -692,11 +692,8 @@ public class FileHandler {
 				if (DEBUG) System.out.println(" (FileHandler) getXPathNodes "+xPath);
 			}
 			// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
-			if (xPath.indexOf("true")>0 || xPath.indexOf("false")>0) {
-				xPath = replaceChargeIndicator(xPath);
-//				xPath = xPath.replace("[", "[normalize-space(");
-//				xPath = xPath.replace("=", "/text())='");
-//				xPath = xPath.replace("()]", "']");				
+			if (xPath.contains("ChargeIndicator") && (xPath.contains("true") || xPath.contains("false"))) {
+				xPath = replaceChargeIndicator(xPath);		
 			// XMLパーサーが[cbc:TaxAmount/@currencyID=./cbc:DocumentCurrencyCode]を正しく判定できないので、固定値との比較に書き換える。
 			} else if (0==PROCESSING.indexOf("JP-PINT")) {
 				if (xPath.indexOf("cbc:DocumentCurrencyCode]")>0) {
@@ -745,9 +742,36 @@ public class FileHandler {
 		}
 	}
 	
+
+//    static String replaceChargeIndicator(String xPath) {
+//        // Modify the regex pattern to match the content inside the brackets as well.
+//        String regex = "(.*)(\\[\\w+\\s*=\\s*(true\\(\\)|false\\(\\))\\])";
+//        // Compile the regex pattern
+//        Pattern pattern = Pattern.compile(regex);
+//        Matcher matcher = pattern.matcher(xPath);
+//        // A StringBuffer to hold the updated XPath
+//        StringBuffer updatedXPath = new StringBuffer();
+//        // Search for all matches and replace them with the corresponding format.
+//        while (matcher.find()) {
+//            // Capture the element name and value (true() or false()) from the capture groups.
+//            String beforeBracket = matcher.group(1);
+//            String elementWithCondition = matcher.group(2);
+//            String condition = elementWithCondition.replaceAll("\\[|\\]", "").trim();
+//            String[] splitCondition = condition.split("=");
+//            String elementName = splitCondition[0].trim();
+//            String boolValue = splitCondition[1].trim().equals("true()") ? "true" : "false";
+//            // Replace with the new format.
+//            String replacement = String.format("%s[normalize-space(%s/text())='%s']", beforeBracket, elementName, boolValue);
+//            // Apply the replacement to the matcher.
+//            matcher.appendReplacement(updatedXPath, replacement);
+//        }
+//        // Append the rest of the content.
+//        matcher.appendTail(updatedXPath);
+//        return updatedXPath.toString();
+//    }
     static String replaceChargeIndicator(String xPath) {
         // 正規表現パターンを修正して、括弧内の内容もマッチするようにします。
-        String regex = "\\[(\\w+)=((true|false)\\(\\))\\]";
+        String regex = "(.*)\\[(.+)=((true|false)\\(\\))\\]";
         // 正規表現のコンパイル
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(xPath);
@@ -756,10 +780,11 @@ public class FileHandler {
         // すべてのマッチを探して、それに対応する形式に置き換えます。
         while (matcher.find()) {
             // キャプチャグループから要素名と値（true()またはfalse()）を取得します。
-            String elementName = matcher.group(1);
-            String boolValue = matcher.group(2).equals("true()") ? "true" : "false";
+        	String beforeBracket = matcher.group(1);
+            String elementName = matcher.group(2);
+            String boolValue = matcher.group(3).equals("true()") ? "true" : "false";
             // 新しい形式に置き換えます。
-            String replacement = String.format("[normalize-space(%s/text())='%s']", elementName, boolValue);
+            String replacement = String.format("%s[normalize-space(%s/text())='%s']", beforeBracket, elementName, boolValue);
             // 置換内容を matcher に適用します。
             matcher.appendReplacement(updatedXPath, replacement);
         }
@@ -1072,18 +1097,16 @@ public class FileHandler {
 		for (int i = 0; i < headerCount; i++) {
 			String id = fields.get(i);
 			id = removeUTF8BOM(id);
-			if (0==id.indexOf("d_"))
-				id = id.substring(2);
-			if (id.toUpperCase().matches("^([A-Z0-9]+|[A-Z0-9]+_([A-Z0-9]_)?[A-Z0-9]+)$"))
+			if (id.matches("^d_.+$"))
 				offset += 1;
 			else
 				break;
 		}
 		String id = "";
 		Integer synSort = 0;
-		for (int i = 0; i < headerCount; i++) {
-			if (i < offset)
-				continue;
+		for (int i = offset; i < headerCount; i++) {
+//			if (i < offset)
+//				continue;
 			id = fields.get(i);
 			id = removeUTF8BOM(id);
 			Binding binding = bindingDict.get(id);
@@ -1101,7 +1124,7 @@ public class FileHandler {
 		for (int i = 0; i < offset; i++) {
 			String field = fields.get(i);
 			field = removeUTF8BOM(field);
-//			if (0==field.indexOf("d_"))
+//			if (field.contains("d_"))
 //				field = field.substring(2);
 			header.add(field);
 		}

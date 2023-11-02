@@ -91,6 +91,10 @@ public class CSV {
 	         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream, Charset.forName(charset));
 	         BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter)) {
 
+            if (charset.equals("UTF-8"))
+		    	// UTF-8 BOMを書き込む
+	            bufferedWriter.write("\uFEFF");
+	    	
 	        for (ArrayList<String> columns : data) {
 	            for (int i = 0; i < columns.size(); i++) {
 	                String cellValue = columns.get(i);

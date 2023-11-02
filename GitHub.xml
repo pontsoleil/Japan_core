@@ -13,7 +13,6 @@
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="${dir.buildfile}/target/classes"/>
-            <zipfileset excludes="META-INF/*.SF" src="${dir.workspace}/jackson-core-2.12.7.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/nobuy/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/nobuy/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.7/jackson-core-2.12.7.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/nobuy/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.7/jackson-databind-2.12.7.jar"/>

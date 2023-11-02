@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -142,7 +143,9 @@ public class Csv2invoice {
 	 * last updated 2023-10-09
 	 */
 	public static void main(String[] args) {
-	    parseAndSetArguments(args);
+		if (DEBUG)
+			System.out.println("Csv2invoice.main("+args+")");
+		parseAndSetArguments(args);
 	    processCSV(IN_CSV, OUT_XML);
 	    System.out.println("** END ** Csv2Invoice " + PROCESSING + " " + IN_CSV + " " + OUT_XML);
 	}
@@ -303,12 +306,12 @@ public class Csv2invoice {
 		else if (null!=TAX_CURRENCY && !TAX_CURRENCY.equals("JPY"))
 			TAX_CURRENCY = "JPY";
 		
-		if (TRACE) System.out.println("- processCSV FileHandler.tidyData record");
+		if (DEBUG) System.out.println("- processCSV FileHandler.tidyData record");
 		
 		rowMapList = new TreeMap<>(new CustomComparator());
 		
 		for (ArrayList<String> record: FileHandler.tidyData) {			
-			if (TRACE) System.out.println(record.toString());			
+			if (DEBUG) System.out.println(record.toString());			
 			rowMap = new TreeMap<>();
 			String key = "";
 			for (int i = 0; i < record.size(); i++) {
@@ -331,11 +334,12 @@ public class Csv2invoice {
 						continue;
 					semSort = binding.getSemSort();
 					synSort = binding.getSynSort();
-					if (id.toUpperCase().matches("^D_[A-Z0-9]+(_([A-Z0-9]_)?[A-Z0-9]+)?$")) {
-						key += synSort+"="+field+" ";
+					if (id.matches("^d_[a-zA-Z0-9]+(_([a-zA-Z0-9]_)?[a-zA-Z0-9]+)?$") &&
+							!id.matches("_[0-9]+$")) {
+						key += synSort+"="+field+" "; // Dimension column
 						if (0 == PROCESSING.indexOf("SME-COMMON") && 0 == semSort - MIN_TAX_BREAKDOWN)
 							COUNT_TAX_BREAKDOWN = 1 + Integer.parseInt(field);
-					} else {
+					} else { // Data column
 						rowMap.put(synSort, field);
 					}
 					xPath = binding.getXPath();
@@ -353,7 +357,7 @@ public class Csv2invoice {
 		}
 					
 		int n = 0;
-		if (TRACE) {
+		if (DEBUG) {
 			System.out.println("* HEADER");
 			System.out.println(FileHandler.header);
 		}
@@ -364,16 +368,17 @@ public class Csv2invoice {
 			for (Integer _synSort : row.keySet()) {
 				binding = FileHandler.synBindingMap.get(_synSort);
 				if (null!=binding) {
-					id = binding.getID();			
+					id = binding.getID();
 					idMap.put(_synSort, id);
+					// Set default value
 					String prefix = removeSuffix(id);
 			        List<String> keys = FileHandler.defaultMap.keySet().stream()
 			                .filter(k -> removeSuffix(k).equals(prefix))
 			                .collect(Collectors.toList());
-			        for (String key: keys) {
+			        for (String key: keys) { 
 			        	defaultBinding         = FileHandler.defaultMap.get(key);
 			        	Integer defaultSynSort = defaultBinding.getSynSort();
-			            defaultMap.put(rowKey+":"+defaultSynSort, defaultBinding);
+			            defaultMap.put(rowKey+":"+defaultSynSort, defaultBinding);			            
 			        	idMap.put(defaultSynSort, key);
 			            if (DEBUG) {
 				        	String defaultValue = defaultBinding.getDefaultValue();
@@ -399,6 +404,9 @@ public class Csv2invoice {
 //			}
 //		}
 		
+        int MAX_LEVEL = 6;
+		ArrayList<String> semPath = new ArrayList<>(Collections.nCopies(MAX_LEVEL, null));
+        semPath.set(0, "JC00");
 		int i = 0;
 		for (Map.Entry<String, TreeMap<Integer, String>> rowMap : rowMapList.entrySet()) {
 			rowKey          = rowMap.getKey();
@@ -416,20 +424,30 @@ public class Csv2invoice {
 			TreeMap<Integer, String> row = rowMapList.get(rowKey);
 			for (Integer _synSort : idMap.keySet()) {
 				if (_synSort < 1) {
-					System.out.println(_synSort);
+					System.out.println("WRONG synSort value:"+_synSort+" in idMap.");
 					continue;
 				}
+				binding   = FileHandler.synBindingMap.get(_synSort);
+				id        = binding.getID();
+				xPath     = binding.getXPath();				
+				int level = binding.getLevel();
 				value = row.get(_synSort);
 				if (null==value || value.length()==0) {
-					defaultBinding = defaultMap.get(rowKey+":"+_synSort);
-					if (null!=defaultBinding)
-						value = defaultBinding.getDefaultValue();
+					int parentSort        = FileHandler.synParentMap.get(_synSort);
+					Binding parentBinding = FileHandler.synBindingMap.get(parentSort);
+					String parentID       = parentBinding.getID();
+					if (parentID==semPath.get(level-1)) {
+						defaultBinding = defaultMap.get(rowKey+":"+_synSort);
+						if (null!=defaultBinding)
+							value = defaultBinding.getDefaultValue();
+					}
 				}
 				if (null==value || value.length()==0)
 					continue;
-				binding = FileHandler.synBindingMap.get(_synSort);
-				id      = binding.getID();
-				xPath   = binding.getXPath();
+				semPath.set(level, id);
+				if (level < MAX_LEVEL-1)
+					for (int l=level+1; l < MAX_LEVEL-1; l++)
+						semPath.set(l, null);					
 				// XMLパーサーが[??=true()]や[??=false()]のBool値を判定できないため、文字列として判定する形にXPathを書き換える。
 				if (xPath.indexOf("true")>0) {
 					xPath = xPath.replaceAll("\\[([:a-zA-Z]*)=true\\(\\)\\]","[normalize-space($1/text())='true']");
@@ -474,12 +492,13 @@ public class Csv2invoice {
 				List<Integer> entryList = new ArrayList<>(keySet);
 				
 				int j = entryList.indexOf(_synSort);
-				if (TRACE) System.out.println("dataRedords["+i+"]["+j+"] = DataValue("+boughSort+" "+boughSeq+"  "+id+" "+FileHandler.getShortPath(xPath)+" "+value+" "+attributes);
+				if (DEBUG) System.out.println("dataRedords["+i+"]["+j+"] = DataValue("+boughSort+" "+boughSeq+"  "+id+" "+FileHandler.getShortPath(xPath)+" "+value+" "+attributes);
 				
 				dataRedords[i][j] = new DataValue(boughSeq, boughSort, id, xPath, value, attributes);
 			}
 			i++;
-		}	
+		}
+
 		for (int y = 0; y < col_size; y++) {
 			for (int x = 0; x < row_size; x++) {
 				DataValue dataValue = dataRedords[x][y];		
@@ -559,7 +578,7 @@ public class Csv2invoice {
 			eTE.printStackTrace();
 		}
 		
-		if (DEBUG) System.out.println("-- END -- "+out_xml);		
+		if (DEBUG) System.out.println("* END "+out_xml);		
 	}
 
     private static String removeSuffix(String str) {
@@ -597,12 +616,14 @@ public class Csv2invoice {
 			String xPath,
 			String value, 
 			HashMap<String,String> attributes) {
-		value               = value.trim();
 		Binding binding     = FileHandler.bindingDict.get(id);
 		Integer synSort     = binding.getSynSort();
-		String defaultValue = binding.getDefaultValue();
-		if (defaultValue.length() > 0 && ! value.equals(defaultValue))
+		value               = value.trim();
+		if (null==value) {
+			String defaultValue = binding.getDefaultValue();
+			if (defaultValue.length() > 0)
 			value = defaultValue;
+		}
 
 		if (DEBUG) {
 			if (value.length() > 0) {
@@ -650,9 +671,6 @@ public class Csv2invoice {
 		ArrayList<String> paths = splitPath(xPath);
 		int depth               = paths.size();	
 		String path             = paths.get(n);
-//		String childPath        = null;
-//		if (n + 1 <= depth - 1)
-//			childPath = paths.get(n+1);
 		if (null==parent) {
 			if (DEBUG) System.out.println("- fillLevelElement parent is NULL use root");
 			parent = FileHandler.root;
@@ -660,9 +678,8 @@ public class Csv2invoice {
 		if (0==path.indexOf("@currencyID")) {
 			if (DEBUG) System.out.println("- fillLevelElement setting @currencyID return Amount element");
 			return parent;
-		}			
-//		if ("cbc:TaxAmount".equals(parent.getNodeName()))
-//			System.out.println(parent.getNodeName());
+		}
+
 		String strippedPath  = FileHandler.stripSelector(path);
 		Binding boughBinding = FileHandler.synBindingMap.get(boughSort);
 		String boughXPath    = boughBinding.getXPath();
@@ -670,13 +687,17 @@ public class Csv2invoice {
 		ArrayList<String> 
 			boughPaths       = splitPath(boughXPath);
 		int boughLevel       = boughPaths.size()-1;
-//		String selector      = FileHandler.extractSelector(path);
 		
-		List<Node> elements  = FileHandler.getXPath(parent, strippedPath);// path);		
-		Element element      = null;
+		List<Node> elements;
+		if (path.contains("ChargeIndicator"))
+			elements  = FileHandler.getXPath(parent, path);	
+		else
+			elements  = FileHandler.getXPath(parent, strippedPath);
+
+		Element element = null;
 		try {
 			if (DEBUG) {
-				System.out.print("- fillLevelElement getXPath returns "+elements.size()+" elements boughSeq = "+boughSeq+" "+path);
+				System.out.print("- fillLevelElement getXPath returns "+elements.size()+" elements boughSeq = "+boughSeq+" "+strippedPath);//path);
 				if (elements.size()==0 && n+1==depth &&
 					((0==PROCESSING.indexOf("JP-PINT") && ! path.matches("^cac:[a-zA-Z]+$")) || 
 						(0==PROCESSING.indexOf("SME-COMMON") && terminalElements.indexOf(strippedPath) >= 0))) {
@@ -691,34 +712,28 @@ public class Csv2invoice {
 				
 				element = createElement(parent, strippedPath, value, attributes, n, depth);
 				
-//				if (selector.length() > 0 && selector.indexOf(childPath) < 0) {
-//					if (DEBUG) System.out.println("    selector="+selector);
-//					
-//					defineSelector(element, selector, boughSort, boughSeq, n, depth);
-//					
-//				}
 			} else {
 				if (n == boughLevel) {
 					if (path.indexOf("position") > 0) { // 課税分類ごとの金額に外貨建てがあることを考慮したことでSelector条件をposition=nに変更していることにより、boughSeqで区別せずに済むため。
-						 element = (Element) elements.get(0);
+
+						element = (Element) elements.get(0);
+						
 					} else if (boughSeq <= elements.size()) { // 返金や追加請求など同じSelector条件で複数ある場合は、boughSeqで区別する。 boughSeq=1, 2, 3, ...
 						 if (boughSeq > 0) // 2023-10-04
 							 boughSeq -= 1;
+						 
 						 element = (Element) elements.get(boughSeq); 
+						 
 					} else {
 						if (DEBUG) System.out.println("+createElement"+parent.getChildNodes().toString()+" "+path+" value="+value);
 						
 						element = createElement(parent, strippedPath, value, attributes, n, depth);
 						
-//						if (selector.length() > 0 && selector.indexOf("position") < 0) {
-//							if (DEBUG) System.out.println("    selector="+selector);
-//							
-//							defineSelector(element, selector, boughSort, boughSeq, n, depth);
-//							
-//						}
 					}
 				} else {
+					
 					element = (Element) elements.get(0);
+					
 				}				
 			}			
 		} catch (Exception e) {
@@ -728,57 +743,6 @@ public class Csv2invoice {
 		}
 		return element;
 	}
-
-	/**
-	 * XML要素に対応したSelectorの文字列で指定される要素を定義する.
-	 * 
-	 * @param element XML要素
-	 * @param selector XPathの文字列中のに選択条件を指定する文字列.
-	 * @param boughSort 要素が定義されたTidy dataの行に対応する索引(bough)に対応するグループ要素のセマンティックソート番号.
-	 * @param boughSeq 要素が定義されたTidy dataの行に対応する索引(bough)の順序番号.
-	 * @param n XML要素のXPathを / で分割したときの何番目の要素か指定する番号.
-	 * @param depth XML要素のXPathを / で分割したときにいくつに分割されたかを示す分割された要素数.
-	 */
-//	private static void defineSelector(
-//			Element element, 
-//			String  selector, 
-//			Integer boughSort, 
-//			Integer boughSeq, 
-//			int     n, 
-//			int     depth ) {
-//		if (selector==null || 0==selector.length() || 0==selector.indexOf("not(") || selector.indexOf("position") >= 0) {
-//			return;
-//		}
-//		selector = selector.substring(1,selector.length()-1);
-//		if (selector.startsWith("not("))
-//			return;
-//		String[] params      = selector.split("=");
-//		String selectorXPath = params[0];		
-//        // 正規表現パターンを用意します。こちらは "normalize-space(" の後の任意の文字列をキャプチャするものです。
-//        Pattern pattern = Pattern.compile("normalize-space\\(([^/]+)/text\\(\\)\\)");
-//        Matcher matcher = pattern.matcher(selectorXPath);
-//        // マッチするものが見つかった場合、キャプチャした部分（つまり、要素名）を返します。
-//        if (matcher.find()) {
-//        	selectorXPath = matcher.group(1);  // グループ 1 がキャプチャした部分です。
-//        }		
-//		String selectorValue         = params[1].replace("'","");
-//		String[] paths               = selectorXPath.split("/");
-//		HashMap<String,String> attrs = new HashMap<>();
-//		Element el = element;
-//		for (String sPath : paths) {
-//			if (sPath.matches("^cac:.*$")) {
-//				if (DEBUG) System.out.println("- defineSelector => createElement "+sPath);
-//				
-//				el = createElement(el, sPath, "", attrs, n, depth);
-//				
-//			} else {
-//				if (DEBUG) System.out.println("- defineSelector => createElement "+sPath+" value="+selectorValue);
-//				
-//				el = createElement(el, sPath, selectorValue, attrs, n, depth);
-//				
-//			}
-//		}
-//	}
 
 	/**
 	 * FileHandler.appendElementNSを使用してXML DOM DocumentにXML要素を追加定義し、そのXML要素を親のXML要素の子要素として追加する.
